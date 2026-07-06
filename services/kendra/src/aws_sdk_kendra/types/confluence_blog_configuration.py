@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConfluenceBlogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.confluence_blog_field_mappings_list
 
 
-class ConfluenceBlogConfiguration(TypedDict):
+class ConfluenceBlogConfiguration(TypedDict, closed=True):
     blog_field_mappings: NotRequired[
         "aws_sdk_kendra.types.confluence_blog_field_mappings_list.ConfluenceBlogFieldMappingsList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#SpekeKeyProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.encryption_contract_configuration
 
 
-class SpekeKeyProvider(TypedDict):
+class SpekeKeyProvider(TypedDict, closed=True):
     encryption_contract_configuration: NotRequired[
         "aws_sdk_mediapackage_vod.types.encryption_contract_configuration.EncryptionContractConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ValidatePullThroughCacheRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.registry_id
 
 
-class ValidatePullThroughCacheRuleRequest(TypedDict):
+class ValidatePullThroughCacheRuleRequest(TypedDict, closed=True):
     ecr_repository_prefix: "aws_sdk_ecr.types.pull_through_cache_rule_repository_prefix.PullThroughCacheRuleRepositoryPrefix"
     """<p>The repository name prefix associated with the pull through cache rule.</p>"""
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]

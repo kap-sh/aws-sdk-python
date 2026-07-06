@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListClassificationScopesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_classification_scope_summary
     import aws_sdk_macie2.types.next_token
 
 
-class ListClassificationScopesResponse(TypedDict):
+class ListClassificationScopesResponse(TypedDict, closed=True):
     classification_scopes: NotRequired[
         "aws_sdk_macie2.types.__list_of_classification_scope_summary.__listOfClassificationScopeSummary"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#AssociateConfigurationItemsToApplicationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateConfigurationItemsToApplicationResponse(TypedDict):
+class AssociateConfigurationItemsToApplicationResponse(TypedDict, closed=True):
     pass
 
 

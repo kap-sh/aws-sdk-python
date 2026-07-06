@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DescribeComputeEnvironmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class DescribeComputeEnvironmentsRequest(TypedDict):
+class DescribeComputeEnvironmentsRequest(TypedDict, closed=True):
     compute_environments: NotRequired["aws_sdk_batch.types.string_list.StringList"]
     """<p>A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.</p>"""
     max_results: NotRequired["aws_sdk_batch.types.integer.Integer"]

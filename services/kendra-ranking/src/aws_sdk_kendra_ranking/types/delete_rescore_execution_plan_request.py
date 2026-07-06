@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#DeleteRescoreExecutionPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.rescore_execution_plan_id
 
 
-class DeleteRescoreExecutionPlanRequest(TypedDict):
+class DeleteRescoreExecutionPlanRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra_ranking.types.rescore_execution_plan_id.RescoreExecutionPlanId"
     """<p>The identifier of the rescore execution plan that you want to delete.</p>"""
 

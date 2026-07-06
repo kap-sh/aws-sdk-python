@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StringReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_key
     import aws_sdk_connect.types.reference_value
 
 
-class StringReference(TypedDict):
+class StringReference(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connect.types.reference_key.ReferenceKey"]
     """<p>Identifier of the string reference.</p>"""
     value: NotRequired["aws_sdk_connect.types.reference_value.ReferenceValue"]

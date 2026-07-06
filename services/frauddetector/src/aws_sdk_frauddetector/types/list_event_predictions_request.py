@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#ListEventPredictionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.event_predictions_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class ListEventPredictionsRequest(TypedDict):
+class ListEventPredictionsRequest(TypedDict, closed=True):
     event_id: NotRequired[
         "aws_sdk_frauddetector.types.filter_condition.FilterCondition"
     ]

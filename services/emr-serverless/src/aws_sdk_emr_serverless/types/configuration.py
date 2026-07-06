@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.string1024
 
 
-class Configuration(TypedDict):
+class Configuration(TypedDict, closed=True):
     classification: "aws_sdk_emr_serverless.types.string1024.String1024"
     """<p>The classification within a configuration.</p>"""
     properties: NotRequired[

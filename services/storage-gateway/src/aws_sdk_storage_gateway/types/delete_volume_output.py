@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DeleteVolumeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class DeleteVolumeOutput(TypedDict):
+class DeleteVolumeOutput(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The Amazon Resource Name (ARN) of the storage volume that was deleted. It is the same ARN you provided in the request.</p>"""
 

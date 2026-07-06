@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeDBProxyTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.target_list
 
 
-class DescribeDBProxyTargetsResponse(TypedDict):
+class DescribeDBProxyTargetsResponse(TypedDict, closed=True):
     targets: NotRequired["aws_sdk_rds.types.target_list.TargetList"]
     """<p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>"""
     marker: NotRequired["aws_sdk_rds.types.string.String"]

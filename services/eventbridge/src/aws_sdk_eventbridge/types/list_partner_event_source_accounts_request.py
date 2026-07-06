@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListPartnerEventSourceAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListPartnerEventSourceAccountsRequest(TypedDict):
+class ListPartnerEventSourceAccountsRequest(TypedDict, closed=True):
     event_source_name: "aws_sdk_eventbridge.types.event_source_name.EventSourceName"
     """<p>The name of the partner event source to display account information about.</p>"""
     next_token: NotRequired["aws_sdk_eventbridge.types.next_token.NextToken"]

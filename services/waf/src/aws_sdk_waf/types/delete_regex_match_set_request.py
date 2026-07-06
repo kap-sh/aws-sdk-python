@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#DeleteRegexMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class DeleteRegexMatchSetRequest(TypedDict):
+class DeleteRegexMatchSetRequest(TypedDict, closed=True):
     regex_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to delete. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

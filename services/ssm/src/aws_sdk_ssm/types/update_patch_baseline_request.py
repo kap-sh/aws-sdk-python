@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdatePatchBaselineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_source_list
 
 
-class UpdatePatchBaselineRequest(TypedDict):
+class UpdatePatchBaselineRequest(TypedDict, closed=True):
     baseline_id: "aws_sdk_ssm.types.baseline_id.BaselineId"
     """<p>The ID of the patch baseline to update.</p>"""
     name: NotRequired["aws_sdk_ssm.types.baseline_name.BaselineName"]

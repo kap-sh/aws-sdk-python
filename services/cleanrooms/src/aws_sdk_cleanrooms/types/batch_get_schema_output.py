@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BatchGetSchemaOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.schema_list
 
 
-class BatchGetSchemaOutput(TypedDict):
+class BatchGetSchemaOutput(TypedDict, closed=True):
     schemas: "aws_sdk_cleanrooms.types.schema_list.SchemaList"
     """<p>The retrieved list of schemas.</p>"""
     errors: (

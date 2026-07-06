@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RegistryRecordCredentialProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.registry_record_credential_provider_union
 
 
-class RegistryRecordCredentialProviderConfiguration(TypedDict):
+class RegistryRecordCredentialProviderConfiguration(TypedDict, closed=True):
     credential_provider_type: "aws_sdk_bedrock_agentcore_control.types.registry_record_credential_provider_type.RegistryRecordCredentialProviderType"
     """<p>The type of credential provider.</p> <ul> <li> <p> <code>OAUTH</code> - OAuth-based authentication.</p> </li> <li> <p> <code>IAM</code> - Amazon Web Services IAM-based authentication using SigV4 signing.</p> </li> </ul>"""
     credential_provider: "aws_sdk_bedrock_agentcore_control.types.registry_record_credential_provider_union.RegistryRecordCredentialProviderUnion"

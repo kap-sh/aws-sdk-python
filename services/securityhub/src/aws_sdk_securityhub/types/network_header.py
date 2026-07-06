@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NetworkHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.network_path_component_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class NetworkHeader(TypedDict):
+class NetworkHeader(TypedDict, closed=True):
     protocol: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The protocol used for the component.</p> <p>Length Constraints: Minimum of 1. Maximum of 16.</p>"""
     destination: NotRequired[

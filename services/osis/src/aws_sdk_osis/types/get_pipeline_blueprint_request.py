@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#GetPipelineBlueprintRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.blueprint_format
     import aws_sdk_osis.types.string
 
 
-class GetPipelineBlueprintRequest(TypedDict):
+class GetPipelineBlueprintRequest(TypedDict, closed=True):
     blueprint_name: "aws_sdk_osis.types.string.String"
     """<p>The name of the blueprint to retrieve.</p>"""
     format: NotRequired["aws_sdk_osis.types.blueprint_format.BlueprintFormat"]

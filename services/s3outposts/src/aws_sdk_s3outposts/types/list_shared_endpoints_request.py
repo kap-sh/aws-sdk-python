@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#ListSharedEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.outpost_id
 
 
-class ListSharedEndpointsRequest(TypedDict):
+class ListSharedEndpointsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_s3outposts.types.next_token.NextToken"]
     """<p>If a previous response from this operation included a <code>NextToken</code> value, you can provide that value here to retrieve the next page of results.</p>"""
     max_results: "aws_sdk_s3outposts.types.max_results.MaxResults"

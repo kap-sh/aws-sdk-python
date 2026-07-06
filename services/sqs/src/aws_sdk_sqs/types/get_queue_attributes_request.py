@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#GetQueueAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class GetQueueAttributesRequest(TypedDict):
+class GetQueueAttributesRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     attribute_names: NotRequired[

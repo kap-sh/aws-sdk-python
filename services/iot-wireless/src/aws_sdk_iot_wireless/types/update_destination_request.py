@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.role_arn
 
 
-class UpdateDestinationRequest(TypedDict):
+class UpdateDestinationRequest(TypedDict, closed=True):
     name: "aws_sdk_iot_wireless.types.destination_name.DestinationName"
     """<p>The new name of the resource.</p>"""
     expression_type: NotRequired[

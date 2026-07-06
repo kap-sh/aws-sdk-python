@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetConnectionsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_schema_version
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.match_criteria
 
 
-class GetConnectionsFilter(TypedDict):
+class GetConnectionsFilter(TypedDict, closed=True):
     match_criteria: NotRequired["aws_sdk_glue.types.match_criteria.MatchCriteria"]
     """<p>A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.</p>"""
     connection_type: NotRequired["aws_sdk_glue.types.connection_type.ConnectionType"]

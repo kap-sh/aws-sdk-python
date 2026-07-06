@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ImportDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.dataset_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.ingestion_job_id
 
 
-class ImportDatasetResponse(TypedDict):
+class ImportDatasetResponse(TypedDict, closed=True):
     dataset_name: NotRequired["aws_sdk_lookoutequipment.types.dataset_name.DatasetName"]
     """<p>The name of the created machine learning dataset.</p>"""
     dataset_arn: NotRequired["aws_sdk_lookoutequipment.types.dataset_arn.DatasetArn"]

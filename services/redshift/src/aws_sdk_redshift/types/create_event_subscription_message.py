@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateEventSubscriptionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class CreateEventSubscriptionMessage(TypedDict):
+class CreateEventSubscriptionMessage(TypedDict, closed=True):
     subscription_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the event subscription to be created.</p> <p>Constraints:</p> <ul> <li> <p>Cannot be null, empty, or blank.</p> </li> <li> <p>Must contain from 1 to 255 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"""
     sns_topic_arn: NotRequired["aws_sdk_redshift.types.string.String"]

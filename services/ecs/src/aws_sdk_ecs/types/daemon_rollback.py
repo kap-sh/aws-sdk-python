@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonRollback``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class DaemonRollback(TypedDict):
+class DaemonRollback(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The reason the rollback happened. For example, the circuit breaker initiated the rollback operation.</p>"""
     started_at: NotRequired["aws_sdk_ecs.types.timestamp.Timestamp"]

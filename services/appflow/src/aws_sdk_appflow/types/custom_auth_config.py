@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CustomAuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.auth_parameter_list
     import aws_sdk_appflow.types.custom_authentication_type
 
 
-class CustomAuthConfig(TypedDict):
+class CustomAuthConfig(TypedDict, closed=True):
     custom_authentication_type: NotRequired[
         "aws_sdk_appflow.types.custom_authentication_type.CustomAuthenticationType"
     ]

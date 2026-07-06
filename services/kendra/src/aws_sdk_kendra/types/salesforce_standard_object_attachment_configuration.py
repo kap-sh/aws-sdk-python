@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SalesforceStandardObjectAttachmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_field_name
     import aws_sdk_kendra.types.data_source_to_index_field_mapping_list
 
 
-class SalesforceStandardObjectAttachmentConfiguration(TypedDict):
+class SalesforceStandardObjectAttachmentConfiguration(TypedDict, closed=True):
     document_title_field_name: NotRequired[
         "aws_sdk_kendra.types.data_source_field_name.DataSourceFieldName"
     ]

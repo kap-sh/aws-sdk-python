@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#StartTagSyncTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.tag_value
 
 
-class StartTagSyncTaskInput(TypedDict):
+class StartTagSyncTaskInput(TypedDict, closed=True):
     group: "aws_sdk_resource_groups.types.group_string_v2.GroupStringV2"
     """<p>The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task. </p>"""
     tag_key: NotRequired["aws_sdk_resource_groups.types.tag_key.TagKey"]

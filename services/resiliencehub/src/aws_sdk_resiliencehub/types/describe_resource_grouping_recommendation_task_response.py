@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DescribeResourceGroupingRecommendationTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class DescribeResourceGroupingRecommendationTaskResponse(TypedDict):
+class DescribeResourceGroupingRecommendationTaskResponse(TypedDict, closed=True):
     grouping_id: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>Identifier of the grouping recommendation task.</p>"""
     status: "aws_sdk_resiliencehub.types.resources_grouping_rec_gen_status_type.ResourcesGroupingRecGenStatusType"

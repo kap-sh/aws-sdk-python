@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListRelaysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.pagination_token
 
 
-class ListRelaysRequest(TypedDict):
+class ListRelaysRequest(TypedDict, closed=True):
     page_size: NotRequired["int"]
     """<p>The number of relays to be returned in one request.</p>"""
     next_token: NotRequired[

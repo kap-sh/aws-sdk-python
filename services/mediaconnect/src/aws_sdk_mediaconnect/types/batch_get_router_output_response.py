@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BatchGetRouterOutputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_output_list
 
 
-class BatchGetRouterOutputResponse(TypedDict):
+class BatchGetRouterOutputResponse(TypedDict, closed=True):
     router_outputs: "aws_sdk_mediaconnect.types.router_output_list.RouterOutputList"
     """<p>An array of router outputs that were successfully retrieved.</p>"""
     errors: "aws_sdk_mediaconnect.types.batch_get_router_output_error_list.BatchGetRouterOutputErrorList"

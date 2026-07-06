@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#BlockPublicAccessConfigurationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
     import aws_sdk_emr.types.date
 
 
-class BlockPublicAccessConfigurationMetadata(TypedDict):
+class BlockPublicAccessConfigurationMetadata(TypedDict, closed=True):
     creation_date_time: NotRequired["aws_sdk_emr.types.date.Date"]
     """<p>The date and time that the configuration was created.</p>"""
     created_by_arn: NotRequired["aws_sdk_emr.types.arn_type.ArnType"]

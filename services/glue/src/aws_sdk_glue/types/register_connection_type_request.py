@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RegisterConnectionTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class RegisterConnectionTypeRequest(TypedDict):
+class RegisterConnectionTypeRequest(TypedDict, closed=True):
     connection_type: "aws_sdk_glue.types.name_string.NameString"
     r"""<p>The name of the connection type. Must be between 1 and 255 characters and must be prefixed with \"REST-\" to indicate it is a REST-based connector.</p>"""
     integration_type: "aws_sdk_glue.types.integration_type.IntegrationType"

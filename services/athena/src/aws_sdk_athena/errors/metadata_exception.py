@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#MetadataException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.error_message
 
 
-class MetadataException_(TypedDict):
+class MetadataException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_athena.types.error_message.ErrorMessage"]
 
 

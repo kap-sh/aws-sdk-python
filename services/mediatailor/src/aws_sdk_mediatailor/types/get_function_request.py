@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#GetFunctionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class GetFunctionRequest(TypedDict):
+class GetFunctionRequest(TypedDict, closed=True):
     function_id: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The identifier of the function.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#DisassociateClientDeviceFromCoreDeviceErrorEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_thing_name
     import aws_sdk_greengrassv2.types.non_empty_string
 
 
-class DisassociateClientDeviceFromCoreDeviceErrorEntry(TypedDict):
+class DisassociateClientDeviceFromCoreDeviceErrorEntry(TypedDict, closed=True):
     thing_name: NotRequired["aws_sdk_greengrassv2.types.io_t_thing_name.IoTThingName"]
     """<p>The name of the IoT thing whose disassociate request failed.</p>"""
     code: NotRequired["aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"]

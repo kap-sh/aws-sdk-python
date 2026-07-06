@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GetIdentityProviderByIdentifierResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.identity_provider_type
 
 
-class GetIdentityProviderByIdentifierResponse(TypedDict):
+class GetIdentityProviderByIdentifierResponse(TypedDict, closed=True):
     identity_provider: "aws_sdk_cognito_identity_provider.types.identity_provider_type.IdentityProviderType"
     """<p>The configuration of the IdP in your user pool. Includes additional identifiers, the IdP name and type, and trust-relationship details like the issuer URL.</p>"""
 

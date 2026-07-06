@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ClippingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.resource_description
 
 
-class ClippingConfig(TypedDict):
+class ClippingConfig(TypedDict, closed=True):
     callback_metadata: NotRequired[
         "aws_sdk_elementalinference.types.resource_description.ResourceDescription"
     ]

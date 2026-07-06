@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#LifecyclePolicyResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.resource_name
 
 
-class LifecyclePolicyResourceIdentifier(TypedDict):
+class LifecyclePolicyResourceIdentifier(TypedDict, closed=True):
     type: "aws_sdk_opensearchserverless.types.lifecycle_policy_type.LifecyclePolicyType"
     """<p>The type of lifecycle policy.</p>"""
     resource: "aws_sdk_opensearchserverless.types.resource_name.ResourceName"

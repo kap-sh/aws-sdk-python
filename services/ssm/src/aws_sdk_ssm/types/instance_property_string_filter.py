@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstancePropertyStringFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_property_string_filter_key
 
 
-class InstancePropertyStringFilter(TypedDict):
+class InstancePropertyStringFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.instance_property_string_filter_key.InstancePropertyStringFilterKey"
     """<p>The filter key name to describe your managed nodes.</p>"""
     values: "aws_sdk_ssm.types.instance_property_filter_value_set.InstancePropertyFilterValueSet"

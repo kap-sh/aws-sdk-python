@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ExportErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.export_error_details_output
 
 
-class ExportErrorDetails(TypedDict):
+class ExportErrorDetails(TypedDict, closed=True):
     export_results: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.export_error_details_output.ExportErrorDetailsOutput"
     ]

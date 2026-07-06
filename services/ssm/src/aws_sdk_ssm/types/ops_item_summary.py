@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class OpsItemSummary(TypedDict):
+class OpsItemSummary(TypedDict, closed=True):
     created_by: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the IAM entity that created the OpsItem.</p>"""
     created_time: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]

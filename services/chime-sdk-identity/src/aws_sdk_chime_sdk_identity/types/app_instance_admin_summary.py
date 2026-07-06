@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#AppInstanceAdminSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.identity
 
 
-class AppInstanceAdminSummary(TypedDict):
+class AppInstanceAdminSummary(TypedDict, closed=True):
     admin: NotRequired["aws_sdk_chime_sdk_identity.types.identity.Identity"]
     """<p>The details of the <code>AppInstanceAdmin</code>.</p>"""
 

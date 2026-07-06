@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#UpdateWorkflowStepRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.workflow_step_output_list
 
 
-class UpdateWorkflowStepRequest(TypedDict):
+class UpdateWorkflowStepRequest(TypedDict, closed=True):
     id: "aws_sdk_migrationhuborchestrator.types.step_id.StepId"
     """<p>The ID of the step.</p>"""
     step_group_id: "aws_sdk_migrationhuborchestrator.types.step_group_id.StepGroupId"

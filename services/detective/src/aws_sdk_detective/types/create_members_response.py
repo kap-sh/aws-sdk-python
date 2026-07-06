@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#CreateMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.member_detail_list
     import aws_sdk_detective.types.unprocessed_account_list
 
 
-class CreateMembersResponse(TypedDict):
+class CreateMembersResponse(TypedDict, closed=True):
     members: NotRequired["aws_sdk_detective.types.member_detail_list.MemberDetailList"]
     """<p>The set of member account invitation or enablement requests that Detective was able to process. This includes accounts that are being verified, that failed verification, and that passed verification and are being sent an invitation or are being enabled.</p>"""
     unprocessed_accounts: NotRequired[

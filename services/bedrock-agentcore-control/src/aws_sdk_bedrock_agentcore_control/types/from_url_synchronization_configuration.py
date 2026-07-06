@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#FromUrlSynchronizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.registry_record_credential_provider_configuration_list
 
 
-class FromUrlSynchronizationConfiguration(TypedDict):
+class FromUrlSynchronizationConfiguration(TypedDict, closed=True):
     url: "aws_sdk_bedrock_agentcore_control.types.mcp_server_url.McpServerUrl"
     """<p>The HTTPS URL of the MCP server to synchronize from.</p>"""
     credential_provider_configurations: NotRequired[

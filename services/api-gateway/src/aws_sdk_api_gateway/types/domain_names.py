@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DomainNames``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_domain_name
     import aws_sdk_api_gateway.types.string
 
 
-class DomainNames(TypedDict):
+class DomainNames(TypedDict, closed=True):
     items: NotRequired["aws_sdk_api_gateway.types.list_of_domain_name.ListOfDomainName"]
     """<p>The current page of elements from this collection.</p>"""
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]

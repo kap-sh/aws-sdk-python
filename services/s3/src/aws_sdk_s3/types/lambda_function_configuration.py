@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#LambdaFunctionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.notification_id
 
 
-class LambdaFunctionConfiguration(TypedDict):
+class LambdaFunctionConfiguration(TypedDict, closed=True):
     id: NotRequired["aws_sdk_s3.types.notification_id.NotificationId"]
     lambda_function_arn: "aws_sdk_s3.types.lambda_function_arn.LambdaFunctionArn"
     """<p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the specified event type occurs.</p>"""

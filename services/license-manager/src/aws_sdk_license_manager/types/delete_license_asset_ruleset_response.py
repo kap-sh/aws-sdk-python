@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#DeleteLicenseAssetRulesetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLicenseAssetRulesetResponse(TypedDict):
+class DeleteLicenseAssetRulesetResponse(TypedDict, closed=True):
     pass
 
 

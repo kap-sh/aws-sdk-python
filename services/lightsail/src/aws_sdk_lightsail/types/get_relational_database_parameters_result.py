@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseParametersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.relational_database_parameter_list
     import aws_sdk_lightsail.types.string
 
 
-class GetRelationalDatabaseParametersResult(TypedDict):
+class GetRelationalDatabaseParametersResult(TypedDict, closed=True):
     parameters: NotRequired[
         "aws_sdk_lightsail.types.relational_database_parameter_list.RelationalDatabaseParameterList"
     ]

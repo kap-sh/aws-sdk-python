@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#VerifySoftwareTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.session_type
     import aws_sdk_cognito_identity_provider.types.verify_software_token_response_type
 
 
-class VerifySoftwareTokenResponse(TypedDict):
+class VerifySoftwareTokenResponse(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_cognito_identity_provider.types.verify_software_token_response_type.VerifySoftwareTokenResponseType"
     ]

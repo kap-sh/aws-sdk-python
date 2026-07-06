@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CustomFieldsFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_filter
 
 
-class _CustomFieldsFilter_field(TypedDict):
+class _CustomFieldsFilter_field(TypedDict, closed=True):
     field: "aws_sdk_connectcases.types.field_filter.FieldFilter"
 
 
@@ -19,16 +21,17 @@ _CustomFieldsFilter_not = TypedDict(
     {
         "not": "aws_sdk_connectcases.types.custom_fields_filter.CustomFieldsFilter",
     },
+    closed=True,
 )
 
 
-class _CustomFieldsFilter_andAll(TypedDict):
+class _CustomFieldsFilter_andAll(TypedDict, closed=True):
     andAll: (
         "aws_sdk_connectcases.types.custom_fields_filter_list.CustomFieldsFilterList"
     )
 
 
-class _CustomFieldsFilter_orAll(TypedDict):
+class _CustomFieldsFilter_orAll(TypedDict, closed=True):
     orAll: "aws_sdk_connectcases.types.custom_fields_filter_list.CustomFieldsFilterList"
 
 

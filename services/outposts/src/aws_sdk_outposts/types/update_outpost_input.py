@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateOutpostInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.outpost_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.supported_hardware_type
 
 
-class UpdateOutpostInput(TypedDict):
+class UpdateOutpostInput(TypedDict, closed=True):
     outpost_id: "aws_sdk_outposts.types.outpost_id.OutpostId"
     """<p> The ID or ARN of the Outpost. </p>"""
     name: NotRequired["aws_sdk_outposts.types.outpost_name.OutpostName"]

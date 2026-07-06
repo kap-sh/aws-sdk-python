@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetCustomDomainAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_name
 
 
-class GetCustomDomainAssociationResponse(TypedDict):
+class GetCustomDomainAssociationResponse(TypedDict, closed=True):
     custom_domain_name: NotRequired[
         "aws_sdk_redshift_serverless.types.custom_domain_name.CustomDomainName"
     ]

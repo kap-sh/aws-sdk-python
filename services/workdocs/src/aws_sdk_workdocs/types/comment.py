@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#Comment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workdocs.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.user
 
 
-class Comment(TypedDict):
+class Comment(TypedDict, closed=True):
     comment_id: "aws_sdk_workdocs.types.comment_id_type.CommentIdType"
     """<p>The ID of the comment.</p>"""
     parent_id: NotRequired["aws_sdk_workdocs.types.comment_id_type.CommentIdType"]

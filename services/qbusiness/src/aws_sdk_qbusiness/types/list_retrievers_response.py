@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListRetrieversResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.next_token
     import aws_sdk_qbusiness.types.retrievers
 
 
-class ListRetrieversResponse(TypedDict):
+class ListRetrieversResponse(TypedDict, closed=True):
     retrievers: NotRequired["aws_sdk_qbusiness.types.retrievers.Retrievers"]
     """<p>An array of summary information for one or more retrievers.</p>"""
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]

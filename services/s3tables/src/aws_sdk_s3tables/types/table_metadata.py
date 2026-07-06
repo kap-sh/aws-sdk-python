@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_metadata
 
 
-class _TableMetadata_iceberg(TypedDict):
+class _TableMetadata_iceberg(TypedDict, closed=True):
     iceberg: "aws_sdk_s3tables.types.iceberg_metadata.IcebergMetadata"
 
 

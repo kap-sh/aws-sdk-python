@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#QnAKendraConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.query_filter_string
 
 
-class QnAKendraConfiguration(TypedDict):
+class QnAKendraConfiguration(TypedDict, closed=True):
     kendra_index: "aws_sdk_lex_models_v2.types.kendra_index_arn.KendraIndexArn"
     """<p>The ARN of the Amazon Kendra index to use.</p>"""
     query_filter_string_enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"

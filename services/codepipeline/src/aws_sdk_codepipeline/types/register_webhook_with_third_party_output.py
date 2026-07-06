@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RegisterWebhookWithThirdPartyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegisterWebhookWithThirdPartyOutput(TypedDict):
+class RegisterWebhookWithThirdPartyOutput(TypedDict, closed=True):
     pass
 
 

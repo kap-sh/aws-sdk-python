@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListThingsInBillingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.billing_group_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.registry_max_results
 
 
-class ListThingsInBillingGroupRequest(TypedDict):
+class ListThingsInBillingGroupRequest(TypedDict, closed=True):
     billing_group_name: "aws_sdk_iot.types.billing_group_name.BillingGroupName"
     """<p>The name of the billing group.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#InlinePayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.upsert_entities_info
 
 
-class _InlinePayload_upsertEntitiesInfo(TypedDict):
+class _InlinePayload_upsertEntitiesInfo(TypedDict, closed=True):
     upsertEntitiesInfo: (
         "aws_sdk_bedrock_data_automation.types.upsert_entities_info.UpsertEntitiesInfo"
     )
 
 
-class _InlinePayload_deleteEntitiesInfo(TypedDict):
+class _InlinePayload_deleteEntitiesInfo(TypedDict, closed=True):
     deleteEntitiesInfo: (
         "aws_sdk_bedrock_data_automation.types.delete_entities_info.DeleteEntitiesInfo"
     )

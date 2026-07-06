@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AccountModification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.dedicated_tenancy_management_cidr_range
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_error_code
 
 
-class AccountModification(TypedDict):
+class AccountModification(TypedDict, closed=True):
     modification_state: NotRequired[
         "aws_sdk_workspaces.types.dedicated_tenancy_modification_state_enum.DedicatedTenancyModificationStateEnum"
     ]

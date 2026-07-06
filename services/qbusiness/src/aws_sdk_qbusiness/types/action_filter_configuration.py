@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.attribute_filter
 
 
-class ActionFilterConfiguration(TypedDict):
+class ActionFilterConfiguration(TypedDict, closed=True):
     document_attribute_filter: (
         "aws_sdk_qbusiness.types.attribute_filter.AttributeFilter"
     )

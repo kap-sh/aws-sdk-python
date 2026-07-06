@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ExecutionEngineConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.execution_engine_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class ExecutionEngineConfig(TypedDict):
+class ExecutionEngineConfig(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The unique identifier of the execution engine. For an Amazon EMR cluster, this is the cluster ID.</p>"""
     type: NotRequired["aws_sdk_emr.types.execution_engine_type.ExecutionEngineType"]

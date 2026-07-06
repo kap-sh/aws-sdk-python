@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#PermissionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_level_permissions
     import aws_sdk_guardduty.types.bucket_level_permissions
 
 
-class PermissionConfiguration(TypedDict):
+class PermissionConfiguration(TypedDict, closed=True):
     bucket_level_permissions: NotRequired[
         "aws_sdk_guardduty.types.bucket_level_permissions.BucketLevelPermissions"
     ]

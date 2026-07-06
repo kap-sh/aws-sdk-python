@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSsmPatchComplianceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ssm_patch
 
 
-class AwsSsmPatchComplianceDetails(TypedDict):
+class AwsSsmPatchComplianceDetails(TypedDict, closed=True):
     patch: NotRequired["aws_sdk_securityhub.types.aws_ssm_patch.AwsSsmPatch"]
     """<p>Information about the status of a patch.</p>"""
 

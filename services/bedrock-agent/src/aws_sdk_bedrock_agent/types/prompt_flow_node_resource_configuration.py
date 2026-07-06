@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptFlowNodeResourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_prompt_arn
 
 
-class PromptFlowNodeResourceConfiguration(TypedDict):
+class PromptFlowNodeResourceConfiguration(TypedDict, closed=True):
     prompt_arn: "aws_sdk_bedrock_agent.types.flow_prompt_arn.FlowPromptArn"
     """<p>The Amazon Resource Name (ARN) of the prompt from Prompt management.</p>"""
 

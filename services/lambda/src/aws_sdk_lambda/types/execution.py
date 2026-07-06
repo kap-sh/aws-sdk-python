@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Execution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.name_spaced_function_arn
 
 
-class Execution(TypedDict):
+class Execution(TypedDict, closed=True):
     durable_execution_arn: (
         "aws_sdk_lambda.types.durable_execution_arn.DurableExecutionArn"
     )

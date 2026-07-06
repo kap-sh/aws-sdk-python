@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListWorkloadsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.pagination_token
     import aws_sdk_application_insights.types.workload_list
 
 
-class ListWorkloadsResponse(TypedDict):
+class ListWorkloadsResponse(TypedDict, closed=True):
     workload_list: NotRequired[
         "aws_sdk_application_insights.types.workload_list.WorkloadList"
     ]

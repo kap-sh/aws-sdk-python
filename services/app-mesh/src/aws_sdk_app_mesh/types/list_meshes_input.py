@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListMeshesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.list_meshes_limit
 
 
-class ListMeshesInput(TypedDict):
+class ListMeshesInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The <code>nextToken</code> value returned from a previous paginated <code>ListMeshes</code> request where <code>limit</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value.</p> <note> <p>This token should be treated as an opaque identifier that is used only to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"""
     limit: NotRequired["aws_sdk_app_mesh.types.list_meshes_limit.ListMeshesLimit"]

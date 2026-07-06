@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetDomainMaintenanceStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.maintenance_status
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.update_timestamp
 
 
-class GetDomainMaintenanceStatusResponse(TypedDict):
+class GetDomainMaintenanceStatusResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_opensearch.types.maintenance_status.MaintenanceStatus"]
     """<p>The status of the maintenance action.</p>"""
     status_message: NotRequired[

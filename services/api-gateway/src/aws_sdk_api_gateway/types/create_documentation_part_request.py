@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#CreateDocumentationPartRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class CreateDocumentationPartRequest(TypedDict):
+class CreateDocumentationPartRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     location: "aws_sdk_api_gateway.types.documentation_part_location.DocumentationPartLocation"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#StartServicePeriodTypeSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.start_service_period_type_sort_name
 
 
-class StartServicePeriodTypeSort(TypedDict):
+class StartServicePeriodTypeSort(TypedDict, closed=True):
     sort_order: "aws_sdk_partnercentral_channel.types.sort_order.SortOrder"
     """<p>The sort order (ascending or descending).</p>"""
     sort_by: "aws_sdk_partnercentral_channel.types.start_service_period_type_sort_name.StartServicePeriodTypeSortName"

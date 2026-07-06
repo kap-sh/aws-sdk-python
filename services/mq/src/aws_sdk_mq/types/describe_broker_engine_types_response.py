@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DescribeBrokerEngineTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__integer_min5_max100
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class DescribeBrokerEngineTypesResponse(TypedDict):
+class DescribeBrokerEngineTypesResponse(TypedDict, closed=True):
     broker_engine_types: NotRequired[
         "aws_sdk_mq.types.__list_of_broker_engine_type.__listOfBrokerEngineType"
     ]

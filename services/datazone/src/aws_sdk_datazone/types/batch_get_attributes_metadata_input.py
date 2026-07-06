@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#BatchGetAttributesMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.attribute_entity_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class BatchGetAttributesMetadataInput(TypedDict):
+class BatchGetAttributesMetadataInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The domain ID where you want to get the attribute metadata.</p>"""
     entity_type: "aws_sdk_datazone.types.attribute_entity_type.AttributeEntityType"

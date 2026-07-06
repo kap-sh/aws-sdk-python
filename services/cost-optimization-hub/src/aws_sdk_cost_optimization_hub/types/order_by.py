@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#OrderBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.order
 
 
-class OrderBy(TypedDict):
+class OrderBy(TypedDict, closed=True):
     dimension: NotRequired["str"]
     """<p>Sorts by dimension values.</p>"""
     order: NotRequired["aws_sdk_cost_optimization_hub.types.order.Order"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CreateGeofenceCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.tag_map
 
 
-class CreateGeofenceCollectionRequest(TypedDict):
+class CreateGeofenceCollectionRequest(TypedDict, closed=True):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>A custom name for the geofence collection.</p> <p>Requirements:</p> <ul> <li> <p>Contain only alphanumeric characters (A–Z, a–z, 0–9), hyphens (-), periods (.), and underscores (_). </p> </li> <li> <p>Must be a unique geofence collection name.</p> </li> <li> <p>No spaces allowed. For example, <code>ExampleGeofenceCollection</code>.</p> </li> </ul>"""
     pricing_plan: NotRequired["aws_sdk_location.types.pricing_plan.PricingPlan"]

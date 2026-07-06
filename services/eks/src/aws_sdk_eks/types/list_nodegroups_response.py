@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListNodegroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.string_list
 
 
-class ListNodegroupsResponse(TypedDict):
+class ListNodegroupsResponse(TypedDict, closed=True):
     nodegroups: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>A list of all of the node groups associated with the specified cluster.</p>"""
     next_token: NotRequired["aws_sdk_eks.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetFormResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form
 
 
-class GetFormResponse(TypedDict):
+class GetFormResponse(TypedDict, closed=True):
     form: NotRequired["aws_sdk_amplifyuibuilder.types.form.Form"]
     """<p>Represents the configuration settings for the form.</p>"""
 

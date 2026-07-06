@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsTeamMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_member_business_title
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.name
 
 
-class AwsTeamMember(TypedDict):
+class AwsTeamMember(TypedDict, closed=True):
     email: NotRequired["aws_sdk_partnercentral_selling.types.email.Email"]
     """<p>Provides the Amazon Web Services team member's email address.</p>"""
     first_name: NotRequired["aws_sdk_partnercentral_selling.types.name.Name"]

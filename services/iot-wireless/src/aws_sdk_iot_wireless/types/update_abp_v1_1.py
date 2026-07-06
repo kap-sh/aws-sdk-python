@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateAbpV1_1``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.f_cnt_start
 
 
-class UpdateAbpV1_1(TypedDict):
+class UpdateAbpV1_1(TypedDict, closed=True):
     f_cnt_start: NotRequired["aws_sdk_iot_wireless.types.f_cnt_start.FCntStart"]
     """<p>The FCnt init value.</p>"""
 

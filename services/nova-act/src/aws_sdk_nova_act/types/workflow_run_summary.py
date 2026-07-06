@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#WorkflowRunSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.workflow_run_status
 
 
-class WorkflowRunSummary(TypedDict):
+class WorkflowRunSummary(TypedDict, closed=True):
     workflow_run_arn: "aws_sdk_nova_act.types.workflow_run_arn.WorkflowRunArn"
     """<p>The Amazon Resource Name (ARN) of the workflow run.</p>"""
     workflow_run_id: "aws_sdk_nova_act.types.uuid_string.UuidString"

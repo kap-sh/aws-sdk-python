@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.eks_annotations_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EksMetadata(TypedDict):
+class EksMetadata(TypedDict, closed=True):
     labels: NotRequired["aws_sdk_batch.types.eks_labels_map.EksLabelsMap"]
     """<p>Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.</p>"""
     annotations: NotRequired[

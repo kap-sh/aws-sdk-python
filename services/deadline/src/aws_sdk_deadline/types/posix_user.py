@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#PosixUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class PosixUser(TypedDict):
+class PosixUser(TypedDict, closed=True):
     user: "aws_sdk_deadline.types.string.String"
     """<p>The name of the POSIX user.</p>"""
     group: "aws_sdk_deadline.types.string.String"

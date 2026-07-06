@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StreamEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.string
     import aws_sdk_ivs.types.time
 
 
-class StreamEvent(TypedDict):
+class StreamEvent(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ivs.types.string.String"]
     """<p>Name that identifies the stream event within a <code>type</code>.</p>"""
     type: NotRequired["aws_sdk_ivs.types.string.String"]

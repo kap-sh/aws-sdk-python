@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#StartGUISessionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.operation_list
 
 
-class StartGUISessionResult(TypedDict):
+class StartGUISessionResult(TypedDict, closed=True):
     operations: NotRequired["aws_sdk_lightsail.types.operation_list.OperationList"]
     """<p>The available API operations.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.audit_log_destination_configuration
 
 
-class _DestinationConfiguration_auditLog(TypedDict):
+class _DestinationConfiguration_auditLog(TypedDict, closed=True):
     auditLog: "aws_sdk_appfabric.types.audit_log_destination_configuration.AuditLogDestinationConfiguration"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SbomValidationResultSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.file_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.sbom_validation_result
 
 
-class SbomValidationResultSummary(TypedDict):
+class SbomValidationResultSummary(TypedDict, closed=True):
     file_name: NotRequired["aws_sdk_iot.types.file_name.FileName"]
     """<p>The name of the SBOM file.</p>"""
     validation_result: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#DimensionMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.schema_name
 
 
-class DimensionMapping(TypedDict):
+class DimensionMapping(TypedDict, closed=True):
     source_column: NotRequired["aws_sdk_timestream_write.types.schema_name.SchemaName"]
     """<p></p>"""
     destination_column: NotRequired[

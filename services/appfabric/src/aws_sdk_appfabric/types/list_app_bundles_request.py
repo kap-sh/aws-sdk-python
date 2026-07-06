@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListAppBundlesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.max_results
     import aws_sdk_appfabric.types.string2048
 
 
-class ListAppBundlesRequest(TypedDict):
+class ListAppBundlesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_appfabric.types.max_results.MaxResults"]
     """<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"""
     next_token: NotRequired["aws_sdk_appfabric.types.string2048.String2048"]

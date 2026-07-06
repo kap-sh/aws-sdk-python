@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#ListZonalShiftsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.zonal_shift_summaries
 
 
-class ListZonalShiftsResponse(TypedDict):
+class ListZonalShiftsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_arc_zonal_shift.types.zonal_shift_summaries.ZonalShiftSummaries"
     ]

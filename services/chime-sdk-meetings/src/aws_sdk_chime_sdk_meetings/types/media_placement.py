@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#MediaPlacement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.string
 
 
-class MediaPlacement(TypedDict):
+class MediaPlacement(TypedDict, closed=True):
     audio_host_url: NotRequired["aws_sdk_chime_sdk_meetings.types.string.String"]
     """<p>The audio host URL.</p>"""
     audio_fallback_url: NotRequired["aws_sdk_chime_sdk_meetings.types.string.String"]

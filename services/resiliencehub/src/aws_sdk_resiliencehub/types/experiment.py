@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#Experiment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class Experiment(TypedDict):
+class Experiment(TypedDict, closed=True):
     experiment_arn: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]
     """<p>Amazon Resource Name (ARN) of the FIS experiment.</p>"""
     experiment_template_id: NotRequired[

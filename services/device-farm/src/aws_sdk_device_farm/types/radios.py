@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#Radios``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.boolean
 
 
-class Radios(TypedDict):
+class Radios(TypedDict, closed=True):
     wifi: NotRequired["aws_sdk_device_farm.types.boolean.Boolean"]
     """<p>True if Wi-Fi is enabled at the beginning of the test. Otherwise, false.</p>"""
     bluetooth: NotRequired["aws_sdk_device_farm.types.boolean.Boolean"]

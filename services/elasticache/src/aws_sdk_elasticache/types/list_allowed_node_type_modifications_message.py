@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ListAllowedNodeTypeModificationsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class ListAllowedNodeTypeModificationsMessage(TypedDict):
+class ListAllowedNodeTypeModificationsMessage(TypedDict, closed=True):
     cache_cluster_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.</p> <important> <p>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</p> </important>"""
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]

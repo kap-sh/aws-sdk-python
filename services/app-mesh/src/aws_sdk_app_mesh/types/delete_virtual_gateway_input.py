@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DeleteVirtualGatewayInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.account_id
     import aws_sdk_app_mesh.types.resource_name
 
 
-class DeleteVirtualGatewayInput(TypedDict):
+class DeleteVirtualGatewayInput(TypedDict, closed=True):
     virtual_gateway_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The name of the virtual gateway to delete.</p>"""
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"

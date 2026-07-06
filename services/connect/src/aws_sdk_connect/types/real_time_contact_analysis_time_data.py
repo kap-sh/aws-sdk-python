@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisTimeData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_time_instant
 
 
-class _RealTimeContactAnalysisTimeData_AbsoluteTime(TypedDict):
+class _RealTimeContactAnalysisTimeData_AbsoluteTime(TypedDict, closed=True):
     AbsoluteTime: "aws_sdk_connect.types.real_time_contact_analysis_time_instant.RealTimeContactAnalysisTimeInstant"
 
 

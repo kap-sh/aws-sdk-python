@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.s3_destination_configuration
 
 
-class DestinationConfiguration(TypedDict):
+class DestinationConfiguration(TypedDict, closed=True):
     type: "aws_sdk_iottwinmaker.types.destination_type.DestinationType"
     """<p>The destination type.</p>"""
     s3_configuration: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationInferenceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_inference_framework
 
 
-class AIRecommendationInferenceSpecification(TypedDict):
+class AIRecommendationInferenceSpecification(TypedDict, closed=True):
     framework: NotRequired[
         "aws_sdk_sagemaker.types.ai_recommendation_inference_framework.AIRecommendationInferenceFramework"
     ]

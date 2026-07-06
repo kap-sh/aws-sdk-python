@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListTapePoolsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.marker
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.positive_int_object
 
 
-class ListTapePoolsInput(TypedDict):
+class ListTapePoolsInput(TypedDict, closed=True):
     pool_ar_ns: NotRequired["aws_sdk_storage_gateway.types.pool_ar_ns.PoolARNs"]
     """<p>The Amazon Resource Name (ARN) of each of the custom tape pools you want to list. If you don't specify a custom tape pool ARN, the response lists all custom tape pools. </p>"""
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]

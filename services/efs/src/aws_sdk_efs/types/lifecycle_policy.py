@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#LifecyclePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.transition_to_archive_rules
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.transition_to_primary_storage_class_rules
 
 
-class LifecyclePolicy(TypedDict):
+class LifecyclePolicy(TypedDict, closed=True):
     transition_to_ia: NotRequired[
         "aws_sdk_efs.types.transition_to_ia_rules.TransitionToIARules"
     ]

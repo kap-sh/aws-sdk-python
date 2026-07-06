@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteDataProductInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.data_product_id
     import aws_sdk_datazone.types.domain_id
 
 
-class DeleteDataProductInput(TypedDict):
+class DeleteDataProductInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which the data product is deleted.</p>"""
     identifier: "aws_sdk_datazone.types.data_product_id.DataProductId"

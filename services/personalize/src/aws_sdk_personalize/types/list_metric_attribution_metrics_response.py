@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListMetricAttributionMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.metric_attributes
     import aws_sdk_personalize.types.next_token
 
 
-class ListMetricAttributionMetricsResponse(TypedDict):
+class ListMetricAttributionMetricsResponse(TypedDict, closed=True):
     metrics: NotRequired["aws_sdk_personalize.types.metric_attributes.MetricAttributes"]
     """<p>The metrics for the specified metric attribution.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

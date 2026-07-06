@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AdminAppLicenseUsageRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.timestamp
 
 
-class AdminAppLicenseUsageRecord(TypedDict):
+class AdminAppLicenseUsageRecord(TypedDict, closed=True):
     user_arn: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The ARN of the user who used the license-included application.</p>"""
     billing_period: NotRequired["aws_sdk_appstream.types.string.String"]

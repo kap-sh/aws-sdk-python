@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListRecommendersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.next_token
     import aws_sdk_personalize.types.recommenders
 
 
-class ListRecommendersResponse(TypedDict):
+class ListRecommendersResponse(TypedDict, closed=True):
     recommenders: NotRequired["aws_sdk_personalize.types.recommenders.Recommenders"]
     """<p>A list of the recommenders.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

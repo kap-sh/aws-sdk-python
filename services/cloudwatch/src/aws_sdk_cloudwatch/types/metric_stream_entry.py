@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#MetricStreamEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timestamp
 
 
-class MetricStreamEntry(TypedDict):
+class MetricStreamEntry(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_cloudwatch.types.amazon_resource_name.AmazonResourceName"]
     """<p>The ARN of the metric stream.</p>"""
     creation_date: NotRequired["aws_sdk_cloudwatch.types.timestamp.Timestamp"]

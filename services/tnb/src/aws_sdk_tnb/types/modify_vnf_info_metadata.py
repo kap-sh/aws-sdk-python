@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ModifyVnfInfoMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.vnf_instance_id
 
 
-class ModifyVnfInfoMetadata(TypedDict):
+class ModifyVnfInfoMetadata(TypedDict, closed=True):
     vnf_instance_id: "aws_sdk_tnb.types.vnf_instance_id.VnfInstanceId"
     """<p>The network function instance that was updated in the network instance.</p>"""
     vnf_configurable_properties: "object"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchResultItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.data_product_listing_item
 
 
-class _SearchResultItem_assetListing(TypedDict):
+class _SearchResultItem_assetListing(TypedDict, closed=True):
     assetListing: "aws_sdk_datazone.types.asset_listing_item.AssetListingItem"
 
 
-class _SearchResultItem_dataProductListing(TypedDict):
+class _SearchResultItem_dataProductListing(TypedDict, closed=True):
     dataProductListing: (
         "aws_sdk_datazone.types.data_product_listing_item.DataProductListingItem"
     )

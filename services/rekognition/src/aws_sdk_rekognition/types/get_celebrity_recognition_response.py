@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetCelebrityRecognitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.celebrity_recognitions
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.video_metadata
 
 
-class GetCelebrityRecognitionResponse(TypedDict):
+class GetCelebrityRecognitionResponse(TypedDict, closed=True):
     job_status: NotRequired["aws_sdk_rekognition.types.video_job_status.VideoJobStatus"]
     """<p>The current status of the celebrity recognition job.</p>"""
     status_message: NotRequired[

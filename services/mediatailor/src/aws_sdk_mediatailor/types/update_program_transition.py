@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#UpdateProgramTransition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__long
 
 
-class UpdateProgramTransition(TypedDict):
+class UpdateProgramTransition(TypedDict, closed=True):
     scheduled_start_time_millis: NotRequired["aws_sdk_mediatailor.types.__long.__long"]
     """<p>The date and time that the program is scheduled to start, in epoch milliseconds.</p>"""
     duration_millis: NotRequired["aws_sdk_mediatailor.types.__long.__long"]

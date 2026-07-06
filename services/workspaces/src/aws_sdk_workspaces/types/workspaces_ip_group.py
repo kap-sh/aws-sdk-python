@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspacesIpGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.ip_group_desc
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.ip_rule_list
 
 
-class WorkspacesIpGroup(TypedDict):
+class WorkspacesIpGroup(TypedDict, closed=True):
     group_id: NotRequired["aws_sdk_workspaces.types.ip_group_id.IpGroupId"]
     """<p>The identifier of the group.</p>"""
     group_name: NotRequired["aws_sdk_workspaces.types.ip_group_name.IpGroupName"]

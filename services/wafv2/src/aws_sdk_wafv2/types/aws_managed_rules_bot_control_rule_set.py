@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AWSManagedRulesBotControlRuleSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.inspection_level
 
 
-class AWSManagedRulesBotControlRuleSet(TypedDict):
+class AWSManagedRulesBotControlRuleSet(TypedDict, closed=True):
     inspection_level: "aws_sdk_wafv2.types.inspection_level.InspectionLevel"
     r"""<p>The inspection level to use for the Bot Control rule group. The common level is the least expensive. The targeted level includes all common level rules and adds rules with more advanced inspection criteria. For details, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html\">WAF Bot Control rule group</a> in the <i>WAF Developer Guide</i>.</p>"""
     enable_machine_learning: (

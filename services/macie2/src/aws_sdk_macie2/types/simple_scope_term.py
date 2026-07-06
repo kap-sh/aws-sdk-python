@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SimpleScopeTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.scope_filter_key
 
 
-class SimpleScopeTerm(TypedDict):
+class SimpleScopeTerm(TypedDict, closed=True):
     comparator: NotRequired["aws_sdk_macie2.types.job_comparator.JobComparator"]
     """<p>The operator to use in the condition. Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - EQ (equals) or NE (not equals)</p></li> <li><p>OBJECT_KEY - STARTS_WITH</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - EQ (equals), GT (greater than), GTE (greater than or equals), LT (less than), LTE (less than or equals), or NE (not equals)</p></li> <li><p>OBJECT_SIZE - EQ (equals), GT (greater than), GTE (greater than or equals), LT (less than), LTE (less than or equals), or NE (not equals)</p></li></ul>"""
     key: NotRequired["aws_sdk_macie2.types.scope_filter_key.ScopeFilterKey"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#M2tsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min0
@@ -38,7 +38,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.m2ts_timed_metadata_behavior
 
 
-class M2tsSettings(TypedDict):
+class M2tsSettings(TypedDict, closed=True):
     absent_input_audio_behavior: NotRequired[
         "aws_sdk_medialive.types.m2ts_absent_input_audio_behavior.M2tsAbsentInputAudioBehavior"
     ]

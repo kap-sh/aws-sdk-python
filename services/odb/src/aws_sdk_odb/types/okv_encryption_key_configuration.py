@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OkvEncryptionKeyConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
 
-class OkvEncryptionKeyConfiguration(TypedDict):
+class OkvEncryptionKeyConfiguration(TypedDict, closed=True):
     certificate_directory_name: "str"
     """<p>The name of the directory that contains the Oracle Key Vault (OKV) certificate.</p>"""
     certificate_id: NotRequired["str"]

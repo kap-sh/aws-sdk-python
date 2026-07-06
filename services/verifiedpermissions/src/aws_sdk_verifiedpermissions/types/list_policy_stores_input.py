@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ListPolicyStoresInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.max_results
     import aws_sdk_verifiedpermissions.types.next_token
 
 
-class ListPolicyStoresInput(TypedDict):
+class ListPolicyStoresInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_verifiedpermissions.types.next_token.NextToken"]
     """<p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the previous request. If you did, it indicates that more output is available. Set this parameter to the value provided by the previous call's <code>NextToken</code> response to request the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_verifiedpermissions.types.max_results.MaxResults"]

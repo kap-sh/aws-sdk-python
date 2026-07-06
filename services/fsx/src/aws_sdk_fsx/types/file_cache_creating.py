@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileCacheCreating``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aws_account_id
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.vpc_id
 
 
-class FileCacheCreating(TypedDict):
+class FileCacheCreating(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_fsx.types.aws_account_id.AWSAccountId"]
     creation_time: NotRequired["aws_sdk_fsx.types.creation_time.CreationTime"]
     file_cache_id: NotRequired["aws_sdk_fsx.types.file_cache_id.FileCacheId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ExactResponseFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.question_field
 
 
-class ExactResponseFields(TypedDict):
+class ExactResponseFields(TypedDict, closed=True):
     question_field: "aws_sdk_lex_models_v2.types.question_field.QuestionField"
     """<p>The name of the field that contains the query made to the OpenSearch Service database.</p>"""
     answer_field: "aws_sdk_lex_models_v2.types.answer_field.AnswerField"

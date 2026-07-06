@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ExportSourceNetworkCfnTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.large_bounded_string
 
 
-class ExportSourceNetworkCfnTemplateResponse(TypedDict):
+class ExportSourceNetworkCfnTemplateResponse(TypedDict, closed=True):
     s3_destination_url: NotRequired[
         "aws_sdk_drs.types.large_bounded_string.LargeBoundedString"
     ]

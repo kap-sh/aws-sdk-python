@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeAlignmentBoundary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.day_of_month
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.month
 
 
-class TimeAlignmentBoundary(TypedDict):
+class TimeAlignmentBoundary(TypedDict, closed=True):
     month: NotRequired["aws_sdk_forecast.types.month.Month"]
     """<p>The month to use for time alignment during aggregation. The month must be in uppercase.</p>"""
     day_of_month: NotRequired["aws_sdk_forecast.types.day_of_month.DayOfMonth"]

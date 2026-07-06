@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListAutonomousDatabaseVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database_version_list
 
 
-class ListAutonomousDatabaseVersionsOutput(TypedDict):
+class ListAutonomousDatabaseVersionsOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>"""
     autonomous_database_versions: "aws_sdk_odb.types.autonomous_database_version_list.AutonomousDatabaseVersionList"

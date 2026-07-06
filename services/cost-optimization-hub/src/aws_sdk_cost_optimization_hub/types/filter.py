@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.account_id_list
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.tag_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     restart_needed: NotRequired["bool"]
     """<p>Whether or not implementing the recommendation requires a restart.</p>"""
     rollback_possible: NotRequired["bool"]

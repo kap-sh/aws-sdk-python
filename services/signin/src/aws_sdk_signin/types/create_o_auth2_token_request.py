@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#CreateOAuth2TokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.create_o_auth2_token_request_body
 
 
-class CreateOAuth2TokenRequest(TypedDict):
+class CreateOAuth2TokenRequest(TypedDict, closed=True):
     token_input: "aws_sdk_signin.types.create_o_auth2_token_request_body.CreateOAuth2TokenRequestBody"
     """Flattened token operation inputs The specific operation is determined by grant_type in the request body"""
 

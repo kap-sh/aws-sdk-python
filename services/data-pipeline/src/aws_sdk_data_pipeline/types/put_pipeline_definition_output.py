@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#PutPipelineDefinitionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.validation_warnings
 
 
-class PutPipelineDefinitionOutput(TypedDict):
+class PutPipelineDefinitionOutput(TypedDict, closed=True):
     validation_errors: NotRequired[
         "aws_sdk_data_pipeline.types.validation_errors.ValidationErrors"
     ]

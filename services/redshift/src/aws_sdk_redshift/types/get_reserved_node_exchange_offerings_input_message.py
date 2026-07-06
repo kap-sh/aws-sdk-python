@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#GetReservedNodeExchangeOfferingsInputMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class GetReservedNodeExchangeOfferingsInputMessage(TypedDict):
+class GetReservedNodeExchangeOfferingsInputMessage(TypedDict, closed=True):
     reserved_node_id: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A string representing the node identifier for the DC1 Reserved Node to be exchanged.</p>"""
     max_records: NotRequired["aws_sdk_redshift.types.integer_optional.IntegerOptional"]

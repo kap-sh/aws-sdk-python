@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceDeploymentCircuitBreaker``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.integer
     import aws_sdk_ecs.types.service_deployment_rollback_monitors_status
 
 
-class ServiceDeploymentCircuitBreaker(TypedDict):
+class ServiceDeploymentCircuitBreaker(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_ecs.types.service_deployment_rollback_monitors_status.ServiceDeploymentRollbackMonitorsStatus"
     ]

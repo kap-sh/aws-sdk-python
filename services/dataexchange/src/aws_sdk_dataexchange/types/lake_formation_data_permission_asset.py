@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LakeFormationDataPermissionAsset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.role_arn
 
 
-class LakeFormationDataPermissionAsset(TypedDict):
+class LakeFormationDataPermissionAsset(TypedDict, closed=True):
     lake_formation_data_permission_details: "aws_sdk_dataexchange.types.lake_formation_data_permission_details.LakeFormationDataPermissionDetails"
     """<p>Details about the AWS Lake Formation data permission.</p>"""
     lake_formation_data_permission_type: "aws_sdk_dataexchange.types.lake_formation_data_permission_type.LakeFormationDataPermissionType"

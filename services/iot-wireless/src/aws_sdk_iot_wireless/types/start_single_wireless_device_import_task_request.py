@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#StartSingleWirelessDeviceImportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tag_list
 
 
-class StartSingleWirelessDeviceImportTaskRequest(TypedDict):
+class StartSingleWirelessDeviceImportTaskRequest(TypedDict, closed=True):
     destination_name: "aws_sdk_iot_wireless.types.destination_name.DestinationName"
     """<p>The name of the Sidewalk destination that describes the IoT rule to route messages from the device in the import task that will be onboarded to AWS IoT Wireless.</p>"""
     client_request_token: NotRequired[

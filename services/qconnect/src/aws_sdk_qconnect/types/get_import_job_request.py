@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class GetImportJobRequest(TypedDict):
+class GetImportJobRequest(TypedDict, closed=True):
     import_job_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the import job to retrieve.</p>"""
     knowledge_base_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"

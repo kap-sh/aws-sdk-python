@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#AmplitudeConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.secret_key
 
 
-class AmplitudeConnectorProfileCredentials(TypedDict):
+class AmplitudeConnectorProfileCredentials(TypedDict, closed=True):
     api_key: "aws_sdk_appflow.types.api_key.ApiKey"
     """<p> A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API. </p>"""
     secret_key: "aws_sdk_appflow.types.secret_key.SecretKey"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NameIdentifier``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NameIdentifier(TypedDict):
+class NameIdentifier(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name in the name identifier.</p>"""
     namespace: NotRequired["str"]

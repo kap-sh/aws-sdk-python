@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#AlarmPromQLCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.recovery_period
 
 
-class AlarmPromQLCriteria(TypedDict):
+class AlarmPromQLCriteria(TypedDict, closed=True):
     query: NotRequired["aws_sdk_cloudwatch.types.query.Query"]
     """<p>The PromQL query that the alarm evaluates. The query must return a result of vector type. Each entry in the vector result represents an alarm contributor.</p>"""
     pending_period: NotRequired["aws_sdk_cloudwatch.types.pending_period.PendingPeriod"]

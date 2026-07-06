@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#WarmThroughputObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.natural_integer_object
 
 
-class WarmThroughputObject(TypedDict):
+class WarmThroughputObject(TypedDict, closed=True):
     target_mi_bps: NotRequired[
         "aws_sdk_kinesis.types.natural_integer_object.NaturalIntegerObject"
     ]

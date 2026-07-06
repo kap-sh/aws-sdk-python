@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#IngressConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.boolean
 
 
-class IngressConfiguration(TypedDict):
+class IngressConfiguration(TypedDict, closed=True):
     is_publicly_accessible: "aws_sdk_apprunner.types.boolean.Boolean"
     """<p>Specifies whether your App Runner service is publicly accessible. To make the service publicly accessible set it to <code>True</code>. To make the service privately accessible, from only within an Amazon VPC set it to <code>False</code>. </p>"""
 

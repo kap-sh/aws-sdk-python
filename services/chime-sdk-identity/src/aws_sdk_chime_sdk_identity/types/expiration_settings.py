@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#ExpirationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.expiration_days
 
 
-class ExpirationSettings(TypedDict):
+class ExpirationSettings(TypedDict, closed=True):
     expiration_days: "aws_sdk_chime_sdk_identity.types.expiration_days.ExpirationDays"
     """<p>The period in days after which an <code>AppInstanceUser</code> will be automatically deleted.</p>"""
     expiration_criterion: (

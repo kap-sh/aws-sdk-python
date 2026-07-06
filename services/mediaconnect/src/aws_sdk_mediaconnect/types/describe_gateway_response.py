@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DescribeGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.gateway
 
 
-class DescribeGatewayResponse(TypedDict):
+class DescribeGatewayResponse(TypedDict, closed=True):
     gateway: NotRequired["aws_sdk_mediaconnect.types.gateway.Gateway"]
     """<p>The gateway that you wanted to describe. </p>"""
 

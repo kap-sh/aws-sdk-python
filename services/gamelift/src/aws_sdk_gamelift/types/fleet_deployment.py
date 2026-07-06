@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#FleetDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.deployment_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.timestamp
 
 
-class FleetDeployment(TypedDict):
+class FleetDeployment(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_gamelift.types.deployment_id.DeploymentId"]
     """<p>A unique identifier for the deployment. </p>"""
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]

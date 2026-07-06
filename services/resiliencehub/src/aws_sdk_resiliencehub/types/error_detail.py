@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ErrorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.error_message
 
 
-class ErrorDetail(TypedDict):
+class ErrorDetail(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_resiliencehub.types.error_message.ErrorMessage"]
     """<p>Provides additional information about the error.</p>"""
 

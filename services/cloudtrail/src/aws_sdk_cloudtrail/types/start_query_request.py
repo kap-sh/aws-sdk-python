@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StartQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.query_statement
 
 
-class StartQueryRequest(TypedDict):
+class StartQueryRequest(TypedDict, closed=True):
     query_statement: NotRequired[
         "aws_sdk_cloudtrail.types.query_statement.QueryStatement"
     ]

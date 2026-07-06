@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#UpdateOdbNetworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.access
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class UpdateOdbNetworkInput(TypedDict):
+class UpdateOdbNetworkInput(TypedDict, closed=True):
     odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB network to update.</p>"""
     display_name: NotRequired[

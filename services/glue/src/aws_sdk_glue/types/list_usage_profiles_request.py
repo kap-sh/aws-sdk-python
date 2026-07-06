@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListUsageProfilesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_page_size200
     import aws_sdk_glue.types.orchestration_token
 
 
-class ListUsageProfilesRequest(TypedDict):
+class ListUsageProfilesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.orchestration_token.OrchestrationToken"]
     """<p>A continuation token, included if this is a continuation call.</p>"""
     max_results: NotRequired[

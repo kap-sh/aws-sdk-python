@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RecordingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.s3_location
 
 
-class RecordingConfig(TypedDict):
+class RecordingConfig(TypedDict, closed=True):
     enabled: "bool"
     """<p>Indicates whether recording is enabled for the browser. When set to true, browser sessions are recorded.</p>"""
     s3_location: NotRequired[

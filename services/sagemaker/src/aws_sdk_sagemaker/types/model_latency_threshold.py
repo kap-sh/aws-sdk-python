@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelLatencyThreshold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
     import aws_sdk_sagemaker.types.string64
 
 
-class ModelLatencyThreshold(TypedDict):
+class ModelLatencyThreshold(TypedDict, closed=True):
     percentile: NotRequired["aws_sdk_sagemaker.types.string64.String64"]
     """<p>The model latency percentile threshold. Acceptable values are <code>P95</code> and <code>P99</code>. For custom load tests, specify the value as <code>P95</code>.</p>"""
     value_in_milliseconds: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

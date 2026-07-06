@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomConnectionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class CustomConnectionParameters(TypedDict):
+class CustomConnectionParameters(TypedDict, closed=True):
     connection_type: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The type of custom connector.</p>"""
 

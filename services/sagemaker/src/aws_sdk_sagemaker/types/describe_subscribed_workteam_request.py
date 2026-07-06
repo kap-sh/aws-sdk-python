@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeSubscribedWorkteamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_arn
 
 
-class DescribeSubscribedWorkteamRequest(TypedDict):
+class DescribeSubscribedWorkteamRequest(TypedDict, closed=True):
     workteam_arn: NotRequired["aws_sdk_sagemaker.types.workteam_arn.WorkteamArn"]
     """<p>The Amazon Resource Name (ARN) of the subscribed work team to describe.</p>"""
 

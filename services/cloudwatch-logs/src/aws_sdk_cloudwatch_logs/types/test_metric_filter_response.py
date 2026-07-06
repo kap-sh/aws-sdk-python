@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#TestMetricFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.metric_filter_matches
 
 
-class TestMetricFilterResponse(TypedDict):
+class TestMetricFilterResponse(TypedDict, closed=True):
     matches: NotRequired[
         "aws_sdk_cloudwatch_logs.types.metric_filter_matches.MetricFilterMatches"
     ]

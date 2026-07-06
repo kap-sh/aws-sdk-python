@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#SingleQueryArgument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.field_to_match_data
 
 
-class SingleQueryArgument(TypedDict):
+class SingleQueryArgument(TypedDict, closed=True):
     name: "aws_sdk_wafv2.types.field_to_match_data.FieldToMatchData"
     """<p>The name of the query argument to inspect.</p>"""
 

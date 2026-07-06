@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#SearchDatabasesByLFTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.database_lf_tags_list
     import aws_sdk_lakeformation.types.token
 
 
-class SearchDatabasesByLFTagsResponse(TypedDict):
+class SearchDatabasesByLFTagsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lakeformation.types.token.Token"]
     """<p>A continuation token, present if the current list segment is not the last.</p>"""
     database_list: NotRequired[

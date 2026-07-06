@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OutboundStrategyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_first
 
 
-class OutboundStrategyConfig(TypedDict):
+class OutboundStrategyConfig(TypedDict, closed=True):
     agent_first: NotRequired["aws_sdk_connect.types.agent_first.AgentFirst"]
     """<p>The config of agent first outbound strategy.</p>"""
 

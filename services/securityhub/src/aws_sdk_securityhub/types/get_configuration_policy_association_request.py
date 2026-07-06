@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetConfigurationPolicyAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.target
 
 
-class GetConfigurationPolicyAssociationRequest(TypedDict):
+class GetConfigurationPolicyAssociationRequest(TypedDict, closed=True):
     target: NotRequired["aws_sdk_securityhub.types.target.Target"]
     """<p> The target account ID, organizational unit ID, or the root ID to retrieve the association for. </p>"""
 

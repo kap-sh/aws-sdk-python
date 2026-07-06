@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ExportNotebookInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.notebook_id
 
 
-class ExportNotebookInput(TypedDict):
+class ExportNotebookInput(TypedDict, closed=True):
     notebook_id: "aws_sdk_athena.types.notebook_id.NotebookId"
     """<p>The ID of the notebook to export.</p>"""
 

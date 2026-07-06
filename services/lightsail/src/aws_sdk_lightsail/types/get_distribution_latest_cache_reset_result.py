@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionLatestCacheResetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.string
 
 
-class GetDistributionLatestCacheResetResult(TypedDict):
+class GetDistributionLatestCacheResetResult(TypedDict, closed=True):
     status: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The status of the last cache reset.</p>"""
     create_time: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]

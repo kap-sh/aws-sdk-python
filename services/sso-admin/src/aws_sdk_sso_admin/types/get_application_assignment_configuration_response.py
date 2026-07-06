@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#GetApplicationAssignmentConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.assignment_required
 
 
-class GetApplicationAssignmentConfigurationResponse(TypedDict):
+class GetApplicationAssignmentConfigurationResponse(TypedDict, closed=True):
     assignment_required: (
         "aws_sdk_sso_admin.types.assignment_required.AssignmentRequired"
     )

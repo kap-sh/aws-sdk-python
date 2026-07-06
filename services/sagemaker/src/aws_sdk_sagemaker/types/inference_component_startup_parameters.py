@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentStartupParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.production_variant_container_startup_health_check_timeout_in_seconds
     import aws_sdk_sagemaker.types.production_variant_model_data_download_timeout_in_seconds
 
 
-class InferenceComponentStartupParameters(TypedDict):
+class InferenceComponentStartupParameters(TypedDict, closed=True):
     model_data_download_timeout_in_seconds: NotRequired[
         "aws_sdk_sagemaker.types.production_variant_model_data_download_timeout_in_seconds.ProductionVariantModelDataDownloadTimeoutInSeconds"
     ]

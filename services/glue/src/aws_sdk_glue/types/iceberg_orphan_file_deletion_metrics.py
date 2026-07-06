@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergOrphanFileDeletionMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dpu_counts
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.metric_counts
 
 
-class IcebergOrphanFileDeletionMetrics(TypedDict):
+class IcebergOrphanFileDeletionMetrics(TypedDict, closed=True):
     number_of_orphan_files_deleted: "aws_sdk_glue.types.metric_counts.metricCounts"
     """<p>The number of orphan files deleted by the orphan file deletion job run.</p>"""
     dpu_hours: "aws_sdk_glue.types.dpu_hours.dpuHours"

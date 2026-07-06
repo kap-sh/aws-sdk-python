@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DecryptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.ciphertext_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.recipient_info
 
 
-class DecryptRequest(TypedDict):
+class DecryptRequest(TypedDict, closed=True):
     ciphertext_blob: NotRequired["aws_sdk_kms.types.ciphertext_type.CiphertextType"]
     """<p>Ciphertext to be decrypted. The blob includes metadata.</p> <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>"""
     encryption_context: NotRequired[

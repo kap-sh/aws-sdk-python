@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ParallelExecutionBlockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.steps
 
 
-class ParallelExecutionBlockConfiguration(TypedDict):
+class ParallelExecutionBlockConfiguration(TypedDict, closed=True):
     steps: "aws_sdk_arc_region_switch.types.steps.Steps"
     """<p>The steps for a parallel execution block.</p>"""
 

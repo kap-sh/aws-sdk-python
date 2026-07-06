@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DataflowDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.destination
     import aws_sdk_groundstation.types.source
 
 
-class DataflowDetail(TypedDict):
+class DataflowDetail(TypedDict, closed=True):
     source: NotRequired["aws_sdk_groundstation.types.source.Source"]
     destination: NotRequired["aws_sdk_groundstation.types.destination.Destination"]
     error_message: NotRequired["str"]

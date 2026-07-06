@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TileStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.border_radius
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.padding
 
 
-class TileStyle(TypedDict):
+class TileStyle(TypedDict, closed=True):
     background_color: NotRequired["aws_sdk_quicksight.types.color.Color"]
     """<p>The background color of a tile.</p>"""
     border: NotRequired["aws_sdk_quicksight.types.border_style.BorderStyle"]

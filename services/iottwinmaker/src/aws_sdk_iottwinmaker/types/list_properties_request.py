@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListPropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.next_token
 
 
-class ListPropertiesRequest(TypedDict):
+class ListPropertiesRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The workspace ID.</p>"""
     component_name: NotRequired["aws_sdk_iottwinmaker.types.name.Name"]

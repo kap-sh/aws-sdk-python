@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#ChannelSubtypeParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.whats_app_channel_subtype_parameters
 
 
-class _ChannelSubtypeParameters_telephony(TypedDict):
+class _ChannelSubtypeParameters_telephony(TypedDict, closed=True):
     telephony: "aws_sdk_connectcampaignsv2.types.telephony_channel_subtype_parameters.TelephonyChannelSubtypeParameters"
 
 
-class _ChannelSubtypeParameters_sms(TypedDict):
+class _ChannelSubtypeParameters_sms(TypedDict, closed=True):
     sms: "aws_sdk_connectcampaignsv2.types.sms_channel_subtype_parameters.SmsChannelSubtypeParameters"
 
 
-class _ChannelSubtypeParameters_email(TypedDict):
+class _ChannelSubtypeParameters_email(TypedDict, closed=True):
     email: "aws_sdk_connectcampaignsv2.types.email_channel_subtype_parameters.EmailChannelSubtypeParameters"
 
 
-class _ChannelSubtypeParameters_whatsApp(TypedDict):
+class _ChannelSubtypeParameters_whatsApp(TypedDict, closed=True):
     whatsApp: "aws_sdk_connectcampaignsv2.types.whats_app_channel_subtype_parameters.WhatsAppChannelSubtypeParameters"
 
 

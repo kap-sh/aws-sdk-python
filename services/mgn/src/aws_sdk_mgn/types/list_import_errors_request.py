@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListImportErrorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListImportErrorsRequest(TypedDict):
+class ListImportErrorsRequest(TypedDict, closed=True):
     import_id: "aws_sdk_mgn.types.import_id.ImportID"
     """<p>List import errors request import id.</p>"""
     max_results: NotRequired["aws_sdk_mgn.types.max_results_type.MaxResultsType"]

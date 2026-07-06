@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ServerSideEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
 
 
-class ServerSideEncryptionConfiguration(TypedDict):
+class ServerSideEncryptionConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_qconnect.types.non_empty_string.NonEmptyString"]
     r"""<p>The customer managed key used for encryption. For more information about setting up a customer managed key for Amazon Q in Connect, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/enable-q.html\">Enable Amazon Q in Connect for your instance</a>. For information about valid ID values, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id\">Key identifiers (KeyId)</a>.</p>"""
 

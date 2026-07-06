@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListExportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.export_source_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token
 
 
-class ListExportJobsRequest(TypedDict):
+class ListExportJobsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sesv2.types.next_token.NextToken"]
     """<p>The pagination token returned from a previous call to <code>ListExportJobs</code> to indicate the position in the list of export jobs.</p>"""
     page_size: NotRequired["aws_sdk_sesv2.types.max_items.MaxItems"]

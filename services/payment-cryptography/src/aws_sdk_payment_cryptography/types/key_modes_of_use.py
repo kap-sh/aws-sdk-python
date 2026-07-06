@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#KeyModesOfUse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class KeyModesOfUse(TypedDict):
+class KeyModesOfUse(TypedDict, closed=True):
     encrypt: "bool"
     """<p>Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to encrypt data.</p>"""
     decrypt: "bool"

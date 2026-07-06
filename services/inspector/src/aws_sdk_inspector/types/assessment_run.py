@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.user_attribute_list
 
 
-class AssessmentRun(TypedDict):
+class AssessmentRun(TypedDict, closed=True):
     arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN of the assessment run.</p>"""
     name: "aws_sdk_inspector.types.assessment_run_name.AssessmentRunName"

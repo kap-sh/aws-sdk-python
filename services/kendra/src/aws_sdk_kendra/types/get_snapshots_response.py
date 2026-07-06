@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#GetSnapshotsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.next_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.time_range
 
 
-class GetSnapshotsResponse(TypedDict):
+class GetSnapshotsResponse(TypedDict, closed=True):
     snap_shot_time_filter: NotRequired["aws_sdk_kendra.types.time_range.TimeRange"]
     """<p>The Unix timestamp for the beginning and end of the time window for the search metrics data.</p>"""
     snapshots_data_header: NotRequired[

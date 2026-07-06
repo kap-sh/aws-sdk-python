@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RouteTableIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_network_function_group_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_route_table_arn
 
 
-class RouteTableIdentifier(TypedDict):
+class RouteTableIdentifier(TypedDict, closed=True):
     transit_gateway_route_table_arn: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_route_table_arn.TransitGatewayRouteTableArn"
     ]

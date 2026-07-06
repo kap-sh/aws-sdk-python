@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListLogGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_group_summaries
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class ListLogGroupsResponse(TypedDict):
+class ListLogGroupsResponse(TypedDict, closed=True):
     log_groups: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_summaries.LogGroupSummaries"
     ]

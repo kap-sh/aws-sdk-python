@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DiscardRegistrationVersionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.registration_version_status_history
 
 
-class DiscardRegistrationVersionResult(TypedDict):
+class DiscardRegistrationVersionResult(TypedDict, closed=True):
     registration_arn: "str"
     """<p>The Amazon Resource Name (ARN) for the registration.</p>"""
     registration_id: "str"

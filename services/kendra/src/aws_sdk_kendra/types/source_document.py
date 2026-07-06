@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SourceDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_attribute_key_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.string
 
 
-class SourceDocument(TypedDict):
+class SourceDocument(TypedDict, closed=True):
     document_id: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>The identifier of the document used for a query suggestion.</p>"""
     suggestion_attributes: NotRequired[

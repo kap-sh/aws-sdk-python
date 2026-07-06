@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CloudFrontOriginAccessIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class CloudFrontOriginAccessIdentity(TypedDict):
+class CloudFrontOriginAccessIdentity(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>. </p>"""
     s3_canonical_user_id: "aws_sdk_cloudfront.types.string.string"

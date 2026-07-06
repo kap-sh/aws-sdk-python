@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FrontOfQuotaSharesDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.front_of_quota_shares_job_summary_map
     import aws_sdk_batch.types.long
 
 
-class FrontOfQuotaSharesDetail(TypedDict):
+class FrontOfQuotaSharesDetail(TypedDict, closed=True):
     quota_shares: NotRequired[
         "aws_sdk_batch.types.front_of_quota_shares_job_summary_map.FrontOfQuotaSharesJobSummaryMap"
     ]

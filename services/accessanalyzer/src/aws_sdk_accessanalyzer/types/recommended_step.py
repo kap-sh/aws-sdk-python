@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#RecommendedStep``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.unused_permissions_recommended_step
 
 
-class _RecommendedStep_unusedPermissionsRecommendedStep(TypedDict):
+class _RecommendedStep_unusedPermissionsRecommendedStep(TypedDict, closed=True):
     unusedPermissionsRecommendedStep: "aws_sdk_accessanalyzer.types.unused_permissions_recommended_step.UnusedPermissionsRecommendedStep"
 
 

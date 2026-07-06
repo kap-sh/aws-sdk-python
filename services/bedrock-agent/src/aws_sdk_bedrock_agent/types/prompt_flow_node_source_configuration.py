@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptFlowNodeSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_flow_node_resource_configuration
 
 
-class _PromptFlowNodeSourceConfiguration_resource(TypedDict):
+class _PromptFlowNodeSourceConfiguration_resource(TypedDict, closed=True):
     resource: "aws_sdk_bedrock_agent.types.prompt_flow_node_resource_configuration.PromptFlowNodeResourceConfiguration"
 
 
-class _PromptFlowNodeSourceConfiguration_inline(TypedDict):
+class _PromptFlowNodeSourceConfiguration_inline(TypedDict, closed=True):
     inline: "aws_sdk_bedrock_agent.types.prompt_flow_node_inline_configuration.PromptFlowNodeInlineConfiguration"
 
 

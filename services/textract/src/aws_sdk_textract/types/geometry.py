@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Geometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.angle
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.polygon
 
 
-class Geometry(TypedDict):
+class Geometry(TypedDict, closed=True):
     bounding_box: NotRequired["aws_sdk_textract.types.bounding_box.BoundingBox"]
     """<p>An axis-aligned coarse representation of the location of the recognized item on the document page.</p>"""
     polygon: NotRequired["aws_sdk_textract.types.polygon.Polygon"]

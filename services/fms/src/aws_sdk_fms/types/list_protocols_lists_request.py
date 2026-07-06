@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListProtocolsListsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_token
 
 
-class ListProtocolsListsRequest(TypedDict):
+class ListProtocolsListsRequest(TypedDict, closed=True):
     default_lists: "aws_sdk_fms.types.boolean.Boolean"
     """<p>Specifies whether the lists to retrieve are default lists owned by Firewall Manager.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOrderInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.order_id
 
 
-class GetOrderInput(TypedDict):
+class GetOrderInput(TypedDict, closed=True):
     order_id: "aws_sdk_outposts.types.order_id.OrderId"
     """<p>The ID of the order.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#GetDefaultKeyReplicationRegionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.regions
 
 
-class GetDefaultKeyReplicationRegionsOutput(TypedDict):
+class GetDefaultKeyReplicationRegionsOutput(TypedDict, closed=True):
     enabled_replication_regions: "aws_sdk_payment_cryptography.types.regions.Regions"
     """<p>The list of regions where default key replication is currently enabled for the account.</p> <p>New keys created in this account will automatically be replicated to these regions unless explicitly configured otherwise during key creation.</p>"""
 

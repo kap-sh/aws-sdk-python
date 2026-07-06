@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#UpdateQualificationTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.qualification_type
 
 
-class UpdateQualificationTypeResponse(TypedDict):
+class UpdateQualificationTypeResponse(TypedDict, closed=True):
     qualification_type: NotRequired[
         "aws_sdk_mturk.types.qualification_type.QualificationType"
     ]

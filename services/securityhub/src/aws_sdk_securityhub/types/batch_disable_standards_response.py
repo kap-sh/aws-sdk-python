@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchDisableStandardsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.standards_subscriptions
 
 
-class BatchDisableStandardsResponse(TypedDict):
+class BatchDisableStandardsResponse(TypedDict, closed=True):
     standards_subscriptions: NotRequired[
         "aws_sdk_securityhub.types.standards_subscriptions.StandardsSubscriptions"
     ]

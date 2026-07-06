@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#EmptyOperandValue``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EmptyOperandValue(TypedDict):
+class EmptyOperandValue(TypedDict, closed=True):
     pass
 
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GetBacklogTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.agent_space_id
     import aws_sdk_devops_agent.types.resource_id
 
 
-class GetBacklogTaskRequest(TypedDict):
+class GetBacklogTaskRequest(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier for the agent space containing the task</p>"""
     task_id: "aws_sdk_devops_agent.types.resource_id.ResourceId"

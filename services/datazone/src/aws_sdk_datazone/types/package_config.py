@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PackageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.package_manager
 
 
-class PackageConfig(TypedDict):
+class PackageConfig(TypedDict, closed=True):
     package_manager: "aws_sdk_datazone.types.package_manager.PackageManager"
     """<p>The package manager for the notebook run environment. The default value is <code>UV</code>.</p>"""
     package_specification: NotRequired["str"]

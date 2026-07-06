@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeDashboardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class DescribeDashboardRequest(TypedDict):
+class DescribeDashboardRequest(TypedDict, closed=True):
     dashboard_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the dashboard.</p>"""
 

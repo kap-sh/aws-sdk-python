@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIConditionalFormatting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kpi_conditional_formatting_option_list
 
 
-class KPIConditionalFormatting(TypedDict):
+class KPIConditionalFormatting(TypedDict, closed=True):
     conditional_formatting_options: NotRequired[
         "aws_sdk_quicksight.types.kpi_conditional_formatting_option_list.KPIConditionalFormattingOptionList"
     ]

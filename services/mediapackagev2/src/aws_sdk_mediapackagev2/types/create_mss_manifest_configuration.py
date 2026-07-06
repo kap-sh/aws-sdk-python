@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CreateMssManifestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.mss_manifest_layout
 
 
-class CreateMssManifestConfiguration(TypedDict):
+class CreateMssManifestConfiguration(TypedDict, closed=True):
     manifest_name: "aws_sdk_mediapackagev2.types.manifest_name.ManifestName"
     """<p>A short string that's appended to the endpoint URL to create a unique path to this MSS manifest. The manifest name must be unique within the origin endpoint and can contain letters, numbers, hyphens, and underscores.</p>"""
     manifest_window_seconds: NotRequired["int"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ForwardedIPConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.forwarded_ip_header_name
 
 
-class ForwardedIPConfig(TypedDict):
+class ForwardedIPConfig(TypedDict, closed=True):
     header_name: "aws_sdk_wafv2.types.forwarded_ip_header_name.ForwardedIPHeaderName"
     """<p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p> <note> <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p> </note>"""
     fallback_behavior: "aws_sdk_wafv2.types.fallback_behavior.FallbackBehavior"

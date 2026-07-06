@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#StartWorkflowRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.idempotency_token_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_arn
 
 
-class StartWorkflowRunRequest(TypedDict):
+class StartWorkflowRunRequest(TypedDict, closed=True):
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"
     """<p>The Amazon Resource Name (ARN) of the workflow you want to run.</p>"""
     client_token: NotRequired[

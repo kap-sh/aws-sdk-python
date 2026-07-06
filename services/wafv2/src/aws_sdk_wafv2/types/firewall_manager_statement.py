@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#FirewallManagerStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.managed_rule_group_statement
     import aws_sdk_wafv2.types.rule_group_reference_statement
 
 
-class FirewallManagerStatement(TypedDict):
+class FirewallManagerStatement(TypedDict, closed=True):
     managed_rule_group_statement: NotRequired[
         "aws_sdk_wafv2.types.managed_rule_group_statement.ManagedRuleGroupStatement"
     ]

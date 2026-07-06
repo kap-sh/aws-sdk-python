@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#PutContactPolicyResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutContactPolicyResult(TypedDict):
+class PutContactPolicyResult(TypedDict, closed=True):
     pass
 
 

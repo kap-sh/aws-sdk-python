@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#OpenIdConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OpenIdConfiguration(TypedDict):
+class OpenIdConfiguration(TypedDict, closed=True):
     issuer: NotRequired["str"]
     """<p>The issuer value to copy into your Microsoft Entra app registration's OIDC.</p>"""
     subject: NotRequired["str"]

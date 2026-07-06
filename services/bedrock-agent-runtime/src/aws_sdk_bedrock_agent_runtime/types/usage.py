@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Usage``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Usage(TypedDict):
+class Usage(TypedDict, closed=True):
     input_tokens: NotRequired["int"]
     """<p>Contains information about the input tokens from the foundation model usage.</p>"""
     output_tokens: NotRequired["int"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeleteNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.arn
     import aws_sdk_iotthingsgraph.types.namespace_name
 
 
-class DeleteNamespaceResponse(TypedDict):
+class DeleteNamespaceResponse(TypedDict, closed=True):
     namespace_arn: NotRequired["aws_sdk_iotthingsgraph.types.arn.Arn"]
     """<p>The ARN of the namespace to be deleted.</p>"""
     namespace_name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#S3Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.key
 
 
-class S3Action(TypedDict):
+class S3Action(TypedDict, closed=True):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the IAM role that grants access.</p>"""
     bucket_name: "aws_sdk_iot.types.bucket_name.BucketName"

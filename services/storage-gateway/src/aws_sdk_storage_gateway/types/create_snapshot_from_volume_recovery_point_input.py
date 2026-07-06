@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateSnapshotFromVolumeRecoveryPointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class CreateSnapshotFromVolumeRecoveryPointInput(TypedDict):
+class CreateSnapshotFromVolumeRecoveryPointInput(TypedDict, closed=True):
     volume_arn: "aws_sdk_storage_gateway.types.volume_arn.VolumeARN"
     """<p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>"""
     snapshot_description: (

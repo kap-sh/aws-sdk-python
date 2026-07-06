@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#FindingDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cisa_data
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.vulnerability_reference_urls
 
 
-class FindingDetail(TypedDict):
+class FindingDetail(TypedDict, closed=True):
     finding_arn: NotRequired["aws_sdk_inspector2.types.finding_arn.FindingArn"]
     """<p>The finding ARN that the vulnerability details are associated with.</p>"""
     cisa_data: NotRequired["aws_sdk_inspector2.types.cisa_data.CisaData"]

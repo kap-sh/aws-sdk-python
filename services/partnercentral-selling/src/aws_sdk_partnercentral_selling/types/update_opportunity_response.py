@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#UpdateOpportunityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.opportunity_identifier
 
 
-class UpdateOpportunityResponse(TypedDict):
+class UpdateOpportunityResponse(TypedDict, closed=True):
     id: "aws_sdk_partnercentral_selling.types.opportunity_identifier.OpportunityIdentifier"
     """<p>Read-only, system generated <code>Opportunity</code> unique identifier.</p>"""
     last_modified_date: "aws_sdk_partnercentral_selling.types.date_time.DateTime"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#SshPublicKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.ssh_public_key_id
 
 
-class SshPublicKey(TypedDict):
+class SshPublicKey(TypedDict, closed=True):
     date_imported: "aws_sdk_transfer.types.date_imported.DateImported"
     """<p>Specifies the date that the public key was added to the Transfer Family user.</p>"""
     ssh_public_key_body: "aws_sdk_transfer.types.ssh_public_key_body.SshPublicKeyBody"

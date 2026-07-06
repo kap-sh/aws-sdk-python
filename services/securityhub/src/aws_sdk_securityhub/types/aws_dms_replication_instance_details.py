@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDmsReplicationInstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_dms_replication_instance_replication_subnet_group_details
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsDmsReplicationInstanceDetails(TypedDict):
+class AwsDmsReplicationInstanceDetails(TypedDict, closed=True):
     allocated_storage: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p> The amount of storage (in gigabytes) that is allocated for the replication instance. </p>"""
     auto_minor_version_upgrade: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

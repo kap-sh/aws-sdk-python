@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ReadinessCheckSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__string
     import aws_sdk_route53_recovery_readiness.types.readiness
 
 
-class ReadinessCheckSummary(TypedDict):
+class ReadinessCheckSummary(TypedDict, closed=True):
     readiness: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.readiness.Readiness"
     ]

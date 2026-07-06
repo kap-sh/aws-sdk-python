@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemRelatedItemsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_related_items_filter_values
 
 
-class OpsItemRelatedItemsFilter(TypedDict):
+class OpsItemRelatedItemsFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.ops_item_related_items_filter_key.OpsItemRelatedItemsFilterKey"
     """<p>The name of the filter key. Supported values include <code>ResourceUri</code>, <code>ResourceType</code>, or <code>AssociationId</code>.</p>"""
     values: "aws_sdk_ssm.types.ops_item_related_items_filter_values.OpsItemRelatedItemsFilterValues"

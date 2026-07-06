@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DiscoveredEndpoint``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
 
-class DiscoveredEndpoint(TypedDict):
+class DiscoveredEndpoint(TypedDict, closed=True):
     uri: "str"
     """<p>The URI of the discovered endpoint.</p>"""
     pentest_job_id: "str"

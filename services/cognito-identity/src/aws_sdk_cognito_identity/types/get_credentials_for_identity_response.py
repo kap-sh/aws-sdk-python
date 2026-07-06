@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#GetCredentialsForIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.credentials
     import aws_sdk_cognito_identity.types.identity_id
 
 
-class GetCredentialsForIdentityResponse(TypedDict):
+class GetCredentialsForIdentityResponse(TypedDict, closed=True):
     identity_id: NotRequired["aws_sdk_cognito_identity.types.identity_id.IdentityId"]
     """<p>A unique identifier in the format REGION:GUID.</p>"""
     credentials: NotRequired["aws_sdk_cognito_identity.types.credentials.Credentials"]

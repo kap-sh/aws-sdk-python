@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#RuntimeHintDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.runtime_hint_values_list
     import aws_sdk_lex_runtime_v2.types.slot_hints_slot_map
 
 
-class RuntimeHintDetails(TypedDict):
+class RuntimeHintDetails(TypedDict, closed=True):
     runtime_hint_values: NotRequired[
         "aws_sdk_lex_runtime_v2.types.runtime_hint_values_list.RuntimeHintValuesList"
     ]

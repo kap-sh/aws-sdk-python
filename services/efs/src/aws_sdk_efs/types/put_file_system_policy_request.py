@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#PutFileSystemPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.policy
 
 
-class PutFileSystemPolicyRequest(TypedDict):
+class PutFileSystemPolicyRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>The ID of the EFS file system that you want to create or update the <code>FileSystemPolicy</code> for.</p>"""
     policy: "aws_sdk_efs.types.policy.Policy"

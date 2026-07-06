@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Asg``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.asg_arn
     import aws_sdk_arc_region_switch.types.iam_role_arn
 
 
-class Asg(TypedDict):
+class Asg(TypedDict, closed=True):
     cross_account_role: NotRequired[
         "aws_sdk_arc_region_switch.types.iam_role_arn.IamRoleArn"
     ]

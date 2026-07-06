@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeAssetBundleImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class DescribeAssetBundleImportJobRequest(TypedDict):
+class DescribeAssetBundleImportJobRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account the import job was executed in. </p>"""
     asset_bundle_import_job_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"

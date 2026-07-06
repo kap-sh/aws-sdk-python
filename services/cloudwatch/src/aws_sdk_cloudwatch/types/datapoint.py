@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#Datapoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timestamp
 
 
-class Datapoint(TypedDict):
+class Datapoint(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_cloudwatch.types.timestamp.Timestamp"]
     """<p>The time stamp used for the data point.</p>"""
     sample_count: NotRequired["aws_sdk_cloudwatch.types.datapoint_value.DatapointValue"]

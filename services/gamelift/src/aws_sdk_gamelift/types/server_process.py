@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ServerProcess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.launch_parameters_string_model
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class ServerProcess(TypedDict):
+class ServerProcess(TypedDict, closed=True):
     launch_path: NotRequired[
         "aws_sdk_gamelift.types.launch_path_string_model.LaunchPathStringModel"
     ]

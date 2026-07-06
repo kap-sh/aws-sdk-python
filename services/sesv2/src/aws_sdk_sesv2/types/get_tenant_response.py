@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetTenantResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tenant
 
 
-class GetTenantResponse(TypedDict):
+class GetTenantResponse(TypedDict, closed=True):
     tenant: NotRequired["aws_sdk_sesv2.types.tenant.Tenant"]
     """<p>A structure that contains details about the tenant.</p>"""
 

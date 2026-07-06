@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#FieldsForThemeGeneration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.column_name
 
 
-class FieldsForThemeGeneration(TypedDict):
+class FieldsForThemeGeneration(TypedDict, closed=True):
     item_name: "aws_sdk_personalize.types.column_name.ColumnName"
     """<p>The name of the Items dataset column that stores the name of each item in the dataset.</p>"""
 

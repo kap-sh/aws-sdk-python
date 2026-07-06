@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.export_task
 
 
-class StartExportResponse(TypedDict):
+class StartExportResponse(TypedDict, closed=True):
     export_task: NotRequired["aws_sdk_mgn.types.export_task.ExportTask"]
     """<p>Start export response export task.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEcrContainerAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_list
 
 
-class AwsEcrContainerAggregationResponse(TypedDict):
+class AwsEcrContainerAggregationResponse(TypedDict, closed=True):
     resource_id: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The resource ID of the container.</p>"""
     image_sha: NotRequired["str"]

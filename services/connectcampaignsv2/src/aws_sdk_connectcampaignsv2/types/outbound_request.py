@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#OutboundRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.time_stamp
 
 
-class OutboundRequest(TypedDict):
+class OutboundRequest(TypedDict, closed=True):
     client_token: "aws_sdk_connectcampaignsv2.types.client_token.ClientToken"
     expiration_time: "aws_sdk_connectcampaignsv2.types.time_stamp.TimeStamp"
     channel_subtype_parameters: "aws_sdk_connectcampaignsv2.types.channel_subtype_parameters.ChannelSubtypeParameters"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ReviewSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.review_source_summary_list
 
 
-class ReviewSummary(TypedDict):
+class ReviewSummary(TypedDict, closed=True):
     review_source_summaries: "aws_sdk_marketplace_discovery.types.review_source_summary_list.ReviewSourceSummaryList"
     """<p>Review summaries from different sources, such as AWS Marketplace.</p>"""
 

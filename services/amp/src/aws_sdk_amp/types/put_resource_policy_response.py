@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_policy_status_code
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     policy_status: (
         "aws_sdk_amp.types.workspace_policy_status_code.WorkspacePolicyStatusCode"
     )

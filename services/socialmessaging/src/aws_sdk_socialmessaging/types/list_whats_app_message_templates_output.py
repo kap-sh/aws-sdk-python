@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#ListWhatsAppMessageTemplatesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.next_token
     import aws_sdk_socialmessaging.types.template_summary_list
 
 
-class ListWhatsAppMessageTemplatesOutput(TypedDict):
+class ListWhatsAppMessageTemplatesOutput(TypedDict, closed=True):
     templates: NotRequired[
         "aws_sdk_socialmessaging.types.template_summary_list.TemplateSummaryList"
     ]

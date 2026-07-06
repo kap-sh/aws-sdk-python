@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BatchDescribeDataTableValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.batch_describe_data_table_value_success_result_list
 
 
-class BatchDescribeDataTableValueResponse(TypedDict):
+class BatchDescribeDataTableValueResponse(TypedDict, closed=True):
     successful: "aws_sdk_connect.types.batch_describe_data_table_value_success_result_list.BatchDescribeDataTableValueSuccessResultList"
     """<p>A list of successfully retrieved values with their data, metadata, and lock version information.</p>"""
     failed: "aws_sdk_connect.types.batch_describe_data_table_value_failure_result_list.BatchDescribeDataTableValueFailureResultList"

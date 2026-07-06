@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#PutRumEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.user_details
 
 
-class PutRumEventsRequest(TypedDict):
+class PutRumEventsRequest(TypedDict, closed=True):
     id: "aws_sdk_rum.types.app_monitor_id.AppMonitorId"
     """<p>The ID of the app monitor that is sending this data.</p>"""
     batch_id: "str"

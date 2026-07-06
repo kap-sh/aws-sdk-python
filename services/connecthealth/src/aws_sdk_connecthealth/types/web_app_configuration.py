@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#WebAppConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
 
-class WebAppConfiguration(TypedDict):
+class WebAppConfiguration(TypedDict, closed=True):
     ehr_role: "str"
     """<p>ARN of the IAM role used for EHR operations.</p>"""
     idc_application_id: "str"

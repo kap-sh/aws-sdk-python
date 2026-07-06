@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#GetCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.watchers
 
 
-class GetCaseResponse(TypedDict):
+class GetCaseResponse(TypedDict, closed=True):
     title: NotRequired["aws_sdk_security_ir.types.case_title.CaseTitle"]
     """<p>Response element for GetCase that provides the case title.</p>"""
     case_arn: NotRequired["aws_sdk_security_ir.types.case_arn.CaseArn"]

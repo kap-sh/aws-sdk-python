@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Explanation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.value_string_list
 
 
-class Explanation(TypedDict):
+class Explanation(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_ec2.types.analysis_component.AnalysisComponent"]
     """<p>The network ACL.</p>"""
     acl_rule: NotRequired["aws_sdk_ec2.types.analysis_acl_rule.AnalysisAclRule"]

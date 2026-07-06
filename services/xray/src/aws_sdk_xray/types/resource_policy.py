@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ResourcePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.policy_document
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class ResourcePolicy(TypedDict):
+class ResourcePolicy(TypedDict, closed=True):
     policy_name: NotRequired["aws_sdk_xray.types.policy_name.PolicyName"]
     """<p>The name of the resource policy. Must be unique within a specific Amazon Web Services account.</p>"""
     policy_document: NotRequired["aws_sdk_xray.types.policy_document.PolicyDocument"]

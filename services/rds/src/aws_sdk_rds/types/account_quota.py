@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#AccountQuota``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class AccountQuota(TypedDict):
+class AccountQuota(TypedDict, closed=True):
     account_quota_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the Amazon RDS quota for this Amazon Web Services account.</p>"""
     used: NotRequired["aws_sdk_rds.types.long.Long"]

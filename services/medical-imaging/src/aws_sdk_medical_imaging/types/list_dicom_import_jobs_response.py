@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ListDICOMImportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.next_token
 
 
-class ListDICOMImportJobsResponse(TypedDict):
+class ListDICOMImportJobsResponse(TypedDict, closed=True):
     job_summaries: "aws_sdk_medical_imaging.types.dicom_import_job_summaries.DICOMImportJobSummaries"
     """<p>A list of job summaries.</p>"""
     next_token: NotRequired["aws_sdk_medical_imaging.types.next_token.NextToken"]

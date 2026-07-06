@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MessageInsightsFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_address_filter_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.last_engagement_event_list
 
 
-class MessageInsightsFilters(TypedDict):
+class MessageInsightsFilters(TypedDict, closed=True):
     from_email_address: NotRequired[
         "aws_sdk_sesv2.types.email_address_filter_list.EmailAddressFilterList"
     ]

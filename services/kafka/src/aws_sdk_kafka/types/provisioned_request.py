@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ProvisionedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer_min1_max15
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.storage_mode
 
 
-class ProvisionedRequest(TypedDict):
+class ProvisionedRequest(TypedDict, closed=True):
     broker_node_group_info: NotRequired[
         "aws_sdk_kafka.types.broker_node_group_info.BrokerNodeGroupInfo"
     ]

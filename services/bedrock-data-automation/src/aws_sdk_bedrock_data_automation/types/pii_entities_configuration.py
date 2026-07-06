@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#PIIEntitiesConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.pii_entity_types
     import aws_sdk_bedrock_data_automation.types.pii_redaction_mask_mode
 
 
-class PIIEntitiesConfiguration(TypedDict):
+class PIIEntitiesConfiguration(TypedDict, closed=True):
     pii_entity_types: NotRequired[
         "aws_sdk_bedrock_data_automation.types.pii_entity_types.PIIEntityTypes"
     ]

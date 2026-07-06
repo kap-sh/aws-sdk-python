@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetWorkloadAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.workload_identity_name_type
 
 
-class GetWorkloadAccessTokenRequest(TypedDict):
+class GetWorkloadAccessTokenRequest(TypedDict, closed=True):
     workload_name: "aws_sdk_bedrock_agentcore.types.workload_identity_name_type.WorkloadIdentityNameType"
     """<p>The unique identifier for the registered workload.</p>"""
 

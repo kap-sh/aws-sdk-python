@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#DisassociateResourceShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ram.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class DisassociateResourceShareRequest(TypedDict):
+class DisassociateResourceShareRequest(TypedDict, closed=True):
     resource_share_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share that you want to remove resources or principals from.</p>"""
     resource_arns: NotRequired["aws_sdk_ram.types.resource_arn_list.ResourceArnList"]

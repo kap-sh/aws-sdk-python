@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sort_order
 
 
-class IntentSortBy(TypedDict):
+class IntentSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.intent_sort_attribute.IntentSortAttribute"
     """<p>The attribute to use to sort the list of intents.</p>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#CreateControlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control
 
 
-class CreateControlResponse(TypedDict):
+class CreateControlResponse(TypedDict, closed=True):
     control: NotRequired["aws_sdk_auditmanager.types.control.Control"]
     """<p> The new control that the <code>CreateControl</code> API returned. </p>"""
 

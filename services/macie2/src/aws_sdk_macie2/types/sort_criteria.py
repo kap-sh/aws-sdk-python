@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.order_by
 
 
-class SortCriteria(TypedDict):
+class SortCriteria(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The name of the property to sort the results by. Valid values are: count, createdAt, policyDetails.action.apiCallDetails.firstSeen, policyDetails.action.apiCallDetails.lastSeen, resourcesAffected, severity.score, type, and updatedAt.</p>"""
     order_by: NotRequired["aws_sdk_macie2.types.order_by.OrderBy"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#RegisterOidcConfigTestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.network_id
 
 
-class RegisterOidcConfigTestRequest(TypedDict):
+class RegisterOidcConfigTestRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network for which the OIDC configuration will be tested.</p>"""
     extra_auth_params: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListServiceDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.service_deployments_brief
     import aws_sdk_ecs.types.string
 
 
-class ListServiceDeploymentsResponse(TypedDict):
+class ListServiceDeploymentsResponse(TypedDict, closed=True):
     service_deployments: NotRequired[
         "aws_sdk_ecs.types.service_deployments_brief.ServiceDeploymentsBrief"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AccountLink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.account_link_status_enum
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.link_id
 
 
-class AccountLink(TypedDict):
+class AccountLink(TypedDict, closed=True):
     account_link_id: NotRequired["aws_sdk_workspaces.types.link_id.LinkId"]
     """<p>The identifier of the account link.</p>"""
     account_link_status: NotRequired[

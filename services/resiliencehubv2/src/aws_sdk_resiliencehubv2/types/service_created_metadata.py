@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceCreatedMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ServiceCreatedMetadata(TypedDict):
+class ServiceCreatedMetadata(TypedDict, closed=True):
     pass
 
 

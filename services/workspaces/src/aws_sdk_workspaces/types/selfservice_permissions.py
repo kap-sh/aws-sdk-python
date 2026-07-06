@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#SelfservicePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.reconnect_enum
 
 
-class SelfservicePermissions(TypedDict):
+class SelfservicePermissions(TypedDict, closed=True):
     restart_workspace: NotRequired[
         "aws_sdk_workspaces.types.reconnect_enum.ReconnectEnum"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#NdiConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_ndi_discovery_server_config
     import aws_sdk_mediaconnect.types.ndi_state
 
 
-class NdiConfig(TypedDict):
+class NdiConfig(TypedDict, closed=True):
     ndi_state: NotRequired["aws_sdk_mediaconnect.types.ndi_state.NdiState"]
     """<p>A setting that controls whether NDI® sources or outputs can be used in the flow. </p> <p> The default value is <code>DISABLED</code>. This value must be set as <code>ENABLED</code> for your flow to support NDI sources or outputs. </p>"""
     machine_name: NotRequired["str"]

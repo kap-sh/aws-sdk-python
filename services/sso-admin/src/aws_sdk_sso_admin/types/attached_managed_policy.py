@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AttachedManagedPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.managed_policy_arn
     import aws_sdk_sso_admin.types.name
 
 
-class AttachedManagedPolicy(TypedDict):
+class AttachedManagedPolicy(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sso_admin.types.name.Name"]
     """<p>The name of the Amazon Web Services managed policy.</p>"""
     arn: NotRequired["aws_sdk_sso_admin.types.managed_policy_arn.ManagedPolicyArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetQueryStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.get_query_state_request_query_id_string
 
 
-class GetQueryStateRequest(TypedDict):
+class GetQueryStateRequest(TypedDict, closed=True):
     query_id: "aws_sdk_lakeformation.types.get_query_state_request_query_id_string.GetQueryStateRequestQueryIdString"
     """<p>The ID of the plan query operation.</p>"""
 

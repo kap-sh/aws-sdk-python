@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#LabelAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class LabelAlias(TypedDict):
+class LabelAlias(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The name of an alias for a given label.</p>"""
 

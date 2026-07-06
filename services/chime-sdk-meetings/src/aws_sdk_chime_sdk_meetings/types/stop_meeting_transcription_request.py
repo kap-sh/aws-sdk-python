@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#StopMeetingTranscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.guid_string
 
 
-class StopMeetingTranscriptionRequest(TypedDict):
+class StopMeetingTranscriptionRequest(TypedDict, closed=True):
     meeting_id: "aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"
     """<p>The unique ID of the meeting for which you stop transcription.</p>"""
 

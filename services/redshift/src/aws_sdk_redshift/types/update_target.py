@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#UpdateTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.supported_operation_list
 
 
-class UpdateTarget(TypedDict):
+class UpdateTarget(TypedDict, closed=True):
     maintenance_track_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the new maintenance track.</p>"""
     database_version: NotRequired["aws_sdk_redshift.types.string.String"]

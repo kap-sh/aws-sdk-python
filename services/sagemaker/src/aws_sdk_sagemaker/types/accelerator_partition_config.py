@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AcceleratorPartitionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
     import aws_sdk_sagemaker.types.mig_profile_type
 
 
-class AcceleratorPartitionConfig(TypedDict):
+class AcceleratorPartitionConfig(TypedDict, closed=True):
     type: NotRequired["aws_sdk_sagemaker.types.mig_profile_type.MIGProfileType"]
     """<p>The Multi-Instance GPU (MIG) profile type that defines the partition configuration. The profile specifies the compute and memory allocation for each partition instance. The available profile types depend on the instance type specified in the compute quota configuration.</p>"""
     count: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

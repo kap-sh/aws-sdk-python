@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#SparkSqlJobDriver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.entry_point_path
     import aws_sdk_emr_containers.types.spark_sql_parameters
 
 
-class SparkSqlJobDriver(TypedDict):
+class SparkSqlJobDriver(TypedDict, closed=True):
     entry_point: NotRequired[
         "aws_sdk_emr_containers.types.entry_point_path.EntryPointPath"
     ]

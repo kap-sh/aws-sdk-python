@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetCommitmentPurchaseAnalysisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.analysis_id
 
 
-class GetCommitmentPurchaseAnalysisRequest(TypedDict):
+class GetCommitmentPurchaseAnalysisRequest(TypedDict, closed=True):
     analysis_id: "aws_sdk_cost_explorer.types.analysis_id.AnalysisId"
     """<p>The analysis ID that's associated with the commitment purchase analysis.</p>"""
 

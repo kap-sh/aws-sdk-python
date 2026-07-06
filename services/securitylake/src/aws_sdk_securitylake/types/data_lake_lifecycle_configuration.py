@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeLifecycleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_lifecycle_expiration
     import aws_sdk_securitylake.types.data_lake_lifecycle_transition_list
 
 
-class DataLakeLifecycleConfiguration(TypedDict):
+class DataLakeLifecycleConfiguration(TypedDict, closed=True):
     expiration: NotRequired[
         "aws_sdk_securitylake.types.data_lake_lifecycle_expiration.DataLakeLifecycleExpiration"
     ]

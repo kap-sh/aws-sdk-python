@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Studio``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class Studio(TypedDict):
+class Studio(TypedDict, closed=True):
     studio_id: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The ID of the Amazon EMR Studio.</p>"""
     studio_arn: NotRequired[

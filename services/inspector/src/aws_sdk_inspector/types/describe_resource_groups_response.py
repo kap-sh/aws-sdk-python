@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DescribeResourceGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.resource_group_list
 
 
-class DescribeResourceGroupsResponse(TypedDict):
+class DescribeResourceGroupsResponse(TypedDict, closed=True):
     resource_groups: "aws_sdk_inspector.types.resource_group_list.ResourceGroupList"
     """<p>Information about a resource group.</p>"""
     failed_items: "aws_sdk_inspector.types.failed_items.FailedItems"

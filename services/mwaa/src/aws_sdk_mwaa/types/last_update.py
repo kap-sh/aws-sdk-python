@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#LastUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.update_created_at
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.worker_replacement_strategy
 
 
-class LastUpdate(TypedDict):
+class LastUpdate(TypedDict, closed=True):
     status: NotRequired["aws_sdk_mwaa.types.update_status.UpdateStatus"]
     """<p>The status of the last update on the environment.</p>"""
     created_at: NotRequired["aws_sdk_mwaa.types.update_created_at.UpdateCreatedAt"]

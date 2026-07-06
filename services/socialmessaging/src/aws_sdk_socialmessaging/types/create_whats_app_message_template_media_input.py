@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#CreateWhatsAppMessageTemplateMediaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.s3_file
 
 
-class CreateWhatsAppMessageTemplateMediaInput(TypedDict):
+class CreateWhatsAppMessageTemplateMediaInput(TypedDict, closed=True):
     id: "aws_sdk_socialmessaging.types.linked_whats_app_business_account_id.LinkedWhatsAppBusinessAccountId"
     """<p>The ID of the WhatsApp Business Account associated with this media upload.</p>"""
     source_s3_file: NotRequired["aws_sdk_socialmessaging.types.s3_file.S3File"]

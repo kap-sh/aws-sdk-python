@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RoutePassThroughWaypoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_pass_through_place
 
 
-class RoutePassThroughWaypoint(TypedDict):
+class RoutePassThroughWaypoint(TypedDict, closed=True):
     geometry_offset: NotRequired["int"]
     """<p>Offset in the leg geometry corresponding to the start of this step.</p>"""
     place: "aws_sdk_geo_routes.types.route_pass_through_place.RoutePassThroughPlace"

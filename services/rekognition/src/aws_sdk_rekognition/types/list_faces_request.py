@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListFacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class ListFacesRequest(TypedDict):
+class ListFacesRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_rekognition.types.collection_id.CollectionId"
     """<p>ID of the collection from which to list the faces.</p>"""
     next_token: NotRequired[

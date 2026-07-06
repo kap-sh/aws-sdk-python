@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AutoTune``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.auto_tune_details
     import aws_sdk_opensearch.types.auto_tune_type
 
 
-class AutoTune(TypedDict):
+class AutoTune(TypedDict, closed=True):
     auto_tune_type: NotRequired["aws_sdk_opensearch.types.auto_tune_type.AutoTuneType"]
     """<p>The type of Auto-Tune action.</p>"""
     auto_tune_details: NotRequired[

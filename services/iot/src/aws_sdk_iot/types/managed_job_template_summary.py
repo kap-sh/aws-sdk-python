@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ManagedJobTemplateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.environments
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.managed_template_version
 
 
-class ManagedJobTemplateSummary(TypedDict):
+class ManagedJobTemplateSummary(TypedDict, closed=True):
     template_arn: NotRequired["aws_sdk_iot.types.job_template_arn.JobTemplateArn"]
     """<p>The Amazon Resource Name (ARN) for a managed template.</p>"""
     template_name: NotRequired[

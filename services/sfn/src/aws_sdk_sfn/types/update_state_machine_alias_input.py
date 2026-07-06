@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#UpdateStateMachineAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.routing_configuration_list
 
 
-class UpdateStateMachineAliasInput(TypedDict):
+class UpdateStateMachineAliasInput(TypedDict, closed=True):
     state_machine_alias_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the state machine alias.</p>"""
     description: NotRequired["aws_sdk_sfn.types.alias_description.AliasDescription"]

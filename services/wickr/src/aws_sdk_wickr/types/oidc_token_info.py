@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#OidcTokenInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class OidcTokenInfo(TypedDict):
+class OidcTokenInfo(TypedDict, closed=True):
     code_verifier: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The PKCE (Proof Key for Code Exchange) code verifier, a cryptographically random string used to enhance security in the OAuth flow.</p>"""
     code_challenge: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#SearchGameSessionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_id_or_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class SearchGameSessionsInput(TypedDict):
+class SearchGameSessionsInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to search for active game sessions. You can use either the fleet ID or ARN value. Each request must reference either a fleet ID or alias ID, but not both.</p>"""
     alias_id: NotRequired["aws_sdk_gamelift.types.alias_id_or_arn.AliasIdOrArn"]

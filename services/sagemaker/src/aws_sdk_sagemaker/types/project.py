@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Project``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_description
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.user_context
 
 
-class Project(TypedDict):
+class Project(TypedDict, closed=True):
     project_arn: NotRequired["aws_sdk_sagemaker.types.project_arn.ProjectArn"]
     """<p>The Amazon Resource Name (ARN) of the project.</p>"""
     project_name: NotRequired[

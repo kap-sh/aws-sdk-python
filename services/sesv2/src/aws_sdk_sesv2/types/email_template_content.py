@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EmailTemplateContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_html
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_text
 
 
-class EmailTemplateContent(TypedDict):
+class EmailTemplateContent(TypedDict, closed=True):
     subject: NotRequired[
         "aws_sdk_sesv2.types.email_template_subject.EmailTemplateSubject"
     ]

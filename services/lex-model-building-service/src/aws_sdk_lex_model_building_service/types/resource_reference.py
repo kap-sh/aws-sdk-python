@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#ResourceReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.name
     import aws_sdk_lex_model_building_service.types.version
 
 
-class ResourceReference(TypedDict):
+class ResourceReference(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lex_model_building_service.types.name.Name"]
     """<p>The name of the resource that is using the resource that you are trying to delete.</p>"""
     version: NotRequired["aws_sdk_lex_model_building_service.types.version.Version"]

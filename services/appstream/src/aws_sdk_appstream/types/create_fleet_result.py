@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateFleetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.fleet
 
 
-class CreateFleetResult(TypedDict):
+class CreateFleetResult(TypedDict, closed=True):
     fleet: NotRequired["aws_sdk_appstream.types.fleet.Fleet"]
     """<p>Information about the fleet.</p>"""
 

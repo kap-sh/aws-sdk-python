@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateApplicationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.application
 
 
-class CreateApplicationResult(TypedDict):
+class CreateApplicationResult(TypedDict, closed=True):
     application: NotRequired["aws_sdk_appstream.types.application.Application"]
 
 

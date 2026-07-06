@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetStyleDescriptorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.api_key
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.travel_mode_list
 
 
-class GetStyleDescriptorRequest(TypedDict):
+class GetStyleDescriptorRequest(TypedDict, closed=True):
     style: "aws_sdk_geo_maps.types.map_style.MapStyle"
     r"""<p>Style specifies the desired map style. For <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html\">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the <code>Standard</code> and <code>Monochrome</code> values.</p>"""
     color_scheme: NotRequired["aws_sdk_geo_maps.types.color_scheme.ColorScheme"]

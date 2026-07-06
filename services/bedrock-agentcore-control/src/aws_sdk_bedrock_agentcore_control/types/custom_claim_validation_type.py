@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomClaimValidationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type
 
 
-class CustomClaimValidationType(TypedDict):
+class CustomClaimValidationType(TypedDict, closed=True):
     inbound_token_claim_name: "aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_name_type.InboundTokenClaimNameType"
     """<p>The name of the custom claim field to check.</p>"""
     inbound_token_claim_value_type: "aws_sdk_bedrock_agentcore_control.types.inbound_token_claim_value_type.InboundTokenClaimValueType"

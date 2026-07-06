@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchItemError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.batch_item_error_code
 
 
-class BatchItemError(TypedDict):
+class BatchItemError(TypedDict, closed=True):
     code: NotRequired["aws_sdk_location.types.batch_item_error_code.BatchItemErrorCode"]
     """<p>The error code associated with the batch request error.</p>"""
     message: NotRequired["str"]

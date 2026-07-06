@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeNotificationSubscriptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.page_marker_type
 
 
-class DescribeNotificationSubscriptionsRequest(TypedDict):
+class DescribeNotificationSubscriptionsRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workdocs.types.id_type.IdType"
     """<p>The ID of the organization.</p>"""
     marker: NotRequired["aws_sdk_workdocs.types.page_marker_type.PageMarkerType"]

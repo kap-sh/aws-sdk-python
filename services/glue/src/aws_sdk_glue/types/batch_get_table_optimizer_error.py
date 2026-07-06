@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetTableOptimizerError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_optimizer_type
 
 
-class BatchGetTableOptimizerError(TypedDict):
+class BatchGetTableOptimizerError(TypedDict, closed=True):
     error: NotRequired["aws_sdk_glue.types.error_detail.ErrorDetail"]
     """<p>An <code>ErrorDetail</code> object containing code and message details about the error.</p>"""
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]

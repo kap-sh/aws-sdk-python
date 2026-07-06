@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CreateDeliverabilityTestReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tag_list
 
 
-class CreateDeliverabilityTestReportRequest(TypedDict):
+class CreateDeliverabilityTestReportRequest(TypedDict, closed=True):
     report_name: NotRequired["aws_sdk_pinpoint_email.types.report_name.ReportName"]
     """<p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the results.</p>"""
     from_email_address: "aws_sdk_pinpoint_email.types.email_address.EmailAddress"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#RuntimeValidationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.instance_type
 
 
-class RuntimeValidationConfig(TypedDict):
+class RuntimeValidationConfig(TypedDict, closed=True):
     intended_instance_type: NotRequired[
         "aws_sdk_appstream.types.instance_type.InstanceType"
     ]

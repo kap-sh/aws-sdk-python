@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RecommendationConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RecommendationConfiguration(TypedDict):
+class RecommendationConfiguration(TypedDict, closed=True):
     enable_business_name_generation: NotRequired["bool"]
     """<p>Specifies whether automatic business name generation is to be enabled or not as part of the recommendation configuration.</p>"""
 

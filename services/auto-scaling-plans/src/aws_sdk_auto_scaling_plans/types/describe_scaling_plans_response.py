@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#DescribeScalingPlansResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.next_token
     import aws_sdk_auto_scaling_plans.types.scaling_plans
 
 
-class DescribeScalingPlansResponse(TypedDict):
+class DescribeScalingPlansResponse(TypedDict, closed=True):
     scaling_plans: NotRequired[
         "aws_sdk_auto_scaling_plans.types.scaling_plans.ScalingPlans"
     ]

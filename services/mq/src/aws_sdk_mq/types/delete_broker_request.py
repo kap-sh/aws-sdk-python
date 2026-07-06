@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DeleteBrokerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class DeleteBrokerRequest(TypedDict):
+class DeleteBrokerRequest(TypedDict, closed=True):
     broker_id: "aws_sdk_mq.types.__string.__string"
     """<p>The unique ID that Amazon MQ generates for the broker.</p>"""
 

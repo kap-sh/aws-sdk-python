@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergeMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.merge_option_type_enum
 
 
-class MergeMetadata(TypedDict):
+class MergeMetadata(TypedDict, closed=True):
     is_merged: "aws_sdk_codecommit.types.is_merged.IsMerged"
     """<p>A Boolean value indicating whether the merge has been made.</p>"""
     merged_by: NotRequired["aws_sdk_codecommit.types.arn.Arn"]

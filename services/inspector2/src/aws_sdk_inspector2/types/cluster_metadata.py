@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ClusterMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.aws_eks_metadata_details
 
 
-class _ClusterMetadata_awsEcsMetadataDetails(TypedDict):
+class _ClusterMetadata_awsEcsMetadataDetails(TypedDict, closed=True):
     awsEcsMetadataDetails: (
         "aws_sdk_inspector2.types.aws_ecs_metadata_details.AwsEcsMetadataDetails"
     )
 
 
-class _ClusterMetadata_awsEksMetadataDetails(TypedDict):
+class _ClusterMetadata_awsEksMetadataDetails(TypedDict, closed=True):
     awsEksMetadataDetails: (
         "aws_sdk_inspector2.types.aws_eks_metadata_details.AwsEksMetadataDetails"
     )

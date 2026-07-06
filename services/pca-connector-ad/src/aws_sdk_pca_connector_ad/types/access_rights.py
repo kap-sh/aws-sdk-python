@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#AccessRights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.access_right
 
 
-class AccessRights(TypedDict):
+class AccessRights(TypedDict, closed=True):
     enroll: NotRequired["aws_sdk_pca_connector_ad.types.access_right.AccessRight"]
     """<p>Allow or deny an Active Directory group from enrolling certificates issued against a template.</p>"""
     auto_enroll: NotRequired["aws_sdk_pca_connector_ad.types.access_right.AccessRight"]

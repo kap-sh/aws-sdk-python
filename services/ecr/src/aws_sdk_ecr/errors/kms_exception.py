@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#KmsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.kms_error
 
 
-class KmsException_(TypedDict):
+class KmsException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ecr.types.exception_message.ExceptionMessage"]
     kms_error: NotRequired["aws_sdk_ecr.types.kms_error.KmsError"]
     """<p>The error code returned by KMS.</p>"""

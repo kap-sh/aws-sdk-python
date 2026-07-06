@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListResourceDelegatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.next_token
     import aws_sdk_workmail.types.resource_delegates
 
 
-class ListResourceDelegatesResponse(TypedDict):
+class ListResourceDelegatesResponse(TypedDict, closed=True):
     delegates: NotRequired[
         "aws_sdk_workmail.types.resource_delegates.ResourceDelegates"
     ]

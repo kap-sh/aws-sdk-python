@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#UploadReadSetPartRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_part_source
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.upload_id
 
 
-class UploadReadSetPartRequest(TypedDict):
+class UploadReadSetPartRequest(TypedDict, closed=True):
     sequence_store_id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"
     """<p>The Sequence Store ID used for the multipart upload.</p>"""
     upload_id: "aws_sdk_omics.types.upload_id.UploadId"

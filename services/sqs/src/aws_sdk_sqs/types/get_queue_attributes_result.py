@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#GetQueueAttributesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.queue_attribute_map
 
 
-class GetQueueAttributesResult(TypedDict):
+class GetQueueAttributesResult(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_sqs.types.queue_attribute_map.QueueAttributeMap"]
     """<p>A map of attributes to their respective values.</p>"""
 

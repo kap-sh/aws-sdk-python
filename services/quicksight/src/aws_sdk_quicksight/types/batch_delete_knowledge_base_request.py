@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BatchDeleteKnowledgeBaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kb_aws_account_id
 
 
-class BatchDeleteKnowledgeBaseRequest(TypedDict):
+class BatchDeleteKnowledgeBaseRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.kb_aws_account_id.KbAwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the knowledge base.</p>"""
     knowledge_base_ids: "aws_sdk_quicksight.types.batch_delete_knowledge_base_request_knowledge_base_ids_list.BatchDeleteKnowledgeBaseRequestKnowledgeBaseIdsList"

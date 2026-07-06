@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#LambdaConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.invoke_type
 
 
-class LambdaConfig(TypedDict):
+class LambdaConfig(TypedDict, closed=True):
     invoke_type: NotRequired["aws_sdk_appsync.types.invoke_type.InvokeType"]
     """<p>The invocation type for a Lambda data source.</p>"""
 

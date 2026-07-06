@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchedUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_id
 
 
-class SearchedUser(TypedDict):
+class SearchedUser(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_rekognition.types.user_id.UserId"]
     """<p> A provided ID for the UserID. Unique within the collection. </p>"""
 

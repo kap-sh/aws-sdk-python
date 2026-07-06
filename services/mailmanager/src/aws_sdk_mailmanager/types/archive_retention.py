@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ArchiveRetention``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.retention_period
 
 
-class _ArchiveRetention_RetentionPeriod(TypedDict):
+class _ArchiveRetention_RetentionPeriod(TypedDict, closed=True):
     RetentionPeriod: "aws_sdk_mailmanager.types.retention_period.RetentionPeriod"
 
 

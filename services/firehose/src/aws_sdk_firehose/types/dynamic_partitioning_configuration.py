@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#DynamicPartitioningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.boolean_object
     import aws_sdk_firehose.types.retry_options
 
 
-class DynamicPartitioningConfiguration(TypedDict):
+class DynamicPartitioningConfiguration(TypedDict, closed=True):
     retry_options: NotRequired["aws_sdk_firehose.types.retry_options.RetryOptions"]
     """<p>The retry behavior in case Firehose is unable to deliver data to an Amazon S3 prefix.</p>"""
     enabled: NotRequired["aws_sdk_firehose.types.boolean_object.BooleanObject"]

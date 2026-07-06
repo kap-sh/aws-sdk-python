@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#DetectedLanguageLowConfidenceException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.string
 
 
-class DetectedLanguageLowConfidenceException_(TypedDict):
+class DetectedLanguageLowConfidenceException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_translate.types.string.String"]
     detected_language_code: NotRequired[
         "aws_sdk_translate.types.language_code_string.LanguageCodeString"

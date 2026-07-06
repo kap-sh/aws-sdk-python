@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ActorSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.actor_session_mfa_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ActorSession(TypedDict):
+class ActorSession(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Unique identifier of the session. </p>"""
     mfa_status: NotRequired[

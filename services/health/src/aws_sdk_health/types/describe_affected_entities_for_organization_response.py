@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeAffectedEntitiesForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.describe_affected_entities_for_organization_failed_set
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.next_token
 
 
-class DescribeAffectedEntitiesForOrganizationResponse(TypedDict):
+class DescribeAffectedEntitiesForOrganizationResponse(TypedDict, closed=True):
     entities: NotRequired["aws_sdk_health.types.entity_list.EntityList"]
     """<p>A JSON set of elements including the <code>awsAccountId</code> and its <code>entityArn</code>, <code>entityValue</code> and its <code>entityArn</code>, <code>lastUpdatedTime</code>, and <code>statusCode</code>.</p>"""
     failed_set: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#UpdateStateTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.state_template_properties
 
 
-class UpdateStateTemplateRequest(TypedDict):
+class UpdateStateTemplateRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iotfleetwise.types.resource_identifier.ResourceIdentifier"
     """<p>The unique ID of the state template.</p>"""
     description: NotRequired["aws_sdk_iotfleetwise.types.description.description"]

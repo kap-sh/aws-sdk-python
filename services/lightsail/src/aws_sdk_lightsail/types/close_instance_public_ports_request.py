@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CloseInstancePublicPortsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class CloseInstancePublicPortsRequest(TypedDict):
+class CloseInstancePublicPortsRequest(TypedDict, closed=True):
     port_info: "aws_sdk_lightsail.types.port_info.PortInfo"
     """<p>An object to describe the ports to close for the specified instance.</p>"""
     instance_name: "aws_sdk_lightsail.types.resource_name.ResourceName"

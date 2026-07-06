@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#AutoScalingDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.scale_out_policy_description
 
 
-class AutoScalingDescription(TypedDict):
+class AutoScalingDescription(TypedDict, closed=True):
     max_worker_count: "aws_sdk_kafkaconnect.types.__integer.__integer"
     """<p>The maximum number of workers allocated to the connector.</p>"""
     mcu_count: "aws_sdk_kafkaconnect.types.__integer.__integer"

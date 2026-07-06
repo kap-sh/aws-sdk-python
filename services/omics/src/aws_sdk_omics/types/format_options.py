@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#FormatOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.vcf_options
 
 
-class _FormatOptions_tsvOptions(TypedDict):
+class _FormatOptions_tsvOptions(TypedDict, closed=True):
     tsvOptions: "aws_sdk_omics.types.tsv_options.TsvOptions"
 
 
-class _FormatOptions_vcfOptions(TypedDict):
+class _FormatOptions_vcfOptions(TypedDict, closed=True):
     vcfOptions: "aws_sdk_omics.types.vcf_options.VcfOptions"
 
 

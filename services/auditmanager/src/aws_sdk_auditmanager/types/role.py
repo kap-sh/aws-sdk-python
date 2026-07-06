@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Role``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.role_type
 
 
-class Role(TypedDict):
+class Role(TypedDict, closed=True):
     role_type: "aws_sdk_auditmanager.types.role_type.RoleType"
     """<p> The type of customer persona. </p> <note> <p>In <code>CreateAssessment</code>, <code>roleType</code> can only be <code>PROCESS_OWNER</code>. </p> <p>In <code>UpdateSettings</code>, <code>roleType</code> can only be <code>PROCESS_OWNER</code>.</p> <p>In <code>BatchCreateDelegationByAssessment</code>, <code>roleType</code> can only be <code>RESOURCE_OWNER</code>.</p> </note>"""
     role_arn: "aws_sdk_auditmanager.types.iam_arn.IamArn"

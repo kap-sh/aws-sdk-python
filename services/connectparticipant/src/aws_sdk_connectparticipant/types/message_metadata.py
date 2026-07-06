@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#MessageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.chat_item_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.receipts
 
 
-class MessageMetadata(TypedDict):
+class MessageMetadata(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_connectparticipant.types.chat_item_id.ChatItemId"]
     """<p>The identifier of the message that contains the metadata information. </p>"""
     receipts: NotRequired["aws_sdk_connectparticipant.types.receipts.Receipts"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#PutSynchronizationConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutSynchronizationConfigurationResponse(TypedDict):
+class PutSynchronizationConfigurationResponse(TypedDict, closed=True):
     pass
 
 

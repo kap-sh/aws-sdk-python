@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ServerCertificateScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.addresses
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.protocol_numbers
 
 
-class ServerCertificateScope(TypedDict):
+class ServerCertificateScope(TypedDict, closed=True):
     sources: NotRequired["aws_sdk_network_firewall.types.addresses.Addresses"]
     """<p>The source IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this matches with any source address.</p>"""
     destinations: NotRequired["aws_sdk_network_firewall.types.addresses.Addresses"]

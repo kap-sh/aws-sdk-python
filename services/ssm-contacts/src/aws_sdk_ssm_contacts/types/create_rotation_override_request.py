@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#CreateRotationOverrideRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn
 
 
-class CreateRotationOverrideRequest(TypedDict):
+class CreateRotationOverrideRequest(TypedDict, closed=True):
     rotation_id: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     """<p>The Amazon Resource Name (ARN) of the rotation to create an override for.</p>"""
     new_contact_ids: "aws_sdk_ssm_contacts.types.rotation_override_contacts_arn_list.RotationOverrideContactsArnList"

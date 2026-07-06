@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#PurchaseOfferingRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PurchaseOfferingRequest(TypedDict):
+class PurchaseOfferingRequest(TypedDict, closed=True):
     offering_arn: "str"
     """<p> The Amazon Resource Name (ARN) of the offering.</p>"""
     reservation_name: NotRequired["str"]

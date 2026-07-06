@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetRegistryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.registry_id
 
 
-class GetRegistryInput(TypedDict):
+class GetRegistryInput(TypedDict, closed=True):
     registry_id: "aws_sdk_glue.types.registry_id.RegistryId"
     """<p>This is a wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>"""
 

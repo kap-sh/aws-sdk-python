@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListNotificationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.notifications
     import aws_sdk_auditmanager.types.token
 
 
-class ListNotificationsResponse(TypedDict):
+class ListNotificationsResponse(TypedDict, closed=True):
     notifications: NotRequired["aws_sdk_auditmanager.types.notifications.Notifications"]
     """<p> The returned list of notifications. </p>"""
     next_token: NotRequired["aws_sdk_auditmanager.types.token.Token"]

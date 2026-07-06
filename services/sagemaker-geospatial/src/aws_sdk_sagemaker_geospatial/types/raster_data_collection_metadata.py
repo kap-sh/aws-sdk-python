@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#RasterDataCollectionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.tags
 
 
-class RasterDataCollectionMetadata(TypedDict):
+class RasterDataCollectionMetadata(TypedDict, closed=True):
     name: "str"
     """<p>The name of the raster data collection.</p>"""
     arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#InvalidRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class InvalidRequest_(TypedDict):
+class InvalidRequest_(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_fsx.types.error_code.ErrorCode"]
     """<p>An error code indicating that the action or operation requested is invalid.</p>"""
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]

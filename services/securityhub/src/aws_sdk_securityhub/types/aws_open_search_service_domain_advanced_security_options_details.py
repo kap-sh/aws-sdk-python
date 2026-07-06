@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_open_search_service_domain_master_user_options_details
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails(TypedDict):
+class AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Enables fine-grained access control. </p>"""
     internal_user_database_enabled: NotRequired[

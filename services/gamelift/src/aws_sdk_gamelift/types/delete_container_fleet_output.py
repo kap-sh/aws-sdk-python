@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteContainerFleetOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteContainerFleetOutput(TypedDict):
+class DeleteContainerFleetOutput(TypedDict, closed=True):
     pass
 
 

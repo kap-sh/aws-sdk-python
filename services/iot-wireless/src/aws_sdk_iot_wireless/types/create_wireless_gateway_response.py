@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateWirelessGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_id
     import aws_sdk_iot_wireless.types.wireless_gateway_arn
 
 
-class CreateWirelessGatewayResponse(TypedDict):
+class CreateWirelessGatewayResponse(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_gateway_arn.WirelessGatewayArn"
     ]

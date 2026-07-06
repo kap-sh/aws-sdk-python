@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#CSVOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.quote_fields
     import aws_sdk_glacier.types.string
 
 
-class CSVOutput(TypedDict):
+class CSVOutput(TypedDict, closed=True):
     quote_fields: NotRequired["aws_sdk_glacier.types.quote_fields.QuoteFields"]
     """<p>A value that indicates whether all output fields should be contained within quotation marks.</p>"""
     quote_escape_character: NotRequired["aws_sdk_glacier.types.string.string"]

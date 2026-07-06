@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningArtifactParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.default_value
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.parameter_type
 
 
-class ProvisioningArtifactParameter(TypedDict):
+class ProvisioningArtifactParameter(TypedDict, closed=True):
     parameter_key: NotRequired[
         "aws_sdk_service_catalog.types.parameter_key.ParameterKey"
     ]

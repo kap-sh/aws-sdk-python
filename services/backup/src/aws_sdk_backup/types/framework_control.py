@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#FrameworkControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.control_scope
 
 
-class FrameworkControl(TypedDict):
+class FrameworkControl(TypedDict, closed=True):
     control_name: "aws_sdk_backup.types.control_name.ControlName"
     """<p>The name of a control. This name is between 1 and 256 characters.</p>"""
     control_input_parameters: NotRequired[

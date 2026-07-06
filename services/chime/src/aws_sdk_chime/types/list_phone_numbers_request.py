@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ListPhoneNumbersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.phone_number_association_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class ListPhoneNumbersRequest(TypedDict):
+class ListPhoneNumbersRequest(TypedDict, closed=True):
     status: NotRequired["aws_sdk_chime.types.phone_number_status.PhoneNumberStatus"]
     """<p>The phone number status.</p>"""
     product_type: NotRequired[

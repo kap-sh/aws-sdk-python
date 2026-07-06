@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.cluster_network_settings_update_request
 
 
-class UpdateClusterRequest(TypedDict):
+class UpdateClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_medialive.types.__string.__string"
     """The ID of the cluster"""
     name: NotRequired["aws_sdk_medialive.types.__string.__string"]

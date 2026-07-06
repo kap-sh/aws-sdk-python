@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeMLModelsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.ml_models
     import aws_sdk_machine_learning.types.string_type
 
 
-class DescribeMLModelsOutput(TypedDict):
+class DescribeMLModelsOutput(TypedDict, closed=True):
     results: NotRequired["aws_sdk_machine_learning.types.ml_models.MLModels"]
     """<p>A list of <code>MLModel</code> that meet the search criteria.</p>"""
     next_token: NotRequired["aws_sdk_machine_learning.types.string_type.StringType"]

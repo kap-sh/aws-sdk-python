@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileSystemOpenZFSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.delete_file_system_open_zfs_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.tags
 
 
-class DeleteFileSystemOpenZFSConfiguration(TypedDict):
+class DeleteFileSystemOpenZFSConfiguration(TypedDict, closed=True):
     skip_final_backup: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     """<p>By default, Amazon FSx for OpenZFS takes a final backup on your behalf when the <code>DeleteFileSystem</code> operation is invoked. Doing this helps protect you from data loss, and we highly recommend taking the final backup. If you want to skip taking a final backup, set this value to <code>true</code>.</p>"""
     final_backup_tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]

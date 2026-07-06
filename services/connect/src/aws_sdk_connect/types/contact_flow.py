@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactFlow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ContactFlow(TypedDict):
+class ContactFlow(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the flow.</p>"""
     id: NotRequired["aws_sdk_connect.types.contact_flow_id.ContactFlowId"]

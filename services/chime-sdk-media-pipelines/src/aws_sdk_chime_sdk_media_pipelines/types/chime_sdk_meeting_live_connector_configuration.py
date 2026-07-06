@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ChimeSdkMeetingLiveConnectorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.source_configuration
 
 
-class ChimeSdkMeetingLiveConnectorConfiguration(TypedDict):
+class ChimeSdkMeetingLiveConnectorConfiguration(TypedDict, closed=True):
     arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"
     """<p>The configuration object's Chime SDK meeting ARN.</p>"""
     mux_type: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_mux_type.LiveConnectorMuxType"

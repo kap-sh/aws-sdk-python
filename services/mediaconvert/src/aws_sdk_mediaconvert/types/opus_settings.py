@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#OpusSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min32000_max192000
 
 
-class OpusSettings(TypedDict):
+class OpusSettings(TypedDict, closed=True):
     bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min32000_max192000.__integerMin32000Max192000"
     ]

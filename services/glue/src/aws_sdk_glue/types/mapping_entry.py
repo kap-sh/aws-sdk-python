@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MappingEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.field_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_name
 
 
-class MappingEntry(TypedDict):
+class MappingEntry(TypedDict, closed=True):
     source_table: NotRequired["aws_sdk_glue.types.table_name.TableName"]
     """<p>The name of the source table.</p>"""
     source_path: NotRequired["aws_sdk_glue.types.schema_path_string.SchemaPathString"]

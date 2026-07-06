@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetEffectiveHoursOfOperationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hours_of_operation_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class GetEffectiveHoursOfOperationsRequest(TypedDict):
+class GetEffectiveHoursOfOperationsRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The identifier of the Connect Customer instance.</p>"""
     hours_of_operation_id: (

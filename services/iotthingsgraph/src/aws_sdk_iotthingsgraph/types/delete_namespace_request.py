@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeleteNamespaceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteNamespaceRequest(TypedDict):
+class DeleteNamespaceRequest(TypedDict, closed=True):
     pass
 
 

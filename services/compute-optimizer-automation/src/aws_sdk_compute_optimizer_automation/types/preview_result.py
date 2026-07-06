@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#PreviewResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.tag_list
 
 
-class PreviewResult(TypedDict):
+class PreviewResult(TypedDict, closed=True):
     recommended_action_id: NotRequired[
         "aws_sdk_compute_optimizer_automation.types.recommended_action_id.RecommendedActionId"
     ]

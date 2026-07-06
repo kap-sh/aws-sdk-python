@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListFlowDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListFlowDefinitionsRequest(TypedDict):
+class ListFlowDefinitionsRequest(TypedDict, closed=True):
     creation_time_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>A filter that returns only flow definitions with a creation time greater than or equal to the specified timestamp.</p>"""
     creation_time_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

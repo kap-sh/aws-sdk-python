@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#IpamPrefixListResolverTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class IpamPrefixListResolverTarget(TypedDict):
+class IpamPrefixListResolverTarget(TypedDict, closed=True):
     ipam_prefix_list_resolver_target_id: NotRequired[
         "aws_sdk_ec2.types.ipam_prefix_list_resolver_target_id.IpamPrefixListResolverTargetId"
     ]

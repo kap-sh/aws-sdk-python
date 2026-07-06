@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListDataIngestionJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.data_ingestion_job_summaries
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListDataIngestionJobsResponse(TypedDict):
+class ListDataIngestionJobsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]
     """<p> An opaque pagination token indicating where to continue the listing of data ingestion jobs. </p>"""
     data_ingestion_job_summaries: NotRequired[

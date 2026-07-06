@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#CreateStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_map
 
 
-class CreateStreamInput(TypedDict):
+class CreateStreamInput(TypedDict, closed=True):
     stream_name: "aws_sdk_kinesis.types.stream_name.StreamName"
     """<p>A name to identify the stream. The stream name is scoped to the Amazon Web Services account used by the application that creates the stream. It is also scoped by Amazon Web Services Region. That is, two streams in two different Amazon Web Services accounts can have the same name. Two streams in the same Amazon Web Services account but in two different Regions can also have the same name.</p>"""
     shard_count: NotRequired[

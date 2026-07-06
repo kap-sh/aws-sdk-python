@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#S3DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.s3_destination_bucket_name
 
 
-class S3DestinationConfiguration(TypedDict):
+class S3DestinationConfiguration(TypedDict, closed=True):
     bucket_name: "aws_sdk_ivs.types.s3_destination_bucket_name.S3DestinationBucketName"
     """<p>Location (S3 bucket name) where recorded videos will be stored.</p>"""
 

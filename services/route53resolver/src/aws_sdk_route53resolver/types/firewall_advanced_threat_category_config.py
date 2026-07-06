@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#FirewallAdvancedThreatCategoryConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_advanced_threat_category_value
 
 
-class FirewallAdvancedThreatCategoryConfig(TypedDict):
+class FirewallAdvancedThreatCategoryConfig(TypedDict, closed=True):
     category: "aws_sdk_route53resolver.types.firewall_advanced_threat_category_value.FirewallAdvancedThreatCategoryValue"
     """<p>The threat category identifier. To retrieve the list of available threat categories, call <a>ListFirewallRuleTypes</a> with <code>RuleType</code> set to <code>FirewallAdvancedThreatCategory</code>.</p>"""
 

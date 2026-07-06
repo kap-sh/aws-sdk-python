@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ParameterDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_parameter_declaration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string_parameter_declaration
 
 
-class ParameterDeclaration(TypedDict):
+class ParameterDeclaration(TypedDict, closed=True):
     string_parameter_declaration: NotRequired[
         "aws_sdk_quicksight.types.string_parameter_declaration.StringParameterDeclaration"
     ]

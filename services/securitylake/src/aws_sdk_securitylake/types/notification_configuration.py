@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#NotificationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.sqs_notification_configuration
 
 
-class _NotificationConfiguration_sqsNotificationConfiguration(TypedDict):
+class _NotificationConfiguration_sqsNotificationConfiguration(TypedDict, closed=True):
     sqsNotificationConfiguration: "aws_sdk_securitylake.types.sqs_notification_configuration.SqsNotificationConfiguration"
 
 
-class _NotificationConfiguration_httpsNotificationConfiguration(TypedDict):
+class _NotificationConfiguration_httpsNotificationConfiguration(TypedDict, closed=True):
     httpsNotificationConfiguration: "aws_sdk_securitylake.types.https_notification_configuration.HttpsNotificationConfiguration"
 
 

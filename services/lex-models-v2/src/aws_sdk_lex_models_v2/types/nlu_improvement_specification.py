@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#NluImprovementSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.assisted_nlu_mode
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.intent_disambiguation_settings
 
 
-class NluImprovementSpecification(TypedDict):
+class NluImprovementSpecification(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.enabled.Enabled"
     """<p>Determines whether the Assisted NLU feature is enabled for the bot. When set to <code>true</code>, Amazon Lex uses advanced models to improve intent recognition and slot resolution, with the default being <code>false</code>.</p>"""
     assisted_nlu_mode: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#JobMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.address_id
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.timestamp
 
 
-class JobMetadata(TypedDict):
+class JobMetadata(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The automatically generated ID for a job, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     job_state: NotRequired["aws_sdk_snowball.types.job_state.JobState"]

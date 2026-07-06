@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#SearchFacetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.facet_type_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.search_text
 
 
-class SearchFacetsInput(TypedDict):
+class SearchFacetsInput(TypedDict, closed=True):
     search_text: NotRequired[
         "aws_sdk_marketplace_discovery.types.search_text.SearchText"
     ]

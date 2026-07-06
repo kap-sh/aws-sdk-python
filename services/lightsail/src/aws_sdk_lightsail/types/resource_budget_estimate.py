@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ResourceBudgetEstimate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.cost_estimates
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_type
 
 
-class ResourceBudgetEstimate(TypedDict):
+class ResourceBudgetEstimate(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The resource name.</p>"""
     resource_type: NotRequired["aws_sdk_lightsail.types.resource_type.ResourceType"]

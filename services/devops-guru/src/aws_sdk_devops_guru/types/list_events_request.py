@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListEventsRequest(TypedDict):
+class ListEventsRequest(TypedDict, closed=True):
     filters: "aws_sdk_devops_guru.types.list_events_filters.ListEventsFilters"
     """<p> A <code>ListEventsFilters</code> object used to specify which events to return. </p>"""
     max_results: NotRequired[

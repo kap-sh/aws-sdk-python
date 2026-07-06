@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ResourceUtilization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.ec2_resource_utilization
 
 
-class ResourceUtilization(TypedDict):
+class ResourceUtilization(TypedDict, closed=True):
     ec2_resource_utilization: NotRequired[
         "aws_sdk_cost_explorer.types.ec2_resource_utilization.EC2ResourceUtilization"
     ]

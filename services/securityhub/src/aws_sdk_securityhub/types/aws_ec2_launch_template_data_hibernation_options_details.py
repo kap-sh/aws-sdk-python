@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataHibernationOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsEc2LaunchTemplateDataHibernationOptionsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataHibernationOptionsDetails(TypedDict, closed=True):
     configured: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> If you set this parameter to <code>true</code>, the instance is enabled for hibernation. </p>"""
 

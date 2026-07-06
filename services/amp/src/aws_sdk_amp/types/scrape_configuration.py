@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ScrapeConfiguration``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, SerializationError
 
 
-class _ScrapeConfiguration_configurationBlob(TypedDict):
+class _ScrapeConfiguration_configurationBlob(TypedDict, closed=True):
     configurationBlob: "bytes"
 
 

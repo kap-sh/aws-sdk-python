@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#UsageQuantity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class UsageQuantity(TypedDict):
+class UsageQuantity(TypedDict, closed=True):
     start_hour: NotRequired["datetime.datetime"]
     """<p> The start hour of the usage period. </p>"""
     unit: NotRequired["str"]

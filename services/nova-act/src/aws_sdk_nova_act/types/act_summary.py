@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ActSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.uuid_string
 
 
-class ActSummary(TypedDict):
+class ActSummary(TypedDict, closed=True):
     workflow_run_id: "aws_sdk_nova_act.types.uuid_string.UuidString"
     """<p>The unique identifier of the workflow run containing this act.</p>"""
     session_id: "aws_sdk_nova_act.types.uuid_string.UuidString"

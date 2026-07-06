@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InvalidRequestExceptionReason``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class _InvalidRequestExceptionReason_AttachedFileInvalidRequestExceptionReason(
-    TypedDict
+    TypedDict, closed=True
 ):
     AttachedFileInvalidRequestExceptionReason: "aws_sdk_connect.types.attached_file_invalid_request_exception_reason.AttachedFileInvalidRequestExceptionReason"
 

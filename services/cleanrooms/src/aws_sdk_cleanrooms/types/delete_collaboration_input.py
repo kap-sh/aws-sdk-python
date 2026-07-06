@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteCollaborationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_identifier
 
 
-class DeleteCollaborationInput(TypedDict):
+class DeleteCollaborationInput(TypedDict, closed=True):
     collaboration_identifier: (
         "aws_sdk_cleanrooms.types.collaboration_identifier.CollaborationIdentifier"
     )

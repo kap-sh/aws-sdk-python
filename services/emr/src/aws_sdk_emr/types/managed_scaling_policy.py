@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ManagedScalingPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.compute_limits
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.utilization_performance_index_integer
 
 
-class ManagedScalingPolicy(TypedDict):
+class ManagedScalingPolicy(TypedDict, closed=True):
     compute_limits: NotRequired["aws_sdk_emr.types.compute_limits.ComputeLimits"]
     """<p>The Amazon EC2 unit limits for a managed scaling policy. The managed scaling activity of a cluster is not allowed to go above or below these limits. The limit only applies to the core and task nodes. The master node cannot be scaled after initial configuration.</p>"""
     utilization_performance_index: NotRequired[

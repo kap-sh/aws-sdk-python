@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GameServerContainerDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_dependency_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.server_sdk_version
 
 
-class GameServerContainerDefinitionInput(TypedDict):
+class GameServerContainerDefinitionInput(TypedDict, closed=True):
     container_name: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and128_max_ascii_string.NonZeroAnd128MaxAsciiString"
     ]

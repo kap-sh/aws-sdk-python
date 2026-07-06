@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteLaunchConfigurationTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLaunchConfigurationTemplateResponse(TypedDict):
+class DeleteLaunchConfigurationTemplateResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#SNOMEDCTDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.string
 
 
-class SNOMEDCTDetails(TypedDict):
+class SNOMEDCTDetails(TypedDict, closed=True):
     edition: NotRequired["aws_sdk_comprehendmedical.types.string.String"]
     """<p> The edition of SNOMED-CT used. The edition used for the InferSNOMEDCT editions is the US edition. </p>"""
     language: NotRequired["aws_sdk_comprehendmedical.types.string.String"]

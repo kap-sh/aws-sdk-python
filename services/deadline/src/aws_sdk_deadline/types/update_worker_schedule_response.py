@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdateWorkerScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.update_worker_schedule_interval
 
 
-class UpdateWorkerScheduleResponse(TypedDict):
+class UpdateWorkerScheduleResponse(TypedDict, closed=True):
     assigned_sessions: "aws_sdk_deadline.types.assigned_sessions.AssignedSessions"
     """<p>The assigned sessions to update.</p>"""
     cancel_session_actions: (

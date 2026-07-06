@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InputFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.file_use_case
 
 
-class InputFile(TypedDict):
+class InputFile(TypedDict, closed=True):
     name: "str"
     """<p>The name of the source file.</p>"""
     source: "aws_sdk_bedrock_agent_runtime.types.file_source.FileSource"

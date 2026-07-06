@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeQueryLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class DescribeQueryLoggingConfigurationRequest(TypedDict):
+class DescribeQueryLoggingConfigurationRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace for which to retrieve the query logging configuration.</p>"""
 

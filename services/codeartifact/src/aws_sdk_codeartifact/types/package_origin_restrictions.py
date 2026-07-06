@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageOriginRestrictions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.allow_upstream
 
 
-class PackageOriginRestrictions(TypedDict):
+class PackageOriginRestrictions(TypedDict, closed=True):
     publish: "aws_sdk_codeartifact.types.allow_publish.AllowPublish"
     """<p>The package origin configuration that determines if new versions of the package can be published directly to the repository.</p>"""
     upstream: "aws_sdk_codeartifact.types.allow_upstream.AllowUpstream"

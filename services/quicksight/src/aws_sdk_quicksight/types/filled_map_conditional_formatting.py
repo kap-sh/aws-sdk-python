@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FilledMapConditionalFormatting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filled_map_conditional_formatting_option_list
 
 
-class FilledMapConditionalFormatting(TypedDict):
+class FilledMapConditionalFormatting(TypedDict, closed=True):
     conditional_formatting_options: "aws_sdk_quicksight.types.filled_map_conditional_formatting_option_list.FilledMapConditionalFormattingOptionList"
     """<p>Conditional formatting options of a <code>FilledMapVisual</code>.</p>"""
 

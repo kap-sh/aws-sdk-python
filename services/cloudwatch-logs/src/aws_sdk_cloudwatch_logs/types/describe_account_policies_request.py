@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeAccountPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.policy_type
 
 
-class DescribeAccountPoliciesRequest(TypedDict):
+class DescribeAccountPoliciesRequest(TypedDict, closed=True):
     policy_type: "aws_sdk_cloudwatch_logs.types.policy_type.PolicyType"
     """<p>Use this parameter to limit the returned policies to only the policies that match the policy type that you specify.</p>"""
     policy_name: NotRequired["aws_sdk_cloudwatch_logs.types.policy_name.PolicyName"]

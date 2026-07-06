@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#TimeSignalMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.segmentation_descriptor_list
 
 
-class TimeSignalMessage(TypedDict):
+class TimeSignalMessage(TypedDict, closed=True):
     segmentation_descriptors: NotRequired[
         "aws_sdk_mediatailor.types.segmentation_descriptor_list.SegmentationDescriptorList"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#PartListElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class PartListElement(TypedDict):
+class PartListElement(TypedDict, closed=True):
     range_in_bytes: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The byte range of a part, inclusive of the upper value of the range.</p>"""
     sha256_tree_hash: NotRequired["aws_sdk_glacier.types.string.string"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PutRolePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.role_name_type
 
 
-class PutRolePolicyRequest(TypedDict):
+class PutRolePolicyRequest(TypedDict, closed=True):
     role_name: "aws_sdk_iam.types.role_name_type.roleNameType"
     r"""<p>The name of the role to associate the policy with.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"

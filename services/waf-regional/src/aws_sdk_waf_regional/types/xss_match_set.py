@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#XssMatchSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.xss_match_tuples
 
 
-class XssMatchSet(TypedDict):
+class XssMatchSet(TypedDict, closed=True):
     xss_match_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>A unique identifier for an <code>XssMatchSet</code>. You use <code>XssMatchSetId</code> to get information about an <code>XssMatchSet</code> (see <a>GetXssMatchSet</a>), update an <code>XssMatchSet</code> (see <a>UpdateXssMatchSet</a>), insert an <code>XssMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete an <code>XssMatchSet</code> from AWS WAF (see <a>DeleteXssMatchSet</a>).</p> <p> <code>XssMatchSetId</code> is returned by <a>CreateXssMatchSet</a> and by <a>ListXssMatchSets</a>.</p>"""
     name: NotRequired["aws_sdk_waf_regional.types.resource_name.ResourceName"]

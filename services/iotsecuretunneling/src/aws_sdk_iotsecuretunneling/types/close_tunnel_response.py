@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#CloseTunnelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CloseTunnelResponse(TypedDict):
+class CloseTunnelResponse(TypedDict, closed=True):
     pass
 
 

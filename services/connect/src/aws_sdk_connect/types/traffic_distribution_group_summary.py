@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TrafficDistributionGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.traffic_distribution_group_status
 
 
-class TrafficDistributionGroupSummary(TypedDict):
+class TrafficDistributionGroupSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_connect.types.traffic_distribution_group_id.TrafficDistributionGroupId"
     ]

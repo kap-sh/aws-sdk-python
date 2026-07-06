@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEntityAggregatesForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.organization_entity_aggregates_list
 
 
-class DescribeEntityAggregatesForOrganizationResponse(TypedDict):
+class DescribeEntityAggregatesForOrganizationResponse(TypedDict, closed=True):
     organization_entity_aggregates: NotRequired[
         "aws_sdk_health.types.organization_entity_aggregates_list.OrganizationEntityAggregatesList"
     ]

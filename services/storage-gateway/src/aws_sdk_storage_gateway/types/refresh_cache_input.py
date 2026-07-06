@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#RefreshCacheInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.folder_list
 
 
-class RefreshCacheInput(TypedDict):
+class RefreshCacheInput(TypedDict, closed=True):
     file_share_arn: "aws_sdk_storage_gateway.types.file_share_arn.FileShareARN"
     """<p>The Amazon Resource Name (ARN) of the file share you want to refresh.</p>"""
     folder_list: NotRequired["aws_sdk_storage_gateway.types.folder_list.FolderList"]

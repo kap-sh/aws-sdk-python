@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ListChangesetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.dataset_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.result_limit
 
 
-class ListChangesetsRequest(TypedDict):
+class ListChangesetsRequest(TypedDict, closed=True):
     dataset_id: "aws_sdk_finspace_data.types.dataset_id.DatasetId"
     """<p>The unique identifier for the FinSpace Dataset to which the Changeset belongs.</p>"""
     max_results: NotRequired["aws_sdk_finspace_data.types.result_limit.ResultLimit"]

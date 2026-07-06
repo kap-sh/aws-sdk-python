@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkSegmentEdgeIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.external_region_code
 
 
-class CoreNetworkSegmentEdgeIdentifier(TypedDict):
+class CoreNetworkSegmentEdgeIdentifier(TypedDict, closed=True):
     core_network_id: NotRequired[
         "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     ]

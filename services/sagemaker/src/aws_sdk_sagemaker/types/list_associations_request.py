@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.association_edge_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListAssociationsRequest(TypedDict):
+class ListAssociationsRequest(TypedDict, closed=True):
     source_arn: NotRequired[
         "aws_sdk_sagemaker.types.association_entity_arn.AssociationEntityArn"
     ]

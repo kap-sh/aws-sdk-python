@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#TestConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.connector_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.status
 
 
-class TestConnectionResponse(TypedDict):
+class TestConnectionResponse(TypedDict, closed=True):
     connector_id: NotRequired["aws_sdk_transfer.types.connector_id.ConnectorId"]
     """<p>Returns the identifier of the connector object that you are testing.</p>"""
     status: NotRequired["aws_sdk_transfer.types.status.Status"]

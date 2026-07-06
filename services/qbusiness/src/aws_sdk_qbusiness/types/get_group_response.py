@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.group_status_detail
     import aws_sdk_qbusiness.types.group_status_details
 
 
-class GetGroupResponse(TypedDict):
+class GetGroupResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_qbusiness.types.group_status_detail.GroupStatusDetail"]
     """<p>The current status of the group.</p>"""
     status_history: NotRequired[

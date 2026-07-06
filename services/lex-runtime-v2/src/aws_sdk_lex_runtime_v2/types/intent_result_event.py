@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#IntentResultEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.string_map
 
 
-class IntentResultEvent(TypedDict):
+class IntentResultEvent(TypedDict, closed=True):
     input_mode: NotRequired["aws_sdk_lex_runtime_v2.types.input_mode.InputMode"]
     """<p>Indicates whether the input to the operation was text, speech, or from a touch-tone keypad.</p>"""
     interpretations: NotRequired[

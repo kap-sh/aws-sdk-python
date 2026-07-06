@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#DeleteLensInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_status_type
 
 
-class DeleteLensInput(TypedDict):
+class DeleteLensInput(TypedDict, closed=True):
     lens_alias: "aws_sdk_wellarchitected.types.lens_alias.LensAlias"
     client_request_token: NotRequired[
         "aws_sdk_wellarchitected.types.client_request_token.ClientRequestToken"

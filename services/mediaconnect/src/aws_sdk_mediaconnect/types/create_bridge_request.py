@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#CreateBridgeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_add_bridge_output_request
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.failover_config
 
 
-class CreateBridgeRequest(TypedDict):
+class CreateBridgeRequest(TypedDict, closed=True):
     egress_gateway_bridge: NotRequired[
         "aws_sdk_mediaconnect.types.add_egress_gateway_bridge_request.AddEgressGatewayBridgeRequest"
     ]

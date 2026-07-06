@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetMLTaskRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.execution_time
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class GetMLTaskRunResponse(TypedDict):
+class GetMLTaskRunResponse(TypedDict, closed=True):
     transform_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique identifier of the task run.</p>"""
     task_run_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

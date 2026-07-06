@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ListWorkspaceServiceAccountTokensResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class ListWorkspaceServiceAccountTokensResponse(TypedDict):
+class ListWorkspaceServiceAccountTokensResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_grafana.types.pagination_token.PaginationToken"]
     """<p>The token to use when requesting the next set of service accounts.</p>"""
     service_account_tokens: (

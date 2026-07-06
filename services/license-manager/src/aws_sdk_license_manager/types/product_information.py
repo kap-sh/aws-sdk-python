@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ProductInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ProductInformation(TypedDict):
+class ProductInformation(TypedDict, closed=True):
     resource_type: "aws_sdk_license_manager.types.string.String"
     """<p>Resource type. The possible values are <code>SSM_MANAGED</code> | <code>RDS</code>.</p>"""
     product_information_filter_list: "aws_sdk_license_manager.types.product_information_filter_list.ProductInformationFilterList"

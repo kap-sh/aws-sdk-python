@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListEncoderConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.pagination_token
 
 
-class ListEncoderConfigurationsResponse(TypedDict):
+class ListEncoderConfigurationsResponse(TypedDict, closed=True):
     encoder_configurations: "aws_sdk_ivs_realtime.types.encoder_configuration_summary_list.EncoderConfigurationSummaryList"
     """<p>List of the matching EncoderConfigurations (summary information only).</p>"""
     next_token: NotRequired[

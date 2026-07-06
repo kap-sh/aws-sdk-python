@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#GetCampaignStateBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.campaign_id_list
 
 
-class GetCampaignStateBatchRequest(TypedDict):
+class GetCampaignStateBatchRequest(TypedDict, closed=True):
     campaign_ids: "aws_sdk_connectcampaigns.types.campaign_id_list.CampaignIdList"
 
 

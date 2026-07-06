@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ParameterInlinePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ParameterInlinePolicy(TypedDict):
+class ParameterInlinePolicy(TypedDict, closed=True):
     policy_text: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The JSON text of the policy.</p>"""
     policy_type: NotRequired["aws_sdk_ssm.types.string.String"]

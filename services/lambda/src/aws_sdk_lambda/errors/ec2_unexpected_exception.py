@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EC2UnexpectedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class EC2UnexpectedException_(TypedDict):
+class EC2UnexpectedException_(TypedDict, closed=True):
     type: NotRequired["aws_sdk_lambda.types.string.String"]
     message: NotRequired["aws_sdk_lambda.types.string.String"]
     ec2_error_code: NotRequired["aws_sdk_lambda.types.string.String"]

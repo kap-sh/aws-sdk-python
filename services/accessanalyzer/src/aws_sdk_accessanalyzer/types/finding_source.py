@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.finding_source_type
 
 
-class FindingSource(TypedDict):
+class FindingSource(TypedDict, closed=True):
     type: "aws_sdk_accessanalyzer.types.finding_source_type.FindingSourceType"
     """<p>Indicates the type of access that generated the finding.</p>"""
     detail: NotRequired[

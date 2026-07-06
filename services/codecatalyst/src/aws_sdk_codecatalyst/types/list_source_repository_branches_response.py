@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListSourceRepositoryBranchesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.list_source_repository_branches_items
 
 
-class ListSourceRepositoryBranchesResponse(TypedDict):
+class ListSourceRepositoryBranchesResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"""
     items: "aws_sdk_codecatalyst.types.list_source_repository_branches_items.ListSourceRepositoryBranchesItems"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CustomDocumentIdentifier``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
 
-class CustomDocumentIdentifier(TypedDict):
+class CustomDocumentIdentifier(TypedDict, closed=True):
     id: "str"
     """<p>The identifier of the document to ingest into a custom data source.</p>"""
 

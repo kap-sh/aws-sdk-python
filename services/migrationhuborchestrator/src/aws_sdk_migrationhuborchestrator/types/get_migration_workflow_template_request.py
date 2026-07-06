@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetMigrationWorkflowTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.template_id
 
 
-class GetMigrationWorkflowTemplateRequest(TypedDict):
+class GetMigrationWorkflowTemplateRequest(TypedDict, closed=True):
     id: "aws_sdk_migrationhuborchestrator.types.template_id.TemplateId"
     """<p>The ID of the template.</p>"""
 

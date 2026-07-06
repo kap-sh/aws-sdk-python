@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#BatchDisassociateScramSecretRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
     import aws_sdk_kafka.types.__string
 
 
-class BatchDisassociateScramSecretRequest(TypedDict):
+class BatchDisassociateScramSecretRequest(TypedDict, closed=True):
     cluster_arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the cluster to be updated.</p>"""
     secret_arn_list: NotRequired[

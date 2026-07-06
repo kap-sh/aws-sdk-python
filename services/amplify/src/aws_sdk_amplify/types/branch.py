@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#Branch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -37,7 +37,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.update_time
 
 
-class Branch(TypedDict):
+class Branch(TypedDict, closed=True):
     branch_arn: "aws_sdk_amplify.types.branch_arn.BranchArn"
     """<p> The Amazon Resource Name (ARN) for a branch that is part of an Amplify app. </p>"""
     branch_name: "aws_sdk_amplify.types.branch_name.BranchName"

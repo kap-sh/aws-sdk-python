@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SourceServerConnectorAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.connector_arn
     import aws_sdk_mgn.types.secret_arn
 
 
-class SourceServerConnectorAction(TypedDict):
+class SourceServerConnectorAction(TypedDict, closed=True):
     credentials_secret_arn: NotRequired["aws_sdk_mgn.types.secret_arn.SecretArn"]
     """<p>Source Server connector action credentials secret arn.</p>"""
     connector_arn: NotRequired["aws_sdk_mgn.types.connector_arn.ConnectorArn"]

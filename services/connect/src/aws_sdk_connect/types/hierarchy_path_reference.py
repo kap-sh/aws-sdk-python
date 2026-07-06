@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HierarchyPathReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_group_summary_reference
 
 
-class HierarchyPathReference(TypedDict):
+class HierarchyPathReference(TypedDict, closed=True):
     level_one: NotRequired[
         "aws_sdk_connect.types.hierarchy_group_summary_reference.HierarchyGroupSummaryReference"
     ]

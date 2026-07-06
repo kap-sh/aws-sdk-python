@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskEphemeralStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.integer
     import aws_sdk_ecs.types.string
 
 
-class TaskEphemeralStorage(TypedDict):
+class TaskEphemeralStorage(TypedDict, closed=True):
     size_in_gi_b: "aws_sdk_ecs.types.integer.Integer"
     """<p>The total amount, in GiB, of the ephemeral storage to set for the task. The minimum supported value is <code>20</code> GiB and the maximum supported value is <code>200</code> GiB.</p>"""
     kms_key_id: NotRequired["aws_sdk_ecs.types.string.String"]

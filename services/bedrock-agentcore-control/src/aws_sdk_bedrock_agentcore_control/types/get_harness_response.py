@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GetHarnessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness
 
 
-class GetHarnessResponse(TypedDict):
+class GetHarnessResponse(TypedDict, closed=True):
     harness: "aws_sdk_bedrock_agentcore_control.types.harness.Harness"
     """<p>The harness resource.</p>"""
 

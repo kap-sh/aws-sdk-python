@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DeleteContainerRecipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.container_recipe_arn
 
 
-class DeleteContainerRecipeRequest(TypedDict):
+class DeleteContainerRecipeRequest(TypedDict, closed=True):
     container_recipe_arn: (
         "aws_sdk_imagebuilder.types.container_recipe_arn.ContainerRecipeArn"
     )

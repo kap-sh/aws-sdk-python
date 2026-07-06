@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetScheduledQueryHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class GetScheduledQueryHistoryRequest(TypedDict):
+class GetScheduledQueryHistoryRequest(TypedDict, closed=True):
     identifier: "aws_sdk_cloudwatch_logs.types.scheduled_query_identifier.ScheduledQueryIdentifier"
     """<p>The ARN or name of the scheduled query to retrieve history for.</p>"""
     start_time: "aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"

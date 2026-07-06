@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#BlockDeviceMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class BlockDeviceMapping(TypedDict):
+class BlockDeviceMapping(TypedDict, closed=True):
     ebs: NotRequired["aws_sdk_ec2.types.ebs_block_device.EbsBlockDevice"]
     """<p>Parameters used to automatically set up EBS volumes when the instance is launched.</p>"""
     no_device: NotRequired["aws_sdk_ec2.types.string.String"]

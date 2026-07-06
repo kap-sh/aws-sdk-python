@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#BatchModifyClusterSnapshotsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.snapshot_identifier_list
 
 
-class BatchModifyClusterSnapshotsMessage(TypedDict):
+class BatchModifyClusterSnapshotsMessage(TypedDict, closed=True):
     snapshot_identifier_list: NotRequired[
         "aws_sdk_redshift.types.snapshot_identifier_list.SnapshotIdentifierList"
     ]

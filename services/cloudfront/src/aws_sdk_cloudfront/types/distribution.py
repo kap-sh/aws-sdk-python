@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#Distribution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.timestamp
 
 
-class Distribution(TypedDict):
+class Distribution(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The distribution's identifier. For example: <code>E1U5RQF7T870K0</code>.</p>"""
     arn: "aws_sdk_cloudfront.types.string.string"

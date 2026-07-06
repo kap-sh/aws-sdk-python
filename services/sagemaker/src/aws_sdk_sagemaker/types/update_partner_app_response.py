@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdatePartnerAppResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.partner_app_arn
 
 
-class UpdatePartnerAppResponse(TypedDict):
+class UpdatePartnerAppResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
     """<p>The ARN of the SageMaker Partner AI App that was updated.</p>"""
 

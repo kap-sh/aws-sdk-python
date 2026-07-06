@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#GetUserAccessLoggingSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
 
 
-class GetUserAccessLoggingSettingsRequest(TypedDict):
+class GetUserAccessLoggingSettingsRequest(TypedDict, closed=True):
     user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the user access logging settings.</p>"""
 

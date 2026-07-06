@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#BatchGetMetricDataQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class BatchGetMetricDataQuery(TypedDict):
+class BatchGetMetricDataQuery(TypedDict, closed=True):
     id: "aws_sdk_sesv2.types.query_identifier.QueryIdentifier"
     """<p>The query identifier.</p>"""
     namespace: "aws_sdk_sesv2.types.metric_namespace.MetricNamespace"

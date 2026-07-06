@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribePoolsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.pool_id_list
 
 
-class DescribePoolsRequest(TypedDict):
+class DescribePoolsRequest(TypedDict, closed=True):
     pool_ids: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.pool_id_list.PoolIdList"]
     """<p>The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared End User Messaging SMS resource then you must use the full Amazon Resource Name(ARN).</p> </important>"""
     filters: NotRequired[

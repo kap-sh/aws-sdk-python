@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GetSessionEmbedUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.session_lifetime_in_minutes
 
 
-class GetSessionEmbedUrlRequest(TypedDict):
+class GetSessionEmbedUrlRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID for the Amazon Web Services account associated with your Amazon Quick Sight subscription.</p>"""
     entry_point: NotRequired["aws_sdk_quicksight.types.entry_point.EntryPoint"]

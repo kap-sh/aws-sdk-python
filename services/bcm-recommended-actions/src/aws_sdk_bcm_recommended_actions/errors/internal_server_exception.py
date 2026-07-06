@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmrecommendedactions#InternalServerException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_recommended_actions.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
 
 

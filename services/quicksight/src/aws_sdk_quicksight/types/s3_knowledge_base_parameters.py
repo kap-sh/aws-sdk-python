@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#S3KnowledgeBaseParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.s3_bucket
 
 
-class S3KnowledgeBaseParameters(TypedDict):
+class S3KnowledgeBaseParameters(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_quicksight.types.role_arn.RoleArn"]
     """<p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 Knowledge Base data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 Knowledge Base data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>"""
     bucket_url: "aws_sdk_quicksight.types.s3_bucket.S3Bucket"

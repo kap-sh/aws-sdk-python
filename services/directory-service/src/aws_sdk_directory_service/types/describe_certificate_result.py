@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeCertificateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.certificate
 
 
-class DescribeCertificateResult(TypedDict):
+class DescribeCertificateResult(TypedDict, closed=True):
     certificate: NotRequired["aws_sdk_directory_service.types.certificate.Certificate"]
     """<p>Information about the certificate, including registered date time, certificate state, the reason for the state, expiration date time, and certificate common name.</p>"""
 

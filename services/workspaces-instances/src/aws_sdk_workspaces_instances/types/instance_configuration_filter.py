@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InstanceConfigurationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.platform_type_enum
 
 
-class InstanceConfigurationFilter(TypedDict):
+class InstanceConfigurationFilter(TypedDict, closed=True):
     billing_mode: "aws_sdk_workspaces_instances.types.billing_mode.BillingMode"
     """<p>Filters WorkSpace Instance types based on supported billing modes. Allows customers to search for instance types that support their preferred billing model, such as HOURLY or MONTHLY billing.</p>"""
     platform_type: (

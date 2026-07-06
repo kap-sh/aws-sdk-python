@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchStopJobRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class BatchStopJobRunRequest(TypedDict):
+class BatchStopJobRunRequest(TypedDict, closed=True):
     job_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the job definition for which to stop job runs.</p>"""
     job_run_ids: "aws_sdk_glue.types.batch_stop_job_run_job_run_id_list.BatchStopJobRunJobRunIdList"

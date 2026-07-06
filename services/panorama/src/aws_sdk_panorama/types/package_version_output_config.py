@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#PackageVersionOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_package_version
 
 
-class PackageVersionOutputConfig(TypedDict):
+class PackageVersionOutputConfig(TypedDict, closed=True):
     package_name: "aws_sdk_panorama.types.node_package_name.NodePackageName"
     """<p>The output's package name.</p>"""
     package_version: "aws_sdk_panorama.types.node_package_version.NodePackageVersion"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateMLTransformResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
 
 
-class UpdateMLTransformResponse(TypedDict):
+class UpdateMLTransformResponse(TypedDict, closed=True):
     transform_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique identifier for the transform that was updated.</p>"""
 

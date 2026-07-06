@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaExecutionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.lambda_environment_variables
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.optional_integer
 
 
-class LambdaExecutionParameters(TypedDict):
+class LambdaExecutionParameters(TypedDict, closed=True):
     event_sources: NotRequired[
         "aws_sdk_greengrassv2.types.lambda_event_source_list.LambdaEventSourceList"
     ]

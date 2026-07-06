@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#Table``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.date
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.table_status
 
 
-class Table(TypedDict):
+class Table(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_timestream_write.types.string.String"]
     """<p>The Amazon Resource Name that uniquely identifies this table.</p>"""
     table_name: NotRequired["aws_sdk_timestream_write.types.resource_name.ResourceName"]

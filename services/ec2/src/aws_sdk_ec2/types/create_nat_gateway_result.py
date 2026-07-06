@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateNatGatewayResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CreateNatGatewayResult(TypedDict):
+class CreateNatGatewayResult(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>"""
     nat_gateway: NotRequired["aws_sdk_ec2.types.nat_gateway.NatGateway"]

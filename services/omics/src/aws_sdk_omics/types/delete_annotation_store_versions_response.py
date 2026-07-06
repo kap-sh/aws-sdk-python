@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteAnnotationStoreVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.version_delete_error_list
 
 
-class DeleteAnnotationStoreVersionsResponse(TypedDict):
+class DeleteAnnotationStoreVersionsResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_omics.types.version_delete_error_list.VersionDeleteErrorList"
     ]

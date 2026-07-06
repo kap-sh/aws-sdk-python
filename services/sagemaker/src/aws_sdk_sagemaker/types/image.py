@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.failure_reason
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>When the image was created.</p>"""
     description: NotRequired[

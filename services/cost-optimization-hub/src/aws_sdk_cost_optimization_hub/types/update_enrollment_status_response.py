@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#UpdateEnrollmentStatusResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UpdateEnrollmentStatusResponse(TypedDict):
+class UpdateEnrollmentStatusResponse(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>The enrollment status of the account.</p>"""
 

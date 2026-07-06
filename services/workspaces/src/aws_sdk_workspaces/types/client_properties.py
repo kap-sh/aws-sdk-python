@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ClientProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.log_upload_enum
     import aws_sdk_workspaces.types.reconnect_enum
 
 
-class ClientProperties(TypedDict):
+class ClientProperties(TypedDict, closed=True):
     reconnect_enabled: NotRequired[
         "aws_sdk_workspaces.types.reconnect_enum.ReconnectEnum"
     ]

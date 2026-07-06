@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#UpdateSolNetworkPackageOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.nsd_operational_state
 
 
-class UpdateSolNetworkPackageOutput(TypedDict):
+class UpdateSolNetworkPackageOutput(TypedDict, closed=True):
     nsd_operational_state: "aws_sdk_tnb.types.nsd_operational_state.NsdOperationalState"
     """<p>Operational state of the network service descriptor in the network package.</p>"""
 

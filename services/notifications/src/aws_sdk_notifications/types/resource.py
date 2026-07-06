@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.url
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The unique identifier for the resource.</p> <p>At least one id or ARN is required.</p>"""
     arn: NotRequired["aws_sdk_notifications.types.arn.Arn"]

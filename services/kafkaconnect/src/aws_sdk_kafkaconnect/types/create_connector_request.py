@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CreateConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.worker_configuration
 
 
-class CreateConnectorRequest(TypedDict):
+class CreateConnectorRequest(TypedDict, closed=True):
     capacity: "aws_sdk_kafkaconnect.types.capacity.Capacity"
     """<p>Information about the capacity allocated to the connector. Exactly one of the two properties must be specified.</p>"""
     connector_configuration: (

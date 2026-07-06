@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#Subscriber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.subscription_type
 
 
-class Subscriber(TypedDict):
+class Subscriber(TypedDict, closed=True):
     subscription_type: "aws_sdk_budgets.types.subscription_type.SubscriptionType"
     """<p>The type of notification that Amazon Web Services sends to a subscriber.</p>"""
     address: "aws_sdk_budgets.types.subscriber_address.SubscriberAddress"

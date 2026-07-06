@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListPrincipalPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.principal
 
 
-class ListPrincipalPoliciesRequest(TypedDict):
+class ListPrincipalPoliciesRequest(TypedDict, closed=True):
     principal: "aws_sdk_iot.types.principal.Principal"
     """<p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>"""
     marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

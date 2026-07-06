@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#RemoveAttributesFromFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.user_attribute_key_list
 
 
-class RemoveAttributesFromFindingsRequest(TypedDict):
+class RemoveAttributesFromFindingsRequest(TypedDict, closed=True):
     finding_arns: "aws_sdk_inspector.types.add_remove_attributes_finding_arn_list.AddRemoveAttributesFindingArnList"
     """<p>The ARNs that specify the findings that you want to remove attributes from.</p>"""
     attribute_keys: (

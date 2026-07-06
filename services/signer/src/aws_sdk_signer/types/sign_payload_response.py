@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SignPayloadResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.metadata
 
 
-class SignPayloadResponse(TypedDict):
+class SignPayloadResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_signer.types.job_id.JobId"]
     """<p>Unique identifier of the signing job.</p>"""
     job_owner: NotRequired["aws_sdk_signer.types.account_id.AccountId"]

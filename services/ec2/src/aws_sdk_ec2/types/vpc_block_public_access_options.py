@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpcBlockPublicAccessOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_block_public_access_state
 
 
-class VpcBlockPublicAccessOptions(TypedDict):
+class VpcBlockPublicAccessOptions(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>An Amazon Web Services account ID.</p>"""
     aws_region: NotRequired["aws_sdk_ec2.types.string.String"]

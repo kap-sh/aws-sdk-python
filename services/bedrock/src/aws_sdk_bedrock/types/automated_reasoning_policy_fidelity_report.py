@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyFidelityReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_variable_report_map
 
 
-class AutomatedReasoningPolicyFidelityReport(TypedDict):
+class AutomatedReasoningPolicyFidelityReport(TypedDict, closed=True):
     coverage_score: "aws_sdk_bedrock.types.automated_reasoning_policy_coverage_score.AutomatedReasoningPolicyCoverageScore"
     """<p>A score from 0.0 to 1.0 indicating how well the policy covers the statements in the source documents. A higher score means more of the source content is represented in the policy.</p>"""
     accuracy_score: "aws_sdk_bedrock.types.automated_reasoning_policy_accuracy_score.AutomatedReasoningPolicyAccuracyScore"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#AttachLoadBalancersResultType``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
 
-class AttachLoadBalancersResultType(TypedDict):
+class AttachLoadBalancersResultType(TypedDict, closed=True):
     pass
 
 

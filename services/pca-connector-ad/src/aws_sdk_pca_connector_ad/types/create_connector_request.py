@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#CreateConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.vpc_information
 
 
-class CreateConnectorRequest(TypedDict):
+class CreateConnectorRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_pca_connector_ad.types.directory_id.DirectoryId"
     """<p>The identifier of the Active Directory.</p>"""
     certificate_authority_arn: "aws_sdk_pca_connector_ad.types.certificate_authority_arn.CertificateAuthorityArn"

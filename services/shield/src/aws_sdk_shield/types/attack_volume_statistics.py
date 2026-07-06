@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AttackVolumeStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.double
 
 
-class AttackVolumeStatistics(TypedDict):
+class AttackVolumeStatistics(TypedDict, closed=True):
     max: "aws_sdk_shield.types.double.Double"
     """<p>The maximum attack volume observed for the given unit.</p>"""
 

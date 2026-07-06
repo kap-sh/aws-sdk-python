@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageScanFindingsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.filter_name
     import aws_sdk_imagebuilder.types.image_scan_findings_filter_values
 
 
-class ImageScanFindingsFilter(TypedDict):
+class ImageScanFindingsFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_imagebuilder.types.filter_name.FilterName"]
     """<p>The name of the image scan finding filter. Filter names are case-sensitive.</p>"""
     values: NotRequired[

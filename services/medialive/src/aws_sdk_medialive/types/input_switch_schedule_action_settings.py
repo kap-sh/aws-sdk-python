@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputSwitchScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_clipping_settings
 
 
-class InputSwitchScheduleActionSettings(TypedDict):
+class InputSwitchScheduleActionSettings(TypedDict, closed=True):
     input_attachment_name_reference: NotRequired[
         "aws_sdk_medialive.types.__string.__string"
     ]

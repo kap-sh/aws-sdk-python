@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisteredUserEmbeddingExperienceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.registered_user_dashboard_embedding_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.registered_user_quick_sight_console_embedding_configuration
 
 
-class RegisteredUserEmbeddingExperienceConfiguration(TypedDict):
+class RegisteredUserEmbeddingExperienceConfiguration(TypedDict, closed=True):
     dashboard: NotRequired[
         "aws_sdk_quicksight.types.registered_user_dashboard_embedding_configuration.RegisteredUserDashboardEmbeddingConfiguration"
     ]

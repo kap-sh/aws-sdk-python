@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#CreateRoomResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.room
 
 
-class CreateRoomResponse(TypedDict):
+class CreateRoomResponse(TypedDict, closed=True):
     room: NotRequired["aws_sdk_chime.types.room.Room"]
     """<p>The room details.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#GetConfigurationCheckOperationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.configuration_check_operation
 
 
-class GetConfigurationCheckOperationOutput(TypedDict):
+class GetConfigurationCheckOperationOutput(TypedDict, closed=True):
     configuration_check_operation: NotRequired[
         "aws_sdk_ssm_sap.types.configuration_check_operation.ConfigurationCheckOperation"
     ]

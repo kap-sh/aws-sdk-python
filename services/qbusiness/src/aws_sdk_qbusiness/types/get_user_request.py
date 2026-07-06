@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.string
 
 
-class GetUserRequest(TypedDict):
+class GetUserRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the application connected to the user.</p>"""
     user_id: "aws_sdk_qbusiness.types.string.String"

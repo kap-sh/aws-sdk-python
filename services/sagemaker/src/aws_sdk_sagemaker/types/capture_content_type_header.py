@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CaptureContentTypeHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.csv_content_types
     import aws_sdk_sagemaker.types.json_content_types
 
 
-class CaptureContentTypeHeader(TypedDict):
+class CaptureContentTypeHeader(TypedDict, closed=True):
     csv_content_types: NotRequired[
         "aws_sdk_sagemaker.types.csv_content_types.CsvContentTypes"
     ]

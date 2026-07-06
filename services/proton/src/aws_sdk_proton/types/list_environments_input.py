@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListEnvironmentsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.environment_template_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.next_token
 
 
-class ListEnvironmentsInput(TypedDict):
+class ListEnvironmentsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next environment in the array of environments, after the list of environments that was previously requested.</p>"""
     max_results: NotRequired["aws_sdk_proton.types.max_page_results.MaxPageResults"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.s3_bucket_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.string_value2048
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     bucket_name: NotRequired[
         "aws_sdk_timestream_write.types.s3_bucket_name.S3BucketName"
     ]

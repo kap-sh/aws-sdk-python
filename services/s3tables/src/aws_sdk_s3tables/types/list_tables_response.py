@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#ListTablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_summary_list
 
 
-class ListTablesResponse(TypedDict):
+class ListTablesResponse(TypedDict, closed=True):
     tables: "aws_sdk_s3tables.types.table_summary_list.TableSummaryList"
     """<p>A list of tables.</p>"""
     continuation_token: NotRequired["aws_sdk_s3tables.types.next_token.NextToken"]

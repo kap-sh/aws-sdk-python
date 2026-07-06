@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DateArrayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.field_value
 
 
-class DateArrayOptions(TypedDict):
+class DateArrayOptions(TypedDict, closed=True):
     default_value: NotRequired["aws_sdk_cloudsearch.types.field_value.FieldValue"]
     """A value to use for the field if the field isn't specified for a document."""
     source_fields: NotRequired[

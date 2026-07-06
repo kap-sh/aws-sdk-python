@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#EmbeddedDestinationSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EmbeddedDestinationSettings(TypedDict):
+class EmbeddedDestinationSettings(TypedDict, closed=True):
     pass
 
 

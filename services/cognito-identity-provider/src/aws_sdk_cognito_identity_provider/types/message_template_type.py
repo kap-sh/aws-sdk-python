@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#MessageTemplateType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.email_invite_message_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.sms_invite_message_type
 
 
-class MessageTemplateType(TypedDict):
+class MessageTemplateType(TypedDict, closed=True):
     sms_message: NotRequired[
         "aws_sdk_cognito_identity_provider.types.sms_invite_message_type.SmsInviteMessageType"
     ]

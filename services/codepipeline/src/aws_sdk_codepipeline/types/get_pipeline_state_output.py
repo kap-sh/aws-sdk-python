@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GetPipelineStateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class GetPipelineStateOutput(TypedDict):
+class GetPipelineStateOutput(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_codepipeline.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline for which you want to get the state.</p>"""
     pipeline_version: NotRequired[

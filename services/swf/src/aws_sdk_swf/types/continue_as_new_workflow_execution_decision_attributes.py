@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ContinueAsNewWorkflowExecutionDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.version
 
 
-class ContinueAsNewWorkflowExecutionDecisionAttributes(TypedDict):
+class ContinueAsNewWorkflowExecutionDecisionAttributes(TypedDict, closed=True):
     input: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>The input provided to the new workflow execution.</p>"""
     execution_start_to_close_timeout: NotRequired[

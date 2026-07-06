@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_describe_cluster_summary
     import aws_sdk_medialive.types.__string
 
 
-class ListClustersResponse(TypedDict):
+class ListClustersResponse(TypedDict, closed=True):
     clusters: NotRequired[
         "aws_sdk_medialive.types.__list_of_describe_cluster_summary.__listOfDescribeClusterSummary"
     ]

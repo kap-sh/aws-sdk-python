@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpcPeeringConnectionVpcInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_peering_connection_options_description
 
 
-class VpcPeeringConnectionVpcInfo(TypedDict):
+class VpcPeeringConnectionVpcInfo(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv4 CIDR block for the VPC.</p>"""
     ipv6_cidr_block_set: NotRequired[

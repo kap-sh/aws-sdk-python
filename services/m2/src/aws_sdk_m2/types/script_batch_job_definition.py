@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ScriptBatchJobDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
 
-class ScriptBatchJobDefinition(TypedDict):
+class ScriptBatchJobDefinition(TypedDict, closed=True):
     script_name: "str"
     """<p>The name of the script containing the batch job definition.</p>"""
 

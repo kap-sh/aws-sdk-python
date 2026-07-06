@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#ListInternetEventsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.internet_event_max_results
 
 
-class ListInternetEventsInput(TypedDict):
+class ListInternetEventsInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token for the next set of results. You receive this token from a previous call.</p>"""
     max_results: NotRequired[

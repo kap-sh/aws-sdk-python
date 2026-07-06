@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspaceDirectory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.active_directory_config
@@ -36,7 +36,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_type
 
 
-class WorkspaceDirectory(TypedDict):
+class WorkspaceDirectory(TypedDict, closed=True):
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]
     """<p>The directory identifier.</p>"""
     alias: NotRequired["aws_sdk_workspaces.types.alias.Alias"]

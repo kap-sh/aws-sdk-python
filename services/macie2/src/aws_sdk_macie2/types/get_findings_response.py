@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetFindingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_finding
 
 
-class GetFindingsResponse(TypedDict):
+class GetFindingsResponse(TypedDict, closed=True):
     findings: NotRequired["aws_sdk_macie2.types.__list_of_finding.__listOfFinding"]
     """<p>An array of objects, one for each finding that matches the criteria specified in the request.</p>"""
 

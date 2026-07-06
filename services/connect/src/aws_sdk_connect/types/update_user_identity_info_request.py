@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateUserIdentityInfoRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_identity_info
 
 
-class UpdateUserIdentityInfoRequest(TypedDict):
+class UpdateUserIdentityInfoRequest(TypedDict, closed=True):
     identity_info: "aws_sdk_connect.types.user_identity_info.UserIdentityInfo"
     """<p>The identity information for the user.</p>"""
     user_id: "aws_sdk_connect.types.user_id.UserId"

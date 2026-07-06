@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListVpcIngressConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.vpc_ingress_connection_summary_list
 
 
-class ListVpcIngressConnectionsResponse(TypedDict):
+class ListVpcIngressConnectionsResponse(TypedDict, closed=True):
     vpc_ingress_connection_summary_list: "aws_sdk_apprunner.types.vpc_ingress_connection_summary_list.VpcIngressConnectionSummaryList"
     """<p>A list of summary information records for VPC Ingress Connections. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>"""
     next_token: NotRequired["aws_sdk_apprunner.types.next_token.NextToken"]

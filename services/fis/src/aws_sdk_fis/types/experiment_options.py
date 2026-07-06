@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.account_targeting
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.empty_target_resolution_mode
 
 
-class ExperimentOptions(TypedDict):
+class ExperimentOptions(TypedDict, closed=True):
     account_targeting: NotRequired[
         "aws_sdk_fis.types.account_targeting.AccountTargeting"
     ]

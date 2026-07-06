@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#CompatibleKafkaVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
     import aws_sdk_kafka.types.__string
 
 
-class CompatibleKafkaVersion(TypedDict):
+class CompatibleKafkaVersion(TypedDict, closed=True):
     source_version: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>An Apache Kafka version.</p>"""
     target_versions: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#DeleteRepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.repository_provider
 
 
-class DeleteRepositoryInput(TypedDict):
+class DeleteRepositoryInput(TypedDict, closed=True):
     provider: "aws_sdk_proton.types.repository_provider.RepositoryProvider"
     """<p>The repository provider.</p>"""
     name: "aws_sdk_proton.types.repository_name.RepositoryName"

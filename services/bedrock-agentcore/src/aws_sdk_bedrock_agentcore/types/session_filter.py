@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SessionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.event_filter_condition
 
 
-class SessionFilter(TypedDict):
+class SessionFilter(TypedDict, closed=True):
     event_filter: NotRequired[
         "aws_sdk_bedrock_agentcore.types.event_filter_condition.EventFilterCondition"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListModelsInput(TypedDict):
+class ListModelsInput(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_sagemaker.types.model_sort_key.ModelSortKey"]
     """<p>Sorts the list of results. The default is <code>CreationTime</code>.</p>"""
     sort_order: NotRequired["aws_sdk_sagemaker.types.order_key.OrderKey"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ClusterSnapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.string_list
 
 
-class ClusterSnapshot(TypedDict):
+class ClusterSnapshot(TypedDict, closed=True):
     subnet_ids: "aws_sdk_docdb_elastic.types.string_list.StringList"
     """<p>The Amazon EC2 subnet IDs for the elastic cluster.</p>"""
     snapshot_name: "str"

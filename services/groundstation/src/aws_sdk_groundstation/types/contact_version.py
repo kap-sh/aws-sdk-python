@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ContactVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.version_status
 
 
-class ContactVersion(TypedDict):
+class ContactVersion(TypedDict, closed=True):
     version_id: NotRequired["aws_sdk_groundstation.types.version_id.VersionId"]
     """<p>Version ID of a contact.</p>"""
     created: NotRequired["datetime.datetime"]

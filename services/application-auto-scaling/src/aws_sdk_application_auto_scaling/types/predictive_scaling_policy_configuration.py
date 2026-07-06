@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#PredictiveScalingPolicyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.predictive_scaling_scheduling_buffer_time
 
 
-class PredictiveScalingPolicyConfiguration(TypedDict):
+class PredictiveScalingPolicyConfiguration(TypedDict, closed=True):
     metric_specifications: "aws_sdk_application_auto_scaling.types.predictive_scaling_metric_specifications.PredictiveScalingMetricSpecifications"
     """<p> This structure includes the metrics and target utilization to use for predictive scaling. </p> <p>This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.</p>"""
     mode: NotRequired[

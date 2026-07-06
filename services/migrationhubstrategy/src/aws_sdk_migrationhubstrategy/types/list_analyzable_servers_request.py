@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ListAnalyzableServersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.max_result
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.sort_order
 
 
-class ListAnalyzableServersRequest(TypedDict):
+class ListAnalyzableServersRequest(TypedDict, closed=True):
     sort: NotRequired["aws_sdk_migrationhubstrategy.types.sort_order.SortOrder"]
     """Specifies whether to sort by ascending (ASC) or descending (DESC) order."""
     next_token: NotRequired["aws_sdk_migrationhubstrategy.types.next_token.NextToken"]

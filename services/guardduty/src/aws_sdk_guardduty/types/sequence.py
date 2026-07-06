@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Sequence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.actors
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Sequence(TypedDict):
+class Sequence(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Unique identifier of the attack sequence.</p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.database_source_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.msk_source_description
 
 
-class SourceDescription(TypedDict):
+class SourceDescription(TypedDict, closed=True):
     direct_put_source_description: NotRequired[
         "aws_sdk_firehose.types.direct_put_source_description.DirectPutSourceDescription"
     ]

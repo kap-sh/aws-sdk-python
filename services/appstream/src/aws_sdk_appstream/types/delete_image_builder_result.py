@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteImageBuilderResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.image_builder
 
 
-class DeleteImageBuilderResult(TypedDict):
+class DeleteImageBuilderResult(TypedDict, closed=True):
     image_builder: NotRequired["aws_sdk_appstream.types.image_builder.ImageBuilder"]
     """<p>Information about the image builder.</p>"""
 

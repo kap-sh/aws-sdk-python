@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftClusterStorage``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class RedshiftClusterStorage(TypedDict):
+class RedshiftClusterStorage(TypedDict, closed=True):
     cluster_name: "str"
     """<p>The name of an Amazon Redshift cluster.</p>"""
 

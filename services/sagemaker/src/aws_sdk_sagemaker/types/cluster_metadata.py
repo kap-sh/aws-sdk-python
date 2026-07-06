@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.eks_role_access_entries
 
 
-class ClusterMetadata(TypedDict):
+class ClusterMetadata(TypedDict, closed=True):
     failure_message: NotRequired["str"]
     """<p>An error message describing why the cluster level operation (such as creating, updating, or deleting) failed.</p>"""
     eks_role_access_entries: NotRequired[

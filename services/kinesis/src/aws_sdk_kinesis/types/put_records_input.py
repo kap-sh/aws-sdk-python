@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#PutRecordsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_name
 
 
-class PutRecordsInput(TypedDict):
+class PutRecordsInput(TypedDict, closed=True):
     records: "aws_sdk_kinesis.types.put_records_request_entry_list.PutRecordsRequestEntryList"
     """<p>The records associated with the request.</p>"""
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_time_unit
 
 
-class LifecyclePolicyDetailFilter(TypedDict):
+class LifecyclePolicyDetailFilter(TypedDict, closed=True):
     type: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_type.LifecyclePolicyDetailFilterType"
     """<p>Filter resources based on either <code>age</code> or <code>count</code>.</p>"""
     value: "aws_sdk_imagebuilder.types.lifecycle_policy_detail_filter_value.LifecyclePolicyDetailFilterValue"

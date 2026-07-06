@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListInferenceRecommendationsJobStepsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.recommendation_step_type
 
 
-class ListInferenceRecommendationsJobStepsRequest(TypedDict):
+class ListInferenceRecommendationsJobStepsRequest(TypedDict, closed=True):
     job_name: NotRequired[
         "aws_sdk_sagemaker.types.recommendation_job_name.RecommendationJobName"
     ]

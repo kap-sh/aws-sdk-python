@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#BatchDisassociateResourcesFromCustomLineItemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.custom_line_item_billing_period_range
 
 
-class BatchDisassociateResourcesFromCustomLineItemInput(TypedDict):
+class BatchDisassociateResourcesFromCustomLineItemInput(TypedDict, closed=True):
     target_arn: "aws_sdk_billingconductor.types.custom_line_item_arn.CustomLineItemArn"
     """<p> A percentage custom line item ARN to disassociate the resources from. </p>"""
     resource_arns: "aws_sdk_billingconductor.types.custom_line_item_batch_disassociations_list.CustomLineItemBatchDisassociationsList"

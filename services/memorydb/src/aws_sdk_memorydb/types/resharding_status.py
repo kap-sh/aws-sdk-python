@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ReshardingStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.slot_migration
 
 
-class ReshardingStatus(TypedDict):
+class ReshardingStatus(TypedDict, closed=True):
     slot_migration: NotRequired["aws_sdk_memorydb.types.slot_migration.SlotMigration"]
     """<p>The status of the online resharding slot migration</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FreeFormSectionLayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.free_from_layout_element_list
 
 
-class FreeFormSectionLayoutConfiguration(TypedDict):
+class FreeFormSectionLayoutConfiguration(TypedDict, closed=True):
     elements: "aws_sdk_quicksight.types.free_from_layout_element_list.FreeFromLayoutElementList"
     """<p>The elements that are included in the free-form layout.</p>"""
 

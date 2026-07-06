@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutInventoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.put_inventory_message
 
 
-class PutInventoryResult(TypedDict):
+class PutInventoryResult(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ssm.types.put_inventory_message.PutInventoryMessage"]
     """<p>Information about the request.</p>"""
 

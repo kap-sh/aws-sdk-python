@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#S3Reference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmailmessageflow.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmailmessageflow.types.s3_version_type
 
 
-class S3Reference(TypedDict):
+class S3Reference(TypedDict, closed=True):
     bucket: "aws_sdk_workmailmessageflow.types.s3_bucket_id_type.s3BucketIdType"
     """<p>The S3 bucket name.</p>"""
     key: "aws_sdk_workmailmessageflow.types.s3_key_id_type.s3KeyIdType"

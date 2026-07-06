@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#StartSigningJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.account_id
     import aws_sdk_signer.types.job_id
 
 
-class StartSigningJobResponse(TypedDict):
+class StartSigningJobResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_signer.types.job_id.JobId"]
     """<p>The ID of your signing job.</p>"""
     job_owner: NotRequired["aws_sdk_signer.types.account_id.AccountId"]

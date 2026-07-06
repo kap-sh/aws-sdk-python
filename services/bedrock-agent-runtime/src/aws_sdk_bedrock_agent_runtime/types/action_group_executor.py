@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ActionGroupExecutor``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -16,10 +18,11 @@ _ActionGroupExecutor_lambda = TypedDict(
     {
         "lambda": "aws_sdk_bedrock_agent_runtime.types.lambda_resource_arn.LambdaResourceArn",
     },
+    closed=True,
 )
 
 
-class _ActionGroupExecutor_customControl(TypedDict):
+class _ActionGroupExecutor_customControl(TypedDict, closed=True):
     customControl: (
         "aws_sdk_bedrock_agent_runtime.types.custom_control_method.CustomControlMethod"
     )

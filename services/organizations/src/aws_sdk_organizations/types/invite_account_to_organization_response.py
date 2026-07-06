@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#InviteAccountToOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake
 
 
-class InviteAccountToOrganizationResponse(TypedDict):
+class InviteAccountToOrganizationResponse(TypedDict, closed=True):
     handshake: NotRequired["aws_sdk_organizations.types.handshake.Handshake"]
     """<p>A structure that contains details about the handshake that is created to support this invitation request.</p>"""
 

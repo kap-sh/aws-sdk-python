@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#CreatePermissionGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace_data.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.permission_group_name
 
 
-class CreatePermissionGroupRequest(TypedDict):
+class CreatePermissionGroupRequest(TypedDict, closed=True):
     name: "aws_sdk_finspace_data.types.permission_group_name.PermissionGroupName"
     """<p>The name of the permission group.</p>"""
     description: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ShuffleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.seed
 
 
-class ShuffleConfig(TypedDict):
+class ShuffleConfig(TypedDict, closed=True):
     seed: NotRequired["aws_sdk_sagemaker.types.seed.Seed"]
     """<p>Determines the shuffling order in <code>ShuffleConfig</code> value.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_clusters
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxClustersResponse(TypedDict):
+class ListKxClustersResponse(TypedDict, closed=True):
     kx_cluster_summaries: NotRequired["aws_sdk_finspace.types.kx_clusters.KxClusters"]
     """<p>Lists the cluster details.</p>"""
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]

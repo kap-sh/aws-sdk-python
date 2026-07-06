@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#StartInstanceOnboardingJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.instance_onboarding_job_status
 
 
-class StartInstanceOnboardingJobResponse(TypedDict):
+class StartInstanceOnboardingJobResponse(TypedDict, closed=True):
     connect_instance_onboarding_job_status: NotRequired[
         "aws_sdk_connectcampaigns.types.instance_onboarding_job_status.InstanceOnboardingJobStatus"
     ]

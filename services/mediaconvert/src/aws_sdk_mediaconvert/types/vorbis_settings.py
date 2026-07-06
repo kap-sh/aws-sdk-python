@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VorbisSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max2
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min_negative1_max10
 
 
-class VorbisSettings(TypedDict):
+class VorbisSettings(TypedDict, closed=True):
     channels: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max2.__integerMin0Max2"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#SearchAvailablePhoneNumbersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.alpha2_country_code
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.toll_free_prefix
 
 
-class SearchAvailablePhoneNumbersRequest(TypedDict):
+class SearchAvailablePhoneNumbersRequest(TypedDict, closed=True):
     area_code: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The area code used to filter results. Only applies to the US.</p>"""
     city: NotRequired["aws_sdk_chime.types.string.String"]

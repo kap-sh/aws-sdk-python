@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#SearchForPositionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_double
 
 
-class SearchForPositionResult(TypedDict):
+class SearchForPositionResult(TypedDict, closed=True):
     place: "aws_sdk_location.types.place.Place"
     """<p>Details about the search result, such as its address and position.</p>"""
     distance: "aws_sdk_location.types.sensitive_double.SensitiveDouble"

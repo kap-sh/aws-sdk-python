@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceFleetProvisioningSpecifications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.on_demand_provisioning_specification
     import aws_sdk_emr.types.spot_provisioning_specification
 
 
-class InstanceFleetProvisioningSpecifications(TypedDict):
+class InstanceFleetProvisioningSpecifications(TypedDict, closed=True):
     spot_specification: NotRequired[
         "aws_sdk_emr.types.spot_provisioning_specification.SpotProvisioningSpecification"
     ]

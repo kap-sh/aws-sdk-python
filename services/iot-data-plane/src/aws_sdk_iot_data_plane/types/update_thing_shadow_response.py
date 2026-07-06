@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#UpdateThingShadowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.json_document
 
 
-class UpdateThingShadowResponse(TypedDict):
+class UpdateThingShadowResponse(TypedDict, closed=True):
     payload: NotRequired["aws_sdk_iot_data_plane.types.json_document.JsonDocument"]
     """<p>The state information, in JSON format.</p>"""
 

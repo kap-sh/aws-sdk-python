@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SourceTableConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.primary_key_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string128
 
 
-class SourceTableConfig(TypedDict):
+class SourceTableConfig(TypedDict, closed=True):
     fields: NotRequired[
         "aws_sdk_glue.types.source_table_fields_list.SourceTableFieldsList"
     ]

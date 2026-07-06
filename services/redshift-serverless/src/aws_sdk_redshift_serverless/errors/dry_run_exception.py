@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DryRunException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError, ServiceError
 
 
-class DryRunException_(TypedDict):
+class DryRunException_(TypedDict, closed=True):
     message: "str"
 
 

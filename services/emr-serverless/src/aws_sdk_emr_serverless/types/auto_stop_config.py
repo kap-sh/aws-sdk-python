@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#AutoStopConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AutoStopConfig(TypedDict):
+class AutoStopConfig(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables the application to automatically stop after a certain amount of time being idle. Defaults to true.</p>"""
     idle_timeout_minutes: NotRequired["int"]

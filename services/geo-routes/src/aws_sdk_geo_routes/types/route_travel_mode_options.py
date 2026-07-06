@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTravelModeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_car_options
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_truck_options
 
 
-class RouteTravelModeOptions(TypedDict):
+class RouteTravelModeOptions(TypedDict, closed=True):
     car: NotRequired["aws_sdk_geo_routes.types.route_car_options.RouteCarOptions"]
     """<p>Travel mode options when the provided travel mode is <code>Car</code>.</p>"""
     pedestrian: NotRequired[

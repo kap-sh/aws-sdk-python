@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SortCriterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.sort_order
 
 
-class SortCriterion(TypedDict):
+class SortCriterion(TypedDict, closed=True):
     field: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The finding attribute used to sort findings.</p>"""
     sort_order: NotRequired["aws_sdk_securityhub.types.sort_order.SortOrder"]

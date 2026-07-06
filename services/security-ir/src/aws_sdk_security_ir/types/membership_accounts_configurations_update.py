@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#MembershipAccountsConfigurationsUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.organizational_units
 
 
-class MembershipAccountsConfigurationsUpdate(TypedDict):
+class MembershipAccountsConfigurationsUpdate(TypedDict, closed=True):
     cover_entire_organization: NotRequired["bool"]
     """<p>The <code>coverEntireOrganization</code> field is a boolean value that determines whether the membership configuration should be applied across the entire Amazon Web Services Organization. </p> <p>When set to <code>true</code>, the configuration will be applied to all accounts within the organization. When set to <code>false</code>, the configuration will only apply to specifically designated accounts. </p>"""
     organizational_units_to_add: NotRequired[

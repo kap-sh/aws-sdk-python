@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ComputeQuotaConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compute_quota_resource_config_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_sharing_config
 
 
-class ComputeQuotaConfig(TypedDict):
+class ComputeQuotaConfig(TypedDict, closed=True):
     compute_quota_resources: NotRequired[
         "aws_sdk_sagemaker.types.compute_quota_resource_config_list.ComputeQuotaResourceConfigList"
     ]

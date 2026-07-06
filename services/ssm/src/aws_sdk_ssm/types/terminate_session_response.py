@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#TerminateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_id
 
 
-class TerminateSessionResponse(TypedDict):
+class TerminateSessionResponse(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_ssm.types.session_id.SessionId"]
     """<p>The ID of the session that has been terminated.</p>"""
 

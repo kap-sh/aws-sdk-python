@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListStudiosOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
     import aws_sdk_emr.types.studio_summary_list
 
 
-class ListStudiosOutput(TypedDict):
+class ListStudiosOutput(TypedDict, closed=True):
     studios: NotRequired["aws_sdk_emr.types.studio_summary_list.StudioSummaryList"]
     """<p>The list of Studio summary objects.</p>"""
     marker: NotRequired["aws_sdk_emr.types.marker.Marker"]

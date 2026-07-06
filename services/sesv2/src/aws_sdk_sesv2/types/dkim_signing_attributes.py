@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DkimSigningAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.dkim_signing_attributes_origin
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.selector
 
 
-class DkimSigningAttributes(TypedDict):
+class DkimSigningAttributes(TypedDict, closed=True):
     domain_signing_selector: NotRequired["aws_sdk_sesv2.types.selector.Selector"]
     """<p>[Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.</p>"""
     domain_signing_private_key: NotRequired[

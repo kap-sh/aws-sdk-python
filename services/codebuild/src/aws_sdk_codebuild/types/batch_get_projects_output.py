@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetProjectsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.project_names
     import aws_sdk_codebuild.types.projects
 
 
-class BatchGetProjectsOutput(TypedDict):
+class BatchGetProjectsOutput(TypedDict, closed=True):
     projects: NotRequired["aws_sdk_codebuild.types.projects.Projects"]
     """<p>Information about the requested build projects.</p>"""
     projects_not_found: NotRequired[

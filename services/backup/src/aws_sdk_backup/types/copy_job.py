@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CopyJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class CopyJob(TypedDict):
+class CopyJob(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]
     """<p>The account ID that owns the copy job.</p>"""
     copy_job_id: NotRequired["aws_sdk_backup.types.string.string"]

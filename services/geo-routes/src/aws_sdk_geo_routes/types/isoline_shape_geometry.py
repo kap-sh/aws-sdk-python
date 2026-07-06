@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineShapeGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.linear_rings
     import aws_sdk_geo_routes.types.polyline_ring_list
 
 
-class IsolineShapeGeometry(TypedDict):
+class IsolineShapeGeometry(TypedDict, closed=True):
     polygon: NotRequired["aws_sdk_geo_routes.types.linear_rings.LinearRings"]
     """<p>A series of coordinate rings defining the reachable area when Simple geometry format is requested. Each ring is a list of <code>[longitude, latitude]</code> coordinate pairs. The first ring defines the outer boundary; subsequent rings define holes representing unreachable areas.</p> <note> <p>Polygon and PolylinePolygon are mutually exclusive properties.</p> </note>"""
     polyline_polygon: NotRequired[

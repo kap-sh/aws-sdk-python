@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#AutoScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.auto_scaling_metric
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.node_count
 
 
-class AutoScalingConfiguration(TypedDict):
+class AutoScalingConfiguration(TypedDict, closed=True):
     min_node_count: NotRequired["aws_sdk_finspace.types.node_count.NodeCount"]
     """<p>The lowest number of nodes to scale. This value must be at least 1 and less than the <code>maxNodeCount</code>. If the nodes in a cluster belong to multiple availability zones, then <code>minNodeCount</code> must be at least 3.</p>"""
     max_node_count: NotRequired["aws_sdk_finspace.types.node_count.NodeCount"]

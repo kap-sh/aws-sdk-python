@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#TunedHPOParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.hyper_parameters
 
 
-class TunedHPOParams(TypedDict):
+class TunedHPOParams(TypedDict, closed=True):
     algorithm_hyper_parameters: NotRequired[
         "aws_sdk_personalize.types.hyper_parameters.HyperParameters"
     ]

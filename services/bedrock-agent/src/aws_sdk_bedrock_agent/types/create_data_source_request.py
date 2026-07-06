@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CreateDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.vector_ingestion_configuration
 
 
-class CreateDataSourceRequest(TypedDict):
+class CreateDataSourceRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the knowledge base to which to add the data source.</p>"""
     client_token: NotRequired["aws_sdk_bedrock_agent.types.client_token.ClientToken"]

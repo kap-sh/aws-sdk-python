@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_import_body_blob
     import aws_sdk_quicksight.types.s3_uri
 
 
-class AssetBundleImportSource(TypedDict):
+class AssetBundleImportSource(TypedDict, closed=True):
     body: NotRequired[
         "aws_sdk_quicksight.types.asset_bundle_import_body_blob.AssetBundleImportBodyBlob"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DefaultMaintenanceConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DefaultMaintenanceConfiguration(TypedDict):
+class DefaultMaintenanceConfiguration(TypedDict, closed=True):
     pass
 
 

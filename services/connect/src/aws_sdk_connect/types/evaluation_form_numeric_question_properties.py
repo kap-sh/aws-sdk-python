@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormNumericQuestionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_numeric_question_automation
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.integer
 
 
-class EvaluationFormNumericQuestionProperties(TypedDict):
+class EvaluationFormNumericQuestionProperties(TypedDict, closed=True):
     min_value: "aws_sdk_connect.types.integer.Integer"
     """<p>The minimum answer value.</p>"""
     max_value: "aws_sdk_connect.types.integer.Integer"

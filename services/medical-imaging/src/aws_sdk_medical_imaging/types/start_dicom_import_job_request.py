@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#StartDICOMImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.s3_uri
 
 
-class StartDICOMImportJobRequest(TypedDict):
+class StartDICOMImportJobRequest(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_medical_imaging.types.job_name.JobName"]
     """<p>The import job name.</p>"""
     data_access_role_arn: "aws_sdk_medical_imaging.types.role_arn.RoleArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ScatterPlotFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.scatter_plot_categorically_aggregated_field_wells
     import aws_sdk_quicksight.types.scatter_plot_unaggregated_field_wells
 
 
-class ScatterPlotFieldWells(TypedDict):
+class ScatterPlotFieldWells(TypedDict, closed=True):
     scatter_plot_categorically_aggregated_field_wells: NotRequired[
         "aws_sdk_quicksight.types.scatter_plot_categorically_aggregated_field_wells.ScatterPlotCategoricallyAggregatedFieldWells"
     ]

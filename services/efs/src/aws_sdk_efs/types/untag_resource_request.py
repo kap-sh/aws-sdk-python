@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.resource_id
     import aws_sdk_efs.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_efs.types.resource_id.ResourceId"
     """<p>Specifies the EFS resource that you want to remove tags from.</p>"""
     tag_keys: "aws_sdk_efs.types.tag_keys.TagKeys"

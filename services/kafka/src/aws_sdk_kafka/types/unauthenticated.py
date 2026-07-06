@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#Unauthenticated``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
 
 
-class Unauthenticated(TypedDict):
+class Unauthenticated(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Specifies whether you want to turn on or turn off unauthenticated traffic to your cluster.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#LiveSimulationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.domain_list
     import aws_sdk_simspaceweaver.types.simulation_clock_list
 
 
-class LiveSimulationState(TypedDict):
+class LiveSimulationState(TypedDict, closed=True):
     domains: NotRequired["aws_sdk_simspaceweaver.types.domain_list.DomainList"]
     r"""<p>A list of domains for the simulation. For more information about domains, see <a href=\"https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains\">Key concepts: Domains</a> in the <i>SimSpace Weaver User Guide</i>.</p>"""
     clocks: NotRequired[

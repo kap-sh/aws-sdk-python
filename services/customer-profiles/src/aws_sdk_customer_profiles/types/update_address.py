@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#UpdateAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string0_to255
 
 
-class UpdateAddress(TypedDict):
+class UpdateAddress(TypedDict, closed=True):
     address1: NotRequired["aws_sdk_customer_profiles.types.string0_to255.string0To255"]
     """<p>The first line of a customer address.</p>"""
     address2: NotRequired["aws_sdk_customer_profiles.types.string0_to255.string0To255"]

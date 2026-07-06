@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AmazonOpenSearchParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.domain
 
 
-class AmazonOpenSearchParameters(TypedDict):
+class AmazonOpenSearchParameters(TypedDict, closed=True):
     domain: "aws_sdk_quicksight.types.domain.Domain"
     """<p>The OpenSearch domain.</p>"""
 

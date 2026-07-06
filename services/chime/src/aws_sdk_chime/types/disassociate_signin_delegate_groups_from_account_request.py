@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#DisassociateSigninDelegateGroupsFromAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.non_empty_string_list
 
 
-class DisassociateSigninDelegateGroupsFromAccountRequest(TypedDict):
+class DisassociateSigninDelegateGroupsFromAccountRequest(TypedDict, closed=True):
     account_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The Amazon Chime account ID.</p>"""
     group_names: "aws_sdk_chime.types.non_empty_string_list.NonEmptyStringList"

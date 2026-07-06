@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ResetCacheParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class ResetCacheParameterGroupMessage(TypedDict):
+class ResetCacheParameterGroupMessage(TypedDict, closed=True):
     cache_parameter_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the cache parameter group to reset.</p>"""
     reset_all_parameters: NotRequired["aws_sdk_elasticache.types.boolean.Boolean"]

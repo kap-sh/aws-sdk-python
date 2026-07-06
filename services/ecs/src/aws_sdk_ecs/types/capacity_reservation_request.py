@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CapacityReservationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.capacity_reservation_preference
     import aws_sdk_ecs.types.string
 
 
-class CapacityReservationRequest(TypedDict):
+class CapacityReservationRequest(TypedDict, closed=True):
     reservation_group_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>"""
     reservation_preference: NotRequired[

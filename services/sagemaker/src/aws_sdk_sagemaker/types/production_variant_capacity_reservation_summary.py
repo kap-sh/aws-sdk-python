@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProductionVariantCapacityReservationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capacity_reservation_preference
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.task_count
 
 
-class ProductionVariantCapacityReservationSummary(TypedDict):
+class ProductionVariantCapacityReservationSummary(TypedDict, closed=True):
     ml_reservation_arn: NotRequired[
         "aws_sdk_sagemaker.types.ml_reservation_arn.MlReservationArn"
     ]

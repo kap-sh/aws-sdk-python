@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#SubjectDetailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.subject_detail
 
 
-class SubjectDetailResponse(TypedDict):
+class SubjectDetailResponse(TypedDict, closed=True):
     subject: NotRequired["aws_sdk_rolesanywhere.types.subject_detail.SubjectDetail"]
     """<p>The state of the subject after a read or write operation.</p>"""
 

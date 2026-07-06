@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ListKeysInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.next_token
 
 
-class ListKeysInput(TypedDict):
+class ListKeysInput(TypedDict, closed=True):
     key_state: NotRequired["aws_sdk_payment_cryptography.types.key_state.KeyState"]
     """<p>The key state of the keys you want to list.</p>"""
     next_token: NotRequired["aws_sdk_payment_cryptography.types.next_token.NextToken"]

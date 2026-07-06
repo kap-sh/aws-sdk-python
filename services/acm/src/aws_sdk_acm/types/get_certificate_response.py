@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acm#GetCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_body
     import aws_sdk_acm.types.certificate_chain
 
 
-class GetCertificateResponse(TypedDict):
+class GetCertificateResponse(TypedDict, closed=True):
     certificate: NotRequired["aws_sdk_acm.types.certificate_body.CertificateBody"]
     """<p>The ACM-issued certificate corresponding to the ARN specified as input.</p>"""
     certificate_chain: NotRequired[

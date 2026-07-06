@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GetDeviceFleetReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.agent_versions
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class GetDeviceFleetReportResponse(TypedDict):
+class GetDeviceFleetReportResponse(TypedDict, closed=True):
     device_fleet_arn: NotRequired[
         "aws_sdk_sagemaker.types.device_fleet_arn.DeviceFleetArn"
     ]

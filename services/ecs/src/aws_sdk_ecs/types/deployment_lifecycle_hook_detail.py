@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeploymentLifecycleHookDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.deployment_lifecycle_hook_action
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class DeploymentLifecycleHookDetail(TypedDict):
+class DeploymentLifecycleHookDetail(TypedDict, closed=True):
     hook_id: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ID of the lifecycle hook. Use this value when calling <code>ContinueServiceDeployment</code> to continue or roll back a paused deployment.</p>"""
     target_type: NotRequired[

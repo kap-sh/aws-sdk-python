@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ListGroupingAttributeDefinitionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.aws_account_id
     import aws_sdk_application_signals.types.next_token
 
 
-class ListGroupingAttributeDefinitionsInput(TypedDict):
+class ListGroupingAttributeDefinitionsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_application_signals.types.next_token.NextToken"]
     """<p>Include this value, if it was returned by the previous operation, to get the next set of grouping attribute definitions.</p>"""
     aws_account_id: NotRequired[

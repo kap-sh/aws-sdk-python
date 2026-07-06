@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdMappingTableInputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_namespace_type
 
 
-class IdMappingTableInputSource(TypedDict):
+class IdMappingTableInputSource(TypedDict, closed=True):
     id_namespace_association_id: "str"
     """<p>The unique identifier of the ID namespace association.</p>"""
     type: "aws_sdk_cleanrooms.types.id_namespace_type.IdNamespaceType"

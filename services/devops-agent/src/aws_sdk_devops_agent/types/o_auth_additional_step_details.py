@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#OAuthAdditionalStepDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class OAuthAdditionalStepDetails(TypedDict):
+class OAuthAdditionalStepDetails(TypedDict, closed=True):
     authorization_url: "str"
     """<p>The URL to redirect the user to for OAuth authorization.</p>"""
 

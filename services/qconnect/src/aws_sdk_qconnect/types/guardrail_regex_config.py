@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GuardrailRegexConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_sensitive_information_action
 
 
-class GuardrailRegexConfig(TypedDict):
+class GuardrailRegexConfig(TypedDict, closed=True):
     name: "aws_sdk_qconnect.types.guardrail_regex_name.GuardrailRegexName"
     """<p>The name of the regular expression to configure for the AI Guardrail.</p>"""
     description: NotRequired[

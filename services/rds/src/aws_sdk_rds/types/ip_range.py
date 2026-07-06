@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#IPRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class IPRange(TypedDict):
+class IPRange(TypedDict, closed=True):
     status: NotRequired["aws_sdk_rds.types.string.String"]
     r"""<p>The status of the IP range. Status can be \"authorizing\", \"authorized\", \"revoking\", and \"revoked\".</p>"""
     cidrip: NotRequired["aws_sdk_rds.types.string.String"]

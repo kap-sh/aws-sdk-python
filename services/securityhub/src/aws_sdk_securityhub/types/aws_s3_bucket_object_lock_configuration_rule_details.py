@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketObjectLockConfigurationRuleDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_object_lock_configuration_rule_default_retention_details
 
 
-class AwsS3BucketObjectLockConfigurationRuleDetails(TypedDict):
+class AwsS3BucketObjectLockConfigurationRuleDetails(TypedDict, closed=True):
     default_retention: NotRequired[
         "aws_sdk_securityhub.types.aws_s3_bucket_object_lock_configuration_rule_default_retention_details.AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails"
     ]

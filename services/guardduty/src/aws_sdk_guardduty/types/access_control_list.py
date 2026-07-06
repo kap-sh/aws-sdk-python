@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AccessControlList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class AccessControlList(TypedDict):
+class AccessControlList(TypedDict, closed=True):
     allows_public_read_access: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>A value that indicates whether public read access for the bucket is enabled through an Access Control List (ACL).</p>"""
     allows_public_write_access: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

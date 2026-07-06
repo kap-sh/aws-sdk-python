@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#NamespaceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.dns_properties
     import aws_sdk_servicediscovery.types.http_properties
 
 
-class NamespaceProperties(TypedDict):
+class NamespaceProperties(TypedDict, closed=True):
     dns_properties: NotRequired[
         "aws_sdk_servicediscovery.types.dns_properties.DnsProperties"
     ]

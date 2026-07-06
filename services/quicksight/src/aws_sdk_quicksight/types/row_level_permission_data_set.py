@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowLevelPermissionDataSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status
 
 
-class RowLevelPermissionDataSet(TypedDict):
+class RowLevelPermissionDataSet(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_quicksight.types.namespace.Namespace"]
     """<p>The namespace associated with the dataset that contains permissions for RLS.</p>"""
     arn: "aws_sdk_quicksight.types.arn.Arn"

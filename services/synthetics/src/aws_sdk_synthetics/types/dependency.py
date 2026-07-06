@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#Dependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_synthetics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class Dependency(TypedDict):
+class Dependency(TypedDict, closed=True):
     type: NotRequired["aws_sdk_synthetics.types.dependency_type.DependencyType"]
     """<p>The type of dependency. Valid value is <code>LambdaLayer</code>.</p>"""
     reference: "aws_sdk_synthetics.types.string.String"

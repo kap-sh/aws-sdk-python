@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#DateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.timestamp
 
 
-class DateFilter(TypedDict):
+class DateFilter(TypedDict, closed=True):
     start_inclusive: "aws_sdk_detective.types.timestamp.Timestamp"
     """<p>A timestamp representing the start of the time period from when data is filtered, including the start date.</p>"""
     end_inclusive: "aws_sdk_detective.types.timestamp.Timestamp"

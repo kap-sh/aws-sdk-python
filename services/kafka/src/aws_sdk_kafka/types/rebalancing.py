@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#Rebalancing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.rebalancing_status
 
 
-class Rebalancing(TypedDict):
+class Rebalancing(TypedDict, closed=True):
     status: NotRequired["aws_sdk_kafka.types.rebalancing_status.RebalancingStatus"]
     """<p>Intelligent rebalancing status. The default intelligent rebalancing status is ACTIVE for all new Express-based clusters.</p>"""
 

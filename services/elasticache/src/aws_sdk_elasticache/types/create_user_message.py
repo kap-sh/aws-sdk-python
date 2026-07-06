@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateUserMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_name
 
 
-class CreateUserMessage(TypedDict):
+class CreateUserMessage(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_elasticache.types.user_id.UserId"]
     """<p>The ID of the user. This value is stored as a lowercase string.</p>"""
     user_name: NotRequired["aws_sdk_elasticache.types.user_name.UserName"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ram#EnableSharingWithAwsOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
 
 
-class EnableSharingWithAwsOrganizationResponse(TypedDict):
+class EnableSharingWithAwsOrganizationResponse(TypedDict, closed=True):
     return_value: NotRequired["aws_sdk_ram.types.boolean.Boolean"]
     """<p>A return value of <code>true</code> indicates that the request succeeded. A value of <code>false</code> indicates that the request failed.</p>"""
 

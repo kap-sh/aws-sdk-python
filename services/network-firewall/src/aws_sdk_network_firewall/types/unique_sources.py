@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#UniqueSources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.count
 
 
-class UniqueSources(TypedDict):
+class UniqueSources(TypedDict, closed=True):
     count: "aws_sdk_network_firewall.types.count.Count"
     """<p>The number of unique source IP addresses that connected to a domain.</p>"""
 

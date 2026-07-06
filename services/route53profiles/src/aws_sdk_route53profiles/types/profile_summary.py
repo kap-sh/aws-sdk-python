@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#ProfileSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.share_status
 
 
-class ProfileSummary(TypedDict):
+class ProfileSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53profiles.types.resource_id.ResourceId"]
     """<p> ID of the Profile. </p>"""
     arn: NotRequired["aws_sdk_route53profiles.types.arn.Arn"]

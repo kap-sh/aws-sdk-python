@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListResourceSetResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id
 
 
-class ListResourceSetResourcesRequest(TypedDict):
+class ListResourceSetResourcesRequest(TypedDict, closed=True):
     identifier: "aws_sdk_fms.types.resource_id.ResourceId"
     """<p>A unique identifier for the resource set, used in a request to refer to the resource set.</p>"""
     max_results: NotRequired[

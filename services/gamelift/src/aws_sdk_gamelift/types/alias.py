@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#Alias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.timestamp
 
 
-class Alias(TypedDict):
+class Alias(TypedDict, closed=True):
     alias_id: NotRequired["aws_sdk_gamelift.types.alias_id.AliasId"]
     """<p>A unique identifier for the alias. Alias IDs are unique within a Region.</p>"""
     name: NotRequired[

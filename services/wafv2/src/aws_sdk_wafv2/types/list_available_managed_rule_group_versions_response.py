@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListAvailableManagedRuleGroupVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.managed_rule_group_versions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.version_key_string
 
 
-class ListAvailableManagedRuleGroupVersionsResponse(TypedDict):
+class ListAvailableManagedRuleGroupVersionsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_wafv2.types.next_marker.NextMarker"]
     """<p>When you request a list of objects with a <code>Limit</code> setting, if the number of objects that are still available for retrieval exceeds the limit, WAF returns a <code>NextMarker</code> value in the response. To retrieve the next batch of objects, provide the marker from the prior call in your next request.</p>"""
     versions: NotRequired[

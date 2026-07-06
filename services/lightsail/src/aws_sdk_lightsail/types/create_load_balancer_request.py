@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateLoadBalancerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class CreateLoadBalancerRequest(TypedDict):
+class CreateLoadBalancerRequest(TypedDict, closed=True):
     load_balancer_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of your load balancer.</p>"""
     instance_port: "aws_sdk_lightsail.types.port.Port"

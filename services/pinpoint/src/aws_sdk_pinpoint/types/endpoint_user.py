@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EndpointUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class EndpointUser(TypedDict):
+class EndpointUser(TypedDict, closed=True):
     user_attributes: NotRequired[
         "aws_sdk_pinpoint.types.map_of_list_of__string.MapOfListOf__string"
     ]

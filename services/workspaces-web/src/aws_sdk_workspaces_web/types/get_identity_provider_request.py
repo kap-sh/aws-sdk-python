@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#GetIdentityProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.subresource_arn
 
 
-class GetIdentityProviderRequest(TypedDict):
+class GetIdentityProviderRequest(TypedDict, closed=True):
     identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN"
     """<p>The ARN of the identity provider.</p>"""
 

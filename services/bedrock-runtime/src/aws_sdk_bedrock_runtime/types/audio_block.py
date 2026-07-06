@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AudioBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.error_block
 
 
-class AudioBlock(TypedDict):
+class AudioBlock(TypedDict, closed=True):
     format: "aws_sdk_bedrock_runtime.types.audio_format.AudioFormat"
     """<p>The format of the audio data, such as MP3, WAV, FLAC, or other supported audio formats.</p>"""
     source: "aws_sdk_bedrock_runtime.types.audio_source.AudioSource"

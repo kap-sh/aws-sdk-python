@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FrontOfQueueJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.long
     import aws_sdk_batch.types.string
 
 
-class FrontOfQueueJobSummary(TypedDict):
+class FrontOfQueueJobSummary(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The ARN for a job in a named job queue.</p>"""
     earliest_time_at_position: NotRequired["aws_sdk_batch.types.long.Long"]

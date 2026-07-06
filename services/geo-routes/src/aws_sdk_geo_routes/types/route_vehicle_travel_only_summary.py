@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleTravelOnlySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
 
 
-class RouteVehicleTravelOnlySummary(TypedDict):
+class RouteVehicleTravelOnlySummary(TypedDict, closed=True):
     best_case_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Total duration in free flowing traffic, which is the best case or shortest duration possible to cover the leg.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

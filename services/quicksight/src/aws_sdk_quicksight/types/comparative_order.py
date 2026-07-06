@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ComparativeOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_ordering_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.undefined_specified_value_type
 
 
-class ComparativeOrder(TypedDict):
+class ComparativeOrder(TypedDict, closed=True):
     use_ordering: NotRequired[
         "aws_sdk_quicksight.types.column_ordering_type.ColumnOrderingType"
     ]

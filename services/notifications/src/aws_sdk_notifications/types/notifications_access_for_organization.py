@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#NotificationsAccessForOrganization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.access_status
 
 
-class NotificationsAccessForOrganization(TypedDict):
+class NotificationsAccessForOrganization(TypedDict, closed=True):
     access_status: "aws_sdk_notifications.types.access_status.AccessStatus"
     """<p>Access Status for the Orgs Service.</p>"""
 

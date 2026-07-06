@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#JobLogEventData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.ec2_instance_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class JobLogEventData(TypedDict):
+class JobLogEventData(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Job Event Source Server ID.</p>"""
     conversion_server_id: NotRequired["aws_sdk_mgn.types.ec2_instance_id.EC2InstanceID"]

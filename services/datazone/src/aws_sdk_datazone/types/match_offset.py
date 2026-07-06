@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MatchOffset``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MatchOffset(TypedDict):
+class MatchOffset(TypedDict, closed=True):
     start_offset: NotRequired["int"]
     """<p>The 0-indexed number indicating the start position (inclusive) of a matched term.</p>"""
     end_offset: NotRequired["int"]

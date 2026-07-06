@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DecalSettingsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.decal_settings_list
 
 
-class DecalSettingsConfiguration(TypedDict):
+class DecalSettingsConfiguration(TypedDict, closed=True):
     custom_decal_settings: NotRequired[
         "aws_sdk_quicksight.types.decal_settings_list.DecalSettingsList"
     ]

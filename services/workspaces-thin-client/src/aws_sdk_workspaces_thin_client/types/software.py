@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#Software``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Software(TypedDict):
+class Software(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the software component.</p>"""
     version: NotRequired["str"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteComputeEnvironmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteComputeEnvironmentResponse(TypedDict):
+class DeleteComputeEnvironmentResponse(TypedDict, closed=True):
     pass
 
 

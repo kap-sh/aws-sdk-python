@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#RevokePermissionsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RevokePermissionsResponse(TypedDict):
+class RevokePermissionsResponse(TypedDict, closed=True):
     pass
 
 

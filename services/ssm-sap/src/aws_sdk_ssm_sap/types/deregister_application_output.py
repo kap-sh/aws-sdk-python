@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#DeregisterApplicationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterApplicationOutput(TypedDict):
+class DeregisterApplicationOutput(TypedDict, closed=True):
     pass
 
 

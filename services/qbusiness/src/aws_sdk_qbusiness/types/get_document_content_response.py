@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GetDocumentContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class GetDocumentContentResponse(TypedDict):
+class GetDocumentContentResponse(TypedDict, closed=True):
     presigned_url: "aws_sdk_qbusiness.types.string.String"
     """<p>A pre-signed URL that provides temporary access to download the document content directly from Amazon Q Business. The URL expires after 5 minutes for security purposes. This URL is generated only after successful ACL validation.</p>"""
     mime_type: "aws_sdk_qbusiness.types.string.String"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListPreviewRotationShiftsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.time_zone_id
 
 
-class ListPreviewRotationShiftsRequest(TypedDict):
+class ListPreviewRotationShiftsRequest(TypedDict, closed=True):
     rotation_start_time: NotRequired["aws_sdk_ssm_contacts.types.date_time.DateTime"]
     """<p>The date and time a rotation would begin. The first shift is calculated from this date and time.</p>"""
     start_time: NotRequired["aws_sdk_ssm_contacts.types.date_time.DateTime"]

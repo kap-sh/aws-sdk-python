@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#RelatedFindingDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.entity_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.type
 
 
-class RelatedFindingDetail(TypedDict):
+class RelatedFindingDetail(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_detective.types.entity_arn.EntityArn"]
     """<p>The Amazon Resource Name (ARN) of the related finding.</p>"""
     type: NotRequired["aws_sdk_detective.types.type.Type"]

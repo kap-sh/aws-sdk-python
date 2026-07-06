@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceAssociationStatusInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.agent_error_code
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.status_name
 
 
-class InstanceAssociationStatusInfo(TypedDict):
+class InstanceAssociationStatusInfo(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_ssm.types.association_id.AssociationId"]
     """<p>The association ID.</p>"""
     name: NotRequired["aws_sdk_ssm.types.document_arn.DocumentARN"]

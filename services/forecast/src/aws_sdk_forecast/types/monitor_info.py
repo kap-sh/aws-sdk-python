@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#MonitorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
     import aws_sdk_forecast.types.status
 
 
-class MonitorInfo(TypedDict):
+class MonitorInfo(TypedDict, closed=True):
     monitor_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the monitor resource.</p>"""
     status: NotRequired["aws_sdk_forecast.types.status.Status"]

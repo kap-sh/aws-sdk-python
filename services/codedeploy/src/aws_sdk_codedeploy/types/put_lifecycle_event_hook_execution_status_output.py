@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#PutLifecycleEventHookExecutionStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.lifecycle_event_hook_execution_id
 
 
-class PutLifecycleEventHookExecutionStatusOutput(TypedDict):
+class PutLifecycleEventHookExecutionStatusOutput(TypedDict, closed=True):
     lifecycle_event_hook_execution_id: NotRequired[
         "aws_sdk_codedeploy.types.lifecycle_event_hook_execution_id.LifecycleEventHookExecutionId"
     ]

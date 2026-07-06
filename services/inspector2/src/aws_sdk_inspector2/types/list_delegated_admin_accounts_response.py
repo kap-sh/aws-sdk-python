@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListDelegatedAdminAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.delegated_admin_account_list
     import aws_sdk_inspector2.types.next_token
 
 
-class ListDelegatedAdminAccountsResponse(TypedDict):
+class ListDelegatedAdminAccountsResponse(TypedDict, closed=True):
     delegated_admin_accounts: NotRequired[
         "aws_sdk_inspector2.types.delegated_admin_account_list.DelegatedAdminAccountList"
     ]

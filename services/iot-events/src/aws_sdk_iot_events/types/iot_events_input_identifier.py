@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#IotEventsInputIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.input_name
 
 
-class IotEventsInputIdentifier(TypedDict):
+class IotEventsInputIdentifier(TypedDict, closed=True):
     input_name: "aws_sdk_iot_events.types.input_name.InputName"
     """<p> The name of the input routed to AWS IoT Events. </p>"""
 

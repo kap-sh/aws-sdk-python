@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DeviceConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.boolean_type
 
 
-class DeviceConfigurationType(TypedDict):
+class DeviceConfigurationType(TypedDict, closed=True):
     challenge_required_on_new_device: (
         "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#TransitGatewayRouteTableAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_route_table_arn
 
 
-class TransitGatewayRouteTableAttachment(TypedDict):
+class TransitGatewayRouteTableAttachment(TypedDict, closed=True):
     attachment: NotRequired["aws_sdk_networkmanager.types.attachment.Attachment"]
     peering_id: NotRequired["aws_sdk_networkmanager.types.peering_id.PeeringId"]
     """<p>The ID of the peering attachment.</p>"""

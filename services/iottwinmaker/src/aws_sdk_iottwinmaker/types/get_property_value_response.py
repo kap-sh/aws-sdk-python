@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetPropertyValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.tabular_property_values
 
 
-class GetPropertyValueResponse(TypedDict):
+class GetPropertyValueResponse(TypedDict, closed=True):
     property_values: NotRequired[
         "aws_sdk_iottwinmaker.types.property_latest_value_map.PropertyLatestValueMap"
     ]

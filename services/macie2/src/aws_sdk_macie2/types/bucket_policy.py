@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
 
 
-class BucketPolicy(TypedDict):
+class BucketPolicy(TypedDict, closed=True):
     allows_public_read_access: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether the bucket policy allows the general public to have read access to the bucket.</p>"""
     allows_public_write_access: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]

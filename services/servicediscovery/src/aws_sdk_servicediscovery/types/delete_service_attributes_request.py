@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DeleteServiceAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_attribute_key_list
 
 
-class DeleteServiceAttributesRequest(TypedDict):
+class DeleteServiceAttributesRequest(TypedDict, closed=True):
     service_id: "aws_sdk_servicediscovery.types.arn.Arn"
     r"""<p>The ID or Amazon Resource Name (ARN) of the service from which the attributes will be deleted. For services created in a namespace shared with your Amazon Web Services account, specify the service ARN. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p>"""
     attributes: "aws_sdk_servicediscovery.types.service_attribute_key_list.ServiceAttributeKeyList"

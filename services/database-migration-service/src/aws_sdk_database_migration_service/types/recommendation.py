@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     database_id: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The identifier of the source database for which Fleet Advisor provided this recommendation.</p>"""
     engine_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]

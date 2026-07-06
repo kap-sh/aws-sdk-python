@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#IotSiteWiseSourceConfigurationFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.filter_by_asset_model
 
 
-class _IotSiteWiseSourceConfigurationFilter_filterByAssetModel(TypedDict):
+class _IotSiteWiseSourceConfigurationFilter_filterByAssetModel(TypedDict, closed=True):
     filterByAssetModel: (
         "aws_sdk_iottwinmaker.types.filter_by_asset_model.FilterByAssetModel"
     )
 
 
-class _IotSiteWiseSourceConfigurationFilter_filterByAsset(TypedDict):
+class _IotSiteWiseSourceConfigurationFilter_filterByAsset(TypedDict, closed=True):
     filterByAsset: "aws_sdk_iottwinmaker.types.filter_by_asset.FilterByAsset"
 
 

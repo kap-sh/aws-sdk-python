@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateIPSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_name
 
 
-class CreateIPSetRequest(TypedDict):
+class CreateIPSetRequest(TypedDict, closed=True):
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>IPSet</a>. You can't change <code>Name</code> after you create the <code>IPSet</code>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

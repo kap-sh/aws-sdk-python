@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#PurchaseReservedCacheNodesOfferingResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.reserved_cache_node
 
 
-class PurchaseReservedCacheNodesOfferingResult(TypedDict):
+class PurchaseReservedCacheNodesOfferingResult(TypedDict, closed=True):
     reserved_cache_node: NotRequired[
         "aws_sdk_elasticache.types.reserved_cache_node.ReservedCacheNode"
     ]

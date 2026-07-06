@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateSpaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.domain_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateSpaceRequest(TypedDict):
+class CreateSpaceRequest(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_sagemaker.types.domain_id.DomainId"]
     """<p>The ID of the associated domain.</p>"""
     space_name: NotRequired["aws_sdk_sagemaker.types.space_name.SpaceName"]

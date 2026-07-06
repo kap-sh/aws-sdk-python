@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#MembershipInferenceAttackScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.membership_inference_attack_version
 
 
-class MembershipInferenceAttackScore(TypedDict):
+class MembershipInferenceAttackScore(TypedDict, closed=True):
     attack_version: "aws_sdk_cleanroomsml.types.membership_inference_attack_version.MembershipInferenceAttackVersion"
     """<p>The version of the membership inference attack, which consists of the attack type and its version number, used to generate this privacy score.</p>"""
     score: "float"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListPlaybackConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_playback_configuration
     import aws_sdk_mediatailor.types.__string
 
 
-class ListPlaybackConfigurationsResponse(TypedDict):
+class ListPlaybackConfigurationsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_mediatailor.types.__list_of_playback_configuration.__listOfPlaybackConfiguration"
     ]

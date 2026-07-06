@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ListTagsForStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.stream_name
 
 
-class ListTagsForStreamInput(TypedDict):
+class ListTagsForStreamInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kinesis_video.types.next_token.NextToken"]
     """<p>If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.</p>"""
     stream_arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]

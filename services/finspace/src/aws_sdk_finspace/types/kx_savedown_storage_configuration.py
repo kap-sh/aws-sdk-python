@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxSavedownStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_savedown_storage_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_volume_name
 
 
-class KxSavedownStorageConfiguration(TypedDict):
+class KxSavedownStorageConfiguration(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_finspace.types.kx_savedown_storage_type.KxSavedownStorageType"
     ]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AzureConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class AzureConfiguration(TypedDict):
+class AzureConfiguration(TypedDict, closed=True):
     subscription_id: "str"
     """<p>Azure subscription ID corresponding to provided resources.</p>"""
 

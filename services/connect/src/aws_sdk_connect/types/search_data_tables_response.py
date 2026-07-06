@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchDataTablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
 
 
-class SearchDataTablesResponse(TypedDict):
+class SearchDataTablesResponse(TypedDict, closed=True):
     data_tables: NotRequired["aws_sdk_connect.types.data_table_list.DataTableList"]
     """<p>An array of data tables matching the search criteria with the same structure as DescribeTable except Version, VersionDescription, and LockVersion are omitted.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StaticFileSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.static_file_s3_source_options
     import aws_sdk_quicksight.types.static_file_url_source_options
 
 
-class StaticFileSource(TypedDict):
+class StaticFileSource(TypedDict, closed=True):
     url_options: NotRequired[
         "aws_sdk_quicksight.types.static_file_url_source_options.StaticFileUrlSourceOptions"
     ]

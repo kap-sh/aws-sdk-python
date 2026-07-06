@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#WhatIfForecastExportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.data_destination
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.what_if_forecast_arn_list_for_export
 
 
-class WhatIfForecastExportSummary(TypedDict):
+class WhatIfForecastExportSummary(TypedDict, closed=True):
     what_if_forecast_export_arn: NotRequired["aws_sdk_forecast.types.long_arn.LongArn"]
     """<p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>"""
     what_if_forecast_arns: NotRequired[

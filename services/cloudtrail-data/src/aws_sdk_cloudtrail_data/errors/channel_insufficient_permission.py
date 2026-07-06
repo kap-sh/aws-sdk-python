@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#ChannelInsufficientPermission``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail_data.errors import ServiceError
 
 
-class ChannelInsufficientPermission_(TypedDict):
+class ChannelInsufficientPermission_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

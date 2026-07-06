@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GenericWebhook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.api_key_value
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.webhook_type
 
 
-class GenericWebhook(TypedDict):
+class GenericWebhook(TypedDict, closed=True):
     webhook_url: NotRequired["str"]
     """<p>The webhook URL endpoint</p>"""
     webhook_id: NotRequired["str"]

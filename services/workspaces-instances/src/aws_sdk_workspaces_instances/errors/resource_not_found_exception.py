@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     """<p>Details about the missing resource.</p>"""
     resource_id: "str"

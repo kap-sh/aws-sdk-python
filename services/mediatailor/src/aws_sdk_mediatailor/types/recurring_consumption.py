@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#RecurringConsumption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
     import aws_sdk_mediatailor.types.__list_of_avail_matching_criteria
 
 
-class RecurringConsumption(TypedDict):
+class RecurringConsumption(TypedDict, closed=True):
     retrieved_ad_expiration_seconds: NotRequired[
         "aws_sdk_mediatailor.types.__integer.__integer"
     ]

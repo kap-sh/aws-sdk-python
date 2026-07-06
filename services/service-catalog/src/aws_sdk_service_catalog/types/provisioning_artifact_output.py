@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningArtifactOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.output_description
     import aws_sdk_service_catalog.types.provisioning_artifact_output_key
 
 
-class ProvisioningArtifactOutput(TypedDict):
+class ProvisioningArtifactOutput(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_service_catalog.types.provisioning_artifact_output_key.ProvisioningArtifactOutputKey"
     ]

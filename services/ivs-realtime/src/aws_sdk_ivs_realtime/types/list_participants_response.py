@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListParticipantsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.participant_list
 
 
-class ListParticipantsResponse(TypedDict):
+class ListParticipantsResponse(TypedDict, closed=True):
     participants: "aws_sdk_ivs_realtime.types.participant_list.ParticipantList"
     """<p>List of the matching participants (summary information only).</p>"""
     next_token: NotRequired[

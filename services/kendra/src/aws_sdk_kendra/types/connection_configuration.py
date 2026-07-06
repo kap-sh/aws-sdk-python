@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConnectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.table_name
 
 
-class ConnectionConfiguration(TypedDict):
+class ConnectionConfiguration(TypedDict, closed=True):
     database_host: "aws_sdk_kendra.types.database_host.DatabaseHost"
     """<p>The name of the host for the database. Can be either a string (host.subdomain.domain.tld) or an IPv4 or IPv6 address.</p>"""
     database_port: "aws_sdk_kendra.types.database_port.DatabasePort"

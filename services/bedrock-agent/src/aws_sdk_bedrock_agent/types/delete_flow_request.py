@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DeleteFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_identifier
 
 
-class DeleteFlowRequest(TypedDict):
+class DeleteFlowRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow.</p>"""
     skip_resource_in_use_check: "bool"

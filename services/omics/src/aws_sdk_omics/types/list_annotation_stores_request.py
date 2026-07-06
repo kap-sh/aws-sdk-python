@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListAnnotationStoresRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.id_list
     import aws_sdk_omics.types.list_annotation_stores_filter
 
 
-class ListAnnotationStoresRequest(TypedDict):
+class ListAnnotationStoresRequest(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_omics.types.id_list.IdList"]
     """<p>IDs of stores to list.</p>"""
     max_results: NotRequired["int"]

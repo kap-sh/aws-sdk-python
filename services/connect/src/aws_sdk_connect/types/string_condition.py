@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StringCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string
     import aws_sdk_connect.types.string_comparison_type
 
 
-class StringCondition(TypedDict):
+class StringCondition(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The name of the field in the string condition.</p>"""
     value: NotRequired["aws_sdk_connect.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#GetRepositoryPermissionsPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.resource_policy
 
 
-class GetRepositoryPermissionsPolicyResult(TypedDict):
+class GetRepositoryPermissionsPolicyResult(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_codeartifact.types.resource_policy.ResourcePolicy"]
     """<p> The returned resource policy. </p>"""
 

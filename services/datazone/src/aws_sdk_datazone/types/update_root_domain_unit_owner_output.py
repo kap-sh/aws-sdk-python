@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateRootDomainUnitOwnerOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRootDomainUnitOwnerOutput(TypedDict):
+class UpdateRootDomainUnitOwnerOutput(TypedDict, closed=True):
     pass
 
 

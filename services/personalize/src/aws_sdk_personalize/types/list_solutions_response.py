@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListSolutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.next_token
     import aws_sdk_personalize.types.solutions
 
 
-class ListSolutionsResponse(TypedDict):
+class ListSolutionsResponse(TypedDict, closed=True):
     solutions: NotRequired["aws_sdk_personalize.types.solutions.Solutions"]
     """<p>A list of the current solutions.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

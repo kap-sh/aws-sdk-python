@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SMSTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.map_of__string
 
 
-class SMSTemplateRequest(TypedDict):
+class SMSTemplateRequest(TypedDict, closed=True):
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The message body to use in text messages that are based on the message template.</p>"""
     default_substitutions: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

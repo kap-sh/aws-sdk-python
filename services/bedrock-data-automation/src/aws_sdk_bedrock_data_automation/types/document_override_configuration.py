@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DocumentOverrideConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.modality_processing_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.splitter_configuration
 
 
-class DocumentOverrideConfiguration(TypedDict):
+class DocumentOverrideConfiguration(TypedDict, closed=True):
     splitter: NotRequired[
         "aws_sdk_bedrock_data_automation.types.splitter_configuration.SplitterConfiguration"
     ]

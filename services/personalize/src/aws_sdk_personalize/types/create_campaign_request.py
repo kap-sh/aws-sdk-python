@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateCampaignRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.transactions_per_second
 
 
-class CreateCampaignRequest(TypedDict):
+class CreateCampaignRequest(TypedDict, closed=True):
     name: "aws_sdk_personalize.types.name.Name"
     """<p>A name for the new campaign. The campaign name must be unique within your account.</p>"""
     solution_version_arn: "aws_sdk_personalize.types.arn.Arn"

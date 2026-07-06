@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TextLogSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.text_log_destination
 
 
-class TextLogSetting(TypedDict):
+class TextLogSetting(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Determines whether conversation logs should be stored for an alias.</p>"""
     destination: "aws_sdk_lex_models_v2.types.text_log_destination.TextLogDestination"

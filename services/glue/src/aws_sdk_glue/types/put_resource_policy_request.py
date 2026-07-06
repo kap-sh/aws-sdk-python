@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.policy_json_string
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     policy_in_json: "aws_sdk_glue.types.policy_json_string.PolicyJsonString"
     """<p>Contains the policy document to set, in JSON format.</p>"""
     resource_arn: NotRequired["aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"]

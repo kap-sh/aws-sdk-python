@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#TargetGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.vpc_id
 
 
-class TargetGroup(TypedDict):
+class TargetGroup(TypedDict, closed=True):
     target_group_arn: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.target_group_arn.TargetGroupArn"
     ]

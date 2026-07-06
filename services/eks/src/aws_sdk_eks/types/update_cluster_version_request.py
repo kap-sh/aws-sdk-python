@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateClusterVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class UpdateClusterVersionRequest(TypedDict):
+class UpdateClusterVersionRequest(TypedDict, closed=True):
     name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Amazon EKS cluster to update.</p>"""
     version: "aws_sdk_eks.types.string.String"

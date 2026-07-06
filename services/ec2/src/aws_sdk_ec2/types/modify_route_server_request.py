@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyRouteServerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.route_server_persist_routes_action
 
 
-class ModifyRouteServerRequest(TypedDict):
+class ModifyRouteServerRequest(TypedDict, closed=True):
     route_server_id: NotRequired["aws_sdk_ec2.types.route_server_id.RouteServerId"]
     """<p>The ID of the route server to modify.</p>"""
     persist_routes: NotRequired[

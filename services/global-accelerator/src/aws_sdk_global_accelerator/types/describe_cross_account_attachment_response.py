@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#DescribeCrossAccountAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.attachment
 
 
-class DescribeCrossAccountAttachmentResponse(TypedDict):
+class DescribeCrossAccountAttachmentResponse(TypedDict, closed=True):
     cross_account_attachment: NotRequired[
         "aws_sdk_global_accelerator.types.attachment.Attachment"
     ]

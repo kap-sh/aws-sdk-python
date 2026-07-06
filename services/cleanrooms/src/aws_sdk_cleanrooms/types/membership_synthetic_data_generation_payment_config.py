@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MembershipSyntheticDataGenerationPaymentConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class MembershipSyntheticDataGenerationPaymentConfig(TypedDict):
+class MembershipSyntheticDataGenerationPaymentConfig(TypedDict, closed=True):
     is_responsible: "bool"
     """<p>Indicates if this membership is responsible for paying for synthetic data generation.</p>"""
 

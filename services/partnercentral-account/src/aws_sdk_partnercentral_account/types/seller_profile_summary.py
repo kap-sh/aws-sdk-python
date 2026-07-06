@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#SellerProfileSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.unicode_string
 
 
-class SellerProfileSummary(TypedDict):
+class SellerProfileSummary(TypedDict, closed=True):
     id: "aws_sdk_partnercentral_account.types.seller_profile_id.SellerProfileId"
     """<p>The unique identifier of the seller profile.</p>"""
     name: "aws_sdk_partnercentral_account.types.unicode_string.UnicodeString"

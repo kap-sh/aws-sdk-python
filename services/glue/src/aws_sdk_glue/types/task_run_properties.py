@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TaskRunProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.export_labels_task_run_properties
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.task_type
 
 
-class TaskRunProperties(TypedDict):
+class TaskRunProperties(TypedDict, closed=True):
     task_type: NotRequired["aws_sdk_glue.types.task_type.TaskType"]
     """<p>The type of task run.</p>"""
     import_labels_task_run_properties: NotRequired[

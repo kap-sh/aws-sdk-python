@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.generic_arn
     import aws_sdk_auditmanager.types.string
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_auditmanager.types.generic_arn.GenericArn"]
     """<p> The Amazon Resource Name (ARN) for the resource. </p>"""
     value: NotRequired["aws_sdk_auditmanager.types.string.String"]

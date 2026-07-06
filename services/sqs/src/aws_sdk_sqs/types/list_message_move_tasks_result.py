@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListMessageMoveTasksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.list_message_move_tasks_result_entry_list
 
 
-class ListMessageMoveTasksResult(TypedDict):
+class ListMessageMoveTasksResult(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_sqs.types.list_message_move_tasks_result_entry_list.ListMessageMoveTasksResultEntryList"
     ]

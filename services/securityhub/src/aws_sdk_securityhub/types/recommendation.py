@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     text: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Describes the recommended steps to take to remediate an issue identified in a finding.</p> <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>"""
     url: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

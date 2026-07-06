@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIConditionalFormattingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kpi_actual_value_conditional_formatting
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.kpi_progress_bar_conditional_formatting
 
 
-class KPIConditionalFormattingOption(TypedDict):
+class KPIConditionalFormattingOption(TypedDict, closed=True):
     primary_value: NotRequired[
         "aws_sdk_quicksight.types.kpi_primary_value_conditional_formatting.KPIPrimaryValueConditionalFormatting"
     ]

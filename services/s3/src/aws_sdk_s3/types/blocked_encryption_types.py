@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#BlockedEncryptionTypes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.encryption_type_list
 
 
-class BlockedEncryptionTypes(TypedDict):
+class BlockedEncryptionTypes(TypedDict, closed=True):
     encryption_type: NotRequired[
         "aws_sdk_s3.types.encryption_type_list.EncryptionTypeList"
     ]

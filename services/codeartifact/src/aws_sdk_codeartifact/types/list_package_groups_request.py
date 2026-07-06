@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListPackageGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.pagination_token
 
 
-class ListPackageGroupsRequest(TypedDict):
+class ListPackageGroupsRequest(TypedDict, closed=True):
     domain: "aws_sdk_codeartifact.types.domain_name.DomainName"
     """<p> The domain for which you want to list package groups. </p>"""
     domain_owner: NotRequired["aws_sdk_codeartifact.types.account_id.AccountId"]

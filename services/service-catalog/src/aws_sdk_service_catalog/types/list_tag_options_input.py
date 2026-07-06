@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListTagOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.list_tag_options_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
 
 
-class ListTagOptionsInput(TypedDict):
+class ListTagOptionsInput(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_service_catalog.types.list_tag_options_filters.ListTagOptionsFilters"
     ]

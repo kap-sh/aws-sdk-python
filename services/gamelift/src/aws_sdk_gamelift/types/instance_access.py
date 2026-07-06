@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#InstanceAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.operating_system
 
 
-class InstanceAccess(TypedDict):
+class InstanceAccess(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet containing the instance to be accessed.</p>"""
     instance_id: NotRequired["aws_sdk_gamelift.types.instance_id.InstanceId"]

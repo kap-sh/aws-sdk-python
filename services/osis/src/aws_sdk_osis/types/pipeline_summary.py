@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PipelineSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.timestamp
 
 
-class PipelineSummary(TypedDict):
+class PipelineSummary(TypedDict, closed=True):
     status: NotRequired["aws_sdk_osis.types.pipeline_status.PipelineStatus"]
     """<p>The current status of the pipeline.</p>"""
     status_reason: NotRequired[

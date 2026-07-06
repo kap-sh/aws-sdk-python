@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#EndpointConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.lambda_config
@@ -14,6 +14,7 @@ EndpointConfig = TypedDict(
             "aws_sdk_iot_managed_integrations.types.lambda_config.LambdaConfig"
         ],
     },
+    closed=True,
 )
 
 

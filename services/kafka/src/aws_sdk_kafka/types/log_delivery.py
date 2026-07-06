@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#LogDelivery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.replicator_log_delivery
 
 
-class LogDelivery(TypedDict):
+class LogDelivery(TypedDict, closed=True):
     replicator_log_delivery: NotRequired[
         "aws_sdk_kafka.types.replicator_log_delivery.ReplicatorLogDelivery"
     ]

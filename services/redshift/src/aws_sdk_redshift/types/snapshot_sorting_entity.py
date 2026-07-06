@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#SnapshotSortingEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.sort_by_order
 
 
-class SnapshotSortingEntity(TypedDict):
+class SnapshotSortingEntity(TypedDict, closed=True):
     attribute: NotRequired[
         "aws_sdk_redshift.types.snapshot_attribute_to_sort_by.SnapshotAttributeToSortBy"
     ]

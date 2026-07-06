@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ChangeSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_name
 
 
-class ChangeSetSummary(TypedDict):
+class ChangeSetSummary(TypedDict, closed=True):
     stack_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]
     """<p>The ID of the stack with which the change set is associated.</p>"""
     stack_name: NotRequired["aws_sdk_cloudformation.types.stack_name.StackName"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ManagedAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
 
 
-class ManagedAccount(TypedDict):
+class ManagedAccount(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]
     """<p>Managed account, account ID.</p>"""
 

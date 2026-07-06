@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#StartConversationResponseEventStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_v2._iter import AnyIterator
 from aws_sdk_lex_runtime_v2._protocol.eventstream import Message
@@ -22,73 +24,83 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.transcript_event
 
 
-class _StartConversationResponseEventStream_PlaybackInterruptionEvent(TypedDict):
+class _StartConversationResponseEventStream_PlaybackInterruptionEvent(
+    TypedDict, closed=True
+):
     PlaybackInterruptionEvent: "aws_sdk_lex_runtime_v2.types.playback_interruption_event.PlaybackInterruptionEvent"
 
 
-class _StartConversationResponseEventStream_TranscriptEvent(TypedDict):
+class _StartConversationResponseEventStream_TranscriptEvent(TypedDict, closed=True):
     TranscriptEvent: "aws_sdk_lex_runtime_v2.types.transcript_event.TranscriptEvent"
 
 
-class _StartConversationResponseEventStream_IntentResultEvent(TypedDict):
+class _StartConversationResponseEventStream_IntentResultEvent(TypedDict, closed=True):
     IntentResultEvent: (
         "aws_sdk_lex_runtime_v2.types.intent_result_event.IntentResultEvent"
     )
 
 
-class _StartConversationResponseEventStream_TextResponseEvent(TypedDict):
+class _StartConversationResponseEventStream_TextResponseEvent(TypedDict, closed=True):
     TextResponseEvent: (
         "aws_sdk_lex_runtime_v2.types.text_response_event.TextResponseEvent"
     )
 
 
-class _StartConversationResponseEventStream_AudioResponseEvent(TypedDict):
+class _StartConversationResponseEventStream_AudioResponseEvent(TypedDict, closed=True):
     AudioResponseEvent: (
         "aws_sdk_lex_runtime_v2.types.audio_response_event.AudioResponseEvent"
     )
 
 
-class _StartConversationResponseEventStream_HeartbeatEvent(TypedDict):
+class _StartConversationResponseEventStream_HeartbeatEvent(TypedDict, closed=True):
     HeartbeatEvent: "aws_sdk_lex_runtime_v2.types.heartbeat_event.HeartbeatEvent"
 
 
-class _StartConversationResponseEventStream_AccessDeniedException(TypedDict):
+class _StartConversationResponseEventStream_AccessDeniedException(
+    TypedDict, closed=True
+):
     AccessDeniedException: (
         "aws_sdk_lex_runtime_v2.errors.access_denied_exception.AccessDeniedException_"
     )
 
 
-class _StartConversationResponseEventStream_ResourceNotFoundException(TypedDict):
+class _StartConversationResponseEventStream_ResourceNotFoundException(
+    TypedDict, closed=True
+):
     ResourceNotFoundException: "aws_sdk_lex_runtime_v2.errors.resource_not_found_exception.ResourceNotFoundException_"
 
 
-class _StartConversationResponseEventStream_ValidationException(TypedDict):
+class _StartConversationResponseEventStream_ValidationException(TypedDict, closed=True):
     ValidationException: (
         "aws_sdk_lex_runtime_v2.errors.validation_exception.ValidationException_"
     )
 
 
-class _StartConversationResponseEventStream_ThrottlingException(TypedDict):
+class _StartConversationResponseEventStream_ThrottlingException(TypedDict, closed=True):
     ThrottlingException: (
         "aws_sdk_lex_runtime_v2.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _StartConversationResponseEventStream_InternalServerException(TypedDict):
+class _StartConversationResponseEventStream_InternalServerException(
+    TypedDict, closed=True
+):
     InternalServerException: "aws_sdk_lex_runtime_v2.errors.internal_server_exception.InternalServerException_"
 
 
-class _StartConversationResponseEventStream_ConflictException(TypedDict):
+class _StartConversationResponseEventStream_ConflictException(TypedDict, closed=True):
     ConflictException: (
         "aws_sdk_lex_runtime_v2.errors.conflict_exception.ConflictException_"
     )
 
 
-class _StartConversationResponseEventStream_DependencyFailedException(TypedDict):
+class _StartConversationResponseEventStream_DependencyFailedException(
+    TypedDict, closed=True
+):
     DependencyFailedException: "aws_sdk_lex_runtime_v2.errors.dependency_failed_exception.DependencyFailedException_"
 
 
-class _StartConversationResponseEventStream_BadGatewayException(TypedDict):
+class _StartConversationResponseEventStream_BadGatewayException(TypedDict, closed=True):
     BadGatewayException: (
         "aws_sdk_lex_runtime_v2.errors.bad_gateway_exception.BadGatewayException_"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeleteAutomatedReasoningPolicyTestCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_arn
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class DeleteAutomatedReasoningPolicyTestCaseRequest(TypedDict):
+class DeleteAutomatedReasoningPolicyTestCaseRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_bedrock.types.automated_reasoning_policy_arn.AutomatedReasoningPolicyArn"
     """<p>The Amazon Resource Name (ARN) of the Automated Reasoning policy that contains the test.</p>"""
     test_case_id: "aws_sdk_bedrock.types.automated_reasoning_policy_test_case_id.AutomatedReasoningPolicyTestCaseId"

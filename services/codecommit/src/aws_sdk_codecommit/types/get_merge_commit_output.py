@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetMergeCommitOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class GetMergeCommitOutput(TypedDict):
+class GetMergeCommitOutput(TypedDict, closed=True):
     source_commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>"""
     destination_commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#Circle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_double
 
 
-class Circle(TypedDict):
+class Circle(TypedDict, closed=True):
     center: "aws_sdk_location.types.position.Position"
     r"""<p>A single point geometry, specifying the center of the circle, using <a href=\"https://gisgeography.com/wgs84-world-geodetic-system/\">WGS 84</a> coordinates, in the form <code>[longitude, latitude]</code>.</p>"""
     radius: "aws_sdk_location.types.sensitive_double.SensitiveDouble"

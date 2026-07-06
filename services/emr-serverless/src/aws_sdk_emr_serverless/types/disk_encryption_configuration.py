@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#DiskEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.encryption_context
     import aws_sdk_emr_serverless.types.encryption_key_arn
 
 
-class DiskEncryptionConfiguration(TypedDict):
+class DiskEncryptionConfiguration(TypedDict, closed=True):
     encryption_context: NotRequired[
         "aws_sdk_emr_serverless.types.encryption_context.EncryptionContext"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeGlobalSettingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.global_settings
     import aws_sdk_backup.types.timestamp
 
 
-class DescribeGlobalSettingsOutput(TypedDict):
+class DescribeGlobalSettingsOutput(TypedDict, closed=True):
     global_settings: NotRequired["aws_sdk_backup.types.global_settings.GlobalSettings"]
     """<p>The status of the flags <code>isCrossAccountBackupEnabled</code>, <code>isMpaEnabled</code> ('Mpa' refers to multi-party approval), and <code>isDelegatedAdministratorEnabled</code>.</p> <ul> <li> <p> <code>isCrossAccountBackupEnabled</code>: Allow accounts in your organization to copy backups to other accounts.</p> </li> <li> <p> <code>isMpaEnabled</code>: Add cross-account access to your organization with the option to assign a Multi-party approval team to a logically air-gapped vault.</p> </li> <li> <p> <code>isDelegatedAdministratorEnabled</code>: Allow Backup to automatically synchronize delegated administrator permissions with Organizations.</p> </li> </ul>"""
     last_update_time: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]

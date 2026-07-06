@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ContainerDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_dependency_condition
     import aws_sdk_gamelift.types.non_zero_and128_max_ascii_string
 
 
-class ContainerDependency(TypedDict):
+class ContainerDependency(TypedDict, closed=True):
     container_name: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and128_max_ascii_string.NonZeroAnd128MaxAsciiString"
     ]

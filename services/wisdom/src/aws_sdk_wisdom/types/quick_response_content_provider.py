@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#QuickResponseContentProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.quick_response_content
 
 
-class _QuickResponseContentProvider_content(TypedDict):
+class _QuickResponseContentProvider_content(TypedDict, closed=True):
     content: "aws_sdk_wisdom.types.quick_response_content.QuickResponseContent"
 
 

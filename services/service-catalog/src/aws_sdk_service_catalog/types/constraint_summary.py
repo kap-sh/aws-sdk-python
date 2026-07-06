@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ConstraintSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.constraint_description
     import aws_sdk_service_catalog.types.constraint_type
 
 
-class ConstraintSummary(TypedDict):
+class ConstraintSummary(TypedDict, closed=True):
     type: NotRequired["aws_sdk_service_catalog.types.constraint_type.ConstraintType"]
     """<p>The type of constraint.</p> <ul> <li> <p> <code>LAUNCH</code> </p> </li> <li> <p> <code>NOTIFICATION</code> </p> </li> <li> <p>STACKSET</p> </li> <li> <p> <code>TEMPLATE</code> </p> </li> </ul>"""
     description: NotRequired[

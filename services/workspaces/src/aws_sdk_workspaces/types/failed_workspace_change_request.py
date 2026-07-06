@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#FailedWorkspaceChangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_id
 
 
-class FailedWorkspaceChangeRequest(TypedDict):
+class FailedWorkspaceChangeRequest(TypedDict, closed=True):
     workspace_id: NotRequired["aws_sdk_workspaces.types.workspace_id.WorkspaceId"]
     """<p>The identifier of the WorkSpace.</p>"""
     error_code: NotRequired["aws_sdk_workspaces.types.error_type.ErrorType"]

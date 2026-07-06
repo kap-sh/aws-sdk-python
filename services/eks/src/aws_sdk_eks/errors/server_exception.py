@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ServerException_(TypedDict):
+class ServerException_(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Amazon EKS cluster associated with the exception.</p>"""
     nodegroup_name: NotRequired["aws_sdk_eks.types.string.String"]

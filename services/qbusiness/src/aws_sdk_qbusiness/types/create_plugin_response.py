@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreatePluginResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_id
 
 
-class CreatePluginResponse(TypedDict):
+class CreatePluginResponse(TypedDict, closed=True):
     plugin_id: NotRequired["aws_sdk_qbusiness.types.plugin_id.PluginId"]
     """<p>The identifier of the plugin created.</p>"""
     plugin_arn: NotRequired["aws_sdk_qbusiness.types.plugin_arn.PluginArn"]

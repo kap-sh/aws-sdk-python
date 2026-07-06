@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#NumericalScaleDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class NumericalScaleDefinition(TypedDict):
+class NumericalScaleDefinition(TypedDict, closed=True):
     definition: "str"
     """<p> The description that explains what this numerical rating represents and when it should be used. </p>"""
     value: "float"

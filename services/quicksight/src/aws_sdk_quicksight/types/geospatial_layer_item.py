@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLayerItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class GeospatialLayerItem(TypedDict):
+class GeospatialLayerItem(TypedDict, closed=True):
     layer_id: "aws_sdk_quicksight.types.string.String"
     """<p>The ID of the layer.</p>"""
     layer_type: NotRequired[

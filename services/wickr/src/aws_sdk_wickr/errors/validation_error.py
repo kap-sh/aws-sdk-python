@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class ValidationError_(TypedDict):
+class ValidationError_(TypedDict, closed=True):
     reasons: NotRequired["aws_sdk_wickr.types.error_detail_list.ErrorDetailList"]
     """<p>A list of validation error details, where each item identifies a specific field that failed validation and explains the reason for the failure.</p>"""
     message: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

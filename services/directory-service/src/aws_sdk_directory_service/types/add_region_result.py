@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AddRegionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddRegionResult(TypedDict):
+class AddRegionResult(TypedDict, closed=True):
     pass
 
 

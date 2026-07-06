@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListRecipeVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.recipe_list
 
 
-class ListRecipeVersionsResponse(TypedDict):
+class ListRecipeVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_databrew.types.next_token.NextToken"]
     """<p>A token that you can use in a subsequent call to retrieve the next set of results.</p>"""
     recipes: "aws_sdk_databrew.types.recipe_list.RecipeList"

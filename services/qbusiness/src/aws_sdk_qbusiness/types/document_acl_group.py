@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAclGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.group_name
     import aws_sdk_qbusiness.types.membership_type
 
 
-class DocumentAclGroup(TypedDict):
+class DocumentAclGroup(TypedDict, closed=True):
     name: NotRequired["aws_sdk_qbusiness.types.group_name.GroupName"]
     """<p>The name of the group in the document's ACL. This is used to identify the group when applying access rules.</p>"""
     type: NotRequired["aws_sdk_qbusiness.types.membership_type.MembershipType"]

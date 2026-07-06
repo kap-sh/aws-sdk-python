@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketCountPolicyAllowsUnencryptedObjectUploads``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class BucketCountPolicyAllowsUnencryptedObjectUploads(TypedDict):
+class BucketCountPolicyAllowsUnencryptedObjectUploads(TypedDict, closed=True):
     allows_unencrypted_object_uploads: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of buckets that don't have a bucket policy or have a bucket policy that doesn't require server-side encryption of new objects. If a bucket policy exists, the policy doesn't require PutObject requests to include a valid server-side encryption header: the x-amz-server-side-encryption header with a value of AES256 or aws:kms, or the x-amz-server-side-encryption-customer-algorithm header with a value of AES256.</p>"""
     denies_unencrypted_object_uploads: NotRequired["aws_sdk_macie2.types.__long.__long"]

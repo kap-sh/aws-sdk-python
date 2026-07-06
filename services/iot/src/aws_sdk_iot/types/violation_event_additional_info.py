@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ViolationEventAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.confidence_level
 
 
-class ViolationEventAdditionalInfo(TypedDict):
+class ViolationEventAdditionalInfo(TypedDict, closed=True):
     confidence_level: NotRequired["aws_sdk_iot.types.confidence_level.ConfidenceLevel"]
     """<p> The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. </p>"""
 

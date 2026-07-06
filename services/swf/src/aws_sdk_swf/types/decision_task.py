@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DecisionTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class DecisionTask(TypedDict):
+class DecisionTask(TypedDict, closed=True):
     task_token: "aws_sdk_swf.types.task_token.TaskToken"
     """<p>The opaque string used as a handle on the task. This token is used by workers to communicate progress and response information back to the system about the task.</p>"""
     started_event_id: "aws_sdk_swf.types.event_id.EventId"

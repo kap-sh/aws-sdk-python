@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#UpdateGraphqlApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.user_pool_config
 
 
-class UpdateGraphqlApiRequest(TypedDict):
+class UpdateGraphqlApiRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The API ID.</p>"""
     name: "aws_sdk_appsync.types.string.String"

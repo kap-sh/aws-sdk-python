@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ResourceLimitExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import ServiceError
 
 
-class ResourceLimitExceededException_(TypedDict):
+class ResourceLimitExceededException_(TypedDict, closed=True):
     message: NotRequired["str"]
     parameter_name: NotRequired["str"]
     """<p>Name of the parameter that exceeded the resource limit.</p>"""

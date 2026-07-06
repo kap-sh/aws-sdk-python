@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEfsAccessPointRootDirectoryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_efs_access_point_root_directory_creation_info_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEfsAccessPointRootDirectoryDetails(TypedDict):
+class AwsEfsAccessPointRootDirectoryDetails(TypedDict, closed=True):
     creation_info: NotRequired[
         "aws_sdk_securityhub.types.aws_efs_access_point_root_directory_creation_info_details.AwsEfsAccessPointRootDirectoryCreationInfoDetails"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_name
     import aws_sdk_rum.types.policy_revision_id
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     """<p>The app monitor that you want to remove the resource policy from.</p>"""
     policy_revision_id: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#FulfillmentDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import (
     DeserializationError,
@@ -14,23 +16,23 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.disbursement_details
 
 
-class _FulfillmentDetails_DisbursementDetails(TypedDict):
+class _FulfillmentDetails_DisbursementDetails(TypedDict, closed=True):
     DisbursementDetails: (
         "aws_sdk_partnercentral_benefits.types.disbursement_details.DisbursementDetails"
     )
 
 
-class _FulfillmentDetails_ConsumableDetails(TypedDict):
+class _FulfillmentDetails_ConsumableDetails(TypedDict, closed=True):
     ConsumableDetails: (
         "aws_sdk_partnercentral_benefits.types.consumable_details.ConsumableDetails"
     )
 
 
-class _FulfillmentDetails_CreditDetails(TypedDict):
+class _FulfillmentDetails_CreditDetails(TypedDict, closed=True):
     CreditDetails: "aws_sdk_partnercentral_benefits.types.credit_details.CreditDetails"
 
 
-class _FulfillmentDetails_AccessDetails(TypedDict):
+class _FulfillmentDetails_AccessDetails(TypedDict, closed=True):
     AccessDetails: "aws_sdk_partnercentral_benefits.types.access_details.AccessDetails"
 
 

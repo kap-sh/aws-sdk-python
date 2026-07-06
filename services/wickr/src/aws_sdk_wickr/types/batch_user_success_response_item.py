@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchUserSuccessResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.user_id
 
 
-class BatchUserSuccessResponseItem(TypedDict):
+class BatchUserSuccessResponseItem(TypedDict, closed=True):
     user_id: "aws_sdk_wickr.types.user_id.UserId"
     """<p>The user ID that was successfully processed.</p>"""
 

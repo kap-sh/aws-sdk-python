@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#PayerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.account_id
 
 
-class PayerConfiguration(TypedDict):
+class PayerConfiguration(TypedDict, closed=True):
     compute_payer_account_id: NotRequired[
         "aws_sdk_cleanroomsml.types.account_id.AccountId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ClassificationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.sensitive_data
 
 
-class ClassificationResult(TypedDict):
+class ClassificationResult(TypedDict, closed=True):
     additional_occurrences: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (classificationDetails.detailedResultsLocation).</p>"""
     custom_data_identifiers: NotRequired[

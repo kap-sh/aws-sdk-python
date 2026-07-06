@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#DataSource``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the data source. For CloudWatch Logs sources, this corresponds to the <code>data_source_name</code> from the log event metadata. For third-party sources, this is either the configured <code>data_source_name</code> or defaults to the plugin name if not specified.</p>"""
     type: NotRequired["str"]

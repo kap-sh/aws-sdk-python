@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#GetAgentConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class GetAgentConfigurationRequest(TypedDict):
+class GetAgentConfigurationRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_groundstation.types.uuid.Uuid"
     """<p>UUID of agent to get configuration information for.</p>"""
 

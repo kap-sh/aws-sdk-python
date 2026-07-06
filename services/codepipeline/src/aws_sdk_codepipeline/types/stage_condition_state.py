@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#StageConditionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.condition_state_list
     import aws_sdk_codepipeline.types.stage_conditions_execution
 
 
-class StageConditionState(TypedDict):
+class StageConditionState(TypedDict, closed=True):
     latest_execution: NotRequired[
         "aws_sdk_codepipeline.types.stage_conditions_execution.StageConditionsExecution"
     ]

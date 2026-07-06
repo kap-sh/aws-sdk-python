@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#GetHLSStreamingSessionURLInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.container_format
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.stream_name
 
 
-class GetHLSStreamingSessionURLInput(TypedDict):
+class GetHLSStreamingSessionURLInput(TypedDict, closed=True):
     stream_name: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.stream_name.StreamName"
     ]

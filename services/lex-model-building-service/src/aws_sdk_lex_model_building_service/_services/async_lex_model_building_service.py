@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#AWSDeepSenseModelBuildingService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_lex_model_building_service._auth._signers
@@ -156,7 +156,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class AsyncLexModelBuildingServiceClientConfig(TypedDict, total=False):
+class AsyncLexModelBuildingServiceClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

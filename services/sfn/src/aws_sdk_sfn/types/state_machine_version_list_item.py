@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StateMachineVersionListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class StateMachineVersionListItem(TypedDict):
+class StateMachineVersionListItem(TypedDict, closed=True):
     state_machine_version_arn: "aws_sdk_sfn.types.long_arn.LongArn"
     """<p>The Amazon Resource Name (ARN) that identifies a state machine version. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>"""
     creation_date: "aws_sdk_sfn.types.timestamp.Timestamp"

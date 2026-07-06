@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListStorageLensGroupEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_group_name
 
 
-class ListStorageLensGroupEntry(TypedDict):
+class ListStorageLensGroupEntry(TypedDict, closed=True):
     name: "aws_sdk_s3_control.types.storage_lens_group_name.StorageLensGroupName"
     """<p> Contains the name of the Storage Lens group that exists in the specified home Region. </p>"""
     storage_lens_group_arn: (

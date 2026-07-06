@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["str"]
     error_code: NotRequired["str"]
     """<p>A coded string to provide more information about the access denied exception. You can use the error code to check the exception type.</p>"""

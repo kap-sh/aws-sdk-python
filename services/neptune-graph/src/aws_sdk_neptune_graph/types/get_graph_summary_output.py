@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#GetGraphSummaryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.graph_data_summary
 
 
-class GetGraphSummaryOutput(TypedDict):
+class GetGraphSummaryOutput(TypedDict, closed=True):
     version: NotRequired["str"]
     """<p>Display the version of this tool.</p>"""
     last_statistics_computation_time: NotRequired["datetime.datetime"]

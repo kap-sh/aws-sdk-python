@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ArcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arc_thickness_options
     import aws_sdk_quicksight.types.double
 
 
-class ArcConfiguration(TypedDict):
+class ArcConfiguration(TypedDict, closed=True):
     arc_angle: NotRequired["aws_sdk_quicksight.types.double.Double"]
     """<p>The option that determines the arc angle of a <code>GaugeChartVisual</code>.</p>"""
     arc_thickness: NotRequired[

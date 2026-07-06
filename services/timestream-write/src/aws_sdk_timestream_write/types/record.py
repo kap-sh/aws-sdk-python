@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#Record``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.dimensions
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.time_unit
 
 
-class Record(TypedDict):
+class Record(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_timestream_write.types.dimensions.Dimensions"]
     """<p>Contains the list of dimensions for time-series data points.</p>"""
     measure_name: NotRequired["aws_sdk_timestream_write.types.schema_name.SchemaName"]

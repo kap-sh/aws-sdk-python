@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#RoundTripTime``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RoundTripTime(TypedDict):
+class RoundTripTime(TypedDict, closed=True):
     p50: NotRequired["float"]
     """<p>RTT at the 50th percentile (p50).</p>"""
     p90: NotRequired["float"]

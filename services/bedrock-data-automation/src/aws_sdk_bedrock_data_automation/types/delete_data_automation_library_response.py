@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DeleteDataAutomationLibraryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.data_automation_library_arn
     import aws_sdk_bedrock_data_automation.types.data_automation_library_status
 
 
-class DeleteDataAutomationLibraryResponse(TypedDict):
+class DeleteDataAutomationLibraryResponse(TypedDict, closed=True):
     library_arn: NotRequired[
         "aws_sdk_bedrock_data_automation.types.data_automation_library_arn.DataAutomationLibraryArn"
     ]

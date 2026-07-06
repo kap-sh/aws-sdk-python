@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_iotthingsgraph.types.tag_key.TagKey"
     """<p>The required name of the tag. The string value can be from 1 to 128 Unicode characters in length.</p>"""
     value: "aws_sdk_iotthingsgraph.types.tag_value.TagValue"

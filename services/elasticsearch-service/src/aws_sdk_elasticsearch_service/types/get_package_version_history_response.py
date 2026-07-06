@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#GetPackageVersionHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.package_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.string
 
 
-class GetPackageVersionHistoryResponse(TypedDict):
+class GetPackageVersionHistoryResponse(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_elasticsearch_service.types.package_id.PackageID"]
     package_version_history_list: NotRequired[
         "aws_sdk_elasticsearch_service.types.package_version_history_list.PackageVersionHistoryList"

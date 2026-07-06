@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#StreamingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.messaging_data_type
 
 
-class StreamingConfiguration(TypedDict):
+class StreamingConfiguration(TypedDict, closed=True):
     data_type: "aws_sdk_chime_sdk_messaging.types.messaging_data_type.MessagingDataType"
     """<p>The data type of the configuration.</p>"""
     resource_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"

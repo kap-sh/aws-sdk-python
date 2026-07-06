@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#RegistryScanningRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.scanning_repository_filter_list
 
 
-class RegistryScanningRule(TypedDict):
+class RegistryScanningRule(TypedDict, closed=True):
     scan_frequency: "aws_sdk_ecr.types.scan_frequency.ScanFrequency"
     """<p>The frequency that scans are performed at for a private registry. When the <code>ENHANCED</code> scan type is specified, the supported scan frequencies are <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> scan frequency is supported. If scan on push is not specified, then the <code>MANUAL</code> scan frequency is set by default.</p>"""
     repository_filters: (

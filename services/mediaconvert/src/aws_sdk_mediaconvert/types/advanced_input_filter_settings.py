@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AdvancedInputFilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.advanced_input_filter_add_texture
     import aws_sdk_mediaconvert.types.advanced_input_filter_sharpen
 
 
-class AdvancedInputFilterSettings(TypedDict):
+class AdvancedInputFilterSettings(TypedDict, closed=True):
     add_texture: NotRequired[
         "aws_sdk_mediaconvert.types.advanced_input_filter_add_texture.AdvancedInputFilterAddTexture"
     ]

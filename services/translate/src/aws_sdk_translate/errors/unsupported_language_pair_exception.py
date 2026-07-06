@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#UnsupportedLanguagePairException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.string
 
 
-class UnsupportedLanguagePairException_(TypedDict):
+class UnsupportedLanguagePairException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_translate.types.string.String"]
     source_language_code: NotRequired[
         "aws_sdk_translate.types.language_code_string.LanguageCodeString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartMediaAnalysisJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.media_analysis_output_config
 
 
-class StartMediaAnalysisJobRequest(TypedDict):
+class StartMediaAnalysisJobRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_rekognition.types.client_request_token.ClientRequestToken"
     ]

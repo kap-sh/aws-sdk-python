@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#MapFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.map_filter_comparison
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class MapFilter(TypedDict):
+class MapFilter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The key of the map filter. For example, for <code>ResourceTags</code>, <code>Key</code> identifies the name of the tag. For <code>UserDefinedFields</code>, <code>Key</code> is the name of the field.</p>"""
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

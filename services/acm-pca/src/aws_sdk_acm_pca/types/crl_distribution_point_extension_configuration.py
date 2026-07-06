@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CrlDistributionPointExtensionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.boolean
 
 
-class CrlDistributionPointExtensionConfiguration(TypedDict):
+class CrlDistributionPointExtensionConfiguration(TypedDict, closed=True):
     omit_extension: "aws_sdk_acm_pca.types.boolean.Boolean"
     """<p>Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to <code>true</code>, then the CDP extension will not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.</p> <note> <p>Only set this if you have another way to distribute the CRL Distribution Points ffor certificates issued by your CA, such as the Matter Distributed Compliance Ledger</p> <p>This configuration cannot be enabled with a custom CNAME set.</p> </note>"""
 

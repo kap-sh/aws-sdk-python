@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MailboxValidation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_address_insights_mailbox_evaluations
     import aws_sdk_sesv2.types.email_address_insights_verdict
 
 
-class MailboxValidation(TypedDict):
+class MailboxValidation(TypedDict, closed=True):
     is_valid: NotRequired[
         "aws_sdk_sesv2.types.email_address_insights_verdict.EmailAddressInsightsVerdict"
     ]

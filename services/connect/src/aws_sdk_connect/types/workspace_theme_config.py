@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#WorkspaceThemeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.workspace_theme_images
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.workspace_theme_typography
 
 
-class WorkspaceThemeConfig(TypedDict):
+class WorkspaceThemeConfig(TypedDict, closed=True):
     palette: NotRequired[
         "aws_sdk_connect.types.workspace_theme_palette.WorkspaceThemePalette"
     ]

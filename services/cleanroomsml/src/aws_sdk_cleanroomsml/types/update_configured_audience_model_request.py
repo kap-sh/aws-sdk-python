@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#UpdateConfiguredAudienceModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.audience_model_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.resource_description
 
 
-class UpdateConfiguredAudienceModelRequest(TypedDict):
+class UpdateConfiguredAudienceModelRequest(TypedDict, closed=True):
     configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn"
     """<p>The Amazon Resource Name (ARN) of the configured audience model that you want to update.</p>"""
     output_config: NotRequired[

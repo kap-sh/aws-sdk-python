@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DescribeDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.custom_document_enrichment_configuration
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class DescribeDataSourceResponse(TypedDict):
+class DescribeDataSourceResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]
     """<p>The identifier of the data source connector.</p>"""
     index_id: NotRequired["aws_sdk_kendra.types.index_id.IndexId"]

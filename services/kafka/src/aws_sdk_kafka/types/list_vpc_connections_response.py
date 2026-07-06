@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListVpcConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_vpc_connection
     import aws_sdk_kafka.types.__string
 
 
-class ListVpcConnectionsResponse(TypedDict):
+class ListVpcConnectionsResponse(TypedDict, closed=True):
     vpc_connections: NotRequired[
         "aws_sdk_kafka.types.__list_of_vpc_connection.__listOfVpcConnection"
     ]

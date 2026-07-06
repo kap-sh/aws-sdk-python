@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeRecoveryInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.describe_recovery_instances_items
     import aws_sdk_drs.types.pagination_token
 
 
-class DescribeRecoveryInstancesResponse(TypedDict):
+class DescribeRecoveryInstancesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]
     """<p>The token of the next Recovery Instance to retrieve.</p>"""
     items: NotRequired[

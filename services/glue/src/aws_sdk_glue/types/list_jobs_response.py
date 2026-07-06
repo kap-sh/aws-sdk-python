@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
     import aws_sdk_glue.types.job_name_list
 
 
-class ListJobsResponse(TypedDict):
+class ListJobsResponse(TypedDict, closed=True):
     job_names: NotRequired["aws_sdk_glue.types.job_name_list.JobNameList"]
     """<p>The names of all jobs in the account, or the jobs with the specified tags.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

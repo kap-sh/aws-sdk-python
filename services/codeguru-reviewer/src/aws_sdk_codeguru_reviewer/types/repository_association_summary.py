@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RepositoryAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.time_stamp
 
 
-class RepositoryAssociationSummary(TypedDict):
+class RepositoryAssociationSummary(TypedDict, closed=True):
     association_arn: NotRequired["aws_sdk_codeguru_reviewer.types.arn.Arn"]
     r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html\">RepositoryAssociation</a> object. You can retrieve this ARN by calling <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_ListRepositoryAssociations.html\">ListRepositoryAssociations</a>.</p>"""
     connection_arn: NotRequired[

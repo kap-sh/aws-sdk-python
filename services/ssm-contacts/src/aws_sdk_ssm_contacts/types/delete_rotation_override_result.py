@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#DeleteRotationOverrideResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRotationOverrideResult(TypedDict):
+class DeleteRotationOverrideResult(TypedDict, closed=True):
     pass
 
 

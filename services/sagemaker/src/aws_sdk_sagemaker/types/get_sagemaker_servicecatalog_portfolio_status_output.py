@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GetSagemakerServicecatalogPortfolioStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sagemaker_servicecatalog_status
 
 
-class GetSagemakerServicecatalogPortfolioStatusOutput(TypedDict):
+class GetSagemakerServicecatalogPortfolioStatusOutput(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker.types.sagemaker_servicecatalog_status.SagemakerServicecatalogStatus"
     ]

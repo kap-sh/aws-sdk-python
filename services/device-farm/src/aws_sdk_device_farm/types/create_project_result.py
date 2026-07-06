@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateProjectResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.project
 
 
-class CreateProjectResult(TypedDict):
+class CreateProjectResult(TypedDict, closed=True):
     project: NotRequired["aws_sdk_device_farm.types.project.Project"]
     """<p>The newly created project.</p>"""
 

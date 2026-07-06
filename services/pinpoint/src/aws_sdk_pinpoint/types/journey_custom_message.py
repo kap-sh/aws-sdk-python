@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyCustomMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class JourneyCustomMessage(TypedDict):
+class JourneyCustomMessage(TypedDict, closed=True):
     data: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The message content that's passed to an AWS Lambda function or to a web hook.</p>"""
 

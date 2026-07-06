@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#SessionCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.session_expiration
 
 
-class SessionCredentials(TypedDict):
+class SessionCredentials(TypedDict, closed=True):
     access_key_id: "aws_sdk_s3.types.access_key_id_value.AccessKeyIdValue"
     """<p>A unique identifier that's associated with a secret access key. The access key ID and the secret access key are used together to sign programmatic Amazon Web Services requests cryptographically. </p>"""
     secret_access_key: (

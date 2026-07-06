@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeleteResourcesByExternalIdInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.external_id
 
 
-class DeleteResourcesByExternalIdInput(TypedDict):
+class DeleteResourcesByExternalIdInput(TypedDict, closed=True):
     external_id: NotRequired["aws_sdk_codedeploy.types.external_id.ExternalId"]
     """<p>The unique ID of an external resource (for example, a CloudFormation stack ID) that is linked to one or more CodeDeploy resources.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EpisodicConsolidationOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.prompt
 
 
-class EpisodicConsolidationOverride(TypedDict):
+class EpisodicConsolidationOverride(TypedDict, closed=True):
     append_to_prompt: "aws_sdk_bedrock_agentcore_control.types.prompt.Prompt"
     """<p>The text appended to the prompt for the consolidation step of the episodic memory strategy.</p>"""
     model_id: "str"

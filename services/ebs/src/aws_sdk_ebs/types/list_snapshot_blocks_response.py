@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#ListSnapshotBlocksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_size
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.volume_size
 
 
-class ListSnapshotBlocksResponse(TypedDict):
+class ListSnapshotBlocksResponse(TypedDict, closed=True):
     blocks: NotRequired["aws_sdk_ebs.types.blocks.Blocks"]
     """<p>An array of objects containing information about the blocks.</p>"""
     expiry_time: NotRequired["aws_sdk_ebs.types.time_stamp.TimeStamp"]

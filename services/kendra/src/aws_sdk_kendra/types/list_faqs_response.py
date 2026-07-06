@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListFaqsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.faq_summary_items
     import aws_sdk_kendra.types.next_token
 
 
-class ListFaqsResponse(TypedDict):
+class ListFaqsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kendra.types.next_token.NextToken"]
     """<p>If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of FAQs.</p>"""
     faq_summary_items: NotRequired[

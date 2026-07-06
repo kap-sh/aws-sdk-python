@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#UntagResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UntagResourceOutput(TypedDict):
+class UntagResourceOutput(TypedDict, closed=True):
     pass
 
 

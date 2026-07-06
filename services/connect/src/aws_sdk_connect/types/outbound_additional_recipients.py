@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OutboundAdditionalRecipients``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.email_address_recipient_list
 
 
-class OutboundAdditionalRecipients(TypedDict):
+class OutboundAdditionalRecipients(TypedDict, closed=True):
     cc_email_addresses: NotRequired[
         "aws_sdk_connect.types.email_address_recipient_list.EmailAddressRecipientList"
     ]

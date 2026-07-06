@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#UpdateApplicationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.description
 
 
-class UpdateApplicationMessage(TypedDict):
+class UpdateApplicationMessage(TypedDict, closed=True):
     application_name: "aws_sdk_elastic_beanstalk.types.application_name.ApplicationName"
     """<p>The name of the application to update. If no such application is found, <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error. </p>"""
     description: NotRequired["aws_sdk_elastic_beanstalk.types.description.Description"]

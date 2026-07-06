@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlayerConnectionDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.max_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.timestamp
 
 
-class PlayerConnectionDetail(TypedDict):
+class PlayerConnectionDetail(TypedDict, closed=True):
     player_id: NotRequired["aws_sdk_gamelift.types.player_id.PlayerId"]
     """<p>A unique identifier for a player associated with this connection.</p>"""
     endpoints: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DocumentParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.example
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.regex
 
 
-class DocumentParameter(TypedDict):
+class DocumentParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_iot.types.parameter_key.ParameterKey"]
     """<p>Key of the map field containing the patterns that need to be replaced in a managed template job document schema.</p>"""
     description: NotRequired["aws_sdk_iot.types.job_description.JobDescription"]

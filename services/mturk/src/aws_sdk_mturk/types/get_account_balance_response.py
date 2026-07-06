@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#GetAccountBalanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.currency_amount
 
 
-class GetAccountBalanceResponse(TypedDict):
+class GetAccountBalanceResponse(TypedDict, closed=True):
     available_balance: NotRequired["aws_sdk_mturk.types.currency_amount.CurrencyAmount"]
     on_hold_balance: NotRequired["aws_sdk_mturk.types.currency_amount.CurrencyAmount"]
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#StackResourceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.timestamp
 
 
-class StackResourceSummary(TypedDict):
+class StackResourceSummary(TypedDict, closed=True):
     logical_resource_id: NotRequired[
         "aws_sdk_cloudformation.types.logical_resource_id.LogicalResourceId"
     ]

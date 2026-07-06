@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#AudioStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._iter import AnyIterator
 from aws_sdk_transcribe_streaming._protocol.eventstream import Message
@@ -10,11 +12,11 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.configuration_event
 
 
-class _AudioStream_AudioEvent(TypedDict):
+class _AudioStream_AudioEvent(TypedDict, closed=True):
     AudioEvent: "aws_sdk_transcribe_streaming.types.audio_event.AudioEvent"
 
 
-class _AudioStream_ConfigurationEvent(TypedDict):
+class _AudioStream_ConfigurationEvent(TypedDict, closed=True):
     ConfigurationEvent: (
         "aws_sdk_transcribe_streaming.types.configuration_event.ConfigurationEvent"
     )

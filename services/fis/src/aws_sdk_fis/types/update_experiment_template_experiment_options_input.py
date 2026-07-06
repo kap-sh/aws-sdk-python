@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#UpdateExperimentTemplateExperimentOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.empty_target_resolution_mode
 
 
-class UpdateExperimentTemplateExperimentOptionsInput(TypedDict):
+class UpdateExperimentTemplateExperimentOptionsInput(TypedDict, closed=True):
     empty_target_resolution_mode: NotRequired[
         "aws_sdk_fis.types.empty_target_resolution_mode.EmptyTargetResolutionMode"
     ]

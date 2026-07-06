@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#Body``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.content
 
 
-class Body(TypedDict):
+class Body(TypedDict, closed=True):
     text: NotRequired["aws_sdk_ses.types.content.Content"]
     """<p>The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).</p>"""
     html: NotRequired["aws_sdk_ses.types.content.Content"]

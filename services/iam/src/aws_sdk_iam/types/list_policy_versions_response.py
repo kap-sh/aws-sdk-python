@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListPolicyVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListPolicyVersionsResponse(TypedDict):
+class ListPolicyVersionsResponse(TypedDict, closed=True):
     versions: NotRequired[
         "aws_sdk_iam.types.policy_document_version_list_type.policyDocumentVersionListType"
     ]

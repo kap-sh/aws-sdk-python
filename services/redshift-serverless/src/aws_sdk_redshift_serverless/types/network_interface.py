@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#NetworkInterface``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     network_interface_id: NotRequired["str"]
     """<p>The unique identifier of the network interface.</p>"""
     subnet_id: NotRequired["str"]

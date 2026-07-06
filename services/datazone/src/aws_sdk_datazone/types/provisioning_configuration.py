@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ProvisioningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lake_formation_configuration
 
 
-class _ProvisioningConfiguration_lakeFormationConfiguration(TypedDict):
+class _ProvisioningConfiguration_lakeFormationConfiguration(TypedDict, closed=True):
     lakeFormationConfiguration: (
         "aws_sdk_datazone.types.lake_formation_configuration.LakeFormationConfiguration"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#HPOObjective``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.hpo_objective_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.metric_regex
 
 
-class HPOObjective(TypedDict):
+class HPOObjective(TypedDict, closed=True):
     type: NotRequired["aws_sdk_personalize.types.hpo_objective_type.HPOObjectiveType"]
     """<p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>"""
     metric_name: NotRequired["aws_sdk_personalize.types.metric_name.MetricName"]

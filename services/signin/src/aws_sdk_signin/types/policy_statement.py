@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#PolicyStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signin.types.condition_block
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.principal
 
 
-class PolicyStatement(TypedDict):
+class PolicyStatement(TypedDict, closed=True):
     effect: NotRequired["str"]
     """Effect of the policy statement (Allow/Deny)"""
     principal: NotRequired["aws_sdk_signin.types.principal.Principal"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#OutboundCallConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.source_phone_number
 
 
-class OutboundCallConfig(TypedDict):
+class OutboundCallConfig(TypedDict, closed=True):
     connect_contact_flow_id: (
         "aws_sdk_connectcampaigns.types.contact_flow_id.ContactFlowId"
     )

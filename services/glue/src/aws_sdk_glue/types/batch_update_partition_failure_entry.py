@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchUpdatePartitionFailureEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.bounded_partition_value_list
     import aws_sdk_glue.types.error_detail
 
 
-class BatchUpdatePartitionFailureEntry(TypedDict):
+class BatchUpdatePartitionFailureEntry(TypedDict, closed=True):
     partition_value_list: NotRequired[
         "aws_sdk_glue.types.bounded_partition_value_list.BoundedPartitionValueList"
     ]

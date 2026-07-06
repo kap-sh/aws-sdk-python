@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ListApplicationSnapshotsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.next_token
     import aws_sdk_kinesis_analytics_v2.types.snapshot_summaries
 
 
-class ListApplicationSnapshotsResponse(TypedDict):
+class ListApplicationSnapshotsResponse(TypedDict, closed=True):
     snapshot_summaries: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.snapshot_summaries.SnapshotSummaries"
     ]

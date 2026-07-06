@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.role_arn
 
 
-class GetKxUserResponse(TypedDict):
+class GetKxUserResponse(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_finspace.types.id_type.IdType"]
     """<p>A unique identifier for the user.</p>"""
     user_arn: NotRequired["aws_sdk_finspace.types.kx_user_arn.KxUserArn"]

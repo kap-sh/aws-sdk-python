@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateHITWithHITTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class CreateHITWithHITTypeRequest(TypedDict):
+class CreateHITWithHITTypeRequest(TypedDict, closed=True):
     hit_type_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p>The HIT type ID you want to create this HIT with.</p>"""
     max_assignments: NotRequired["aws_sdk_mturk.types.integer.Integer"]

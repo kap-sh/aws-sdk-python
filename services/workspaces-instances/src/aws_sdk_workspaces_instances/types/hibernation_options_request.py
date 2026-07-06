@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#HibernationOptionsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class HibernationOptionsRequest(TypedDict):
+class HibernationOptionsRequest(TypedDict, closed=True):
     configured: NotRequired["bool"]
     """<p>Enables or disables instance hibernation capability.</p>"""
 

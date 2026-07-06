@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#StatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.status_type
 
 
-class StatusSummary(TypedDict):
+class StatusSummary(TypedDict, closed=True):
     status_type: "aws_sdk_ssm_quicksetup.types.status_type.StatusType"
     """<p>The type of a status summary.</p>"""
     status: NotRequired["aws_sdk_ssm_quicksetup.types.status.Status"]

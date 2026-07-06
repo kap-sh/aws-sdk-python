@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#HlsEncryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min32_max32_pattern09a_faf32
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.static_key_provider
 
 
-class HlsEncryptionSettings(TypedDict):
+class HlsEncryptionSettings(TypedDict, closed=True):
     constant_initialization_vector: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min32_max32_pattern09a_faf32.__stringMin32Max32Pattern09aFAF32"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#GetDiscoverySummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.customer_agent_info
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.long
 
 
-class GetDiscoverySummaryResponse(TypedDict):
+class GetDiscoverySummaryResponse(TypedDict, closed=True):
     servers: "aws_sdk_application_discovery_service.types.long.Long"
     """<p>The number of servers discovered.</p>"""
     applications: "aws_sdk_application_discovery_service.types.long.Long"

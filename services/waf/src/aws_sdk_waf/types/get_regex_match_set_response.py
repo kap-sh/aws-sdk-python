@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetRegexMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.regex_match_set
 
 
-class GetRegexMatchSetResponse(TypedDict):
+class GetRegexMatchSetResponse(TypedDict, closed=True):
     regex_match_set: NotRequired["aws_sdk_waf.types.regex_match_set.RegexMatchSet"]
     """<p>Information about the <a>RegexMatchSet</a> that you specified in the <code>GetRegexMatchSet</code> request. For more information, see <a>RegexMatchTuple</a>.</p>"""
 

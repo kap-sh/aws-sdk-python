@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ActivateReadSetSourceItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_id
 
 
-class ActivateReadSetSourceItem(TypedDict):
+class ActivateReadSetSourceItem(TypedDict, closed=True):
     read_set_id: "aws_sdk_omics.types.read_set_id.ReadSetId"
     """<p>The source's read set ID.</p>"""
     status: "aws_sdk_omics.types.read_set_activation_job_item_status.ReadSetActivationJobItemStatus"

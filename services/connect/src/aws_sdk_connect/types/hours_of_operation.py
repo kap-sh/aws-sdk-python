@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HoursOfOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class HoursOfOperation(TypedDict):
+class HoursOfOperation(TypedDict, closed=True):
     hours_of_operation_id: NotRequired[
         "aws_sdk_connect.types.hours_of_operation_id.HoursOfOperationId"
     ]

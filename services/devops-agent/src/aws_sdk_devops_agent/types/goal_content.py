@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GoalContent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class GoalContent(TypedDict):
+class GoalContent(TypedDict, closed=True):
     description: "str"
     """<p>A detailed description of the goal.</p>"""
     objectives: "str"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#AuditTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.audit_target_entity
 
 
-class AuditTarget(TypedDict):
+class AuditTarget(TypedDict, closed=True):
     type: "str"
     """<p>The type of entity being audited, such as <code>service</code>, <code>SLO</code>, <code>service_operation</code>, or <code>canary</code>. </p>"""
     data: "aws_sdk_application_signals.types.audit_target_entity.AuditTargetEntity"

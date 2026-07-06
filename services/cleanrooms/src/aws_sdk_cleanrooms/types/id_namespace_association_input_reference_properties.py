@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdNamespaceAssociationInputReferenceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_namespace_type
 
 
-class IdNamespaceAssociationInputReferenceProperties(TypedDict):
+class IdNamespaceAssociationInputReferenceProperties(TypedDict, closed=True):
     id_namespace_type: "aws_sdk_cleanrooms.types.id_namespace_type.IdNamespaceType"
     """<p>The ID namespace type for this ID namespace association.</p>"""
     id_mapping_workflows_supported: "aws_sdk_cleanrooms.types.id_mapping_workflows_supported.IdMappingWorkflowsSupported"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#ListEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.environment_list
     import aws_sdk_workspaces_thin_client.types.pagination_token
 
 
-class ListEnvironmentsResponse(TypedDict):
+class ListEnvironmentsResponse(TypedDict, closed=True):
     environments: NotRequired[
         "aws_sdk_workspaces_thin_client.types.environment_list.EnvironmentList"
     ]

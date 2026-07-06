@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeThingGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.dynamic_group_status
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version
 
 
-class DescribeThingGroupResponse(TypedDict):
+class DescribeThingGroupResponse(TypedDict, closed=True):
     thing_group_name: NotRequired["aws_sdk_iot.types.thing_group_name.ThingGroupName"]
     """<p>The name of the thing group.</p>"""
     thing_group_id: NotRequired["aws_sdk_iot.types.thing_group_id.ThingGroupId"]

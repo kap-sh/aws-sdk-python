@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#RestoreVolumeFromSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.administrative_actions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_lifecycle
 
 
-class RestoreVolumeFromSnapshotResponse(TypedDict):
+class RestoreVolumeFromSnapshotResponse(TypedDict, closed=True):
     volume_id: NotRequired["aws_sdk_fsx.types.volume_id.VolumeId"]
     """<p>The ID of the volume that you restored.</p>"""
     lifecycle: NotRequired["aws_sdk_fsx.types.volume_lifecycle.VolumeLifecycle"]

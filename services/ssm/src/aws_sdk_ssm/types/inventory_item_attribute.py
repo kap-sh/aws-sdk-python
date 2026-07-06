@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryItemAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_item_attribute_name
 
 
-class InventoryItemAttribute(TypedDict):
+class InventoryItemAttribute(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.inventory_item_attribute_name.InventoryItemAttributeName"
     """<p>Name of the inventory item attribute.</p>"""
     data_type: (

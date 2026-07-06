@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PolicyGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.id_type
 
 
-class PolicyGroup(TypedDict):
+class PolicyGroup(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_iam.types.group_name_type.groupNameType"]
     """<p>The name (friendly name, not ARN) identifying the group.</p>"""
     group_id: NotRequired["aws_sdk_iam.types.id_type.idType"]

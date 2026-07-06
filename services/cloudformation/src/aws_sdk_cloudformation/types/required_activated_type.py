@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#RequiredActivatedType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_name
 
 
-class RequiredActivatedType(TypedDict):
+class RequiredActivatedType(TypedDict, closed=True):
     type_name_alias: NotRequired["aws_sdk_cloudformation.types.type_name.TypeName"]
     """<p>An alias assigned to the public extension, in this account and Region. If you specify an alias for the extension, CloudFormation treats the alias as the extension type name within this account and Region. You must use the alias to refer to the extension in your templates, API calls, and CloudFormation console.</p>"""
     original_type_name: NotRequired["aws_sdk_cloudformation.types.type_name.TypeName"]

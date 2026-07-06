@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#SizeConstraintSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.size_constraint
 
 
-class SizeConstraintSetUpdate(TypedDict):
+class SizeConstraintSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf.types.change_action.ChangeAction"
     """<p>Specify <code>INSERT</code> to add a <a>SizeConstraintSetUpdate</a> to a <a>SizeConstraintSet</a>. Use <code>DELETE</code> to remove a <code>SizeConstraintSetUpdate</code> from a <code>SizeConstraintSet</code>.</p>"""
     size_constraint: "aws_sdk_waf.types.size_constraint.SizeConstraint"

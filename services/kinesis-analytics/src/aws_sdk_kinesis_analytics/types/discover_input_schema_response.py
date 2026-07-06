@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DiscoverInputSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.parsed_input_records
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.source_schema
 
 
-class DiscoverInputSchemaResponse(TypedDict):
+class DiscoverInputSchemaResponse(TypedDict, closed=True):
     input_schema: NotRequired[
         "aws_sdk_kinesis_analytics.types.source_schema.SourceSchema"
     ]

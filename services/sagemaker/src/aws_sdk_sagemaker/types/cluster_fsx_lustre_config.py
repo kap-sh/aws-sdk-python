@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterFsxLustreConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_mount_name
 
 
-class ClusterFsxLustreConfig(TypedDict):
+class ClusterFsxLustreConfig(TypedDict, closed=True):
     dns_name: "aws_sdk_sagemaker.types.cluster_dns_name.ClusterDnsName"
     """<p>The DNS name of the Amazon FSx for Lustre file system.</p>"""
     mount_name: "aws_sdk_sagemaker.types.cluster_mount_name.ClusterMountName"

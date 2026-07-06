@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#CreateVolumeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.volume_type_enum
 
 
-class CreateVolumeRequest(TypedDict):
+class CreateVolumeRequest(TypedDict, closed=True):
     availability_zone: "aws_sdk_workspaces_instances.types.string64.String64"
     """<p>Availability zone for the volume.</p>"""
     client_token: NotRequired[

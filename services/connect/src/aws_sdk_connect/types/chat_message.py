@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_content_type
 
 
-class ChatMessage(TypedDict):
+class ChatMessage(TypedDict, closed=True):
     content_type: "aws_sdk_connect.types.chat_content_type.ChatContentType"
     """<p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>"""
     content: "aws_sdk_connect.types.chat_content.ChatContent"

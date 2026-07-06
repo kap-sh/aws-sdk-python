@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#RetrieveMemoryRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.pagination_token
 
 
-class RetrieveMemoryRecordsOutput(TypedDict):
+class RetrieveMemoryRecordsOutput(TypedDict, closed=True):
     memory_record_summaries: "aws_sdk_bedrock_agentcore.types.memory_record_summary_list.MemoryRecordSummaryList"
     """<p>The list of memory record summaries that match the search criteria, ordered by relevance.</p>"""
     next_token: NotRequired[

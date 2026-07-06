@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteInputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DeleteInputRequest(TypedDict):
+class DeleteInputRequest(TypedDict, closed=True):
     input_id: "aws_sdk_medialive.types.__string.__string"
     """Unique ID of the input"""
 

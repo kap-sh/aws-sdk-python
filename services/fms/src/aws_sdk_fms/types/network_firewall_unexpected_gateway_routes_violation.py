@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#NetworkFirewallUnexpectedGatewayRoutesViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id
     import aws_sdk_fms.types.routes
 
 
-class NetworkFirewallUnexpectedGatewayRoutesViolation(TypedDict):
+class NetworkFirewallUnexpectedGatewayRoutesViolation(TypedDict, closed=True):
     gateway_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]
     """<p>Information about the gateway ID.</p>"""
     violating_routes: NotRequired["aws_sdk_fms.types.routes.Routes"]

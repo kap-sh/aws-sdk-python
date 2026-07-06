@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsProductOptimization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.monetary_amount
 
 
-class AwsProductOptimization(TypedDict):
+class AwsProductOptimization(TypedDict, closed=True):
     description: "str"
     """<p>Human-readable explanation of the optimization strategy.</p>"""
     savings_amount: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#ActiveDirectoryBackupAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.active_directory_fully_qualified_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.resource_arn
 
 
-class ActiveDirectoryBackupAttributes(TypedDict):
+class ActiveDirectoryBackupAttributes(TypedDict, closed=True):
     domain_name: NotRequired[
         "aws_sdk_fsx.types.active_directory_fully_qualified_name.ActiveDirectoryFullyQualifiedName"
     ]

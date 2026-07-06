@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListRepositoriesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.max_page_results
     import aws_sdk_proton.types.next_token
 
 
-class ListRepositoriesInput(TypedDict):
+class ListRepositoriesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next repository in the array of repositories, after the list of repositories previously requested.</p>"""
     max_results: NotRequired["aws_sdk_proton.types.max_page_results.MaxPageResults"]

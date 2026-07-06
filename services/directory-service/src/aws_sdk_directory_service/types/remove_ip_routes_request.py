@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RemoveIpRoutesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_id
 
 
-class RemoveIpRoutesRequest(TypedDict):
+class RemoveIpRoutesRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>Identifier (ID) of the directory from which you want to remove the IP addresses.</p>"""
     cidr_ips: "aws_sdk_directory_service.types.cidr_ips.CidrIps"

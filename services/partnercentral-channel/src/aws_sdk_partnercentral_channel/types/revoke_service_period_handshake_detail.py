@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#RevokeServicePeriodHandshakeDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.service_period_type
 
 
-class RevokeServicePeriodHandshakeDetail(TypedDict):
+class RevokeServicePeriodHandshakeDetail(TypedDict, closed=True):
     note: NotRequired["aws_sdk_partnercentral_channel.types.note.Note"]
     """<p>A note explaining the reason for revoking the service period.</p>"""
     service_period_type: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AddTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_arn
     import aws_sdk_sagemaker.types.tag_list
 
 
-class AddTagsInput(TypedDict):
+class AddTagsInput(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_sagemaker.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the resource that you want to tag.</p>"""
     tags: NotRequired["aws_sdk_sagemaker.types.tag_list.TagList"]

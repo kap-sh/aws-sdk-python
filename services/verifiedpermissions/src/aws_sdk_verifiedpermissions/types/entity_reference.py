@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#EntityReference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.entity_identifier
 
 
-class _EntityReference_unspecified(TypedDict):
+class _EntityReference_unspecified(TypedDict, closed=True):
     unspecified: "bool"
 
 
-class _EntityReference_identifier(TypedDict):
+class _EntityReference_identifier(TypedDict, closed=True):
     identifier: "aws_sdk_verifiedpermissions.types.entity_identifier.EntityIdentifier"
 
 

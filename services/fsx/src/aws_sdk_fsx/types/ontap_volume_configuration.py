@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OntapVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aggregate_configuration
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_style
 
 
-class OntapVolumeConfiguration(TypedDict):
+class OntapVolumeConfiguration(TypedDict, closed=True):
     flex_cache_endpoint_type: NotRequired[
         "aws_sdk_fsx.types.flex_cache_endpoint_type.FlexCacheEndpointType"
     ]

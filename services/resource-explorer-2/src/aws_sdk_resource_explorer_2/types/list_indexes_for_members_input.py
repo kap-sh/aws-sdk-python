@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListIndexesForMembersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.account_id_list
 
 
-class ListIndexesForMembersInput(TypedDict):
+class ListIndexesForMembersInput(TypedDict, closed=True):
     account_id_list: "aws_sdk_resource_explorer_2.types.account_id_list.AccountIdList"
     """<p>The account IDs will limit the output to only indexes from these accounts.</p>"""
     max_results: NotRequired["int"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_value_type
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_iam.types.tag_key_type.tagKeyType"
     """<p>The key name that can be used to look up or retrieve the associated value. For example, <code>Department</code> or <code>Cost Center</code> are common choices.</p>"""
     value: "aws_sdk_iam.types.tag_value_type.tagValueType"

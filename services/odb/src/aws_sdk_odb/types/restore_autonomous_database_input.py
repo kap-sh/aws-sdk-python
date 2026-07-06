@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#RestoreAutonomousDatabaseInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class RestoreAutonomousDatabaseInput(TypedDict):
+class RestoreAutonomousDatabaseInput(TypedDict, closed=True):
     autonomous_database_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the Autonomous Database to restore.</p>"""
     timestamp: "datetime.datetime"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AuthenticationProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.access_token_duration
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class AuthenticationProfile(TypedDict):
+class AuthenticationProfile(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_connect.types.authentication_profile_id.AuthenticationProfileId"
     ]

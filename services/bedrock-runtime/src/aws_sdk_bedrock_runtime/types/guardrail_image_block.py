@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailImageBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_image_source
 
 
-class GuardrailImageBlock(TypedDict):
+class GuardrailImageBlock(TypedDict, closed=True):
     format: "aws_sdk_bedrock_runtime.types.guardrail_image_format.GuardrailImageFormat"
     """<p>The format details for the file type of the image blocked by the guardrail.</p>"""
     source: "aws_sdk_bedrock_runtime.types.guardrail_image_source.GuardrailImageSource"

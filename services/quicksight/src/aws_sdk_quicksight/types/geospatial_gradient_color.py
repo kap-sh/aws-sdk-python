@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialGradientColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class GeospatialGradientColor(TypedDict):
+class GeospatialGradientColor(TypedDict, closed=True):
     step_colors: "aws_sdk_quicksight.types.geospatial_gradient_step_color_list.GeospatialGradientStepColorList"
     """<p>A list of gradient step colors for the gradient.</p>"""
     null_data_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#PromptSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.prompt_max_retries
 
 
-class PromptSpecification(TypedDict):
+class PromptSpecification(TypedDict, closed=True):
     message_groups: "aws_sdk_lex_models_v2.types.message_groups_list.MessageGroupsList"
     """<p>A collection of messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime.</p>"""
     max_retries: "aws_sdk_lex_models_v2.types.prompt_max_retries.PromptMaxRetries"

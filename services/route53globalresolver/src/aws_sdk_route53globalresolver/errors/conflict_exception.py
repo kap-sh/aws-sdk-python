@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>The ID of the conflicting resource.</p>"""

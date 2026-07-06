@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#EmbeddedSourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max1
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.embedded_terminate_captions
 
 
-class EmbeddedSourceSettings(TypedDict):
+class EmbeddedSourceSettings(TypedDict, closed=True):
     convert608_to708: NotRequired[
         "aws_sdk_mediaconvert.types.embedded_convert608_to708.EmbeddedConvert608To708"
     ]

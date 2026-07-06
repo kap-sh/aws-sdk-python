@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3BucketOwner``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class S3BucketOwner(TypedDict):
+class S3BucketOwner(TypedDict, closed=True):
     display_name: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The display name of the account that owns the bucket.</p>"""
     id: NotRequired["aws_sdk_macie2.types.__string.__string"]

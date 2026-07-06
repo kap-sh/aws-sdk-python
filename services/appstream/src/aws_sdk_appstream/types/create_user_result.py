@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateUserResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateUserResult(TypedDict):
+class CreateUserResult(TypedDict, closed=True):
     pass
 
 

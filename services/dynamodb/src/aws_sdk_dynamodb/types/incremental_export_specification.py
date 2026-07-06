@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#IncrementalExportSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.export_from_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.export_view_type
 
 
-class IncrementalExportSpecification(TypedDict):
+class IncrementalExportSpecification(TypedDict, closed=True):
     export_from_time: NotRequired[
         "aws_sdk_dynamodb.types.export_from_time.ExportFromTime"
     ]

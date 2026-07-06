@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#SendEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.outbound_message_id
 
 
-class SendEmailResponse(TypedDict):
+class SendEmailResponse(TypedDict, closed=True):
     message_id: NotRequired[
         "aws_sdk_pinpoint_email.types.outbound_message_id.OutboundMessageId"
     ]

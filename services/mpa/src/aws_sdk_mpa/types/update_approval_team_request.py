@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#UpdateApprovalTeamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.approval_strategy
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.update_actions
 
 
-class UpdateApprovalTeamRequest(TypedDict):
+class UpdateApprovalTeamRequest(TypedDict, closed=True):
     approval_strategy: NotRequired[
         "aws_sdk_mpa.types.approval_strategy.ApprovalStrategy"
     ]

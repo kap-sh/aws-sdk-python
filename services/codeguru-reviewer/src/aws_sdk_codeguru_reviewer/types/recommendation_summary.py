@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RecommendationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.file_path
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.text
 
 
-class RecommendationSummary(TypedDict):
+class RecommendationSummary(TypedDict, closed=True):
     file_path: NotRequired["aws_sdk_codeguru_reviewer.types.file_path.FilePath"]
     """<p>Name of the file on which a recommendation is provided.</p>"""
     recommendation_id: NotRequired[

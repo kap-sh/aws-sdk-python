@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteAccountDefaultProtectConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAccountDefaultProtectConfigurationRequest(TypedDict):
+class DeleteAccountDefaultProtectConfigurationRequest(TypedDict, closed=True):
     pass
 
 

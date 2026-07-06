@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateWhatIfForecastResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.long_arn
 
 
-class CreateWhatIfForecastResponse(TypedDict):
+class CreateWhatIfForecastResponse(TypedDict, closed=True):
     what_if_forecast_arn: NotRequired["aws_sdk_forecast.types.long_arn.LongArn"]
     """<p>The Amazon Resource Name (ARN) of the what-if forecast.</p>"""
 

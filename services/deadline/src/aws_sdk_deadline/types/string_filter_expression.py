@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#StringFilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string_filter
 
 
-class StringFilterExpression(TypedDict):
+class StringFilterExpression(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.string.String"
     """<p>The field name to search.</p>"""
     operator: "aws_sdk_deadline.types.comparison_operator.ComparisonOperator"

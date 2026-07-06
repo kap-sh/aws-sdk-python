@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#VideoParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.aspect_ratio
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.video_codec
 
 
-class VideoParameters(TypedDict):
+class VideoParameters(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_elastic_transcoder.types.video_codec.VideoCodec"]
     """<p>The video codec for the output file. Valid values include <code>gif</code>, <code>H.264</code>, <code>mpeg2</code>, <code>vp8</code>, and <code>vp9</code>. You can only specify <code>vp8</code> and <code>vp9</code> when the container type is <code>webm</code>, <code>gif</code> when the container type is <code>gif</code>, and <code>mpeg2</code> when the container type is <code>mpg</code>.</p>"""
     codec_options: NotRequired[

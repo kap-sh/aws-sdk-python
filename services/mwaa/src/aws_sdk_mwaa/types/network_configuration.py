@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#NetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.security_group_list
     import aws_sdk_mwaa.types.subnet_list
 
 
-class NetworkConfiguration(TypedDict):
+class NetworkConfiguration(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_mwaa.types.subnet_list.SubnetList"]
     r"""<p>A list of subnet IDs. For more information, refer to <a href=\"https://docs.aws.amazon.com/mwaa/latest/userguide/networking-about.html\">About networking on Amazon MWAA</a>.</p>"""
     security_group_ids: NotRequired[

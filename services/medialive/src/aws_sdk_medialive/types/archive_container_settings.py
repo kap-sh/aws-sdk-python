@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ArchiveContainerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.m2ts_settings
     import aws_sdk_medialive.types.raw_settings
 
 
-class ArchiveContainerSettings(TypedDict):
+class ArchiveContainerSettings(TypedDict, closed=True):
     m2ts_settings: NotRequired["aws_sdk_medialive.types.m2ts_settings.M2tsSettings"]
     raw_settings: NotRequired["aws_sdk_medialive.types.raw_settings.RawSettings"]
 

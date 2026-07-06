@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#GetConnectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.connector
 
 
-class GetConnectorResponse(TypedDict):
+class GetConnectorResponse(TypedDict, closed=True):
     connector: NotRequired["aws_sdk_pca_connector_ad.types.connector.Connector"]
     """<p>A structure that contains information about your connector.</p>"""
 

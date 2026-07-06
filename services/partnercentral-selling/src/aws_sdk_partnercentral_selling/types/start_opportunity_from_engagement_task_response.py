@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#StartOpportunityFromEngagementTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.context_identifier
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.task_status
 
 
-class StartOpportunityFromEngagementTaskResponse(TypedDict):
+class StartOpportunityFromEngagementTaskResponse(TypedDict, closed=True):
     task_id: NotRequired[
         "aws_sdk_partnercentral_selling.types.task_identifier.TaskIdentifier"
     ]

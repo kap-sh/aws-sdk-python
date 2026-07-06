@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#WorkflowDefinitionSummary``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
 
-class WorkflowDefinitionSummary(TypedDict):
+class WorkflowDefinitionSummary(TypedDict, closed=True):
     path: "str"
     """<p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>"""
 

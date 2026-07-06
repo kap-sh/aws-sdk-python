@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_id
 
 
-class WorkflowExecutionFilter(TypedDict):
+class WorkflowExecutionFilter(TypedDict, closed=True):
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"
     """<p>The workflowId to pass of match the criteria of this filter.</p>"""
 

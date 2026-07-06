@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UpdateStreamProcessorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.stream_processor_settings_for_update
 
 
-class UpdateStreamProcessorRequest(TypedDict):
+class UpdateStreamProcessorRequest(TypedDict, closed=True):
     name: "aws_sdk_rekognition.types.stream_processor_name.StreamProcessorName"
     """<p> Name of the stream processor that you want to update. </p>"""
     settings_for_update: NotRequired[

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ProviderMarketplaceConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
 
-class ProviderMarketplaceConfiguration(TypedDict):
+class ProviderMarketplaceConfiguration(TypedDict, closed=True):
     data_set_id: "str"
     """<p>The dataset ID on Data Exchange.</p>"""
     revision_id: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#IPSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.entity_description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.resource_arn
 
 
-class IPSetSummary(TypedDict):
+class IPSetSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_wafv2.types.entity_name.EntityName"]
     """<p>The name of the IP set. You cannot change the name of an <code>IPSet</code> after you create it.</p>"""
     id: NotRequired["aws_sdk_wafv2.types.entity_id.EntityId"]

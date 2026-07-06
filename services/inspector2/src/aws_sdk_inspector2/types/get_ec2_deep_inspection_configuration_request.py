@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetEc2DeepInspectionConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetEc2DeepInspectionConfigurationRequest(TypedDict):
+class GetEc2DeepInspectionConfigurationRequest(TypedDict, closed=True):
     pass
 
 

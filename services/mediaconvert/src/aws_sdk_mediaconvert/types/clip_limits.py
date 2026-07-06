@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ClipLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max128
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min_negative5_max10
 
 
-class ClipLimits(TypedDict):
+class ClipLimits(TypedDict, closed=True):
     maximum_rgb_tolerance: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min90_max105.__integerMin90Max105"
     ]

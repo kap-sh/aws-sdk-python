@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#GetNotificationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_configuration_arn
 
 
-class GetNotificationConfigurationRequest(TypedDict):
+class GetNotificationConfigurationRequest(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the <code>NotificationConfiguration</code> to return.</p>"""
 

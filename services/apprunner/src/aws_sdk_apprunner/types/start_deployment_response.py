@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#StartDeploymentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.uuid
 
 
-class StartDeploymentResponse(TypedDict):
+class StartDeploymentResponse(TypedDict, closed=True):
     operation_id: "aws_sdk_apprunner.types.uuid.UUID"
     """<p>The unique ID of the asynchronous operation that this request started. You can use it combined with the <a>ListOperations</a> call to track the operation's progress.</p>"""
 

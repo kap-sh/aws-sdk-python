@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     service_code: NotRequired["str"]
     """<p>The service code.</p>"""

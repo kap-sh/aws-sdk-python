@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#CreateIndexOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.index_state
 
 
-class CreateIndexOutput(TypedDict):
+class CreateIndexOutput(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The ARN of the new local index for the Region. You can reference this ARN in IAM permission policies to authorize the following operations: <a>DeleteIndex</a> | <a>GetIndex</a> | <a>UpdateIndexType</a> | <a>CreateView</a> </p>"""
     state: NotRequired["aws_sdk_resource_explorer_2.types.index_state.IndexState"]

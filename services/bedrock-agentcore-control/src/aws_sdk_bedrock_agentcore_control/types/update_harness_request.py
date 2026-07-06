@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateHarnessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.client_token
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_harness_memory_configuration
 
 
-class UpdateHarnessRequest(TypedDict):
+class UpdateHarnessRequest(TypedDict, closed=True):
     harness_id: "aws_sdk_bedrock_agentcore_control.types.harness_id.HarnessId"
     """<p>The ID of the harness to update.</p>"""
     client_token: NotRequired[

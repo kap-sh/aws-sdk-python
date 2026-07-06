@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RuleExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.artifact_detail_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.rule_type_id
 
 
-class RuleExecutionInput(TypedDict):
+class RuleExecutionInput(TypedDict, closed=True):
     rule_type_id: NotRequired["aws_sdk_codepipeline.types.rule_type_id.RuleTypeId"]
     r"""<p>The ID for the rule type, which is made up of the combined values for category, owner, provider, and version. For more information about conditions, see <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html\">Stage conditions</a>. For more information about rules, see the <a href=\"https://docs.aws.amazon.com/codepipeline/latest/userguide/rule-reference.html\">CodePipeline rule reference</a>.</p>"""
     configuration: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningLogicWarning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning_type
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_statement_list
 
 
-class GuardrailAutomatedReasoningLogicWarning(TypedDict):
+class GuardrailAutomatedReasoningLogicWarning(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning_type.GuardrailAutomatedReasoningLogicWarningType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DescribeProxyResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.create_time
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.vpc_endpoint_service_name
 
 
-class DescribeProxyResource(TypedDict):
+class DescribeProxyResource(TypedDict, closed=True):
     proxy_name: NotRequired["aws_sdk_network_firewall.types.resource_name.ResourceName"]
     """<p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>"""
     proxy_arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]

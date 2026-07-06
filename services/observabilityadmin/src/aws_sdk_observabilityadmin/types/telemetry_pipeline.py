@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryPipeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.resource_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_pipeline_status_reason
 
 
-class TelemetryPipeline(TypedDict):
+class TelemetryPipeline(TypedDict, closed=True):
     created_time_stamp: NotRequired["int"]
     """<p>The timestamp when the telemetry pipeline was created.</p>"""
     last_update_time_stamp: NotRequired["int"]

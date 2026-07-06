@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateNodeRegistrationScriptResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class CreateNodeRegistrationScriptResponse(TypedDict):
+class CreateNodeRegistrationScriptResponse(TypedDict, closed=True):
     node_registration_script: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """A script that can be run on a Bring Your Own Device Elemental Anywhere system to create a node in a cluster."""
 

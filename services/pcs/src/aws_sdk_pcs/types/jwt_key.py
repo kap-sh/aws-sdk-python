@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#JwtKey``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
 
-class JwtKey(TypedDict):
+class JwtKey(TypedDict, closed=True):
     secret_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret containing the JWT key.</p>"""
     secret_version: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DevicePoolCompatibilityResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.incompatibility_messages
 
 
-class DevicePoolCompatibilityResult(TypedDict):
+class DevicePoolCompatibilityResult(TypedDict, closed=True):
     device: NotRequired["aws_sdk_device_farm.types.device.Device"]
     """<p>The device (phone or tablet) to return information about.</p>"""
     compatible: NotRequired["aws_sdk_device_farm.types.boolean.Boolean"]

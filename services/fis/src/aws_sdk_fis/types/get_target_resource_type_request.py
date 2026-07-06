@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetTargetResourceTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.target_resource_type_id
 
 
-class GetTargetResourceTypeRequest(TypedDict):
+class GetTargetResourceTypeRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_fis.types.target_resource_type_id.TargetResourceTypeId"
     """<p>The resource type.</p>"""
 

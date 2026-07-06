@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.snapshot
 
 
-class CreateSnapshotResponse(TypedDict):
+class CreateSnapshotResponse(TypedDict, closed=True):
     snapshot: NotRequired["aws_sdk_fsx.types.snapshot.Snapshot"]
     """<p>A description of the snapshot.</p>"""
 

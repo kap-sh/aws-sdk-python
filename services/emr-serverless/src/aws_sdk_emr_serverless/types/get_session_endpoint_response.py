@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#GetSessionEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.session_id
 
 
-class GetSessionEndpointResponse(TypedDict):
+class GetSessionEndpointResponse(TypedDict, closed=True):
     application_id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>The output contains the ID of the application.</p>"""
     session_id: "aws_sdk_emr_serverless.types.session_id.SessionId"

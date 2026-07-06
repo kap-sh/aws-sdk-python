@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListDocumentVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListDocumentVersionsRequest(TypedDict):
+class ListDocumentVersionsRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     """<p>The name of the document. You can specify an Amazon Resource Name (ARN).</p>"""
     max_results: NotRequired["aws_sdk_ssm.types.max_results.MaxResults"]

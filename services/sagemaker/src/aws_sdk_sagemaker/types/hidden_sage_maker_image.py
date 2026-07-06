@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HiddenSageMakerImage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sage_maker_image_name
     import aws_sdk_sagemaker.types.version_aliases_list
 
 
-class HiddenSageMakerImage(TypedDict):
+class HiddenSageMakerImage(TypedDict, closed=True):
     sage_maker_image_name: NotRequired[
         "aws_sdk_sagemaker.types.sage_maker_image_name.SageMakerImageName"
     ]

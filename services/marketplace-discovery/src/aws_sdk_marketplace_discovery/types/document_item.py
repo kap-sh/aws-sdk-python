@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#DocumentItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.url
 
 
-class DocumentItem(TypedDict):
+class DocumentItem(TypedDict, closed=True):
     type: "aws_sdk_marketplace_discovery.types.legal_document_type.LegalDocumentType"
     """<p>The category of the legal document, such as <code>StandardEula</code> or <code>CustomEula</code>.</p>"""
     url: "aws_sdk_marketplace_discovery.types.url.URL"

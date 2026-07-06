@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#UpdateIntegratedResourcesOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateIntegratedResourcesOutput(TypedDict):
+class UpdateIntegratedResourcesOutput(TypedDict, closed=True):
     pass
 
 

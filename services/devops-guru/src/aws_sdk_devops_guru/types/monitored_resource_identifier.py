@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#MonitoredResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.monitored_resource_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class MonitoredResourceIdentifier(TypedDict):
+class MonitoredResourceIdentifier(TypedDict, closed=True):
     monitored_resource_name: NotRequired[
         "aws_sdk_devops_guru.types.monitored_resource_name.MonitoredResourceName"
     ]

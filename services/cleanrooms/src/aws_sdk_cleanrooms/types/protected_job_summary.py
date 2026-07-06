@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class ProtectedJobSummary(TypedDict):
+class ProtectedJobSummary(TypedDict, closed=True):
     id: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p> The ID of the protected job.</p>"""
     membership_id: "aws_sdk_cleanrooms.types.membership_identifier.MembershipIdentifier"

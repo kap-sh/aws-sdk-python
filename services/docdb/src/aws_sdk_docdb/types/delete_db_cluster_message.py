@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DeleteDBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DeleteDBClusterMessage(TypedDict):
+class DeleteDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The cluster identifier for the cluster to be deleted. This parameter isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match an existing <code>DBClusterIdentifier</code>.</p> </li> </ul>"""
     skip_final_snapshot: NotRequired["aws_sdk_docdb.types.boolean.Boolean"]

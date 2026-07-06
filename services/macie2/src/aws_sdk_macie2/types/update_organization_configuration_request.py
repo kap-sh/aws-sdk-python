@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateOrganizationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
 
 
-class UpdateOrganizationConfigurationRequest(TypedDict):
+class UpdateOrganizationConfigurationRequest(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether to enable Amazon Macie automatically for accounts that are added to the organization in Organizations.</p>"""
 

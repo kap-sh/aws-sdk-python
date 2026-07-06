@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetPortfolioSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.assessment_summary
 
 
-class GetPortfolioSummaryResponse(TypedDict):
+class GetPortfolioSummaryResponse(TypedDict, closed=True):
     assessment_summary: NotRequired[
         "aws_sdk_migrationhubstrategy.types.assessment_summary.AssessmentSummary"
     ]

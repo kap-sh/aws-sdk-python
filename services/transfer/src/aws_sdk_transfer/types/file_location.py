@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#FileLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.efs_file_location
     import aws_sdk_transfer.types.s3_file_location
 
 
-class FileLocation(TypedDict):
+class FileLocation(TypedDict, closed=True):
     s3_file_location: NotRequired[
         "aws_sdk_transfer.types.s3_file_location.S3FileLocation"
     ]

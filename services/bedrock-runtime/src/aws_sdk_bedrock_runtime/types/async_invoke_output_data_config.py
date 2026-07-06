@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#AsyncInvokeOutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.async_invoke_s3_output_data_config
 
 
-class _AsyncInvokeOutputDataConfig_s3OutputDataConfig(TypedDict):
+class _AsyncInvokeOutputDataConfig_s3OutputDataConfig(TypedDict, closed=True):
     s3OutputDataConfig: "aws_sdk_bedrock_runtime.types.async_invoke_s3_output_data_config.AsyncInvokeS3OutputDataConfig"
 
 

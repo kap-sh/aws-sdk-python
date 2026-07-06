@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#StartConversationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.start_conversation_response_event_stream
 
 
-class StartConversationResponse(TypedDict):
+class StartConversationResponse(TypedDict, closed=True):
     response_event_stream: NotRequired[
         "aws_sdk_lex_runtime_v2.types.start_conversation_response_event_stream.StartConversationResponseEventStream"
     ]

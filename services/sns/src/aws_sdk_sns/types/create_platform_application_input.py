@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CreatePlatformApplicationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class CreatePlatformApplicationInput(TypedDict):
+class CreatePlatformApplicationInput(TypedDict, closed=True):
     name: "aws_sdk_sns.types.string.String"
     """<p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>"""
     platform: "aws_sdk_sns.types.string.String"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListCustomLineItemVersionsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.list_custom_line_item_versions_billing_period_range_filter
 
 
-class ListCustomLineItemVersionsFilter(TypedDict):
+class ListCustomLineItemVersionsFilter(TypedDict, closed=True):
     billing_period_range: NotRequired[
         "aws_sdk_billingconductor.types.list_custom_line_item_versions_billing_period_range_filter.ListCustomLineItemVersionsBillingPeriodRangeFilter"
     ]

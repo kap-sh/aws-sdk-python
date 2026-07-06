@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeLifecycleExpiration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataLakeLifecycleExpiration(TypedDict):
+class DataLakeLifecycleExpiration(TypedDict, closed=True):
     days: NotRequired["int"]
     """<p>Number of days before data expires in the Amazon Security Lake object.</p>"""
 

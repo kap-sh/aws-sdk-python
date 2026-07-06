@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#StopReplicationToReplicaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_secrets_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_id_type
 
 
-class StopReplicationToReplicaRequest(TypedDict):
+class StopReplicationToReplicaRequest(TypedDict, closed=True):
     secret_id: "aws_sdk_secrets_manager.types.secret_id_type.SecretIdType"
     """<p>The name of the secret or the replica ARN. The replica ARN is the same as the original primary secret ARN expect the Region is changed to the replica Region. </p>"""
 

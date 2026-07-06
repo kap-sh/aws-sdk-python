@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DeobfuscationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.java_script_source_maps
 
 
-class DeobfuscationConfiguration(TypedDict):
+class DeobfuscationConfiguration(TypedDict, closed=True):
     java_script_source_maps: NotRequired[
         "aws_sdk_rum.types.java_script_source_maps.JavaScriptSourceMaps"
     ]

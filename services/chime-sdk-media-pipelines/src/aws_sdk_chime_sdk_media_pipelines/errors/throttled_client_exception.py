@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ThrottledClientException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.string
 
 
-class ThrottledClientException_(TypedDict):
+class ThrottledClientException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.string.String"]
     request_id: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.string.String"]

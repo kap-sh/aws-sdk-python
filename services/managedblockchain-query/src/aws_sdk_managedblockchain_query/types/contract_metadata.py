@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ContractMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ContractMetadata(TypedDict):
+class ContractMetadata(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the token contract.</p>"""
     symbol: NotRequired["str"]

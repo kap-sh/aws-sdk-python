@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#AnnotationImportJobItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.version_name
 
 
-class AnnotationImportJobItem(TypedDict):
+class AnnotationImportJobItem(TypedDict, closed=True):
     id: "str"
     """<p>The job's ID.</p>"""
     destination_name: "str"

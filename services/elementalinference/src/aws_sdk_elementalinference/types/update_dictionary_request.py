@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#UpdateDictionaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.dictionary_entries_payload
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.resource_name
 
 
-class UpdateDictionaryRequest(TypedDict):
+class UpdateDictionaryRequest(TypedDict, closed=True):
     id: "aws_sdk_elementalinference.types.dictionary_id.DictionaryId"
     """<p>The ID of the dictionary to update.</p>"""
     name: NotRequired["aws_sdk_elementalinference.types.resource_name.ResourceName"]

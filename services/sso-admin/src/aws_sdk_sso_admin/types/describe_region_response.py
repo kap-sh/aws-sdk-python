@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DescribeRegionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.region_status
 
 
-class DescribeRegionResponse(TypedDict):
+class DescribeRegionResponse(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_sso_admin.types.region_name.RegionName"]
     """<p>The Amazon Web Services Region name.</p>"""
     status: NotRequired["aws_sdk_sso_admin.types.region_status.RegionStatus"]

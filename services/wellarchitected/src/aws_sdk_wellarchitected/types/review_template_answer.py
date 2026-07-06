@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ReviewTemplateAnswer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.answer_reason
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.selected_choices
 
 
-class ReviewTemplateAnswer(TypedDict):
+class ReviewTemplateAnswer(TypedDict, closed=True):
     question_id: NotRequired["aws_sdk_wellarchitected.types.question_id.QuestionId"]
     pillar_id: NotRequired["aws_sdk_wellarchitected.types.pillar_id.PillarId"]
     question_title: NotRequired[

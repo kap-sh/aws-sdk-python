@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#UserDefined``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.unit
 
 
-class UserDefined(TypedDict):
+class UserDefined(TypedDict, closed=True):
     value: "float"
     """<p>The value for output resolution of the result.</p>"""
     unit: "aws_sdk_sagemaker_geospatial.types.unit.Unit"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRdsDbInstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_rds_db_domain_memberships
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsRdsDbInstanceDetails(TypedDict):
+class AwsRdsDbInstanceDetails(TypedDict, closed=True):
     associated_roles: NotRequired[
         "aws_sdk_securityhub.types.aws_rds_db_instance_associated_roles.AwsRdsDbInstanceAssociatedRoles"
     ]

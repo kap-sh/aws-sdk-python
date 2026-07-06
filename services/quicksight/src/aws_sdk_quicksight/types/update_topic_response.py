@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateTopicResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_id
 
 
-class UpdateTopicResponse(TypedDict):
+class UpdateTopicResponse(TypedDict, closed=True):
     topic_id: NotRequired["aws_sdk_quicksight.types.topic_id.TopicId"]
     """<p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>"""
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]

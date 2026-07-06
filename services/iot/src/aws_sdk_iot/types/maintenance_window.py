@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MaintenanceWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.duration_in_minutes
 
 
-class MaintenanceWindow(TypedDict):
+class MaintenanceWindow(TypedDict, closed=True):
     start_time: "aws_sdk_iot.types.cron_expression.CronExpression"
     """<p>Displays the start time of the next maintenance window.</p>"""
     duration_in_minutes: "aws_sdk_iot.types.duration_in_minutes.DurationInMinutes"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutRetentionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.retention_period_in_days
 
 
-class PutRetentionConfigurationRequest(TypedDict):
+class PutRetentionConfigurationRequest(TypedDict, closed=True):
     retention_period_in_days: (
         "aws_sdk_config_service.types.retention_period_in_days.RetentionPeriodInDays"
     )

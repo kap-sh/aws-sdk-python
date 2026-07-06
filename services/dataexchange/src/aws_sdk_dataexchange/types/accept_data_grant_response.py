@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#AcceptDataGrantResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class AcceptDataGrantResponse(TypedDict):
+class AcceptDataGrantResponse(TypedDict, closed=True):
     name: "aws_sdk_dataexchange.types.data_grant_name.DataGrantName"
     """<p>The name of the accepted data grant.</p>"""
     sender_principal: NotRequired[

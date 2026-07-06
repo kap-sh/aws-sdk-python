@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#DeleteCodeSigningConfigResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCodeSigningConfigResponse(TypedDict):
+class DeleteCodeSigningConfigResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListCollaborationPrivacyBudgetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListCollaborationPrivacyBudgetsOutput(TypedDict):
+class ListCollaborationPrivacyBudgetsOutput(TypedDict, closed=True):
     collaboration_privacy_budget_summaries: "aws_sdk_cleanrooms.types.collaboration_privacy_budget_summary_list.CollaborationPrivacyBudgetSummaryList"
     """<p>Summaries of the collaboration privacy budgets.</p>"""
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]

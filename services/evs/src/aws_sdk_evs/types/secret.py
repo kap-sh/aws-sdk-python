@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.evs#Secret``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Secret(TypedDict):
+class Secret(TypedDict, closed=True):
     secret_arn: NotRequired["str"]
     """<p> The Amazon Resource Name (ARN) of the secret.</p>"""
 

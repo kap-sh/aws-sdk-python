@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListDataDeletionJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.next_token
 
 
-class ListDataDeletionJobsRequest(TypedDict):
+class ListDataDeletionJobsRequest(TypedDict, closed=True):
     dataset_group_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset group to list data deletion jobs for.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

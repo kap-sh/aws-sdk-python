@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RetryStageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.retry_attempt
     import aws_sdk_codepipeline.types.retry_trigger
 
 
-class RetryStageMetadata(TypedDict):
+class RetryStageMetadata(TypedDict, closed=True):
     auto_stage_retry_attempt: NotRequired[
         "aws_sdk_codepipeline.types.retry_attempt.RetryAttempt"
     ]

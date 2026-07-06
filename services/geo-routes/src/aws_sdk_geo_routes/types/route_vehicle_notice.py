@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleNotice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_vehicle_notice_detail_list
 
 
-class RouteVehicleNotice(TypedDict):
+class RouteVehicleNotice(TypedDict, closed=True):
     code: "aws_sdk_geo_routes.types.route_vehicle_notice_code.RouteVehicleNoticeCode"
     """<p>Code corresponding to the issue.</p>"""
     details: "aws_sdk_geo_routes.types.route_vehicle_notice_detail_list.RouteVehicleNoticeDetailList"

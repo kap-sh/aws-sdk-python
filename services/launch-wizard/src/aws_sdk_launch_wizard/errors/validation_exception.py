@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ValidationException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_launch_wizard.errors import ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

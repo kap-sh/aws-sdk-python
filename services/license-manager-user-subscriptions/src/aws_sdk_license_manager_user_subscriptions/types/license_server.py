@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#LicenseServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_provisioning_status
     import aws_sdk_license_manager_user_subscriptions.types.license_server_health_status
 
 
-class LicenseServer(TypedDict):
+class LicenseServer(TypedDict, closed=True):
     provisioning_status: NotRequired[
         "aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_provisioning_status.LicenseServerEndpointProvisioningStatus"
     ]

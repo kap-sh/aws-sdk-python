@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#SqlKnowledgeBaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.redshift_configuration
 
 
-class SqlKnowledgeBaseConfiguration(TypedDict):
+class SqlKnowledgeBaseConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.query_engine_type.QueryEngineType"
     """<p>The type of SQL database to connect to the knowledge base.</p>"""
     redshift_configuration: NotRequired[

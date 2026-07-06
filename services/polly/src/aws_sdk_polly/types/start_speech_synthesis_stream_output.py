@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.polly#StartSpeechSynthesisStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.start_speech_synthesis_stream_event_stream
 
 
-class StartSpeechSynthesisStreamOutput(TypedDict):
+class StartSpeechSynthesisStreamOutput(TypedDict, closed=True):
     event_stream: NotRequired[
         "aws_sdk_polly.types.start_speech_synthesis_stream_event_stream.StartSpeechSynthesisStreamEventStream"
     ]

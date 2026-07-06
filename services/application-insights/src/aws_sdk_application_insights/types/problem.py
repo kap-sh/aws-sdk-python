@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#Problem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.account_id
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.visibility
 
 
-class Problem(TypedDict):
+class Problem(TypedDict, closed=True):
     id: NotRequired["aws_sdk_application_insights.types.problem_id.ProblemId"]
     """<p>The ID of the problem.</p>"""
     title: NotRequired["aws_sdk_application_insights.types.title.Title"]

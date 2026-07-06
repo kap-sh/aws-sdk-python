@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PrivateEndpoint``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.self_managed_lattice_resource
 
 
-class _PrivateEndpoint_selfManagedLatticeResource(TypedDict):
+class _PrivateEndpoint_selfManagedLatticeResource(TypedDict, closed=True):
     selfManagedLatticeResource: "aws_sdk_bedrock_agentcore_control.types.self_managed_lattice_resource.SelfManagedLatticeResource"
 
 
-class _PrivateEndpoint_managedVpcResource(TypedDict):
+class _PrivateEndpoint_managedVpcResource(TypedDict, closed=True):
     managedVpcResource: "aws_sdk_bedrock_agentcore_control.types.managed_vpc_resource.ManagedVpcResource"
 
 

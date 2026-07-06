@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#MetricDatum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.unit
 
 
-class MetricDatum(TypedDict):
+class MetricDatum(TypedDict, closed=True):
     metric_name: "str"
     """<p> <b>Internal only</b>. The name of the metric.</p>"""
     timestamp: "datetime.datetime"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#MemoryInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.memory_size
 
 
-class MemoryInfo(TypedDict):
+class MemoryInfo(TypedDict, closed=True):
     size_in_mi_b: NotRequired["aws_sdk_ec2.types.memory_size.MemorySize"]
     """<p>The size of the memory, in MiB.</p>"""
 

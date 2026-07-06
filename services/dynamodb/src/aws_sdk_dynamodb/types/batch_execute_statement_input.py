@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchExecuteStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.return_consumed_capacity
 
 
-class BatchExecuteStatementInput(TypedDict):
+class BatchExecuteStatementInput(TypedDict, closed=True):
     statements: "aws_sdk_dynamodb.types.parti_ql_batch_request.PartiQLBatchRequest"
     """<p>The list of PartiQL statements representing the batch to run.</p>"""
     return_consumed_capacity: NotRequired[

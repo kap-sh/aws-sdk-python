@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#DeletePropertygraphStatisticsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.delete_statistics_value_map
 
 
-class DeletePropertygraphStatisticsOutput(TypedDict):
+class DeletePropertygraphStatisticsOutput(TypedDict, closed=True):
     status_code: NotRequired["int"]
     """<p>The HTTP response code: 200 if the delete was successful, or 204 if there were no statistics to delete.</p>"""
     status: NotRequired["str"]

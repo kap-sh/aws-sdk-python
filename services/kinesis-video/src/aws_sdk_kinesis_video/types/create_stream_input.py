@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#CreateStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.stream_storage_configuration
 
 
-class CreateStreamInput(TypedDict):
+class CreateStreamInput(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_kinesis_video.types.device_name.DeviceName"]
     """<p>The name of the device that is writing to the stream. </p> <note> <p>In the current implementation, Kinesis Video Streams doesn't use this name.</p> </note>"""
     stream_name: "aws_sdk_kinesis_video.types.stream_name.StreamName"

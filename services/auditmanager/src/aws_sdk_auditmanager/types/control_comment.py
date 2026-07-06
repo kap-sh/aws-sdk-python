@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ControlComment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_comment_body
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.username
 
 
-class ControlComment(TypedDict):
+class ControlComment(TypedDict, closed=True):
     author_name: NotRequired["aws_sdk_auditmanager.types.username.Username"]
     """<p> The name of the user who authored the comment. </p>"""
     comment_body: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetPartitionIndexesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.partition_index_descriptor_list
     import aws_sdk_glue.types.token
 
 
-class GetPartitionIndexesResponse(TypedDict):
+class GetPartitionIndexesResponse(TypedDict, closed=True):
     partition_index_descriptor_list: NotRequired[
         "aws_sdk_glue.types.partition_index_descriptor_list.PartitionIndexDescriptorList"
     ]

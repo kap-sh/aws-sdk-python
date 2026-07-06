@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#PublishMetricsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.metric_data
 
 
-class PublishMetricsInput(TypedDict):
+class PublishMetricsInput(TypedDict, closed=True):
     environment_name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p> <b>Internal only</b>. The name of the environment.</p>"""
     metric_data: "aws_sdk_mwaa.types.metric_data.MetricData"

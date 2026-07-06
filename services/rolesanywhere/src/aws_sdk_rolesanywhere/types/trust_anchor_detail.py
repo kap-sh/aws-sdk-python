@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#TrustAnchorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class TrustAnchorDetail(TypedDict):
+class TrustAnchorDetail(TypedDict, closed=True):
     trust_anchor_id: NotRequired["aws_sdk_rolesanywhere.types.uuid.Uuid"]
     """<p>The unique identifier of the trust anchor.</p>"""
     trust_anchor_arn: NotRequired["str"]

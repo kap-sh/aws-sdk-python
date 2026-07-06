@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.string
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     access_control_allow_origin: NotRequired["aws_sdk_ivs.types.string.String"]
     """<p/>"""
     access_control_expose_headers: NotRequired["aws_sdk_ivs.types.string.String"]

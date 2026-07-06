@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, ServiceError
 
 
-class RouterInputServiceQuotaExceededException_(TypedDict):
+class RouterInputServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
 
 

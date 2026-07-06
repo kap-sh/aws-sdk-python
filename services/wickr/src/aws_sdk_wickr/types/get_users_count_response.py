@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GetUsersCountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
 
-class GetUsersCountResponse(TypedDict):
+class GetUsersCountResponse(TypedDict, closed=True):
     pending: "int"
     """<p>The number of users with pending status (invited but not yet accepted).</p>"""
     active: "int"

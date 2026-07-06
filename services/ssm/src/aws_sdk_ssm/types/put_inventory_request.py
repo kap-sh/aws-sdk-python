@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutInventoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_item_list
 
 
-class PutInventoryRequest(TypedDict):
+class PutInventoryRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.instance_id.InstanceId"
     """<p>An managed node ID where you want to add or update inventory items.</p>"""
     items: "aws_sdk_ssm.types.inventory_item_list.InventoryItemList"

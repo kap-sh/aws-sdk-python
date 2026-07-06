@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ThirdPartyFirewallFirewallPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.firewall_policy_id
     import aws_sdk_fms.types.firewall_policy_name
 
 
-class ThirdPartyFirewallFirewallPolicy(TypedDict):
+class ThirdPartyFirewallFirewallPolicy(TypedDict, closed=True):
     firewall_policy_id: NotRequired[
         "aws_sdk_fms.types.firewall_policy_id.FirewallPolicyId"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SchemaVersionNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.latest_schema_version_boolean
     import aws_sdk_glue.types.version_long_number
 
 
-class SchemaVersionNumber(TypedDict):
+class SchemaVersionNumber(TypedDict, closed=True):
     latest_version: (
         "aws_sdk_glue.types.latest_schema_version_boolean.LatestSchemaVersionBoolean"
     )

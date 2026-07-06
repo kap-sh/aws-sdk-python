@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetUnfilteredTableMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.arn_string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table
 
 
-class GetUnfilteredTableMetadataResponse(TypedDict):
+class GetUnfilteredTableMetadataResponse(TypedDict, closed=True):
     table: NotRequired["aws_sdk_glue.types.table.Table"]
     """<p>A Table object containing the table metadata.</p>"""
     authorized_columns: NotRequired[

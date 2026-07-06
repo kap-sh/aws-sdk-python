@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#CancelPracticeRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.zonal_shift_status
 
 
-class CancelPracticeRunResponse(TypedDict):
+class CancelPracticeRunResponse(TypedDict, closed=True):
     zonal_shift_id: "aws_sdk_arc_zonal_shift.types.zonal_shift_id.ZonalShiftId"
     """<p>The identifier of the practice run zonal shift in Amazon Application Recovery Controller that was canceled.</p>"""
     resource_identifier: (

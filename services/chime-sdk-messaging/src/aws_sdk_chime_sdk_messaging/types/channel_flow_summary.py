@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelFlowSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.processor_list
 
 
-class ChannelFlowSummary(TypedDict):
+class ChannelFlowSummary(TypedDict, closed=True):
     channel_flow_arn: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     ]

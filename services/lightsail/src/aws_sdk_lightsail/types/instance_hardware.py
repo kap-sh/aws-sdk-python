@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceHardware``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.disk_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
 
 
-class InstanceHardware(TypedDict):
+class InstanceHardware(TypedDict, closed=True):
     cpu_count: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The number of vCPUs the instance has.</p>"""
     disks: NotRequired["aws_sdk_lightsail.types.disk_list.DiskList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#AuthenticateOidcActionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.authenticate_oidc_action_user_info_endpoint
 
 
-class AuthenticateOidcActionConfig(TypedDict):
+class AuthenticateOidcActionConfig(TypedDict, closed=True):
     issuer: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.authenticate_oidc_action_issuer.AuthenticateOidcActionIssuer"
     ]

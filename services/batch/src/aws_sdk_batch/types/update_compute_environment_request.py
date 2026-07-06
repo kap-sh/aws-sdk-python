@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateComputeEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.ce_state
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.update_policy
 
 
-class UpdateComputeEnvironmentRequest(TypedDict):
+class UpdateComputeEnvironmentRequest(TypedDict, closed=True):
     compute_environment: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or full Amazon Resource Name (ARN) of the compute environment to update.</p>"""
     state: NotRequired["aws_sdk_batch.types.ce_state.CEState"]

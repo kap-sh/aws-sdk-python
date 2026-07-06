@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#AwsVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.subnets
 
 
-class AwsVpcConfiguration(TypedDict):
+class AwsVpcConfiguration(TypedDict, closed=True):
     subnets: "aws_sdk_pipes.types.subnets.Subnets"
     """<p>Specifies the subnets associated with the task. These subnets must all be in the same VPC. You can specify as many as 16 subnets.</p>"""
     security_groups: NotRequired["aws_sdk_pipes.types.security_groups.SecurityGroups"]

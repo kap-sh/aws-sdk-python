@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DakCertificateMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.max_allowed_signature
 
 
-class DakCertificateMetadata(TypedDict):
+class DakCertificateMetadata(TypedDict, closed=True):
     certificate_id: "aws_sdk_iot_wireless.types.dak_certificate_id.DakCertificateId"
     """<p>The certificate ID for the DAK.</p>"""
     max_allowed_signature: NotRequired[

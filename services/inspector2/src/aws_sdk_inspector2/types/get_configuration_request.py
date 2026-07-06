@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetConfigurationRequest(TypedDict):
+class GetConfigurationRequest(TypedDict, closed=True):
     pass
 
 

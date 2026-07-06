@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Time``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.timezone
 
 
-class Time(TypedDict):
+class Time(TypedDict, closed=True):
     time_of_day: "aws_sdk_inspector2.types.time_of_day.TimeOfDay"
     """<p>The time of day in 24-hour format (00:00).</p>"""
     timezone: "aws_sdk_inspector2.types.timezone.Timezone"

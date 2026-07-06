@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListShareInvitationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_name_prefix
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name_prefix
 
 
-class ListShareInvitationsInput(TypedDict):
+class ListShareInvitationsInput(TypedDict, closed=True):
     workload_name_prefix: NotRequired[
         "aws_sdk_wellarchitected.types.workload_name_prefix.WorkloadNamePrefix"
     ]

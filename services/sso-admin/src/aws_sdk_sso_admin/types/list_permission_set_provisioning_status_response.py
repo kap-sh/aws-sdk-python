@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListPermissionSetProvisioningStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.permission_set_provisioning_status_list
     import aws_sdk_sso_admin.types.token
 
 
-class ListPermissionSetProvisioningStatusResponse(TypedDict):
+class ListPermissionSetProvisioningStatusResponse(TypedDict, closed=True):
     permission_sets_provisioning_status: NotRequired[
         "aws_sdk_sso_admin.types.permission_set_provisioning_status_list.PermissionSetProvisioningStatusList"
     ]

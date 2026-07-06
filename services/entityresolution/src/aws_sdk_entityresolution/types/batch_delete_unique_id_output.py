@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#BatchDeleteUniqueIdOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.disconnected_unique_ids_list
 
 
-class BatchDeleteUniqueIdOutput(TypedDict):
+class BatchDeleteUniqueIdOutput(TypedDict, closed=True):
     status: (
         "aws_sdk_entityresolution.types.delete_unique_id_status.DeleteUniqueIdStatus"
     )

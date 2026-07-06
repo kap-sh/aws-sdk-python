@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#EndpointConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min1_max64
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string_min10_max2048
 
 
-class EndpointConfigurationResponse(TypedDict):
+class EndpointConfigurationResponse(TypedDict, closed=True):
     certificate_arn: NotRequired[
         "aws_sdk_apigatewayv2.types.__string_min10_max2048.__stringMin10Max2048"
     ]

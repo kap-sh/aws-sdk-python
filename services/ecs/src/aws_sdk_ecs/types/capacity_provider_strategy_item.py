@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CapacityProviderStrategyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class CapacityProviderStrategyItem(TypedDict):
+class CapacityProviderStrategyItem(TypedDict, closed=True):
     capacity_provider: "aws_sdk_ecs.types.string.String"
     """<p>The short name of the capacity provider.</p>"""
     weight: "aws_sdk_ecs.types.capacity_provider_strategy_item_weight.CapacityProviderStrategyItemWeight"

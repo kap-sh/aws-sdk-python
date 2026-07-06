@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterOutputProtocolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.srt_listener_router_output_configuration
 
 
-class _RouterOutputProtocolConfiguration_Rist(TypedDict):
+class _RouterOutputProtocolConfiguration_Rist(TypedDict, closed=True):
     Rist: "aws_sdk_mediaconnect.types.rist_router_output_configuration.RistRouterOutputConfiguration"
 
 
-class _RouterOutputProtocolConfiguration_SrtListener(TypedDict):
+class _RouterOutputProtocolConfiguration_SrtListener(TypedDict, closed=True):
     SrtListener: "aws_sdk_mediaconnect.types.srt_listener_router_output_configuration.SrtListenerRouterOutputConfiguration"
 
 
-class _RouterOutputProtocolConfiguration_SrtCaller(TypedDict):
+class _RouterOutputProtocolConfiguration_SrtCaller(TypedDict, closed=True):
     SrtCaller: "aws_sdk_mediaconnect.types.srt_caller_router_output_configuration.SrtCallerRouterOutputConfiguration"
 
 
-class _RouterOutputProtocolConfiguration_Rtp(TypedDict):
+class _RouterOutputProtocolConfiguration_Rtp(TypedDict, closed=True):
     Rtp: "aws_sdk_mediaconnect.types.rtp_router_output_configuration.RtpRouterOutputConfiguration"
 
 

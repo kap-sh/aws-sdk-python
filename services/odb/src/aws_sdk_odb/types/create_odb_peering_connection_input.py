@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CreateOdbPeeringConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class CreateOdbPeeringConnectionInput(TypedDict):
+class CreateOdbPeeringConnectionInput(TypedDict, closed=True):
     odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB network that initiates the peering connection.</p>"""
     peer_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListGatewayInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.max_results
 
 
-class ListGatewayInstancesRequest(TypedDict):
+class ListGatewayInstancesRequest(TypedDict, closed=True):
     filter_arn: NotRequired["str"]
     """<p> Filter the list results to display only the instances associated with the selected Gateway ARN.</p>"""
     max_results: NotRequired["aws_sdk_mediaconnect.types.max_results.MaxResults"]

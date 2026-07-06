@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#CreateOAuth2TokenRequestBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.refresh_token
 
 
-class CreateOAuth2TokenRequestBody(TypedDict):
+class CreateOAuth2TokenRequestBody(TypedDict, closed=True):
     client_id: "aws_sdk_signin.types.client_id.ClientId"
     """The client identifier (ARN) used during Sign-In onboarding Required for both authorization code and refresh token flows"""
     grant_type: "aws_sdk_signin.types.grant_type.GrantType"

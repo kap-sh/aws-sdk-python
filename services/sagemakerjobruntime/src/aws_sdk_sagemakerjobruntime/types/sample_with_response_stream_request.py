@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#SampleWithResponseStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemakerjobruntime.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemakerjobruntime.types.trajectory_id
 
 
-class SampleWithResponseStreamRequest(TypedDict):
+class SampleWithResponseStreamRequest(TypedDict, closed=True):
     job_arn: "aws_sdk_sagemakerjobruntime.types.job_arn.JobArn"
     """The job ARN that identifies which model session to route the inference request to."""
     trajectory_id: "aws_sdk_sagemakerjobruntime.types.trajectory_id.TrajectoryId"

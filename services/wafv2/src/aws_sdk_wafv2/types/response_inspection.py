@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ResponseInspection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection_body_contains
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection_status_code
 
 
-class ResponseInspection(TypedDict):
+class ResponseInspection(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_wafv2.types.response_inspection_status_code.ResponseInspectionStatusCode"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListLogAnomalyDetectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.anomaly_detectors
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class ListLogAnomalyDetectorsResponse(TypedDict):
+class ListLogAnomalyDetectorsResponse(TypedDict, closed=True):
     anomaly_detectors: NotRequired[
         "aws_sdk_cloudwatch_logs.types.anomaly_detectors.AnomalyDetectors"
     ]

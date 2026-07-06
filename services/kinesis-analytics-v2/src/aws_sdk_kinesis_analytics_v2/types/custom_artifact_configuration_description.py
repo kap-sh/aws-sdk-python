@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CustomArtifactConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.artifact_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.s3_content_location
 
 
-class CustomArtifactConfigurationDescription(TypedDict):
+class CustomArtifactConfigurationDescription(TypedDict, closed=True):
     artifact_type: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.artifact_type.ArtifactType"
     ]

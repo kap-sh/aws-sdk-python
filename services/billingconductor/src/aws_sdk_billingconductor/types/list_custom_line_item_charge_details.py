@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListCustomLineItemChargeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.list_custom_line_item_percentage_charge_details
 
 
-class ListCustomLineItemChargeDetails(TypedDict):
+class ListCustomLineItemChargeDetails(TypedDict, closed=True):
     flat: NotRequired[
         "aws_sdk_billingconductor.types.list_custom_line_item_flat_charge_details.ListCustomLineItemFlatChargeDetails"
     ]

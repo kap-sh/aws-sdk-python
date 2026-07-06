@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#UpdateFirewallRuleGroupAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class UpdateFirewallRuleGroupAssociationRequest(TypedDict):
+class UpdateFirewallRuleGroupAssociationRequest(TypedDict, closed=True):
     firewall_rule_group_association_id: (
         "aws_sdk_route53resolver.types.resource_id.ResourceId"
     )

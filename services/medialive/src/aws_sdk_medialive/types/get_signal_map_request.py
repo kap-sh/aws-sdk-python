@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#GetSignalMapRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class GetSignalMapRequest(TypedDict):
+class GetSignalMapRequest(TypedDict, closed=True):
     identifier: "aws_sdk_medialive.types.__string.__string"
     """A signal map's identifier. Can be either be its id or current name."""
 

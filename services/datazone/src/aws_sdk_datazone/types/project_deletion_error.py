@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ProjectDeletionError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ProjectDeletionError(TypedDict):
+class ProjectDeletionError(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p>The code of the project deletion error.</p>"""
     message: NotRequired["str"]

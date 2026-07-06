@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.tag_list
 
 
-class ListTagsResponse(TypedDict):
+class ListTagsResponse(TypedDict, closed=True):
     tag_list: NotRequired["aws_sdk_opensearch.types.tag_list.TagList"]
     """<p>List of resource tags associated with the specified domain, data source, or application.</p>"""
 

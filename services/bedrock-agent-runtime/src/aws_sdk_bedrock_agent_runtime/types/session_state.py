@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#SessionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.conversation_history
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.session_attributes_map
 
 
-class SessionState(TypedDict):
+class SessionState(TypedDict, closed=True):
     session_attributes: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.session_attributes_map.SessionAttributesMap"
     ]

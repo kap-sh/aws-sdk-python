@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CostEstimate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.estimates_by_time
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class CostEstimate(TypedDict):
+class CostEstimate(TypedDict, closed=True):
     usage_type: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The types of usage that are included in the estimate, such as costs, usage, or data transfer.</p>"""
     results_by_time: NotRequired[

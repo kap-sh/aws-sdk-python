@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DomainDeliverabilityTrackingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.domain
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class DomainDeliverabilityTrackingOption(TypedDict):
+class DomainDeliverabilityTrackingOption(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_sesv2.types.domain.Domain"]
     """<p>A verified domain that’s associated with your Amazon Web Services account and currently has an active Deliverability dashboard subscription.</p>"""
     subscription_start_date: NotRequired["aws_sdk_sesv2.types.timestamp.Timestamp"]

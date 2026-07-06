@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#OrphanFileDeletionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.iceberg_orphan_file_deletion_configuration
 
 
-class OrphanFileDeletionConfiguration(TypedDict):
+class OrphanFileDeletionConfiguration(TypedDict, closed=True):
     iceberg_configuration: NotRequired[
         "aws_sdk_glue.types.iceberg_orphan_file_deletion_configuration.IcebergOrphanFileDeletionConfiguration"
     ]

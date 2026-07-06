@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteLeg``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_vehicle_leg_details
 
 
-class RouteLeg(TypedDict):
+class RouteLeg(TypedDict, closed=True):
     ferry_leg_details: NotRequired[
         "aws_sdk_geo_routes.types.route_ferry_leg_details.RouteFerryLegDetails"
     ]

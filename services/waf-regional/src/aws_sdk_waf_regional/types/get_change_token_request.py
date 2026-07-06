@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetChangeTokenRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetChangeTokenRequest(TypedDict):
+class GetChangeTokenRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListDatasetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_flywheel_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class ListDatasetsRequest(TypedDict):
+class ListDatasetsRequest(TypedDict, closed=True):
     flywheel_arn: NotRequired[
         "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
     ]

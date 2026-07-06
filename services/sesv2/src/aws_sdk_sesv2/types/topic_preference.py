@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#TopicPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.topic_name
 
 
-class TopicPreference(TypedDict):
+class TopicPreference(TypedDict, closed=True):
     topic_name: "aws_sdk_sesv2.types.topic_name.TopicName"
     """<p>The name of the topic.</p>"""
     subscription_status: "aws_sdk_sesv2.types.subscription_status.SubscriptionStatus"

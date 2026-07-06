@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListScrapersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.pagination_token
     import aws_sdk_amp.types.scraper_filters
 
 
-class ListScrapersRequest(TypedDict):
+class ListScrapersRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_amp.types.scraper_filters.ScraperFilters"]
     """<p>(Optional) A list of key-value pairs to filter the list of scrapers returned. Keys include <code>status</code>, <code>sourceArn</code>, <code>destinationArn</code>, and <code>alias</code>.</p> <p>Filters on the same key are <code>OR</code>'d together, and filters on different keys are <code>AND</code>'d together. For example, <code>status=ACTIVE&amp;status=CREATING&amp;alias=Test</code>, will return all scrapers that have the alias Test, and are either in status ACTIVE or CREATING.</p> <p>To find all active scrapers that are sending metrics to a specific Amazon Managed Service for Prometheus workspace, you would use the ARN of the workspace in a query:</p> <p> <code>status=ACTIVE&amp;destinationArn=arn:aws:aps:us-east-1:123456789012:workspace/ws-example1-1234-abcd-56ef-123456789012</code> </p> <p>If this is included, it filters the results to only the scrapers that match the filter.</p>"""
     next_token: NotRequired["aws_sdk_amp.types.pagination_token.PaginationToken"]

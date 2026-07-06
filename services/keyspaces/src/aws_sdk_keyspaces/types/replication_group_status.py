@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ReplicationGroupStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.tables_replication_progress
 
 
-class ReplicationGroupStatus(TypedDict):
+class ReplicationGroupStatus(TypedDict, closed=True):
     region: "aws_sdk_keyspaces.types.region.region"
     """<p> The name of the Region that was added to the keyspace. </p>"""
     keyspace_status: "aws_sdk_keyspaces.types.keyspace_status.KeyspaceStatus"

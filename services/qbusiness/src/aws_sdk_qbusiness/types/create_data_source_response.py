@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_arn
     import aws_sdk_qbusiness.types.data_source_id
 
 
-class CreateDataSourceResponse(TypedDict):
+class CreateDataSourceResponse(TypedDict, closed=True):
     data_source_id: NotRequired["aws_sdk_qbusiness.types.data_source_id.DataSourceId"]
     """<p>The identifier of the data source connector.</p>"""
     data_source_arn: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeMaintenanceWindowsForTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class DescribeMaintenanceWindowsForTargetRequest(TypedDict):
+class DescribeMaintenanceWindowsForTargetRequest(TypedDict, closed=True):
     targets: "aws_sdk_ssm.types.targets.Targets"
     """<p>The managed node ID or key-value pair to retrieve information about.</p>"""
     resource_type: "aws_sdk_ssm.types.maintenance_window_resource_type.MaintenanceWindowResourceType"

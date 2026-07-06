@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#DataIntegrationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.source_uri
 
 
-class DataIntegrationSummary(TypedDict):
+class DataIntegrationSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the DataIntegration.</p>"""
     name: NotRequired["aws_sdk_appintegrations.types.name.Name"]

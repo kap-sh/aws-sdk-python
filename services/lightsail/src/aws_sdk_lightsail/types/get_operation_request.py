@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetOperationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class GetOperationRequest(TypedDict):
+class GetOperationRequest(TypedDict, closed=True):
     operation_id: "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"
     """<p>A GUID used to identify the operation.</p>"""
 

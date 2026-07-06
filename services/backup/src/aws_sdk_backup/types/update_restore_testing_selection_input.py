@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateRestoreTestingSelectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_testing_selection_for_update
 
 
-class UpdateRestoreTestingSelectionInput(TypedDict):
+class UpdateRestoreTestingSelectionInput(TypedDict, closed=True):
     restore_testing_plan_name: "str"
     """<p>The restore testing plan name is required to update the indicated testing plan.</p>"""
     restore_testing_selection: "aws_sdk_backup.types.restore_testing_selection_for_update.RestoreTestingSelectionForUpdate"

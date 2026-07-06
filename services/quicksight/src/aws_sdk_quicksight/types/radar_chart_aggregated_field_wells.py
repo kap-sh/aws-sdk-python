@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RadarChartAggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.radar_chart_category_field_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.radar_chart_values_field_list
 
 
-class RadarChartAggregatedFieldWells(TypedDict):
+class RadarChartAggregatedFieldWells(TypedDict, closed=True):
     category: NotRequired[
         "aws_sdk_quicksight.types.radar_chart_category_field_list.RadarChartCategoryFieldList"
     ]

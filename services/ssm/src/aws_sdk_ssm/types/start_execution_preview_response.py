@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartExecutionPreviewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.execution_preview_id
 
 
-class StartExecutionPreviewResponse(TypedDict):
+class StartExecutionPreviewResponse(TypedDict, closed=True):
     execution_preview_id: NotRequired[
         "aws_sdk_ssm.types.execution_preview_id.ExecutionPreviewId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#XMLClassifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.version_id
 
 
-class XMLClassifier(TypedDict):
+class XMLClassifier(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the classifier.</p>"""
     classification: "aws_sdk_glue.types.classification.Classification"

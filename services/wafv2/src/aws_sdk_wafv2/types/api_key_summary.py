@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#APIKeySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.api_key
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.token_domains
 
 
-class APIKeySummary(TypedDict):
+class APIKeySummary(TypedDict, closed=True):
     token_domains: NotRequired["aws_sdk_wafv2.types.token_domains.TokenDomains"]
     """<p>The token domains that are defined in this API key. </p>"""
     api_key: NotRequired["aws_sdk_wafv2.types.api_key.APIKey"]

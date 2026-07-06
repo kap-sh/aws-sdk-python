@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#PipelineDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.tag_list
 
 
-class PipelineDescription(TypedDict):
+class PipelineDescription(TypedDict, closed=True):
     pipeline_id: "aws_sdk_data_pipeline.types.id.id"
     """<p>The pipeline identifier that was assigned by AWS Data Pipeline. This is a string of the form <code>df-297EG78HU43EEXAMPLE</code>.</p>"""
     name: "aws_sdk_data_pipeline.types.id.id"

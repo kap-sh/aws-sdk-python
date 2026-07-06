@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DescribeAppAssessmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.app_assessment
 
 
-class DescribeAppAssessmentResponse(TypedDict):
+class DescribeAppAssessmentResponse(TypedDict, closed=True):
     assessment: "aws_sdk_resiliencehub.types.app_assessment.AppAssessment"
     """<p>The assessment for an Resilience Hub application, returned as an object. This object includes Amazon Resource Names (ARNs), compliance information, compliance status, cost, messages, resiliency scores, and more.</p>"""
 

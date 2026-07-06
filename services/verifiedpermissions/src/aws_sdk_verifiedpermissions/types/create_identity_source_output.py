@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#CreateIdentitySourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.timestamp_format
 
 
-class CreateIdentitySourceOutput(TypedDict):
+class CreateIdentitySourceOutput(TypedDict, closed=True):
     created_date: "aws_sdk_verifiedpermissions.types.timestamp_format.TimestampFormat"
     """<p>The date and time the identity source was originally created.</p>"""
     identity_source_id: (

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Identity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.oidc
 
 
-class Identity(TypedDict):
+class Identity(TypedDict, closed=True):
     oidc: NotRequired["aws_sdk_eks.types.oidc.OIDC"]
     r"""<p>An object representing the <a href=\"https://openid.net/connect/\">OpenID Connect</a> identity provider information.</p>"""
 

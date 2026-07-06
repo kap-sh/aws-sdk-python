@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.daemon_circuit_breaker
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class DaemonDeployment(TypedDict):
+class DaemonDeployment(TypedDict, closed=True):
     daemon_deployment_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the daemon deployment.</p>"""
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]

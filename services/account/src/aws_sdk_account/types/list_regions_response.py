@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.account#ListRegionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_account.types.region_opt_list
 
 
-class ListRegionsResponse(TypedDict):
+class ListRegionsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>If there is more data to be returned, this will be populated. It should be passed into the <code>next-token</code> request parameter of <code>list-regions</code>.</p>"""
     regions: NotRequired["aws_sdk_account.types.region_opt_list.RegionOptList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DescribeGlobalNetworksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.global_network_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
 
 
-class DescribeGlobalNetworksRequest(TypedDict):
+class DescribeGlobalNetworksRequest(TypedDict, closed=True):
     global_network_ids: NotRequired[
         "aws_sdk_networkmanager.types.global_network_id_list.GlobalNetworkIdList"
     ]

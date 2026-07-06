@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BatchGetFieldResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.batch_get_field_list
 
 
-class BatchGetFieldResponse(TypedDict):
+class BatchGetFieldResponse(TypedDict, closed=True):
     fields: "aws_sdk_connectcases.types.batch_get_field_list.BatchGetFieldList"
     """<p>A list of detailed field information. </p>"""
     errors: (

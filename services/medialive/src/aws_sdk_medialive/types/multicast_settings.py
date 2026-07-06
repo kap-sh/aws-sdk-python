@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MulticastSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_multicast_source
 
 
-class MulticastSettings(TypedDict):
+class MulticastSettings(TypedDict, closed=True):
     sources: NotRequired[
         "aws_sdk_medialive.types.__list_of_multicast_source.__listOfMulticastSource"
     ]

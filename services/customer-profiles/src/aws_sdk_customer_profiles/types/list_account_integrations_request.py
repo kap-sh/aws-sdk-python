@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListAccountIntegrationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.token
 
 
-class ListAccountIntegrationsRequest(TypedDict):
+class ListAccountIntegrationsRequest(TypedDict, closed=True):
     uri: "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     """<p>The URI of the S3 bucket or any other type of data source.</p>"""
     next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#ListArtifactsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.next_token
 
 
-class ListArtifactsResult(TypedDict):
+class ListArtifactsResult(TypedDict, closed=True):
     artifacts: "aws_sdk_amplify.types.artifacts.Artifacts"
     """<p>A list of artifacts. </p>"""
     next_token: NotRequired["aws_sdk_amplify.types.next_token.NextToken"]

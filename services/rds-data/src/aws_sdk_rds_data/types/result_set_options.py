@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ResultSetOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.decimal_return_type
     import aws_sdk_rds_data.types.long_return_type
 
 
-class ResultSetOptions(TypedDict):
+class ResultSetOptions(TypedDict, closed=True):
     decimal_return_type: NotRequired[
         "aws_sdk_rds_data.types.decimal_return_type.DecimalReturnType"
     ]

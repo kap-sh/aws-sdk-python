@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#SortAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.sort_attribute_type
 
 
-class SortAttribute(TypedDict):
+class SortAttribute(TypedDict, closed=True):
     name: "aws_sdk_customer_profiles.types.field_name.fieldName"
     """<p>The name of the attribute to sort by.</p>"""
     data_type: NotRequired[

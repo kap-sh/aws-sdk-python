@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#IdleRecommendationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.message
 
 
-class IdleRecommendationError(TypedDict):
+class IdleRecommendationError(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_compute_optimizer.types.identifier.Identifier"]
     """<p>The ID of the error.</p>"""
     code: NotRequired["aws_sdk_compute_optimizer.types.code.Code"]

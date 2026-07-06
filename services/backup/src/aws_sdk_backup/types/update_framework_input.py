@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateFrameworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.framework_controls
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class UpdateFrameworkInput(TypedDict):
+class UpdateFrameworkInput(TypedDict, closed=True):
     framework_name: "aws_sdk_backup.types.framework_name.FrameworkName"
     """<p>The unique name of a framework. This name is between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>"""
     framework_description: NotRequired[

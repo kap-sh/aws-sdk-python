@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.state_db_type
 
 
-class NodeConfiguration(TypedDict):
+class NodeConfiguration(TypedDict, closed=True):
     instance_type: (
         "aws_sdk_managedblockchain.types.instance_type_string.InstanceTypeString"
     )

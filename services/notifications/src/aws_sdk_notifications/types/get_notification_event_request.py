@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#GetNotificationEventRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.locale_code
     import aws_sdk_notifications.types.notification_event_arn
 
 
-class GetNotificationEventRequest(TypedDict):
+class GetNotificationEventRequest(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.notification_event_arn.NotificationEventArn"
     """<p>The Amazon Resource Name (ARN) of the <code>NotificationEvent</code> to return.</p>"""
     locale: NotRequired["aws_sdk_notifications.types.locale_code.LocaleCode"]

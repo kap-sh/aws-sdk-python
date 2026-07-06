@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListDeploymentTargetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.next_token
     import aws_sdk_codedeploy.types.target_id_list
 
 
-class ListDeploymentTargetsOutput(TypedDict):
+class ListDeploymentTargetsOutput(TypedDict, closed=True):
     target_ids: NotRequired["aws_sdk_codedeploy.types.target_id_list.TargetIdList"]
     """<p> The unique IDs of deployment targets. </p>"""
     next_token: NotRequired["aws_sdk_codedeploy.types.next_token.NextToken"]

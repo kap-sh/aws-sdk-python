@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InvisibleFieldInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.task_template_field_identifier
 
 
-class InvisibleFieldInfo(TypedDict):
+class InvisibleFieldInfo(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_connect.types.task_template_field_identifier.TaskTemplateFieldIdentifier"
     ]

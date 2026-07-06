@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListMetadataTransferJobsFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.metadata_transfer_job_state
 
 
-class _ListMetadataTransferJobsFilter_workspaceId(TypedDict):
+class _ListMetadataTransferJobsFilter_workspaceId(TypedDict, closed=True):
     workspaceId: "aws_sdk_iottwinmaker.types.id.Id"
 
 
-class _ListMetadataTransferJobsFilter_state(TypedDict):
+class _ListMetadataTransferJobsFilter_state(TypedDict, closed=True):
     state: "aws_sdk_iottwinmaker.types.metadata_transfer_job_state.MetadataTransferJobState"
 
 

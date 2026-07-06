@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#AspectRatio``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
 
-class AspectRatio(TypedDict):
+class AspectRatio(TypedDict, closed=True):
     width: "int"
     """<p>The width component of the aspect ratio (for example, 16 in a 16:9 ratio).</p>"""
     height: "int"

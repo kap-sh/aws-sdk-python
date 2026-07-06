@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.s3_key_name
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_mgn.types.s3_bucket_name.S3BucketName"]
     """<p>The name of the S3 bucket.</p>"""
     s3_bucket_owner: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]

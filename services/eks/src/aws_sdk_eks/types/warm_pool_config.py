@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#WarmPoolConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.zero_capacity
 
 
-class WarmPoolConfig(TypedDict):
+class WarmPoolConfig(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]
     """<p>Specifies whether to attach warm pools on the managed node group. Set to <code>true</code> to enable the warm pool, or <code>false</code> to disable and remove it. If not specified during an update, the current value is preserved.</p>"""
     min_size: NotRequired["aws_sdk_eks.types.zero_capacity.ZeroCapacity"]

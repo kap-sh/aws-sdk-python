@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisTargetStatusFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_target_status_comparison
 
 
-class CisTargetStatusFilter(TypedDict):
+class CisTargetStatusFilter(TypedDict, closed=True):
     comparison: "aws_sdk_inspector2.types.cis_target_status_comparison.CisTargetStatusComparison"
     """<p>The comparison value of the CIS target status filter.</p>"""
     value: "aws_sdk_inspector2.types.cis_target_status.CisTargetStatus"

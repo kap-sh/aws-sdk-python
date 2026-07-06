@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateAgentPermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agent_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.update_agent_permissions_request_revoke_permissions_list
 
 
-class UpdateAgentPermissionsRequest(TypedDict):
+class UpdateAgentPermissionsRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_quicksight.types.agent_id.AgentId"
     """<p>The unique identifier for the agent.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

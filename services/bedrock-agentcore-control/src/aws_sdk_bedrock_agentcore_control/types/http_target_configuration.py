@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HttpTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.runtime_target_configuration
 
 
-class _HttpTargetConfiguration_agentcoreRuntime(TypedDict):
+class _HttpTargetConfiguration_agentcoreRuntime(TypedDict, closed=True):
     agentcoreRuntime: "aws_sdk_bedrock_agentcore_control.types.runtime_target_configuration.RuntimeTargetConfiguration"
 
 

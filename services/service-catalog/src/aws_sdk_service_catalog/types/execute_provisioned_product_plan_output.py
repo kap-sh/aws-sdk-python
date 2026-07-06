@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ExecuteProvisionedProductPlanOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.record_detail
 
 
-class ExecuteProvisionedProductPlanOutput(TypedDict):
+class ExecuteProvisionedProductPlanOutput(TypedDict, closed=True):
     record_detail: NotRequired[
         "aws_sdk_service_catalog.types.record_detail.RecordDetail"
     ]

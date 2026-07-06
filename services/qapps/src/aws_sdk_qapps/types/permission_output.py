@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#PermissionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.principal_output
 
 
-class PermissionOutput(TypedDict):
+class PermissionOutput(TypedDict, closed=True):
     action: "aws_sdk_qapps.types.action.Action"
     """<p>The action associated with the permission.</p>"""
     principal: "aws_sdk_qapps.types.principal_output.PrincipalOutput"

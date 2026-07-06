@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ListOriginEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.list_resource_max_results
     import aws_sdk_mediapackagev2.types.resource_name
 
 
-class ListOriginEndpointsRequest(TypedDict):
+class ListOriginEndpointsRequest(TypedDict, closed=True):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>"""
     channel_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"

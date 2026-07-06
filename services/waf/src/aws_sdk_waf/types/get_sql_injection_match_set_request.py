@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetSqlInjectionMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class GetSqlInjectionMatchSetRequest(TypedDict):
+class GetSqlInjectionMatchSetRequest(TypedDict, closed=True):
     sql_injection_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>SqlInjectionMatchSetId</code> of the <a>SqlInjectionMatchSet</a> that you want to get. <code>SqlInjectionMatchSetId</code> is returned by <a>CreateSqlInjectionMatchSet</a> and by <a>ListSqlInjectionMatchSets</a>.</p>"""
 

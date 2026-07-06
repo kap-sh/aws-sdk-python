@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_cloudfront.types.string.string"
     """<p>The Amazon Resource Name (ARN) of the CloudFront resource for which the resource policy should be deleted.</p>"""
 

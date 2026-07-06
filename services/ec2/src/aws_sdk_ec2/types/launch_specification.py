@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class LaunchSpecification(TypedDict):
+class LaunchSpecification(TypedDict, closed=True):
     user_data: NotRequired["aws_sdk_ec2.types.sensitive_user_data.SensitiveUserData"]
     """<p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>"""
     addressing_type: NotRequired["aws_sdk_ec2.types.string.String"]

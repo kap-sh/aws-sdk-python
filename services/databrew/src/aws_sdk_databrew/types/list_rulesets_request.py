@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListRulesetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.next_token
 
 
-class ListRulesetsRequest(TypedDict):
+class ListRulesetsRequest(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_databrew.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of a resource (dataset). Using this parameter indicates to return only those rulesets that are associated with the specified resource.</p>"""
     max_results: NotRequired["aws_sdk_databrew.types.max_results100.MaxResults100"]

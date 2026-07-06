@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListCloudConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.connector_list
     import aws_sdk_iot_managed_integrations.types.next_token
 
 
-class ListCloudConnectorsResponse(TypedDict):
+class ListCloudConnectorsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_iot_managed_integrations.types.connector_list.ConnectorList"
     ]

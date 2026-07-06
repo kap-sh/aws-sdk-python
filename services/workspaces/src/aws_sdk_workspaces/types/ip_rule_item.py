@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#IpRuleItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.ip_rule
     import aws_sdk_workspaces.types.ip_rule_desc
 
 
-class IpRuleItem(TypedDict):
+class IpRuleItem(TypedDict, closed=True):
     ip_rule: NotRequired["aws_sdk_workspaces.types.ip_rule.IpRule"]
     """<p>The IP address range, in CIDR notation.</p>"""
     rule_desc: NotRequired["aws_sdk_workspaces.types.ip_rule_desc.IpRuleDesc"]

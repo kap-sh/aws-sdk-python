@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#StartDataIngestionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.ingestion_input_configuration
 
 
-class StartDataIngestionJobRequest(TypedDict):
+class StartDataIngestionJobRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_lookoutequipment.types.dataset_identifier.DatasetIdentifier"
     """<p>The name of the dataset being used by the data ingestion job. </p>"""
     ingestion_input_configuration: "aws_sdk_lookoutequipment.types.ingestion_input_configuration.IngestionInputConfiguration"

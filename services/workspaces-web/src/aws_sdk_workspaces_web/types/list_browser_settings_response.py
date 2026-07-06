@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListBrowserSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.browser_settings_list
     import aws_sdk_workspaces_web.types.pagination_token
 
 
-class ListBrowserSettingsResponse(TypedDict):
+class ListBrowserSettingsResponse(TypedDict, closed=True):
     browser_settings: NotRequired[
         "aws_sdk_workspaces_web.types.browser_settings_list.BrowserSettingsList"
     ]

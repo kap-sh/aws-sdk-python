@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#JobTimeout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
 
 
-class JobTimeout(TypedDict):
+class JobTimeout(TypedDict, closed=True):
     attempt_duration_seconds: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The job timeout time (in seconds) that's measured from the job attempt's <code>startedAt</code> timestamp. After this time passes, Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.</p> <p>For array jobs, the timeout applies to the child jobs, not to the parent array job.</p> <p>For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.</p>"""
 

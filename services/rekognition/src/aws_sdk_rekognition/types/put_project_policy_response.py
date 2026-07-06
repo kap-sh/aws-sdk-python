@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#PutProjectPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_policy_revision_id
 
 
-class PutProjectPolicyResponse(TypedDict):
+class PutProjectPolicyResponse(TypedDict, closed=True):
     policy_revision_id: NotRequired[
         "aws_sdk_rekognition.types.project_policy_revision_id.ProjectPolicyRevisionId"
     ]

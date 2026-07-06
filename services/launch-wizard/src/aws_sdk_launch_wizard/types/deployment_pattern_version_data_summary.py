@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#DeploymentPatternVersionDataSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeploymentPatternVersionDataSummary(TypedDict):
+class DeploymentPatternVersionDataSummary(TypedDict, closed=True):
     deployment_pattern_version_name: NotRequired["str"]
     """<p>The name of the deployment pattern version.</p>"""
     description: NotRequired["str"]

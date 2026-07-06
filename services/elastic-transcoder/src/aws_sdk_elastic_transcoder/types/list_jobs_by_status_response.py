@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListJobsByStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
     import aws_sdk_elastic_transcoder.types.jobs
 
 
-class ListJobsByStatusResponse(TypedDict):
+class ListJobsByStatusResponse(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_elastic_transcoder.types.jobs.Jobs"]
     """<p>An array of <code>Job</code> objects that have the specified status.</p>"""
     next_page_token: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]

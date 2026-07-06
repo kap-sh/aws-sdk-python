@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#CreateDirectoryRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.directory_registration_arn
 
 
-class CreateDirectoryRegistrationResponse(TypedDict):
+class CreateDirectoryRegistrationResponse(TypedDict, closed=True):
     directory_registration_arn: NotRequired[
         "aws_sdk_pca_connector_ad.types.directory_registration_arn.DirectoryRegistrationArn"
     ]

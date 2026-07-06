@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#CancelTagSyncTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.tag_sync_task_arn
 
 
-class CancelTagSyncTaskInput(TypedDict):
+class CancelTagSyncTaskInput(TypedDict, closed=True):
     task_arn: "aws_sdk_resource_groups.types.tag_sync_task_arn.TagSyncTaskArn"
     """<p>The Amazon resource name (ARN) of the tag-sync task. </p>"""
 

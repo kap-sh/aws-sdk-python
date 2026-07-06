@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TakeRouterInputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_arn
     import aws_sdk_mediaconnect.types.router_output_arn
 
 
-class TakeRouterInputRequest(TypedDict):
+class TakeRouterInputRequest(TypedDict, closed=True):
     router_output_arn: "aws_sdk_mediaconnect.types.router_output_arn.RouterOutputArn"
     """<p>The Amazon Resource Name (ARN) of the router output that you want to associate with a router input.</p>"""
     router_input_arn: NotRequired[

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#StartQueryOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
 
-class StartQueryOutput(TypedDict):
+class StartQueryOutput(TypedDict, closed=True):
     query_id: "str"
     """<p>The internally-generated identifier of a specific query.</p>"""
 

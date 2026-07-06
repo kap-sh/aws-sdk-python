@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RegistryRecordIamCredentialProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.iam_role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.iam_signing_service_name
 
 
-class RegistryRecordIamCredentialProvider(TypedDict):
+class RegistryRecordIamCredentialProvider(TypedDict, closed=True):
     role_arn: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.iam_role_arn.IamRoleArn"
     ]

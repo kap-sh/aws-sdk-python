@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#PerformanceInsightsMetricDimensionGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string_list
 
 
-class PerformanceInsightsMetricDimensionGroup(TypedDict):
+class PerformanceInsightsMetricDimensionGroup(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_rds.types.string_list.StringList"]
     """<p>A list of specific dimensions from a dimension group. If this list isn't included, then all of the dimensions in the group were requested, or are present in the response.</p>"""
     group: NotRequired["aws_sdk_rds.types.string.String"]

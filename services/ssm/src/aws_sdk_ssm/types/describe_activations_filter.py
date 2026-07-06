@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeActivationsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.describe_activations_filter_keys
     import aws_sdk_ssm.types.string_list
 
 
-class DescribeActivationsFilter(TypedDict):
+class DescribeActivationsFilter(TypedDict, closed=True):
     filter_key: NotRequired[
         "aws_sdk_ssm.types.describe_activations_filter_keys.DescribeActivationsFilterKeys"
     ]

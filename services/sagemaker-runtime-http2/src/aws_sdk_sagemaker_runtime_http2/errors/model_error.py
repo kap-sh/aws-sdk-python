@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntimehttp2#ModelError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime_http2.errors import ServiceError
 
 
-class ModelError_(TypedDict):
+class ModelError_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>Error message.</p>"""
     original_status_code: NotRequired["int"]

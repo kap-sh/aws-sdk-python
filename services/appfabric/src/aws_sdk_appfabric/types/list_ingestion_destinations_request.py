@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListIngestionDestinationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.identifier
     import aws_sdk_appfabric.types.max_results
 
 
-class ListIngestionDestinationsRequest(TypedDict):
+class ListIngestionDestinationsRequest(TypedDict, closed=True):
     app_bundle_identifier: "aws_sdk_appfabric.types.identifier.Identifier"
     """<p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>"""
     ingestion_identifier: "aws_sdk_appfabric.types.identifier.Identifier"

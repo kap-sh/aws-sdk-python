@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OutputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.output_source_id
     import aws_sdk_ssm.types.output_source_type
 
 
-class OutputSource(TypedDict):
+class OutputSource(TypedDict, closed=True):
     output_source_id: NotRequired["aws_sdk_ssm.types.output_source_id.OutputSourceId"]
     """<p>The ID of the output source, for example the URL of an S3 bucket.</p>"""
     output_source_type: NotRequired[

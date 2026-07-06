@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ProbeInputFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
 
 
-class ProbeInputFile(TypedDict):
+class ProbeInputFile(TypedDict, closed=True):
     file_url: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Specify the S3, HTTP, or HTTPS URL for your media file."""
 

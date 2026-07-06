@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#RealtimeContactAnalysisSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.categories
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.transcript
 
 
-class RealtimeContactAnalysisSegment(TypedDict):
+class RealtimeContactAnalysisSegment(TypedDict, closed=True):
     transcript: NotRequired["aws_sdk_connect_contact_lens.types.transcript.Transcript"]
     """<p>The analyzed transcript.</p>"""
     categories: NotRequired["aws_sdk_connect_contact_lens.types.categories.Categories"]

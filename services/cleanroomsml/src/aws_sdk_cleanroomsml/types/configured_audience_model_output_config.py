@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ConfiguredAudienceModelOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.iam_role_arn
 
 
-class ConfiguredAudienceModelOutputConfig(TypedDict):
+class ConfiguredAudienceModelOutputConfig(TypedDict, closed=True):
     destination: "aws_sdk_cleanroomsml.types.audience_destination.AudienceDestination"
     role_arn: "aws_sdk_cleanroomsml.types.iam_role_arn.IamRoleArn"
     """<p>The ARN of the IAM role that can write the Amazon S3 bucket.</p>"""

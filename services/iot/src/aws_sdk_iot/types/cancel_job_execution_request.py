@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CancelJobExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.details_map
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_name
 
 
-class CancelJobExecutionRequest(TypedDict):
+class CancelJobExecutionRequest(TypedDict, closed=True):
     job_id: "aws_sdk_iot.types.job_id.JobId"
     """<p>The ID of the job to be canceled.</p>"""
     thing_name: "aws_sdk_iot.types.thing_name.ThingName"

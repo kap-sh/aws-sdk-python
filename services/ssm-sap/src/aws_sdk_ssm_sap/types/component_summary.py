@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ComponentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.application_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.tag_map
 
 
-class ComponentSummary(TypedDict):
+class ComponentSummary(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_ssm_sap.types.application_id.ApplicationId"]
     """<p>The ID of the application.</p>"""
     component_id: NotRequired["aws_sdk_ssm_sap.types.component_id.ComponentId"]

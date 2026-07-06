@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DeleteDocumentationVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class DeleteDocumentationVersionRequest(TypedDict):
+class DeleteDocumentationVersionRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     documentation_version: "aws_sdk_api_gateway.types.string.String"

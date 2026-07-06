@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspacesConnectionStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
     import aws_sdk_workspaces.types.workspace_id_list
 
 
-class DescribeWorkspacesConnectionStatusRequest(TypedDict):
+class DescribeWorkspacesConnectionStatusRequest(TypedDict, closed=True):
     workspace_ids: NotRequired[
         "aws_sdk_workspaces.types.workspace_id_list.WorkspaceIdList"
     ]

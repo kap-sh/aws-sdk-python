@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociateFlowResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateFlowResponse(TypedDict):
+class AssociateFlowResponse(TypedDict, closed=True):
     pass
 
 

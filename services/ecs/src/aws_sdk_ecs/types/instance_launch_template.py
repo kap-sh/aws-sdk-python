@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#InstanceLaunchTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class InstanceLaunchTemplate(TypedDict):
+class InstanceLaunchTemplate(TypedDict, closed=True):
     ec2_instance_profile_arn: "aws_sdk_ecs.types.string.String"
     r"""<p>The Amazon Resource Name (ARN) of the instance profile that Amazon ECS applies to Amazon ECS Managed Instances. This instance profile must include the necessary permissions for your tasks to access Amazon Web Services services and resources.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html\">Amazon ECS instance profile for Managed Instances</a> in the <i>Amazon ECS Developer Guide</i>. </p>"""
     network_configuration: "aws_sdk_ecs.types.managed_instances_network_configuration.ManagedInstancesNetworkConfiguration"

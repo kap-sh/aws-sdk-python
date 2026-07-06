@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#CreateProfileOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_arn
     import aws_sdk_wellarchitected.types.profile_version
 
 
-class CreateProfileOutput(TypedDict):
+class CreateProfileOutput(TypedDict, closed=True):
     profile_arn: NotRequired["aws_sdk_wellarchitected.types.profile_arn.ProfileArn"]
     """<p>The profile ARN.</p>"""
     profile_version: NotRequired[

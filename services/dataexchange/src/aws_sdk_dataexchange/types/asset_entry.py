@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#AssetEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.timestamp
 
 
-class AssetEntry(TypedDict):
+class AssetEntry(TypedDict, closed=True):
     arn: "aws_sdk_dataexchange.types.arn.Arn"
     """<p>The ARN for the asset.</p>"""
     asset_details: "aws_sdk_dataexchange.types.asset_details.AssetDetails"

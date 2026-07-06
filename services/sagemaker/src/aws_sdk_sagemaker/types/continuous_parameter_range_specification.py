@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ContinuousParameterRangeSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parameter_value
 
 
-class ContinuousParameterRangeSpecification(TypedDict):
+class ContinuousParameterRangeSpecification(TypedDict, closed=True):
     min_value: NotRequired["aws_sdk_sagemaker.types.parameter_value.ParameterValue"]
     """<p>The minimum floating-point value allowed.</p>"""
     max_value: NotRequired["aws_sdk_sagemaker.types.parameter_value.ParameterValue"]

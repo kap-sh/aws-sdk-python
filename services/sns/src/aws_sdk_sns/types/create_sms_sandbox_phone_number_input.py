@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CreateSMSSandboxPhoneNumberInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.phone_number_string
 
 
-class CreateSMSSandboxPhoneNumberInput(TypedDict):
+class CreateSMSSandboxPhoneNumberInput(TypedDict, closed=True):
     phone_number: "aws_sdk_sns.types.phone_number_string.PhoneNumberString"
     """<p>The destination phone number to verify. On verification, Amazon SNS adds this phone number to the list of verified phone numbers that you can send SMS messages to.</p>"""
     language_code: NotRequired[

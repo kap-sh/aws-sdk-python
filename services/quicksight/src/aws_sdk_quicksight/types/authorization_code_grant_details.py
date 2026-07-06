@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AuthorizationCodeGrantDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.endpoint
 
 
-class AuthorizationCodeGrantDetails(TypedDict):
+class AuthorizationCodeGrantDetails(TypedDict, closed=True):
     client_id: "aws_sdk_quicksight.types.client_id.ClientId"
     """<p>The client ID for the OAuth application.</p>"""
     client_secret: "aws_sdk_quicksight.types.client_secret.ClientSecret"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#ResourceQuota``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.boxed_int
 
 
-class ResourceQuota(TypedDict):
+class ResourceQuota(TypedDict, closed=True):
     maximum: NotRequired["aws_sdk_elastic_beanstalk.types.boxed_int.BoxedInt"]
     """<p>The maximum number of instances of this Elastic Beanstalk resource type that an AWS account can use.</p>"""
 

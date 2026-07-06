@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NotebookError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class NotebookError(TypedDict):
+class NotebookError(TypedDict, closed=True):
     message: "str"
     """<p>The error message. The maximum length is 256 characters.</p>"""
 

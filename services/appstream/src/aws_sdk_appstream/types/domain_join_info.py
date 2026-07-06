@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DomainJoinInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.directory_name
     import aws_sdk_appstream.types.organizational_unit_distinguished_name
 
 
-class DomainJoinInfo(TypedDict):
+class DomainJoinInfo(TypedDict, closed=True):
     directory_name: NotRequired["aws_sdk_appstream.types.directory_name.DirectoryName"]
     """<p>The fully qualified name of the directory (for example, corp.example.com).</p>"""
     organizational_unit_distinguished_name: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#MoveAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.parent_id
 
 
-class MoveAccountRequest(TypedDict):
+class MoveAccountRequest(TypedDict, closed=True):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
     r"""<p>ID for the account that you want to move.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
     source_parent_id: "aws_sdk_organizations.types.parent_id.ParentId"

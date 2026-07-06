@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#UsageQuantityResult``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UsageQuantityResult(TypedDict):
+class UsageQuantityResult(TypedDict, closed=True):
     amount: NotRequired["float"]
     """<p> The numeric value of the usage quantity result. </p>"""
     unit: NotRequired["str"]

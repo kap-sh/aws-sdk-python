@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ListClustersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.max_results
     import aws_sdk_dsql.types.next_token
 
 
-class ListClustersInput(TypedDict):
+class ListClustersInput(TypedDict, closed=True):
     max_results: "aws_sdk_dsql.types.max_results.MaxResults"
     """<p>An optional parameter that specifies the maximum number of results to return. You can use nextToken to display the next page of results.</p>"""
     next_token: NotRequired["aws_sdk_dsql.types.next_token.NextToken"]

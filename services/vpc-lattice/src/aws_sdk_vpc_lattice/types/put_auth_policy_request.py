@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#PutAuthPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_identifier
 
 
-class PutAuthPolicyRequest(TypedDict):
+class PutAuthPolicyRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_vpc_lattice.types.resource_identifier.ResourceIdentifier"
     )

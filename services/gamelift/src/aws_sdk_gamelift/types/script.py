@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#Script``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.node_js_version
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number_long
 
 
-class Script(TypedDict):
+class Script(TypedDict, closed=True):
     script_id: NotRequired["aws_sdk_gamelift.types.script_id.ScriptId"]
     """<p>A unique identifier for the Realtime script</p>"""
     script_arn: NotRequired["aws_sdk_gamelift.types.script_arn.ScriptArn"]

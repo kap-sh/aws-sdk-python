@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#UpdatePipelineOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_declaration
 
 
-class UpdatePipelineOutput(TypedDict):
+class UpdatePipelineOutput(TypedDict, closed=True):
     pipeline: NotRequired[
         "aws_sdk_codepipeline.types.pipeline_declaration.PipelineDeclaration"
     ]

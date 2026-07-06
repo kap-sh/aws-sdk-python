@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ReadPresetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
 
 
-class ReadPresetRequest(TypedDict):
+class ReadPresetRequest(TypedDict, closed=True):
     id: "aws_sdk_elastic_transcoder.types.id.Id"
     """<p>The identifier of the preset for which you want to get detailed information.</p>"""
 

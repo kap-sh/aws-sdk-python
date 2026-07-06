@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DynatraceConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.api_token
 
 
-class DynatraceConnectorProfileCredentials(TypedDict):
+class DynatraceConnectorProfileCredentials(TypedDict, closed=True):
     api_token: "aws_sdk_appflow.types.api_token.ApiToken"
     """<p> The API tokens used by Dynatrace API to authenticate various API calls. </p>"""
 

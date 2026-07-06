@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#UpdateJobPriorityResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.job_priority
 
 
-class UpdateJobPriorityResult(TypedDict):
+class UpdateJobPriorityResult(TypedDict, closed=True):
     job_id: "aws_sdk_s3_control.types.job_id.JobId"
     """<p>The ID for the job whose priority Amazon S3 updated.</p>"""
     priority: "aws_sdk_s3_control.types.job_priority.JobPriority"

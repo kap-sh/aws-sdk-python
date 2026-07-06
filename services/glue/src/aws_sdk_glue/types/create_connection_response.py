@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_status
 
 
-class CreateConnectionResponse(TypedDict):
+class CreateConnectionResponse(TypedDict, closed=True):
     create_connection_status: NotRequired[
         "aws_sdk_glue.types.connection_status.ConnectionStatus"
     ]

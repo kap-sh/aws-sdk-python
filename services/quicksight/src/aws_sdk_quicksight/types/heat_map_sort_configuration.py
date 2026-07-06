@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#HeatMapSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_sort_options_list
     import aws_sdk_quicksight.types.items_limit_configuration
 
 
-class HeatMapSortConfiguration(TypedDict):
+class HeatMapSortConfiguration(TypedDict, closed=True):
     heat_map_row_sort: NotRequired[
         "aws_sdk_quicksight.types.field_sort_options_list.FieldSortOptionsList"
     ]

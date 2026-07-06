@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdateTrustStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.client_token
 
 
-class UpdateTrustStoreRequest(TypedDict):
+class UpdateTrustStoreRequest(TypedDict, closed=True):
     trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the trust store.</p>"""
     certificates_to_add: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Threat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.item_details_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Threat(TypedDict):
+class Threat(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Name of the detected threat that caused GuardDuty to generate this finding.</p>"""
     source: NotRequired["aws_sdk_guardduty.types.string.String"]

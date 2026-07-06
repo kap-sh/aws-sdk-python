@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TagSearchCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string_comparison_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_value_string
 
 
-class TagSearchCondition(TypedDict):
+class TagSearchCondition(TypedDict, closed=True):
     tag_key: NotRequired["aws_sdk_connect.types.tag_key_string.TagKeyString"]
     """<p>The tag key used in the tag search condition.</p>"""
     tag_value: NotRequired["aws_sdk_connect.types.tag_value_string.TagValueString"]

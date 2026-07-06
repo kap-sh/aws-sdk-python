@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#QueryParameterMatch``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class QueryParameterMatch(TypedDict):
+class QueryParameterMatch(TypedDict, closed=True):
     exact: NotRequired["str"]
     """<p>The exact query parameter to match on.</p>"""
 

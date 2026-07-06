@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#EvidenceInsights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.nullable_integer
 
 
-class EvidenceInsights(TypedDict):
+class EvidenceInsights(TypedDict, closed=True):
     noncompliant_evidence_count: NotRequired[
         "aws_sdk_auditmanager.types.nullable_integer.NullableInteger"
     ]

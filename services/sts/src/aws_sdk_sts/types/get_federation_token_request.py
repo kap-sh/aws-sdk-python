@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetFederationTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.user_name_type
 
 
-class GetFederationTokenRequest(TypedDict):
+class GetFederationTokenRequest(TypedDict, closed=True):
     name: "aws_sdk_sts.types.user_name_type.userNameType"
     """<p>The name of the federated user. The name is used as an identifier for the temporary security credentials (such as <code>Bob</code>). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>"""
     policy: NotRequired[

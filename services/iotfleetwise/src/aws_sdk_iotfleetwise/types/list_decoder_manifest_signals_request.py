@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListDecoderManifestSignalsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.resource_name
 
 
-class ListDecoderManifestSignalsRequest(TypedDict):
+class ListDecoderManifestSignalsRequest(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.resource_name.resourceName"
     """<p> The name of the decoder manifest to list information about. </p>"""
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]

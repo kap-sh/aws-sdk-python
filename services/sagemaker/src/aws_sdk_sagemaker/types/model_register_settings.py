@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelRegisterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_status
     import aws_sdk_sagemaker.types.role_arn
 
 
-class ModelRegisterSettings(TypedDict):
+class ModelRegisterSettings(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sagemaker.types.feature_status.FeatureStatus"]
     """<p>Describes whether the integration to the model registry is enabled or disabled in the Canvas application.</p>"""
     cross_account_model_register_role_arn: NotRequired[

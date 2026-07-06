@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#FileSystemDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.timestamp
 
 
-class FileSystemDescription(TypedDict):
+class FileSystemDescription(TypedDict, closed=True):
     owner_id: "aws_sdk_efs.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account that created the file system.</p>"""
     creation_token: "aws_sdk_efs.types.creation_token.CreationToken"

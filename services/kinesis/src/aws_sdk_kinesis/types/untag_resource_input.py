@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_key_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     tag_keys: "aws_sdk_kinesis.types.tag_key_list.TagKeyList"
     """<p>A list of tag key-value pairs. Existing tags of the resource whose keys are members of this list will be removed from the Kinesis resource.</p>"""
     resource_arn: "aws_sdk_kinesis.types.resource_arn.ResourceARN"

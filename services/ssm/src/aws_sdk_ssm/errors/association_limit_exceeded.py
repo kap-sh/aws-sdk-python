@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationLimitExceeded``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class AssociationLimitExceeded_(TypedDict):
+class AssociationLimitExceeded_(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AgentRuntimeArtifact``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.container_configuration
 
 
-class _AgentRuntimeArtifact_containerConfiguration(TypedDict):
+class _AgentRuntimeArtifact_containerConfiguration(TypedDict, closed=True):
     containerConfiguration: "aws_sdk_bedrock_agentcore_control.types.container_configuration.ContainerConfiguration"
 
 
-class _AgentRuntimeArtifact_codeConfiguration(TypedDict):
+class _AgentRuntimeArtifact_codeConfiguration(TypedDict, closed=True):
     codeConfiguration: (
         "aws_sdk_bedrock_agentcore_control.types.code_configuration.CodeConfiguration"
     )

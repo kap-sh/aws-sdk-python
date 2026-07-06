@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteRecommendationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_id
 
 
-class DeleteRecommendationRequest(TypedDict):
+class DeleteRecommendationRequest(TypedDict, closed=True):
     recommendation_id: (
         "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId"
     )

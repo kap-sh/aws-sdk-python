@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#GetApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class GetApplicationRequest(TypedDict):
+class GetApplicationRequest(TypedDict, closed=True):
     application_id: "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the application.</p>"""
     semantic_version: NotRequired[

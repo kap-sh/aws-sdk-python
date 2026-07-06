@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Span``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.span_document
     import aws_sdk_xray.types.span_id
 
 
-class Span(TypedDict):
+class Span(TypedDict, closed=True):
     id: NotRequired["aws_sdk_xray.types.span_id.SpanId"]
     """<p>The span ID.</p>"""
     document: NotRequired["aws_sdk_xray.types.span_document.SpanDocument"]

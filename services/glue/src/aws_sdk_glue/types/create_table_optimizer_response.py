@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateTableOptimizerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateTableOptimizerResponse(TypedDict):
+class CreateTableOptimizerResponse(TypedDict, closed=True):
     pass
 
 

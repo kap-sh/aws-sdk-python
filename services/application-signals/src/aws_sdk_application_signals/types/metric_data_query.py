@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#MetricDataQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.return_data
 
 
-class MetricDataQuery(TypedDict):
+class MetricDataQuery(TypedDict, closed=True):
     id: "aws_sdk_application_signals.types.metric_id.MetricId"
     """<p>A short name used to tie this object to the results in the response. This <code>Id</code> must be unique within a <code>MetricDataQueries</code> array. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the metric math expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.</p>"""
     metric_stat: NotRequired["aws_sdk_application_signals.types.metric_stat.MetricStat"]

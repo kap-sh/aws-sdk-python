@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationAvoidanceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_boolean
     import aws_sdk_geo_routes.types.waypoint_optimization_avoidance_area_list
 
 
-class WaypointOptimizationAvoidanceOptions(TypedDict):
+class WaypointOptimizationAvoidanceOptions(TypedDict, closed=True):
     areas: NotRequired[
         "aws_sdk_geo_routes.types.waypoint_optimization_avoidance_area_list.WaypointOptimizationAvoidanceAreaList"
     ]

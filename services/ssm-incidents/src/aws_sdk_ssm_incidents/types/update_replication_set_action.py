@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#UpdateReplicationSetAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.delete_region_action
 
 
-class _UpdateReplicationSetAction_addRegionAction(TypedDict):
+class _UpdateReplicationSetAction_addRegionAction(TypedDict, closed=True):
     addRegionAction: "aws_sdk_ssm_incidents.types.add_region_action.AddRegionAction"
 
 
-class _UpdateReplicationSetAction_deleteRegionAction(TypedDict):
+class _UpdateReplicationSetAction_deleteRegionAction(TypedDict, closed=True):
     deleteRegionAction: (
         "aws_sdk_ssm_incidents.types.delete_region_action.DeleteRegionAction"
     )

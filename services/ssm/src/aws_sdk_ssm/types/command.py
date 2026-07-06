@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Command``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.alarm_configuration
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.timeout_seconds
 
 
-class Command(TypedDict):
+class Command(TypedDict, closed=True):
     command_id: NotRequired["aws_sdk_ssm.types.command_id.CommandId"]
     """<p>A unique identifier for this command.</p>"""
     document_name: NotRequired["aws_sdk_ssm.types.document_name.DocumentName"]

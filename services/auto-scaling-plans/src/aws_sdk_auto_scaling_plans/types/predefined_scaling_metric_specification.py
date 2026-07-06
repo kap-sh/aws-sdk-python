@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#PredefinedScalingMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling_plans.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.scaling_metric_type
 
 
-class PredefinedScalingMetricSpecification(TypedDict):
+class PredefinedScalingMetricSpecification(TypedDict, closed=True):
     predefined_scaling_metric_type: (
         "aws_sdk_auto_scaling_plans.types.scaling_metric_type.ScalingMetricType"
     )

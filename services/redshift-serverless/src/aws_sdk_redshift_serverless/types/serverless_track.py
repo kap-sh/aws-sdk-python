@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ServerlessTrack``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.track_name
     import aws_sdk_redshift_serverless.types.update_targets_list
 
 
-class ServerlessTrack(TypedDict):
+class ServerlessTrack(TypedDict, closed=True):
     track_name: NotRequired["aws_sdk_redshift_serverless.types.track_name.TrackName"]
     """<p>The name of the track. Valid values are <code>current</code> and <code>trailing</code>.</p>"""
     workgroup_version: NotRequired["str"]

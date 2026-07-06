@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAppsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListAppsResponse(TypedDict):
+class ListAppsResponse(TypedDict, closed=True):
     apps: NotRequired["aws_sdk_sagemaker.types.app_list.AppList"]
     """<p>The list of apps.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#SettingEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_configuration_setting_allowed_values
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_configuration_status
 
 
-class SettingEntry(TypedDict):
+class SettingEntry(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_directory_service.types.directory_configuration_setting_type.DirectoryConfigurationSettingType"
     ]

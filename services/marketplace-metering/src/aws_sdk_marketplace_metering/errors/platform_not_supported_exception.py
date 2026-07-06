@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#PlatformNotSupportedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_metering.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.error_message
 
 
-class PlatformNotSupportedException_(TypedDict):
+class PlatformNotSupportedException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_marketplace_metering.types.error_message.errorMessage"
     ]

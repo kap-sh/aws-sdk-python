@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateTrafficPolicyInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.ttl
 
 
-class CreateTrafficPolicyInstanceRequest(TypedDict):
+class CreateTrafficPolicyInstanceRequest(TypedDict, closed=True):
     hosted_zone_id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID of the hosted zone that you want Amazon Route 53 to create resource record sets in by using the configuration in a traffic policy.</p>"""
     name: "aws_sdk_route_53.types.dns_name.DNSName"

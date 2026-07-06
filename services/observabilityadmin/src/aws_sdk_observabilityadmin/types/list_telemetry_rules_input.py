@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListTelemetryRulesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.list_telemetry_rules_max_results
     import aws_sdk_observabilityadmin.types.next_token
 
 
-class ListTelemetryRulesInput(TypedDict):
+class ListTelemetryRulesInput(TypedDict, closed=True):
     rule_name_prefix: NotRequired["str"]
     """<p> A string to filter telemetry rules whose names begin with the specified prefix. </p>"""
     max_results: NotRequired[

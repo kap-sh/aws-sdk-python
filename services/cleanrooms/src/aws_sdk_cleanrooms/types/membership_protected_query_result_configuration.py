@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MembershipProtectedQueryResultConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.role_arn
 
 
-class MembershipProtectedQueryResultConfiguration(TypedDict):
+class MembershipProtectedQueryResultConfiguration(TypedDict, closed=True):
     output_configuration: "aws_sdk_cleanrooms.types.membership_protected_query_output_configuration.MembershipProtectedQueryOutputConfiguration"
     """<p>Configuration for protected query results.</p>"""
     role_arn: NotRequired["aws_sdk_cleanrooms.types.role_arn.RoleArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListenerTlsValidationContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.subject_alternative_names
 
 
-class ListenerTlsValidationContext(TypedDict):
+class ListenerTlsValidationContext(TypedDict, closed=True):
     trust: "aws_sdk_app_mesh.types.listener_tls_validation_context_trust.ListenerTlsValidationContextTrust"
     """<p>A reference to where to retrieve the trust chain when validating a peer’s Transport Layer Security (TLS) certificate.</p>"""
     subject_alternative_names: NotRequired[

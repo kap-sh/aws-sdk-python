@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#WabaSetupFinalization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.tag_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_business_account_id
 
 
-class WabaSetupFinalization(TypedDict):
+class WabaSetupFinalization(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_socialmessaging.types.whats_app_business_account_id.WhatsAppBusinessAccountId"
     ]

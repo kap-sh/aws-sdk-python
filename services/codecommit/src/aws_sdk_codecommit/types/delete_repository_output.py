@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DeleteRepositoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_id
 
 
-class DeleteRepositoryOutput(TypedDict):
+class DeleteRepositoryOutput(TypedDict, closed=True):
     repository_id: NotRequired["aws_sdk_codecommit.types.repository_id.RepositoryId"]
     """<p>The ID of the repository that was deleted.</p>"""
 

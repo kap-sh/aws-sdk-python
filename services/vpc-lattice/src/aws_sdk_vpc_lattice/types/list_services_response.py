@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListServicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.next_token
     import aws_sdk_vpc_lattice.types.service_list
 
 
-class ListServicesResponse(TypedDict):
+class ListServicesResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_vpc_lattice.types.service_list.ServiceList"]
     """<p>Information about the services.</p>"""
     next_token: NotRequired["aws_sdk_vpc_lattice.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationDriverOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_rest_cycles
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_service_time_treatment
 
 
-class WaypointOptimizationDriverOptions(TypedDict):
+class WaypointOptimizationDriverOptions(TypedDict, closed=True):
     rest_cycles: NotRequired[
         "aws_sdk_geo_routes.types.waypoint_optimization_rest_cycles.WaypointOptimizationRestCycles"
     ]

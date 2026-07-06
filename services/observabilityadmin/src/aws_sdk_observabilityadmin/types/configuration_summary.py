@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.data_sources
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.sources
 
 
-class ConfigurationSummary(TypedDict):
+class ConfigurationSummary(TypedDict, closed=True):
     sources: NotRequired["aws_sdk_observabilityadmin.types.sources.Sources"]
     """<p>The list of data sources configured in the pipeline.</p>"""
     data_sources: NotRequired[

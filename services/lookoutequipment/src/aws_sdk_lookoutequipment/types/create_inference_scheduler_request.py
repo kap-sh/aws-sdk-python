@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CreateInferenceSchedulerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.tag_list
 
 
-class CreateInferenceSchedulerRequest(TypedDict):
+class CreateInferenceSchedulerRequest(TypedDict, closed=True):
     model_name: "aws_sdk_lookoutequipment.types.model_name.ModelName"
     """<p>The name of the previously trained machine learning model being used to create the inference scheduler. </p>"""
     inference_scheduler_name: (

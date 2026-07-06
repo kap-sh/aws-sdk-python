@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBClusterParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateDBClusterParameterGroupMessage(TypedDict):
+class CreateDBClusterParameterGroupMessage(TypedDict, closed=True):
     db_cluster_parameter_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the DB cluster parameter group.</p> <p>Constraints:</p> <ul> <li> <p>Must not match the name of an existing DB cluster parameter group.</p> </li> </ul> <note> <p>This value is stored as a lowercase string.</p> </note>"""
     db_parameter_group_family: NotRequired["aws_sdk_rds.types.string.String"]

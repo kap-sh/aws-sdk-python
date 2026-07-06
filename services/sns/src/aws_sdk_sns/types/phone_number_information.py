@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#PhoneNumberInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.timestamp
 
 
-class PhoneNumberInformation(TypedDict):
+class PhoneNumberInformation(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_sns.types.timestamp.Timestamp"]
     """<p>The date and time when the phone number was created.</p>"""
     phone_number: NotRequired["aws_sdk_sns.types.phone_number.PhoneNumber"]

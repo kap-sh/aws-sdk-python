@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ScheduleLambdaFunctionFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.schedule_lambda_function_failed_cause
 
 
-class ScheduleLambdaFunctionFailedEventAttributes(TypedDict):
+class ScheduleLambdaFunctionFailedEventAttributes(TypedDict, closed=True):
     id: "aws_sdk_swf.types.function_id.FunctionId"
     """<p>The ID provided in the <code>ScheduleLambdaFunction</code> decision that failed. </p>"""
     name: "aws_sdk_swf.types.function_name.FunctionName"

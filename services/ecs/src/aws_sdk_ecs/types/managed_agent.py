@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedAgent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.managed_agent_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class ManagedAgent(TypedDict):
+class ManagedAgent(TypedDict, closed=True):
     last_started_at: NotRequired["aws_sdk_ecs.types.timestamp.Timestamp"]
     """<p>The Unix timestamp for the time when the managed agent was last started.</p>"""
     name: NotRequired["aws_sdk_ecs.types.managed_agent_name.ManagedAgentName"]

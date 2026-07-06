@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#EnableDelegatedAdminAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.client_token
 
 
-class EnableDelegatedAdminAccountRequest(TypedDict):
+class EnableDelegatedAdminAccountRequest(TypedDict, closed=True):
     delegated_admin_account_id: "aws_sdk_inspector2.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator.</p>"""
     client_token: NotRequired["aws_sdk_inspector2.types.client_token.ClientToken"]

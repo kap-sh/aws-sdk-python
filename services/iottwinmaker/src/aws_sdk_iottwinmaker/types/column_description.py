@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ColumnDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.column_name
     import aws_sdk_iottwinmaker.types.column_type
 
 
-class ColumnDescription(TypedDict):
+class ColumnDescription(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iottwinmaker.types.column_name.ColumnName"]
     """<p>The name of the column description.</p>"""
     type: NotRequired["aws_sdk_iottwinmaker.types.column_type.ColumnType"]

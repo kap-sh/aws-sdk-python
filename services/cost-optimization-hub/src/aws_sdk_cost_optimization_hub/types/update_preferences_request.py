@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#UpdatePreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.member_account_discount_visibility
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.savings_estimation_mode
 
 
-class UpdatePreferencesRequest(TypedDict):
+class UpdatePreferencesRequest(TypedDict, closed=True):
     savings_estimation_mode: NotRequired[
         "aws_sdk_cost_optimization_hub.types.savings_estimation_mode.SavingsEstimationMode"
     ]

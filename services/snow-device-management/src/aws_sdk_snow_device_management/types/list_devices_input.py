@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#ListDevicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.job_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.next_token
 
 
-class ListDevicesInput(TypedDict):
+class ListDevicesInput(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_snow_device_management.types.job_id.JobId"]
     """<p>The ID of the job used to order the device.</p>"""
     max_results: NotRequired[

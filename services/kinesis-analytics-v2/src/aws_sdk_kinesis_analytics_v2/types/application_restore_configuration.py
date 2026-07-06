@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationRestoreConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.snapshot_name
 
 
-class ApplicationRestoreConfiguration(TypedDict):
+class ApplicationRestoreConfiguration(TypedDict, closed=True):
     application_restore_type: "aws_sdk_kinesis_analytics_v2.types.application_restore_type.ApplicationRestoreType"
     """<p>Specifies how the application should be restored.</p>"""
     snapshot_name: NotRequired[

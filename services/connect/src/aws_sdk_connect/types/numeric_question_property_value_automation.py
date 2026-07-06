@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NumericQuestionPropertyValueAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.numeric_question_property_automation_label
 
 
-class NumericQuestionPropertyValueAutomation(TypedDict):
+class NumericQuestionPropertyValueAutomation(TypedDict, closed=True):
     label: "aws_sdk_connect.types.numeric_question_property_automation_label.NumericQuestionPropertyAutomationLabel"
     """<p>The property label of the automation.</p>"""
 

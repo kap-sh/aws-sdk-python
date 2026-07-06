@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GetFlowMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.title
 
 
-class GetFlowMetadataOutput(TypedDict):
+class GetFlowMetadataOutput(TypedDict, closed=True):
     arn: "str"
     """<p>The Amazon Resource Name (ARN) of the flow.</p>"""
     flow_id: "aws_sdk_quicksight.types.flow_id.FlowId"

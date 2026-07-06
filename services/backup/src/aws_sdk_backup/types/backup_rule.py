@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.window_minutes
 
 
-class BackupRule(TypedDict):
+class BackupRule(TypedDict, closed=True):
     rule_name: "aws_sdk_backup.types.backup_rule_name.BackupRuleName"
     """<p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
     target_backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"

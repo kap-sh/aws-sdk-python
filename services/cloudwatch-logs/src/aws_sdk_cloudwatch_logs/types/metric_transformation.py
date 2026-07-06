@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#MetricTransformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.standard_unit
 
 
-class MetricTransformation(TypedDict):
+class MetricTransformation(TypedDict, closed=True):
     metric_name: "aws_sdk_cloudwatch_logs.types.metric_name.MetricName"
     """<p>The name of the CloudWatch metric.</p>"""
     metric_namespace: "aws_sdk_cloudwatch_logs.types.metric_namespace.MetricNamespace"

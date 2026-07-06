@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#DeleteMedicalVocabularyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_name
 
 
-class DeleteMedicalVocabularyRequest(TypedDict):
+class DeleteMedicalVocabularyRequest(TypedDict, closed=True):
     vocabulary_name: "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
     """<p>The name of the custom medical vocabulary you want to delete. Custom medical vocabulary names are case sensitive.</p>"""
 

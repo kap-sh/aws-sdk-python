@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListShardsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.next_token
     import aws_sdk_kinesis.types.shard_list
 
 
-class ListShardsOutput(TypedDict):
+class ListShardsOutput(TypedDict, closed=True):
     shards: NotRequired["aws_sdk_kinesis.types.shard_list.ShardList"]
     """<p>An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.</p>"""
     next_token: NotRequired["aws_sdk_kinesis.types.next_token.NextToken"]

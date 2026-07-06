@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ListComponentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.list_entity_limit
 
 
-class ListComponentsRequest(TypedDict):
+class ListComponentsRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID for the Amplify app.</p>"""
     environment_name: "str"

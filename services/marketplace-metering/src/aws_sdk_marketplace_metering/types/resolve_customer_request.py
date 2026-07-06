@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#ResolveCustomerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_metering.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.non_empty_string
 
 
-class ResolveCustomerRequest(TypedDict):
+class ResolveCustomerRequest(TypedDict, closed=True):
     registration_token: (
         "aws_sdk_marketplace_metering.types.non_empty_string.NonEmptyString"
     )

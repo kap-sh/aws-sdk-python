@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIDatasetConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_workload_input_data_config_list
 
 
-class _AIDatasetConfig_InputDataConfig(TypedDict):
+class _AIDatasetConfig_InputDataConfig(TypedDict, closed=True):
     InputDataConfig: "aws_sdk_sagemaker.types.ai_workload_input_data_config_list.AIWorkloadInputDataConfigList"
 
 

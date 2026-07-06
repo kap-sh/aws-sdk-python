@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#ListRoutingControlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__list_of_routing_control
     import aws_sdk_route53_recovery_control_config.types.__string_min1_max8096_pattern_s
 
 
-class ListRoutingControlsResponse(TypedDict):
+class ListRoutingControlsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.__string_min1_max8096_pattern_s.__stringMin1Max8096PatternS"
     ]

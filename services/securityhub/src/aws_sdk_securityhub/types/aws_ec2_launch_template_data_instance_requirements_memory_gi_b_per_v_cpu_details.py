@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.double
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails(TypedDict):
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails(
+    TypedDict, closed=True
+):
     max: NotRequired["aws_sdk_securityhub.types.double.Double"]
     """<p> The maximum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit. </p>"""
     min: NotRequired["aws_sdk_securityhub.types.double.Double"]

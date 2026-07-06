@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeregisterTargetFromMaintenanceWindowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_target_id
 
 
-class DeregisterTargetFromMaintenanceWindowRequest(TypedDict):
+class DeregisterTargetFromMaintenanceWindowRequest(TypedDict, closed=True):
     window_id: "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     """<p>The ID of the maintenance window the target should be removed from.</p>"""
     window_target_id: (

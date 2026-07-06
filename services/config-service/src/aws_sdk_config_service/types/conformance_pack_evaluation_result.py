@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ConformancePackEvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.evaluation_result_identifier
 
 
-class ConformancePackEvaluationResult(TypedDict):
+class ConformancePackEvaluationResult(TypedDict, closed=True):
     compliance_type: "aws_sdk_config_service.types.conformance_pack_compliance_type.ConformancePackComplianceType"
     """<p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>"""
     evaluation_result_identifier: "aws_sdk_config_service.types.evaluation_result_identifier.EvaluationResultIdentifier"

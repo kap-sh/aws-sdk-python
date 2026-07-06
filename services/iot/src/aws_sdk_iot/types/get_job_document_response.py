@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetJobDocumentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_document
 
 
-class GetJobDocumentResponse(TypedDict):
+class GetJobDocumentResponse(TypedDict, closed=True):
     document: NotRequired["aws_sdk_iot.types.job_document.JobDocument"]
     """<p>The job document content.</p>"""
 

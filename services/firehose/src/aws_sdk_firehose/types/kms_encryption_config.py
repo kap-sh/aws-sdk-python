@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#KMSEncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.awskms_key_arn
 
 
-class KMSEncryptionConfig(TypedDict):
+class KMSEncryptionConfig(TypedDict, closed=True):
     awskms_key_arn: "aws_sdk_firehose.types.awskms_key_arn.AWSKMSKeyARN"
     r"""<p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same Amazon Web Services Region as the destination Amazon S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
 

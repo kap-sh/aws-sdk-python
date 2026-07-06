@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.journey_run_status
 
 
-class JourneyRunResponse(TypedDict):
+class JourneyRunResponse(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The time when the journey run was created or scheduled, in ISO 8601 format.</p>"""
     last_update_time: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

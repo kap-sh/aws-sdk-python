@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ListMonitorEvaluationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.next_token
 
 
-class ListMonitorEvaluationsRequest(TypedDict):
+class ListMonitorEvaluationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_forecast.types.next_token.NextToken"]
     """<p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>"""
     max_results: NotRequired["aws_sdk_forecast.types.max_results.MaxResults"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#PollForActivityTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.task_list
 
 
-class PollForActivityTaskInput(TypedDict):
+class PollForActivityTaskInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain that contains the task lists being polled.</p>"""
     task_list: "aws_sdk_swf.types.task_list.TaskList"

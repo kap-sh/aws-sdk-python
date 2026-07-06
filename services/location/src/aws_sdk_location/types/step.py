@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#Step``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_double
 
 
-class Step(TypedDict):
+class Step(TypedDict, closed=True):
     start_position: "aws_sdk_location.types.position.Position"
     """<p>The starting position of a step. If the position is the first step in the leg, this position is the same as the start position of the leg.</p>"""
     end_position: "aws_sdk_location.types.position.Position"

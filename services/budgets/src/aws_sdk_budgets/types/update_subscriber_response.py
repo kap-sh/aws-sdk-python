@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#UpdateSubscriberResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateSubscriberResponse(TypedDict):
+class UpdateSubscriberResponse(TypedDict, closed=True):
     pass
 
 

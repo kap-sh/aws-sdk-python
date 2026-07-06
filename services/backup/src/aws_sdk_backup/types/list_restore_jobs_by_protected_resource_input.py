@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRestoreJobsByProtectedResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class ListRestoreJobsByProtectedResourceInput(TypedDict):
+class ListRestoreJobsByProtectedResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>Returns only restore jobs that match the specified resource Amazon Resource Name (ARN).</p>"""
     by_status: NotRequired["aws_sdk_backup.types.restore_job_status.RestoreJobStatus"]

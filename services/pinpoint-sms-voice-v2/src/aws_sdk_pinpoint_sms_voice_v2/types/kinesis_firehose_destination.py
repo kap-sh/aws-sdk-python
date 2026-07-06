@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#KinesisFirehoseDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.iam_role_arn
 
 
-class KinesisFirehoseDestination(TypedDict):
+class KinesisFirehoseDestination(TypedDict, closed=True):
     iam_role_arn: "aws_sdk_pinpoint_sms_voice_v2.types.iam_role_arn.IamRoleArn"
     """<p>The ARN of an Identity and Access Management role that is able to write event data to an Amazon Data Firehose destination.</p>"""
     delivery_stream_arn: (

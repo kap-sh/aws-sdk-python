@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetCheckerIpRangesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.checker_ip_ranges
 
 
-class GetCheckerIpRangesResponse(TypedDict):
+class GetCheckerIpRangesResponse(TypedDict, closed=True):
     checker_ip_ranges: "aws_sdk_route_53.types.checker_ip_ranges.CheckerIpRanges"
     """<p>A complex type that contains sorted list of IP ranges in CIDR format for Amazon Route 53 health checkers.</p>"""
 

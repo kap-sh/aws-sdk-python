@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#AlfrescoConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.site_url
 
 
-class AlfrescoConfiguration(TypedDict):
+class AlfrescoConfiguration(TypedDict, closed=True):
     site_url: "aws_sdk_kendra.types.site_url.SiteUrl"
     """<p>The URL of the Alfresco site. For example, <i>https://hostname:8080</i>.</p>"""
     site_id: "aws_sdk_kendra.types.site_id.SiteId"

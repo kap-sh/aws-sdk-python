@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#DisassociateClientDeviceFromCoreDeviceEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_thing_name
 
 
-class DisassociateClientDeviceFromCoreDeviceEntry(TypedDict):
+class DisassociateClientDeviceFromCoreDeviceEntry(TypedDict, closed=True):
     thing_name: "aws_sdk_greengrassv2.types.io_t_thing_name.IoTThingName"
     """<p>The name of the IoT thing that represents the client device to disassociate.</p>"""
 

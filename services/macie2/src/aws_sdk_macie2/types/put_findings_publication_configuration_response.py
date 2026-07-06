@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#PutFindingsPublicationConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutFindingsPublicationConfigurationResponse(TypedDict):
+class PutFindingsPublicationConfigurationResponse(TypedDict, closed=True):
     pass
 
 

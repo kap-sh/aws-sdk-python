@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#UpdateTableObjectsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.write_operation_list
 
 
-class UpdateTableObjectsRequest(TypedDict):
+class UpdateTableObjectsRequest(TypedDict, closed=True):
     catalog_id: NotRequired[
         "aws_sdk_lakeformation.types.catalog_id_string.CatalogIdString"
     ]

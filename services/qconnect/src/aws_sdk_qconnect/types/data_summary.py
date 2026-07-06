@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.data_reference
 
 
-class DataSummary(TypedDict):
+class DataSummary(TypedDict, closed=True):
     reference: "aws_sdk_qconnect.types.data_reference.DataReference"
     """<p>Reference information about the content.</p>"""
     details: "aws_sdk_qconnect.types.data_details.DataDetails"

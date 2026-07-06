@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ExtendTransactionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ExtendTransactionResponse(TypedDict):
+class ExtendTransactionResponse(TypedDict, closed=True):
     pass
 
 

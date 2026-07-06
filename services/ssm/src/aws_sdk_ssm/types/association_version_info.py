@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AssociationVersionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.apply_only_at_cron_interval
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class AssociationVersionInfo(TypedDict):
+class AssociationVersionInfo(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_ssm.types.association_id.AssociationId"]
     """<p>The ID created by the system when the association was created.</p>"""
     association_version: NotRequired[

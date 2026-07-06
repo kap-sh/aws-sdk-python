@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#LayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.layout_id
 
 
-class LayoutConfiguration(TypedDict):
+class LayoutConfiguration(TypedDict, closed=True):
     default_layout: NotRequired["aws_sdk_connectcases.types.layout_id.LayoutId"]
     """<p> Unique identifier of a layout. </p>"""
 

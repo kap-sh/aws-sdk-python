@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#AutoDisablePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.auto_disable_failure_count
 
 
-class AutoDisablePolicy(TypedDict):
+class AutoDisablePolicy(TypedDict, closed=True):
     failure_count: (
         "aws_sdk_imagebuilder.types.auto_disable_failure_count.AutoDisableFailureCount"
     )

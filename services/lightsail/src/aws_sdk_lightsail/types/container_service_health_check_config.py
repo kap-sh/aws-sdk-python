@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceHealthCheckConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
     import aws_sdk_lightsail.types.string
 
 
-class ContainerServiceHealthCheckConfig(TypedDict):
+class ContainerServiceHealthCheckConfig(TypedDict, closed=True):
     healthy_threshold: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The number of consecutive health checks successes required before moving the container to the <code>Healthy</code> state. The default value is <code>2</code>.</p>"""
     unhealthy_threshold: NotRequired["aws_sdk_lightsail.types.integer.integer"]

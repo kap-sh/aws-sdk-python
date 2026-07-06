@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#VerifyDevicePositionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class VerifyDevicePositionResponse(TypedDict):
+class VerifyDevicePositionResponse(TypedDict, closed=True):
     inferred_state: "aws_sdk_location.types.inferred_state.InferredState"
     """<p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>"""
     device_id: "aws_sdk_location.types.id.Id"

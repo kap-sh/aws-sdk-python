@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The key, or name, for the resource tag.</p>"""
     value: NotRequired["aws_sdk_redshift.types.string.String"]

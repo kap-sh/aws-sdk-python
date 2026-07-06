@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationRagConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_bedrock_knowledge_base_identifiers
     import aws_sdk_bedrock.types.evaluation_precomputed_rag_source_identifiers
 
 
-class EvaluationRagConfigSummary(TypedDict):
+class EvaluationRagConfigSummary(TypedDict, closed=True):
     bedrock_knowledge_base_identifiers: NotRequired[
         "aws_sdk_bedrock.types.evaluation_bedrock_knowledge_base_identifiers.EvaluationBedrockKnowledgeBaseIdentifiers"
     ]

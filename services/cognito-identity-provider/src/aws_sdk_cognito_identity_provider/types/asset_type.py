@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AssetType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.resource_id_type
 
 
-class AssetType(TypedDict):
+class AssetType(TypedDict, closed=True):
     category: (
         "aws_sdk_cognito_identity_provider.types.asset_category_type.AssetCategoryType"
     )

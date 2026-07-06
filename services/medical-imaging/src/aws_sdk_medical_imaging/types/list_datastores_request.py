@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ListDatastoresRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_status
     import aws_sdk_medical_imaging.types.next_token
 
 
-class ListDatastoresRequest(TypedDict):
+class ListDatastoresRequest(TypedDict, closed=True):
     datastore_status: NotRequired[
         "aws_sdk_medical_imaging.types.datastore_status.DatastoreStatus"
     ]

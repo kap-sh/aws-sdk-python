@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#VectorBucketSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_bucket_name
 
 
-class VectorBucketSummary(TypedDict):
+class VectorBucketSummary(TypedDict, closed=True):
     vector_bucket_name: "aws_sdk_s3vectors.types.vector_bucket_name.VectorBucketName"
     """<p>The name of the vector bucket. </p>"""
     vector_bucket_arn: "aws_sdk_s3vectors.types.vector_bucket_arn.VectorBucketArn"

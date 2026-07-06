@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#AutoScalingPolicyUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.auto_scaling_target_tracking_scaling_policy_configuration_update
 
 
-class AutoScalingPolicyUpdate(TypedDict):
+class AutoScalingPolicyUpdate(TypedDict, closed=True):
     policy_name: NotRequired[
         "aws_sdk_dynamodb.types.auto_scaling_policy_name.AutoScalingPolicyName"
     ]

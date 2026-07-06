@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#VersionControlInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
     import aws_sdk_migrationhubstrategy.types.version_control_type
 
 
-class VersionControlInfo(TypedDict):
+class VersionControlInfo(TypedDict, closed=True):
     version_control_type: NotRequired[
         "aws_sdk_migrationhubstrategy.types.version_control_type.VersionControlType"
     ]

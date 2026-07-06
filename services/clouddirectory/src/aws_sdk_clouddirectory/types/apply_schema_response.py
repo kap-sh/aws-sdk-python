@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ApplySchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class ApplySchemaResponse(TypedDict):
+class ApplySchemaResponse(TypedDict, closed=True):
     applied_schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>The applied schema ARN that is associated with the copied schema in the <a>Directory</a>. You can use this ARN to describe the schema information applied on this directory. For more information, see <a>arns</a>.</p>"""
     directory_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]

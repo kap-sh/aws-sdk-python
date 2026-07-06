@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#DeletionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.delete_after_upload
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.local_size_config
 
 
-class DeletionConfig(TypedDict):
+class DeletionConfig(TypedDict, closed=True):
     edge_retention_in_hours: NotRequired[
         "aws_sdk_kinesis_video.types.edge_retention_in_hours.EdgeRetentionInHours"
     ]

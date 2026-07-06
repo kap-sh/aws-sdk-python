@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#OpsItemEventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_event_filter_values
 
 
-class OpsItemEventFilter(TypedDict):
+class OpsItemEventFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.ops_item_event_filter_key.OpsItemEventFilterKey"
     """<p>The name of the filter key. Currently, the only supported value is <code>OpsItemId</code>.</p>"""
     values: "aws_sdk_ssm.types.ops_item_event_filter_values.OpsItemEventFilterValues"

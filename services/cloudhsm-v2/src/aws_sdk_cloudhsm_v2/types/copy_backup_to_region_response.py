@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#CopyBackupToRegionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.destination_backup
 
 
-class CopyBackupToRegionResponse(TypedDict):
+class CopyBackupToRegionResponse(TypedDict, closed=True):
     destination_backup: NotRequired[
         "aws_sdk_cloudhsm_v2.types.destination_backup.DestinationBackup"
     ]

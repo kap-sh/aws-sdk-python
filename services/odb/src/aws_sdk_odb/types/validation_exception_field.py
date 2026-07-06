@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The field name for which validation failed.</p>"""
     message: "str"

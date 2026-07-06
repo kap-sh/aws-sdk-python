@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#OptInRequiredException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import ServiceError
 
 
-class OptInRequiredException_(TypedDict):
+class OptInRequiredException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

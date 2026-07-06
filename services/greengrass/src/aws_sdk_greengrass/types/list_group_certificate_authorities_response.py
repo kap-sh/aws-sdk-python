@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ListGroupCertificateAuthoritiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_group_certificate_authority_properties
 
 
-class ListGroupCertificateAuthoritiesResponse(TypedDict):
+class ListGroupCertificateAuthoritiesResponse(TypedDict, closed=True):
     group_certificate_authorities: NotRequired[
         "aws_sdk_greengrass.types.__list_of_group_certificate_authority_properties.__listOfGroupCertificateAuthorityProperties"
     ]

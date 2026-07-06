@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DescribePackageVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.time_stamp
 
 
-class DescribePackageVersionResponse(TypedDict):
+class DescribePackageVersionResponse(TypedDict, closed=True):
     owner_account: NotRequired[
         "aws_sdk_panorama.types.package_owner_account.PackageOwnerAccount"
     ]

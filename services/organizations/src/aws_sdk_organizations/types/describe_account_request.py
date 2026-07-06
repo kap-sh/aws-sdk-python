@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DescribeAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_id
 
 
-class DescribeAccountRequest(TypedDict):
+class DescribeAccountRequest(TypedDict, closed=True):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
     r"""<p>The unique identifier (ID) of the Amazon Web Services account that you want information about. You can get the ID from the <a>ListAccounts</a> or <a>ListAccountsForParent</a> operations.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
 

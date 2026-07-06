@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisTranscriptItemWithContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_transcript_content
 
 
-class RealTimeContactAnalysisTranscriptItemWithContent(TypedDict):
+class RealTimeContactAnalysisTranscriptItemWithContent(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_connect.types.real_time_contact_analysis_transcript_content.RealTimeContactAnalysisTranscriptContent"
     ]

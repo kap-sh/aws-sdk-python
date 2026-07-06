@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteWorkloadIdentityResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteWorkloadIdentityResponse(TypedDict):
+class DeleteWorkloadIdentityResponse(TypedDict, closed=True):
     pass
 
 

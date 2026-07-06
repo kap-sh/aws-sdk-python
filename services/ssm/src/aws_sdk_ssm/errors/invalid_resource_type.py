@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InvalidResourceType``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class InvalidResourceType_(TypedDict):
+class InvalidResourceType_(TypedDict, closed=True):
     pass
 
 

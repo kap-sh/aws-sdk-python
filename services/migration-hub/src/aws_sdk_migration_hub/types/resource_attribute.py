@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ResourceAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.resource_attribute_value
 
 
-class ResourceAttribute(TypedDict):
+class ResourceAttribute(TypedDict, closed=True):
     type: "aws_sdk_migration_hub.types.resource_attribute_type.ResourceAttributeType"
     """<p>Type of resource.</p>"""
     value: "aws_sdk_migration_hub.types.resource_attribute_value.ResourceAttributeValue"

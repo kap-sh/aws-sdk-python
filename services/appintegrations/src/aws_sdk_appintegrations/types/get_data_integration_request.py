@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#GetDataIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.identifier
 
 
-class GetDataIntegrationRequest(TypedDict):
+class GetDataIntegrationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
     """<p>A unique identifier.</p>"""
 

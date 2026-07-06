@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#GetPhoneNumberSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.calling_name
     import aws_sdk_chime.types.iso8601_timestamp
 
 
-class GetPhoneNumberSettingsResponse(TypedDict):
+class GetPhoneNumberSettingsResponse(TypedDict, closed=True):
     calling_name: NotRequired["aws_sdk_chime.types.calling_name.CallingName"]
     """<p>The default outbound calling name for the account.</p>"""
     calling_name_updated_timestamp: NotRequired[

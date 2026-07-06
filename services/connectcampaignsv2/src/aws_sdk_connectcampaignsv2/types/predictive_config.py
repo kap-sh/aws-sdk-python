@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#PredictiveConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.bandwidth_allocation
 
 
-class PredictiveConfig(TypedDict):
+class PredictiveConfig(TypedDict, closed=True):
     bandwidth_allocation: (
         "aws_sdk_connectcampaignsv2.types.bandwidth_allocation.BandwidthAllocation"
     )

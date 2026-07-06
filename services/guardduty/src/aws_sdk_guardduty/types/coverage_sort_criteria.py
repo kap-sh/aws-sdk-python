@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CoverageSortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.coverage_sort_key
     import aws_sdk_guardduty.types.order_by
 
 
-class CoverageSortCriteria(TypedDict):
+class CoverageSortCriteria(TypedDict, closed=True):
     attribute_name: NotRequired[
         "aws_sdk_guardduty.types.coverage_sort_key.CoverageSortKey"
     ]

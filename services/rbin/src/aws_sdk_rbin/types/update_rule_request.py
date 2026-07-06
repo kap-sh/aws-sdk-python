@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rbin#UpdateRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rbin.types.description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rbin.types.rule_identifier
 
 
-class UpdateRuleRequest(TypedDict):
+class UpdateRuleRequest(TypedDict, closed=True):
     identifier: "aws_sdk_rbin.types.rule_identifier.RuleIdentifier"
     """<p>The unique ID of the retention rule.</p>"""
     retention_period: NotRequired["aws_sdk_rbin.types.retention_period.RetentionPeriod"]

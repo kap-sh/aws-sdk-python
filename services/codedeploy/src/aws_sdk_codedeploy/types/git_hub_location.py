@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#GitHubLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.commit_id
     import aws_sdk_codedeploy.types.repository
 
 
-class GitHubLocation(TypedDict):
+class GitHubLocation(TypedDict, closed=True):
     repository: NotRequired["aws_sdk_codedeploy.types.repository.Repository"]
     """<p>The GitHub account and repository pair that stores a reference to the commit that represents the bundled artifacts for the application revision. </p> <p>Specified as account/repository.</p>"""
     commit_id: NotRequired["aws_sdk_codedeploy.types.commit_id.CommitId"]

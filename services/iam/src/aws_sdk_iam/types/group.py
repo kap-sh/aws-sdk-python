@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.path_type
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     path: "aws_sdk_iam.types.path_type.pathType"
     r"""<p>The path to the group. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>. </p>"""
     group_name: "aws_sdk_iam.types.group_name_type.groupNameType"

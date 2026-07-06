@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListImagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.images
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListImagesResponse(TypedDict):
+class ListImagesResponse(TypedDict, closed=True):
     images: NotRequired["aws_sdk_sagemaker.types.images.Images"]
     """<p>A list of images and their properties.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

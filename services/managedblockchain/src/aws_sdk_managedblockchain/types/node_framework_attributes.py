@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NodeFrameworkAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.node_ethereum_attributes
     import aws_sdk_managedblockchain.types.node_fabric_attributes
 
 
-class NodeFrameworkAttributes(TypedDict):
+class NodeFrameworkAttributes(TypedDict, closed=True):
     fabric: NotRequired[
         "aws_sdk_managedblockchain.types.node_fabric_attributes.NodeFabricAttributes"
     ]

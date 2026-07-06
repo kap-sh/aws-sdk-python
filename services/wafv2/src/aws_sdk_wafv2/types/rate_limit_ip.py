@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateLimitIP``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RateLimitIP(TypedDict):
+class RateLimitIP(TypedDict, closed=True):
     pass
 
 

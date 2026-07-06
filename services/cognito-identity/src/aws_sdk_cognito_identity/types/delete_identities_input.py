@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#DeleteIdentitiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_id_list
 
 
-class DeleteIdentitiesInput(TypedDict):
+class DeleteIdentitiesInput(TypedDict, closed=True):
     identity_ids_to_delete: (
         "aws_sdk_cognito_identity.types.identity_id_list.IdentityIdList"
     )

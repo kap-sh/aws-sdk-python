@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateHubContentPresignedUrlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.authorized_url_configs
     import aws_sdk_sagemaker.types.next_token
 
 
-class CreateHubContentPresignedUrlsResponse(TypedDict):
+class CreateHubContentPresignedUrlsResponse(TypedDict, closed=True):
     authorized_url_configs: NotRequired[
         "aws_sdk_sagemaker.types.authorized_url_configs.AuthorizedUrlConfigs"
     ]

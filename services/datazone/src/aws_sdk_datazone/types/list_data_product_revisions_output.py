@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListDataProductRevisionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListDataProductRevisionsOutput(TypedDict):
+class ListDataProductRevisionsOutput(TypedDict, closed=True):
     items: "aws_sdk_datazone.types.data_product_revisions.DataProductRevisions"
     """<p>The results of the <code>ListDataProductRevisions</code> action.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AWSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.role_arn
 
 
-class AWSConfiguration(TypedDict):
+class AWSConfiguration(TypedDict, closed=True):
     assumable_role_arn: "aws_sdk_devops_agent.types.role_arn.RoleArn"
     """<p>Role ARN to be assumed by AIDevOps to operate on behalf of customer.</p>"""
     account_id: "str"

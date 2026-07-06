@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketBucketVersioningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketBucketVersioningConfiguration(TypedDict):
+class AwsS3BucketBucketVersioningConfiguration(TypedDict, closed=True):
     is_mfa_delete_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Specifies whether MFA delete is currently enabled in the S3 bucket versioning configuration. If the S3 bucket was never configured with MFA delete, then this attribute is not included.</p>"""
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

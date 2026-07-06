@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListAssetFilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.next_token
 
 
-class ListAssetFilesResponse(TypedDict):
+class ListAssetFilesResponse(TypedDict, closed=True):
     items: "aws_sdk_devops_agent.types.asset_file_summary_list.AssetFileSummaryList"
     """<p>The list of asset file summaries</p>"""
     next_token: NotRequired["aws_sdk_devops_agent.types.next_token.NextToken"]

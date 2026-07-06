@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#SubmitTaskStateChangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attachment_state_changes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class SubmitTaskStateChangeRequest(TypedDict):
+class SubmitTaskStateChangeRequest(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the task.</p>"""
     task: NotRequired["aws_sdk_ecs.types.string.String"]

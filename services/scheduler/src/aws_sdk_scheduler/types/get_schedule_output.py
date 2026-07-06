@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#GetScheduleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.action_after_completion
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.target
 
 
-class GetScheduleOutput(TypedDict):
+class GetScheduleOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_scheduler.types.schedule_arn.ScheduleArn"]
     """<p>The Amazon Resource Name (ARN) of the schedule.</p>"""
     group_name: NotRequired[

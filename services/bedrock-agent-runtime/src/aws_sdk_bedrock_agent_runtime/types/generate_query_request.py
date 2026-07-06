@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GenerateQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.transformation_configuration
 
 
-class GenerateQueryRequest(TypedDict):
+class GenerateQueryRequest(TypedDict, closed=True):
     query_generation_input: "aws_sdk_bedrock_agent_runtime.types.query_generation_input.QueryGenerationInput"
     """<p>Specifies information about a natural language query to transform into SQL.</p>"""
     transformation_configuration: "aws_sdk_bedrock_agent_runtime.types.transformation_configuration.TransformationConfiguration"

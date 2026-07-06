@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SensitiveDataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sensitive_data_detections_list
 
 
-class SensitiveDataResult(TypedDict):
+class SensitiveDataResult(TypedDict, closed=True):
     category: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.</p>"""
     detections: NotRequired[

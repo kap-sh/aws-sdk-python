@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribePartnerAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
     import aws_sdk_sagemaker.types.partner_app_arn
 
 
-class DescribePartnerAppRequest(TypedDict):
+class DescribePartnerAppRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.partner_app_arn.PartnerAppArn"]
     """<p>The ARN of the SageMaker Partner AI App to describe.</p>"""
     include_available_upgrade: NotRequired["aws_sdk_sagemaker.types.boolean.Boolean"]

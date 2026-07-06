@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListPipelinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.ascending
     import aws_sdk_elastic_transcoder.types.id
 
 
-class ListPipelinesRequest(TypedDict):
+class ListPipelinesRequest(TypedDict, closed=True):
     ascending: NotRequired["aws_sdk_elastic_transcoder.types.ascending.Ascending"]
     """<p>To list pipelines in chronological order by the date and time that they were created, enter <code>true</code>. To list pipelines in reverse chronological order, enter <code>false</code>.</p>"""
     page_token: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]

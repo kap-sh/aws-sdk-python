@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateConfiguredTableAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_association_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.table_description
 
 
-class UpdateConfiguredTableAssociationInput(TypedDict):
+class UpdateConfiguredTableAssociationInput(TypedDict, closed=True):
     configured_table_association_identifier: "aws_sdk_cleanrooms.types.configured_table_association_identifier.ConfiguredTableAssociationIdentifier"
     """<p>The unique identifier for the configured table association to update. Currently accepts the configured table association ID.</p>"""
     membership_identifier: (

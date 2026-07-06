@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeClusterDbRevisionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DescribeClusterDbRevisionsMessage(TypedDict):
+class DescribeClusterDbRevisionsMessage(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are requesting. This parameter is case sensitive. All clusters defined for an account are returned by default.</p>"""
     max_records: NotRequired["aws_sdk_redshift.types.integer_optional.IntegerOptional"]

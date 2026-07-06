@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RegionDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.desired_number_of_domain_controllers
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.state_last_updated_date_time
 
 
-class RegionDescription(TypedDict):
+class RegionDescription(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_directory_service.types.directory_id.DirectoryId"
     ]

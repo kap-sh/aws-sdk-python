@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListRecordHistoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
     import aws_sdk_service_catalog.types.record_details
 
 
-class ListRecordHistoryOutput(TypedDict):
+class ListRecordHistoryOutput(TypedDict, closed=True):
     record_details: NotRequired[
         "aws_sdk_service_catalog.types.record_details.RecordDetails"
     ]

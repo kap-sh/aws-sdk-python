@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#SelfManagedKafkaAccessConfigurationVpc``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.security_group_ids
     import aws_sdk_pipes.types.subnet_ids
 
 
-class SelfManagedKafkaAccessConfigurationVpc(TypedDict):
+class SelfManagedKafkaAccessConfigurationVpc(TypedDict, closed=True):
     subnets: NotRequired["aws_sdk_pipes.types.subnet_ids.SubnetIds"]
     """<p>Specifies the subnets associated with the stream. These subnets must all be in the same VPC. You can specify as many as 16 subnets.</p>"""
     security_group: NotRequired[

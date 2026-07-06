@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableFieldOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_data_path_option_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_field_option_list
 
 
-class PivotTableFieldOptions(TypedDict):
+class PivotTableFieldOptions(TypedDict, closed=True):
     selected_field_options: NotRequired[
         "aws_sdk_quicksight.types.pivot_table_field_option_list.PivotTableFieldOptionList"
     ]

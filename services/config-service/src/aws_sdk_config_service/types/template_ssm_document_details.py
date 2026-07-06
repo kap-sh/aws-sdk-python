@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#TemplateSSMDocumentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.ssm_document_version
 
 
-class TemplateSSMDocumentDetails(TypedDict):
+class TemplateSSMDocumentDetails(TypedDict, closed=True):
     document_name: "aws_sdk_config_service.types.ssm_document_name.SSMDocumentName"
     """<p>The name or Amazon Resource Name (ARN) of the SSM document to use to create a conformance pack. If you use the document name, Config checks only your account and Amazon Web Services Region for the SSM document.</p>"""
     document_version: NotRequired[

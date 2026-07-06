@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PutExternalModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.tag_list
 
 
-class PutExternalModelRequest(TypedDict):
+class PutExternalModelRequest(TypedDict, closed=True):
     model_endpoint: "aws_sdk_frauddetector.types.sage_maker_endpoint_identifier.sageMakerEndpointIdentifier"
     """<p>The model endpoints name.</p>"""
     model_source: "aws_sdk_frauddetector.types.model_source.ModelSource"

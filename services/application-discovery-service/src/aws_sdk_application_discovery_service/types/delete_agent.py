@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DeleteAgent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.boolean
 
 
-class DeleteAgent(TypedDict):
+class DeleteAgent(TypedDict, closed=True):
     agent_id: "aws_sdk_application_discovery_service.types.agent_id.AgentId"
     """<p> The ID of the agent or data collector to delete. </p>"""
     force: "aws_sdk_application_discovery_service.types.boolean.Boolean"

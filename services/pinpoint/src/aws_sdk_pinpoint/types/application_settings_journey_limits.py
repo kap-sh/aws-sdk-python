@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ApplicationSettingsJourneyLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
     import aws_sdk_pinpoint.types.journey_timeframe_cap
 
 
-class ApplicationSettingsJourneyLimits(TypedDict):
+class ApplicationSettingsJourneyLimits(TypedDict, closed=True):
     daily_cap: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]
     """<p>The daily number of messages that an endpoint can receive from all journeys. The maximum value is 100. If set to 0, this limit will not apply.</p>"""
     timeframe_cap: NotRequired[

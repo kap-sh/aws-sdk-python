@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#StartChildWorkflowExecutionInitiatedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type
 
 
-class StartChildWorkflowExecutionInitiatedEventAttributes(TypedDict):
+class StartChildWorkflowExecutionInitiatedEventAttributes(TypedDict, closed=True):
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"
     """<p>The <code>workflowId</code> of the child workflow execution.</p>"""
     workflow_type: "aws_sdk_swf.types.workflow_type.WorkflowType"

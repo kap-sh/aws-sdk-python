@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#WeightedBalancedSchedulingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.scheduling_error_weight
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.scheduling_submission_time_weight
 
 
-class WeightedBalancedSchedulingConfiguration(TypedDict):
+class WeightedBalancedSchedulingConfiguration(TypedDict, closed=True):
     priority_weight: (
         "aws_sdk_deadline.types.scheduling_priority_weight.SchedulingPriorityWeight"
     )

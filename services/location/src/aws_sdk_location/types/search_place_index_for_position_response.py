@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#SearchPlaceIndexForPositionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.search_place_index_for_position_summary
 
 
-class SearchPlaceIndexForPositionResponse(TypedDict):
+class SearchPlaceIndexForPositionResponse(TypedDict, closed=True):
     summary: "aws_sdk_location.types.search_place_index_for_position_summary.SearchPlaceIndexForPositionSummary"
     """<p>Contains a summary of the request. Echoes the input values for <code>Position</code>, <code>Language</code>, <code>MaxResults</code>, and the <code>DataSource</code> of the place index. </p>"""
     results: "aws_sdk_location.types.search_for_position_result_list.SearchForPositionResultList"

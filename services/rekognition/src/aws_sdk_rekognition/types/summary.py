@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Summary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_object
 
 
-class Summary(TypedDict):
+class Summary(TypedDict, closed=True):
     s3_object: NotRequired["aws_sdk_rekognition.types.s3_object.S3Object"]
 
 

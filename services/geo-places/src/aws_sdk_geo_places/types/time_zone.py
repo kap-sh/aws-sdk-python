@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#TimeZone``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class TimeZone(TypedDict):
+class TimeZone(TypedDict, closed=True):
     name: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The time zone name.</p>"""
     offset: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

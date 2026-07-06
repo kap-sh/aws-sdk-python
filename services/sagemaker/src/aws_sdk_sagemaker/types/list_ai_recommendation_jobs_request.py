@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAIRecommendationJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_job_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListAIRecommendationJobsRequest(TypedDict):
+class ListAIRecommendationJobsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]
     """<p>The maximum number of recommendation jobs to return in the response.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

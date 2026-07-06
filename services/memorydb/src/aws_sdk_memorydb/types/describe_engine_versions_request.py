@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeEngineVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class DescribeEngineVersionsRequest(TypedDict):
+class DescribeEngineVersionsRequest(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the engine for which to list available versions.</p>"""
     engine_version: NotRequired["aws_sdk_memorydb.types.string.String"]

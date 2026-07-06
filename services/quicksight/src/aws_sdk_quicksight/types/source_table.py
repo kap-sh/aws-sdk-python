@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SourceTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_entity_resource_id
     import aws_sdk_quicksight.types.parent_data_set
 
 
-class SourceTable(TypedDict):
+class SourceTable(TypedDict, closed=True):
     physical_table_id: NotRequired[
         "aws_sdk_quicksight.types.data_set_entity_resource_id.DataSetEntityResourceId"
     ]

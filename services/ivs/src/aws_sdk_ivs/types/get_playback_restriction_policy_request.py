@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetPlaybackRestrictionPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.playback_restriction_policy_arn
 
 
-class GetPlaybackRestrictionPolicyRequest(TypedDict):
+class GetPlaybackRestrictionPolicyRequest(TypedDict, closed=True):
     arn: (
         "aws_sdk_ivs.types.playback_restriction_policy_arn.PlaybackRestrictionPolicyArn"
     )

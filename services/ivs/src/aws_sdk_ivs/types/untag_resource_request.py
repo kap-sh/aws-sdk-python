@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.resource_arn
     import aws_sdk_ivs.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_ivs.types.resource_arn.ResourceArn"
     """<p>ARN of the resource for which tags are to be removed. The ARN must be URL-encoded.</p>"""
     tag_keys: "aws_sdk_ivs.types.tag_key_list.TagKeyList"

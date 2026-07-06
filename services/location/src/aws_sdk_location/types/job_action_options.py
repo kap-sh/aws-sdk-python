@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#JobActionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.validate_address_action_options
 
 
-class JobActionOptions(TypedDict):
+class JobActionOptions(TypedDict, closed=True):
     validate_address: NotRequired[
         "aws_sdk_location.types.validate_address_action_options.ValidateAddressActionOptions"
     ]

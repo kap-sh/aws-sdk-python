@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#BlockedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class BlockedException_(TypedDict):
+class BlockedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p> Message that describes the cause of the exception.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#AssociateTagOptionWithResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateTagOptionWithResourceOutput(TypedDict):
+class AssociateTagOptionWithResourceOutput(TypedDict, closed=True):
     pass
 
 

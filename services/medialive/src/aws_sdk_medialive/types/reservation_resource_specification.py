@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ReservationResourceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.channel_class
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.reservation_video_quality
 
 
-class ReservationResourceSpecification(TypedDict):
+class ReservationResourceSpecification(TypedDict, closed=True):
     channel_class: NotRequired["aws_sdk_medialive.types.channel_class.ChannelClass"]
     """Channel class, e.g. 'STANDARD'"""
     codec: NotRequired["aws_sdk_medialive.types.reservation_codec.ReservationCodec"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.pagination_token
 
 
-class ListEventsOutput(TypedDict):
+class ListEventsOutput(TypedDict, closed=True):
     events: "aws_sdk_bedrock_agentcore.types.event_list.EventList"
     """<p>The list of events that match the specified criteria.</p>"""
     next_token: NotRequired[

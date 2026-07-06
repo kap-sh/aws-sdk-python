@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_version_status
 
 
-class PackageVersionSummary(TypedDict):
+class PackageVersionSummary(TypedDict, closed=True):
     version: "aws_sdk_codeartifact.types.package_version.PackageVersion"
     """<p> Information about a package version. </p>"""
     revision: NotRequired[

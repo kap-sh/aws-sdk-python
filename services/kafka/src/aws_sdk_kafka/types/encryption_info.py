@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#EncryptionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.encryption_at_rest
     import aws_sdk_kafka.types.encryption_in_transit
 
 
-class EncryptionInfo(TypedDict):
+class EncryptionInfo(TypedDict, closed=True):
     encryption_at_rest: NotRequired[
         "aws_sdk_kafka.types.encryption_at_rest.EncryptionAtRest"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetAccessControlEffectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.access_control_rule_effect
     import aws_sdk_workmail.types.access_control_rule_name_list
 
 
-class GetAccessControlEffectResponse(TypedDict):
+class GetAccessControlEffectResponse(TypedDict, closed=True):
     effect: NotRequired[
         "aws_sdk_workmail.types.access_control_rule_effect.AccessControlRuleEffect"
     ]

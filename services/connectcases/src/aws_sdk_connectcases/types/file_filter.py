@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FileFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.file_arn
 
 
-class FileFilter(TypedDict):
+class FileFilter(TypedDict, closed=True):
     file_arn: NotRequired["aws_sdk_connectcases.types.file_arn.FileArn"]
     """<p>The Amazon Resource Name (ARN) of the file.</p>"""
 

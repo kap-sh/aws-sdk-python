@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#SubscribeToShardInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_id
 
 
-class SubscribeToShardInput(TypedDict):
+class SubscribeToShardInput(TypedDict, closed=True):
     consumer_arn: "aws_sdk_kinesis.types.consumer_arn.ConsumerARN"
     """<p>For this parameter, use the value you obtained when you called <a>RegisterStreamConsumer</a>.</p>"""
     stream_id: NotRequired["aws_sdk_kinesis.types.stream_id.StreamId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#StartTimerDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.timer_id
 
 
-class StartTimerDecisionAttributes(TypedDict):
+class StartTimerDecisionAttributes(TypedDict, closed=True):
     timer_id: "aws_sdk_swf.types.timer_id.TimerId"
     r"""<p> The unique ID of the timer.</p> <p>The specified string must not contain a <code>:</code> (colon), <code>/</code> (slash), <code>|</code> (vertical bar), or any control characters (<code>\u0000-\u001f</code> | <code>\u007f-\u009f</code>). Also, it must <i>not</i> be the literal string <code>arn</code>.</p>"""
     control: NotRequired["aws_sdk_swf.types.data.Data"]

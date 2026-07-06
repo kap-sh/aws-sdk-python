@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#ListRepositoryLinksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.max_results
     import aws_sdk_codestar_connections.types.sharp_next_token
 
 
-class ListRepositoryLinksInput(TypedDict):
+class ListRepositoryLinksInput(TypedDict, closed=True):
     max_results: "aws_sdk_codestar_connections.types.max_results.MaxResults"
     """<p> A non-zero, non-negative integer used to limit the number of returned results.</p>"""
     next_token: NotRequired[

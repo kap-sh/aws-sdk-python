@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#SetIdentityPoolConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.cognito_streams
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.push_sync
 
 
-class SetIdentityPoolConfigurationRequest(TypedDict):
+class SetIdentityPoolConfigurationRequest(TypedDict, closed=True):
     identity_pool_id: "aws_sdk_cognito_sync.types.identity_pool_id.IdentityPoolId"
     """<p>A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. This is the ID of the pool to modify.</p>"""
     push_sync: NotRequired["aws_sdk_cognito_sync.types.push_sync.PushSync"]

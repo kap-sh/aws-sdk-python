@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ImageResourceAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.association_state
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class ImageResourceAssociation(TypedDict):
+class ImageResourceAssociation(TypedDict, closed=True):
     associated_resource_id: NotRequired[
         "aws_sdk_workspaces.types.non_empty_string.NonEmptyString"
     ]

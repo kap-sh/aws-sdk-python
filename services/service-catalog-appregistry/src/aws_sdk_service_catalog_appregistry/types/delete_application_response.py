@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#DeleteApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.application_summary
 
 
-class DeleteApplicationResponse(TypedDict):
+class DeleteApplicationResponse(TypedDict, closed=True):
     application: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.application_summary.ApplicationSummary"
     ]

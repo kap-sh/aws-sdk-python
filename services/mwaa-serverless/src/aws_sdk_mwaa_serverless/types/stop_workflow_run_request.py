@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#StopWorkflowRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.id_string
     import aws_sdk_mwaa_serverless.types.workflow_arn
 
 
-class StopWorkflowRunRequest(TypedDict):
+class StopWorkflowRunRequest(TypedDict, closed=True):
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"
     """<p>The Amazon Resource Name (ARN) of the workflow that contains the run you want to stop.</p>"""
     run_id: "aws_sdk_mwaa_serverless.types.id_string.IdString"

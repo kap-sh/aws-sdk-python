@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#LifecycleExpiration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.expired_object_delete_marker
 
 
-class LifecycleExpiration(TypedDict):
+class LifecycleExpiration(TypedDict, closed=True):
     date: NotRequired["aws_sdk_s3.types.date.Date"]
     """<p>Indicates at what date the object is to be moved or deleted. The date value must conform to the ISO 8601 format. The time is always midnight UTC.</p> <note> <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p> </note>"""
     days: NotRequired["aws_sdk_s3.types.days.Days"]

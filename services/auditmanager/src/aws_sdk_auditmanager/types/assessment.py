@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Assessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_framework
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.tag_map
 
 
-class Assessment(TypedDict):
+class Assessment(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn"]
     """<p> The Amazon Resource Name (ARN) of the assessment. </p>"""
     aws_account: NotRequired["aws_sdk_auditmanager.types.aws_account.AWSAccount"]

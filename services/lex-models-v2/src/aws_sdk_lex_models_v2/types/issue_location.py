@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IssueLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.locale_id
 
 
-class IssueLocation(TypedDict):
+class IssueLocation(TypedDict, closed=True):
     bot_locale: NotRequired["aws_sdk_lex_models_v2.types.locale_id.LocaleId"]
     """<p>The locale identifier where the issue was found.</p>"""
     intent_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]

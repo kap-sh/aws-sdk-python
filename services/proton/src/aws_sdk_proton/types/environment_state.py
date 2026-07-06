@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#EnvironmentState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_part
 
 
-class EnvironmentState(TypedDict):
+class EnvironmentState(TypedDict, closed=True):
     spec: NotRequired["aws_sdk_proton.types.spec_contents.SpecContents"]
     """<p>The environment spec that was used to create the environment.</p>"""
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"

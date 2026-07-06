@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateTriggerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.trigger_update
 
 
-class UpdateTriggerRequest(TypedDict):
+class UpdateTriggerRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the trigger to update.</p>"""
     trigger_update: "aws_sdk_glue.types.trigger_update.TriggerUpdate"

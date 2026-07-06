@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OpenZFSOriginSnapshotConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.open_zfs_copy_strategy
     import aws_sdk_fsx.types.resource_arn
 
 
-class OpenZFSOriginSnapshotConfiguration(TypedDict):
+class OpenZFSOriginSnapshotConfiguration(TypedDict, closed=True):
     snapshot_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     copy_strategy: NotRequired[
         "aws_sdk_fsx.types.open_zfs_copy_strategy.OpenZFSCopyStrategy"

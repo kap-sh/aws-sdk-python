@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListEnvironmentProfilesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class ListEnvironmentProfilesInput(TypedDict):
+class ListEnvironmentProfilesInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain.</p>"""
     aws_account_id: NotRequired["aws_sdk_datazone.types.aws_account_id.AwsAccountId"]

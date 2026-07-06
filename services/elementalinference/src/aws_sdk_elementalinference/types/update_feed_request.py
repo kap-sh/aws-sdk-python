@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#UpdateFeedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.update_output_list
 
 
-class UpdateFeedRequest(TypedDict):
+class UpdateFeedRequest(TypedDict, closed=True):
     name: "aws_sdk_elementalinference.types.resource_name.ResourceName"
     """<p>Required. You can specify the existing name (to leave it unchanged) or a new name. </p>"""
     id: "aws_sdk_elementalinference.types.feed_id.FeedId"

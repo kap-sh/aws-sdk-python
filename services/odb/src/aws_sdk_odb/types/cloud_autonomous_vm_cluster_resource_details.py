@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CloudAutonomousVmClusterResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id
 
 
-class CloudAutonomousVmClusterResourceDetails(TypedDict):
+class CloudAutonomousVmClusterResourceDetails(TypedDict, closed=True):
     cloud_autonomous_vm_cluster_id: NotRequired[
         "aws_sdk_odb.types.resource_id.ResourceId"
     ]

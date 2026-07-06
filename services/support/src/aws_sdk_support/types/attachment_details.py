@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#AttachmentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.attachment_id
     import aws_sdk_support.types.file_name
 
 
-class AttachmentDetails(TypedDict):
+class AttachmentDetails(TypedDict, closed=True):
     attachment_id: NotRequired["aws_sdk_support.types.attachment_id.AttachmentId"]
     """<p>The ID of the attachment.</p>"""
     file_name: NotRequired["aws_sdk_support.types.file_name.FileName"]

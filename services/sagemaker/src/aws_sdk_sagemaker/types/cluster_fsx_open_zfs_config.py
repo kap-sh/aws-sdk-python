@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterFsxOpenZfsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_fsx_mount_path
 
 
-class ClusterFsxOpenZfsConfig(TypedDict):
+class ClusterFsxOpenZfsConfig(TypedDict, closed=True):
     dns_name: "aws_sdk_sagemaker.types.cluster_dns_name.ClusterDnsName"
     """<p>The DNS name of the Amazon FSx for OpenZFS file system.</p>"""
     mount_path: NotRequired[

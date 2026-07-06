@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketCountBySharedAccessType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class BucketCountBySharedAccessType(TypedDict):
+class BucketCountBySharedAccessType(TypedDict, closed=True):
     external: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total number of buckets that are shared with one or more of the following or any combination of the following: an Amazon CloudFront OAI, a CloudFront OAC, or an Amazon Web Services account that isn't in the same Amazon Macie organization.</p>"""
     internal: NotRequired["aws_sdk_macie2.types.__long.__long"]

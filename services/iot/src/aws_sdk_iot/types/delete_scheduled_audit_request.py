@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteScheduledAuditRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.scheduled_audit_name
 
 
-class DeleteScheduledAuditRequest(TypedDict):
+class DeleteScheduledAuditRequest(TypedDict, closed=True):
     scheduled_audit_name: "aws_sdk_iot.types.scheduled_audit_name.ScheduledAuditName"
     """<p>The name of the scheduled audit you want to delete.</p>"""
 

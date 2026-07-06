@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CompositedVideoArtifactsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.resolution_option
 
 
-class CompositedVideoArtifactsConfiguration(TypedDict):
+class CompositedVideoArtifactsConfiguration(TypedDict, closed=True):
     layout: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.layout_option.LayoutOption"
     ]

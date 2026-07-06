@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteUserHierarchyGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_group_id
     import aws_sdk_connect.types.instance_id
 
 
-class DeleteUserHierarchyGroupRequest(TypedDict):
+class DeleteUserHierarchyGroupRequest(TypedDict, closed=True):
     hierarchy_group_id: "aws_sdk_connect.types.hierarchy_group_id.HierarchyGroupId"
     """<p>The identifier of the hierarchy group.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

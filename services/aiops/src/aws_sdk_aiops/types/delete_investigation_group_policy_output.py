@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#DeleteInvestigationGroupPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteInvestigationGroupPolicyOutput(TypedDict):
+class DeleteInvestigationGroupPolicyOutput(TypedDict, closed=True):
     pass
 
 

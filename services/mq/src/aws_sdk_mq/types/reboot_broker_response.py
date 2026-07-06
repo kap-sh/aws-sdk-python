@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mq#RebootBrokerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RebootBrokerResponse(TypedDict):
+class RebootBrokerResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdatePullRequestApprovalRuleContentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rule
 
 
-class UpdatePullRequestApprovalRuleContentOutput(TypedDict):
+class UpdatePullRequestApprovalRuleContentOutput(TypedDict, closed=True):
     approval_rule: "aws_sdk_codecommit.types.approval_rule.ApprovalRule"
     """<p>Information about the updated approval rule.</p>"""
 

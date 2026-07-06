@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#S3BucketAclGrantConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.acl_permission
 
 
-class S3BucketAclGrantConfiguration(TypedDict):
+class S3BucketAclGrantConfiguration(TypedDict, closed=True):
     permission: "aws_sdk_accessanalyzer.types.acl_permission.AclPermission"
     """<p>The permissions being granted.</p>"""
     grantee: "aws_sdk_accessanalyzer.types.acl_grantee.AclGrantee"

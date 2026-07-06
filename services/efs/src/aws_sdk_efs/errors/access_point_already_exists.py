@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#AccessPointAlreadyExists``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.error_message
 
 
-class AccessPointAlreadyExists_(TypedDict):
+class AccessPointAlreadyExists_(TypedDict, closed=True):
     error_code: "aws_sdk_efs.types.error_code.ErrorCode"
     message: NotRequired["aws_sdk_efs.types.error_message.ErrorMessage"]
     access_point_id: "aws_sdk_efs.types.access_point_id.AccessPointId"

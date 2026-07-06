@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_node_output_name
 
 
-class FlowNodeOutput(TypedDict):
+class FlowNodeOutput(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agent.types.flow_node_output_name.FlowNodeOutputName"
     """<p>A name for the output that you can reference.</p>"""
     type: "aws_sdk_bedrock_agent.types.flow_node_io_data_type.FlowNodeIODataType"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Volume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.host_path
     import aws_sdk_guardduty.types.string
 
 
-class Volume(TypedDict):
+class Volume(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Volume name.</p>"""
     host_path: NotRequired["aws_sdk_guardduty.types.host_path.HostPath"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CreateManagedInstancesProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class CreateManagedInstancesProviderConfiguration(TypedDict):
+class CreateManagedInstancesProviderConfiguration(TypedDict, closed=True):
     infrastructure_role_arn: "aws_sdk_ecs.types.string.String"
     r"""<p>The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS uses to manage instances on your behalf. This role must have permissions to launch, terminate, and manage Amazon EC2 instances, as well as access to other Amazon Web Services services required for Amazon ECS Managed Instances functionality.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html\">Amazon ECS infrastructure IAM role</a> in the <i>Amazon ECS Developer Guide</i>. </p>"""
     instance_launch_template: (

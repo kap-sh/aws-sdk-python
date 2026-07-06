@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#VectorOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.serverless_vector_acceleration_status
 
 
-class VectorOptions(TypedDict):
+class VectorOptions(TypedDict, closed=True):
     serverless_vector_acceleration: "aws_sdk_opensearchserverless.types.serverless_vector_acceleration_status.ServerlessVectorAccelerationStatus"
     """<p>Specifies whether serverless vector acceleration is enabled for the collection.</p>"""
 

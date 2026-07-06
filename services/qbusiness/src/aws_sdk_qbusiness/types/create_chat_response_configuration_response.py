@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateChatResponseConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.chat_response_configuration_id
 
 
-class CreateChatResponseConfigurationResponse(TypedDict):
+class CreateChatResponseConfigurationResponse(TypedDict, closed=True):
     chat_response_configuration_id: "aws_sdk_qbusiness.types.chat_response_configuration_id.ChatResponseConfigurationId"
     """<p>The unique identifier assigned to a newly created chat response configuration, used for subsequent operations on this resource.</p>"""
     chat_response_configuration_arn: "aws_sdk_qbusiness.types.chat_response_configuration_arn.ChatResponseConfigurationArn"

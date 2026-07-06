@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#GetExecutionHistoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.page_token
 
 
-class GetExecutionHistoryOutput(TypedDict):
+class GetExecutionHistoryOutput(TypedDict, closed=True):
     events: "aws_sdk_sfn.types.history_event_list.HistoryEventList"
     """<p>The list of events that occurred in the execution.</p>"""
     next_token: NotRequired["aws_sdk_sfn.types.page_token.PageToken"]

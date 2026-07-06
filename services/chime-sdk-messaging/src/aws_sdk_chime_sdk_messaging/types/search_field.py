@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#SearchField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.search_field_values
 
 
-class SearchField(TypedDict):
+class SearchField(TypedDict, closed=True):
     key: "aws_sdk_chime_sdk_messaging.types.search_field_key.SearchFieldKey"
     """<p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code> operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code> operator to get channels whose memberships include the specified values.</p>"""
     values: "aws_sdk_chime_sdk_messaging.types.search_field_values.SearchFieldValues"

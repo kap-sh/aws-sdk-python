@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#InitiateMultipartUploadOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class InitiateMultipartUploadOutput(TypedDict):
+class InitiateMultipartUploadOutput(TypedDict, closed=True):
     location: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The relative URI path of the multipart upload ID Amazon Glacier created.</p>"""
     upload_id: NotRequired["aws_sdk_glacier.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#InternalStreamFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_sagemaker_runtime.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.message
 
 
-class InternalStreamFailure_(TypedDict):
+class InternalStreamFailure_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sagemaker_runtime.types.message.Message"]
 
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GremlinQueryStatusAttributes``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GremlinQueryStatusAttributes(TypedDict):
+class GremlinQueryStatusAttributes(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The status message.</p>"""
     code: NotRequired["int"]

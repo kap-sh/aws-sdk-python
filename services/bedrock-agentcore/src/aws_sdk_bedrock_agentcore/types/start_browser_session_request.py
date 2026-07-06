@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StartBrowserSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_enterprise_policies
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.view_port
 
 
-class StartBrowserSessionRequest(TypedDict):
+class StartBrowserSessionRequest(TypedDict, closed=True):
     trace_id: NotRequired["str"]
     """<p>The trace identifier for request tracking.</p>"""
     trace_parent: NotRequired["str"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BilledResourceUtilization``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class BilledResourceUtilization(TypedDict):
+class BilledResourceUtilization(TypedDict, closed=True):
     units: "float"
     """<p> The number of Clean Rooms Processing Unit (CRPU) hours that have been billed.</p>"""
 

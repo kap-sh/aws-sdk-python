@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CompleteMultipartUploadOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.ssekms_key_id
 
 
-class CompleteMultipartUploadOutput(TypedDict):
+class CompleteMultipartUploadOutput(TypedDict, closed=True):
     location: NotRequired["aws_sdk_s3.types.location.Location"]
     """<p>The URI that identifies the newly created object.</p>"""
     bucket: NotRequired["aws_sdk_s3.types.bucket_name.BucketName"]

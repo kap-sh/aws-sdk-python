@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#StartProtectedJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_job
 
 
-class StartProtectedJobOutput(TypedDict):
+class StartProtectedJobOutput(TypedDict, closed=True):
     protected_job: "aws_sdk_cleanrooms.types.protected_job.ProtectedJob"
     """<p> The protected job.</p>"""
 

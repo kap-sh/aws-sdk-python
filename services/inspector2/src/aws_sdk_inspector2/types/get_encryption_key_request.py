@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetEncryptionKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.resource_type
     import aws_sdk_inspector2.types.scan_type
 
 
-class GetEncryptionKeyRequest(TypedDict):
+class GetEncryptionKeyRequest(TypedDict, closed=True):
     scan_type: "aws_sdk_inspector2.types.scan_type.ScanType"
     """<p>The scan type the key encrypts.</p>"""
     resource_type: "aws_sdk_inspector2.types.resource_type.ResourceType"

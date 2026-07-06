@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#TransferInputDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class TransferInputDeviceRequest(TypedDict):
+class TransferInputDeviceRequest(TypedDict, closed=True):
     input_device_id: "aws_sdk_medialive.types.__string.__string"
     """The unique ID of this input device. For example, hd-123456789abcdef."""
     target_customer_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

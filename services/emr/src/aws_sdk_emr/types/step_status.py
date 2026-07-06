@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.failure_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.step_timeline
 
 
-class StepStatus(TypedDict):
+class StepStatus(TypedDict, closed=True):
     state: NotRequired["aws_sdk_emr.types.step_state.StepState"]
     """<p>The execution state of the cluster step.</p>"""
     state_change_reason: NotRequired[

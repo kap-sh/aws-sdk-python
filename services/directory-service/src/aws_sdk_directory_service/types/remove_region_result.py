@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RemoveRegionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveRegionResult(TypedDict):
+class RemoveRegionResult(TypedDict, closed=True):
     pass
 
 

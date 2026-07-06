@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PutBlockPublicAccessConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.block_public_access_configuration
 
 
-class PutBlockPublicAccessConfigurationInput(TypedDict):
+class PutBlockPublicAccessConfigurationInput(TypedDict, closed=True):
     block_public_access_configuration: NotRequired[
         "aws_sdk_emr.types.block_public_access_configuration.BlockPublicAccessConfiguration"
     ]

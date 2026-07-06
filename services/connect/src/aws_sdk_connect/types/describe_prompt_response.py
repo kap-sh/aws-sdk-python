@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribePromptResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.prompt
 
 
-class DescribePromptResponse(TypedDict):
+class DescribePromptResponse(TypedDict, closed=True):
     prompt: NotRequired["aws_sdk_connect.types.prompt.Prompt"]
     """<p>Information about the prompt.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.index_arn
     import aws_sdk_qbusiness.types.index_id
 
 
-class CreateIndexResponse(TypedDict):
+class CreateIndexResponse(TypedDict, closed=True):
     index_id: NotRequired["aws_sdk_qbusiness.types.index_id.IndexId"]
     """<p>The identifier for the Amazon Q Business index.</p>"""
     index_arn: NotRequired["aws_sdk_qbusiness.types.index_arn.IndexArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#PayloadPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.part_body
 
 
-class PayloadPart(TypedDict):
+class PayloadPart(TypedDict, closed=True):
     bytes: NotRequired["aws_sdk_bedrock_agent_runtime.types.part_body.PartBody"]
     """<p>A part of the agent response in bytes.</p>"""
     attribution: NotRequired[

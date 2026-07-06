@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#DescribeSavingsPlansOfferingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.pagination_token
     import aws_sdk_savingsplans.types.savings_plan_offerings_list
 
 
-class DescribeSavingsPlansOfferingsResponse(TypedDict):
+class DescribeSavingsPlansOfferingsResponse(TypedDict, closed=True):
     search_results: NotRequired[
         "aws_sdk_savingsplans.types.savings_plan_offerings_list.SavingsPlanOfferingsList"
     ]

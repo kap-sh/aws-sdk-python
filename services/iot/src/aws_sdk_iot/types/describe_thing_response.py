@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeThingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.attributes
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version
 
 
-class DescribeThingResponse(TypedDict):
+class DescribeThingResponse(TypedDict, closed=True):
     default_client_id: NotRequired["aws_sdk_iot.types.client_id.ClientId"]
     """<p>The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.</p> <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>"""
     thing_name: NotRequired["aws_sdk_iot.types.thing_name.ThingName"]

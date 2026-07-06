@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#ListInputRoutingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.next_token
     import aws_sdk_iot_events.types.routed_resources
 
 
-class ListInputRoutingsResponse(TypedDict):
+class ListInputRoutingsResponse(TypedDict, closed=True):
     routed_resources: NotRequired[
         "aws_sdk_iot_events.types.routed_resources.RoutedResources"
     ]

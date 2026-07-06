@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListResourceSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_token
     import aws_sdk_fms.types.resource_set_summary_list
 
 
-class ListResourceSetsResponse(TypedDict):
+class ListResourceSetsResponse(TypedDict, closed=True):
     resource_sets: NotRequired[
         "aws_sdk_fms.types.resource_set_summary_list.ResourceSetSummaryList"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#GetHypervisorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.hypervisor_details
 
 
-class GetHypervisorOutput(TypedDict):
+class GetHypervisorOutput(TypedDict, closed=True):
     hypervisor: NotRequired[
         "aws_sdk_backup_gateway.types.hypervisor_details.HypervisorDetails"
     ]

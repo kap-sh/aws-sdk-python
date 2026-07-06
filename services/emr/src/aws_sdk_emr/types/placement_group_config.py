@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PlacementGroupConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_role_type
     import aws_sdk_emr.types.placement_group_strategy
 
 
-class PlacementGroupConfig(TypedDict):
+class PlacementGroupConfig(TypedDict, closed=True):
     instance_role: NotRequired["aws_sdk_emr.types.instance_role_type.InstanceRoleType"]
     """<p>Role of the instance in the cluster.</p> <p>Starting with Amazon EMR release 5.23.0, the only supported instance role is <code>MASTER</code>.</p>"""
     placement_strategy: NotRequired[

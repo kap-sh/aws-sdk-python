@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeTopicRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.topic_id
 
 
-class DescribeTopicRequest(TypedDict):
+class DescribeTopicRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account ID.</p>"""
     topic_id: "aws_sdk_quicksight.types.topic_id.TopicId"

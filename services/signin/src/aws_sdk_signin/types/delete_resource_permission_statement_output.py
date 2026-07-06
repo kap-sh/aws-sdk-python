@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.signin#DeleteResourcePermissionStatementOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteResourcePermissionStatementOutput(TypedDict):
+class DeleteResourcePermissionStatementOutput(TypedDict, closed=True):
     pass
 
 

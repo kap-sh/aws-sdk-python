@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#FindMatchesTaskRunProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
     import aws_sdk_glue.types.name_string
 
 
-class FindMatchesTaskRunProperties(TypedDict):
+class FindMatchesTaskRunProperties(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The job ID for the Find Matches task run.</p>"""
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

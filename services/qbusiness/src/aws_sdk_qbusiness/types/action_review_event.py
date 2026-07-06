@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionReviewEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.plugin_type
 
 
-class ActionReviewEvent(TypedDict):
+class ActionReviewEvent(TypedDict, closed=True):
     conversation_id: NotRequired[
         "aws_sdk_qbusiness.types.conversation_id.ConversationId"
     ]

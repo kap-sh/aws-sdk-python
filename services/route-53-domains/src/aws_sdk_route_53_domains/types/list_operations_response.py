@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_summary_list
     import aws_sdk_route_53_domains.types.page_marker
 
 
-class ListOperationsResponse(TypedDict):
+class ListOperationsResponse(TypedDict, closed=True):
     operations: NotRequired[
         "aws_sdk_route_53_domains.types.operation_summary_list.OperationSummaryList"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#DeleteSolNetworkInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.ns_instance_id
 
 
-class DeleteSolNetworkInstanceInput(TypedDict):
+class DeleteSolNetworkInstanceInput(TypedDict, closed=True):
     ns_instance_id: "aws_sdk_tnb.types.ns_instance_id.NsInstanceId"
     """<p>Network instance ID.</p>"""
 

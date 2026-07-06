@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#LifecycleRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.transition_list
 
 
-class LifecycleRule(TypedDict):
+class LifecycleRule(TypedDict, closed=True):
     expiration: NotRequired["aws_sdk_s3.types.lifecycle_expiration.LifecycleExpiration"]
     """<p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>"""
     id: NotRequired["aws_sdk_s3.types.id.ID"]

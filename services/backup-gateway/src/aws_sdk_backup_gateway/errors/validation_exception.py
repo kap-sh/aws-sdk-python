@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup_gateway.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.string
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_backup_gateway.types.string.string"]
     """<p>A description of what caused the validation error.</p>"""
     message: NotRequired["aws_sdk_backup_gateway.types.string.string"]

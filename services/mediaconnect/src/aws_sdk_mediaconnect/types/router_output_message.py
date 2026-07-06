@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterOutputMessage``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
 
-class RouterOutputMessage(TypedDict):
+class RouterOutputMessage(TypedDict, closed=True):
     code: "str"
     """<p>The code associated with the router output message.</p>"""
     message: "str"

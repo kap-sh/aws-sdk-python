@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ResultField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.field
     import aws_sdk_cloudwatch_logs.types.value
 
 
-class ResultField(TypedDict):
+class ResultField(TypedDict, closed=True):
     field: NotRequired["aws_sdk_cloudwatch_logs.types.field.Field"]
     """<p>The log event field.</p>"""
     value: NotRequired["aws_sdk_cloudwatch_logs.types.value.Value"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteKeyPairRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.key_pair_name_with_resolver
 
 
-class DeleteKeyPairRequest(TypedDict):
+class DeleteKeyPairRequest(TypedDict, closed=True):
     key_name: NotRequired[
         "aws_sdk_ec2.types.key_pair_name_with_resolver.KeyPairNameWithResolver"
     ]

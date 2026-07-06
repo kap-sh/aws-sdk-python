@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#TagCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tag_value
 
 
-class TagCondition(TypedDict):
+class TagCondition(TypedDict, closed=True):
     key: "aws_sdk_qconnect.types.tag_key.TagKey"
     """<p>The tag key in the tag condition.</p>"""
     value: NotRequired["aws_sdk_qconnect.types.tag_value.TagValue"]

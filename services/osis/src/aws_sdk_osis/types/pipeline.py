@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#Pipeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.buffer_options
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.vpc_endpoints_list
 
 
-class Pipeline(TypedDict):
+class Pipeline(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_osis.types.string.String"]
     """<p>The name of the pipeline.</p>"""
     pipeline_arn: NotRequired["aws_sdk_osis.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#SharedDirectory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.created_date_time
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.share_status
 
 
-class SharedDirectory(TypedDict):
+class SharedDirectory(TypedDict, closed=True):
     owner_account_id: NotRequired[
         "aws_sdk_directory_service.types.customer_id.CustomerId"
     ]

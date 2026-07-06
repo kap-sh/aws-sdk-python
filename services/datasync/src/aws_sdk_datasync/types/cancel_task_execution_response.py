@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CancelTaskExecutionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelTaskExecutionResponse(TypedDict):
+class CancelTaskExecutionResponse(TypedDict, closed=True):
     pass
 
 

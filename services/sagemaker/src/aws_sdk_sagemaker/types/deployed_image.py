@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeployedImage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.container_image
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DeployedImage(TypedDict):
+class DeployedImage(TypedDict, closed=True):
     specified_image: NotRequired[
         "aws_sdk_sagemaker.types.container_image.ContainerImage"
     ]

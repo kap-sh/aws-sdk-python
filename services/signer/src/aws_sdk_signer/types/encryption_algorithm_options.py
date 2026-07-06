@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#EncryptionAlgorithmOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.encryption_algorithms
 
 
-class EncryptionAlgorithmOptions(TypedDict):
+class EncryptionAlgorithmOptions(TypedDict, closed=True):
     allowed_values: "aws_sdk_signer.types.encryption_algorithms.EncryptionAlgorithms"
     """<p>The set of accepted encryption algorithms that are allowed in a code-signing job.</p>"""
     default_value: "aws_sdk_signer.types.encryption_algorithm.EncryptionAlgorithm"

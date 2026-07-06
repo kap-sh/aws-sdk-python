@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CancelPolicyGenerationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelPolicyGenerationResponse(TypedDict):
+class CancelPolicyGenerationResponse(TypedDict, closed=True):
     pass
 
 

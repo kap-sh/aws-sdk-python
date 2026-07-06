@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeLocationNfsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class DescribeLocationNfsResponse(TypedDict):
+class DescribeLocationNfsResponse(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>The ARN of the NFS location.</p>"""
     location_uri: NotRequired["aws_sdk_datasync.types.location_uri.LocationUri"]

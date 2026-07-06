@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeManagedJobTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.managed_job_template_name
     import aws_sdk_iot.types.managed_template_version
 
 
-class DescribeManagedJobTemplateRequest(TypedDict):
+class DescribeManagedJobTemplateRequest(TypedDict, closed=True):
     template_name: "aws_sdk_iot.types.managed_job_template_name.ManagedJobTemplateName"
     """<p>The unique name of a managed job template, which is required.</p>"""
     template_version: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutComplianceItemsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutComplianceItemsResult(TypedDict):
+class PutComplianceItemsResult(TypedDict, closed=True):
     pass
 
 

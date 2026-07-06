@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ListConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.connection_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.next_token
 
 
-class ListConnectionsRequest(TypedDict):
+class ListConnectionsRequest(TypedDict, closed=True):
     name_prefix: NotRequired[
         "aws_sdk_cloudwatch_events.types.connection_name.ConnectionName"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ElasticsearchVersionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.option_status
 
 
-class ElasticsearchVersionStatus(TypedDict):
+class ElasticsearchVersionStatus(TypedDict, closed=True):
     options: "aws_sdk_elasticsearch_service.types.elasticsearch_version_string.ElasticsearchVersionString"
     """<p> Specifies the Elasticsearch version for the specified Elasticsearch domain.</p>"""
     status: "aws_sdk_elasticsearch_service.types.option_status.OptionStatus"

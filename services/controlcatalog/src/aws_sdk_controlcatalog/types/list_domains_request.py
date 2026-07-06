@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.max_list_domains_results
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListDomainsRequest(TypedDict):
+class ListDomainsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_controlcatalog.types.max_list_domains_results.MaxListDomainsResults"
     ]

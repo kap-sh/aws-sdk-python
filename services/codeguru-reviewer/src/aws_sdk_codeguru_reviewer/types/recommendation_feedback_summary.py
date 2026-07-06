@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RecommendationFeedbackSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.reactions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.user_id
 
 
-class RecommendationFeedbackSummary(TypedDict):
+class RecommendationFeedbackSummary(TypedDict, closed=True):
     recommendation_id: NotRequired[
         "aws_sdk_codeguru_reviewer.types.recommendation_id.RecommendationId"
     ]

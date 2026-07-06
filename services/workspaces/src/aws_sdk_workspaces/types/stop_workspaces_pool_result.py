@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StopWorkspacesPoolResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopWorkspacesPoolResult(TypedDict):
+class StopWorkspacesPoolResult(TypedDict, closed=True):
     pass
 
 

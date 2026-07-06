@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DeleteBackupSelectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class DeleteBackupSelectionInput(TypedDict):
+class DeleteBackupSelectionInput(TypedDict, closed=True):
     backup_plan_id: "aws_sdk_backup.types.string.string"
     """<p>Uniquely identifies a backup plan.</p>"""
     selection_id: "aws_sdk_backup.types.string.string"

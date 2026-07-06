@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyTransitGatewayPrefixListReferenceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_prefix_list_reference
 
 
-class ModifyTransitGatewayPrefixListReferenceResult(TypedDict):
+class ModifyTransitGatewayPrefixListReferenceResult(TypedDict, closed=True):
     transit_gateway_prefix_list_reference: NotRequired[
         "aws_sdk_ec2.types.transit_gateway_prefix_list_reference.TransitGatewayPrefixListReference"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BookmarksConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class BookmarksConfigurations(TypedDict):
+class BookmarksConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean value that determines whether a user can bookmark an embedded dashboard.</p>"""
 

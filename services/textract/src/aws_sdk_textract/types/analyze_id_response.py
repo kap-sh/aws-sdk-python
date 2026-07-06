@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AnalyzeIDResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.document_metadata
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.string
 
 
-class AnalyzeIDResponse(TypedDict):
+class AnalyzeIDResponse(TypedDict, closed=True):
     identity_documents: NotRequired[
         "aws_sdk_textract.types.identity_document_list.IdentityDocumentList"
     ]

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#SchemaField``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
 
-class SchemaField(TypedDict):
+class SchemaField(TypedDict, closed=True):
     id: NotRequired["int"]
     """<p>An optional unique identifier for the schema field. Field IDs are used by Apache Iceberg to track schema evolution and maintain compatibility across schema changes. If not specified, S3 Tables automatically assigns field IDs.</p>"""
     name: "str"

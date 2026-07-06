@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCoverageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.coverage_filter_criteria
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.next_token
 
 
-class ListCoverageRequest(TypedDict):
+class ListCoverageRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_inspector2.types.list_coverage_max_results.ListCoverageMaxResults"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceLogEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.string
 
 
-class ContainerServiceLogEvent(TypedDict):
+class ContainerServiceLogEvent(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]
     """<p>The timestamp when the container service log event was created.</p>"""
     message: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DisassociateServiceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateServiceOutput(TypedDict):
+class DisassociateServiceOutput(TypedDict, closed=True):
     pass
 
 

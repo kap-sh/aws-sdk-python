@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteDomainVerificationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDomainVerificationResponse(TypedDict):
+class DeleteDomainVerificationResponse(TypedDict, closed=True):
     pass
 
 

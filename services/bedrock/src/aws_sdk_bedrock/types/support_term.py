@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#SupportTerm``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SupportTerm(TypedDict):
+class SupportTerm(TypedDict, closed=True):
     refund_policy_description: NotRequired["str"]
     """<p>Describes the refund policy.</p>"""
 

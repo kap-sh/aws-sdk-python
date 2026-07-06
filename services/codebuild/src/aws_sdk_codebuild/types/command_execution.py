@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#CommandExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.command_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.timestamp
 
 
-class CommandExecution(TypedDict):
+class CommandExecution(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the command execution.</p>"""
     sandbox_id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]

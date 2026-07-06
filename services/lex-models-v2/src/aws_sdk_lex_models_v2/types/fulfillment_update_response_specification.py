@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#FulfillmentUpdateResponseSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.message_groups_list
 
 
-class FulfillmentUpdateResponseSpecification(TypedDict):
+class FulfillmentUpdateResponseSpecification(TypedDict, closed=True):
     frequency_in_seconds: "aws_sdk_lex_models_v2.types.fulfillment_update_response_frequency.FulfillmentUpdateResponseFrequency"
     """<p>The frequency that a message is sent to the user. When the period ends, Amazon Lex chooses a message from the message groups and plays it to the user. If the fulfillment Lambda returns before the first period ends, an update message is not played to the user.</p>"""
     message_groups: "aws_sdk_lex_models_v2.types.message_groups_list.MessageGroupsList"

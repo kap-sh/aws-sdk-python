@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ImageSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.image
 
 
-class ImageSet(TypedDict):
+class ImageSet(TypedDict, closed=True):
     original: "aws_sdk_quicksight.types.image.Image"
     """<p>The original image.</p>"""
     height64: NotRequired["aws_sdk_quicksight.types.image.Image"]

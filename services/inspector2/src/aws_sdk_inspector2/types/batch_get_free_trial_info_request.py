@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetFreeTrialInfoRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.metering_account_id_list
 
 
-class BatchGetFreeTrialInfoRequest(TypedDict):
+class BatchGetFreeTrialInfoRequest(TypedDict, closed=True):
     account_ids: (
         "aws_sdk_inspector2.types.metering_account_id_list.MeteringAccountIdList"
     )

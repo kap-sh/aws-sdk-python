@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#TypedLinkAttributeDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_attribute_value
 
 
-class TypedLinkAttributeDefinition(TypedDict):
+class TypedLinkAttributeDefinition(TypedDict, closed=True):
     name: "aws_sdk_clouddirectory.types.attribute_name.AttributeName"
     """<p>The unique name of the typed link attribute.</p>"""
     type: "aws_sdk_clouddirectory.types.facet_attribute_type.FacetAttributeType"

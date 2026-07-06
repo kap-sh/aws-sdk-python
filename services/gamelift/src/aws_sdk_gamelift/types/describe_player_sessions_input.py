@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribePlayerSessionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.arn_string_model
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
 
 
-class DescribePlayerSessionsInput(TypedDict):
+class DescribePlayerSessionsInput(TypedDict, closed=True):
     game_session_id: NotRequired[
         "aws_sdk_gamelift.types.arn_string_model.ArnStringModel"
     ]

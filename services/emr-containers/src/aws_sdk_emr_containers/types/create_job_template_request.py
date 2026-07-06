@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#CreateJobTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.tag_map
 
 
-class CreateJobTemplateRequest(TypedDict):
+class CreateJobTemplateRequest(TypedDict, closed=True):
     name: "aws_sdk_emr_containers.types.resource_name_string.ResourceNameString"
     """<p>The specified name of the job template.</p>"""
     client_token: "aws_sdk_emr_containers.types.client_token.ClientToken"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NotificationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.topic
 
 
-class NotificationOutput(TypedDict):
+class NotificationOutput(TypedDict, closed=True):
     identifier: "aws_sdk_datazone.types.task_id.TaskId"
     """<p>The identifier of the notification.</p>"""
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListAdvancedPromptOptimizationJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.advanced_prompt_optimization_job_summaries
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListAdvancedPromptOptimizationJobsResponse(TypedDict):
+class ListAdvancedPromptOptimizationJobsResponse(TypedDict, closed=True):
     job_summaries: NotRequired[
         "aws_sdk_bedrock.types.advanced_prompt_optimization_job_summaries.AdvancedPromptOptimizationJobSummaries"
     ]

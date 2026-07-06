@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SendMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn_or_either_with_qualifier
 
 
-class SendMessageRequest(TypedDict):
+class SendMessageRequest(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the Amazon Q in Connect assistant.</p>"""
     session_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#MemoryMiBRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
 
 
-class MemoryMiBRequest(TypedDict):
+class MemoryMiBRequest(TypedDict, closed=True):
     min: "aws_sdk_ecs.types.boxed_integer.BoxedInteger"
     """<p>The minimum amount of memory in MiB. Instance types with less memory than this value are excluded from selection.</p>"""
     max: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

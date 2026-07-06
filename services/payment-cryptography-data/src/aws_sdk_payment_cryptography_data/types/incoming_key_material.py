@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#IncomingKeyMaterial``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.incoming_diffie_hellman_tr31_key_block
 
 
-class _IncomingKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict):
+class _IncomingKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict, closed=True):
     DiffieHellmanTr31KeyBlock: "aws_sdk_payment_cryptography_data.types.incoming_diffie_hellman_tr31_key_block.IncomingDiffieHellmanTr31KeyBlock"
 
 

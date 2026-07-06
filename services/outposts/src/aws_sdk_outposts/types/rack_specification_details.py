@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#RackSpecificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.ec2_capacity_list_definition
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.rack_unit_height
 
 
-class RackSpecificationDetails(TypedDict):
+class RackSpecificationDetails(TypedDict, closed=True):
     rack_id: NotRequired["aws_sdk_outposts.types.rack_id.RackId"]
     """<p>The ID of the rack.</p>"""
     rack_use: NotRequired["aws_sdk_outposts.types.quote_rack_use_type.QuoteRackUseType"]

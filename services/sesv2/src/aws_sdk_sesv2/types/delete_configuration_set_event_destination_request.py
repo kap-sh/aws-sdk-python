@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteConfigurationSetEventDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.configuration_set_name
     import aws_sdk_sesv2.types.event_destination_name
 
 
-class DeleteConfigurationSetEventDestinationRequest(TypedDict):
+class DeleteConfigurationSetEventDestinationRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_sesv2.types.configuration_set_name.ConfigurationSetName"
     )

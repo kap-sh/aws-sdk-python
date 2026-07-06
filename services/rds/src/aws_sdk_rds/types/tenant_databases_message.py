@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#TenantDatabasesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tenant_databases_list
 
 
-class TenantDatabasesMessage(TypedDict):
+class TenantDatabasesMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>An optional pagination token provided by a previous <code>DescribeTenantDatabases</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>"""
     tenant_databases: NotRequired[

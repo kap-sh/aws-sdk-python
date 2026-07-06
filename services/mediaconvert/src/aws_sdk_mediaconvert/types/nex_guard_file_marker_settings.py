@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NexGuardFileMarkerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max4194303
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.watermarking_strength
 
 
-class NexGuardFileMarkerSettings(TypedDict):
+class NexGuardFileMarkerSettings(TypedDict, closed=True):
     license: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min1_max100000.__stringMin1Max100000"
     ]

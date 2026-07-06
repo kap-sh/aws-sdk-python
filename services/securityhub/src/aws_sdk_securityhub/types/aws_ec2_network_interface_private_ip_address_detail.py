@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2NetworkInterfacePrivateIpAddressDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2NetworkInterfacePrivateIpAddressDetail(TypedDict):
+class AwsEc2NetworkInterfacePrivateIpAddressDetail(TypedDict, closed=True):
     private_ip_address: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

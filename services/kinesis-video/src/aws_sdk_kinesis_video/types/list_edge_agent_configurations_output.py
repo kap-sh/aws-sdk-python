@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ListEdgeAgentConfigurationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.list_edge_agent_configurations_edge_config_list
     import aws_sdk_kinesis_video.types.next_token
 
 
-class ListEdgeAgentConfigurationsOutput(TypedDict):
+class ListEdgeAgentConfigurationsOutput(TypedDict, closed=True):
     edge_configs: NotRequired[
         "aws_sdk_kinesis_video.types.list_edge_agent_configurations_edge_config_list.ListEdgeAgentConfigurationsEdgeConfigList"
     ]

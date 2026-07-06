@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateInfoEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.initiated_by
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.update_value
 
 
-class UpdateInfoEntry(TypedDict):
+class UpdateInfoEntry(TypedDict, closed=True):
     region: NotRequired["aws_sdk_directory_service.types.region_name.RegionName"]
     """<p> The name of the Region. </p>"""
     status: NotRequired["aws_sdk_directory_service.types.update_status.UpdateStatus"]

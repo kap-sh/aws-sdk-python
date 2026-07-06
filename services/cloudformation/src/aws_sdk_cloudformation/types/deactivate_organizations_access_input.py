@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#DeactivateOrganizationsAccessInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
 
-class DeactivateOrganizationsAccessInput(TypedDict):
+class DeactivateOrganizationsAccessInput(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PublicWorkforceTaskPrice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.usd
 
 
-class PublicWorkforceTaskPrice(TypedDict):
+class PublicWorkforceTaskPrice(TypedDict, closed=True):
     amount_in_usd: NotRequired["aws_sdk_sagemaker.types.usd.USD"]
     """<p>Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.</p>"""
 

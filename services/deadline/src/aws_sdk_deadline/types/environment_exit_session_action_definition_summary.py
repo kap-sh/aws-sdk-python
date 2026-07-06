@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#EnvironmentExitSessionActionDefinitionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.environment_id
 
 
-class EnvironmentExitSessionActionDefinitionSummary(TypedDict):
+class EnvironmentExitSessionActionDefinitionSummary(TypedDict, closed=True):
     environment_id: "aws_sdk_deadline.types.environment_id.EnvironmentId"
     """<p>The environment ID.</p>"""
 

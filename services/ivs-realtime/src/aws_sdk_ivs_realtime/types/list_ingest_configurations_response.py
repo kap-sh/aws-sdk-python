@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListIngestConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.pagination_token
 
 
-class ListIngestConfigurationsResponse(TypedDict):
+class ListIngestConfigurationsResponse(TypedDict, closed=True):
     ingest_configurations: (
         "aws_sdk_ivs_realtime.types.ingest_configuration_list.IngestConfigurationList"
     )

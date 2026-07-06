@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListedEntitlement``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListedEntitlement(TypedDict):
+class ListedEntitlement(TypedDict, closed=True):
     data_transfer_subscriber_fee_percent: NotRequired["int"]
     """<p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>"""
     entitlement_arn: NotRequired["str"]

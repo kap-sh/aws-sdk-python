@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryExecutionException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.error_message
 
 
-class QueryExecutionException_(TypedDict):
+class QueryExecutionException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_timestream_query.types.error_message.ErrorMessage"]
 
 

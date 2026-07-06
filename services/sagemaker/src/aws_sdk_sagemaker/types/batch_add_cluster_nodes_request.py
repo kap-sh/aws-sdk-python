@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchAddClusterNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class BatchAddClusterNodesRequest(TypedDict):
+class BatchAddClusterNodesRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_sagemaker.types.cluster_name_or_arn.ClusterNameOrArn"
     """<p>The name of the HyperPod cluster to which you want to add nodes.</p>"""
     client_token: NotRequired["aws_sdk_sagemaker.types.string.String"]

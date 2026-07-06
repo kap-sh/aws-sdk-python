@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#VerifySessionResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class VerifySessionResponse(TypedDict):
+class VerifySessionResponse(TypedDict, closed=True):
     identity: NotRequired["str"]
     """<p>The system-generated unique ID of the user in Amazon CodeCatalyst.</p>"""
 

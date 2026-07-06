@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#AlarmIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.cloud_watch_region
 
 
-class AlarmIdentifier(TypedDict):
+class AlarmIdentifier(TypedDict, closed=True):
     region: "aws_sdk_route_53.types.cloud_watch_region.CloudWatchRegion"
     r"""<p>For the CloudWatch alarm that you want Route 53 health checkers to use to determine whether this health check is healthy, the region that the alarm was created in.</p> <p>For the current list of CloudWatch regions, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/cw_region.html\">Amazon CloudWatch endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     name: "aws_sdk_route_53.types.alarm_name.AlarmName"

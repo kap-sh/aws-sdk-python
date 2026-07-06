@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentRunNotification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class AssessmentRunNotification(TypedDict):
+class AssessmentRunNotification(TypedDict, closed=True):
     date: "aws_sdk_inspector.types.timestamp.Timestamp"
     """<p>The date of the notification.</p>"""
     event: "aws_sdk_inspector.types.inspector_event.InspectorEvent"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#SSEDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.sse_status
 
 
-class SSEDescription(TypedDict):
+class SSEDescription(TypedDict, closed=True):
     status: NotRequired["aws_sdk_dax.types.sse_status.SSEStatus"]
     """<p>The current state of server-side encryption:</p> <ul> <li> <p> <code>ENABLING</code> - Server-side encryption is being enabled.</p> </li> <li> <p> <code>ENABLED</code> - Server-side encryption is enabled.</p> </li> <li> <p> <code>DISABLING</code> - Server-side encryption is being disabled.</p> </li> <li> <p> <code>DISABLED</code> - Server-side encryption is disabled.</p> </li> </ul>"""
 

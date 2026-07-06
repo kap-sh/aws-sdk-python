@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#ListSoftwareSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.pagination_token
     import aws_sdk_workspaces_thin_client.types.software_set_list
 
 
-class ListSoftwareSetsResponse(TypedDict):
+class ListSoftwareSetsResponse(TypedDict, closed=True):
     software_sets: NotRequired[
         "aws_sdk_workspaces_thin_client.types.software_set_list.SoftwareSetList"
     ]

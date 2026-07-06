@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TemplateProviderDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cfn_template_provider_detail
 
 
-class TemplateProviderDetail(TypedDict):
+class TemplateProviderDetail(TypedDict, closed=True):
     cfn_template_provider_detail: NotRequired[
         "aws_sdk_sagemaker.types.cfn_template_provider_detail.CfnTemplateProviderDetail"
     ]

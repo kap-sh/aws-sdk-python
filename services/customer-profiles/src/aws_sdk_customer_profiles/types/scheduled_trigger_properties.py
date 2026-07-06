@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ScheduledTriggerProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timezone
 
 
-class ScheduledTriggerProperties(TypedDict):
+class ScheduledTriggerProperties(TypedDict, closed=True):
     schedule_expression: (
         "aws_sdk_customer_profiles.types.schedule_expression.ScheduleExpression"
     )

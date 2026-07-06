@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#GetWorkflowStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.workflow_step_output_list
 
 
-class GetWorkflowStepResponse(TypedDict):
+class GetWorkflowStepResponse(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the step.</p>"""
     step_group_id: NotRequired["str"]

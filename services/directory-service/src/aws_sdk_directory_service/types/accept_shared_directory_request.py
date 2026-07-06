@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AcceptSharedDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_id
 
 
-class AcceptSharedDirectoryRequest(TypedDict):
+class AcceptSharedDirectoryRequest(TypedDict, closed=True):
     shared_directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>Identifier of the shared directory in the directory consumer account. This identifier is different for each directory owner account. </p>"""
 

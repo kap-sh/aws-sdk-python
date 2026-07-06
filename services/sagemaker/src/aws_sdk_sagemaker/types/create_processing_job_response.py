@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateProcessingJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.processing_job_arn
 
 
-class CreateProcessingJobResponse(TypedDict):
+class CreateProcessingJobResponse(TypedDict, closed=True):
     processing_job_arn: NotRequired[
         "aws_sdk_sagemaker.types.processing_job_arn.ProcessingJobArn"
     ]

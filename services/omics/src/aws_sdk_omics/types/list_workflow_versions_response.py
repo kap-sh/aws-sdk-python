@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListWorkflowVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_list
     import aws_sdk_omics.types.workflow_version_list_token
 
 
-class ListWorkflowVersionsResponse(TypedDict):
+class ListWorkflowVersionsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_omics.types.workflow_version_list.WorkflowVersionList"]
     """<p>A list of workflow version items.</p>"""
     next_token: NotRequired[

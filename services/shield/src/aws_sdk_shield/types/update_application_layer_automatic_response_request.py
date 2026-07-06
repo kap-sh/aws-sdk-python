@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#UpdateApplicationLayerAutomaticResponseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.response_action
 
 
-class UpdateApplicationLayerAutomaticResponseRequest(TypedDict):
+class UpdateApplicationLayerAutomaticResponseRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_shield.types.resource_arn.ResourceArn"
     """<p>The ARN (Amazon Resource Name) of the resource.</p>"""
     action: "aws_sdk_shield.types.response_action.ResponseAction"

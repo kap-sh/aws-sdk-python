@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateResourceProfileDetectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_suppress_data_identifier
     import aws_sdk_macie2.types.__string
 
 
-class UpdateResourceProfileDetectionsRequest(TypedDict):
+class UpdateResourceProfileDetectionsRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the S3 bucket that the request applies to.</p>"""
     suppress_data_identifiers: NotRequired[

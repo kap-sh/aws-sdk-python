@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspaceCreationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.security_group_id
 
 
-class WorkspaceCreationProperties(TypedDict):
+class WorkspaceCreationProperties(TypedDict, closed=True):
     enable_internet_access: NotRequired[
         "aws_sdk_workspaces.types.boolean_object.BooleanObject"
     ]

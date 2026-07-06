@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListRecommendersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.next_token
 
 
-class ListRecommendersRequest(TypedDict):
+class ListRecommendersRequest(TypedDict, closed=True):
     dataset_group_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Domain dataset group to list the recommenders for. When a Domain dataset group is not specified, all the recommenders associated with the account are listed.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

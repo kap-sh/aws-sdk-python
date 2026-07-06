@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#DecryptionFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_secrets_manager.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.error_message
 
 
-class DecryptionFailure_(TypedDict):
+class DecryptionFailure_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_secrets_manager.types.error_message.ErrorMessage"]
 
 

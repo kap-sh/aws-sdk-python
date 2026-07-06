@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ExponentialRolloutRate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.base_rate_per_minute
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.rollout_rate_increase_criteria
 
 
-class ExponentialRolloutRate(TypedDict):
+class ExponentialRolloutRate(TypedDict, closed=True):
     base_rate_per_minute: NotRequired[
         "aws_sdk_iot_managed_integrations.types.base_rate_per_minute.BaseRatePerMinute"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceAssociationOutputLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.s3_output_location
 
 
-class InstanceAssociationOutputLocation(TypedDict):
+class InstanceAssociationOutputLocation(TypedDict, closed=True):
     s3_location: NotRequired["aws_sdk_ssm.types.s3_output_location.S3OutputLocation"]
     """<p>An S3 bucket where you want to store the results of this request.</p>"""
 

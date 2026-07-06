@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListCustomRoutingListenersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.custom_routing_listeners
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class ListCustomRoutingListenersResponse(TypedDict):
+class ListCustomRoutingListenersResponse(TypedDict, closed=True):
     listeners: NotRequired[
         "aws_sdk_global_accelerator.types.custom_routing_listeners.CustomRoutingListeners"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#GetActivityTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.name
 
 
-class GetActivityTaskInput(TypedDict):
+class GetActivityTaskInput(TypedDict, closed=True):
     activity_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the activity to retrieve tasks from (assigned when you create the task using <a>CreateActivity</a>.)</p>"""
     worker_name: NotRequired["aws_sdk_sfn.types.name.Name"]

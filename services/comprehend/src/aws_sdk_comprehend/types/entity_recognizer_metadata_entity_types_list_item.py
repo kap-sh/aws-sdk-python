@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerMetadataEntityTypesListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.any_length_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
 
 
-class EntityRecognizerMetadataEntityTypesListItem(TypedDict):
+class EntityRecognizerMetadataEntityTypesListItem(TypedDict, closed=True):
     type: NotRequired["aws_sdk_comprehend.types.any_length_string.AnyLengthString"]
     """<p>Type of entity from the list of entity types in the metadata of an entity recognizer. </p>"""
     evaluation_metrics: NotRequired[

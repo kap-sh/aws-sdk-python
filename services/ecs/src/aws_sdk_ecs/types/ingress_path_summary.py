@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#IngressPathSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class IngressPathSummary(TypedDict):
+class IngressPathSummary(TypedDict, closed=True):
     access_type: "aws_sdk_ecs.types.access_type.AccessType"
     """<p>The type of access to the endpoint for the Express service.</p>"""
     endpoint: "aws_sdk_ecs.types.string.String"

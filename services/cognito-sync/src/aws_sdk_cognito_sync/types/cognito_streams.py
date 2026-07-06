@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#CognitoStreams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.assume_role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.streaming_status
 
 
-class CognitoStreams(TypedDict):
+class CognitoStreams(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_cognito_sync.types.stream_name.StreamName"]
     """The name of the Cognito stream to receive updates. This stream must be in the developers account and in the same region as the identity pool."""
     role_arn: NotRequired["aws_sdk_cognito_sync.types.assume_role_arn.AssumeRoleArn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ListPullTimeUpdateExclusionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.max_results
     import aws_sdk_ecr.types.next_token
 
 
-class ListPullTimeUpdateExclusionsRequest(TypedDict):
+class ListPullTimeUpdateExclusionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_ecr.types.max_results.MaxResults"]
     """<p>The maximum number of pull time update exclusion results returned by <code>ListPullTimeUpdateExclusions</code> in paginated output. When this parameter is used, <code>ListPullTimeUpdateExclusions</code> only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code> response element. The remaining results of the initial request can be seen by sending another <code>ListPullTimeUpdateExclusions</code> request with the returned <code>nextToken</code> value. This value can be between 1 and 1000. If this parameter is not used, then <code>ListPullTimeUpdateExclusions</code> returns up to 100 results and a <code>nextToken</code> value, if applicable.</p>"""
     next_token: NotRequired["aws_sdk_ecr.types.next_token.NextToken"]

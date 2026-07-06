@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetSitesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
     import aws_sdk_networkmanager.types.site_list
 
 
-class GetSitesResponse(TypedDict):
+class GetSitesResponse(TypedDict, closed=True):
     sites: NotRequired["aws_sdk_networkmanager.types.site_list.SiteList"]
     """<p>The sites.</p>"""
     next_token: NotRequired["aws_sdk_networkmanager.types.next_token.NextToken"]

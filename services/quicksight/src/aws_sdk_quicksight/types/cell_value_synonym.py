@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CellValueSynonym``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
     import aws_sdk_quicksight.types.string_list
 
 
-class CellValueSynonym(TypedDict):
+class CellValueSynonym(TypedDict, closed=True):
     cell_value: NotRequired["aws_sdk_quicksight.types.limited_string.LimitedString"]
     """<p>The cell value.</p>"""
     synonyms: NotRequired["aws_sdk_quicksight.types.string_list.StringList"]

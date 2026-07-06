@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ConformancePackComplianceScoresFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.conformance_pack_name_filter
 
 
-class ConformancePackComplianceScoresFilters(TypedDict):
+class ConformancePackComplianceScoresFilters(TypedDict, closed=True):
     conformance_pack_names: "aws_sdk_config_service.types.conformance_pack_name_filter.ConformancePackNameFilter"
     """<p>The names of the conformance packs whose compliance scores you want to include in the conformance pack compliance score result set. You can include up to 25 conformance packs in the <code>ConformancePackNames</code> array of strings, each with a character limit of 256 characters for the conformance pack name.</p>"""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#GetPendingJobExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.thing_name
 
 
-class GetPendingJobExecutionsRequest(TypedDict):
+class GetPendingJobExecutionsRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot_jobs_data_plane.types.thing_name.ThingName"
     """<p>The name of the thing that is executing the job.</p>"""
 

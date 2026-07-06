@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListApprovedOriginsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
     import aws_sdk_connect.types.origins_list
 
 
-class ListApprovedOriginsResponse(TypedDict):
+class ListApprovedOriginsResponse(TypedDict, closed=True):
     origins: NotRequired["aws_sdk_connect.types.origins_list.OriginsList"]
     """<p>The approved origins.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeComputeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.compute_name_or_arn
     import aws_sdk_gamelift.types.fleet_id_or_arn
 
 
-class DescribeComputeInput(TypedDict):
+class DescribeComputeInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet that the compute belongs to. You can use either the fleet ID or ARN value.</p>"""
     compute_name: NotRequired[

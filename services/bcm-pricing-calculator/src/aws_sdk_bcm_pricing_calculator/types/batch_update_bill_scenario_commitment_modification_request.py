@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateBillScenarioCommitmentModificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
 
 
-class BatchUpdateBillScenarioCommitmentModificationRequest(TypedDict):
+class BatchUpdateBillScenarioCommitmentModificationRequest(TypedDict, closed=True):
     bill_scenario_id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
     """<p> The ID of the Bill Scenario for which you want to modify the commitment group of a modeled commitment. </p>"""
     commitment_modifications: "aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_commitment_modification_entries.BatchUpdateBillScenarioCommitmentModificationEntries"

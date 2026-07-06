@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#SpeakerSearchDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.non_empty_string256
     import aws_sdk_chime_sdk_voice.types.speaker_search_result_list
 
 
-class SpeakerSearchDetails(TypedDict):
+class SpeakerSearchDetails(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_chime_sdk_voice.types.speaker_search_result_list.SpeakerSearchResultList"
     ]

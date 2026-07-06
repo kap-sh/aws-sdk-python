@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchUpdateFindingsV2ProcessedFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.ocsf_finding_identifier
 
 
-class BatchUpdateFindingsV2ProcessedFinding(TypedDict):
+class BatchUpdateFindingsV2ProcessedFinding(TypedDict, closed=True):
     finding_identifier: NotRequired[
         "aws_sdk_securityhub.types.ocsf_finding_identifier.OcsfFindingIdentifier"
     ]

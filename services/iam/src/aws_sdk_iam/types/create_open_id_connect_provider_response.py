@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateOpenIDConnectProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_list_type
 
 
-class CreateOpenIDConnectProviderResponse(TypedDict):
+class CreateOpenIDConnectProviderResponse(TypedDict, closed=True):
     open_id_connect_provider_arn: NotRequired["aws_sdk_iam.types.arn_type.arnType"]
     r"""<p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/APIReference/API_OpenIDConnectProviderListEntry.html\">OpenIDConnectProviderListEntry</a>. </p>"""
     tags: NotRequired["aws_sdk_iam.types.tag_list_type.tagListType"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CustomLogSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.custom_log_source_crawler_configuration
 
 
-class CustomLogSourceConfiguration(TypedDict):
+class CustomLogSourceConfiguration(TypedDict, closed=True):
     crawler_configuration: "aws_sdk_securitylake.types.custom_log_source_crawler_configuration.CustomLogSourceCrawlerConfiguration"
     """<p>The configuration used for the Glue Crawler for a third-party custom source.</p>"""
     provider_identity: "aws_sdk_securitylake.types.aws_identity.AwsIdentity"

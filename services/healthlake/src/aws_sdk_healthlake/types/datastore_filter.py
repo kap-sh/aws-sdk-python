@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#DatastoreFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_healthlake.types.datastore_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.timestamp
 
 
-class DatastoreFilter(TypedDict):
+class DatastoreFilter(TypedDict, closed=True):
     datastore_name: NotRequired["aws_sdk_healthlake.types.datastore_name.DatastoreName"]
     """<p>Filter data store results by name.</p>"""
     datastore_status: NotRequired[

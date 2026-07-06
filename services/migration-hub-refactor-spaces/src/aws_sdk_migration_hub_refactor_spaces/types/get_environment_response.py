@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#GetEnvironmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.transit_gateway_id
 
 
-class GetEnvironmentResponse(TypedDict):
+class GetEnvironmentResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.environment_name.EnvironmentName"
     ]

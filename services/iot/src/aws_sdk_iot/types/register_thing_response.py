@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RegisterThingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_pem
     import aws_sdk_iot.types.resource_arns
 
 
-class RegisterThingResponse(TypedDict):
+class RegisterThingResponse(TypedDict, closed=True):
     certificate_pem: NotRequired["aws_sdk_iot.types.certificate_pem.CertificatePem"]
     """<p>The certificate data, in PEM format.</p>"""
     resource_arns: NotRequired["aws_sdk_iot.types.resource_arns.ResourceArns"]

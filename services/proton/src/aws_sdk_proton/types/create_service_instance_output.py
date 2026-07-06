@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateServiceInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_instance
 
 
-class CreateServiceInstanceOutput(TypedDict):
+class CreateServiceInstanceOutput(TypedDict, closed=True):
     service_instance: "aws_sdk_proton.types.service_instance.ServiceInstance"
     """<p>The detailed data of the service instance being created.</p>"""
 

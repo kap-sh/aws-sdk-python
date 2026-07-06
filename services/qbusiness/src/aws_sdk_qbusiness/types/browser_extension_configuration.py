@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#BrowserExtensionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.browser_extension_list
 
 
-class BrowserExtensionConfiguration(TypedDict):
+class BrowserExtensionConfiguration(TypedDict, closed=True):
     enabled_browser_extensions: (
         "aws_sdk_qbusiness.types.browser_extension_list.BrowserExtensionList"
     )

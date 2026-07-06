@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DnsProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.resource_id
     import aws_sdk_servicediscovery.types.soa
 
 
-class DnsProperties(TypedDict):
+class DnsProperties(TypedDict, closed=True):
     hosted_zone_id: NotRequired["aws_sdk_servicediscovery.types.resource_id.ResourceId"]
     """<p>The ID for the Route 53 hosted zone that Cloud Map creates when you create a namespace.</p>"""
     soa: NotRequired["aws_sdk_servicediscovery.types.soa.SOA"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeSourceNetworksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.pagination_token
     import aws_sdk_drs.types.source_networks_list
 
 
-class DescribeSourceNetworksResponse(TypedDict):
+class DescribeSourceNetworksResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_drs.types.source_networks_list.SourceNetworksList"]
     """<p>An array of Source Networks.</p>"""
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]

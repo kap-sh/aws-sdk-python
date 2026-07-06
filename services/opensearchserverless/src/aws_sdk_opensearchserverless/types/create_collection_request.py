@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CreateCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vector_options
 
 
-class CreateCollectionRequest(TypedDict):
+class CreateCollectionRequest(TypedDict, closed=True):
     name: "aws_sdk_opensearchserverless.types.collection_name.CollectionName"
     """<p>Name of the collection.</p>"""
     type: NotRequired[

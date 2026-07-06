@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#InboundEdiOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_inbound_edi_options
 
 
-class InboundEdiOptions(TypedDict):
+class InboundEdiOptions(TypedDict, closed=True):
     x12: NotRequired["aws_sdk_b2bi.types.x12_inbound_edi_options.X12InboundEdiOptions"]
     """<p>A structure that contains X12-specific options for processing inbound X12 EDI files.</p>"""
 

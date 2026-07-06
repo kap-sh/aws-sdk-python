@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SharedViewConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class SharedViewConfigurations(TypedDict):
+class SharedViewConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>The shared view settings of an embedded dashboard.</p>"""
 

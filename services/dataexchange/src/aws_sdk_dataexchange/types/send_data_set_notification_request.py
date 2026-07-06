@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#SendDataSetNotificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.scope_details
 
 
-class SendDataSetNotificationRequest(TypedDict):
+class SendDataSetNotificationRequest(TypedDict, closed=True):
     scope: NotRequired["aws_sdk_dataexchange.types.scope_details.ScopeDetails"]
     """<p>Affected scope of this notification such as the underlying resources affected by the notification event.</p>"""
     client_token: NotRequired["aws_sdk_dataexchange.types.client_token.ClientToken"]

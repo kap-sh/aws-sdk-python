@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResourceScanMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_repository_metadata
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.lambda_function_metadata
 
 
-class ResourceScanMetadata(TypedDict):
+class ResourceScanMetadata(TypedDict, closed=True):
     ecr_repository: NotRequired[
         "aws_sdk_inspector2.types.ecr_repository_metadata.EcrRepositoryMetadata"
     ]

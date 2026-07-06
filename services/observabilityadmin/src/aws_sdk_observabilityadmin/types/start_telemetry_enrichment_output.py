@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#StartTelemetryEnrichmentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.aws_resource_explorer_managed_view_arn
     import aws_sdk_observabilityadmin.types.telemetry_enrichment_status
 
 
-class StartTelemetryEnrichmentOutput(TypedDict):
+class StartTelemetryEnrichmentOutput(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_observabilityadmin.types.telemetry_enrichment_status.TelemetryEnrichmentStatus"
     ]

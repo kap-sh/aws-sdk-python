@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ExportDictionaryEntriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.dictionary_id
 
 
-class ExportDictionaryEntriesRequest(TypedDict):
+class ExportDictionaryEntriesRequest(TypedDict, closed=True):
     id: "aws_sdk_elementalinference.types.dictionary_id.DictionaryId"
     """<p>The ID of the dictionary whose entries you want to export.</p>"""
 

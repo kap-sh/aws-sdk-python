@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerListenerDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_elb_load_balancer_listener
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsElbLoadBalancerListenerDescription(TypedDict):
+class AwsElbLoadBalancerListenerDescription(TypedDict, closed=True):
     listener: NotRequired[
         "aws_sdk_securityhub.types.aws_elb_load_balancer_listener.AwsElbLoadBalancerListener"
     ]

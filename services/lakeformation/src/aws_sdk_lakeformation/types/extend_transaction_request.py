@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ExtendTransactionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.transaction_id_string
 
 
-class ExtendTransactionRequest(TypedDict):
+class ExtendTransactionRequest(TypedDict, closed=True):
     transaction_id: NotRequired[
         "aws_sdk_lakeformation.types.transaction_id_string.TransactionIdString"
     ]

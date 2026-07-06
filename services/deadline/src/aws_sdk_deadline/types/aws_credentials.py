@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AwsCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.timestamp
 
 
-class AwsCredentials(TypedDict):
+class AwsCredentials(TypedDict, closed=True):
     access_key_id: "aws_sdk_deadline.types.access_key_id.AccessKeyId"
     """<p>The IAM access key ID.</p>"""
     secret_access_key: "aws_sdk_deadline.types.secret_access_key.SecretAccessKey"

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#WindowStartTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.start_time_hours
     import aws_sdk_opensearch.types.start_time_minutes
 
 
-class WindowStartTime(TypedDict):
+class WindowStartTime(TypedDict, closed=True):
     hours: "aws_sdk_opensearch.types.start_time_hours.StartTimeHours"
     """<p>The start hour of the window in Coordinated Universal Time (UTC), using 24-hour time. For example, <code>17</code> refers to 5:00 P.M. UTC.</p>"""
     minutes: "aws_sdk_opensearch.types.start_time_minutes.StartTimeMinutes"

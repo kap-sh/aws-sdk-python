@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DeleteComponentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.component_build_version_arn
 
 
-class DeleteComponentRequest(TypedDict):
+class DeleteComponentRequest(TypedDict, closed=True):
     component_build_version_arn: "aws_sdk_imagebuilder.types.component_build_version_arn.ComponentBuildVersionArn"
     """<p>The Amazon Resource Name (ARN) of the component build version to delete.</p>"""
 

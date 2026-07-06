@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DefaultServerSideEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class DefaultServerSideEncryption(TypedDict):
+class DefaultServerSideEncryption(TypedDict, closed=True):
     encryption_type: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The type of encryption used for objects within the S3 bucket.</p>"""
     kms_master_key_arn: NotRequired["aws_sdk_guardduty.types.string.String"]

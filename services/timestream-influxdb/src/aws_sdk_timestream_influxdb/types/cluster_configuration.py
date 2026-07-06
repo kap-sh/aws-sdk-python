@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#ClusterConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ClusterConfiguration(TypedDict):
+class ClusterConfiguration(TypedDict, closed=True):
     ingest_query_instances: NotRequired["int"]
     """<p>The number of instances in the DbCluster which can both ingest and query.</p>"""
     query_only_instances: NotRequired["int"]

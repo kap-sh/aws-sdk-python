@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#RelevantContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_attributes
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.url
 
 
-class RelevantContent(TypedDict):
+class RelevantContent(TypedDict, closed=True):
     content: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The actual content of the relevant item.</p>"""
     document_id: NotRequired["aws_sdk_qbusiness.types.document_id.DocumentId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ScheduledJobRollout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.string_date_time
 
 
-class ScheduledJobRollout(TypedDict):
+class ScheduledJobRollout(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_iot.types.string_date_time.StringDateTime"]
     """<p>Displays the start times of the next seven maintenance window occurrences.</p>"""
 

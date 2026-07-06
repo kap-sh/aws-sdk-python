@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#GetResourceCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_collection_type
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class GetResourceCollectionRequest(TypedDict):
+class GetResourceCollectionRequest(TypedDict, closed=True):
     resource_collection_type: (
         "aws_sdk_devops_guru.types.resource_collection_type.ResourceCollectionType"
     )

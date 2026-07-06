@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeScanJobInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeScanJobInput(TypedDict):
+class DescribeScanJobInput(TypedDict, closed=True):
     scan_job_id: "str"
     """<p>Uniquely identifies a request to Backup to scan a resource.</p>"""
 

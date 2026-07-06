@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateAgentRuntimeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.runtime_metadata_configuration
 
 
-class UpdateAgentRuntimeRequest(TypedDict):
+class UpdateAgentRuntimeRequest(TypedDict, closed=True):
     agent_runtime_id: (
         "aws_sdk_bedrock_agentcore_control.types.agent_runtime_id.AgentRuntimeId"
     )

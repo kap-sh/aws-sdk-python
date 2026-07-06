@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListEfficiencyMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.efficiency_metrics_by_group_list
 
 
-class ListEfficiencyMetricsResponse(TypedDict):
+class ListEfficiencyMetricsResponse(TypedDict, closed=True):
     efficiency_metrics_by_group: NotRequired[
         "aws_sdk_cost_optimization_hub.types.efficiency_metrics_by_group_list.EfficiencyMetricsByGroupList"
     ]

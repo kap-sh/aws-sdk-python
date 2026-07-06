@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#BatchLoadProgressReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.long
 
 
-class BatchLoadProgressReport(TypedDict):
+class BatchLoadProgressReport(TypedDict, closed=True):
     records_processed: "aws_sdk_timestream_write.types.long.Long"
     """<p></p>"""
     records_ingested: "aws_sdk_timestream_write.types.long.Long"

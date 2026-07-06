@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RightsizingRecommendationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
     import aws_sdk_cost_explorer.types.lookback_period_in_days
 
 
-class RightsizingRecommendationMetadata(TypedDict):
+class RightsizingRecommendationMetadata(TypedDict, closed=True):
     recommendation_id: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

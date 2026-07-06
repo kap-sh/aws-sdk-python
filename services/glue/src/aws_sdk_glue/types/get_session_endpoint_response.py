@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSessionEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.session_endpoint
 
 
-class GetSessionEndpointResponse(TypedDict):
+class GetSessionEndpointResponse(TypedDict, closed=True):
     spark_connect: "aws_sdk_glue.types.session_endpoint.SessionEndpoint"
     """<p>The Spark Connect endpoint details for the session.</p>"""
 

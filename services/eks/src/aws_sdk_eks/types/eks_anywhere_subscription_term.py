@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#EksAnywhereSubscriptionTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.eks_anywhere_subscription_term_unit
     import aws_sdk_eks.types.integer
 
 
-class EksAnywhereSubscriptionTerm(TypedDict):
+class EksAnywhereSubscriptionTerm(TypedDict, closed=True):
     duration: "aws_sdk_eks.types.integer.Integer"
     """<p>The duration of the subscription term. Valid values are 12 and 36, indicating a 12 month or 36 month subscription.</p>"""
     unit: NotRequired[

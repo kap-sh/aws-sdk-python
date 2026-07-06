@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Usage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.currency
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.usage_value
 
 
-class Usage(TypedDict):
+class Usage(TypedDict, closed=True):
     type: NotRequired["aws_sdk_inspector2.types.usage_type.UsageType"]
     """<p>The type scan.</p>"""
     total: "aws_sdk_inspector2.types.usage_value.UsageValue"

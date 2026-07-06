@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetThirdPartyFirewallAssociationStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.marketplace_subscription_onboarding_status
     import aws_sdk_fms.types.third_party_firewall_association_status
 
 
-class GetThirdPartyFirewallAssociationStatusResponse(TypedDict):
+class GetThirdPartyFirewallAssociationStatusResponse(TypedDict, closed=True):
     third_party_firewall_status: NotRequired[
         "aws_sdk_fms.types.third_party_firewall_association_status.ThirdPartyFirewallAssociationStatus"
     ]

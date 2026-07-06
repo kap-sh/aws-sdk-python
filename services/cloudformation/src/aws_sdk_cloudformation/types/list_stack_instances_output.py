@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ListStackInstancesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_instance_summaries
 
 
-class ListStackInstancesOutput(TypedDict):
+class ListStackInstancesOutput(TypedDict, closed=True):
     summaries: NotRequired[
         "aws_sdk_cloudformation.types.stack_instance_summaries.StackInstanceSummaries"
     ]

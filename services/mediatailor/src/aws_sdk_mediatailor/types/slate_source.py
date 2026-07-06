@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#SlateSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class SlateSource(TypedDict):
+class SlateSource(TypedDict, closed=True):
     source_location_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The name of the source location where the slate VOD source is stored.</p>"""
     vod_source_name: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

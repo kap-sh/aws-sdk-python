@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#StartContinuousExportRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartContinuousExportRequest(TypedDict):
+class StartContinuousExportRequest(TypedDict, closed=True):
     pass
 
 

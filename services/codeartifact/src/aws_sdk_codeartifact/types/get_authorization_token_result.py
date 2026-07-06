@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#GetAuthorizationTokenResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.string
     import aws_sdk_codeartifact.types.timestamp
 
 
-class GetAuthorizationTokenResult(TypedDict):
+class GetAuthorizationTokenResult(TypedDict, closed=True):
     authorization_token: NotRequired["aws_sdk_codeartifact.types.string.String"]
     """<p> The returned authentication token. </p>"""
     expiration: NotRequired["aws_sdk_codeartifact.types.timestamp.Timestamp"]

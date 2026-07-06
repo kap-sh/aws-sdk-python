@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ApiKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.long
     import aws_sdk_appsync.types.string
 
 
-class ApiKey(TypedDict):
+class ApiKey(TypedDict, closed=True):
     id: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The API key ID.</p>"""
     description: NotRequired["aws_sdk_appsync.types.string.String"]

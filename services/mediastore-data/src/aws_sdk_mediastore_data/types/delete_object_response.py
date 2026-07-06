@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#DeleteObjectResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteObjectResponse(TypedDict):
+class DeleteObjectResponse(TypedDict, closed=True):
     pass
 
 

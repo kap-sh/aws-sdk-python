@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     path: "str"
     """<p>The request was denied due to an invalid request error.</p>"""
     message: "str"

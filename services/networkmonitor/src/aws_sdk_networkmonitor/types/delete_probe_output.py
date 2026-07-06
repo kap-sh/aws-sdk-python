@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#DeleteProbeOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProbeOutput(TypedDict):
+class DeleteProbeOutput(TypedDict, closed=True):
     pass
 
 

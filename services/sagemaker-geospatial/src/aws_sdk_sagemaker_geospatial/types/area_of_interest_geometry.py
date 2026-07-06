@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#AreaOfInterestGeometry``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.polygon_geometry_input
 
 
-class _AreaOfInterestGeometry_PolygonGeometry(TypedDict):
+class _AreaOfInterestGeometry_PolygonGeometry(TypedDict, closed=True):
     PolygonGeometry: (
         "aws_sdk_sagemaker_geospatial.types.polygon_geometry_input.PolygonGeometryInput"
     )
 
 
-class _AreaOfInterestGeometry_MultiPolygonGeometry(TypedDict):
+class _AreaOfInterestGeometry_MultiPolygonGeometry(TypedDict, closed=True):
     MultiPolygonGeometry: "aws_sdk_sagemaker_geospatial.types.multi_polygon_geometry_input.MultiPolygonGeometryInput"
 
 

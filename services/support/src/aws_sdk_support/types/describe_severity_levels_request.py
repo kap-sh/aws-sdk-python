@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeSeverityLevelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.language
 
 
-class DescribeSeverityLevelsRequest(TypedDict):
+class DescribeSeverityLevelsRequest(TypedDict, closed=True):
     language: NotRequired["aws_sdk_support.types.language.Language"]
     r"""<p>The language in which Amazon Web Services Support handles the case. Amazon Web Services Support currently supports Chinese (“zh”), English (\"en\"), Japanese (\"ja\") and Korean (“ko”). You must specify the ISO 639-1 code for the <code>language</code> parameter if you want support in that language.</p>"""
 

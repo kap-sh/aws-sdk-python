@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspacesPoolSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspaces_pool_user_id
 
 
-class WorkspacesPoolSession(TypedDict):
+class WorkspacesPoolSession(TypedDict, closed=True):
     authentication_type: NotRequired[
         "aws_sdk_workspaces.types.authentication_type.AuthenticationType"
     ]

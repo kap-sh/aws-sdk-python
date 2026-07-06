@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ImportCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.arn
 
 
-class ImportCertificateResponse(TypedDict):
+class ImportCertificateResponse(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the imported certificate.</p>"""
 

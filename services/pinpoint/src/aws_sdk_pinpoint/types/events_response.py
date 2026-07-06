@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_item_response
 
 
-class EventsResponse(TypedDict):
+class EventsResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_pinpoint.types.map_of_item_response.MapOfItemResponse"
     ]

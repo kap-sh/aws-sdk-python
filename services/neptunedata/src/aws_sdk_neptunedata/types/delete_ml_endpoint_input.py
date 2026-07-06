@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#DeleteMLEndpointInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteMLEndpointInput(TypedDict):
+class DeleteMLEndpointInput(TypedDict, closed=True):
     id: "str"
     """<p>The unique identifier of the inference endpoint.</p>"""
     neptune_iam_role_arn: NotRequired["str"]

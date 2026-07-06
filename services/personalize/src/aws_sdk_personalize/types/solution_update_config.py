@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#SolutionUpdateConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.auto_training_config
     import aws_sdk_personalize.types.events_config
 
 
-class SolutionUpdateConfig(TypedDict):
+class SolutionUpdateConfig(TypedDict, closed=True):
     auto_training_config: NotRequired[
         "aws_sdk_personalize.types.auto_training_config.AutoTrainingConfig"
     ]

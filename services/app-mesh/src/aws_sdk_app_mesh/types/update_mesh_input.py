@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#UpdateMeshInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.mesh_spec
     import aws_sdk_app_mesh.types.resource_name
 
 
-class UpdateMeshInput(TypedDict):
+class UpdateMeshInput(TypedDict, closed=True):
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The name of the service mesh to update.</p>"""
     spec: NotRequired["aws_sdk_app_mesh.types.mesh_spec.MeshSpec"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
     import aws_sdk_xray.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_xray.types.tag_list.TagList"]
     """<p>A list of tags, as key and value pairs, that is associated with the specified X-Ray group or sampling rule.</p>"""
     next_token: NotRequired["aws_sdk_xray.types.string.String"]

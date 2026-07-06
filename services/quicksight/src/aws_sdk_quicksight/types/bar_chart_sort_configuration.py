@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BarChartSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_sort_options_list
     import aws_sdk_quicksight.types.items_limit_configuration
 
 
-class BarChartSortConfiguration(TypedDict):
+class BarChartSortConfiguration(TypedDict, closed=True):
     category_sort: NotRequired[
         "aws_sdk_quicksight.types.field_sort_options_list.FieldSortOptionsList"
     ]

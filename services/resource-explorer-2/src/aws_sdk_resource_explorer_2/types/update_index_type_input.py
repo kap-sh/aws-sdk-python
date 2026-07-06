@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#UpdateIndexTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.index_type
 
 
-class UpdateIndexTypeInput(TypedDict):
+class UpdateIndexTypeInput(TypedDict, closed=True):
     arn: "str"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the index that you want to update.</p>"""
     type: "aws_sdk_resource_explorer_2.types.index_type.IndexType"

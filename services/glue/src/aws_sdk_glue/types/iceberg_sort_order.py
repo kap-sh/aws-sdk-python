@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergSortOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer
 
 
-class IcebergSortOrder(TypedDict):
+class IcebergSortOrder(TypedDict, closed=True):
     order_id: "aws_sdk_glue.types.integer.Integer"
     """<p>The unique identifier for this sort order specification within the Iceberg table's metadata.</p>"""
     fields: "aws_sdk_glue.types.iceberg_sort_order_field_list.IcebergSortOrderFieldList"

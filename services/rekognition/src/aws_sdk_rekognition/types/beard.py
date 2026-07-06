@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Beard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.boolean
     import aws_sdk_rekognition.types.percent
 
 
-class Beard(TypedDict):
+class Beard(TypedDict, closed=True):
     value: "aws_sdk_rekognition.types.boolean.Boolean"
     """<p>Boolean value that indicates whether the face has beard or not.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

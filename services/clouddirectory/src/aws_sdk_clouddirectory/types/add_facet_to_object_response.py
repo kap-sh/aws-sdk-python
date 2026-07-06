@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#AddFacetToObjectResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddFacetToObjectResponse(TypedDict):
+class AddFacetToObjectResponse(TypedDict, closed=True):
     pass
 
 

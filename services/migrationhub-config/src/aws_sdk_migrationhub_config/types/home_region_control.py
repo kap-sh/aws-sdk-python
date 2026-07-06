@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#HomeRegionControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.control_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.target
 
 
-class HomeRegionControl(TypedDict):
+class HomeRegionControl(TypedDict, closed=True):
     control_id: NotRequired["aws_sdk_migrationhub_config.types.control_id.ControlId"]
     r"""<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
     home_region: NotRequired["aws_sdk_migrationhub_config.types.home_region.HomeRegion"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CompatibilityInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.non_blank_string
 
 
-class CompatibilityInformation(TypedDict):
+class CompatibilityInformation(TypedDict, closed=True):
     client_compatibility_version: "int"
     """<p>The client compatibility version that was requested.</p>"""
     supported_model_ids: "aws_sdk_nova_act.types.model_id_list.ModelIdList"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#StopSuiteRunResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopSuiteRunResponse(TypedDict):
+class StopSuiteRunResponse(TypedDict, closed=True):
     pass
 
 

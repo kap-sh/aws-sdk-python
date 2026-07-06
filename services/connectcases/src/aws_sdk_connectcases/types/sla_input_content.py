@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#SlaInputContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sla_input_configuration
 
 
-class _SlaInputContent_slaInputConfiguration(TypedDict):
+class _SlaInputContent_slaInputConfiguration(TypedDict, closed=True):
     slaInputConfiguration: (
         "aws_sdk_connectcases.types.sla_input_configuration.SlaInputConfiguration"
     )

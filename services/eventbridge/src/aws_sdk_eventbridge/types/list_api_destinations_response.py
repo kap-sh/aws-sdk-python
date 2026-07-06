@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListApiDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.api_destination_response_list
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListApiDestinationsResponse(TypedDict):
+class ListApiDestinationsResponse(TypedDict, closed=True):
     api_destinations: NotRequired[
         "aws_sdk_eventbridge.types.api_destination_response_list.ApiDestinationResponseList"
     ]

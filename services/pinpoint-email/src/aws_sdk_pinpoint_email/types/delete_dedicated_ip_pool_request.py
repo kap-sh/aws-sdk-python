@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DeleteDedicatedIpPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.pool_name
 
 
-class DeleteDedicatedIpPoolRequest(TypedDict):
+class DeleteDedicatedIpPoolRequest(TypedDict, closed=True):
     pool_name: "aws_sdk_pinpoint_email.types.pool_name.PoolName"
     """<p>The name of the dedicated IP pool that you want to delete.</p>"""
 

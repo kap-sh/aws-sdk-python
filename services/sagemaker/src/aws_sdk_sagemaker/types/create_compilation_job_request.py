@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateCompilationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateCompilationJobRequest(TypedDict):
+class CreateCompilationJobRequest(TypedDict, closed=True):
     compilation_job_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>A name for the model compilation job. The name must be unique within the Amazon Web Services Region and within your Amazon Web Services account. </p>"""
     role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]

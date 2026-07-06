@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ThemeFooterLink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.theme_footer_link_display_name
     import aws_sdk_appstream.types.theme_footer_link_url
 
 
-class ThemeFooterLink(TypedDict):
+class ThemeFooterLink(TypedDict, closed=True):
     display_name: NotRequired[
         "aws_sdk_appstream.types.theme_footer_link_display_name.ThemeFooterLinkDisplayName"
     ]

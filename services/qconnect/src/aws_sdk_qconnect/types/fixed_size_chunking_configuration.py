@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#FixedSizeChunkingConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
 
-class FixedSizeChunkingConfiguration(TypedDict):
+class FixedSizeChunkingConfiguration(TypedDict, closed=True):
     max_tokens: "int"
     """<p>The maximum number of tokens to include in a chunk.</p>"""
     overlap_percentage: "int"

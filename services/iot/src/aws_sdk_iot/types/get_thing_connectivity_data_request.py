@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetThingConnectivityDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean
     import aws_sdk_iot.types.connectivity_api_thing_name
 
 
-class GetThingConnectivityDataRequest(TypedDict):
+class GetThingConnectivityDataRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.connectivity_api_thing_name.ConnectivityApiThingName"
     """<p>The name of your IoT thing.</p>"""
     include_socket_information: NotRequired["aws_sdk_iot.types.boolean.Boolean"]

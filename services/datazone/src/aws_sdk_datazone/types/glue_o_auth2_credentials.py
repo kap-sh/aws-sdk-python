@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GlueOAuth2Credentials``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GlueOAuth2Credentials(TypedDict):
+class GlueOAuth2Credentials(TypedDict, closed=True):
     user_managed_client_application_client_secret: NotRequired["str"]
     """<p>The user managed client application client secret of the connection. </p>"""
     access_token: NotRequired["str"]

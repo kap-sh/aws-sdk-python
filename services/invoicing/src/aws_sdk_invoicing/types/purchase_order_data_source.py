@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#PurchaseOrderDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.einvoice_delivery_document_type
     import aws_sdk_invoicing.types.purchase_order_data_source_type
 
 
-class PurchaseOrderDataSource(TypedDict):
+class PurchaseOrderDataSource(TypedDict, closed=True):
     einvoice_delivery_document_type: NotRequired[
         "aws_sdk_invoicing.types.einvoice_delivery_document_type.EinvoiceDeliveryDocumentType"
     ]

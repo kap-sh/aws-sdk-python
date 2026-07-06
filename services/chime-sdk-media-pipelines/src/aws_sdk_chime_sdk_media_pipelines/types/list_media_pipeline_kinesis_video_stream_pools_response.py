@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ListMediaPipelineKinesisVideoStreamPoolsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_pool_summary_list
     import aws_sdk_chime_sdk_media_pipelines.types.string
 
 
-class ListMediaPipelineKinesisVideoStreamPoolsResponse(TypedDict):
+class ListMediaPipelineKinesisVideoStreamPoolsResponse(TypedDict, closed=True):
     kinesis_video_stream_pools: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_pool_summary_list.KinesisVideoStreamPoolSummaryList"
     ]

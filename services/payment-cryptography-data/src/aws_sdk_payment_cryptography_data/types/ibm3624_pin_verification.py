@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#Ibm3624PinVerification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.pin_validation_data_type
 
 
-class Ibm3624PinVerification(TypedDict):
+class Ibm3624PinVerification(TypedDict, closed=True):
     decimalization_table: "aws_sdk_payment_cryptography_data.types.decimalization_table_type.DecimalizationTableType"
     """<p>The decimalization table to use for IBM 3624 PIN algorithm. The table is used to convert the algorithm intermediate result from hexadecimal characters to decimal.</p>"""
     pin_validation_data_pad_character: (

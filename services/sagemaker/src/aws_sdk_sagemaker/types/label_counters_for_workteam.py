@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LabelCountersForWorkteam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.label_counter
 
 
-class LabelCountersForWorkteam(TypedDict):
+class LabelCountersForWorkteam(TypedDict, closed=True):
     human_labeled: NotRequired["aws_sdk_sagemaker.types.label_counter.LabelCounter"]
     """<p>The total number of data objects labeled by a human worker.</p>"""
     pending_human: NotRequired["aws_sdk_sagemaker.types.label_counter.LabelCounter"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#GenerateMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.mapping_type
 
 
-class GenerateMappingRequest(TypedDict):
+class GenerateMappingRequest(TypedDict, closed=True):
     input_file_content: "aws_sdk_b2bi.types.generate_mapping_input_file_content.GenerateMappingInputFileContent"
     """<p>Provide the contents of a sample X12 EDI file, either in JSON or XML format, to use as a starting point for the mapping.</p>"""
     output_file_content: "aws_sdk_b2bi.types.generate_mapping_output_file_content.GenerateMappingOutputFileContent"

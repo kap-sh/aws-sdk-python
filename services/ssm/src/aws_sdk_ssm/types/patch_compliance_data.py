@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchComplianceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_title
 
 
-class PatchComplianceData(TypedDict):
+class PatchComplianceData(TypedDict, closed=True):
     title: "aws_sdk_ssm.types.patch_title.PatchTitle"
     """<p>The title of the patch.</p>"""
     kb_id: "aws_sdk_ssm.types.patch_kb_number.PatchKbNumber"

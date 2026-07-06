@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InvalidCommandId``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class InvalidCommandId_(TypedDict):
+class InvalidCommandId_(TypedDict, closed=True):
     pass
 
 

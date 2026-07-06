@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NewSessionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attributes
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.supported_messaging_content_types
 
 
-class NewSessionDetails(TypedDict):
+class NewSessionDetails(TypedDict, closed=True):
     supported_messaging_content_types: NotRequired[
         "aws_sdk_connect.types.supported_messaging_content_types.SupportedMessagingContentTypes"
     ]

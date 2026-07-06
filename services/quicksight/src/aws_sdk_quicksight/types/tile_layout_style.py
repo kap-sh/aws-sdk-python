@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TileLayoutStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.gutter_style
     import aws_sdk_quicksight.types.margin_style
 
 
-class TileLayoutStyle(TypedDict):
+class TileLayoutStyle(TypedDict, closed=True):
     gutter: NotRequired["aws_sdk_quicksight.types.gutter_style.GutterStyle"]
     """<p>The gutter settings that apply between tiles. </p>"""
     margin: NotRequired["aws_sdk_quicksight.types.margin_style.MarginStyle"]

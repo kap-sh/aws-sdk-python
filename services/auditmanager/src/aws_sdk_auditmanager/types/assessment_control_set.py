@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentControlSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_controls
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.roles
 
 
-class AssessmentControlSet(TypedDict):
+class AssessmentControlSet(TypedDict, closed=True):
     id: NotRequired["aws_sdk_auditmanager.types.control_set_id.ControlSetId"]
     """<p> The identifier of the control set in the assessment. This is the control set name in a plain string format. </p>"""
     description: NotRequired[

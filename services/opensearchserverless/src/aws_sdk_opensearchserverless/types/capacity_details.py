@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CapacityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.autoscaling_status
 
 
-class CapacityDetails(TypedDict):
+class CapacityDetails(TypedDict, closed=True):
     capacity_in_ocu: NotRequired["float"]
     """<p>The current capacity in OpenSearch Compute Units (OCUs).</p>"""
     autoscaling_status: NotRequired[

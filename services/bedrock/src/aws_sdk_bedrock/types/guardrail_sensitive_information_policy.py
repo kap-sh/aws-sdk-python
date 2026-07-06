@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailSensitiveInformationPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_pii_entities
     import aws_sdk_bedrock.types.guardrail_regexes
 
 
-class GuardrailSensitiveInformationPolicy(TypedDict):
+class GuardrailSensitiveInformationPolicy(TypedDict, closed=True):
     pii_entities: NotRequired[
         "aws_sdk_bedrock.types.guardrail_pii_entities.GuardrailPiiEntities"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ContextDataType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_type
 
 
-class ContextDataType(TypedDict):
+class ContextDataType(TypedDict, closed=True):
     ip_address: "aws_sdk_cognito_identity_provider.types.string_type.StringType"
     """<p>The source IP address of your user's device.</p>"""
     server_name: "aws_sdk_cognito_identity_provider.types.string_type.StringType"

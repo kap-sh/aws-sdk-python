@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#IncompatibleApplicationsException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import ServiceError
 
 
-class IncompatibleApplicationsException_(TypedDict):
+class IncompatibleApplicationsException_(TypedDict, closed=True):
     pass
 
 

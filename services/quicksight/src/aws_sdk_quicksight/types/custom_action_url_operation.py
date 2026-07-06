@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomActionURLOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.url_target_configuration
 
 
-class CustomActionURLOperation(TypedDict):
+class CustomActionURLOperation(TypedDict, closed=True):
     url_template: "aws_sdk_quicksight.types.url_operation_template.URLOperationTemplate"
     """<p>THe URL link of the <code>CustomActionURLOperation</code>.</p>"""
     url_target: (

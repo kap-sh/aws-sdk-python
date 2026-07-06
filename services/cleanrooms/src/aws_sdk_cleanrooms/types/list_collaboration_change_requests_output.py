@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListCollaborationChangeRequestsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListCollaborationChangeRequestsOutput(TypedDict):
+class ListCollaborationChangeRequestsOutput(TypedDict, closed=True):
     collaboration_change_request_summaries: "aws_sdk_cleanrooms.types.collaboration_change_request_summary_list.CollaborationChangeRequestSummaryList"
     """<p>The list of collaboration change request summaries.</p>"""
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]

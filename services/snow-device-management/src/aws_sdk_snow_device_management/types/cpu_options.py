@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#CpuOptions``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CpuOptions(TypedDict):
+class CpuOptions(TypedDict, closed=True):
     core_count: NotRequired["int"]
     """<p>The number of cores that the CPU can use.</p>"""
     threads_per_core: NotRequired["int"]

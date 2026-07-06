@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#UpdateSlackChannelConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.slack_channel_configuration
 
 
-class UpdateSlackChannelConfigurationResult(TypedDict):
+class UpdateSlackChannelConfigurationResult(TypedDict, closed=True):
     channel_configuration: NotRequired[
         "aws_sdk_chatbot.types.slack_channel_configuration.SlackChannelConfiguration"
     ]

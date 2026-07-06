@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ReferenceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.scalar_reference_details
 
 
-class ReferenceDetails(TypedDict):
+class ReferenceDetails(TypedDict, closed=True):
     scalar_reference_details: NotRequired[
         "aws_sdk_rds.types.scalar_reference_details.ScalarReferenceDetails"
     ]

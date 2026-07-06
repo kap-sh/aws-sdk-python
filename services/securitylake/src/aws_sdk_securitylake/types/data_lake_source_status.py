@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeSourceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.source_collection_status
 
 
-class DataLakeSourceStatus(TypedDict):
+class DataLakeSourceStatus(TypedDict, closed=True):
     resource: NotRequired["str"]
     """<p>Defines path the stored logs are available which has information on your systems, applications, and services.</p>"""
     status: NotRequired[

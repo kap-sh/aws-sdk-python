@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIBenchmarkOutputResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_cloud_watch_logs_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AIBenchmarkOutputResult(TypedDict):
+class AIBenchmarkOutputResult(TypedDict, closed=True):
     s3_output_location: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 URI where benchmark results are stored.</p>"""
     cloud_watch_logs: NotRequired[

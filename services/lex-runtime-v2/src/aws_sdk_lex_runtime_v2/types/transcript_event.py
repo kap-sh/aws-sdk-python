@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#TranscriptEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.string
 
 
-class TranscriptEvent(TypedDict):
+class TranscriptEvent(TypedDict, closed=True):
     transcript: NotRequired["aws_sdk_lex_runtime_v2.types.string.String"]
     """<p>The transcript of the voice audio from the user.</p>"""
     event_id: NotRequired["aws_sdk_lex_runtime_v2.types.event_id.EventId"]

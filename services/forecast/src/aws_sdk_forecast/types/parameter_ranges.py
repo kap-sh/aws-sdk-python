@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ParameterRanges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.categorical_parameter_ranges
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.integer_parameter_ranges
 
 
-class ParameterRanges(TypedDict):
+class ParameterRanges(TypedDict, closed=True):
     categorical_parameter_ranges: NotRequired[
         "aws_sdk_forecast.types.categorical_parameter_ranges.CategoricalParameterRanges"
     ]

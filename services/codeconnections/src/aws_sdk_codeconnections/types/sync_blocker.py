@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#SyncBlocker``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.timestamp
 
 
-class SyncBlocker(TypedDict):
+class SyncBlocker(TypedDict, closed=True):
     id: "aws_sdk_codeconnections.types.id.Id"
     """<p>The ID for a specific sync blocker.</p>"""
     type: "aws_sdk_codeconnections.types.blocker_type.BlockerType"

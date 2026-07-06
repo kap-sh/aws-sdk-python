@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#SearchProvisionedProductsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.total_results_count
 
 
-class SearchProvisionedProductsOutput(TypedDict):
+class SearchProvisionedProductsOutput(TypedDict, closed=True):
     provisioned_products: NotRequired[
         "aws_sdk_service_catalog.types.provisioned_product_attributes.ProvisionedProductAttributes"
     ]

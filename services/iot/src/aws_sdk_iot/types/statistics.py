@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#Statistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.average
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.variance
 
 
-class Statistics(TypedDict):
+class Statistics(TypedDict, closed=True):
     count: "aws_sdk_iot.types.count.Count"
     """<p>The count of things that match the query string criteria and contain a valid aggregation field value.</p>"""
     average: NotRequired["aws_sdk_iot.types.average.Average"]

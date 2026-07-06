@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#SelfManagedActiveDirectoryConfigurationUpdates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.active_directory_fully_qualified_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.organizational_unit_distinguished_name
 
 
-class SelfManagedActiveDirectoryConfigurationUpdates(TypedDict):
+class SelfManagedActiveDirectoryConfigurationUpdates(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_fsx.types.directory_user_name.DirectoryUserName"]
     """<p>Specifies the updated user name for the service account on your self-managed Active Directory domain. Amazon FSx uses this account to join to your self-managed Active Directory domain.</p> <p>This account must have the permissions required to join computers to the domain in the organizational unit provided in <code>OrganizationalUnitDistinguishedName</code>.</p>"""
     password: NotRequired["aws_sdk_fsx.types.directory_password.DirectoryPassword"]

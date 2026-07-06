@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#HealthCheckConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.status_code_matcher
 
 
-class HealthCheckConfig(TypedDict):
+class HealthCheckConfig(TypedDict, closed=True):
     port: "int"
     """<p>The port to use for health check probes. Valid range is 80 to 65535.</p>"""
     path: "str"

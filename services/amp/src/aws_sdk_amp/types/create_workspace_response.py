@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#CreateWorkspaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_status
 
 
-class CreateWorkspaceResponse(TypedDict):
+class CreateWorkspaceResponse(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The unique ID for the new workspace.</p>"""
     arn: "aws_sdk_amp.types.workspace_arn.WorkspaceArn"

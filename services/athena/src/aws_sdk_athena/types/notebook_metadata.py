@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#NotebookMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class NotebookMetadata(TypedDict):
+class NotebookMetadata(TypedDict, closed=True):
     notebook_id: NotRequired["aws_sdk_athena.types.notebook_id.NotebookId"]
     """<p>The notebook ID.</p>"""
     name: NotRequired["aws_sdk_athena.types.notebook_name.NotebookName"]

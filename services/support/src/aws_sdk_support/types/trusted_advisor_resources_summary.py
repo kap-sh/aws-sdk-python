@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#TrustedAdvisorResourcesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.long
 
 
-class TrustedAdvisorResourcesSummary(TypedDict):
+class TrustedAdvisorResourcesSummary(TypedDict, closed=True):
     resources_processed: "aws_sdk_support.types.long.Long"
     """<p>The number of Amazon Web Services resources that were analyzed by the Trusted Advisor check.</p>"""
     resources_flagged: "aws_sdk_support.types.long.Long"

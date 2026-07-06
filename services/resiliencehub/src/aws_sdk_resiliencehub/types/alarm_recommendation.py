@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#AlarmRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.uuid
 
 
-class AlarmRecommendation(TypedDict):
+class AlarmRecommendation(TypedDict, closed=True):
     recommendation_id: "aws_sdk_resiliencehub.types.uuid.Uuid"
     """<p>Identifier of the alarm recommendation.</p>"""
     reference_id: "aws_sdk_resiliencehub.types.spec_reference_id.SpecReferenceId"

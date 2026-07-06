@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetEngineStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.document_valued_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.string_valued_map
 
 
-class GetEngineStatusOutput(TypedDict):
+class GetEngineStatusOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>Set to <code>healthy</code> if the instance is not experiencing problems. If the instance is recovering from a crash or from being rebooted and there are active transactions running from the latest server shutdown, status is set to <code>recovery</code>.</p>"""
     start_time: NotRequired["str"]

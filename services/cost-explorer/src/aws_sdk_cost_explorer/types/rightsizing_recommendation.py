@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RightsizingRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.current_instance
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.terminate_recommendation_detail
 
 
-class RightsizingRecommendation(TypedDict):
+class RightsizingRecommendation(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The account that this recommendation is for.</p>"""
     current_instance: NotRequired[

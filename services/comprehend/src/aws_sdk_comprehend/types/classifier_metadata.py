@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ClassifierMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.classifier_evaluation_metrics
     import aws_sdk_comprehend.types.integer
 
 
-class ClassifierMetadata(TypedDict):
+class ClassifierMetadata(TypedDict, closed=True):
     number_of_labels: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>The number of labels in the input data. </p>"""
     number_of_trained_documents: NotRequired["aws_sdk_comprehend.types.integer.Integer"]

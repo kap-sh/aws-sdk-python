@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicationTopicNameConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.replication_topic_name_configuration_type
 
 
-class ReplicationTopicNameConfiguration(TypedDict):
+class ReplicationTopicNameConfiguration(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_kafka.types.replication_topic_name_configuration_type.ReplicationTopicNameConfigurationType"
     ]

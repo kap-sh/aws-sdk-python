@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RetrievalFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.retrieval_flow_node_service_configuration
 
 
-class RetrievalFlowNodeConfiguration(TypedDict):
+class RetrievalFlowNodeConfiguration(TypedDict, closed=True):
     service_configuration: "aws_sdk_bedrock_agent.types.retrieval_flow_node_service_configuration.RetrievalFlowNodeServiceConfiguration"
     """<p>Contains configurations for the service to use for retrieving data to return as the output from the node.</p>"""
 

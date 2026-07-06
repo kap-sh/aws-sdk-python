@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PutKeywordResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.keyword
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.keyword_message
 
 
-class PutKeywordResult(TypedDict):
+class PutKeywordResult(TypedDict, closed=True):
     origination_identity_arn: NotRequired["str"]
     """<p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>"""
     origination_identity: NotRequired["str"]

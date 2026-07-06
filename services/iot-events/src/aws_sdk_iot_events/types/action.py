@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.clear_timer_action
@@ -58,6 +58,7 @@ Action = TypedDict(
             "aws_sdk_iot_events.types.iot_site_wise_action.IotSiteWiseAction"
         ],
     },
+    closed=True,
 )
 
 

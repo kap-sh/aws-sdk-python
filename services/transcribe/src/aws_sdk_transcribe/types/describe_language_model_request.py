@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#DescribeLanguageModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.model_name
 
 
-class DescribeLanguageModelRequest(TypedDict):
+class DescribeLanguageModelRequest(TypedDict, closed=True):
     model_name: "aws_sdk_transcribe.types.model_name.ModelName"
     """<p>The name of the custom language model you want information about. Model names are case sensitive.</p>"""
 

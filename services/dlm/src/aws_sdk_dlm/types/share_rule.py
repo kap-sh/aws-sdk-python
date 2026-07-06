@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#ShareRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.interval
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.share_target_account_list
 
 
-class ShareRule(TypedDict):
+class ShareRule(TypedDict, closed=True):
     target_accounts: NotRequired[
         "aws_sdk_dlm.types.share_target_account_list.ShareTargetAccountList"
     ]

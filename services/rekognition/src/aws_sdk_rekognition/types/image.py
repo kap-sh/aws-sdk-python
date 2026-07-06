@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.image_blob
     import aws_sdk_rekognition.types.s3_object
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     bytes: NotRequired["aws_sdk_rekognition.types.image_blob.ImageBlob"]
     """<p>Blob of image bytes up to 5 MBs. Note that the maximum image size you can pass to <code>DetectCustomLabels</code> is 4MB. </p>"""
     s3_object: NotRequired["aws_sdk_rekognition.types.s3_object.S3Object"]

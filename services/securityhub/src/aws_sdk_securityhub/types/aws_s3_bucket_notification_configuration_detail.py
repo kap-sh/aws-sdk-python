@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketNotificationConfigurationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_notification_configuration_events
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3BucketNotificationConfigurationDetail(TypedDict):
+class AwsS3BucketNotificationConfigurationDetail(TypedDict, closed=True):
     events: NotRequired[
         "aws_sdk_securityhub.types.aws_s3_bucket_notification_configuration_events.AwsS3BucketNotificationConfigurationEvents"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeOrganizationResourceCollectionHealthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class DescribeOrganizationResourceCollectionHealthRequest(TypedDict):
+class DescribeOrganizationResourceCollectionHealthRequest(TypedDict, closed=True):
     organization_resource_collection_type: "aws_sdk_devops_guru.types.organization_resource_collection_type.OrganizationResourceCollectionType"
     """<p> An Amazon Web Services resource collection type. This type specifies how analyzed Amazon Web Services resources are defined. The two types of Amazon Web Services resource collections supported are Amazon Web Services CloudFormation stacks and Amazon Web Services resources that contain the same Amazon Web Services tag. DevOps Guru can be configured to analyze the Amazon Web Services resources that are defined in the stacks or that are tagged using the same tag <i>key</i>. You can specify up to 500 Amazon Web Services CloudFormation stacks. </p>"""
     account_ids: NotRequired["aws_sdk_devops_guru.types.account_id_list.AccountIdList"]

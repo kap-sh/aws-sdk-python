@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.error_detail
     import aws_sdk_glue.types.name_string
 
 
-class ColumnError(TypedDict):
+class ColumnError(TypedDict, closed=True):
     column_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the column that failed.</p>"""
     error: NotRequired["aws_sdk_glue.types.error_detail.ErrorDetail"]

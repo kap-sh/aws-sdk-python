@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#DeleteAutomationRuleResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAutomationRuleResponse(TypedDict):
+class DeleteAutomationRuleResponse(TypedDict, closed=True):
     pass
 
 

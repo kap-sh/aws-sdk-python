@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#LFTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.tag_value_list
 
 
-class LFTag(TypedDict):
+class LFTag(TypedDict, closed=True):
     tag_key: "aws_sdk_lakeformation.types.lf_tag_key.LFTagKey"
     """<p>The key-name for the LF-tag.</p>"""
     tag_values: "aws_sdk_lakeformation.types.tag_value_list.TagValueList"

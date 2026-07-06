@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.severity
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the Amazon Web Services account that the finding applies to. This is typically the account that owns the affected resource.</p>"""
     archived: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteAvoidanceAreaGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.bounding_box
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.polyline_ring_list
 
 
-class RouteAvoidanceAreaGeometry(TypedDict):
+class RouteAvoidanceAreaGeometry(TypedDict, closed=True):
     corridor: NotRequired["aws_sdk_geo_routes.types.corridor.Corridor"]
     """<p>Geometry defined as a corridor - a LineString with a radius that defines the width of the corridor.</p>"""
     bounding_box: NotRequired["aws_sdk_geo_routes.types.bounding_box.BoundingBox"]

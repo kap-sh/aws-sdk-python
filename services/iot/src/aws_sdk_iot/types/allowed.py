@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#Allowed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.policies
 
 
-class Allowed(TypedDict):
+class Allowed(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_iot.types.policies.Policies"]
     """<p>A list of policies that allowed the authentication.</p>"""
 

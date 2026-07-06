@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TranslateTextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.translation_settings
 
 
-class TranslateTextResponse(TypedDict):
+class TranslateTextResponse(TypedDict, closed=True):
     translated_text: (
         "aws_sdk_translate.types.translated_text_string.TranslatedTextString"
     )

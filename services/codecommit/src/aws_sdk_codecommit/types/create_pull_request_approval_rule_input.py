@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreatePullRequestApprovalRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request_id
 
 
-class CreatePullRequestApprovalRuleInput(TypedDict):
+class CreatePullRequestApprovalRuleInput(TypedDict, closed=True):
     pull_request_id: "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
     """<p>The system-generated ID of the pull request for which you want to create the approval rule.</p>"""
     approval_rule_name: "aws_sdk_codecommit.types.approval_rule_name.ApprovalRuleName"

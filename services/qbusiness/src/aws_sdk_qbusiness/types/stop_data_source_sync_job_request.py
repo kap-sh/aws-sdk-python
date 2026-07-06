@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#StopDataSourceSyncJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.index_id
 
 
-class StopDataSourceSyncJobRequest(TypedDict):
+class StopDataSourceSyncJobRequest(TypedDict, closed=True):
     data_source_id: "aws_sdk_qbusiness.types.data_source_id.DataSourceId"
     """<p> The identifier of the data source connector. </p>"""
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"

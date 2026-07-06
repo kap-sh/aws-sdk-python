@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#BatchGetRepositoryScanningConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.scanning_configuration_repository_name_list
 
 
-class BatchGetRepositoryScanningConfigurationRequest(TypedDict):
+class BatchGetRepositoryScanningConfigurationRequest(TypedDict, closed=True):
     repository_names: "aws_sdk_ecr.types.scanning_configuration_repository_name_list.ScanningConfigurationRepositoryNameList"
     """<p>One or more repository names to get the scanning configuration for.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.display_name
 
 
-class UpdateCommandRequest(TypedDict):
+class UpdateCommandRequest(TypedDict, closed=True):
     command_id: "aws_sdk_iot.types.command_id.CommandId"
     """<p>The unique identifier of the command to be updated.</p>"""
     display_name: NotRequired["aws_sdk_iot.types.display_name.DisplayName"]

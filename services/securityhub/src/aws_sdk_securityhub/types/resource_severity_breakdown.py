@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourceSeverityBreakdown``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class ResourceSeverityBreakdown(TypedDict):
+class ResourceSeverityBreakdown(TypedDict, closed=True):
     other: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of findings not in any of the severity categories.</p>"""
     fatal: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

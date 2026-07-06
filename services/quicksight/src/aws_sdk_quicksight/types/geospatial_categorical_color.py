@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialCategoricalColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class GeospatialCategoricalColor(TypedDict):
+class GeospatialCategoricalColor(TypedDict, closed=True):
     category_data_colors: "aws_sdk_quicksight.types.geospatial_categorical_data_color_list.GeospatialCategoricalDataColorList"
     """<p>A list of categorical data colors for each category.</p>"""
     null_data_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListCrawlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.crawler_history_list
     import aws_sdk_glue.types.token
 
 
-class ListCrawlsResponse(TypedDict):
+class ListCrawlsResponse(TypedDict, closed=True):
     crawls: NotRequired["aws_sdk_glue.types.crawler_history_list.CrawlerHistoryList"]
     """<p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

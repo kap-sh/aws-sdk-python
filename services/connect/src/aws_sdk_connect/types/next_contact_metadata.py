@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NextContactMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.quick_connect_contact_data
 
 
-class _NextContactMetadata_QuickConnectContactData(TypedDict):
+class _NextContactMetadata_QuickConnectContactData(TypedDict, closed=True):
     QuickConnectContactData: (
         "aws_sdk_connect.types.quick_connect_contact_data.QuickConnectContactData"
     )

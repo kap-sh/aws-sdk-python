@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#BatchAddChannelRoleToAccessorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.batch_error_list
 
 
-class BatchAddChannelRoleToAccessorsOutput(TypedDict):
+class BatchAddChannelRoleToAccessorsOutput(TypedDict, closed=True):
     added_accessor_ids: "aws_sdk_repostspace.types.accessor_id_list.AccessorIdList"
     """<p>An array of successfully updated identifiers.</p>"""
     errors: "aws_sdk_repostspace.types.batch_error_list.BatchErrorList"

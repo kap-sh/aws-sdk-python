@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DescribePackageVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_package_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.package_owner_account
 
 
-class DescribePackageVersionRequest(TypedDict):
+class DescribePackageVersionRequest(TypedDict, closed=True):
     owner_account: NotRequired[
         "aws_sdk_panorama.types.package_owner_account.PackageOwnerAccount"
     ]

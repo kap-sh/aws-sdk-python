@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#SearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.search_by_attribute_values
 
 
-class SearchFilter(TypedDict):
+class SearchFilter(TypedDict, closed=True):
     values: "aws_sdk_medical_imaging.types.search_by_attribute_values.SearchByAttributeValues"
     """<p>The search filter values.</p>"""
     operator: "aws_sdk_medical_imaging.types.operator.Operator"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#RelationalDatabaseDataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.rds_http_endpoint_config
     import aws_sdk_appsync.types.relational_database_source_type
 
 
-class RelationalDatabaseDataSourceConfig(TypedDict):
+class RelationalDatabaseDataSourceConfig(TypedDict, closed=True):
     relational_database_source_type: NotRequired[
         "aws_sdk_appsync.types.relational_database_source_type.RelationalDatabaseSourceType"
     ]

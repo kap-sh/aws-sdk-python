@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetSavingsPlansCoverageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.sort_definition
 
 
-class GetSavingsPlansCoverageRequest(TypedDict):
+class GetSavingsPlansCoverageRequest(TypedDict, closed=True):
     time_period: "aws_sdk_cost_explorer.types.date_interval.DateInterval"
     """<p>The time period that you want the usage and costs for. The <code>Start</code> date must be within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and before the current date. Future dates can't be used as an <code>End</code> date.</p>"""
     group_by: NotRequired[

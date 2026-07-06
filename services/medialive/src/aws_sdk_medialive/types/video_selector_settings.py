@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#VideoSelectorSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.video_selector_pid
     import aws_sdk_medialive.types.video_selector_program_id
 
 
-class VideoSelectorSettings(TypedDict):
+class VideoSelectorSettings(TypedDict, closed=True):
     video_selector_pid: NotRequired[
         "aws_sdk_medialive.types.video_selector_pid.VideoSelectorPid"
     ]

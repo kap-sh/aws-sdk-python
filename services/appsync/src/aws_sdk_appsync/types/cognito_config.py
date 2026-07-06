@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#CognitoConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class CognitoConfig(TypedDict):
+class CognitoConfig(TypedDict, closed=True):
     user_pool_id: "aws_sdk_appsync.types.string.String"
     """<p>The user pool ID.</p>"""
     aws_region: "aws_sdk_appsync.types.string.String"

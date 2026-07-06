@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#AccessLogSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class AccessLogSettings(TypedDict):
+class AccessLogSettings(TypedDict, closed=True):
     format: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least <code>$context.requestId</code>.</p>"""
     destination_arn: NotRequired["aws_sdk_api_gateway.types.string.String"]

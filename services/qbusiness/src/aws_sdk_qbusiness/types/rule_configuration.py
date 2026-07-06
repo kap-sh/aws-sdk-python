@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#RuleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.content_retrieval_rule
 
 
-class _RuleConfiguration_contentBlockerRule(TypedDict):
+class _RuleConfiguration_contentBlockerRule(TypedDict, closed=True):
     contentBlockerRule: (
         "aws_sdk_qbusiness.types.content_blocker_rule.ContentBlockerRule"
     )
 
 
-class _RuleConfiguration_contentRetrievalRule(TypedDict):
+class _RuleConfiguration_contentRetrievalRule(TypedDict, closed=True):
     contentRetrievalRule: (
         "aws_sdk_qbusiness.types.content_retrieval_rule.ContentRetrievalRule"
     )

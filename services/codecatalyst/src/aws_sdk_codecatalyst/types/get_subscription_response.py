@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#GetSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.name_string
     import aws_sdk_codecatalyst.types.timestamp
 
 
-class GetSubscriptionResponse(TypedDict):
+class GetSubscriptionResponse(TypedDict, closed=True):
     subscription_type: NotRequired["str"]
     """<p>The type of the billing plan for the space.</p>"""
     aws_account_name: NotRequired["aws_sdk_codecatalyst.types.name_string.NameString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Integration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.connection_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.tls_config
 
 
-class Integration(TypedDict):
+class Integration(TypedDict, closed=True):
     type: NotRequired["aws_sdk_api_gateway.types.integration_type.IntegrationType"]
     """<p>Specifies an API method integration type. The valid value is one of the following:</p> <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>"""
     http_method: NotRequired["aws_sdk_api_gateway.types.string.String"]

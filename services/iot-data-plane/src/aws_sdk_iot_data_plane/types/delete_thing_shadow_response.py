@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#DeleteThingShadowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_data_plane.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.json_document
 
 
-class DeleteThingShadowResponse(TypedDict):
+class DeleteThingShadowResponse(TypedDict, closed=True):
     payload: "aws_sdk_iot_data_plane.types.json_document.JsonDocument"
     """<p>The state information, in JSON format.</p>"""
 

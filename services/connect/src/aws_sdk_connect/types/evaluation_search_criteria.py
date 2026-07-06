@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean_condition
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string_condition
 
 
-class EvaluationSearchCriteria(TypedDict):
+class EvaluationSearchCriteria(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.evaluation_search_condition_list.EvaluationSearchConditionList"
     ]

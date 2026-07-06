@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DomainNameConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.certificate_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.tag_map
 
 
-class DomainNameConfig(TypedDict):
+class DomainNameConfig(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_appsync.types.domain_name.DomainName"]
     """<p>The domain name.</p>"""
     description: NotRequired["aws_sdk_appsync.types.description.Description"]

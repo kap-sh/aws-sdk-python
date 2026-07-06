@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LFTagPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.lf_resource_type
 
 
-class LFTagPolicyDetails(TypedDict):
+class LFTagPolicyDetails(TypedDict, closed=True):
     catalog_id: "aws_sdk_dataexchange.types.aws_account_id.AwsAccountId"
     """<p>The identifier for the AWS Glue Data Catalog.</p>"""
     resource_type: "aws_sdk_dataexchange.types.lf_resource_type.LFResourceType"

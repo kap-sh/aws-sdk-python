@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#CreateStackInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.timeout_minutes
 
 
-class CreateStackInput(TypedDict):
+class CreateStackInput(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_cloudformation.types.stack_name.StackName"]
     """<p>The name that's associated with the stack. The name must be unique in the Region in which you are creating the stack.</p> <note> <p>A stack name can contain only alphanumeric characters (case sensitive) and hyphens. It must start with an alphabetical character and can't be longer than 128 characters.</p> </note>"""
     template_body: NotRequired[

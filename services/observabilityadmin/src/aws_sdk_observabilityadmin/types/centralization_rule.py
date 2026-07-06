@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CentralizationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.centralization_rule_source
 
 
-class CentralizationRule(TypedDict):
+class CentralizationRule(TypedDict, closed=True):
     source: "aws_sdk_observabilityadmin.types.centralization_rule_source.CentralizationRuleSource"
     """<p>Configuration determining the source of the telemetry data to be centralized.</p>"""
     destination: "aws_sdk_observabilityadmin.types.centralization_rule_destination.CentralizationRuleDestination"

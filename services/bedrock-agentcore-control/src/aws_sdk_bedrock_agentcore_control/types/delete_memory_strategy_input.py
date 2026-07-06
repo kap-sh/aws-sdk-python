@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteMemoryStrategyInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class DeleteMemoryStrategyInput(TypedDict):
+class DeleteMemoryStrategyInput(TypedDict, closed=True):
     memory_strategy_id: "str"
     """<p>The unique identifier of the memory strategy to delete.</p>"""
 

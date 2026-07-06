@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelGremlinQueryOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelGremlinQueryOutput(TypedDict):
+class CancelGremlinQueryOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>The status of the cancelation</p>"""
 

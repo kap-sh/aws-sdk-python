@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#UserGroupResolutionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.user_group_resolution_mode
 
 
-class UserGroupResolutionConfiguration(TypedDict):
+class UserGroupResolutionConfiguration(TypedDict, closed=True):
     user_group_resolution_mode: (
         "aws_sdk_kendra.types.user_group_resolution_mode.UserGroupResolutionMode"
     )

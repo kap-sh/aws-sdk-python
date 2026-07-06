@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#PublicRouterNetworkInterfaceRule``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
 
-class PublicRouterNetworkInterfaceRule(TypedDict):
+class PublicRouterNetworkInterfaceRule(TypedDict, closed=True):
     cidr: "str"
     """<p>The CIDR block that is allowed to access the public router network interface.</p>"""
 

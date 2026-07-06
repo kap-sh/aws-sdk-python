@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetBindingValueFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class AssetBindingValueFilter(TypedDict):
+class AssetBindingValueFilter(TypedDict, closed=True):
     asset_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the asset to filter data bindings by. Only data bindings referencing this specific asset are matched.</p>"""
 

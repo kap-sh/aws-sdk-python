@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ContentBlockDelta``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -12,29 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_use_block_delta
 
 
-class _ContentBlockDelta_text(TypedDict):
+class _ContentBlockDelta_text(TypedDict, closed=True):
     text: "str"
 
 
-class _ContentBlockDelta_toolUse(TypedDict):
+class _ContentBlockDelta_toolUse(TypedDict, closed=True):
     toolUse: "aws_sdk_bedrock_runtime.types.tool_use_block_delta.ToolUseBlockDelta"
 
 
-class _ContentBlockDelta_toolResult(TypedDict):
+class _ContentBlockDelta_toolResult(TypedDict, closed=True):
     toolResult: (
         "aws_sdk_bedrock_runtime.types.tool_result_blocks_delta.ToolResultBlocksDelta"
     )
 
 
-class _ContentBlockDelta_reasoningContent(TypedDict):
+class _ContentBlockDelta_reasoningContent(TypedDict, closed=True):
     reasoningContent: "aws_sdk_bedrock_runtime.types.reasoning_content_block_delta.ReasoningContentBlockDelta"
 
 
-class _ContentBlockDelta_citation(TypedDict):
+class _ContentBlockDelta_citation(TypedDict, closed=True):
     citation: "aws_sdk_bedrock_runtime.types.citations_delta.CitationsDelta"
 
 
-class _ContentBlockDelta_image(TypedDict):
+class _ContentBlockDelta_image(TypedDict, closed=True):
     image: "aws_sdk_bedrock_runtime.types.image_block_delta.ImageBlockDelta"
 
 

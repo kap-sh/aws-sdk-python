@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#Build``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.auto_retry_config
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_long
 
 
-class Build(TypedDict):
+class Build(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The unique ID for the build.</p>"""
     arn: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]

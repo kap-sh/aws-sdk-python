@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_image
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_input_mode
 
 
-class AlgorithmSpecification(TypedDict):
+class AlgorithmSpecification(TypedDict, closed=True):
     training_image: NotRequired[
         "aws_sdk_sagemaker.types.algorithm_image.AlgorithmImage"
     ]

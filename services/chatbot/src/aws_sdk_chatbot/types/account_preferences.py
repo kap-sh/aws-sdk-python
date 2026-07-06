@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#AccountPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.boolean_account_preference
 
 
-class AccountPreferences(TypedDict):
+class AccountPreferences(TypedDict, closed=True):
     user_authorization_required: NotRequired[
         "aws_sdk_chatbot.types.boolean_account_preference.BooleanAccountPreference"
     ]

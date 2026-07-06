@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DeleteStateMachineAliasOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteStateMachineAliasOutput(TypedDict):
+class DeleteStateMachineAliasOutput(TypedDict, closed=True):
     pass
 
 

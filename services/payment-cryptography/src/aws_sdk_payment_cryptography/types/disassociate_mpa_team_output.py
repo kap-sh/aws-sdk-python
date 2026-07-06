@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#DisassociateMpaTeamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.mpa_team_association
 
 
-class DisassociateMpaTeamOutput(TypedDict):
+class DisassociateMpaTeamOutput(TypedDict, closed=True):
     mpa_team_association: (
         "aws_sdk_payment_cryptography.types.mpa_team_association.MpaTeamAssociation"
     )

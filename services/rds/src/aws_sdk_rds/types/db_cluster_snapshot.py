@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBClusterSnapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class DBClusterSnapshot(TypedDict):
+class DBClusterSnapshot(TypedDict, closed=True):
     availability_zones: NotRequired[
         "aws_sdk_rds.types.availability_zones.AvailabilityZones"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.tags
 
 
-class GetDomainResponse(TypedDict):
+class GetDomainResponse(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     domain_arn: "aws_sdk_connectcases.types.domain_arn.DomainArn"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RejectRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.reject_rule_behavior
 
 
-class RejectRule(TypedDict):
+class RejectRule(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_datazone.types.reject_rule_behavior.RejectRuleBehavior"]
     """<p>Specifies whether you want to reject the top prediction for all targets or none.</p>"""
     threshold: NotRequired["float"]

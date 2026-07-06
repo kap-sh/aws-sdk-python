@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#TypedAttributeValueRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_attribute_value
 
 
-class TypedAttributeValueRange(TypedDict):
+class TypedAttributeValueRange(TypedDict, closed=True):
     start_mode: "aws_sdk_clouddirectory.types.range_mode.RangeMode"
     """<p>The inclusive or exclusive range start.</p>"""
     start_value: NotRequired[

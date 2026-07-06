@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CreateTaskSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class CreateTaskSetRequest(TypedDict):
+class CreateTaskSetRequest(TypedDict, closed=True):
     service: "aws_sdk_ecs.types.string.String"
     """<p>The short name or full Amazon Resource Name (ARN) of the service to create the task set in.</p>"""
     cluster: "aws_sdk_ecs.types.string.String"

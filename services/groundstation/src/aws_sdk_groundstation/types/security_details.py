@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#SecurityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.subnet_list
 
 
-class SecurityDetails(TypedDict):
+class SecurityDetails(TypedDict, closed=True):
     subnet_ids: "aws_sdk_groundstation.types.subnet_list.SubnetList"
     """<p>A list of subnets where AWS Ground Station places elastic network interfaces to send streams to your instances.</p>"""
     security_group_ids: (

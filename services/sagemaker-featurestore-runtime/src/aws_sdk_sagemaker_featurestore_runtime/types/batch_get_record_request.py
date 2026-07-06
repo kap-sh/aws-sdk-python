@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerfeaturestoreruntime#BatchGetRecordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_identifiers
     import aws_sdk_sagemaker_featurestore_runtime.types.expiration_time_response
 
 
-class BatchGetRecordRequest(TypedDict):
+class BatchGetRecordRequest(TypedDict, closed=True):
     identifiers: NotRequired[
         "aws_sdk_sagemaker_featurestore_runtime.types.batch_get_record_identifiers.BatchGetRecordIdentifiers"
     ]

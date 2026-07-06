@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_route53globalresolver.types.tags.Tags"]
     """<p>An array of user-defined keys and optional values. These tags can be used for categorization and organization.</p>"""
 

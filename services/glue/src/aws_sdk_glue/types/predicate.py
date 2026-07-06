@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Predicate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.condition_list
     import aws_sdk_glue.types.logical
 
 
-class Predicate(TypedDict):
+class Predicate(TypedDict, closed=True):
     logical: NotRequired["aws_sdk_glue.types.logical.Logical"]
     """<p>An optional field if only one condition is listed. If multiple conditions are listed, then this field is required.</p>"""
     conditions: NotRequired["aws_sdk_glue.types.condition_list.ConditionList"]

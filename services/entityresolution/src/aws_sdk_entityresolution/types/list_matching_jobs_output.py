@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListMatchingJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.job_list
     import aws_sdk_entityresolution.types.next_token
 
 
-class ListMatchingJobsOutput(TypedDict):
+class ListMatchingJobsOutput(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_entityresolution.types.job_list.JobList"]
     """<p>A list of <code>JobSummary</code> objects, each of which contain the ID, status, start time, and end time of a job.</p>"""
     next_token: NotRequired["aws_sdk_entityresolution.types.next_token.NextToken"]

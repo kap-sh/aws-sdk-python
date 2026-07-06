@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteWorkteamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.success
 
 
-class DeleteWorkteamResponse(TypedDict):
+class DeleteWorkteamResponse(TypedDict, closed=True):
     success: NotRequired["aws_sdk_sagemaker.types.success.Success"]
     """<p>Returns <code>true</code> if the work team was successfully deleted; otherwise, returns <code>false</code>.</p>"""
 

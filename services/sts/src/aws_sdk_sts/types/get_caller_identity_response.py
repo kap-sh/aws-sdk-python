@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetCallerIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.user_id_type
 
 
-class GetCallerIdentityResponse(TypedDict):
+class GetCallerIdentityResponse(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_sts.types.user_id_type.userIdType"]
     r"""<p>The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the <b>aws:userid</b> column in the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable\">Principal table</a> found on the <b>Policy Variables</b> reference page in the <i>IAM User Guide</i>.</p>"""
     account: NotRequired["aws_sdk_sts.types.account_type.accountType"]

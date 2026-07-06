@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#OperationNotSupportedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.error_message
 
 
-class OperationNotSupportedException_(TypedDict):
+class OperationNotSupportedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_service_catalog.types.error_message.ErrorMessage"]
 
 

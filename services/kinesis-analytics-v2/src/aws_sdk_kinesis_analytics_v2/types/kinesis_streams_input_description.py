@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#KinesisStreamsInputDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.role_arn
 
 
-class KinesisStreamsInputDescription(TypedDict):
+class KinesisStreamsInputDescription(TypedDict, closed=True):
     resource_arn: "aws_sdk_kinesis_analytics_v2.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the Kinesis data stream.</p>"""
     role_arn: NotRequired["aws_sdk_kinesis_analytics_v2.types.role_arn.RoleARN"]

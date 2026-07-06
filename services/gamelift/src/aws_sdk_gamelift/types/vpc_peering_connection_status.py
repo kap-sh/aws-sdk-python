@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#VpcPeeringConnectionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class VpcPeeringConnectionStatus(TypedDict):
+class VpcPeeringConnectionStatus(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateDatasetGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.tags
 
 
-class CreateDatasetGroupRequest(TypedDict):
+class CreateDatasetGroupRequest(TypedDict, closed=True):
     name: "aws_sdk_personalize.types.name.Name"
     """<p>The name for the new dataset group.</p>"""
     role_arn: NotRequired["aws_sdk_personalize.types.role_arn.RoleArn"]

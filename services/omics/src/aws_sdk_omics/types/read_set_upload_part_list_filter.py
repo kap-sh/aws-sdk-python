@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReadSetUploadPartListFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class ReadSetUploadPartListFilter(TypedDict):
+class ReadSetUploadPartListFilter(TypedDict, closed=True):
     created_after: NotRequired["datetime.datetime"]
     """<p> Filters for read set uploads after a specified time. </p>"""
     created_before: NotRequired["datetime.datetime"]

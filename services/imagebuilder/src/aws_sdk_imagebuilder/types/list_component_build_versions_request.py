@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListComponentBuildVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.component_version_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListComponentBuildVersionsRequest(TypedDict):
+class ListComponentBuildVersionsRequest(TypedDict, closed=True):
     component_version_arn: NotRequired[
         "aws_sdk_imagebuilder.types.component_version_arn.ComponentVersionArn"
     ]

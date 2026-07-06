@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.tag_key
     import aws_sdk_fsx.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_fsx.types.tag_key.TagKey"]
     """<p>A value that specifies the <code>TagKey</code>, the name of the tag. Tag keys must be unique for the resource to which they are attached.</p>"""
     value: NotRequired["aws_sdk_fsx.types.tag_value.TagValue"]

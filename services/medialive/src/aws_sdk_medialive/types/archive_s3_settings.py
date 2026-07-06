@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ArchiveS3Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.s3_canned_acl
 
 
-class ArchiveS3Settings(TypedDict):
+class ArchiveS3Settings(TypedDict, closed=True):
     canned_acl: NotRequired["aws_sdk_medialive.types.s3_canned_acl.S3CannedAcl"]
     """Specify the canned ACL to apply to each S3 request. Defaults to none."""
 

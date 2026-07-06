@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisDisplayMinMaxRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
 
 
-class AxisDisplayMinMaxRange(TypedDict):
+class AxisDisplayMinMaxRange(TypedDict, closed=True):
     minimum: NotRequired["aws_sdk_quicksight.types.double.Double"]
     """<p>The minimum setup for an axis display range.</p>"""
     maximum: NotRequired["aws_sdk_quicksight.types.double.Double"]

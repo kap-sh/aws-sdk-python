@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CreateCustomRoutingListenerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.port_ranges
 
 
-class CreateCustomRoutingListenerRequest(TypedDict):
+class CreateCustomRoutingListenerRequest(TypedDict, closed=True):
     accelerator_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The Amazon Resource Name (ARN) of the accelerator for a custom routing listener.</p>"""
     port_ranges: "aws_sdk_global_accelerator.types.port_ranges.PortRanges"

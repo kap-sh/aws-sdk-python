@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListQueuesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.queue_url_list
     import aws_sdk_sqs.types.token
 
 
-class ListQueuesResult(TypedDict):
+class ListQueuesResult(TypedDict, closed=True):
     queue_urls: NotRequired["aws_sdk_sqs.types.queue_url_list.QueueUrlList"]
     """<p>A list of queue URLs, up to 1,000 entries, or the value of <code>MaxResults</code> that you sent in the request.</p>"""
     next_token: NotRequired["aws_sdk_sqs.types.token.Token"]

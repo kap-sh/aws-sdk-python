@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataAccessor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_accessor_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class DataAccessor(TypedDict):
+class DataAccessor(TypedDict, closed=True):
     display_name: NotRequired[
         "aws_sdk_qbusiness.types.data_accessor_name.DataAccessorName"
     ]

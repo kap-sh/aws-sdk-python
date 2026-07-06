@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchGetAssetPropertyAggregatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class BatchGetAssetPropertyAggregatesRequest(TypedDict):
+class BatchGetAssetPropertyAggregatesRequest(TypedDict, closed=True):
     entries: "aws_sdk_iotsitewise.types.batch_get_asset_property_aggregates_entries.BatchGetAssetPropertyAggregatesEntries"
     """<p>The list of asset property aggregate entries for the batch get request. You can specify up to 16 entries per request.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

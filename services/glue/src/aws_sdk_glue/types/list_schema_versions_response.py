@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListSchemaVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_registry_token_string
     import aws_sdk_glue.types.schema_version_list
 
 
-class ListSchemaVersionsResponse(TypedDict):
+class ListSchemaVersionsResponse(TypedDict, closed=True):
     schemas: NotRequired["aws_sdk_glue.types.schema_version_list.SchemaVersionList"]
     """<p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>"""
     next_token: NotRequired[

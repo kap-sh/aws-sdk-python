@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DeleteCustomActionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomActionResult(TypedDict):
+class DeleteCustomActionResult(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StopQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_id
 
 
-class StopQueryRequest(TypedDict):
+class StopQueryRequest(TypedDict, closed=True):
     query_id: "aws_sdk_cloudwatch_logs.types.query_id.QueryId"
     """<p>The ID number of the query to stop. To find this ID number, use <code>DescribeQueries</code>.</p>"""
 

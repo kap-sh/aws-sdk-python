@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DeleteClusterPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteClusterPolicyResponse(TypedDict):
+class DeleteClusterPolicyResponse(TypedDict, closed=True):
     pass
 
 

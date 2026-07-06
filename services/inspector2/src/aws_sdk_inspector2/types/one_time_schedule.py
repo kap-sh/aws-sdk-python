@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#OneTimeSchedule``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class OneTimeSchedule(TypedDict):
+class OneTimeSchedule(TypedDict, closed=True):
     pass
 
 

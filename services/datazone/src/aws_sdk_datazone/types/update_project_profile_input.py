@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateProjectProfileInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.description
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.status
 
 
-class UpdateProjectProfileInput(TypedDict):
+class UpdateProjectProfileInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where a project profile is to be updated.</p>"""
     identifier: "aws_sdk_datazone.types.project_profile_id.ProjectProfileId"

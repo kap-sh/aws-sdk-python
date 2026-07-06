@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#ExternalModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.fraud_detector_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class ExternalModel(TypedDict):
+class ExternalModel(TypedDict, closed=True):
     model_endpoint: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The Amazon SageMaker model endpoints.</p>"""
     model_source: NotRequired["aws_sdk_frauddetector.types.model_source.ModelSource"]

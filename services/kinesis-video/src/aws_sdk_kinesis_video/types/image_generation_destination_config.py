@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ImageGenerationDestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.destination_uri
 
 
-class ImageGenerationDestinationConfig(TypedDict):
+class ImageGenerationDestinationConfig(TypedDict, closed=True):
     uri: "aws_sdk_kinesis_video.types.destination_uri.DestinationUri"
     """<p>The Uniform Resource Identifier (URI) that identifies where the images will be delivered.</p>"""
     destination_region: (

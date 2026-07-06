@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#StartUploadJobResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartUploadJobResponse(TypedDict):
+class StartUploadJobResponse(TypedDict, closed=True):
     pass
 
 

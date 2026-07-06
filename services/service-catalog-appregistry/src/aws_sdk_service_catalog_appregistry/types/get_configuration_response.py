@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#GetConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.app_registry_configuration
 
 
-class GetConfigurationResponse(TypedDict):
+class GetConfigurationResponse(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.app_registry_configuration.AppRegistryConfiguration"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutDedicatedIpPoolScalingAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.scaling_mode
 
 
-class PutDedicatedIpPoolScalingAttributesRequest(TypedDict):
+class PutDedicatedIpPoolScalingAttributesRequest(TypedDict, closed=True):
     pool_name: "aws_sdk_sesv2.types.pool_name.PoolName"
     """<p>The name of the dedicated IP pool.</p>"""
     scaling_mode: "aws_sdk_sesv2.types.scaling_mode.ScalingMode"

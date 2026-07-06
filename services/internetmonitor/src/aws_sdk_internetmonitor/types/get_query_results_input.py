@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#GetQueryResultsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.query_max_results
     import aws_sdk_internetmonitor.types.resource_name
 
 
-class GetQueryResultsInput(TypedDict):
+class GetQueryResultsInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_internetmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor to return data for.</p>"""
     query_id: "str"

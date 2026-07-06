@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#NotifyMigrationTaskStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.update_date_time
 
 
-class NotifyMigrationTaskStateRequest(TypedDict):
+class NotifyMigrationTaskStateRequest(TypedDict, closed=True):
     progress_update_stream: (
         "aws_sdk_migration_hub.types.progress_update_stream.ProgressUpdateStream"
     )

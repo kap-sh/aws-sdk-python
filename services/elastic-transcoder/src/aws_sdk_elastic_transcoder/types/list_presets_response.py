@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListPresetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.id
     import aws_sdk_elastic_transcoder.types.presets
 
 
-class ListPresetsResponse(TypedDict):
+class ListPresetsResponse(TypedDict, closed=True):
     presets: NotRequired["aws_sdk_elastic_transcoder.types.presets.Presets"]
     """<p>An array of <code>Preset</code> objects.</p>"""
     next_page_token: NotRequired["aws_sdk_elastic_transcoder.types.id.Id"]

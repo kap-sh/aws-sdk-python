@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ServerSpecificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.ec2_capacity_list_definition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.rack_unit_height
 
 
-class ServerSpecificationDetails(TypedDict):
+class ServerSpecificationDetails(TypedDict, closed=True):
     server_power_draw_kva: NotRequired[
         "aws_sdk_outposts.types.nullable_float.NullableFloat"
     ]

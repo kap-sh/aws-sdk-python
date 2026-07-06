@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentContainerSpecificationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.deployed_image
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.url
 
 
-class InferenceComponentContainerSpecificationSummary(TypedDict):
+class InferenceComponentContainerSpecificationSummary(TypedDict, closed=True):
     deployed_image: NotRequired["aws_sdk_sagemaker.types.deployed_image.DeployedImage"]
     artifact_url: NotRequired["aws_sdk_sagemaker.types.url.Url"]
     """<p>The Amazon S3 path where the model artifacts are stored.</p>"""

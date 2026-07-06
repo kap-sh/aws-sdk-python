@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TopicRuleListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.created_at_date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.topic_pattern
 
 
-class TopicRuleListItem(TypedDict):
+class TopicRuleListItem(TypedDict, closed=True):
     rule_arn: NotRequired["aws_sdk_iot.types.rule_arn.RuleArn"]
     """<p>The rule ARN.</p>"""
     rule_name: NotRequired["aws_sdk_iot.types.rule_name.RuleName"]

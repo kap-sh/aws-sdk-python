@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DuplicateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.request_id
 
 
-class DuplicateRequest_(TypedDict):
+class DuplicateRequest_(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_route_53_domains.types.request_id.RequestId"]
     """<p>ID of the request operation.</p>"""
     message: NotRequired["aws_sdk_route_53_domains.types.error_message.ErrorMessage"]

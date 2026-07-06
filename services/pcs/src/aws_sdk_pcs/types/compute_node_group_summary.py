@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ComputeNodeGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.compute_node_group_status
 
 
-class ComputeNodeGroupSummary(TypedDict):
+class ComputeNodeGroupSummary(TypedDict, closed=True):
     name: "aws_sdk_pcs.types.compute_node_group_name.ComputeNodeGroupName"
     """<p>The name that identifies the compute node group.</p>"""
     id: "str"

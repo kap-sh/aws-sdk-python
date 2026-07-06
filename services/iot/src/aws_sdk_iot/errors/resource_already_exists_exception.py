@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ResourceAlreadyExistsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.resource_id
 
 
-class ResourceAlreadyExistsException_(TypedDict):
+class ResourceAlreadyExistsException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iot.types.error_message2.ErrorMessage2"]
     """<p>The message for the exception.</p>"""
     resource_id: NotRequired["aws_sdk_iot.types.resource_id.resourceId"]

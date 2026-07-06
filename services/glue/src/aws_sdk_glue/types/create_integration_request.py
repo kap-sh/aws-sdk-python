@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string2048
 
 
-class CreateIntegrationRequest(TypedDict):
+class CreateIntegrationRequest(TypedDict, closed=True):
     integration_name: "aws_sdk_glue.types.string128.String128"
     """<p>A unique name for an integration in Glue.</p>"""
     source_arn: "aws_sdk_glue.types.string512.String512"

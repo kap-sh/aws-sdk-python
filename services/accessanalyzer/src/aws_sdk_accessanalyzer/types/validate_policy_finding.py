@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ValidatePolicyFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.validate_policy_finding_type
 
 
-class ValidatePolicyFinding(TypedDict):
+class ValidatePolicyFinding(TypedDict, closed=True):
     finding_details: "str"
     """<p>A localized message that explains the finding and provides guidance on how to address it.</p>"""
     finding_type: "aws_sdk_accessanalyzer.types.validate_policy_finding_type.ValidatePolicyFindingType"

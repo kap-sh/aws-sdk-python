@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressPointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.tls_auth_configuration
 
 
-class _IngressPointConfiguration_SmtpPassword(TypedDict):
+class _IngressPointConfiguration_SmtpPassword(TypedDict, closed=True):
     SmtpPassword: "aws_sdk_mailmanager.types.smtp_password.SmtpPassword"
 
 
-class _IngressPointConfiguration_SecretArn(TypedDict):
+class _IngressPointConfiguration_SecretArn(TypedDict, closed=True):
     SecretArn: "aws_sdk_mailmanager.types.secret_arn.SecretArn"
 
 
-class _IngressPointConfiguration_TlsAuthConfiguration(TypedDict):
+class _IngressPointConfiguration_TlsAuthConfiguration(TypedDict, closed=True):
     TlsAuthConfiguration: (
         "aws_sdk_mailmanager.types.tls_auth_configuration.TlsAuthConfiguration"
     )

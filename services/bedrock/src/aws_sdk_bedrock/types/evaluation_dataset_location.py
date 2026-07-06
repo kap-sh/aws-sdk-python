@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationDatasetLocation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.s3_uri
 
 
-class _EvaluationDatasetLocation_s3Uri(TypedDict):
+class _EvaluationDatasetLocation_s3Uri(TypedDict, closed=True):
     s3Uri: "aws_sdk_bedrock.types.s3_uri.S3Uri"
 
 

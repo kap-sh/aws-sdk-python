@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#CustomOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint_items
     import aws_sdk_bedrock_data_automation.types.document_custom_output_configuration
 
 
-class CustomOutputConfiguration(TypedDict):
+class CustomOutputConfiguration(TypedDict, closed=True):
     blueprints: NotRequired[
         "aws_sdk_bedrock_data_automation.types.blueprint_items.BlueprintItems"
     ]

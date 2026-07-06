@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsLambdaFunctionEnvironment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_lambda_function_environment_error
     import aws_sdk_securityhub.types.field_map
 
 
-class AwsLambdaFunctionEnvironment(TypedDict):
+class AwsLambdaFunctionEnvironment(TypedDict, closed=True):
     variables: NotRequired["aws_sdk_securityhub.types.field_map.FieldMap"]
     """<p>Environment variable key-value pairs.</p>"""
     error: NotRequired[

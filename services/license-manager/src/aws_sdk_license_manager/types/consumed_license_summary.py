@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ConsumedLicenseSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_long
     import aws_sdk_license_manager.types.resource_type
 
 
-class ConsumedLicenseSummary(TypedDict):
+class ConsumedLicenseSummary(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_license_manager.types.resource_type.ResourceType"
     ]

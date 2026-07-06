@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#GetDashboardOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.dashboard_name
 
 
-class GetDashboardOutput(TypedDict):
+class GetDashboardOutput(TypedDict, closed=True):
     dashboard_arn: NotRequired["aws_sdk_cloudwatch.types.dashboard_arn.DashboardArn"]
     """<p>The Amazon Resource Name (ARN) of the dashboard.</p>"""
     dashboard_body: NotRequired["aws_sdk_cloudwatch.types.dashboard_body.DashboardBody"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#GetComplianceSummaryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.group_by
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.target_id_filter_list
 
 
-class GetComplianceSummaryInput(TypedDict):
+class GetComplianceSummaryInput(TypedDict, closed=True):
     target_id_filters: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.target_id_filter_list.TargetIdFilterList"
     ]

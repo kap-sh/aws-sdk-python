@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FrameCaptureGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.frame_capture_cdn_settings
     import aws_sdk_medialive.types.output_location_ref
 
 
-class FrameCaptureGroupSettings(TypedDict):
+class FrameCaptureGroupSettings(TypedDict, closed=True):
     destination: NotRequired[
         "aws_sdk_medialive.types.output_location_ref.OutputLocationRef"
     ]

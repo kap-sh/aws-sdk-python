@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#Device``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__boolean
     import aws_sdk_greengrass.types.__string
 
 
-class Device(TypedDict):
+class Device(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the certificate associated with the device."""
     id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

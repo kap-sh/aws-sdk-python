@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DeleteInboundCrossClusterSearchConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connection
 
 
-class DeleteInboundCrossClusterSearchConnectionResponse(TypedDict):
+class DeleteInboundCrossClusterSearchConnectionResponse(TypedDict, closed=True):
     cross_cluster_search_connection: NotRequired[
         "aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connection.InboundCrossClusterSearchConnection"
     ]

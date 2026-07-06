@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#SortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.sort_order
 
 
-class SortCriteria(TypedDict):
+class SortCriteria(TypedDict, closed=True):
     field: "aws_sdk_inspector2.types.sort_field.SortField"
     """<p>The finding detail field by which results are sorted.</p>"""
     sort_order: "aws_sdk_inspector2.types.sort_order.SortOrder"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateThemeForStackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.theme_title_text
 
 
-class CreateThemeForStackRequest(TypedDict):
+class CreateThemeForStackRequest(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the stack for the theme.</p>"""
     footer_links: NotRequired[

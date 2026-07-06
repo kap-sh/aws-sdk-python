@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#UpdateApplicationComponentConfigResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateApplicationComponentConfigResponse(TypedDict):
+class UpdateApplicationComponentConfigResponse(TypedDict, closed=True):
     pass
 
 

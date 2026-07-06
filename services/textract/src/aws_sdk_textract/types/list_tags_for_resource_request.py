@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.amazon_resource_name
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_textract.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) that specifies the resource to list tags for.</p>"""
 

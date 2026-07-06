@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListRunGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_group_list_token
     import aws_sdk_omics.types.run_group_name
 
 
-class ListRunGroupsRequest(TypedDict):
+class ListRunGroupsRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.run_group_name.RunGroupName"]
     """<p>The run groups' name.</p>"""
     starting_token: NotRequired[

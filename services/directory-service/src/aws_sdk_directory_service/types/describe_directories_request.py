@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeDirectoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.directory_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.next_token
 
 
-class DescribeDirectoriesRequest(TypedDict):
+class DescribeDirectoriesRequest(TypedDict, closed=True):
     directory_ids: NotRequired[
         "aws_sdk_directory_service.types.directory_ids.DirectoryIds"
     ]

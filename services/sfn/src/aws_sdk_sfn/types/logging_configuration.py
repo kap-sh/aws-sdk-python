@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.include_execution_data
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.log_level
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     level: NotRequired["aws_sdk_sfn.types.log_level.LogLevel"]
     """<p>Defines which category of execution history events are logged.</p>"""
     include_execution_data: (

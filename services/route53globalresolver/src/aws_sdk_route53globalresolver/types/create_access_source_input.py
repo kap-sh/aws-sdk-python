@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#CreateAccessSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.tags
 
 
-class CreateAccessSourceInput(TypedDict):
+class CreateAccessSourceInput(TypedDict, closed=True):
     cidr: "aws_sdk_route53globalresolver.types.cidr.Cidr"
     """<p>The IP address or CIDR range that is allowed to send DNS queries to the Route 53 Global Resolver.</p>"""
     client_token: NotRequired[

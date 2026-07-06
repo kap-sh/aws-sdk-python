@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.translate#UntagResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UntagResourceResponse(TypedDict):
+class UntagResourceResponse(TypedDict, closed=True):
     pass
 
 

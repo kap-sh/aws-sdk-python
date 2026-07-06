@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#ActionHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.generic_timestamp
 
 
-class ActionHistory(TypedDict):
+class ActionHistory(TypedDict, closed=True):
     timestamp: "aws_sdk_budgets.types.generic_timestamp.GenericTimestamp"
     status: "aws_sdk_budgets.types.action_status.ActionStatus"
     """<p>The status of action at the time of the event. </p>"""

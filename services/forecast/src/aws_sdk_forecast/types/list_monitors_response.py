@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ListMonitorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.monitors
     import aws_sdk_forecast.types.next_token
 
 
-class ListMonitorsResponse(TypedDict):
+class ListMonitorsResponse(TypedDict, closed=True):
     monitors: NotRequired["aws_sdk_forecast.types.monitors.Monitors"]
     """<p>An array of objects that summarize each monitor's properties.</p>"""
     next_token: NotRequired["aws_sdk_forecast.types.next_token.NextToken"]

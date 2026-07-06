@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#QueryParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.savings_plans_utilization_query
 
 
-class _QueryParameters_costAndUsage(TypedDict):
+class _QueryParameters_costAndUsage(TypedDict, closed=True):
     costAndUsage: "aws_sdk_bcm_dashboards.types.cost_and_usage_query.CostAndUsageQuery"
 
 
-class _QueryParameters_savingsPlansCoverage(TypedDict):
+class _QueryParameters_savingsPlansCoverage(TypedDict, closed=True):
     savingsPlansCoverage: "aws_sdk_bcm_dashboards.types.savings_plans_coverage_query.SavingsPlansCoverageQuery"
 
 
-class _QueryParameters_savingsPlansUtilization(TypedDict):
+class _QueryParameters_savingsPlansUtilization(TypedDict, closed=True):
     savingsPlansUtilization: "aws_sdk_bcm_dashboards.types.savings_plans_utilization_query.SavingsPlansUtilizationQuery"
 
 
-class _QueryParameters_reservationCoverage(TypedDict):
+class _QueryParameters_reservationCoverage(TypedDict, closed=True):
     reservationCoverage: "aws_sdk_bcm_dashboards.types.reservation_coverage_query.ReservationCoverageQuery"
 
 
-class _QueryParameters_reservationUtilization(TypedDict):
+class _QueryParameters_reservationUtilization(TypedDict, closed=True):
     reservationUtilization: "aws_sdk_bcm_dashboards.types.reservation_utilization_query.ReservationUtilizationQuery"
 
 

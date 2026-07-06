@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeOutboundCrossClusterSearchConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class DescribeOutboundCrossClusterSearchConnectionsRequest(TypedDict):
+class DescribeOutboundCrossClusterSearchConnectionsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_elasticsearch_service.types.filter_list.FilterList"]
     """<p> A list of filters used to match properties for outbound cross-cluster search connection. Available <code><a>Filter</a></code> names for this operation are: <ul> <li>cross-cluster-search-connection-id</li> <li>destination-domain-info.domain-name</li> <li>destination-domain-info.owner-id</li> <li>destination-domain-info.region</li> <li>source-domain-info.domain-name</li> </ul> </p>"""
     max_results: "aws_sdk_elasticsearch_service.types.max_results.MaxResults"

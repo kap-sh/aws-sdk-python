@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ResourcePoolSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ResourcePoolSummary(TypedDict):
+class ResourcePoolSummary(TypedDict, closed=True):
     is_disabled: NotRequired["bool"]
     """<p>Indicates whether the resource pool is disabled.</p>"""
     pool_size: NotRequired["int"]

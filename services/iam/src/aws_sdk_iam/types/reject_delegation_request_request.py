@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#RejectDelegationRequestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.notes_type
 
 
-class RejectDelegationRequestRequest(TypedDict):
+class RejectDelegationRequestRequest(TypedDict, closed=True):
     delegation_request_id: (
         "aws_sdk_iam.types.delegation_request_id_type.delegationRequestIdType"
     )

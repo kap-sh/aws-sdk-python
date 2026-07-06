@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DeleteTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.taggable_resource_type
 
 
-class DeleteTagsInput(TypedDict):
+class DeleteTagsInput(TypedDict, closed=True):
     tag_keys: "aws_sdk_machine_learning.types.tag_key_list.TagKeyList"
     """<p>One or more tags to delete.</p>"""
     resource_id: "aws_sdk_machine_learning.types.entity_id.EntityId"

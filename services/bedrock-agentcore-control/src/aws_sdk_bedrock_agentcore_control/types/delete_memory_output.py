@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteMemoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.memory_status
 
 
-class DeleteMemoryOutput(TypedDict):
+class DeleteMemoryOutput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore_control.types.memory_id.MemoryId"
     """<p>The unique identifier of the deleted AgentCore Memory resource.</p>"""
     status: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#OutputConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.cloud_watch_output_config
 
 
-class _OutputConfig_cloudWatchConfig(TypedDict):
+class _OutputConfig_cloudWatchConfig(TypedDict, closed=True):
     cloudWatchConfig: "aws_sdk_bedrock_agentcore.types.cloud_watch_output_config.CloudWatchOutputConfig"
 
 

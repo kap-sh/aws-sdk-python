@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ListDomainsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_status
 
 
-class ListDomainsInput(TypedDict):
+class ListDomainsInput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_connecthealth.types.domain_status.DomainStatus"]
     """<p>Filter by Domain status.</p>"""
     max_results: NotRequired["int"]

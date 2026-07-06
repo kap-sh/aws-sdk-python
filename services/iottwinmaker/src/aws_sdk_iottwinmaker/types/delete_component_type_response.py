@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#DeleteComponentTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.state
 
 
-class DeleteComponentTypeResponse(TypedDict):
+class DeleteComponentTypeResponse(TypedDict, closed=True):
     state: "aws_sdk_iottwinmaker.types.state.State"
     """<p>The current state of the component type to be deleted.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateLoggerDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.tags
 
 
-class CreateLoggerDefinitionRequest(TypedDict):
+class CreateLoggerDefinitionRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     initial_version: NotRequired[

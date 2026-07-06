@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RuntimeSessionDataValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_sensitive_string
 
 
-class _RuntimeSessionDataValue_stringValue(TypedDict):
+class _RuntimeSessionDataValue_stringValue(TypedDict, closed=True):
     stringValue: (
         "aws_sdk_qconnect.types.non_empty_sensitive_string.NonEmptySensitiveString"
     )

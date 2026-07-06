@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GetGeneratedPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.job_details
 
 
-class GetGeneratedPolicyResponse(TypedDict):
+class GetGeneratedPolicyResponse(TypedDict, closed=True):
     job_details: "aws_sdk_accessanalyzer.types.job_details.JobDetails"
     """<p>A <code>GeneratedPolicyDetails</code> object that contains details about the generated policy.</p>"""
     generated_policy_result: (

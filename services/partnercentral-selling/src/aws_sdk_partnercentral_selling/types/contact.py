@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Contact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.email
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.phone_number
 
 
-class Contact(TypedDict):
+class Contact(TypedDict, closed=True):
     email: NotRequired["aws_sdk_partnercentral_selling.types.email.Email"]
     """<p>The contact's email address associated with the <code>Opportunity</code>.</p>"""
     first_name: NotRequired["aws_sdk_partnercentral_selling.types.name.Name"]

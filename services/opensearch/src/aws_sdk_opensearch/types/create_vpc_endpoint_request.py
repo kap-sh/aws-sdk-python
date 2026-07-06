@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateVpcEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.vpc_options
 
 
-class CreateVpcEndpointRequest(TypedDict):
+class CreateVpcEndpointRequest(TypedDict, closed=True):
     domain_arn: "aws_sdk_opensearch.types.domain_arn.DomainArn"
     """<p>The Amazon Resource Name (ARN) of the domain to create the endpoint for.</p>"""
     vpc_options: "aws_sdk_opensearch.types.vpc_options.VPCOptions"

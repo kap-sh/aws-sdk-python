@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#DependentEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.string
 
 
-class DependentEntity(TypedDict):
+class DependentEntity(TypedDict, closed=True):
     relation_type: "aws_sdk_ssm_contacts.types.string.String"
     """<p>The type of relationship between one resource and the other resource that it is related to or depends on.</p>"""
     dependent_resource_ids: (

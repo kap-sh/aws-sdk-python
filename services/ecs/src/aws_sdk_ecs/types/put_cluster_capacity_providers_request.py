@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#PutClusterCapacityProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class PutClusterCapacityProvidersRequest(TypedDict):
+class PutClusterCapacityProvidersRequest(TypedDict, closed=True):
     cluster: "aws_sdk_ecs.types.string.String"
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster to modify the capacity provider settings for. If you don't specify a cluster, the default cluster is assumed.</p>"""
     capacity_providers: "aws_sdk_ecs.types.string_list.StringList"

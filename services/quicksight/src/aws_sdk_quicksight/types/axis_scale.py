@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisScale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_linear_scale
     import aws_sdk_quicksight.types.axis_logarithmic_scale
 
 
-class AxisScale(TypedDict):
+class AxisScale(TypedDict, closed=True):
     linear: NotRequired["aws_sdk_quicksight.types.axis_linear_scale.AxisLinearScale"]
     """<p>The linear axis scale setup.</p>"""
     logarithmic: NotRequired[

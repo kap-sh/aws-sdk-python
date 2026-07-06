@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#DeleteRateBasedRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class DeleteRateBasedRuleRequest(TypedDict):
+class DeleteRateBasedRuleRequest(TypedDict, closed=True):
     rule_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#LambdaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.lambda_function_arn
 
 
-class LambdaConfiguration(TypedDict):
+class LambdaConfiguration(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_chime_sdk_messaging.types.lambda_function_arn.LambdaFunctionArn"
     )

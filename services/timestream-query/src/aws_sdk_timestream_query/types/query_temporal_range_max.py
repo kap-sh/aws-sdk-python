@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QueryTemporalRangeMax``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.amazon_resource_name
     import aws_sdk_timestream_query.types.long
 
 
-class QueryTemporalRangeMax(TypedDict):
+class QueryTemporalRangeMax(TypedDict, closed=True):
     value: "aws_sdk_timestream_query.types.long.Long"
     """<p>The maximum duration in nanoseconds between the start and end of the query.</p>"""
     table_arn: NotRequired[

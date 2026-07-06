@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateResourceGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.ip_address_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.vpc_id
 
 
-class UpdateResourceGatewayResponse(TypedDict):
+class UpdateResourceGatewayResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_vpc_lattice.types.resource_gateway_name.ResourceGatewayName"
     ]

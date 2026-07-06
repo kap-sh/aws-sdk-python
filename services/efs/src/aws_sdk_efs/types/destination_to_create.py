@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DestinationToCreate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.availability_zone_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.role_arn
 
 
-class DestinationToCreate(TypedDict):
+class DestinationToCreate(TypedDict, closed=True):
     region: NotRequired["aws_sdk_efs.types.region_name.RegionName"]
     r"""<p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system. The Region must be enabled for the Amazon Web Services account that owns the source file system. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable\">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference Reference Guide</i>.</p>"""
     availability_zone_name: NotRequired[

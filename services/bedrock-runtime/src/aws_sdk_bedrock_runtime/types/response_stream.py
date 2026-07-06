@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime._iter import AnyIterator
 from aws_sdk_bedrock_runtime._protocol.eventstream import Message
@@ -15,37 +17,37 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.payload_part
 
 
-class _ResponseStream_chunk(TypedDict):
+class _ResponseStream_chunk(TypedDict, closed=True):
     chunk: "aws_sdk_bedrock_runtime.types.payload_part.PayloadPart"
 
 
-class _ResponseStream_internalServerException(TypedDict):
+class _ResponseStream_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_runtime.errors.internal_server_exception.InternalServerException_"
 
 
-class _ResponseStream_modelStreamErrorException(TypedDict):
+class _ResponseStream_modelStreamErrorException(TypedDict, closed=True):
     modelStreamErrorException: "aws_sdk_bedrock_runtime.errors.model_stream_error_exception.ModelStreamErrorException_"
 
 
-class _ResponseStream_validationException(TypedDict):
+class _ResponseStream_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_runtime.errors.validation_exception.ValidationException_"
     )
 
 
-class _ResponseStream_throttlingException(TypedDict):
+class _ResponseStream_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_bedrock_runtime.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _ResponseStream_modelTimeoutException(TypedDict):
+class _ResponseStream_modelTimeoutException(TypedDict, closed=True):
     modelTimeoutException: (
         "aws_sdk_bedrock_runtime.errors.model_timeout_exception.ModelTimeoutException_"
     )
 
 
-class _ResponseStream_serviceUnavailableException(TypedDict):
+class _ResponseStream_serviceUnavailableException(TypedDict, closed=True):
     serviceUnavailableException: "aws_sdk_bedrock_runtime.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 

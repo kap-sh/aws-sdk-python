@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeUpdateActionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.update_action_status_list
 
 
-class DescribeUpdateActionsMessage(TypedDict):
+class DescribeUpdateActionsMessage(TypedDict, closed=True):
     service_update_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The unique ID of the service update</p>"""
     replication_group_ids: NotRequired[

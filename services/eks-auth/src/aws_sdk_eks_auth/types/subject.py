@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#Subject``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
 
-class Subject(TypedDict):
+class Subject(TypedDict, closed=True):
     namespace: "str"
     """<p>The name of the Kubernetes namespace inside the cluster to create the association in. The service account and the pods that use the service account must be in this namespace.</p>"""
     service_account: "str"

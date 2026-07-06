@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.open_search_resource_config
 
 
-class _ResourceConfig_openSearchResourceConfig(TypedDict):
+class _ResourceConfig_openSearchResourceConfig(TypedDict, closed=True):
     openSearchResourceConfig: "aws_sdk_cloudwatch_logs.types.open_search_resource_config.OpenSearchResourceConfig"
 
 

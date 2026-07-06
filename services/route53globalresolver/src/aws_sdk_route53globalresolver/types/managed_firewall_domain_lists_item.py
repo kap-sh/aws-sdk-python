@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ManagedFirewallDomainListsItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class ManagedFirewallDomainListsItem(TypedDict):
+class ManagedFirewallDomainListsItem(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_route53globalresolver.types.resource_description.ResourceDescription"
     ]

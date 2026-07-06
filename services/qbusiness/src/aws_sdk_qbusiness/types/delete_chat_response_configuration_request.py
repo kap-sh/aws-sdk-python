@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteChatResponseConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.chat_response_configuration_id
 
 
-class DeleteChatResponseConfigurationRequest(TypedDict):
+class DeleteChatResponseConfigurationRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The unique identifier of theAmazon Q Business application from which to delete the chat response configuration.</p>"""
     chat_response_configuration_id: "aws_sdk_qbusiness.types.chat_response_configuration_id.ChatResponseConfigurationId"

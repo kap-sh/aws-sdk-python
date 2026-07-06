@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#TimestreamConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestream_table_arn
 
 
-class TimestreamConfig(TypedDict):
+class TimestreamConfig(TypedDict, closed=True):
     timestream_table_arn: (
         "aws_sdk_iotfleetwise.types.timestream_table_arn.TimestreamTableArn"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaVolumeMount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.optional_boolean
 
 
-class LambdaVolumeMount(TypedDict):
+class LambdaVolumeMount(TypedDict, closed=True):
     source_path: "aws_sdk_greengrassv2.types.file_system_path.FileSystemPath"
     """<p>The path to the physical volume in the file system.</p>"""
     destination_path: "aws_sdk_greengrassv2.types.file_system_path.FileSystemPath"

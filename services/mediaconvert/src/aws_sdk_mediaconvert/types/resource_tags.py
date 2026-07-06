@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ResourceTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__map_of__string
     import aws_sdk_mediaconvert.types.__string
 
 
-class ResourceTags(TypedDict):
+class ResourceTags(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """The Amazon Resource Name (ARN) of the resource."""
     tags: NotRequired["aws_sdk_mediaconvert.types.__map_of__string.__mapOf__string"]

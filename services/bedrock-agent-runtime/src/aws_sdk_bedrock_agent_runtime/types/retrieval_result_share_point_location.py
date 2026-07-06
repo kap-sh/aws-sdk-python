@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultSharePointLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultSharePointLocation(TypedDict):
+class RetrievalResultSharePointLocation(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>The SharePoint site URL for the data source location.</p>"""
 

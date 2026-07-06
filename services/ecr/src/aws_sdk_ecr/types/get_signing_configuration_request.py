@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#GetSigningConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetSigningConfigurationRequest(TypedDict):
+class GetSigningConfigurationRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RegisterModelStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string256
 
 
-class RegisterModelStepMetadata(TypedDict):
+class RegisterModelStepMetadata(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.string256.String256"]
     """<p>The Amazon Resource Name (ARN) of the model package.</p>"""
 

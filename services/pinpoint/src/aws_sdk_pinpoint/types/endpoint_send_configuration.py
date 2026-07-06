@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EndpointSendConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class EndpointSendConfiguration(TypedDict):
+class EndpointSendConfiguration(TypedDict, closed=True):
     body_override: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The body of the message. If specified, this value overrides the default message body.</p>"""
     context: NotRequired["aws_sdk_pinpoint.types.map_of__string.MapOf__string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#LogsAnomalyDetectionIntegration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.opt_in_status
 
 
-class LogsAnomalyDetectionIntegration(TypedDict):
+class LogsAnomalyDetectionIntegration(TypedDict, closed=True):
     opt_in_status: NotRequired["aws_sdk_devops_guru.types.opt_in_status.OptInStatus"]
     """<p>Specifies if DevOps Guru is configured to perform log anomaly detection on CloudWatch log groups.</p>"""
 

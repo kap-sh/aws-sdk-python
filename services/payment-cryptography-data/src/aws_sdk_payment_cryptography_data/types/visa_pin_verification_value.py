@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#VisaPinVerificationValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.integer_range_between0_and6
 
 
-class VisaPinVerificationValue(TypedDict):
+class VisaPinVerificationValue(TypedDict, closed=True):
     encrypted_pin_block: "aws_sdk_payment_cryptography_data.types.encrypted_pin_block_type.EncryptedPinBlockType"
     """<p>The encrypted PIN block data to verify.</p>"""
     pin_verification_key_index: "aws_sdk_payment_cryptography_data.types.integer_range_between0_and6.IntegerRangeBetween0And6"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CurrentMetricResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.current_metric_data_collections
     import aws_sdk_connect.types.dimensions
 
 
-class CurrentMetricResult(TypedDict):
+class CurrentMetricResult(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_connect.types.dimensions.Dimensions"]
     """<p>The dimensions for the metrics.</p>"""
     collections: NotRequired[

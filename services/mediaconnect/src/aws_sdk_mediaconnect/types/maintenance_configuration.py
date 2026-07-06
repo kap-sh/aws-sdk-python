@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MaintenanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.preferred_day_time_maintenance_configuration
 
 
-class _MaintenanceConfiguration_PreferredDayTime(TypedDict):
+class _MaintenanceConfiguration_PreferredDayTime(TypedDict, closed=True):
     PreferredDayTime: "aws_sdk_mediaconnect.types.preferred_day_time_maintenance_configuration.PreferredDayTimeMaintenanceConfiguration"
 
 
-class _MaintenanceConfiguration_Default(TypedDict):
+class _MaintenanceConfiguration_Default(TypedDict, closed=True):
     Default: "aws_sdk_mediaconnect.types.default_maintenance_configuration.DefaultMaintenanceConfiguration"
 
 

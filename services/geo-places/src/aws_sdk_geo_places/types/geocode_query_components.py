@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#GeocodeQueryComponents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class GeocodeQueryComponents(TypedDict):
+class GeocodeQueryComponents(TypedDict, closed=True):
     country: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>The alpha-2 or alpha-3 character code for the country that the results will be present in.</p>"""
     region: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

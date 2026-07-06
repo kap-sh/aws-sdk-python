@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetAccountPoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_id
     import aws_sdk_datazone.types.domain_id
 
 
-class GetAccountPoolInput(TypedDict):
+class GetAccountPoolInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain in which the account pool lives whose details are to be displayed.</p>"""
     identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId"

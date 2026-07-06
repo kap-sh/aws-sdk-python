@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CreateWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_steps
 
 
-class CreateWorkflowRequest(TypedDict):
+class CreateWorkflowRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_transfer.types.workflow_description.WorkflowDescription"
     ]

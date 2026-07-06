@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#CreateRoomRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivschat.types.logging_configuration_identifier_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.tags
 
 
-class CreateRoomRequest(TypedDict):
+class CreateRoomRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ivschat.types.room_name.RoomName"]
     """<p>Room name. The value does not need to be unique.</p>"""
     maximum_message_rate_per_second: NotRequired[

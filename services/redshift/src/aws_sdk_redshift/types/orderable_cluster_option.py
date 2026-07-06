@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#OrderableClusterOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class OrderableClusterOption(TypedDict):
+class OrderableClusterOption(TypedDict, closed=True):
     cluster_version: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The version of the orderable cluster.</p>"""
     cluster_type: NotRequired["aws_sdk_redshift.types.string.String"]

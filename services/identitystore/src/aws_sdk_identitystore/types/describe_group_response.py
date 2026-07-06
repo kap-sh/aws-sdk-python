@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#DescribeGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.string_type
 
 
-class DescribeGroupResponse(TypedDict):
+class DescribeGroupResponse(TypedDict, closed=True):
     group_id: "aws_sdk_identitystore.types.resource_id.ResourceId"
     """<p>The identifier for a group in the identity store.</p>"""
     display_name: NotRequired[

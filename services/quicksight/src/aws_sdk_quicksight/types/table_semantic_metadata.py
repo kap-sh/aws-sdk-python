@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableSemanticMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.shared_column_semantic_metadata_list
 
 
-class TableSemanticMetadata(TypedDict):
+class TableSemanticMetadata(TypedDict, closed=True):
     column_metadata: NotRequired[
         "aws_sdk_quicksight.types.shared_column_semantic_metadata_list.SharedColumnSemanticMetadataList"
     ]

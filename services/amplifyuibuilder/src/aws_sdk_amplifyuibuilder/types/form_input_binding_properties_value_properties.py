@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormInputBindingPropertiesValueProperties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FormInputBindingPropertiesValueProperties(TypedDict):
+class FormInputBindingPropertiesValueProperties(TypedDict, closed=True):
     model: NotRequired["str"]
     """<p>An Amplify DataStore model.</p>"""
 

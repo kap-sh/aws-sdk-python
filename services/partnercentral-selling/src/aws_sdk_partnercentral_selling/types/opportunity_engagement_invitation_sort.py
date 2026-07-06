@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#OpportunityEngagementInvitationSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.sort_order
 
 
-class OpportunityEngagementInvitationSort(TypedDict):
+class OpportunityEngagementInvitationSort(TypedDict, closed=True):
     sort_order: "aws_sdk_partnercentral_selling.types.sort_order.SortOrder"
     """<p>Defines the order in which the Engagement Invitations are sorted. The values can be <code>ASC</code> (ascending) or <code>DESC</code> (descending).</p>"""
     sort_by: "aws_sdk_partnercentral_selling.types.opportunity_engagement_invitation_sort_name.OpportunityEngagementInvitationSortName"

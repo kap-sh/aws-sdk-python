@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelBan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.timestamp
 
 
-class ChannelBan(TypedDict):
+class ChannelBan(TypedDict, closed=True):
     member: NotRequired["aws_sdk_chime_sdk_messaging.types.identity.Identity"]
     """<p>The member being banned from the channel.</p>"""
     channel_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]

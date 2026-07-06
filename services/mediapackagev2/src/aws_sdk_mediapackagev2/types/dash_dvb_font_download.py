@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashDvbFontDownload``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DashDvbFontDownload(TypedDict):
+class DashDvbFontDownload(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>The URL for downloading fonts for subtitles.</p>"""
     mime_type: NotRequired["str"]

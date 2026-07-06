@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListContactsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.contacts_list
     import aws_sdk_ssm_contacts.types.pagination_token
 
 
-class ListContactsResult(TypedDict):
+class ListContactsResult(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_ssm_contacts.types.pagination_token.PaginationToken"
     ]

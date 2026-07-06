@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ListDeploymentPatternVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_pattern_version_data_summary_list
     import aws_sdk_launch_wizard.types.next_token
 
 
-class ListDeploymentPatternVersionsOutput(TypedDict):
+class ListDeploymentPatternVersionsOutput(TypedDict, closed=True):
     deployment_pattern_versions: NotRequired[
         "aws_sdk_launch_wizard.types.deployment_pattern_version_data_summary_list.DeploymentPatternVersionDataSummaryList"
     ]

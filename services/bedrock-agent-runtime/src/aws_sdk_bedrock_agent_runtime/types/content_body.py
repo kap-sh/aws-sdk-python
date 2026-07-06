@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ContentBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.image_inputs
 
 
-class ContentBody(TypedDict):
+class ContentBody(TypedDict, closed=True):
     body: NotRequired["str"]
     """<p>The body of the API response.</p>"""
     images: NotRequired["aws_sdk_bedrock_agent_runtime.types.image_inputs.ImageInputs"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#Fraudster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.domain_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.timestamp
 
 
-class Fraudster(TypedDict):
+class Fraudster(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_voice_id.types.domain_id.DomainId"]
     """<p>The identifier of the domain that contains the fraudster.</p>"""
     generated_fraudster_id: NotRequired[

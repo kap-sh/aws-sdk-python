@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#BlockReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class BlockReference(TypedDict):
+class BlockReference(TypedDict, closed=True):
     block_id: NotRequired["aws_sdk_comprehend.types.string.String"]
     """<p>Unique identifier for the block.</p>"""
     begin_offset: NotRequired["aws_sdk_comprehend.types.integer.Integer"]

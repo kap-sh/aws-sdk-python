@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ImportSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.s3_import_source
 
 
-class ImportSource(TypedDict):
+class ImportSource(TypedDict, closed=True):
     s3: "aws_sdk_cloudtrail.types.s3_import_source.S3ImportSource"
     """<p> The source S3 bucket. </p>"""
 

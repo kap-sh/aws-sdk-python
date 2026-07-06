@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#BlacklistEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.blacklisting_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.timestamp
 
 
-class BlacklistEntry(TypedDict):
+class BlacklistEntry(TypedDict, closed=True):
     rbl_name: NotRequired["aws_sdk_pinpoint_email.types.rbl_name.RblName"]
     """<p>The name of the blacklist that the IP address appears on.</p>"""
     listing_time: NotRequired["aws_sdk_pinpoint_email.types.timestamp.Timestamp"]

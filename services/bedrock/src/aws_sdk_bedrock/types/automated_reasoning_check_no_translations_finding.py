@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckNoTranslationsFinding``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AutomatedReasoningCheckNoTranslationsFinding(TypedDict):
+class AutomatedReasoningCheckNoTranslationsFinding(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#RegisterComputeNodeGroupInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.cluster_identifier
 
 
-class RegisterComputeNodeGroupInstanceRequest(TypedDict):
+class RegisterComputeNodeGroupInstanceRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster to register the compute node group instance in.</p>"""
     bootstrap_id: "aws_sdk_pcs.types.bootstrap_id.BootstrapId"

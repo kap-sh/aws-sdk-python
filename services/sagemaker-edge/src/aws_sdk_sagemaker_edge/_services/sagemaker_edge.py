@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#AmazonSageMakerEdge``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_sagemaker_edge._auth._signers
@@ -40,7 +40,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.version
 
 
-class SagemakerEdgeClientConfig(TypedDict, total=False):
+class SagemakerEdgeClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

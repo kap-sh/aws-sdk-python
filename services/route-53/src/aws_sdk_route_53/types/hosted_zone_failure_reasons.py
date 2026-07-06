@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#HostedZoneFailureReasons``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.failure_reason
 
 
-class HostedZoneFailureReasons(TypedDict):
+class HostedZoneFailureReasons(TypedDict, closed=True):
     accelerated_recovery: NotRequired[
         "aws_sdk_route_53.types.failure_reason.FailureReason"
     ]

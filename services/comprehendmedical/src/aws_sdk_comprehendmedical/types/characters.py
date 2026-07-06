@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#Characters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.integer
 
 
-class Characters(TypedDict):
+class Characters(TypedDict, closed=True):
     original_text_characters: NotRequired[
         "aws_sdk_comprehendmedical.types.integer.Integer"
     ]

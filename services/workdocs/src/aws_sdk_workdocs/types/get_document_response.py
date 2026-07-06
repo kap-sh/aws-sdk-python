@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#GetDocumentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.custom_metadata_map
     import aws_sdk_workdocs.types.document_metadata
 
 
-class GetDocumentResponse(TypedDict):
+class GetDocumentResponse(TypedDict, closed=True):
     metadata: NotRequired["aws_sdk_workdocs.types.document_metadata.DocumentMetadata"]
     """<p>The metadata details of the document.</p>"""
     custom_metadata: NotRequired[

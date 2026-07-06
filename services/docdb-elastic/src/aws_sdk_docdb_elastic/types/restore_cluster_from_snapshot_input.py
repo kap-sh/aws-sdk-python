@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#RestoreClusterFromSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.tag_map
 
 
-class RestoreClusterFromSnapshotInput(TypedDict):
+class RestoreClusterFromSnapshotInput(TypedDict, closed=True):
     cluster_name: "str"
     """<p>The name of the elastic cluster.</p>"""
     snapshot_arn: "str"

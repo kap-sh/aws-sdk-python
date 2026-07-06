@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationEbsVolumesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class OrganizationEbsVolumesResult(TypedDict):
+class OrganizationEbsVolumesResult(TypedDict, closed=True):
     auto_enable: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>An object that contains the status of whether scanning EBS volumes should be auto-enabled for new members joining the organization.</p>"""
 

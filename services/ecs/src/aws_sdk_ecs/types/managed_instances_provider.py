@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedInstancesProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.auto_repair_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ManagedInstancesProvider(TypedDict):
+class ManagedInstancesProvider(TypedDict, closed=True):
     infrastructure_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     r"""<p>The Amazon Resource Name (ARN) of the infrastructure role that Amazon ECS assumes to manage instances. This role must include permissions for Amazon EC2 instance lifecycle management, networking, and any additional Amazon Web Services services required for your workloads.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html\">Amazon ECS infrastructure IAM role</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
     instance_launch_template: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SelfManagedLatticeResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_configuration_identifier
 
 
-class _SelfManagedLatticeResource_resourceConfigurationIdentifier(TypedDict):
+class _SelfManagedLatticeResource_resourceConfigurationIdentifier(
+    TypedDict, closed=True
+):
     resourceConfigurationIdentifier: "aws_sdk_bedrock_agentcore_control.types.resource_configuration_identifier.ResourceConfigurationIdentifier"
 
 

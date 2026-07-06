@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListDataflowEndpointGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.pagination_max_results
     import aws_sdk_groundstation.types.pagination_token
 
 
-class ListDataflowEndpointGroupsRequest(TypedDict):
+class ListDataflowEndpointGroupsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_groundstation.types.pagination_max_results.PaginationMaxResults"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3AccessPointVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.vpc_id
 
 
-class S3AccessPointVpcConfiguration(TypedDict):
+class S3AccessPointVpcConfiguration(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_fsx.types.vpc_id.VpcId"]
     """<p>Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.</p>"""
 

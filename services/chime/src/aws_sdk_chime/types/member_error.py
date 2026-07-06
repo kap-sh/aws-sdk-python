@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#MemberError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class MemberError(TypedDict):
+class MemberError(TypedDict, closed=True):
     member_id: NotRequired["aws_sdk_chime.types.non_empty_string.NonEmptyString"]
     """<p>The member ID.</p>"""
     error_code: NotRequired["aws_sdk_chime.types.error_code.ErrorCode"]

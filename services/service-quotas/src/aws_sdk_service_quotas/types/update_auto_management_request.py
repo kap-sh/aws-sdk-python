@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#UpdateAutoManagementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.amazon_resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.opt_in_type
 
 
-class UpdateAutoManagementRequest(TypedDict):
+class UpdateAutoManagementRequest(TypedDict, closed=True):
     opt_in_type: NotRequired["aws_sdk_service_quotas.types.opt_in_type.OptInType"]
     """<p>Information on the opt-in type for your Automatic Management configuration. There are two modes: Notify only and Notify and Auto-Adjust. Currently, only NotifyOnly is available.</p>"""
     notification_arn: NotRequired[

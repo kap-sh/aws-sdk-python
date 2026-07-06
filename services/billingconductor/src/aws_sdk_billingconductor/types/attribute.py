@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#Attribute``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Attribute(TypedDict):
+class Attribute(TypedDict, closed=True):
     key: NotRequired["str"]
     """<p>The key in a key-value pair that describes the margin summary.</p>"""
     value: NotRequired["str"]

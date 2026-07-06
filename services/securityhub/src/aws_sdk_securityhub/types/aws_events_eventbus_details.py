@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEventsEventbusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEventsEventbusDetails(TypedDict):
+class AwsEventsEventbusDetails(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

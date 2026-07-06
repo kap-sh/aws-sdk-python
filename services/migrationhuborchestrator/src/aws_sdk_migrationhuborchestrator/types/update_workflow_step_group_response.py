@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#UpdateWorkflowStepGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.tools_list
 
 
-class UpdateWorkflowStepGroupResponse(TypedDict):
+class UpdateWorkflowStepGroupResponse(TypedDict, closed=True):
     workflow_id: NotRequired["str"]
     """<p>The ID of the migration workflow.</p>"""
     name: NotRequired["str"]

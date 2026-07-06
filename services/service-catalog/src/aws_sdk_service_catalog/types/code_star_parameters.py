@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#CodeStarParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.repository_branch
 
 
-class CodeStarParameters(TypedDict):
+class CodeStarParameters(TypedDict, closed=True):
     connection_arn: (
         "aws_sdk_service_catalog.types.code_star_connection_arn.CodeStarConnectionArn"
     )

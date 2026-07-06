@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobContainerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.recommendation_job_data_input_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class RecommendationJobContainerConfig(TypedDict):
+class RecommendationJobContainerConfig(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The machine learning domain of the model and its components.</p> <p>Valid Values: <code>COMPUTER_VISION | NATURAL_LANGUAGE_PROCESSING | MACHINE_LEARNING</code> </p>"""
     task: NotRequired["aws_sdk_sagemaker.types.string.String"]

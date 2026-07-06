@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#CreateSnapshotOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateSnapshotOutput(TypedDict):
+class CreateSnapshotOutput(TypedDict, closed=True):
     pass
 
 

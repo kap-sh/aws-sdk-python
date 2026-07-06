@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#TrainingMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.metric_float
 
 
-class TrainingMetrics(TypedDict):
+class TrainingMetrics(TypedDict, closed=True):
     training_loss: NotRequired["aws_sdk_bedrock.types.metric_float.MetricFloat"]
     """<p>Loss metric associated with the custom job.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DeleteBackupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.backup_id
 
 
-class DeleteBackupRequest(TypedDict):
+class DeleteBackupRequest(TypedDict, closed=True):
     backup_id: "aws_sdk_cloudhsm_v2.types.backup_id.BackupId"
     """<p>The ID of the backup to be deleted. To find the ID of a backup, use the <a>DescribeBackups</a> operation.</p>"""
 

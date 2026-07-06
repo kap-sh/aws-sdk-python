@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PolicyStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.is_public
 
 
-class PolicyStatus(TypedDict):
+class PolicyStatus(TypedDict, closed=True):
     is_public: NotRequired["aws_sdk_s3.types.is_public.IsPublic"]
     """<p>The policy status for this bucket. <code>TRUE</code> indicates that this bucket is public. <code>FALSE</code> indicates that the bucket is not public.</p>"""
 

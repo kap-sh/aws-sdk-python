@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ItemResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.endpoint_item_response
     import aws_sdk_pinpoint.types.map_of_event_item_response
 
 
-class ItemResponse(TypedDict):
+class ItemResponse(TypedDict, closed=True):
     endpoint_item_response: NotRequired[
         "aws_sdk_pinpoint.types.endpoint_item_response.EndpointItemResponse"
     ]

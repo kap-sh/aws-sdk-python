@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Observation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.action_group_invocation_output
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.type
 
 
-class Observation(TypedDict):
+class Observation(TypedDict, closed=True):
     trace_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.trace_id.TraceId"]
     """<p>The unique identifier of the trace.</p>"""
     type: NotRequired["aws_sdk_bedrock_agent_runtime.types.type.Type"]

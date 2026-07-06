@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeSeriesSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.time_series_identifiers
 
 
-class TimeSeriesSelector(TypedDict):
+class TimeSeriesSelector(TypedDict, closed=True):
     time_series_identifiers: NotRequired[
         "aws_sdk_forecast.types.time_series_identifiers.TimeSeriesIdentifiers"
     ]

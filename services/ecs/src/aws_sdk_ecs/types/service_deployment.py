@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.deployment_configuration
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class ServiceDeployment(TypedDict):
+class ServiceDeployment(TypedDict, closed=True):
     service_deployment_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the service deployment.</p>"""
     service_arn: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#RevokeSigningProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.timestamp
 
 
-class RevokeSigningProfileRequest(TypedDict):
+class RevokeSigningProfileRequest(TypedDict, closed=True):
     profile_name: "aws_sdk_signer.types.profile_name.ProfileName"
     """<p>The name of the signing profile to be revoked.</p>"""
     profile_version: "aws_sdk_signer.types.profile_version.ProfileVersion"

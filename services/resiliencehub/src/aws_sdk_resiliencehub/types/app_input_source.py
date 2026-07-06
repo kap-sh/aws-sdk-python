@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#AppInputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.terraform_source
 
 
-class AppInputSource(TypedDict):
+class AppInputSource(TypedDict, closed=True):
     source_name: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]
     """<p>The name of the input source.</p>"""
     import_type: "aws_sdk_resiliencehub.types.resource_mapping_type.ResourceMappingType"

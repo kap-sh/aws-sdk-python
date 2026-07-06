@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AccessRestriction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.category_list
     import aws_sdk_geo_places.types.sensitive_boolean
 
 
-class AccessRestriction(TypedDict):
+class AccessRestriction(TypedDict, closed=True):
     restricted: NotRequired[
         "aws_sdk_geo_places.types.sensitive_boolean.SensitiveBoolean"
     ]

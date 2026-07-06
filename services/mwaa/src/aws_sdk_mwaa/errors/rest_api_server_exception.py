@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#RestApiServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.rest_api_response
 
 
-class RestApiServerException_(TypedDict):
+class RestApiServerException_(TypedDict, closed=True):
     rest_api_status_code: NotRequired["int"]
     """<p>The HTTP status code returned by the Apache Airflow REST API call.</p>"""
     rest_api_response: NotRequired[

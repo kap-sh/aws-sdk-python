@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ClosedDays``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_closed_days_rules
 
 
-class ClosedDays(TypedDict):
+class ClosedDays(TypedDict, closed=True):
     email: NotRequired[
         "aws_sdk_pinpoint.types.list_of_closed_days_rules.ListOfClosedDaysRules"
     ]

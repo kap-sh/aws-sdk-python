@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribePatientContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.pronouns
 
 
-class MedicalScribePatientContext(TypedDict):
+class MedicalScribePatientContext(TypedDict, closed=True):
     pronouns: NotRequired["aws_sdk_transcribe_streaming.types.pronouns.Pronouns"]
     """<p>The patient's preferred pronouns that the user wants to provide as a context for clinical note generation .</p>"""
 

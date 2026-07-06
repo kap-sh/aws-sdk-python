@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_linux_subscriptions.errors import ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

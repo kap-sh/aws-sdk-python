@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatedServerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.server_definition
 
 
-class UpdatedServerDefinition(TypedDict):
+class UpdatedServerDefinition(TypedDict, closed=True):
     optional_value: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.server_definition.ServerDefinition"
     ]

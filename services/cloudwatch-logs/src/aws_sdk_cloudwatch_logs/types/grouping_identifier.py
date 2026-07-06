@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GroupingIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.grouping_identifier_key
     import aws_sdk_cloudwatch_logs.types.grouping_identifier_value
 
 
-class GroupingIdentifier(TypedDict):
+class GroupingIdentifier(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_cloudwatch_logs.types.grouping_identifier_key.GroupingIdentifierKey"
     ]

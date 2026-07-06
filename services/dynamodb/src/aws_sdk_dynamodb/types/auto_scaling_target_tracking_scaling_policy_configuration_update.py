@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#AutoScalingTargetTrackingScalingPolicyConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.integer_object
 
 
-class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(TypedDict):
+class AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(TypedDict, closed=True):
     disable_scale_in: NotRequired["aws_sdk_dynamodb.types.boolean_object.BooleanObject"]
     """<p>Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.</p>"""
     scale_in_cooldown: NotRequired[

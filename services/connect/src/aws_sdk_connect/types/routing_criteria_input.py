@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RoutingCriteriaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.routing_criteria_input_steps
 
 
-class RoutingCriteriaInput(TypedDict):
+class RoutingCriteriaInput(TypedDict, closed=True):
     steps: NotRequired[
         "aws_sdk_connect.types.routing_criteria_input_steps.RoutingCriteriaInputSteps"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ManagedRuleGroupVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
     import aws_sdk_wafv2.types.version_key_string
 
 
-class ManagedRuleGroupVersion(TypedDict):
+class ManagedRuleGroupVersion(TypedDict, closed=True):
     name: NotRequired["aws_sdk_wafv2.types.version_key_string.VersionKeyString"]
     """<p>The version name. </p>"""
     last_update_timestamp: NotRequired["aws_sdk_wafv2.types.timestamp.Timestamp"]

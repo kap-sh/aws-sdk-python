@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#HostedZoneLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.limit_value
 
 
-class HostedZoneLimit(TypedDict):
+class HostedZoneLimit(TypedDict, closed=True):
     type: "aws_sdk_route_53.types.hosted_zone_limit_type.HostedZoneLimitType"
     """<p>The limit that you requested. Valid values include the following:</p> <ul> <li> <p> <b>MAX_RRSETS_BY_ZONE</b>: The maximum number of records that you can create in the specified hosted zone.</p> </li> <li> <p> <b>MAX_VPCS_ASSOCIATED_BY_ZONE</b>: The maximum number of Amazon VPCs that you can associate with the specified private hosted zone.</p> </li> </ul>"""
     value: "aws_sdk_route_53.types.limit_value.LimitValue"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#IoTJobExponentialRolloutRate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_rollout_increment_factor
 
 
-class IoTJobExponentialRolloutRate(TypedDict):
+class IoTJobExponentialRolloutRate(TypedDict, closed=True):
     base_rate_per_minute: "aws_sdk_greengrassv2.types.io_t_job_rollout_base_rate_per_minute.IoTJobRolloutBaseRatePerMinute"
     """<p>The minimum number of devices that receive a pending job notification, per minute, when the job starts. This parameter defines the initial rollout rate of the job.</p>"""
     increment_factor: "aws_sdk_greengrassv2.types.io_t_job_rollout_increment_factor.IoTJobRolloutIncrementFactor"

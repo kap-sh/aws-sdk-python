@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#SignalFetchConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.time_based_signal_fetch_config
 
 
-class _SignalFetchConfig_timeBased(TypedDict):
+class _SignalFetchConfig_timeBased(TypedDict, closed=True):
     timeBased: "aws_sdk_iotfleetwise.types.time_based_signal_fetch_config.TimeBasedSignalFetchConfig"
 
 
-class _SignalFetchConfig_conditionBased(TypedDict):
+class _SignalFetchConfig_conditionBased(TypedDict, closed=True):
     conditionBased: "aws_sdk_iotfleetwise.types.condition_based_signal_fetch_config.ConditionBasedSignalFetchConfig"
 
 

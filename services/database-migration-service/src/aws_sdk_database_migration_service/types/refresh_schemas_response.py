@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RefreshSchemasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.refresh_schemas_status
 
 
-class RefreshSchemasResponse(TypedDict):
+class RefreshSchemasResponse(TypedDict, closed=True):
     refresh_schemas_status: NotRequired[
         "aws_sdk_database_migration_service.types.refresh_schemas_status.RefreshSchemasStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ProfileAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.address_dimension
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_type_dimension
 
 
-class ProfileAttributes(TypedDict):
+class ProfileAttributes(TypedDict, closed=True):
     account_number: NotRequired[
         "aws_sdk_customer_profiles.types.profile_dimension.ProfileDimension"
     ]

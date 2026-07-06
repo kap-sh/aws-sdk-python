@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateOTAUpdateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_iot_job_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.ota_update_status
 
 
-class CreateOTAUpdateResponse(TypedDict):
+class CreateOTAUpdateResponse(TypedDict, closed=True):
     ota_update_id: NotRequired["aws_sdk_iot.types.ota_update_id.OTAUpdateId"]
     """<p>The OTA update ID.</p>"""
     aws_iot_job_id: NotRequired["aws_sdk_iot.types.aws_iot_job_id.AwsIotJobId"]

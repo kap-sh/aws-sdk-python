@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RemoteIpDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.city
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.sensitive_string
 
 
-class RemoteIpDetails(TypedDict):
+class RemoteIpDetails(TypedDict, closed=True):
     city: NotRequired["aws_sdk_guardduty.types.city.City"]
     """<p>The city information of the remote IP address.</p>"""
     country: NotRequired["aws_sdk_guardduty.types.country.Country"]

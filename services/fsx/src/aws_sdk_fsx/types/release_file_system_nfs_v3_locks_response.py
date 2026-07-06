@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#ReleaseFileSystemNfsV3LocksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_system
 
 
-class ReleaseFileSystemNfsV3LocksResponse(TypedDict):
+class ReleaseFileSystemNfsV3LocksResponse(TypedDict, closed=True):
     file_system: NotRequired["aws_sdk_fsx.types.file_system.FileSystem"]
 
 

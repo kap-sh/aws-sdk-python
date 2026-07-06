@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#S3EncryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern_a_za_z0902
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.s3_server_side_encryption_type
 
 
-class S3EncryptionSettings(TypedDict):
+class S3EncryptionSettings(TypedDict, closed=True):
     encryption_type: NotRequired[
         "aws_sdk_mediaconvert.types.s3_server_side_encryption_type.S3ServerSideEncryptionType"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StartDashboardRefreshResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.refresh_id
 
 
-class StartDashboardRefreshResponse(TypedDict):
+class StartDashboardRefreshResponse(TypedDict, closed=True):
     refresh_id: NotRequired["aws_sdk_cloudtrail.types.refresh_id.RefreshId"]
     """<p> The refresh ID for the dashboard. </p>"""
 

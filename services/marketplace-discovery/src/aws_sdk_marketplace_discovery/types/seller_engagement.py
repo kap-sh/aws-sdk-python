@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#SellerEngagement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.seller_engagement_type
 
 
-class SellerEngagement(TypedDict):
+class SellerEngagement(TypedDict, closed=True):
     engagement_type: "aws_sdk_marketplace_discovery.types.seller_engagement_type.SellerEngagementType"
     """<p>The type of engagement, such as <code>REQUEST_FOR_PRIVATE_OFFER</code> or <code>REQUEST_FOR_DEMO</code>.</p>"""
     content_type: "aws_sdk_marketplace_discovery.types.seller_engagement_content_type.SellerEngagementContentType"

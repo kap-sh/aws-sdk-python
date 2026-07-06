@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#BackendEnvironment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.update_time
 
 
-class BackendEnvironment(TypedDict):
+class BackendEnvironment(TypedDict, closed=True):
     backend_environment_arn: (
         "aws_sdk_amplify.types.backend_environment_arn.BackendEnvironmentArn"
     )

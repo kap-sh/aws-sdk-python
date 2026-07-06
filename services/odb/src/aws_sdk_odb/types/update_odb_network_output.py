@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#UpdateOdbNetworkOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_status
 
 
-class UpdateOdbNetworkOutput(TypedDict):
+class UpdateOdbNetworkOutput(TypedDict, closed=True):
     display_name: NotRequired["str"]
     """<p>The user-friendly name of the ODB network.</p>"""
     status: NotRequired["aws_sdk_odb.types.resource_status.ResourceStatus"]

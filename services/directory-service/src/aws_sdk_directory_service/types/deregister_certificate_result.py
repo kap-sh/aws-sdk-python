@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DeregisterCertificateResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterCertificateResult(TypedDict):
+class DeregisterCertificateResult(TypedDict, closed=True):
     pass
 
 

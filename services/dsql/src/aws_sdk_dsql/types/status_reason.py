@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#StatusReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_failure_error_code
 
 
-class StatusReason(TypedDict):
+class StatusReason(TypedDict, closed=True):
     error: "aws_sdk_dsql.types.stream_failure_error_code.StreamFailureErrorCode"
     """<p>The error code for the stream failure.</p>"""
     updated_at: "datetime.datetime"

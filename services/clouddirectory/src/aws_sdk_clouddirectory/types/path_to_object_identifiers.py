@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#PathToObjectIdentifiers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_identifier_list
     import aws_sdk_clouddirectory.types.path_string
 
 
-class PathToObjectIdentifiers(TypedDict):
+class PathToObjectIdentifiers(TypedDict, closed=True):
     path: NotRequired["aws_sdk_clouddirectory.types.path_string.PathString"]
     """<p>The path that is used to identify the object starting from directory root.</p>"""
     object_identifiers: NotRequired[

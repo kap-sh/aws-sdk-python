@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#TlsCertificateData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.collection_member_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.status_reason
 
 
-class TlsCertificateData(TypedDict):
+class TlsCertificateData(TypedDict, closed=True):
     certificate_arn: NotRequired[
         "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
     ]

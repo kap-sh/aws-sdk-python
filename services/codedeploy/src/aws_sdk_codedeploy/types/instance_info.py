@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#InstanceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.iam_session_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.timestamp
 
 
-class InstanceInfo(TypedDict):
+class InstanceInfo(TypedDict, closed=True):
     instance_name: NotRequired["aws_sdk_codedeploy.types.instance_name.InstanceName"]
     """<p>The name of the on-premises instance.</p>"""
     iam_session_arn: NotRequired[

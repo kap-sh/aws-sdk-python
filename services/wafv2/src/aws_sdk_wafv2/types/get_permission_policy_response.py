@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetPermissionPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.policy_string
 
 
-class GetPermissionPolicyResponse(TypedDict):
+class GetPermissionPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_wafv2.types.policy_string.PolicyString"]
     """<p>The IAM policy that is attached to the specified rule group.</p>"""
 

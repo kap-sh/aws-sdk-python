@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingRuleBasedProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.rule_list
 
 
-class IdMappingRuleBasedProperties(TypedDict):
+class IdMappingRuleBasedProperties(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_entityresolution.types.rule_list.RuleList"]
     """<p> The rules that can be used for ID mapping.</p>"""
     rule_definition_type: "aws_sdk_entityresolution.types.id_mapping_workflow_rule_definition_type.IdMappingWorkflowRuleDefinitionType"

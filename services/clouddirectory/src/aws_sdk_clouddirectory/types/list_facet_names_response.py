@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListFacetNamesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.facet_name_list
     import aws_sdk_clouddirectory.types.next_token
 
 
-class ListFacetNamesResponse(TypedDict):
+class ListFacetNamesResponse(TypedDict, closed=True):
     facet_names: NotRequired[
         "aws_sdk_clouddirectory.types.facet_name_list.FacetNameList"
     ]

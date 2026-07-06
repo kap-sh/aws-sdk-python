@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#UpdateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.app_configs
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.id
 
 
-class UpdateApplicationRequest(TypedDict):
+class UpdateApplicationRequest(TypedDict, closed=True):
     id: "aws_sdk_opensearch.types.id.Id"
     """<p>The unique identifier for the OpenSearch application to be updated.</p>"""
     data_sources: NotRequired["aws_sdk_opensearch.types.data_sources.DataSources"]

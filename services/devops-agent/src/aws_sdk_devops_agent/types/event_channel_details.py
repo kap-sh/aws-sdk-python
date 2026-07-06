@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#EventChannelDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.event_channel_type
 
 
-class EventChannelDetails(TypedDict):
+class EventChannelDetails(TypedDict, closed=True):
     type: NotRequired["aws_sdk_devops_agent.types.event_channel_type.EventChannelType"]
     """<p>The type of event channel</p>"""
 

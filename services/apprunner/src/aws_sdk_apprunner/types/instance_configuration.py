@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#InstanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.cpu
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.role_arn
 
 
-class InstanceConfiguration(TypedDict):
+class InstanceConfiguration(TypedDict, closed=True):
     cpu: NotRequired["aws_sdk_apprunner.types.cpu.Cpu"]
     """<p>The number of CPU units reserved for each instance of your App Runner service.</p> <p>Default: <code>1 vCPU</code> </p>"""
     memory: NotRequired["aws_sdk_apprunner.types.memory.Memory"]

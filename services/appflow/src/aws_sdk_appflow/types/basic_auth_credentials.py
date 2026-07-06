@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#BasicAuthCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.username
 
 
-class BasicAuthCredentials(TypedDict):
+class BasicAuthCredentials(TypedDict, closed=True):
     username: "aws_sdk_appflow.types.username.Username"
     """<p> The username to use to connect to a resource. </p>"""
     password: "aws_sdk_appflow.types.password.Password"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListMapsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListMapsRequest(TypedDict):
+class ListMapsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>An optional limit for the number of resources returned in a single call. </p> <p>Default value: <code>100</code> </p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

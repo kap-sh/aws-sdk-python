@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#EngagementPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.email_preference_list
     import aws_sdk_customer_profiles.types.phone_preference_list
 
 
-class EngagementPreferences(TypedDict):
+class EngagementPreferences(TypedDict, closed=True):
     phone: NotRequired[
         "aws_sdk_customer_profiles.types.phone_preference_list.PhonePreferenceList"
     ]

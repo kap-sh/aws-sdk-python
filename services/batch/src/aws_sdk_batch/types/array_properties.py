@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ArrayProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
 
 
-class ArrayProperties(TypedDict):
+class ArrayProperties(TypedDict, closed=True):
     size: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The size of the array job.</p>"""
 

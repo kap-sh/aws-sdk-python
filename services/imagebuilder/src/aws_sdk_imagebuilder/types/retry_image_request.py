@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#RetryImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_build_version_arn
 
 
-class RetryImageRequest(TypedDict):
+class RetryImageRequest(TypedDict, closed=True):
     image_build_version_arn: (
         "aws_sdk_imagebuilder.types.image_build_version_arn.ImageBuildVersionArn"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#SearchResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_identifier_list
 
 
-class SearchResourcesOutput(TypedDict):
+class SearchResourcesOutput(TypedDict, closed=True):
     resource_identifiers: NotRequired[
         "aws_sdk_resource_groups.types.resource_identifier_list.ResourceIdentifierList"
     ]

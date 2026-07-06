@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListEntitiesForPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_usage_type
 
 
-class ListEntitiesForPolicyRequest(TypedDict):
+class ListEntitiesForPolicyRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the IAM policy for which you want the versions.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     entity_filter: NotRequired["aws_sdk_iam.types.entity_type.EntityType"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacyPrivacyImpact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.differential_privacy_preview_aggregation_list
 
 
-class DifferentialPrivacyPrivacyImpact(TypedDict):
+class DifferentialPrivacyPrivacyImpact(TypedDict, closed=True):
     aggregations: "aws_sdk_cleanrooms.types.differential_privacy_preview_aggregation_list.DifferentialPrivacyPreviewAggregationList"
     """<p>The number of aggregation functions that you can perform.</p>"""
 

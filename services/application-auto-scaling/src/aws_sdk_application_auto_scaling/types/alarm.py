@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#Alarm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.resource_id
 
 
-class Alarm(TypedDict):
+class Alarm(TypedDict, closed=True):
     alarm_name: "aws_sdk_application_auto_scaling.types.resource_id.ResourceId"
     """<p>The name of the alarm.</p>"""
     alarm_arn: "aws_sdk_application_auto_scaling.types.resource_id.ResourceId"

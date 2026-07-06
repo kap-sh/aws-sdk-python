@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#PutFirewallRuleGroupPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_rule_group_policy
 
 
-class PutFirewallRuleGroupPolicyRequest(TypedDict):
+class PutFirewallRuleGroupPolicyRequest(TypedDict, closed=True):
     arn: "aws_sdk_route53resolver.types.arn.Arn"
     """<p>The ARN (Amazon Resource Name) for the rule group that you want to share.</p>"""
     firewall_rule_group_policy: "aws_sdk_route53resolver.types.firewall_rule_group_policy.FirewallRuleGroupPolicy"

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CustomModelTransformParameters``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class CustomModelTransformParameters(TypedDict):
+class CustomModelTransformParameters(TypedDict, closed=True):
     source_s3_directory_path: "str"
     """<p>The path to the Amazon S3 location where the Python module implementing your model is located. This must point to a valid existing Amazon S3 location that contains, at a minimum, a training script, a transform script, and a <code>model-hpo-configuration.json</code> file.</p>"""
     transform_entry_point_script: NotRequired["str"]

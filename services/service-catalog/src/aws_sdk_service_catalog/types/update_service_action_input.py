@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UpdateServiceActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.service_action_name
 
 
-class UpdateServiceActionInput(TypedDict):
+class UpdateServiceActionInput(TypedDict, closed=True):
     id: "aws_sdk_service_catalog.types.id.Id"
     """<p>The self-service action identifier.</p>"""
     name: NotRequired[

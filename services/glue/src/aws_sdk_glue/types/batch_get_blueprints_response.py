@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetBlueprintsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.blueprint_names
     import aws_sdk_glue.types.blueprints
 
 
-class BatchGetBlueprintsResponse(TypedDict):
+class BatchGetBlueprintsResponse(TypedDict, closed=True):
     blueprints: NotRequired["aws_sdk_glue.types.blueprints.Blueprints"]
     """<p>Returns a list of blueprint as a <code>Blueprints</code> object.</p>"""
     missing_blueprints: NotRequired["aws_sdk_glue.types.blueprint_names.BlueprintNames"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.list_limit
     import aws_sdk_snowball.types.string
 
 
-class ListJobsRequest(TypedDict):
+class ListJobsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_snowball.types.list_limit.ListLimit"]
     """<p>The number of <code>JobListEntry</code> objects to return.</p>"""
     next_token: NotRequired["aws_sdk_snowball.types.string.String"]

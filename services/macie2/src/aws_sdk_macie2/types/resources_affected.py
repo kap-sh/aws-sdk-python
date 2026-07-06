@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ResourcesAffected``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.s3_bucket
     import aws_sdk_macie2.types.s3_object
 
 
-class ResourcesAffected(TypedDict):
+class ResourcesAffected(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_macie2.types.s3_bucket.S3Bucket"]
     """<p>The details of the S3 bucket that the finding applies to.</p>"""
     s3_object: NotRequired["aws_sdk_macie2.types.s3_object.S3Object"]

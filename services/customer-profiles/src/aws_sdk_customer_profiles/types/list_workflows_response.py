@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListWorkflowsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.token
     import aws_sdk_customer_profiles.types.workflow_list
 
 
-class ListWorkflowsResponse(TypedDict):
+class ListWorkflowsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_customer_profiles.types.workflow_list.WorkflowList"]
     """<p>List containing workflow details.</p>"""
     next_token: NotRequired["aws_sdk_customer_profiles.types.token.token"]

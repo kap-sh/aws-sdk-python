@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageDataSourceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source
     import aws_sdk_guardduty.types.total
 
 
-class UsageDataSourceResult(TypedDict):
+class UsageDataSourceResult(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_guardduty.types.data_source.DataSource"]
     """<p>The data source type that generated usage.</p>"""
     total: NotRequired["aws_sdk_guardduty.types.total.Total"]

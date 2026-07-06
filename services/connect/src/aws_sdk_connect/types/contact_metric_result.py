@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactMetricResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_metric_value
 
 
-class ContactMetricResult(TypedDict):
+class ContactMetricResult(TypedDict, closed=True):
     name: "aws_sdk_connect.types.contact_metric_name.ContactMetricName"
     """<p>The name of the metric that was retrieved. This corresponds to the metric name specified in the request, such as POSITION_IN_QUEUE or ESTIMATED_WAIT_TIME.</p>"""
     value: "aws_sdk_connect.types.contact_metric_value.ContactMetricValue"

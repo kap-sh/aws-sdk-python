@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateProjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.project_arn
 
 
-class CreateProjectResponse(TypedDict):
+class CreateProjectResponse(TypedDict, closed=True):
     project_arn: NotRequired["aws_sdk_rekognition.types.project_arn.ProjectArn"]
     """<p>The Amazon Resource Name (ARN) of the new project. You can use the ARN to configure IAM access to the project. </p>"""
 

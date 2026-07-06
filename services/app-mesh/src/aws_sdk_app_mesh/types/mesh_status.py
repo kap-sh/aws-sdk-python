@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#MeshStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.mesh_status_code
 
 
-class MeshStatus(TypedDict):
+class MeshStatus(TypedDict, closed=True):
     status: NotRequired["aws_sdk_app_mesh.types.mesh_status_code.MeshStatusCode"]
     """<p>The current mesh status.</p>"""
 

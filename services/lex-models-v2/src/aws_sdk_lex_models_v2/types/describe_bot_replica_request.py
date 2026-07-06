@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeBotReplicaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.replica_region
 
 
-class DescribeBotReplicaRequest(TypedDict):
+class DescribeBotReplicaRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The request for the unique bot ID of the replicated bot being monitored.</p>"""
     replica_region: "aws_sdk_lex_models_v2.types.replica_region.ReplicaRegion"

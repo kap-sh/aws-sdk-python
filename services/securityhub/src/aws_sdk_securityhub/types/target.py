@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Target``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -8,15 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class _Target_AccountId(TypedDict):
+class _Target_AccountId(TypedDict, closed=True):
     AccountId: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
 
 
-class _Target_OrganizationalUnitId(TypedDict):
+class _Target_OrganizationalUnitId(TypedDict, closed=True):
     OrganizationalUnitId: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
 
 
-class _Target_RootId(TypedDict):
+class _Target_RootId(TypedDict, closed=True):
     RootId: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
 
 

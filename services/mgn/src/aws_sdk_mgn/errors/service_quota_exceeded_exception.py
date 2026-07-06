@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     code: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     resource_id: NotRequired[

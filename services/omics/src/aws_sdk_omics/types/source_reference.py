@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#SourceReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.source_reference_value
 
 
-class SourceReference(TypedDict):
+class SourceReference(TypedDict, closed=True):
     type: "aws_sdk_omics.types.source_reference_type.SourceReferenceType"
     """<p>The type of source reference, such as branch, tag, or commit.</p>"""
     value: "aws_sdk_omics.types.source_reference_value.SourceReferenceValue"

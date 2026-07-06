@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListDataQualityRulesetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_ruleset_filter_criteria
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class ListDataQualityRulesetsRequest(TypedDict):
+class ListDataQualityRulesetsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]
     """<p>A paginated token to offset the results.</p>"""
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]

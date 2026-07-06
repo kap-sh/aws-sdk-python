@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListBackupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.backup_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.time_range_upper_bound
 
 
-class ListBackupsInput(TypedDict):
+class ListBackupsInput(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_arn.TableArn"]
     """<p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>"""
     limit: NotRequired["aws_sdk_dynamodb.types.backups_input_limit.BackupsInputLimit"]

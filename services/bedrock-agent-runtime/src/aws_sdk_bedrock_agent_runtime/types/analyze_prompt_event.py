@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AnalyzePromptEvent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 
 
-class AnalyzePromptEvent(TypedDict):
+class AnalyzePromptEvent(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>A message describing the analysis of the prompt.</p>"""
 

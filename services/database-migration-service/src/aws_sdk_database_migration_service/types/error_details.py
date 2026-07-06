@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.default_error_details
 
 
-class _ErrorDetails_defaultErrorDetails(TypedDict):
+class _ErrorDetails_defaultErrorDetails(TypedDict, closed=True):
     defaultErrorDetails: "aws_sdk_database_migration_service.types.default_error_details.DefaultErrorDetails"
 
 

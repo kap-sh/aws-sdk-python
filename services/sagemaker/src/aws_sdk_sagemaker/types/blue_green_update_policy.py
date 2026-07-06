@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BlueGreenUpdatePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.maximum_execution_timeout_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.traffic_routing_config
 
 
-class BlueGreenUpdatePolicy(TypedDict):
+class BlueGreenUpdatePolicy(TypedDict, closed=True):
     traffic_routing_configuration: NotRequired[
         "aws_sdk_sagemaker.types.traffic_routing_config.TrafficRoutingConfig"
     ]

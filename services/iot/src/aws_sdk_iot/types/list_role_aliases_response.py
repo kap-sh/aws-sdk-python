@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListRoleAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.marker
     import aws_sdk_iot.types.role_aliases
 
 
-class ListRoleAliasesResponse(TypedDict):
+class ListRoleAliasesResponse(TypedDict, closed=True):
     role_aliases: NotRequired["aws_sdk_iot.types.role_aliases.RoleAliases"]
     """<p>The role aliases.</p>"""
     next_marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

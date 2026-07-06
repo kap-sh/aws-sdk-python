@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeProjectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.extended_pagination_token
     import aws_sdk_rekognition.types.project_descriptions
 
 
-class DescribeProjectsResponse(TypedDict):
+class DescribeProjectsResponse(TypedDict, closed=True):
     project_descriptions: NotRequired[
         "aws_sdk_rekognition.types.project_descriptions.ProjectDescriptions"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationAccessHours``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,6 +15,7 @@ WaypointOptimizationAccessHours = TypedDict(
         "from": "aws_sdk_geo_routes.types.waypoint_optimization_access_hours_entry.WaypointOptimizationAccessHoursEntry",
         "to": "aws_sdk_geo_routes.types.waypoint_optimization_access_hours_entry.WaypointOptimizationAccessHoursEntry",
     },
+    closed=True,
 )
 
 

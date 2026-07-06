@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#ValidationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_deployment.errors import DeserializationError, ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     field_name: "str"
     """<p>The field name associated with the error.</p>"""

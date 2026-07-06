@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.export_destination
 
 
-class CreateExportJobRequest(TypedDict):
+class CreateExportJobRequest(TypedDict, closed=True):
     export_data_source: "aws_sdk_sesv2.types.export_data_source.ExportDataSource"
     """<p>The data source for the export job.</p>"""
     export_destination: "aws_sdk_sesv2.types.export_destination.ExportDestination"

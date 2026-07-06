@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#CreateAlarmModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.tags
 
 
-class CreateAlarmModelRequest(TypedDict):
+class CreateAlarmModelRequest(TypedDict, closed=True):
     alarm_model_name: "aws_sdk_iot_events.types.alarm_model_name.AlarmModelName"
     """<p>A unique name that helps you identify the alarm model. You can't change this name after you create the alarm model.</p>"""
     alarm_model_description: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeSecurityPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.security_policy_name
 
 
-class DescribeSecurityPolicyRequest(TypedDict):
+class DescribeSecurityPolicyRequest(TypedDict, closed=True):
     security_policy_name: (
         "aws_sdk_transfer.types.security_policy_name.SecurityPolicyName"
     )

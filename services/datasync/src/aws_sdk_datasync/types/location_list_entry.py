@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#LocationListEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
     import aws_sdk_datasync.types.location_uri
 
 
-class LocationListEntry(TypedDict):
+class LocationListEntry(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>The Amazon Resource Name (ARN) of the location. For Network File System (NFS) or Amazon EFS, the location is the export path. For Amazon S3, the location is the prefix path that you want to mount and use as the root of the location.</p>"""
     location_uri: NotRequired["aws_sdk_datasync.types.location_uri.LocationUri"]

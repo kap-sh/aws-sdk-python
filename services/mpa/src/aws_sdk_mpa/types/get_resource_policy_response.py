@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#GetResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class GetResourcePolicyResponse(TypedDict):
+class GetResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_mpa.types.string.String"
     """<p>Amazon Resource Name (ARN) for the resource.</p>"""
     policy_type: "aws_sdk_mpa.types.policy_type.PolicyType"

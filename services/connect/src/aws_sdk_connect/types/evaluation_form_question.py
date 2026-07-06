@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormQuestion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id
 
 
-class EvaluationFormQuestion(TypedDict):
+class EvaluationFormQuestion(TypedDict, closed=True):
     title: "aws_sdk_connect.types.evaluation_form_question_title.EvaluationFormQuestionTitle"
     """<p>The title of the question.</p>"""
     instructions: NotRequired[

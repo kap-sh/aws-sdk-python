@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CapacitySize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capacity_size_type
     import aws_sdk_sagemaker.types.capacity_size_value
 
 
-class CapacitySize(TypedDict):
+class CapacitySize(TypedDict, closed=True):
     type: NotRequired["aws_sdk_sagemaker.types.capacity_size_type.CapacitySizeType"]
     """<p>Specifies the endpoint capacity type.</p> <ul> <li> <p> <code>INSTANCE_COUNT</code>: The endpoint activates based on the number of instances.</p> </li> <li> <p> <code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified percentage of capacity.</p> </li> </ul>"""
     value: NotRequired["aws_sdk_sagemaker.types.capacity_size_value.CapacitySizeValue"]

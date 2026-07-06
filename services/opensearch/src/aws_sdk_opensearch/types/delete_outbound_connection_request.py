@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DeleteOutboundConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.connection_id
 
 
-class DeleteOutboundConnectionRequest(TypedDict):
+class DeleteOutboundConnectionRequest(TypedDict, closed=True):
     connection_id: "aws_sdk_opensearch.types.connection_id.ConnectionId"
     """<p>The ID of the outbound connection you want to permanently delete.</p>"""
 

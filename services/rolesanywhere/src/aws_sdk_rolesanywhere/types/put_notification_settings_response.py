@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#PutNotificationSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.trust_anchor_detail
 
 
-class PutNotificationSettingsResponse(TypedDict):
+class PutNotificationSettingsResponse(TypedDict, closed=True):
     trust_anchor: "aws_sdk_rolesanywhere.types.trust_anchor_detail.TrustAnchorDetail"
 
 

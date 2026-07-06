@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     error_code: "str"
     """<p>The identifier for the error.</p>"""
     message: "str"

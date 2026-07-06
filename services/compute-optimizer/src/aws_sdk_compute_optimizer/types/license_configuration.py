@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#LicenseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.instance_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.operating_system
 
 
-class LicenseConfiguration(TypedDict):
+class LicenseConfiguration(TypedDict, closed=True):
     number_of_cores: "aws_sdk_compute_optimizer.types.number_of_cores.NumberOfCores"
     """<p> The current number of cores associated with the instance. </p>"""
     instance_type: NotRequired[

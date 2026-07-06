@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#EventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.availability_zones
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.tag_filter
 
 
-class EventFilter(TypedDict):
+class EventFilter(TypedDict, closed=True):
     actionabilities: NotRequired[
         "aws_sdk_health.types.event_actionability_list.EventActionabilityList"
     ]

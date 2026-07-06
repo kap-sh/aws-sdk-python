@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceFleet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_fleet_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class InstanceFleet(TypedDict):
+class InstanceFleet(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.instance_fleet_id.InstanceFleetId"]
     """<p>The unique identifier of the instance fleet.</p>"""
     name: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DimensionGroupDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.dimension_detail_list
     import aws_sdk_pi.types.string
 
 
-class DimensionGroupDetail(TypedDict):
+class DimensionGroupDetail(TypedDict, closed=True):
     group: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The name of the dimension group.</p>"""
     dimensions: NotRequired[

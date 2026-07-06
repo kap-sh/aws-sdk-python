@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteKeys``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delete_with_keys
 
 
-class DeleteKeys(TypedDict):
+class DeleteKeys(TypedDict, closed=True):
     with_keys: "aws_sdk_cloudwatch_logs.types.delete_with_keys.DeleteWithKeys"
     """<p>The list of keys to delete.</p>"""
 

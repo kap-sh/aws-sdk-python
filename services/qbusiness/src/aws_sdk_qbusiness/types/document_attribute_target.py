@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAttributeTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_attribute_value
 
 
-class DocumentAttributeTarget(TypedDict):
+class DocumentAttributeTarget(TypedDict, closed=True):
     key: "aws_sdk_qbusiness.types.document_attribute_key.DocumentAttributeKey"
     """<p>The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.</p>"""
     value: NotRequired[

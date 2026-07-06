@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#DeleteRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class DeleteRuleGroupRequest(TypedDict):
+class DeleteRuleGroupRequest(TypedDict, closed=True):
     rule_group_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to delete. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

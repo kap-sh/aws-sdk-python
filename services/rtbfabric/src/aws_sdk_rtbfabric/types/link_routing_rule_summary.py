@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#LinkRoutingRuleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.rule_status
 
 
-class LinkRoutingRuleSummary(TypedDict):
+class LinkRoutingRuleSummary(TypedDict, closed=True):
     rule_id: "aws_sdk_rtbfabric.types.rule_id.RuleId"
     """<p>The unique identifier of the routing rule.</p>"""
     priority: "aws_sdk_rtbfabric.types.rule_priority.RulePriority"

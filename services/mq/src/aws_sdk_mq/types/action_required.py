@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ActionRequired``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class ActionRequired(TypedDict):
+class ActionRequired(TypedDict, closed=True):
     action_required_code: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>The code you can use to find instructions on the action required to resolve your broker issue.</p>"""
     action_required_info: NotRequired["aws_sdk_mq.types.__string.__string"]

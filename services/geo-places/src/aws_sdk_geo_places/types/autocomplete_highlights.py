@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AutocompleteHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.autocomplete_address_highlights
     import aws_sdk_geo_places.types.highlight_list
 
 
-class AutocompleteHighlights(TypedDict):
+class AutocompleteHighlights(TypedDict, closed=True):
     title: NotRequired["aws_sdk_geo_places.types.highlight_list.HighlightList"]
     """<p>Indicates where the title field in the result matches the input query.</p>"""
     address: NotRequired[

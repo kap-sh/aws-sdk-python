@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#RebootAutonomousDatabaseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database_resource_status
 
 
-class RebootAutonomousDatabaseOutput(TypedDict):
+class RebootAutonomousDatabaseOutput(TypedDict, closed=True):
     autonomous_database_id: "str"
     """<p>The unique identifier of the Autonomous Database that was rebooted.</p>"""
     display_name: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CACertificateDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.auto_registration_status
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.generation_id
 
 
-class CACertificateDescription(TypedDict):
+class CACertificateDescription(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_iot.types.certificate_arn.CertificateArn"]
     """<p>The CA certificate ARN.</p>"""
     certificate_id: NotRequired["aws_sdk_iot.types.certificate_id.CertificateId"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#NewUserAgentDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.is_new_for_entire_account
     import aws_sdk_detective.types.user_agent
 
 
-class NewUserAgentDetail(TypedDict):
+class NewUserAgentDetail(TypedDict, closed=True):
     user_agent: NotRequired["aws_sdk_detective.types.user_agent.UserAgent"]
     """<p>New user agent which accessed the resource.</p>"""
     is_new_for_entire_account: (

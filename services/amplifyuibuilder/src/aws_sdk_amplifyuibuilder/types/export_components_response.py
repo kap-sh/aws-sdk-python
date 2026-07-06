@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ExportComponentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_list
 
 
-class ExportComponentsResponse(TypedDict):
+class ExportComponentsResponse(TypedDict, closed=True):
     entities: "aws_sdk_amplifyuibuilder.types.component_list.ComponentList"
     """<p>Represents the configuration of the exported components.</p>"""
     next_token: NotRequired["str"]

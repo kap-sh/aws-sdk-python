@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#TieringConfigurationInputForCreate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.tiering_configuration_name
 
 
-class TieringConfigurationInputForCreate(TypedDict):
+class TieringConfigurationInputForCreate(TypedDict, closed=True):
     tiering_configuration_name: (
         "aws_sdk_backup.types.tiering_configuration_name.TieringConfigurationName"
     )

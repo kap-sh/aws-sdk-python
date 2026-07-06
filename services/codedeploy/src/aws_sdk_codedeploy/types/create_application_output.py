@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#CreateApplicationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.application_id
 
 
-class CreateApplicationOutput(TypedDict):
+class CreateApplicationOutput(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_codedeploy.types.application_id.ApplicationId"]
     """<p>A unique application ID.</p>"""
 

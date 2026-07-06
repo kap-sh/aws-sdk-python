@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AddClusterNodeSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_instance_types
 
 
-class AddClusterNodeSpecification(TypedDict):
+class AddClusterNodeSpecification(TypedDict, closed=True):
     instance_group_name: (
         "aws_sdk_sagemaker.types.cluster_instance_group_name.ClusterInstanceGroupName"
     )

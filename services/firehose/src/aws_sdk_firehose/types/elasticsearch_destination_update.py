@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ElasticsearchDestinationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.cloud_watch_logging_options
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.s3_destination_update
 
 
-class ElasticsearchDestinationUpdate(TypedDict):
+class ElasticsearchDestinationUpdate(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_firehose.types.role_arn.RoleARN"]
     r"""<p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents. For more information, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3\">Grant Firehose Access to an Amazon S3 Destination</a> and <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     domain_arn: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DeletePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.policy_id
 
 
-class DeletePolicyRequest(TypedDict):
+class DeletePolicyRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
     """<p>The ID of the policy that you want to delete. You can retrieve this ID from <code>PutPolicy</code> and <code>ListPolicies</code>.</p>"""
     delete_all_policy_resources: "aws_sdk_fms.types.boolean.Boolean"

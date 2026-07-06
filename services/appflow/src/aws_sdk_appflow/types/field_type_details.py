@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#FieldTypeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.supported_value_list
 
 
-class FieldTypeDetails(TypedDict):
+class FieldTypeDetails(TypedDict, closed=True):
     field_type: "aws_sdk_appflow.types.field_type.FieldType"
     """<p> The type of field, such as string, integer, date, and so on. </p>"""
     filter_operators: "aws_sdk_appflow.types.filter_operator_list.FilterOperatorList"

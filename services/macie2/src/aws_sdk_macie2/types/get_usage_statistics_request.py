@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetUsageStatisticsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.usage_statistics_sort_by
 
 
-class GetUsageStatisticsRequest(TypedDict):
+class GetUsageStatisticsRequest(TypedDict, closed=True):
     filter_by: NotRequired[
         "aws_sdk_macie2.types.__list_of_usage_statistics_filter.__listOfUsageStatisticsFilter"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetOpsMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_metadata_arn
 
 
-class GetOpsMetadataRequest(TypedDict):
+class GetOpsMetadataRequest(TypedDict, closed=True):
     ops_metadata_arn: "aws_sdk_ssm.types.ops_metadata_arn.OpsMetadataArn"
     """<p>The Amazon Resource Name (ARN) of an OpsMetadata Object to view.</p>"""
     max_results: NotRequired[

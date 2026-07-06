@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ExecutionRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.execution_record_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ExecutionRecord(TypedDict):
+class ExecutionRecord(TypedDict, closed=True):
     observation_id: NotRequired[
         "aws_sdk_connect.types.test_case_resource_id.TestCaseResourceId"
     ]

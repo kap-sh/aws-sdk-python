@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DownloadDefaultKeyPairResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.base64
     import aws_sdk_lightsail.types.iso_date
 
 
-class DownloadDefaultKeyPairResult(TypedDict):
+class DownloadDefaultKeyPairResult(TypedDict, closed=True):
     public_key_base64: NotRequired["aws_sdk_lightsail.types.base64.Base64"]
     """<p>A base64-encoded public key of the <code>ssh-rsa</code> type.</p>"""
     private_key_base64: NotRequired["aws_sdk_lightsail.types.base64.Base64"]

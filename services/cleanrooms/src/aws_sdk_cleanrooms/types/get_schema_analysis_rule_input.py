@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetSchemaAnalysisRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_rule_type
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.table_alias
 
 
-class GetSchemaAnalysisRuleInput(TypedDict):
+class GetSchemaAnalysisRuleInput(TypedDict, closed=True):
     collaboration_identifier: (
         "aws_sdk_cleanrooms.types.collaboration_identifier.CollaborationIdentifier"
     )

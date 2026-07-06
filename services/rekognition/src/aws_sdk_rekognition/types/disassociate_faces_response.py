@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DisassociateFacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.disassociated_faces_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.user_status
 
 
-class DisassociateFacesResponse(TypedDict):
+class DisassociateFacesResponse(TypedDict, closed=True):
     disassociated_faces: NotRequired[
         "aws_sdk_rekognition.types.disassociated_faces_list.DisassociatedFacesList"
     ]

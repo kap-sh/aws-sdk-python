@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryCodeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.blob
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class CanaryCodeInput(TypedDict):
+class CanaryCodeInput(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_synthetics.types.string.String"]
     """<p>If your canary script is located in Amazon S3, specify the bucket name here. Do not include <code>s3://</code> as the start of the bucket name.</p>"""
     s3_key: NotRequired["aws_sdk_synthetics.types.string.String"]

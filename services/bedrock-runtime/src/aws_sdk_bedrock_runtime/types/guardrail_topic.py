@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailTopic``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_topic_type
 
 
-class GuardrailTopic(TypedDict):
+class GuardrailTopic(TypedDict, closed=True):
     name: "str"
     """<p>The name for the guardrail.</p>"""
     type: "aws_sdk_bedrock_runtime.types.guardrail_topic_type.GuardrailTopicType"

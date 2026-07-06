@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#NoAuthConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NoAuthConfiguration(TypedDict):
+class NoAuthConfiguration(TypedDict, closed=True):
     pass
 
 

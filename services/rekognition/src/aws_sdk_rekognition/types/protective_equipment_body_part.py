@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ProtectiveEquipmentBodyPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.body_part
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.percent
 
 
-class ProtectiveEquipmentBodyPart(TypedDict):
+class ProtectiveEquipmentBodyPart(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rekognition.types.body_part.BodyPart"]
     """<p>The detected body part.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

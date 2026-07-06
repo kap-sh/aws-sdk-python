@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CrossRegionCopyRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.cmk_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.target_region
 
 
-class CrossRegionCopyRule(TypedDict):
+class CrossRegionCopyRule(TypedDict, closed=True):
     target_region: NotRequired["aws_sdk_dlm.types.target_region.TargetRegion"]
     """<note> <p>Use this parameter for AMI policies only. For snapshot policies, use <b>Target</b> instead. For snapshot policies created before the <b>Target</b> parameter was introduced, this parameter indicates the target Region for snapshot copies.</p> <p></p> </note> <p> <b>[Custom AMI policies only]</b> The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.</p>"""
     target: NotRequired["aws_sdk_dlm.types.target.Target"]

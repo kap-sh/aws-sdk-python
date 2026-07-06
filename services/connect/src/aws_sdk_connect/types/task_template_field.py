@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.task_template_field_type
 
 
-class TaskTemplateField(TypedDict):
+class TaskTemplateField(TypedDict, closed=True):
     id: "aws_sdk_connect.types.task_template_field_identifier.TaskTemplateFieldIdentifier"
     """<p>The unique identifier for the field.</p>"""
     description: NotRequired[

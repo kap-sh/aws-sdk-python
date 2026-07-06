@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#CreateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.type
 
 
-class CreateJobRequest(TypedDict):
+class CreateJobRequest(TypedDict, closed=True):
     asset_configuration: NotRequired[
         "aws_sdk_dataexchange.types.asset_configuration.AssetConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ObjectiveFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.domain_resource_filter_list
 
 
-class ObjectiveFilter(TypedDict):
+class ObjectiveFilter(TypedDict, closed=True):
     domains: NotRequired[
         "aws_sdk_controlcatalog.types.domain_resource_filter_list.DomainResourceFilterList"
     ]

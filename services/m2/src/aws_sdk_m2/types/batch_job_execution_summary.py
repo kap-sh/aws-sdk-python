@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#BatchJobExecutionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class BatchJobExecutionSummary(TypedDict):
+class BatchJobExecutionSummary(TypedDict, closed=True):
     execution_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of this execution of the batch job.</p>"""
     application_id: "aws_sdk_m2.types.identifier.Identifier"

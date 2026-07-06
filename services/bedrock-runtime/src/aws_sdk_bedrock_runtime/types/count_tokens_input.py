@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CountTokensInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.invoke_model_tokens_request
 
 
-class _CountTokensInput_invokeModel(TypedDict):
+class _CountTokensInput_invokeModel(TypedDict, closed=True):
     invokeModel: "aws_sdk_bedrock_runtime.types.invoke_model_tokens_request.InvokeModelTokensRequest"
 
 
-class _CountTokensInput_converse(TypedDict):
+class _CountTokensInput_converse(TypedDict, closed=True):
     converse: (
         "aws_sdk_bedrock_runtime.types.converse_tokens_request.ConverseTokensRequest"
     )

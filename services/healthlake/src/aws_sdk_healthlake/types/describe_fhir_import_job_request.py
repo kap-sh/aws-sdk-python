@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#DescribeFHIRImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.job_id
 
 
-class DescribeFHIRImportJobRequest(TypedDict):
+class DescribeFHIRImportJobRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_healthlake.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     job_id: "aws_sdk_healthlake.types.job_id.JobId"

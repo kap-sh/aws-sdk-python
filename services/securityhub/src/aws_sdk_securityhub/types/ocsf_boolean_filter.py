@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#OcsfBooleanFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean_filter
     import aws_sdk_securityhub.types.ocsf_boolean_field
 
 
-class OcsfBooleanFilter(TypedDict):
+class OcsfBooleanFilter(TypedDict, closed=True):
     field_name: NotRequired[
         "aws_sdk_securityhub.types.ocsf_boolean_field.OcsfBooleanField"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DomainDeliverabilityCampaign``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.campaign_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.volume
 
 
-class DomainDeliverabilityCampaign(TypedDict):
+class DomainDeliverabilityCampaign(TypedDict, closed=True):
     campaign_id: NotRequired["aws_sdk_sesv2.types.campaign_id.CampaignId"]
     """<p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>"""
     image_url: NotRequired["aws_sdk_sesv2.types.image_url.ImageUrl"]

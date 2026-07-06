@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ListServersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.group_ids
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class ListServersRequest(TypedDict):
+class ListServersRequest(TypedDict, closed=True):
     server_criteria: NotRequired[
         "aws_sdk_migrationhubstrategy.types.server_criteria.ServerCriteria"
     ]

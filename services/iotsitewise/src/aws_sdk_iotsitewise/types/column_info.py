@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ColumnInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.column_type
     import aws_sdk_iotsitewise.types.string
 
 
-class ColumnInfo(TypedDict):
+class ColumnInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     """<p>The name of the column description.</p>"""
     type: NotRequired["aws_sdk_iotsitewise.types.column_type.ColumnType"]

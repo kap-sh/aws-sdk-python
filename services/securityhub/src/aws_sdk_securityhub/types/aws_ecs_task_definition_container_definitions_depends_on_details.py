@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails(TypedDict, closed=True):
     condition: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start. Valid values are as follows:</p> <ul> <li> <p> <code>COMPLETE</code> </p> </li> <li> <p> <code>HEALTHY</code> </p> </li> <li> <p> <code>SUCCESS</code> </p> </li> <li> <p> <code>START</code> </p> </li> </ul>"""
     container_name: NotRequired[

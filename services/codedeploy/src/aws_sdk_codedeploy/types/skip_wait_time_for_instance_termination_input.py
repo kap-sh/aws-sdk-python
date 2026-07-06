@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#SkipWaitTimeForInstanceTerminationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_id
 
 
-class SkipWaitTimeForInstanceTerminationInput(TypedDict):
+class SkipWaitTimeForInstanceTerminationInput(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_codedeploy.types.deployment_id.DeploymentId"]
     """<p> The unique ID of a blue/green deployment for which you want to skip the instance termination wait time. </p>"""
 

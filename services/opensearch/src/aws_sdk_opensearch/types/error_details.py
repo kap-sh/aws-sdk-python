@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.error_message
     import aws_sdk_opensearch.types.error_type
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     error_type: NotRequired["aws_sdk_opensearch.types.error_type.ErrorType"]
     """<p>The type of error that occurred.</p>"""
     error_message: NotRequired["aws_sdk_opensearch.types.error_message.ErrorMessage"]

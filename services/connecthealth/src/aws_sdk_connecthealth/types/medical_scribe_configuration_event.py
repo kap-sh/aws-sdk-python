@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeConfigurationEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth._protocol.eventstream import HeaderValue, Message
 from aws_sdk_connecthealth.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.medical_scribe_post_stream_action_settings
 
 
-class MedicalScribeConfigurationEvent(TypedDict):
+class MedicalScribeConfigurationEvent(TypedDict, closed=True):
     post_stream_action_settings: "aws_sdk_connecthealth.types.medical_scribe_post_stream_action_settings.MedicalScribePostStreamActionSettings"
     """<p>Settings for actions to perform after the stream ends</p>"""
     channel_definitions: NotRequired[

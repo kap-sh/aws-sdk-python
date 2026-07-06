@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#UpdateThingShadowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_data_plane.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.thing_name
 
 
-class UpdateThingShadowRequest(TypedDict):
+class UpdateThingShadowRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot_data_plane.types.thing_name.ThingName"
     """<p>The name of the thing.</p>"""
     shadow_name: NotRequired["aws_sdk_iot_data_plane.types.shadow_name.ShadowName"]

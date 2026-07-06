@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CapabilitySchemaItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.validation_schema
 
 
-class CapabilitySchemaItem(TypedDict):
+class CapabilitySchemaItem(TypedDict, closed=True):
     format: "aws_sdk_iot_managed_integrations.types.schema_version_format.SchemaVersionFormat"
     """<p>The format of the capability schema, which defines how the schema is structured and interpreted.</p>"""
     capability_id: (

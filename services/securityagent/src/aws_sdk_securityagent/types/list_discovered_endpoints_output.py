@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListDiscoveredEndpointsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.discovered_endpoint_list
     import aws_sdk_securityagent.types.next_token
 
 
-class ListDiscoveredEndpointsOutput(TypedDict):
+class ListDiscoveredEndpointsOutput(TypedDict, closed=True):
     discovered_endpoints: NotRequired[
         "aws_sdk_securityagent.types.discovered_endpoint_list.DiscoveredEndpointList"
     ]

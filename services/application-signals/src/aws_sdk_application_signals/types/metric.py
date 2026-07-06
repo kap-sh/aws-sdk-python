@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#Metric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.dimensions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.namespace
 
 
-class Metric(TypedDict):
+class Metric(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_application_signals.types.namespace.Namespace"]
     r"""<p>The namespace of the metric. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace\">Namespaces</a>.</p>"""
     metric_name: NotRequired["aws_sdk_application_signals.types.metric_name.MetricName"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#FilterAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.json_document
 
 
-class FilterAttribute(TypedDict):
+class FilterAttribute(TypedDict, closed=True):
     key: "aws_sdk_qconnect.types.filter_attribute_key.FilterAttributeKey"
     """<p>The key of the filter attribute.</p>"""
     value: "aws_sdk_qconnect.types.json_document.JSONDocument"

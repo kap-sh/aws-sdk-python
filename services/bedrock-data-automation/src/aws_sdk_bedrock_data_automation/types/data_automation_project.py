@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DataAutomationProject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.standard_output_configuration
 
 
-class DataAutomationProject(TypedDict):
+class DataAutomationProject(TypedDict, closed=True):
     project_arn: "aws_sdk_bedrock_data_automation.types.data_automation_project_arn.DataAutomationProjectArn"
     creation_time: "aws_sdk_bedrock_data_automation.types.date_timestamp.DateTimestamp"
     last_modified_time: (

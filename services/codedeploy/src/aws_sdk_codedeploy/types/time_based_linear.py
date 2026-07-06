@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#TimeBasedLinear``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.percentage
     import aws_sdk_codedeploy.types.wait_time_in_mins
 
 
-class TimeBasedLinear(TypedDict):
+class TimeBasedLinear(TypedDict, closed=True):
     linear_percentage: "aws_sdk_codedeploy.types.percentage.Percentage"
     """<p>The percentage of traffic that is shifted at the start of each increment of a <code>TimeBasedLinear</code> deployment.</p>"""
     linear_interval: "aws_sdk_codedeploy.types.wait_time_in_mins.WaitTimeInMins"

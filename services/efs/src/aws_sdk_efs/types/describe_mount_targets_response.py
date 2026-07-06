@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeMountTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.marker
     import aws_sdk_efs.types.mount_target_descriptions
 
 
-class DescribeMountTargetsResponse(TypedDict):
+class DescribeMountTargetsResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_efs.types.marker.Marker"]
     """<p>If the request included the <code>Marker</code>, the response returns that value in this field.</p>"""
     mount_targets: NotRequired[

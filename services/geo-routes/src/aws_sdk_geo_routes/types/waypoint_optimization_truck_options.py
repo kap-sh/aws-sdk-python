@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationTruckOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.dimension_centimeters
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.weight_kilograms
 
 
-class WaypointOptimizationTruckOptions(TypedDict):
+class WaypointOptimizationTruckOptions(TypedDict, closed=True):
     gross_weight: "aws_sdk_geo_routes.types.weight_kilograms.WeightKilograms"
     """<p>Gross weight of the vehicle including trailers, and goods at capacity.</p> <p> <b>Unit</b>: <code>kilograms</code> </p>"""
     hazardous_cargos: NotRequired[

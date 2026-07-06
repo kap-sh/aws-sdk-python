@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#BatchMeterUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_metering.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.usage_record_list
 
 
-class BatchMeterUsageRequest(TypedDict):
+class BatchMeterUsageRequest(TypedDict, closed=True):
     usage_records: (
         "aws_sdk_marketplace_metering.types.usage_record_list.UsageRecordList"
     )

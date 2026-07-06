@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeAuditFindingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.finding_id
 
 
-class DescribeAuditFindingRequest(TypedDict):
+class DescribeAuditFindingRequest(TypedDict, closed=True):
     finding_id: "aws_sdk_iot.types.finding_id.FindingId"
     """<p>A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.</p>"""
 

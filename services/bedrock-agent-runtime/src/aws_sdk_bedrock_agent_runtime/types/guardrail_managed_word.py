@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailManagedWord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_managed_word_type
     import aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_action
 
 
-class GuardrailManagedWord(TypedDict):
+class GuardrailManagedWord(TypedDict, closed=True):
     match: NotRequired["str"]
     """<p>The match details for the managed word filter in the Guardrail.</p>"""
     type: NotRequired[

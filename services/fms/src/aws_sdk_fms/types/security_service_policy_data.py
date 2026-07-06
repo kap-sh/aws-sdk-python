@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#SecurityServicePolicyData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.security_service_type
 
 
-class SecurityServicePolicyData(TypedDict):
+class SecurityServicePolicyData(TypedDict, closed=True):
     type: "aws_sdk_fms.types.security_service_type.SecurityServiceType"
     """<p>The service that the policy is using to protect the resources. This specifies the type of policy that is created, either an WAF policy, a Shield Advanced policy, or a security group policy. For security group policies, Firewall Manager supports one security group for each common policy and for each content audit policy. This is an adjustable limit that you can increase by contacting Amazon Web Services Support.</p>"""
     managed_service_data: NotRequired[

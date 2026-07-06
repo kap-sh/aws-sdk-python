@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#StartExperimentExperimentOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.actions_mode
 
 
-class StartExperimentExperimentOptionsInput(TypedDict):
+class StartExperimentExperimentOptionsInput(TypedDict, closed=True):
     actions_mode: NotRequired["aws_sdk_fis.types.actions_mode.ActionsMode"]
     """<p>Specifies the actions mode for experiment options.</p>"""
 

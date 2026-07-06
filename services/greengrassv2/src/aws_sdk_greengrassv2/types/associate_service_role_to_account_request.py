@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#AssociateServiceRoleToAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.string
 
 
-class AssociateServiceRoleToAccountRequest(TypedDict):
+class AssociateServiceRoleToAccountRequest(TypedDict, closed=True):
     role_arn: "aws_sdk_greengrassv2.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the service role to associate with IoT Greengrass for your Amazon Web Services account in this Amazon Web Services Region.</p>"""
 

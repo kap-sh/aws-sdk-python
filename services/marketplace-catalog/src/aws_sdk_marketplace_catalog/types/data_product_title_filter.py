@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#DataProductTitleFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.data_product_title_filter_value_list
     import aws_sdk_marketplace_catalog.types.data_product_title_string
 
 
-class DataProductTitleFilter(TypedDict):
+class DataProductTitleFilter(TypedDict, closed=True):
     value_list: NotRequired[
         "aws_sdk_marketplace_catalog.types.data_product_title_filter_value_list.DataProductTitleFilterValueList"
     ]

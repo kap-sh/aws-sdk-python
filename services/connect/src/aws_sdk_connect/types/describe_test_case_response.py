@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeTestCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.test_case
 
 
-class DescribeTestCaseResponse(TypedDict):
+class DescribeTestCaseResponse(TypedDict, closed=True):
     test_case: NotRequired["aws_sdk_connect.types.test_case.TestCase"]
     """<p>The test case object containing all test case information.</p>"""
 

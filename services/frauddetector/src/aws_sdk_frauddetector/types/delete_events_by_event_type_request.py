@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DeleteEventsByEventTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.identifier
 
 
-class DeleteEventsByEventTypeRequest(TypedDict):
+class DeleteEventsByEventTypeRequest(TypedDict, closed=True):
     event_type_name: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The name of the event type.</p>"""
 

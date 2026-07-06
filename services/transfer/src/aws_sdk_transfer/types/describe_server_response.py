@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeServerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_server
 
 
-class DescribeServerResponse(TypedDict):
+class DescribeServerResponse(TypedDict, closed=True):
     server: "aws_sdk_transfer.types.described_server.DescribedServer"
     """<p>An array containing the properties of a server with the <code>ServerID</code> you specified.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CreateIndexResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateIndexResponse(TypedDict):
+class CreateIndexResponse(TypedDict, closed=True):
     pass
 
 

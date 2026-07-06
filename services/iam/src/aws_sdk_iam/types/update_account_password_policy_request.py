@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UpdateAccountPasswordPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.password_reuse_prevention_type
 
 
-class UpdateAccountPasswordPolicyRequest(TypedDict):
+class UpdateAccountPasswordPolicyRequest(TypedDict, closed=True):
     minimum_password_length: NotRequired[
         "aws_sdk_iam.types.minimum_password_length_type.minimumPasswordLengthType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.jobs_list
     import aws_sdk_drs.types.pagination_token
 
 
-class DescribeJobsResponse(TypedDict):
+class DescribeJobsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_drs.types.jobs_list.JobsList"]
     """<p>An array of Jobs.</p>"""
     next_token: NotRequired["aws_sdk_drs.types.pagination_token.PaginationToken"]

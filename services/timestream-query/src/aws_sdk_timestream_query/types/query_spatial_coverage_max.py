@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#QuerySpatialCoverageMax``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.amazon_resource_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.partition_key_list
 
 
-class QuerySpatialCoverageMax(TypedDict):
+class QuerySpatialCoverageMax(TypedDict, closed=True):
     value: "aws_sdk_timestream_query.types.double.Double"
     """<p>The maximum ratio of spatial coverage.</p>"""
     table_arn: NotRequired[

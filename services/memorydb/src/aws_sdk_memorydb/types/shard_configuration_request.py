@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ShardConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer
 
 
-class ShardConfigurationRequest(TypedDict):
+class ShardConfigurationRequest(TypedDict, closed=True):
     shard_count: "aws_sdk_memorydb.types.integer.Integer"
     """<p>The number of shards in the cluster</p>"""
 

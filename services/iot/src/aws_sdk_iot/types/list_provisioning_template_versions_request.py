@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListProvisioningTemplateVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.template_name
 
 
-class ListProvisioningTemplateVersionsRequest(TypedDict):
+class ListProvisioningTemplateVersionsRequest(TypedDict, closed=True):
     template_name: "aws_sdk_iot.types.template_name.TemplateName"
     """<p>The name of the provisioning template.</p>"""
     max_results: NotRequired["aws_sdk_iot.types.max_results.MaxResults"]

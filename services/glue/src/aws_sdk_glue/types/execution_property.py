@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ExecutionProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.max_concurrent_runs
 
 
-class ExecutionProperty(TypedDict):
+class ExecutionProperty(TypedDict, closed=True):
     max_concurrent_runs: "aws_sdk_glue.types.max_concurrent_runs.MaxConcurrentRuns"
     """<p>The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetTieringConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.tiering_configuration
 
 
-class GetTieringConfigurationOutput(TypedDict):
+class GetTieringConfigurationOutput(TypedDict, closed=True):
     tiering_configuration: NotRequired[
         "aws_sdk_backup.types.tiering_configuration.TieringConfiguration"
     ]

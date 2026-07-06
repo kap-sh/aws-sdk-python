@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListMediaAnalysisJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.extended_pagination_token
     import aws_sdk_rekognition.types.list_media_analysis_jobs_page_size
 
 
-class ListMediaAnalysisJobsRequest(TypedDict):
+class ListMediaAnalysisJobsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_rekognition.types.extended_pagination_token.ExtendedPaginationToken"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ListRuleGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.next_marker
     import aws_sdk_waf.types.rule_group_summaries
 
 
-class ListRuleGroupsResponse(TypedDict):
+class ListRuleGroupsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]
     """<p>If you have more <code>RuleGroups</code> than the number that you specified for <code>Limit</code> in the request, the response includes a <code>NextMarker</code> value. To list more <code>RuleGroups</code>, submit another <code>ListRuleGroups</code> request, and specify the <code>NextMarker</code> value from the response in the <code>NextMarker</code> value in the next request.</p>"""
     rule_groups: NotRequired[

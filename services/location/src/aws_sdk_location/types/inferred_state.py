@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#InferredState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.positional_accuracy
 
 
-class InferredState(TypedDict):
+class InferredState(TypedDict, closed=True):
     position: NotRequired["aws_sdk_location.types.position.Position"]
     """<p>The device position inferred by the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>"""
     accuracy: NotRequired[

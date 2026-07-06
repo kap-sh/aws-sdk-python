@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetApproximateUsageRecordsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.usage_services
 
 
-class GetApproximateUsageRecordsRequest(TypedDict):
+class GetApproximateUsageRecordsRequest(TypedDict, closed=True):
     granularity: "aws_sdk_cost_explorer.types.granularity.Granularity"
     """<p>How granular you want the data to be. You can enable data at hourly or daily granularity.</p>"""
     services: NotRequired["aws_sdk_cost_explorer.types.usage_services.UsageServices"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeleteAssessmentFrameworkShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.share_request_type
     import aws_sdk_auditmanager.types.uuid
 
 
-class DeleteAssessmentFrameworkShareRequest(TypedDict):
+class DeleteAssessmentFrameworkShareRequest(TypedDict, closed=True):
     request_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p>The unique identifier for the share request to be deleted.</p>"""
     request_type: "aws_sdk_auditmanager.types.share_request_type.ShareRequestType"

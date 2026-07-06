@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartCutoverRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.tags_map
 
 
-class StartCutoverRequest(TypedDict):
+class StartCutoverRequest(TypedDict, closed=True):
     source_server_i_ds: "aws_sdk_mgn.types.start_cutover_request_source_server_i_ds.StartCutoverRequestSourceServerIDs"
     """<p>Start Cutover by Source Server IDs.</p>"""
     tags: NotRequired["aws_sdk_mgn.types.tags_map.TagsMap"]

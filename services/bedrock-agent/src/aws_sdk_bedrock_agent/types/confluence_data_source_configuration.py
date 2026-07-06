@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ConfluenceDataSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.confluence_source_configuration
 
 
-class ConfluenceDataSourceConfiguration(TypedDict):
+class ConfluenceDataSourceConfiguration(TypedDict, closed=True):
     source_configuration: "aws_sdk_bedrock_agent.types.confluence_source_configuration.ConfluenceSourceConfiguration"
     """<p>The endpoint information to connect to your Confluence data source.</p>"""
     crawler_configuration: NotRequired[

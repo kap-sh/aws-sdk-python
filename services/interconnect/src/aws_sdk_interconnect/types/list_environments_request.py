@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListEnvironmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_interconnect.types.location
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.provider
 
 
-class ListEnvironmentsRequest(TypedDict):
+class ListEnvironmentsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_interconnect.types.max_results.MaxResults"]
     """<p>The max number of list results in a single paginated response.</p>"""
     next_token: NotRequired["aws_sdk_interconnect.types.next_token.NextToken"]

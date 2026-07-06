@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#AuthParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.label
 
 
-class AuthParameter(TypedDict):
+class AuthParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_appflow.types.key.Key"]
     """<p>The authentication key required to authenticate with the connector.</p>"""
     is_required: "aws_sdk_appflow.types.boolean.Boolean"

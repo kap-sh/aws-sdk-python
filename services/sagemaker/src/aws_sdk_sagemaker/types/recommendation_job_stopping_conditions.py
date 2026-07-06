@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationJobStoppingConditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.flat_invocations
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_latency_thresholds
 
 
-class RecommendationJobStoppingConditions(TypedDict):
+class RecommendationJobStoppingConditions(TypedDict, closed=True):
     max_invocations: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
     """<p>The maximum number of requests per minute expected for the endpoint.</p>"""
     model_latency_thresholds: NotRequired[

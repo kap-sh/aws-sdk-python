@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CredentialProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.credential_provider_type
 
 
-class CredentialProviderConfiguration(TypedDict):
+class CredentialProviderConfiguration(TypedDict, closed=True):
     credential_provider_type: "aws_sdk_bedrock_agentcore_control.types.credential_provider_type.CredentialProviderType"
     """<p>The type of credential provider. This field specifies which authentication method the gateway uses.</p>"""
     credential_provider: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#GroupingAppComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class GroupingAppComponent(TypedDict):
+class GroupingAppComponent(TypedDict, closed=True):
     app_component_id: "aws_sdk_resiliencehub.types.entity_name255.EntityName255"
     """<p>Indicates the identifier of an AppComponent.</p>"""
     app_component_type: "aws_sdk_resiliencehub.types.string255.String255"

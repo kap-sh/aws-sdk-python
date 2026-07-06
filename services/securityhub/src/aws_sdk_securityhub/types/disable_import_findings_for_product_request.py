@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DisableImportFindingsForProductRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class DisableImportFindingsForProductRequest(TypedDict):
+class DisableImportFindingsForProductRequest(TypedDict, closed=True):
     product_subscription_arn: (
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     )

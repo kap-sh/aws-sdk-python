@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#RollbackTrigger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type
 
 
-class RollbackTrigger(TypedDict):
+class RollbackTrigger(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_cloudformation.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the rollback trigger.</p> <p>If a specified trigger is missing, the entire stack operation fails and is rolled back.</p>"""
     type: NotRequired["aws_sdk_cloudformation.types.type.Type"]

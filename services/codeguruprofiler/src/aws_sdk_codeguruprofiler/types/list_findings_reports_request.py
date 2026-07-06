@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ListFindingsReportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.timestamp
 
 
-class ListFindingsReportsRequest(TypedDict):
+class ListFindingsReportsRequest(TypedDict, closed=True):
     profiling_group_name: (
         "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
     )

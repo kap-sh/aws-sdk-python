@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ParticipantSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.ingest_configuration_arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.user_id
 
 
-class ParticipantSummary(TypedDict):
+class ParticipantSummary(TypedDict, closed=True):
     participant_id: NotRequired[
         "aws_sdk_ivs_realtime.types.participant_id.ParticipantId"
     ]

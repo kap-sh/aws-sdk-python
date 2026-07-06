@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#VPCOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
     import aws_sdk_opensearch.types.string_list
 
 
-class VPCOptions(TypedDict):
+class VPCOptions(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_opensearch.types.string_list.StringList"]
     """<p>A list of subnet IDs associated with the VPC endpoints for the domain. If your domain uses multiple Availability Zones, you need to provide two subnet IDs, one per zone. Otherwise, provide only one.</p>"""
     security_group_ids: NotRequired["aws_sdk_opensearch.types.string_list.StringList"]

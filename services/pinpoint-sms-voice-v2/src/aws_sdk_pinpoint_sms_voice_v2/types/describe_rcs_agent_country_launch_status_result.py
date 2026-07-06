@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeRcsAgentCountryLaunchStatusResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
 
 
-class DescribeRcsAgentCountryLaunchStatusResult(TypedDict):
+class DescribeRcsAgentCountryLaunchStatusResult(TypedDict, closed=True):
     rcs_agent_id: "str"
     """<p>The unique identifier for the RCS agent.</p>"""
     rcs_agent_arn: "str"

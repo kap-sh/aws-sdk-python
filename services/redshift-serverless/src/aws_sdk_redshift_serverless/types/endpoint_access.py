@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#EndpointAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.vpc_security_group_membership_list
 
 
-class EndpointAccess(TypedDict):
+class EndpointAccess(TypedDict, closed=True):
     endpoint_name: NotRequired["str"]
     """<p>The name of the VPC endpoint.</p>"""
     endpoint_status: NotRequired["str"]

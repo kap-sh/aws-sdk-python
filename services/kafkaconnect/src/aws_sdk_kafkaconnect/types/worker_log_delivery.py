@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#WorkerLogDelivery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.cloud_watch_logs_log_delivery
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.s3_log_delivery
 
 
-class WorkerLogDelivery(TypedDict):
+class WorkerLogDelivery(TypedDict, closed=True):
     cloud_watch_logs: NotRequired[
         "aws_sdk_kafkaconnect.types.cloud_watch_logs_log_delivery.CloudWatchLogsLogDelivery"
     ]

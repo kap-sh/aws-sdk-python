@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#PackageSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.s3_bucket_name
     import aws_sdk_elasticsearch_service.types.s3_key
 
 
-class PackageSource(TypedDict):
+class PackageSource(TypedDict, closed=True):
     s3_bucket_name: NotRequired[
         "aws_sdk_elasticsearch_service.types.s3_bucket_name.S3BucketName"
     ]

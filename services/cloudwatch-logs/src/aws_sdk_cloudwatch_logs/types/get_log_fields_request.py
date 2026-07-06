@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogFieldsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data_source_type
 
 
-class GetLogFieldsRequest(TypedDict):
+class GetLogFieldsRequest(TypedDict, closed=True):
     data_source_name: "aws_sdk_cloudwatch_logs.types.data_source_name.DataSourceName"
     """<p>The name of the data source to retrieve log fields for.</p>"""
     data_source_type: "aws_sdk_cloudwatch_logs.types.data_source_type.DataSourceType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddBridgeOutputsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_bridge_output
 
 
-class AddBridgeOutputsResponse(TypedDict):
+class AddBridgeOutputsResponse(TypedDict, closed=True):
     bridge_arn: NotRequired["str"]
     """<p> The ARN of the bridge that you added outputs to.</p>"""
     outputs: NotRequired[

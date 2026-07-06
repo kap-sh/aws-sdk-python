@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CompositeComponentUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.component_property_group_requests
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_requests
 
 
-class CompositeComponentUpdateRequest(TypedDict):
+class CompositeComponentUpdateRequest(TypedDict, closed=True):
     update_type: NotRequired[
         "aws_sdk_iottwinmaker.types.component_update_type.ComponentUpdateType"
     ]

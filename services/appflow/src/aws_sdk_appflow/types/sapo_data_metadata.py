@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SAPODataMetadata(TypedDict):
+class SAPODataMetadata(TypedDict, closed=True):
     pass
 
 

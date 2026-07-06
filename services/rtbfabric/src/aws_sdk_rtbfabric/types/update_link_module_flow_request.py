@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#UpdateLinkModuleFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.module_configuration_list
 
 
-class UpdateLinkModuleFlowRequest(TypedDict):
+class UpdateLinkModuleFlowRequest(TypedDict, closed=True):
     client_token: "str"
     """<p>The unique client token.</p>"""
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"

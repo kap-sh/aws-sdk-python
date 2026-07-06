@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PipelineEndpointVpcOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.security_group_ids
     import aws_sdk_osis.types.subnet_ids
 
 
-class PipelineEndpointVpcOptions(TypedDict):
+class PipelineEndpointVpcOptions(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_osis.types.subnet_ids.SubnetIds"]
     """<p>A list of subnet IDs where the pipeline endpoint network interfaces are created.</p>"""
     security_group_ids: NotRequired[

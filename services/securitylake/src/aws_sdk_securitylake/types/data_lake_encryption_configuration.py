@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeEncryptionConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataLakeEncryptionConfiguration(TypedDict):
+class DataLakeEncryptionConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired["str"]
     """<p>The identifier of KMS encryption key used by Amazon Security Lake to encrypt the Security Lake object.</p>"""
 

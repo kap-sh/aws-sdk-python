@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#MicrosoftSQLServerSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.tlog_access_mode
 
 
-class MicrosoftSQLServerSettings(TypedDict):
+class MicrosoftSQLServerSettings(TypedDict, closed=True):
     port: NotRequired[
         "aws_sdk_database_migration_service.types.integer_optional.IntegerOptional"
     ]

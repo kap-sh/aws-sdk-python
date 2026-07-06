@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionBundlesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetDistributionBundlesRequest(TypedDict):
+class GetDistributionBundlesRequest(TypedDict, closed=True):
     pass
 
 

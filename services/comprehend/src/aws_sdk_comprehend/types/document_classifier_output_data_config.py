@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DocumentClassifierOutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.kms_key_id
     import aws_sdk_comprehend.types.s3_uri
 
 
-class DocumentClassifierOutputDataConfig(TypedDict):
+class DocumentClassifierOutputDataConfig(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_comprehend.types.s3_uri.S3Uri"]
     """<p>When you use the <code>OutputDataConfig</code> object while creating a custom classifier, you specify the Amazon S3 location where you want to write the confusion matrix and other output files. The URI must be in the same Region as the API endpoint that you are calling. The location is used as the prefix for the actual location of this output file.</p> <p>When the custom classifier job is finished, the service creates the output file in a directory specific to the job. The <code>S3Uri</code> field contains the location of the output file, called <code>output.tar.gz</code>. It is a compressed archive that contains the confusion matrix.</p>"""
     kms_key_id: NotRequired["aws_sdk_comprehend.types.kms_key_id.KmsKeyId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#RequestThrottledException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ebs.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.request_throttled_exception_reason
 
 
-class RequestThrottledException_(TypedDict):
+class RequestThrottledException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ebs.types.error_message.ErrorMessage"]
     reason: NotRequired[
         "aws_sdk_ebs.types.request_throttled_exception_reason.RequestThrottledExceptionReason"

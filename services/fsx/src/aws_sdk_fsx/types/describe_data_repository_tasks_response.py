@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeDataRepositoryTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.data_repository_tasks
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeDataRepositoryTasksResponse(TypedDict):
+class DescribeDataRepositoryTasksResponse(TypedDict, closed=True):
     data_repository_tasks: NotRequired[
         "aws_sdk_fsx.types.data_repository_tasks.DataRepositoryTasks"
     ]

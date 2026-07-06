@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DescribePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_package_id
 
 
-class DescribePackageRequest(TypedDict):
+class DescribePackageRequest(TypedDict, closed=True):
     package_id: "aws_sdk_panorama.types.node_package_id.NodePackageId"
     """<p>The package's ID.</p>"""
 

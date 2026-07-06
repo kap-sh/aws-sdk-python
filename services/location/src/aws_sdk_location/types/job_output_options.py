@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#JobOutputOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.job_output_location
 
 
-class JobOutputOptions(TypedDict):
+class JobOutputOptions(TypedDict, closed=True):
     format: "aws_sdk_location.types.job_output_format.JobOutputFormat"
     r"""<p>Output data format. Currently only \"Parquet\" is supported.</p>"""
     location: "aws_sdk_location.types.job_output_location.JobOutputLocation"

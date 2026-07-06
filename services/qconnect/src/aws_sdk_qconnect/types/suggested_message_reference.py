@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SuggestedMessageReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class SuggestedMessageReference(TypedDict):
+class SuggestedMessageReference(TypedDict, closed=True):
     ai_agent_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the AI Agent that generated the suggested message.</p>"""
     ai_agent_arn: "aws_sdk_qconnect.types.arn.Arn"

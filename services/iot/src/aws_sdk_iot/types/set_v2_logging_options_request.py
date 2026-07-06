@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SetV2LoggingOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.log_level
 
 
-class SetV2LoggingOptionsRequest(TypedDict):
+class SetV2LoggingOptionsRequest(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_iot.types.aws_arn.AwsArn"]
     """<p>The ARN of the role that allows IoT to write to Cloudwatch logs.</p>"""
     default_log_level: NotRequired["aws_sdk_iot.types.log_level.LogLevel"]

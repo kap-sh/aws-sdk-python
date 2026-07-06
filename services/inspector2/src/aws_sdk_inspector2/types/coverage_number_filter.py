@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CoverageNumberFilter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CoverageNumberFilter(TypedDict):
+class CoverageNumberFilter(TypedDict, closed=True):
     upper_inclusive: NotRequired["int"]
     """<p>The upper inclusive for the coverage number.&gt;</p>"""
     lower_inclusive: NotRequired["int"]

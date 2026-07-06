@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateDistributionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.lightsail_distribution
     import aws_sdk_lightsail.types.operation
 
 
-class CreateDistributionResult(TypedDict):
+class CreateDistributionResult(TypedDict, closed=True):
     distribution: NotRequired[
         "aws_sdk_lightsail.types.lightsail_distribution.LightsailDistribution"
     ]

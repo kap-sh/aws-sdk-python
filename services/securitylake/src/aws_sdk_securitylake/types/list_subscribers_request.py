@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ListSubscribersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.max_results
     import aws_sdk_securitylake.types.next_token
 
 
-class ListSubscribersRequest(TypedDict):
+class ListSubscribersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_securitylake.types.next_token.NextToken"]
     """<p>If nextToken is returned, there are more results available. You can repeat the call using the returned token to retrieve the next page.</p>"""
     max_results: "aws_sdk_securitylake.types.max_results.MaxResults"

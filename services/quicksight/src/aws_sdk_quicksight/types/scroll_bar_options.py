@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ScrollBarOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
     import aws_sdk_quicksight.types.visible_range_options
 
 
-class ScrollBarOptions(TypedDict):
+class ScrollBarOptions(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility of the data zoom scroll bar.</p>"""
     visible_range: NotRequired[

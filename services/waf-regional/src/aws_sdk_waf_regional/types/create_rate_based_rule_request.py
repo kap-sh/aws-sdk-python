@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateRateBasedRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.tag_list
 
 
-class CreateRateBasedRuleRequest(TypedDict):
+class CreateRateBasedRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>RateBasedRule</a>. You can't change the name of a <code>RateBasedRule</code> after you create it.</p>"""
     metric_name: "aws_sdk_waf_regional.types.metric_name.MetricName"

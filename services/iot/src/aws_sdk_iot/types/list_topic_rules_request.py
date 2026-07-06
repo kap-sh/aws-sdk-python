@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListTopicRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.is_disabled
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.topic_rule_max_results
 
 
-class ListTopicRulesRequest(TypedDict):
+class ListTopicRulesRequest(TypedDict, closed=True):
     topic: NotRequired["aws_sdk_iot.types.topic.Topic"]
     """<p>The topic.</p>"""
     max_results: NotRequired[

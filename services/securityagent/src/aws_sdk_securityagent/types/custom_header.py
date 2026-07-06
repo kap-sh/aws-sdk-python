@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CustomHeader``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CustomHeader(TypedDict):
+class CustomHeader(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the custom header.</p>"""
     value: NotRequired["str"]

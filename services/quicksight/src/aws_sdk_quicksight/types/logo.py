@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Logo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.logo_set
 
 
-class Logo(TypedDict):
+class Logo(TypedDict, closed=True):
     alt_text: "aws_sdk_quicksight.types.alt_text.AltText"
     """<p>The alt text for the logo.</p>"""
     logo_set: "aws_sdk_quicksight.types.logo_set.LogoSet"

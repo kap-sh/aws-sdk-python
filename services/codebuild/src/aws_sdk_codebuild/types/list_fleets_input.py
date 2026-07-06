@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListFleetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_sort_by_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sort_order_type
 
 
-class ListFleetsInput(TypedDict):
+class ListFleetsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codebuild.types.sensitive_string.SensitiveString"]
     """<p>During a previous call, if there are more than 100 items in the list, only the first 100 items are returned, along with a unique string called a <i>nextToken</i>. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned.</p>"""
     max_results: NotRequired["aws_sdk_codebuild.types.page_size.PageSize"]

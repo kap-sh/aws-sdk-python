@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListSolutionVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.next_token
 
 
-class ListSolutionVersionsRequest(TypedDict):
+class ListSolutionVersionsRequest(TypedDict, closed=True):
     solution_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the solution.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

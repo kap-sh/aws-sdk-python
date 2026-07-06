@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SystemPromptConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.system_prompt_text
 
 
-class _SystemPromptConfig_text(TypedDict):
+class _SystemPromptConfig_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agentcore.types.system_prompt_text.SystemPromptText"
 
 
-class _SystemPromptConfig_configurationBundle(TypedDict):
+class _SystemPromptConfig_configurationBundle(TypedDict, closed=True):
     configurationBundle: "aws_sdk_bedrock_agentcore.types.system_prompt_configuration_bundle.SystemPromptConfigurationBundle"
 
 

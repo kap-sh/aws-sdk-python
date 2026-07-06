@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentReportUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class GetAssessmentReportUrlRequest(TypedDict):
+class GetAssessmentReportUrlRequest(TypedDict, closed=True):
     assessment_report_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The unique identifier for the assessment report. </p>"""
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"

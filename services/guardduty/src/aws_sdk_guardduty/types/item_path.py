@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ItemPath``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class ItemPath(TypedDict):
+class ItemPath(TypedDict, closed=True):
     nested_item_path: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The nested item path where the infected file was found.</p>"""
     hash: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#HttpContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.http_headers
     import aws_sdk_iot.types.http_query_string
 
 
-class HttpContext(TypedDict):
+class HttpContext(TypedDict, closed=True):
     headers: NotRequired["aws_sdk_iot.types.http_headers.HttpHeaders"]
     """<p>The header keys and values in an HTTP authorization request.</p>"""
     query_string: NotRequired["aws_sdk_iot.types.http_query_string.HttpQueryString"]

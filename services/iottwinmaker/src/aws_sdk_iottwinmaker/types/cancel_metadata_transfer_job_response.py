@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CancelMetadataTransferJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.twin_maker_arn
 
 
-class CancelMetadataTransferJobResponse(TypedDict):
+class CancelMetadataTransferJobResponse(TypedDict, closed=True):
     metadata_transfer_job_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The metadata transfer job Id.</p>"""
     arn: "aws_sdk_iottwinmaker.types.twin_maker_arn.TwinMakerArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ReplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.arn
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.tags_map
 
 
-class ReplicationConfiguration(TypedDict):
+class ReplicationConfiguration(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Replication Configuration Source Server ID.</p>"""
     name: NotRequired["aws_sdk_mgn.types.small_bounded_string.SmallBoundedString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartReplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_server_id
 
 
-class StartReplicationRequest(TypedDict):
+class StartReplicationRequest(TypedDict, closed=True):
     source_server_id: "aws_sdk_mgn.types.source_server_id.SourceServerID"
     """<p>ID of source server on which to start replication.</p>"""
     account_id: NotRequired["aws_sdk_mgn.types.account_id.AccountID"]

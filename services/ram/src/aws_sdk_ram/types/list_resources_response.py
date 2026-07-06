@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_list
     import aws_sdk_ram.types.string
 
 
-class ListResourcesResponse(TypedDict):
+class ListResourcesResponse(TypedDict, closed=True):
     resources: NotRequired["aws_sdk_ram.types.resource_list.ResourceList"]
     """<p>An array of objects that contain information about the resources.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

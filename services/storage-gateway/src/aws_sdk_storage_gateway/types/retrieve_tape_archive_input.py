@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#RetrieveTapeArchiveInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_arn
 
 
-class RetrieveTapeArchiveInput(TypedDict):
+class RetrieveTapeArchiveInput(TypedDict, closed=True):
     tape_arn: "aws_sdk_storage_gateway.types.tape_arn.TapeARN"
     """<p>The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).</p>"""
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"

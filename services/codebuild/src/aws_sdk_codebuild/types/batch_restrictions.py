@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchRestrictions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.compute_types_allowed
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class BatchRestrictions(TypedDict):
+class BatchRestrictions(TypedDict, closed=True):
     maximum_builds_allowed: NotRequired[
         "aws_sdk_codebuild.types.wrapper_int.WrapperInt"
     ]

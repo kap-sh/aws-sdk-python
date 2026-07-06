@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DeleteStorageProfileResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteStorageProfileResponse(TypedDict):
+class DeleteStorageProfileResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NetworkPathComponentDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.port_range_list
     import aws_sdk_securityhub.types.string_list
 
 
-class NetworkPathComponentDetails(TypedDict):
+class NetworkPathComponentDetails(TypedDict, closed=True):
     address: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p>The IP addresses of the destination.</p>"""
     port_ranges: NotRequired["aws_sdk_securityhub.types.port_range_list.PortRangeList"]

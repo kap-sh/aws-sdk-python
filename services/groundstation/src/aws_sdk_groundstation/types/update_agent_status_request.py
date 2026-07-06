@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#UpdateAgentStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class UpdateAgentStatusRequest(TypedDict):
+class UpdateAgentStatusRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_groundstation.types.uuid.Uuid"
     """<p>UUID of agent to update.</p>"""
     task_id: "aws_sdk_groundstation.types.uuid.Uuid"

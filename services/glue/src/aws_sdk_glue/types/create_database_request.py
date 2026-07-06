@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateDatabaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class CreateDatabaseRequest(TypedDict):
+class CreateDatabaseRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services account ID is used by default.</p>"""
     database_input: "aws_sdk_glue.types.database_input.DatabaseInput"

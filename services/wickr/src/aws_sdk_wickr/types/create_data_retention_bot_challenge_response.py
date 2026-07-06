@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CreateDataRetentionBotChallengeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.sensitive_string
 
 
-class CreateDataRetentionBotChallengeResponse(TypedDict):
+class CreateDataRetentionBotChallengeResponse(TypedDict, closed=True):
     challenge: "aws_sdk_wickr.types.sensitive_string.SensitiveString"
     """<p>The newly generated challenge password for the data retention bot.</p>"""
 

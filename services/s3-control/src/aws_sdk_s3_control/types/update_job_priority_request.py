@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#UpdateJobPriorityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.job_priority
 
 
-class UpdateJobPriorityRequest(TypedDict):
+class UpdateJobPriorityRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>"""
     job_id: "aws_sdk_s3_control.types.job_id.JobId"

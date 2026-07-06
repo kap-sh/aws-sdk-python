@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#PutRawMessageContentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutRawMessageContentResponse(TypedDict):
+class PutRawMessageContentResponse(TypedDict, closed=True):
     pass
 
 

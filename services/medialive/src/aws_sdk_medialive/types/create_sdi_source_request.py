@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateSdiSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class CreateSdiSourceRequest(TypedDict):
+class CreateSdiSourceRequest(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_medialive.types.sdi_source_mode.SdiSourceMode"]
     """Applies only if the type is QUAD. Specify the mode for handling the quad-link signal: QUADRANT or INTERLEAVE."""
     name: NotRequired["aws_sdk_medialive.types.__string.__string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ServiceNetworkEndpointAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_arn
     import aws_sdk_vpc_lattice.types.timestamp
 
 
-class ServiceNetworkEndpointAssociation(TypedDict):
+class ServiceNetworkEndpointAssociation(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired["str"]
     """<p>The ID of the VPC endpoint associated with the service network.</p>"""
     vpc_id: NotRequired["str"]

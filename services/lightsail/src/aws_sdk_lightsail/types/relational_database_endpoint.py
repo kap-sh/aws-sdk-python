@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RelationalDatabaseEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class RelationalDatabaseEndpoint(TypedDict):
+class RelationalDatabaseEndpoint(TypedDict, closed=True):
     port: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>Specifies the port that the database is listening on.</p>"""
     address: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

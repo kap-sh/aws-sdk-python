@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.attachment
 
 
-class DescribeAttachmentResponse(TypedDict):
+class DescribeAttachmentResponse(TypedDict, closed=True):
     attachment: NotRequired["aws_sdk_support.types.attachment.Attachment"]
     """<p>This object includes the attachment content and file name.</p> <p>In the previous response syntax, the value for the <code>data</code> parameter appears as <code>blob</code>, which is represented as a base64-encoded string. The value for <code>fileName</code> is the name of the attachment, such as <code>troubleshoot-screenshot.png</code>.</p>"""
 

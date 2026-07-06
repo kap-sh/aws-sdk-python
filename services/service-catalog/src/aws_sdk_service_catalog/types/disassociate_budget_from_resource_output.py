@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DisassociateBudgetFromResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateBudgetFromResourceOutput(TypedDict):
+class DisassociateBudgetFromResourceOutput(TypedDict, closed=True):
     pass
 
 

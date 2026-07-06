@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#UpdateSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.subnets
 
 
-class UpdateSettings(TypedDict):
+class UpdateSettings(TypedDict, closed=True):
     add_subnets: "aws_sdk_license_manager_user_subscriptions.types.subnets.Subnets"
     """<p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that require connectivity to activation servers.</p>"""
     remove_subnets: "aws_sdk_license_manager_user_subscriptions.types.subnets.Subnets"

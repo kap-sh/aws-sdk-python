@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#BatchGetPreparedStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class BatchGetPreparedStatementInput(TypedDict):
+class BatchGetPreparedStatementInput(TypedDict, closed=True):
     prepared_statement_names: (
         "aws_sdk_athena.types.prepared_statement_name_list.PreparedStatementNameList"
     )

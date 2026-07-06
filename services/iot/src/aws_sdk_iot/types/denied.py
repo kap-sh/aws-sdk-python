@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#Denied``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.explicit_deny
     import aws_sdk_iot.types.implicit_deny
 
 
-class Denied(TypedDict):
+class Denied(TypedDict, closed=True):
     implicit_deny: NotRequired["aws_sdk_iot.types.implicit_deny.ImplicitDeny"]
     """<p>Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.</p>"""
     explicit_deny: NotRequired["aws_sdk_iot.types.explicit_deny.ExplicitDeny"]

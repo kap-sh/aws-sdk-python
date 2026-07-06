@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ListUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.string
     import aws_sdk_chime.types.user_list
 
 
-class ListUsersResponse(TypedDict):
+class ListUsersResponse(TypedDict, closed=True):
     users: NotRequired["aws_sdk_chime.types.user_list.UserList"]
     """<p>List of users and user details.</p>"""
     next_token: NotRequired["aws_sdk_chime.types.string.String"]

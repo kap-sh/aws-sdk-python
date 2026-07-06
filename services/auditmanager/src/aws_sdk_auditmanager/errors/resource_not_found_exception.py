@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ResourceNotFoundException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.string
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "aws_sdk_auditmanager.types.string.String"
     resource_id: "aws_sdk_auditmanager.types.string.String"
     """<p> The unique identifier for the resource. </p>"""

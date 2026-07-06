@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DatasetInputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.dataset_augmented_manifests_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.dataset_entity_recognizer_input_data_config
 
 
-class DatasetInputDataConfig(TypedDict):
+class DatasetInputDataConfig(TypedDict, closed=True):
     augmented_manifests: NotRequired[
         "aws_sdk_comprehend.types.dataset_augmented_manifests_list.DatasetAugmentedManifestsList"
     ]

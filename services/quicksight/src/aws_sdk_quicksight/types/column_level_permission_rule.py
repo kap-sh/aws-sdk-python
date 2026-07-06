@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColumnLevelPermissionRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_level_permission_rule_column_name_list
     import aws_sdk_quicksight.types.principal_list
 
 
-class ColumnLevelPermissionRule(TypedDict):
+class ColumnLevelPermissionRule(TypedDict, closed=True):
     principals: NotRequired["aws_sdk_quicksight.types.principal_list.PrincipalList"]
     """<p>An array of Amazon Resource Names (ARNs) for Quick Sight users or groups.</p>"""
     column_names: NotRequired[

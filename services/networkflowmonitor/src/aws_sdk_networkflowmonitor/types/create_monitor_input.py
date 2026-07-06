@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#CreateMonitorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.uuid_string
 
 
-class CreateMonitorInput(TypedDict):
+class CreateMonitorInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_networkflowmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor. </p>"""
     local_resources: (

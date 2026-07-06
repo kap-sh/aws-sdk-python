@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#PropertygraphSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.edge_labels
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.node_structures
 
 
-class PropertygraphSummary(TypedDict):
+class PropertygraphSummary(TypedDict, closed=True):
     num_nodes: NotRequired["int"]
     """<p>The number of nodes in the graph.</p>"""
     num_edges: NotRequired["int"]

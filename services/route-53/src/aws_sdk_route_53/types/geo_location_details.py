@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GeoLocationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.geo_location_subdivision_name
 
 
-class GeoLocationDetails(TypedDict):
+class GeoLocationDetails(TypedDict, closed=True):
     continent_code: NotRequired[
         "aws_sdk_route_53.types.geo_location_continent_code.GeoLocationContinentCode"
     ]

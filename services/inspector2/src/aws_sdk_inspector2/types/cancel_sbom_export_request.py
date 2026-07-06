@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CancelSbomExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.report_id
 
 
-class CancelSbomExportRequest(TypedDict):
+class CancelSbomExportRequest(TypedDict, closed=True):
     report_id: "aws_sdk_inspector2.types.report_id.ReportId"
     """<p>The report ID of the SBOM export to cancel.</p>"""
 

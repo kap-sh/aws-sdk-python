@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#CreateRescoreExecutionPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra_ranking.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.rescore_execution_plan_id
 
 
-class CreateRescoreExecutionPlanResponse(TypedDict):
+class CreateRescoreExecutionPlanResponse(TypedDict, closed=True):
     id: "aws_sdk_kendra_ranking.types.rescore_execution_plan_id.RescoreExecutionPlanId"
     """<p>The identifier of the rescore execution plan.</p>"""
     arn: "aws_sdk_kendra_ranking.types.rescore_execution_plan_arn.RescoreExecutionPlanArn"

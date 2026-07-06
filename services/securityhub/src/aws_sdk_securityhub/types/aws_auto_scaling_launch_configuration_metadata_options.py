@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAutoScalingLaunchConfigurationMetadataOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsAutoScalingLaunchConfigurationMetadataOptions(TypedDict):
+class AwsAutoScalingLaunchConfigurationMetadataOptions(TypedDict, closed=True):
     http_endpoint: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MulticastInputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class MulticastInputSettings(TypedDict):
+class MulticastInputSettings(TypedDict, closed=True):
     source_ip_address: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Optionally, a source ip address to filter by for Source-specific Multicast (SSM)"""
 

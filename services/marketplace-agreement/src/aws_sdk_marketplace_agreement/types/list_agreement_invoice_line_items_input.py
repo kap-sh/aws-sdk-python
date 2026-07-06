@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ListAgreementInvoiceLineItemsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.timestamp
 
 
-class ListAgreementInvoiceLineItemsInput(TypedDict):
+class ListAgreementInvoiceLineItemsInput(TypedDict, closed=True):
     agreement_id: "aws_sdk_marketplace_agreement.types.resource_id.ResourceId"
     """<p>The unique identifier of the agreement.</p>"""
     group_by: "aws_sdk_marketplace_agreement.types.line_item_group_by.LineItemGroupBy"

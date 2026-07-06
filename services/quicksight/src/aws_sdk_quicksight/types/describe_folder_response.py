@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeFolderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.folder
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeFolderResponse(TypedDict):
+class DescribeFolderResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code.StatusCode"
     """<p>The HTTP status of the request.</p>"""
     folder: NotRequired["aws_sdk_quicksight.types.folder.Folder"]

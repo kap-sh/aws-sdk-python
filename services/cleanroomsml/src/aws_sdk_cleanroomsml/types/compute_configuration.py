@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ComputeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.worker_compute_configuration
 
 
-class _ComputeConfiguration_worker(TypedDict):
+class _ComputeConfiguration_worker(TypedDict, closed=True):
     worker: "aws_sdk_cleanroomsml.types.worker_compute_configuration.WorkerComputeConfiguration"
 
 

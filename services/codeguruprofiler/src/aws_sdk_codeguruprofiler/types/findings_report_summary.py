@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#FindingsReportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.findings_report_id
     import aws_sdk_codeguruprofiler.types.timestamp
 
 
-class FindingsReportSummary(TypedDict):
+class FindingsReportSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_codeguruprofiler.types.findings_report_id.FindingsReportId"
     ]

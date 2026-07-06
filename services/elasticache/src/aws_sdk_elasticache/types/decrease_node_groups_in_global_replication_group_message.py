@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DecreaseNodeGroupsInGlobalReplicationGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DecreaseNodeGroupsInGlobalReplicationGroupMessage(TypedDict):
+class DecreaseNodeGroupsInGlobalReplicationGroupMessage(TypedDict, closed=True):
     global_replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the Global datastore</p>"""
     node_group_count: NotRequired["aws_sdk_elasticache.types.integer.Integer"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListUseCasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
     import aws_sdk_connect.types.use_case_summary_list
 
 
-class ListUseCasesResponse(TypedDict):
+class ListUseCasesResponse(TypedDict, closed=True):
     use_case_summary_list: NotRequired[
         "aws_sdk_connect.types.use_case_summary_list.UseCaseSummaryList"
     ]

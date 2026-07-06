@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PolicyOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.network_acl_common_policy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.third_party_firewall_policy
 
 
-class PolicyOption(TypedDict):
+class PolicyOption(TypedDict, closed=True):
     network_firewall_policy: NotRequired[
         "aws_sdk_fms.types.network_firewall_policy.NetworkFirewallPolicy"
     ]

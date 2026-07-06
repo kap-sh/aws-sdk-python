@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ServiceManagedEc2FleetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.vpc_configuration
 
 
-class ServiceManagedEc2FleetConfiguration(TypedDict):
+class ServiceManagedEc2FleetConfiguration(TypedDict, closed=True):
     instance_capabilities: "aws_sdk_deadline.types.service_managed_ec2_instance_capabilities.ServiceManagedEc2InstanceCapabilities"
     """<p>The instance capabilities for the service managed EC2 fleet.</p>"""
     instance_market_options: "aws_sdk_deadline.types.service_managed_ec2_instance_market_options.ServiceManagedEc2InstanceMarketOptions"

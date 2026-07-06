@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashSubtitleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.dash_ttml_configuration
 
 
-class DashSubtitleConfiguration(TypedDict):
+class DashSubtitleConfiguration(TypedDict, closed=True):
     ttml_configuration: NotRequired[
         "aws_sdk_mediapackagev2.types.dash_ttml_configuration.DashTtmlConfiguration"
     ]

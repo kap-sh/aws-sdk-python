@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListActivitiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.page_size
     import aws_sdk_sfn.types.page_token
 
 
-class ListActivitiesInput(TypedDict):
+class ListActivitiesInput(TypedDict, closed=True):
     max_results: "aws_sdk_sfn.types.page_size.PageSize"
     """<p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results. The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p> <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>"""
     next_token: NotRequired["aws_sdk_sfn.types.page_token.PageToken"]

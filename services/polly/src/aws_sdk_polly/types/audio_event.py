@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#AudioEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.audio_chunk
 
 
-class AudioEvent(TypedDict):
+class AudioEvent(TypedDict, closed=True):
     audio_chunk: NotRequired["aws_sdk_polly.types.audio_chunk.AudioChunk"]
     """<p>A chunk of synthesized audio data encoded in the format specified by the <code>OutputFormat</code> parameter.</p>"""
 

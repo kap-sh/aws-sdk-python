@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#SyntheticDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.synthetic_data_evaluation_scores
 
 
-class SyntheticDataConfiguration(TypedDict):
+class SyntheticDataConfiguration(TypedDict, closed=True):
     synthetic_data_parameters: "aws_sdk_cleanroomsml.types.ml_synthetic_data_parameters.MLSyntheticDataParameters"
     """<p>The parameters that control how synthetic data is generated, including privacy settings, column classifications, and other configuration options that affect the data synthesis process.</p>"""
     synthetic_data_evaluation_scores: NotRequired[

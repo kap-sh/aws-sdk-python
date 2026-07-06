@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PingBeacon``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.udp_endpoint
 
 
-class PingBeacon(TypedDict):
+class PingBeacon(TypedDict, closed=True):
     udp_endpoint: NotRequired["aws_sdk_gamelift.types.udp_endpoint.UDPEndpoint"]
     """<p>The domain name and port of the UDP ping beacon. Your game client can send UDP messages to this endpoint and receive responses to measure network latency.</p>"""
 

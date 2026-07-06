@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GroupedResourceCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit256
 
 
-class GroupedResourceCount(TypedDict):
+class GroupedResourceCount(TypedDict, closed=True):
     group_name: (
         "aws_sdk_config_service.types.string_with_char_limit256.StringWithCharLimit256"
     )

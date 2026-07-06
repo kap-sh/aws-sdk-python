@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.auto_export_revision_to_s3_request_details
 
 
-class Action(TypedDict):
+class Action(TypedDict, closed=True):
     export_revision_to_s3: NotRequired[
         "aws_sdk_dataexchange.types.auto_export_revision_to_s3_request_details.AutoExportRevisionToS3RequestDetails"
     ]

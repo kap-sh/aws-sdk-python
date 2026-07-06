@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.target_instance_type_right_sizing_method
 
 
-class LaunchConfiguration(TypedDict):
+class LaunchConfiguration(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_drs.types.source_server_id.SourceServerID"]
     """<p>The ID of the Source Server for this launch configuration.</p>"""
     name: NotRequired["aws_sdk_drs.types.small_bounded_string.SmallBoundedString"]

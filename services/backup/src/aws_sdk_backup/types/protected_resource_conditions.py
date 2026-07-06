@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ProtectedResourceConditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.key_value_list
 
 
-class ProtectedResourceConditions(TypedDict):
+class ProtectedResourceConditions(TypedDict, closed=True):
     string_equals: NotRequired["aws_sdk_backup.types.key_value_list.KeyValueList"]
     r"""<p>Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called \"exact matching.\"</p>"""
     string_not_equals: NotRequired["aws_sdk_backup.types.key_value_list.KeyValueList"]

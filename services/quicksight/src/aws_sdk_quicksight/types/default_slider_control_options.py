@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultSliderControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.slider_control_display_options
 
 
-class DefaultSliderControlOptions(TypedDict):
+class DefaultSliderControlOptions(TypedDict, closed=True):
     display_options: NotRequired[
         "aws_sdk_quicksight.types.slider_control_display_options.SliderControlDisplayOptions"
     ]

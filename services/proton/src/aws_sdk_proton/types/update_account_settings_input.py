@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#UpdateAccountSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.repository_branch_input
     import aws_sdk_proton.types.role_arn_or_empty_string
 
 
-class UpdateAccountSettingsInput(TypedDict):
+class UpdateAccountSettingsInput(TypedDict, closed=True):
     pipeline_service_role_arn: NotRequired[
         "aws_sdk_proton.types.role_arn_or_empty_string.RoleArnOrEmptyString"
     ]

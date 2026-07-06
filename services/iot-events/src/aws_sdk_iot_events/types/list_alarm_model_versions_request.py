@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#ListAlarmModelVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.alarm_model_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.next_token
 
 
-class ListAlarmModelVersionsRequest(TypedDict):
+class ListAlarmModelVersionsRequest(TypedDict, closed=True):
     alarm_model_name: "aws_sdk_iot_events.types.alarm_model_name.AlarmModelName"
     """<p>The name of the alarm model.</p>"""
     next_token: NotRequired["aws_sdk_iot_events.types.next_token.NextToken"]

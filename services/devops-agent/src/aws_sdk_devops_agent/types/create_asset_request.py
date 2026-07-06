@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#CreateAssetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.asset_type
 
 
-class CreateAssetRequest(TypedDict):
+class CreateAssetRequest(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier for the agent space where the asset will be created</p>"""
     asset_type: "aws_sdk_devops_agent.types.asset_type.AssetType"

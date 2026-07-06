@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ResourceMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class ResourceMapping(TypedDict):
+class ResourceMapping(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_resiliencehub.types.entity_name.EntityName"]
     """<p>Name of the resource that this resource is mapped to when the <code>mappingType</code> is <code>Resource</code>.</p>"""
     logical_stack_name: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]

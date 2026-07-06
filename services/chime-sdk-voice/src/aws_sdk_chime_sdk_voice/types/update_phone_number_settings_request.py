@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#UpdatePhoneNumberSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.calling_name
 
 
-class UpdatePhoneNumberSettingsRequest(TypedDict):
+class UpdatePhoneNumberSettingsRequest(TypedDict, closed=True):
     calling_name: "aws_sdk_chime_sdk_voice.types.calling_name.CallingName"
     """<p>The default outbound calling name for the account.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     session_token: "str"
     """<p>The token that applications inside the pods must pass to any service API to use the temporary credentials.</p>"""
     secret_access_key: "str"

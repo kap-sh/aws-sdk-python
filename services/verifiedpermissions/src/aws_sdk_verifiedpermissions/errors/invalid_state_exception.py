@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#InvalidStateException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, ServiceError
 
 
-class InvalidStateException_(TypedDict):
+class InvalidStateException_(TypedDict, closed=True):
     message: "str"
 
 

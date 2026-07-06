@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseMasterUserPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class GetRelationalDatabaseMasterUserPasswordRequest(TypedDict):
+class GetRelationalDatabaseMasterUserPasswordRequest(TypedDict, closed=True):
     relational_database_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of your database for which to get the master user password.</p>"""
     password_version: NotRequired[

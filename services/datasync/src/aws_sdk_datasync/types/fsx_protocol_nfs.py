@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#FsxProtocolNfs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.nfs_mount_options
 
 
-class FsxProtocolNfs(TypedDict):
+class FsxProtocolNfs(TypedDict, closed=True):
     mount_options: NotRequired[
         "aws_sdk_datasync.types.nfs_mount_options.NfsMountOptions"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#ConversionSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.input_file_source
 
 
-class ConversionSource(TypedDict):
+class ConversionSource(TypedDict, closed=True):
     file_format: "aws_sdk_b2bi.types.conversion_source_format.ConversionSourceFormat"
     """<p>The format for the input file: either JSON or XML.</p>"""
     input_file: "aws_sdk_b2bi.types.input_file_source.InputFileSource"

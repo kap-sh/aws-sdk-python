@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteLaunchActionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLaunchActionResponse(TypedDict):
+class DeleteLaunchActionResponse(TypedDict, closed=True):
     pass
 
 

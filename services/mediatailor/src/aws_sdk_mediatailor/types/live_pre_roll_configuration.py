@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#LivePreRollConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
     import aws_sdk_mediatailor.types.__string
 
 
-class LivePreRollConfiguration(TypedDict):
+class LivePreRollConfiguration(TypedDict, closed=True):
     ad_decision_server_url: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.</p>"""
     max_duration_seconds: NotRequired["aws_sdk_mediatailor.types.__integer.__integer"]

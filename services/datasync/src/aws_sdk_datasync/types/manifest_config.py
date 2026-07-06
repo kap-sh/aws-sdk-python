@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ManifestConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.manifest_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.source_manifest_config
 
 
-class ManifestConfig(TypedDict):
+class ManifestConfig(TypedDict, closed=True):
     action: NotRequired["aws_sdk_datasync.types.manifest_action.ManifestAction"]
     """<p>Specifies what DataSync uses the manifest for.</p>"""
     format: NotRequired["aws_sdk_datasync.types.manifest_format.ManifestFormat"]

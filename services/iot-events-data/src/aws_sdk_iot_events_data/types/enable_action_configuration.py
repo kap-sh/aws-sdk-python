@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#EnableActionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.note
 
 
-class EnableActionConfiguration(TypedDict):
+class EnableActionConfiguration(TypedDict, closed=True):
     note: NotRequired["aws_sdk_iot_events_data.types.note.Note"]
     """<p>The note that you can leave when you enable the alarm.</p>"""
 

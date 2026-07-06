@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListLayerVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.layer_versions_list
     import aws_sdk_lambda.types.string
 
 
-class ListLayerVersionsResponse(TypedDict):
+class ListLayerVersionsResponse(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>A pagination token returned when the response doesn't contain all versions.</p>"""
     layer_versions: NotRequired[

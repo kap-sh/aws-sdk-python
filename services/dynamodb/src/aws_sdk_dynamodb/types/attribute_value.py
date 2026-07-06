@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#AttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError, SerializationError
 
@@ -17,43 +19,43 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string_set_attribute_value
 
 
-class _AttributeValue_S(TypedDict):
+class _AttributeValue_S(TypedDict, closed=True):
     S: "aws_sdk_dynamodb.types.string_attribute_value.StringAttributeValue"
 
 
-class _AttributeValue_N(TypedDict):
+class _AttributeValue_N(TypedDict, closed=True):
     N: "aws_sdk_dynamodb.types.number_attribute_value.NumberAttributeValue"
 
 
-class _AttributeValue_B(TypedDict):
+class _AttributeValue_B(TypedDict, closed=True):
     B: "aws_sdk_dynamodb.types.binary_attribute_value.BinaryAttributeValue"
 
 
-class _AttributeValue_SS(TypedDict):
+class _AttributeValue_SS(TypedDict, closed=True):
     SS: "aws_sdk_dynamodb.types.string_set_attribute_value.StringSetAttributeValue"
 
 
-class _AttributeValue_NS(TypedDict):
+class _AttributeValue_NS(TypedDict, closed=True):
     NS: "aws_sdk_dynamodb.types.number_set_attribute_value.NumberSetAttributeValue"
 
 
-class _AttributeValue_BS(TypedDict):
+class _AttributeValue_BS(TypedDict, closed=True):
     BS: "aws_sdk_dynamodb.types.binary_set_attribute_value.BinarySetAttributeValue"
 
 
-class _AttributeValue_M(TypedDict):
+class _AttributeValue_M(TypedDict, closed=True):
     M: "aws_sdk_dynamodb.types.map_attribute_value.MapAttributeValue"
 
 
-class _AttributeValue_L(TypedDict):
+class _AttributeValue_L(TypedDict, closed=True):
     L: "aws_sdk_dynamodb.types.list_attribute_value.ListAttributeValue"
 
 
-class _AttributeValue_NULL(TypedDict):
+class _AttributeValue_NULL(TypedDict, closed=True):
     NULL: "aws_sdk_dynamodb.types.null_attribute_value.NullAttributeValue"
 
 
-class _AttributeValue_BOOL(TypedDict):
+class _AttributeValue_BOOL(TypedDict, closed=True):
     BOOL: "aws_sdk_dynamodb.types.boolean_attribute_value.BooleanAttributeValue"
 
 

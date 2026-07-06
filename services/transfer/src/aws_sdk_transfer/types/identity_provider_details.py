@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#IdentityProviderDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.directory_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.url
 
 
-class IdentityProviderDetails(TypedDict):
+class IdentityProviderDetails(TypedDict, closed=True):
     url: NotRequired["aws_sdk_transfer.types.url.Url"]
     """<p>Provides the location of the service endpoint used to authenticate users.</p>"""
     invocation_role: NotRequired["aws_sdk_transfer.types.role.Role"]

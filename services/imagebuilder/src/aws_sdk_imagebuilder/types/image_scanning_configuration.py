@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageScanningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.ecr_configuration
     import aws_sdk_imagebuilder.types.nullable_boolean
 
 
-class ImageScanningConfiguration(TypedDict):
+class ImageScanningConfiguration(TypedDict, closed=True):
     image_scanning_enabled: NotRequired[
         "aws_sdk_imagebuilder.types.nullable_boolean.NullableBoolean"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#CreateProgressUpdateStreamResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateProgressUpdateStreamResult(TypedDict):
+class CreateProgressUpdateStreamResult(TypedDict, closed=True):
     pass
 
 

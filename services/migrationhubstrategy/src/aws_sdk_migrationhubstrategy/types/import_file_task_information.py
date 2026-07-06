@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ImportFileTaskInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.import_file_task_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.time_stamp
 
 
-class ImportFileTaskInformation(TypedDict):
+class ImportFileTaskInformation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]
     """<p> The ID of the import file task. </p>"""
     status: NotRequired[

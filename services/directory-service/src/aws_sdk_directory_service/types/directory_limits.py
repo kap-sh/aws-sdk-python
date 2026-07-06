@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DirectoryLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.cloud_only_directories_limit_reached
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.limit
 
 
-class DirectoryLimits(TypedDict):
+class DirectoryLimits(TypedDict, closed=True):
     cloud_only_directories_limit: NotRequired[
         "aws_sdk_directory_service.types.limit.Limit"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#StorageLensGroupLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_group_level_selection_criteria
 
 
-class StorageLensGroupLevel(TypedDict):
+class StorageLensGroupLevel(TypedDict, closed=True):
     selection_criteria: NotRequired[
         "aws_sdk_s3_control.types.storage_lens_group_level_selection_criteria.StorageLensGroupLevelSelectionCriteria"
     ]

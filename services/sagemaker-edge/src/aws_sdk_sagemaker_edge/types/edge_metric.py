@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#EdgeMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.dimension
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.value
 
 
-class EdgeMetric(TypedDict):
+class EdgeMetric(TypedDict, closed=True):
     dimension: NotRequired["aws_sdk_sagemaker_edge.types.dimension.Dimension"]
     """<p>The dimension of metrics published.</p>"""
     metric_name: NotRequired["aws_sdk_sagemaker_edge.types.metric.Metric"]

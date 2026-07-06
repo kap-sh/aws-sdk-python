@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ThresholdAlertsConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class ThresholdAlertsConfigurations(TypedDict):
+class ThresholdAlertsConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>The threshold alerts configuration for an embedded Quick Sight dashboard.</p>"""
 

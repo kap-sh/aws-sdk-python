@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#CreateCaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.subject
 
 
-class CreateCaseRequest(TypedDict):
+class CreateCaseRequest(TypedDict, closed=True):
     subject: "aws_sdk_support.types.subject.Subject"
     r"""<p>The title of the support case. The title appears in the <b>Subject</b> field on the Amazon Web Services Support Center <a href=\"https://console.aws.amazon.com/support/home#/case/create\">Create Case</a> page.</p>"""
     service_code: NotRequired["aws_sdk_support.types.service_code2.ServiceCode2"]

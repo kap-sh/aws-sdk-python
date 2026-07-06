@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FieldValidationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.str_values
 
 
-class FieldValidationConfiguration(TypedDict):
+class FieldValidationConfiguration(TypedDict, closed=True):
     type: "str"
     """<p>The validation to perform on an object type.<code/> </p>"""
     str_values: NotRequired["aws_sdk_amplifyuibuilder.types.str_values.StrValues"]

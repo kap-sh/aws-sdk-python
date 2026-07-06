@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ContentBlock``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -18,55 +20,55 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.video_block
 
 
-class _ContentBlock_text(TypedDict):
+class _ContentBlock_text(TypedDict, closed=True):
     text: "str"
 
 
-class _ContentBlock_image(TypedDict):
+class _ContentBlock_image(TypedDict, closed=True):
     image: "aws_sdk_bedrock_runtime.types.image_block.ImageBlock"
 
 
-class _ContentBlock_document(TypedDict):
+class _ContentBlock_document(TypedDict, closed=True):
     document: "aws_sdk_bedrock_runtime.types.document_block.DocumentBlock"
 
 
-class _ContentBlock_video(TypedDict):
+class _ContentBlock_video(TypedDict, closed=True):
     video: "aws_sdk_bedrock_runtime.types.video_block.VideoBlock"
 
 
-class _ContentBlock_audio(TypedDict):
+class _ContentBlock_audio(TypedDict, closed=True):
     audio: "aws_sdk_bedrock_runtime.types.audio_block.AudioBlock"
 
 
-class _ContentBlock_toolUse(TypedDict):
+class _ContentBlock_toolUse(TypedDict, closed=True):
     toolUse: "aws_sdk_bedrock_runtime.types.tool_use_block.ToolUseBlock"
 
 
-class _ContentBlock_toolResult(TypedDict):
+class _ContentBlock_toolResult(TypedDict, closed=True):
     toolResult: "aws_sdk_bedrock_runtime.types.tool_result_block.ToolResultBlock"
 
 
-class _ContentBlock_guardContent(TypedDict):
+class _ContentBlock_guardContent(TypedDict, closed=True):
     guardContent: "aws_sdk_bedrock_runtime.types.guardrail_converse_content_block.GuardrailConverseContentBlock"
 
 
-class _ContentBlock_cachePoint(TypedDict):
+class _ContentBlock_cachePoint(TypedDict, closed=True):
     cachePoint: "aws_sdk_bedrock_runtime.types.cache_point_block.CachePointBlock"
 
 
-class _ContentBlock_reasoningContent(TypedDict):
+class _ContentBlock_reasoningContent(TypedDict, closed=True):
     reasoningContent: (
         "aws_sdk_bedrock_runtime.types.reasoning_content_block.ReasoningContentBlock"
     )
 
 
-class _ContentBlock_citationsContent(TypedDict):
+class _ContentBlock_citationsContent(TypedDict, closed=True):
     citationsContent: (
         "aws_sdk_bedrock_runtime.types.citations_content_block.CitationsContentBlock"
     )
 
 
-class _ContentBlock_searchResult(TypedDict):
+class _ContentBlock_searchResult(TypedDict, closed=True):
     searchResult: "aws_sdk_bedrock_runtime.types.search_result_block.SearchResultBlock"
 
 

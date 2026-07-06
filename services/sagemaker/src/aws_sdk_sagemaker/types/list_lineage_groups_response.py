@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListLineageGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.lineage_group_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListLineageGroupsResponse(TypedDict):
+class ListLineageGroupsResponse(TypedDict, closed=True):
     lineage_group_summaries: NotRequired[
         "aws_sdk_sagemaker.types.lineage_group_summaries.LineageGroupSummaries"
     ]

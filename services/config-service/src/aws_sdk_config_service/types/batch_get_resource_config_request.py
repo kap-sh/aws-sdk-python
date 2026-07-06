@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#BatchGetResourceConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_keys
 
 
-class BatchGetResourceConfigRequest(TypedDict):
+class BatchGetResourceConfigRequest(TypedDict, closed=True):
     resource_keys: "aws_sdk_config_service.types.resource_keys.ResourceKeys"
     """<p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.</p>"""
 

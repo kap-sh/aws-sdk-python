@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#AutocompleteResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class AutocompleteResultItem(TypedDict):
+class AutocompleteResultItem(TypedDict, closed=True):
     place_id: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The PlaceId of the place associated with this result. This can be used to look up additional details about the result via GetPlace.</p>"""
     place_type: "aws_sdk_geo_places.types.place_type.PlaceType"

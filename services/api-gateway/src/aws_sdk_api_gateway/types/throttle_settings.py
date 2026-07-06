@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#ThrottleSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.double
     import aws_sdk_api_gateway.types.integer
 
 
-class ThrottleSettings(TypedDict):
+class ThrottleSettings(TypedDict, closed=True):
     burst_limit: "aws_sdk_api_gateway.types.integer.Integer"
     """<p>The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.</p>"""
     rate_limit: "aws_sdk_api_gateway.types.double.Double"

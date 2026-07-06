@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyStatementLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_line_number_list
 
 
-class AutomatedReasoningPolicyStatementLocation(TypedDict):
+class AutomatedReasoningPolicyStatementLocation(TypedDict, closed=True):
     lines: "aws_sdk_bedrock.types.automated_reasoning_policy_line_number_list.AutomatedReasoningPolicyLineNumberList"
     """<p>The line numbers in the source document where this statement appears.</p>"""
 

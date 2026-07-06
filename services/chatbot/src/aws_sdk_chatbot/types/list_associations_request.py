@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#ListAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.string
 
 
-class ListAssociationsRequest(TypedDict):
+class ListAssociationsRequest(TypedDict, closed=True):
     chat_configuration: (
         "aws_sdk_chatbot.types.chat_configuration_arn.ChatConfigurationArn"
     )

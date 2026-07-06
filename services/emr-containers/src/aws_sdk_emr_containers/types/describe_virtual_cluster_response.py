@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DescribeVirtualClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.virtual_cluster
 
 
-class DescribeVirtualClusterResponse(TypedDict):
+class DescribeVirtualClusterResponse(TypedDict, closed=True):
     virtual_cluster: NotRequired[
         "aws_sdk_emr_containers.types.virtual_cluster.VirtualCluster"
     ]

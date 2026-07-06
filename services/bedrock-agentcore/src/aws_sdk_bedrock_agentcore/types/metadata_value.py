@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MetadataValue``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
 
-class _MetadataValue_stringValue(TypedDict):
+class _MetadataValue_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 

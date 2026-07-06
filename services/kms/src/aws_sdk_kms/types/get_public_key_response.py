@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GetPublicKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.customer_master_key_spec
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.signing_algorithm_spec_list
 
 
-class GetPublicKeyResponse(TypedDict):
+class GetPublicKeyResponse(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     r"""<p>The Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>"""
     public_key: NotRequired["aws_sdk_kms.types.public_key_type.PublicKeyType"]

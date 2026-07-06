@@ -1,19 +1,21 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ReasoningContentBlockDelta``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
 
-class _ReasoningContentBlockDelta_text(TypedDict):
+class _ReasoningContentBlockDelta_text(TypedDict, closed=True):
     text: "str"
 
 
-class _ReasoningContentBlockDelta_redactedContent(TypedDict):
+class _ReasoningContentBlockDelta_redactedContent(TypedDict, closed=True):
     redactedContent: "bytes"
 
 
-class _ReasoningContentBlockDelta_signature(TypedDict):
+class _ReasoningContentBlockDelta_signature(TypedDict, closed=True):
     signature: "str"
 
 

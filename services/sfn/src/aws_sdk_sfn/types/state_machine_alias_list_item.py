@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StateMachineAliasListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class StateMachineAliasListItem(TypedDict):
+class StateMachineAliasListItem(TypedDict, closed=True):
     state_machine_alias_arn: "aws_sdk_sfn.types.long_arn.LongArn"
     """<p>The Amazon Resource Name (ARN) that identifies a state machine alias. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>"""
     creation_date: "aws_sdk_sfn.types.timestamp.Timestamp"

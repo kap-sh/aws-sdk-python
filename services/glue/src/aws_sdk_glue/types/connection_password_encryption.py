@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectionPasswordEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
     import aws_sdk_glue.types.name_string
 
 
-class ConnectionPasswordEncryption(TypedDict):
+class ConnectionPasswordEncryption(TypedDict, closed=True):
     return_connection_password_encrypted: "aws_sdk_glue.types.boolean.Boolean"
     r"""<p>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to \"true\", passwords remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>. This encryption takes effect independently from catalog encryption. </p>"""
     aws_kms_key_id: NotRequired["aws_sdk_glue.types.name_string.NameString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#Cors``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.integer_with_length_between_minus1_and86400
 
 
-class Cors(TypedDict):
+class Cors(TypedDict, closed=True):
     allow_credentials: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]
     """<p>Specifies whether credentials are included in the CORS request. Supported only for HTTP APIs.</p>"""
     allow_headers: NotRequired[

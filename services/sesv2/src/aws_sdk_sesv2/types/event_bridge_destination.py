@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EventBridgeDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.amazon_resource_name
 
 
-class EventBridgeDestination(TypedDict):
+class EventBridgeDestination(TypedDict, closed=True):
     event_bus_arn: "aws_sdk_sesv2.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported. </p>"""
 

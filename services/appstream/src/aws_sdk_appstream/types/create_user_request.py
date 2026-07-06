@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.authentication_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.username
 
 
-class CreateUserRequest(TypedDict):
+class CreateUserRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_appstream.types.username.Username"]
     r"""<p>The email address of the user.</p> <note> <p>Users' email addresses are case-sensitive. During login, if they specify an email address that doesn't use the same capitalization as the email address specified when their user pool account was created, a \"user does not exist\" error message displays.</p> </note>"""
     message_action: NotRequired["aws_sdk_appstream.types.message_action.MessageAction"]

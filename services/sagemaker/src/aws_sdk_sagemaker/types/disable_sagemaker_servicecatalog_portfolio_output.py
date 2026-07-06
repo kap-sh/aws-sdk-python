@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DisableSagemakerServicecatalogPortfolioOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableSagemakerServicecatalogPortfolioOutput(TypedDict):
+class DisableSagemakerServicecatalogPortfolioOutput(TypedDict, closed=True):
     pass
 
 

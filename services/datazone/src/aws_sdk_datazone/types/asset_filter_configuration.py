@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.row_filter_configuration
 
 
-class _AssetFilterConfiguration_columnConfiguration(TypedDict):
+class _AssetFilterConfiguration_columnConfiguration(TypedDict, closed=True):
     columnConfiguration: (
         "aws_sdk_datazone.types.column_filter_configuration.ColumnFilterConfiguration"
     )
 
 
-class _AssetFilterConfiguration_rowConfiguration(TypedDict):
+class _AssetFilterConfiguration_rowConfiguration(TypedDict, closed=True):
     rowConfiguration: (
         "aws_sdk_datazone.types.row_filter_configuration.RowFilterConfiguration"
     )

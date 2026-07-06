@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AvailBlanking``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.avail_blanking_state
     import aws_sdk_medialive.types.input_location
 
 
-class AvailBlanking(TypedDict):
+class AvailBlanking(TypedDict, closed=True):
     avail_blanking_image: NotRequired[
         "aws_sdk_medialive.types.input_location.InputLocation"
     ]

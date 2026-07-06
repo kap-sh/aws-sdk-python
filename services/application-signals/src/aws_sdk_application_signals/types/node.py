@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#Node``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.attributes
 
 
-class Node(TypedDict):
+class Node(TypedDict, closed=True):
     key_attributes: "aws_sdk_application_signals.types.attributes.Attributes"
     """<p>The key attributes that identify this node, including Type, Name, and Environment information.</p>"""
     name: "str"

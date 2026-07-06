@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateLanguageModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.base_model_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.model_status
 
 
-class CreateLanguageModelResponse(TypedDict):
+class CreateLanguageModelResponse(TypedDict, closed=True):
     language_code: NotRequired[
         "aws_sdk_transcribe.types.clm_language_code.CLMLanguageCode"
     ]

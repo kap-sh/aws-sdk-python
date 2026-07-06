@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeChapCredentialsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.target_arn
 
 
-class DescribeChapCredentialsInput(TypedDict):
+class DescribeChapCredentialsInput(TypedDict, closed=True):
     target_arn: "aws_sdk_storage_gateway.types.target_arn.TargetARN"
     """<p>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a> operation to return to retrieve the TargetARN for specified VolumeARN.</p>"""
 

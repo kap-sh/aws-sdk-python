@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#GetStageSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.stage_session
 
 
-class GetStageSessionResponse(TypedDict):
+class GetStageSessionResponse(TypedDict, closed=True):
     stage_session: NotRequired["aws_sdk_ivs_realtime.types.stage_session.StageSession"]
     """<p>The stage session that is returned.</p>"""
 

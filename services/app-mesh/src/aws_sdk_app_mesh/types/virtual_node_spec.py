@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualNodeSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.backend_defaults
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.service_discovery
 
 
-class VirtualNodeSpec(TypedDict):
+class VirtualNodeSpec(TypedDict, closed=True):
     service_discovery: NotRequired[
         "aws_sdk_app_mesh.types.service_discovery.ServiceDiscovery"
     ]

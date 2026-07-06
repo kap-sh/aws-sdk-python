@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#BlockPublicAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class BlockPublicAccess(TypedDict):
+class BlockPublicAccess(TypedDict, closed=True):
     ignore_public_acls: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Indicates if S3 Block Public Access is set to <code>IgnorePublicAcls</code>.</p>"""
     restrict_public_buckets: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateWirelessGatewayTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_task_definition_id
 
 
-class CreateWirelessGatewayTaskRequest(TypedDict):
+class CreateWirelessGatewayTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_gateway_id.WirelessGatewayId"
     """<p>The ID of the resource to update.</p>"""
     wireless_gateway_task_definition_id: "aws_sdk_iot_wireless.types.wireless_gateway_task_definition_id.WirelessGatewayTaskDefinitionId"

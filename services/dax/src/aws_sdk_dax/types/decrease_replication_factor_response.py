@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DecreaseReplicationFactorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.cluster
 
 
-class DecreaseReplicationFactorResponse(TypedDict):
+class DecreaseReplicationFactorResponse(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_dax.types.cluster.Cluster"]
     """<p>A description of the DAX cluster, after you have decreased its replication factor.</p>"""
 

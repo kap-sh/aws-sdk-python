@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TakeRouterInputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_output_routed_state
 
 
-class TakeRouterInputResponse(TypedDict):
+class TakeRouterInputResponse(TypedDict, closed=True):
     routed_state: (
         "aws_sdk_mediaconnect.types.router_output_routed_state.RouterOutputRoutedState"
     )

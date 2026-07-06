@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DescribeEphemerisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class DescribeEphemerisResponse(TypedDict):
+class DescribeEphemerisResponse(TypedDict, closed=True):
     ephemeris_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>The AWS Ground Station ephemeris ID.</p>"""
     satellite_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]

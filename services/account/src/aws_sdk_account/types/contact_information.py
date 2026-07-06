@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#ContactInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.website_url
 
 
-class ContactInformation(TypedDict):
+class ContactInformation(TypedDict, closed=True):
     full_name: "aws_sdk_account.types.full_name.FullName"
     """<p>The full name of the primary contact address.</p>"""
     address_line1: "aws_sdk_account.types.address_line.AddressLine"

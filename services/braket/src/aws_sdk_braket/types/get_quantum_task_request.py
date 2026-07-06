@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.braket#GetQuantumTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.quantum_task_additional_attribute_names_list
     import aws_sdk_braket.types.quantum_task_arn
 
 
-class GetQuantumTaskRequest(TypedDict):
+class GetQuantumTaskRequest(TypedDict, closed=True):
     quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn"
     """<p>The ARN of the quantum task to retrieve.</p>"""
     additional_attribute_names: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteScalingPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class DeleteScalingPolicyInput(TypedDict):
+class DeleteScalingPolicyInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and_max_string.NonZeroAndMaxString"
     ]

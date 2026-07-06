@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleExportJobValidationStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class AssetBundleExportJobValidationStrategy(TypedDict):
+class AssetBundleExportJobValidationStrategy(TypedDict, closed=True):
     strict_mode_for_all_resources: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean value that indicates whether to export resources under strict or lenient mode.</p>"""
 

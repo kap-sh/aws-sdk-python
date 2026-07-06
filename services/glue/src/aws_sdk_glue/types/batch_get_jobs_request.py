@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.job_name_list
 
 
-class BatchGetJobsRequest(TypedDict):
+class BatchGetJobsRequest(TypedDict, closed=True):
     job_names: "aws_sdk_glue.types.job_name_list.JobNameList"
     """<p>A list of job names, which might be the names returned from the <code>ListJobs</code> operation.</p>"""
 

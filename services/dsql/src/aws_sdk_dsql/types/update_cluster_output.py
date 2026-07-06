@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#UpdateClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_status
 
 
-class UpdateClusterOutput(TypedDict):
+class UpdateClusterOutput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster to update.</p>"""
     arn: "aws_sdk_dsql.types.cluster_arn.ClusterArn"

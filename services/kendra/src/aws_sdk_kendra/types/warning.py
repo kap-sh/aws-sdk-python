@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Warning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.warning_code
     import aws_sdk_kendra.types.warning_message
 
 
-class Warning(TypedDict):
+class Warning(TypedDict, closed=True):
     message: NotRequired["aws_sdk_kendra.types.warning_message.WarningMessage"]
     """<p>The message that explains the problem with the query.</p>"""
     code: NotRequired["aws_sdk_kendra.types.warning_code.WarningCode"]

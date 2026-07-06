@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#TriggerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.trigger_type
 
 
-class TriggerConfig(TypedDict):
+class TriggerConfig(TypedDict, closed=True):
     trigger_type: "aws_sdk_appflow.types.trigger_type.TriggerType"
     """<p> Specifies the type of flow trigger. This can be <code>OnDemand</code>, <code>Scheduled</code>, or <code>Event</code>. </p>"""
     trigger_properties: NotRequired[

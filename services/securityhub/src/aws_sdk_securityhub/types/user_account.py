@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UserAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class UserAccount(TypedDict):
+class UserAccount(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The unique identifier of the user account involved in the attack sequence. </p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

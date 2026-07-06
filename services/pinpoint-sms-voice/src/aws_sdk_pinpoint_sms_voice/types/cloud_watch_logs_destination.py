@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#CloudWatchLogsDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.string
 
 
-class CloudWatchLogsDestination(TypedDict):
+class CloudWatchLogsDestination(TypedDict, closed=True):
     iam_role_arn: NotRequired["aws_sdk_pinpoint_sms_voice.types.string.String"]
     """The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination."""
     log_group_arn: NotRequired["aws_sdk_pinpoint_sms_voice.types.string.String"]

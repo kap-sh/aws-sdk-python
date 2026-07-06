@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCACertificatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ca_certificates
     import aws_sdk_iot.types.marker
 
 
-class ListCACertificatesResponse(TypedDict):
+class ListCACertificatesResponse(TypedDict, closed=True):
     certificates: NotRequired["aws_sdk_iot.types.ca_certificates.CACertificates"]
     """<p>The CA certificates registered in your Amazon Web Services account.</p>"""
     next_marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#TokenBasedTrigger``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TokenBasedTrigger(TypedDict):
+class TokenBasedTrigger(TypedDict, closed=True):
     token_count: NotRequired["int"]
     """<p>Number of tokens that trigger memory processing.</p>"""
 

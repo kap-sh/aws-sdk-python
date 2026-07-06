@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.version
 
 
-class WorkflowType(TypedDict):
+class WorkflowType(TypedDict, closed=True):
     name: "aws_sdk_swf.types.name.Name"
     """<p> The name of the workflow type.</p> <note> <p>The combination of workflow type name and version must be unique with in a domain.</p> </note>"""
     version: "aws_sdk_swf.types.version.Version"

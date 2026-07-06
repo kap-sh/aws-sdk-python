@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#CancelMessageMoveTaskResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.long
 
 
-class CancelMessageMoveTaskResult(TypedDict):
+class CancelMessageMoveTaskResult(TypedDict, closed=True):
     approximate_number_of_messages_moved: "aws_sdk_sqs.types.long.Long"
     """<p>The approximate number of messages already moved to the destination queue.</p>"""
 

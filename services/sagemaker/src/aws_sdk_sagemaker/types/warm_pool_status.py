@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#WarmPoolStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_retained_billable_time_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.warm_pool_resource_status
 
 
-class WarmPoolStatus(TypedDict):
+class WarmPoolStatus(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker.types.warm_pool_resource_status.WarmPoolResourceStatus"
     ]

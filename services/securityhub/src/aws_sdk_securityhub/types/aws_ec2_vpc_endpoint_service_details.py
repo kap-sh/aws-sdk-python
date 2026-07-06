@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcEndpointServiceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_vpc_endpoint_service_service_type_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEc2VpcEndpointServiceDetails(TypedDict):
+class AwsEc2VpcEndpointServiceDetails(TypedDict, closed=True):
     acceptance_required: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether requests from other Amazon Web Services accounts to create an endpoint to the service must first be accepted.</p>"""
     availability_zones: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessAgentCoreGatewayConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_gateway_outbound_auth
 
 
-class HarnessAgentCoreGatewayConfig(TypedDict):
+class HarnessAgentCoreGatewayConfig(TypedDict, closed=True):
     gateway_arn: "aws_sdk_bedrock_agentcore_control.types.gateway_arn.GatewayArn"
     """<p>The ARN of the desired AgentCore Gateway.</p>"""
     outbound_auth: NotRequired[

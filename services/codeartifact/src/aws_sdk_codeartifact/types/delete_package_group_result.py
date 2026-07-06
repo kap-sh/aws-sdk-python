@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#DeletePackageGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_group_description
 
 
-class DeletePackageGroupResult(TypedDict):
+class DeletePackageGroupResult(TypedDict, closed=True):
     package_group: NotRequired[
         "aws_sdk_codeartifact.types.package_group_description.PackageGroupDescription"
     ]

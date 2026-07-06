@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#PropertyDifference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.property_value
 
 
-class PropertyDifference(TypedDict):
+class PropertyDifference(TypedDict, closed=True):
     property_path: NotRequired[
         "aws_sdk_cloudformation.types.property_path.PropertyPath"
     ]

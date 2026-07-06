@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetOrganizationConfigRuleDetailedStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class GetOrganizationConfigRuleDetailedStatusRequest(TypedDict):
+class GetOrganizationConfigRuleDetailedStatusRequest(TypedDict, closed=True):
     organization_config_rule_name: "aws_sdk_config_service.types.organization_config_rule_name.OrganizationConfigRuleName"
     """<p>The name of your organization Config rule for which you want status details for member accounts.</p>"""
     filters: NotRequired[

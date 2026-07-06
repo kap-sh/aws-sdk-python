@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_mpa.types.string.String"
     """<p>Message for the <code>ServiceQuotaExceededException</code> error.</p>"""
 

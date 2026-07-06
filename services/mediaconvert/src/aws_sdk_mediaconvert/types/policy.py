@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Policy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.input_policy
 
 
-class Policy(TypedDict):
+class Policy(TypedDict, closed=True):
     http_inputs: NotRequired["aws_sdk_mediaconvert.types.input_policy.InputPolicy"]
     """Allow or disallow jobs that specify HTTP inputs."""
     https_inputs: NotRequired["aws_sdk_mediaconvert.types.input_policy.InputPolicy"]

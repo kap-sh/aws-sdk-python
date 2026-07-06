@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#PermissionEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.user
 
 
-class PermissionEntry(TypedDict):
+class PermissionEntry(TypedDict, closed=True):
     user: "aws_sdk_grafana.types.user.User"
     """<p>A structure with the ID of the user or group with this role.</p>"""
     role: "aws_sdk_grafana.types.role.Role"

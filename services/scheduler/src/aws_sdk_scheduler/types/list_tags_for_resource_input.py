@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.tag_resource_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_scheduler.types.tag_resource_arn.TagResourceArn"
     """<p>The ARN of the EventBridge Scheduler resource for which you want to view tags.</p>"""
 

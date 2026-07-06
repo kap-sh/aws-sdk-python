@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateWorkGroupOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateWorkGroupOutput(TypedDict):
+class UpdateWorkGroupOutput(TypedDict, closed=True):
     pass
 
 

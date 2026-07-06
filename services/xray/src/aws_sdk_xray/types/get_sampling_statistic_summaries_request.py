@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetSamplingStatisticSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class GetSamplingStatisticSummariesRequest(TypedDict):
+class GetSamplingStatisticSummariesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>Pagination token.</p>"""
 

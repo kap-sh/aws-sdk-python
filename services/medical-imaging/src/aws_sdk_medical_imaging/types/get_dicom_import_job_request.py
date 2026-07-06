@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#GetDICOMImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_id
     import aws_sdk_medical_imaging.types.job_id
 
 
-class GetDICOMImportJobRequest(TypedDict):
+class GetDICOMImportJobRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     job_id: "aws_sdk_medical_imaging.types.job_id.JobId"

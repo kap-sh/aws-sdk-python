@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ProgramSetValidationFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.program_validation_failures_list
 
 
-class ProgramSetValidationFailure(TypedDict):
+class ProgramSetValidationFailure(TypedDict, closed=True):
     program_index: "int"
     """<p>The index of the program within the program set that failed validation.</p>"""
     inputs_index: NotRequired["int"]

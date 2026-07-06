@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#CreateEntityRecognizerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.vpc_config
 
 
-class CreateEntityRecognizerRequest(TypedDict):
+class CreateEntityRecognizerRequest(TypedDict, closed=True):
     recognizer_name: "aws_sdk_comprehend.types.comprehend_arn_name.ComprehendArnName"
     """<p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/Region.</p>"""
     version_name: NotRequired["aws_sdk_comprehend.types.version_name.VersionName"]

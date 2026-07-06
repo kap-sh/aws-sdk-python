@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeEngineVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.engine_version_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeEngineVersionsResponse(TypedDict):
+class DescribeEngineVersionsResponse(TypedDict, closed=True):
     engine_versions: NotRequired[
         "aws_sdk_database_migration_service.types.engine_version_list.EngineVersionList"
     ]

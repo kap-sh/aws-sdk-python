@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateNodegroupConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.node_repair_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.warm_pool_config
 
 
-class UpdateNodegroupConfigRequest(TypedDict):
+class UpdateNodegroupConfigRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     nodegroup_name: "aws_sdk_eks.types.string.String"

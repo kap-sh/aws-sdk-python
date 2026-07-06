@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReferenceStoreFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_store_name
 
 
-class ReferenceStoreFilter(TypedDict):
+class ReferenceStoreFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.reference_store_name.ReferenceStoreName"]
     """<p>The name to filter on.</p>"""
     created_after: NotRequired["datetime.datetime"]

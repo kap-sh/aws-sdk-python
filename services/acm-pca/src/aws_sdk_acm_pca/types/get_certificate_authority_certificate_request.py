@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#GetCertificateAuthorityCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.arn
 
 
-class GetCertificateAuthorityCertificateRequest(TypedDict):
+class GetCertificateAuthorityCertificateRequest(TypedDict, closed=True):
     certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of your private CA. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>"""
 

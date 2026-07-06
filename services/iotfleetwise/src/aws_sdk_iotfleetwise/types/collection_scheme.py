@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CollectionScheme``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.time_based_collection_scheme
 
 
-class _CollectionScheme_timeBasedCollectionScheme(TypedDict):
+class _CollectionScheme_timeBasedCollectionScheme(TypedDict, closed=True):
     timeBasedCollectionScheme: "aws_sdk_iotfleetwise.types.time_based_collection_scheme.TimeBasedCollectionScheme"
 
 
-class _CollectionScheme_conditionBasedCollectionScheme(TypedDict):
+class _CollectionScheme_conditionBasedCollectionScheme(TypedDict, closed=True):
     conditionBasedCollectionScheme: "aws_sdk_iotfleetwise.types.condition_based_collection_scheme.ConditionBasedCollectionScheme"
 
 

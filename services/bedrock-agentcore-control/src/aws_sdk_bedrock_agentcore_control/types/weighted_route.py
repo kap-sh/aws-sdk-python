@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#WeightedRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.target_traffic_split_entries
 
 
-class WeightedRoute(TypedDict):
+class WeightedRoute(TypedDict, closed=True):
     traffic_split: "aws_sdk_bedrock_agentcore_control.types.target_traffic_split_entries.TargetTrafficSplitEntries"
     """<p>The traffic split entries defining how traffic is distributed between targets.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.group
 
 
-class GetGroupResult(TypedDict):
+class GetGroupResult(TypedDict, closed=True):
     group: NotRequired["aws_sdk_xray.types.group.Group"]
     """<p>The group that was requested. Contains the name of the group, the ARN of the group, the filter expression, and the insight configuration assigned to the group.</p>"""
 

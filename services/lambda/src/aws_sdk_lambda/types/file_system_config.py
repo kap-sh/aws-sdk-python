@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FileSystemConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.local_mount_path
 
 
-class FileSystemConfig(TypedDict):
+class FileSystemConfig(TypedDict, closed=True):
     arn: "aws_sdk_lambda.types.file_system_arn.FileSystemArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>"""
     local_mount_path: "aws_sdk_lambda.types.local_mount_path.LocalMountPath"

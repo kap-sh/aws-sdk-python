@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.amazon_resource_name
     import aws_sdk_pinpoint_email.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_pinpoint_email.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.</p>"""
     tag_keys: "aws_sdk_pinpoint_email.types.tag_key_list.TagKeyList"

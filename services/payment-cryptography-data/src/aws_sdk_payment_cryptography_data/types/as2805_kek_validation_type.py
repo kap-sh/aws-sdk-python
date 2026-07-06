@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#As2805KekValidationType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.kek_validation_response
 
 
-class _As2805KekValidationType_KekValidationRequest(TypedDict):
+class _As2805KekValidationType_KekValidationRequest(TypedDict, closed=True):
     KekValidationRequest: "aws_sdk_payment_cryptography_data.types.kek_validation_request.KekValidationRequest"
 
 
-class _As2805KekValidationType_KekValidationResponse(TypedDict):
+class _As2805KekValidationType_KekValidationResponse(TypedDict, closed=True):
     KekValidationResponse: "aws_sdk_payment_cryptography_data.types.kek_validation_response.KekValidationResponse"
 
 

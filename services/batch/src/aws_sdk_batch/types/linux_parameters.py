@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#LinuxParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tmpfs_list
 
 
-class LinuxParameters(TypedDict):
+class LinuxParameters(TypedDict, closed=True):
     devices: NotRequired["aws_sdk_batch.types.devices_list.DevicesList"]
     r"""<p>Any of the host devices to expose to the container. This parameter maps to <code>Devices</code> in the <a href=\"https://docs.docker.com/engine/api/v1.23/#create-a-container\">Create a container</a> section of the <a href=\"https://docs.docker.com/engine/api/v1.23/\">Docker Remote API</a> and the <code>--device</code> option to <a href=\"https://docs.docker.com/engine/reference/run/\">docker run</a>.</p> <note> <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.</p> </note>"""
     init_process_enabled: NotRequired["aws_sdk_batch.types.boolean.Boolean"]

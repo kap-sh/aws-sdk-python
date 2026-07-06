@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ImportDocumentOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ImportDocumentOutput(TypedDict):
+class ImportDocumentOutput(TypedDict, closed=True):
     file_id: NotRequired["str"]
     """<p>The unique identifier assigned to the uploaded file.</p>"""
 

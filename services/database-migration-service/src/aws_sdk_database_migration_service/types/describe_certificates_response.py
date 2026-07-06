@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeCertificatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.certificate_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeCertificatesResponse(TypedDict):
+class DescribeCertificatesResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The pagination token.</p>"""
     certificates: NotRequired[

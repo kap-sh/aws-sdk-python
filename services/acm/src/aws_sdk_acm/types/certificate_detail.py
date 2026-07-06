@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CertificateDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.arn
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.t_stamp
 
 
-class CertificateDetail(TypedDict):
+class CertificateDetail(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
     r"""<p>The Amazon Resource Name (ARN) of the certificate. For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     domain_name: NotRequired["aws_sdk_acm.types.domain_name_string.DomainNameString"]

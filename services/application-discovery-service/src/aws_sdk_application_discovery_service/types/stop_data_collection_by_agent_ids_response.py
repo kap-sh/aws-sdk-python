@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#StopDataCollectionByAgentIdsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.agent_configuration_status_list
 
 
-class StopDataCollectionByAgentIdsResponse(TypedDict):
+class StopDataCollectionByAgentIdsResponse(TypedDict, closed=True):
     agents_configuration_status: NotRequired[
         "aws_sdk_application_discovery_service.types.agent_configuration_status_list.AgentConfigurationStatusList"
     ]

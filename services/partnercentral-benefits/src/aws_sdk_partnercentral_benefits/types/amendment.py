@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#Amendment``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
 
-class Amendment(TypedDict):
+class Amendment(TypedDict, closed=True):
     field_path: "str"
     """<p>The JSON path or field identifier specifying which field in the benefit application to modify.</p>"""
     new_value: "str"

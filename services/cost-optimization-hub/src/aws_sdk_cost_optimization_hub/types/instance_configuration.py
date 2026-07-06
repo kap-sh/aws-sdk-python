@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#InstanceConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class InstanceConfiguration(TypedDict):
+class InstanceConfiguration(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The instance type of the configuration.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetLatestAssessmentIdRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetLatestAssessmentIdRequest(TypedDict):
+class GetLatestAssessmentIdRequest(TypedDict, closed=True):
     pass
 
 

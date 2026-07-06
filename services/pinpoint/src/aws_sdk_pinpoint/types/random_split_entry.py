@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RandomSplitEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
     import aws_sdk_pinpoint.types.__string
 
 
-class RandomSplitEntry(TypedDict):
+class RandomSplitEntry(TypedDict, closed=True):
     next_activity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the next activity to perform, after completing the activity for the path.</p>"""
     percentage: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]

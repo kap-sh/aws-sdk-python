@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DisableCAEnrollmentPolicyResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableCAEnrollmentPolicyResult(TypedDict):
+class DisableCAEnrollmentPolicyResult(TypedDict, closed=True):
     pass
 
 

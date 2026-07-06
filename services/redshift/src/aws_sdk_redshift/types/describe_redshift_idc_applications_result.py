@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeRedshiftIdcApplicationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DescribeRedshiftIdcApplicationsResult(TypedDict):
+class DescribeRedshiftIdcApplicationsResult(TypedDict, closed=True):
     redshift_idc_applications: NotRequired[
         "aws_sdk_redshift.types.redshift_idc_application_list.RedshiftIdcApplicationList"
     ]

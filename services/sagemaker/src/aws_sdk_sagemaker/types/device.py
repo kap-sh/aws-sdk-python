@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Device``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.device_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.thing_name
 
 
-class Device(TypedDict):
+class Device(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_sagemaker.types.device_name.DeviceName"]
     """<p>The name of the device.</p>"""
     description: NotRequired[

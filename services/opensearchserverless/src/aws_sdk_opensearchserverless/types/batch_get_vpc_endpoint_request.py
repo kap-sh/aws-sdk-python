@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#BatchGetVpcEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vpc_endpoint_ids
 
 
-class BatchGetVpcEndpointRequest(TypedDict):
+class BatchGetVpcEndpointRequest(TypedDict, closed=True):
     ids: "aws_sdk_opensearchserverless.types.vpc_endpoint_ids.VpcEndpointIds"
     """<p>A list of VPC endpoint identifiers.</p>"""
 

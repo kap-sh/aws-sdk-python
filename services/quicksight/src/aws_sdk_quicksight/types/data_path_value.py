@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPathValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_path_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_value
 
 
-class DataPathValue(TypedDict):
+class DataPathValue(TypedDict, closed=True):
     field_id: NotRequired["aws_sdk_quicksight.types.field_id.FieldId"]
     """<p>The field ID of the field that needs to be sorted.</p>"""
     field_value: NotRequired["aws_sdk_quicksight.types.field_value.FieldValue"]

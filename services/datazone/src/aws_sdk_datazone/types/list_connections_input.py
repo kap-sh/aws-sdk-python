@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListConnectionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.connection_name
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.sort_order
 
 
-class ListConnectionsInput(TypedDict):
+class ListConnectionsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where you want to list connections.</p>"""
     max_results: NotRequired["aws_sdk_datazone.types.max_results.MaxResults"]

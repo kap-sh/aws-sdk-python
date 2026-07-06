@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DescribeQuerySuggestionsConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.attribute_suggestions_describe_config
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class DescribeQuerySuggestionsConfigResponse(TypedDict):
+class DescribeQuerySuggestionsConfigResponse(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_kendra.types.mode.Mode"]
     r"""<p>Whether query suggestions are currently in <code>ENABLED</code> mode or <code>LEARN_ONLY</code> mode.</p> <p>By default, Amazon Kendra enables query suggestions.<code>LEARN_ONLY</code> turns off query suggestions for your users. You can change the mode using the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_UpdateQuerySuggestionsConfig.html\">UpdateQuerySuggestionsConfig</a> API.</p>"""
     status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#Termination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string_list
 
 
-class Termination(TypedDict):
+class Termination(TypedDict, closed=True):
     cps_limit: NotRequired["aws_sdk_chime_sdk_voice.types.cps_limit.CpsLimit"]
     """<p>The limit on calls per second. Max value based on account service quota. Default value of 1.</p>"""
     default_phone_number: NotRequired[

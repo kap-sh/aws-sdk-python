@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenJobGenericDataSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_job_generic_data_source_type
 
 
-class CodegenJobGenericDataSchema(TypedDict):
+class CodegenJobGenericDataSchema(TypedDict, closed=True):
     data_source_type: "aws_sdk_amplifyuibuilder.types.codegen_job_generic_data_source_type.CodegenJobGenericDataSourceType"
     """<p>The type of the data source for the schema. Currently, the only valid value is an Amplify <code>DataStore</code>.</p>"""
     models: "aws_sdk_amplifyuibuilder.types.codegen_generic_data_models.CodegenGenericDataModels"

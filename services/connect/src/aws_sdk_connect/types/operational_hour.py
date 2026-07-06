@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OperationalHour``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.override_time_slice
 
 
-class OperationalHour(TypedDict):
+class OperationalHour(TypedDict, closed=True):
     start: NotRequired["aws_sdk_connect.types.override_time_slice.OverrideTimeSlice"]
     """<p>The start time that your contact center opens.</p>"""
     end: NotRequired["aws_sdk_connect.types.override_time_slice.OverrideTimeSlice"]

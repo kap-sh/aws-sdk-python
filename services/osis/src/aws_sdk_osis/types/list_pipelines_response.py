@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ListPipelinesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.next_token
     import aws_sdk_osis.types.pipeline_summary_list
 
 
-class ListPipelinesResponse(TypedDict):
+class ListPipelinesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_osis.types.next_token.NextToken"]
     """<p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>"""
     pipelines: NotRequired[

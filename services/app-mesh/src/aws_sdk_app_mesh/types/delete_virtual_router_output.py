@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DeleteVirtualRouterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_router_data
 
 
-class DeleteVirtualRouterOutput(TypedDict):
+class DeleteVirtualRouterOutput(TypedDict, closed=True):
     virtual_router: "aws_sdk_app_mesh.types.virtual_router_data.VirtualRouterData"
     """<p>The virtual router that was deleted.</p>"""
 

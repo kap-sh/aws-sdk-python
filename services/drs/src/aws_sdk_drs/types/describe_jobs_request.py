@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.describe_jobs_request_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.strictly_positive_integer
 
 
-class DescribeJobsRequest(TypedDict):
+class DescribeJobsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_drs.types.describe_jobs_request_filters.DescribeJobsRequestFilters"
     ]

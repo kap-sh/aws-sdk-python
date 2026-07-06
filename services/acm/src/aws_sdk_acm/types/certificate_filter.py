@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CertificateFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.x509_attribute_filter
 
 
-class _CertificateFilter_CertificateArn(TypedDict):
+class _CertificateFilter_CertificateArn(TypedDict, closed=True):
     CertificateArn: "aws_sdk_acm.types.arn.Arn"
 
 
-class _CertificateFilter_X509AttributeFilter(TypedDict):
+class _CertificateFilter_X509AttributeFilter(TypedDict, closed=True):
     X509AttributeFilter: "aws_sdk_acm.types.x509_attribute_filter.X509AttributeFilter"
 
 
-class _CertificateFilter_AcmCertificateMetadataFilter(TypedDict):
+class _CertificateFilter_AcmCertificateMetadataFilter(TypedDict, closed=True):
     AcmCertificateMetadataFilter: (
         "aws_sdk_acm.types.acm_certificate_metadata_filter.AcmCertificateMetadataFilter"
     )

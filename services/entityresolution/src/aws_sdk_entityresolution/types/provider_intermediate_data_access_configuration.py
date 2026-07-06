@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ProviderIntermediateDataAccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.aws_account_id_list
     import aws_sdk_entityresolution.types.required_bucket_actions_list
 
 
-class ProviderIntermediateDataAccessConfiguration(TypedDict):
+class ProviderIntermediateDataAccessConfiguration(TypedDict, closed=True):
     aws_account_ids: NotRequired[
         "aws_sdk_entityresolution.types.aws_account_id_list.AwsAccountIdList"
     ]

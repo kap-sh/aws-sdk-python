@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CodeConfigurationValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.string
 
 
-class CodeConfigurationValues(TypedDict):
+class CodeConfigurationValues(TypedDict, closed=True):
     runtime: "aws_sdk_apprunner.types.runtime.Runtime"
     """<p>A runtime environment type for building and running an App Runner service. It represents a programming language runtime.</p>"""
     build_command: NotRequired["aws_sdk_apprunner.types.build_command.BuildCommand"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#UpdateJobQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.compute_environment_orders
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class UpdateJobQueueRequest(TypedDict):
+class UpdateJobQueueRequest(TypedDict, closed=True):
     job_queue: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or the Amazon Resource Name (ARN) of the job queue.</p>"""
     state: NotRequired["aws_sdk_batch.types.jq_state.JQState"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#DeleteTLSInspectionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tls_inspection_configuration_response
 
 
-class DeleteTLSInspectionConfigurationResponse(TypedDict):
+class DeleteTLSInspectionConfigurationResponse(TypedDict, closed=True):
     tls_inspection_configuration_response: "aws_sdk_network_firewall.types.tls_inspection_configuration_response.TLSInspectionConfigurationResponse"
     """<p>The high-level properties of a TLS inspection configuration. This, along with the <a>TLSInspectionConfiguration</a>, define the TLS inspection configuration. You can retrieve all objects for a TLS inspection configuration by calling <a>DescribeTLSInspectionConfiguration</a>. </p>"""
 

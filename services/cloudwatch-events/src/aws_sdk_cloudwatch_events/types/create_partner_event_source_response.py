@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CreatePartnerEventSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class CreatePartnerEventSourceResponse(TypedDict):
+class CreatePartnerEventSourceResponse(TypedDict, closed=True):
     event_source_arn: NotRequired["aws_sdk_cloudwatch_events.types.string.String"]
     """<p>The ARN of the partner event source.</p>"""
 

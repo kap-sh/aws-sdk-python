@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UserPoolReplicaType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.replica_status_type
 
 
-class UserPoolReplicaType(TypedDict):
+class UserPoolReplicaType(TypedDict, closed=True):
     region_name: NotRequired[
         "aws_sdk_cognito_identity_provider.types.region_name_type.RegionNameType"
     ]

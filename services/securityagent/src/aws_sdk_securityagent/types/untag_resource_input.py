@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.resource_arn
     import aws_sdk_securityagent.types.tag_key_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_securityagent.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>"""
     tag_keys: "aws_sdk_securityagent.types.tag_key_list.TagKeyList"

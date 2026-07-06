@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEC2RecommendationProjectedMetricsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.timestamp
 
 
-class GetEC2RecommendationProjectedMetricsRequest(TypedDict):
+class GetEC2RecommendationProjectedMetricsRequest(TypedDict, closed=True):
     instance_arn: "aws_sdk_compute_optimizer.types.instance_arn.InstanceArn"
     """<p>The Amazon Resource Name (ARN) of the instances for which to return recommendation projected metrics.</p>"""
     stat: "aws_sdk_compute_optimizer.types.metric_statistic.MetricStatistic"

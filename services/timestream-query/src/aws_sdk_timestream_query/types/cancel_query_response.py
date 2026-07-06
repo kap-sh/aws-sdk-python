@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#CancelQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.string
 
 
-class CancelQueryResponse(TypedDict):
+class CancelQueryResponse(TypedDict, closed=True):
     cancellation_message: NotRequired["aws_sdk_timestream_query.types.string.String"]
     """<p> A <code>CancellationMessage</code> is returned when a <code>CancelQuery</code> request for the query specified by <code>QueryId</code> has already been issued. </p>"""
 

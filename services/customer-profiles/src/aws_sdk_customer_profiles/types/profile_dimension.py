@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ProfileDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.values
 
 
-class ProfileDimension(TypedDict):
+class ProfileDimension(TypedDict, closed=True):
     dimension_type: (
         "aws_sdk_customer_profiles.types.string_dimension_type.StringDimensionType"
     )

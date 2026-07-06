@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#GetPersistentAppUIPresignedURLInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class GetPersistentAppUIPresignedURLInput(TypedDict):
+class GetPersistentAppUIPresignedURLInput(TypedDict, closed=True):
     persistent_app_ui_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]

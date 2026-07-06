@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CreateGovCloudAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.tags
 
 
-class CreateGovCloudAccountRequest(TypedDict):
+class CreateGovCloudAccountRequest(TypedDict, closed=True):
     email: "aws_sdk_organizations.types.email.Email"
     r"""<p>Specifies the email address of the owner to assign to the new member account in the commercial Region. This email address must not already be associated with another Amazon Web Services account. You must use a valid email address to complete account creation.</p> <p>The rules for a valid email address:</p> <ul> <li> <p>The address must be a minimum of 6 and a maximum of 64 characters long.</p> </li> <li> <p>All characters must be 7-bit ASCII characters.</p> </li> <li> <p>There must be one and only one @ symbol, which separates the local name from the domain name.</p> </li> <li> <p>The local name can't contain any of the following characters:</p> <p>whitespace, \" ' ( ) < > [ ] : ; , \ | % &</p> </li> <li> <p>The local name can't begin with a dot (.)</p> </li> <li> <p>The domain name can consist of only the characters [a-z],[A-Z],[0-9], hyphen (-), or dot (.)</p> </li> <li> <p>The domain name can't begin or end with a hyphen (-) or dot (.)</p> </li> <li> <p>The domain name must contain at least one dot</p> </li> </ul> <p>You can't access the root user of the account or remove an account that was created with an invalid email address. Like all request parameters for <code>CreateGovCloudAccount</code>, the request for the email address for the Amazon Web Services GovCloud (US) account originates from the commercial Region, not from the Amazon Web Services GovCloud (US) Region.</p>"""
     account_name: "aws_sdk_organizations.types.create_account_name.CreateAccountName"

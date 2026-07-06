@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DnsServiceDiscovery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.ip_preference
 
 
-class DnsServiceDiscovery(TypedDict):
+class DnsServiceDiscovery(TypedDict, closed=True):
     hostname: "aws_sdk_app_mesh.types.hostname.Hostname"
     """<p>Specifies the DNS service discovery hostname for the virtual node. </p>"""
     response_type: NotRequired[

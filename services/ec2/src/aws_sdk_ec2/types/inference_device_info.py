@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InferenceDeviceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.inference_device_name
 
 
-class InferenceDeviceInfo(TypedDict):
+class InferenceDeviceInfo(TypedDict, closed=True):
     count: NotRequired["aws_sdk_ec2.types.inference_device_count.InferenceDeviceCount"]
     """<p>The number of Inference accelerators for the instance type.</p>"""
     name: NotRequired["aws_sdk_ec2.types.inference_device_name.InferenceDeviceName"]

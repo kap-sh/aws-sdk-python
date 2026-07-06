@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ReceiveMessageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.message_list
 
 
-class ReceiveMessageResult(TypedDict):
+class ReceiveMessageResult(TypedDict, closed=True):
     messages: NotRequired["aws_sdk_sqs.types.message_list.MessageList"]
     """<p>A list of messages.</p>"""
 

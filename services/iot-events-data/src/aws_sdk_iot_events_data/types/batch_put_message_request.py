@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchPutMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.messages
 
 
-class BatchPutMessageRequest(TypedDict):
+class BatchPutMessageRequest(TypedDict, closed=True):
     messages: "aws_sdk_iot_events_data.types.messages.Messages"
     r"""<p>The list of messages to send. Each message has the following format: <code>'{ \"messageId\": \"string\", \"inputName\": \"string\", \"payload\": \"string\"}'</code> </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldCustomIconContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_field_icon_set_type
 
 
-class TableFieldCustomIconContent(TypedDict):
+class TableFieldCustomIconContent(TypedDict, closed=True):
     icon: NotRequired[
         "aws_sdk_quicksight.types.table_field_icon_set_type.TableFieldIconSetType"
     ]

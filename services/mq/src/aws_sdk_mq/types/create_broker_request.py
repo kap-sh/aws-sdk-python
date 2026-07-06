@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#CreateBrokerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.weekly_start_time
 
 
-class CreateBrokerRequest(TypedDict):
+class CreateBrokerRequest(TypedDict, closed=True):
     authentication_strategy: NotRequired[
         "aws_sdk_mq.types.authentication_strategy.AuthenticationStrategy"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signin#SigninResourceBasedPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signin.types.policy_statements
 
 
-class SigninResourceBasedPolicy(TypedDict):
+class SigninResourceBasedPolicy(TypedDict, closed=True):
     version: NotRequired["str"]
     """Policy version"""
     statement: NotRequired["aws_sdk_signin.types.policy_statements.PolicyStatements"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateSoftwareUpdateJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class CreateSoftwareUpdateJobResponse(TypedDict):
+class CreateSoftwareUpdateJobResponse(TypedDict, closed=True):
     iot_job_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The IoT Job ARN corresponding to this update."""
     iot_job_id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ConnectionHeaderParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.header_value_sensitive
 
 
-class ConnectionHeaderParameter(TypedDict):
+class ConnectionHeaderParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_cloudwatch_events.types.header_key.HeaderKey"]
     """<p>The key for the parameter.</p>"""
     value: NotRequired[

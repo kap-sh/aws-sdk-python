@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseMetrics``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class ConverseMetrics(TypedDict):
+class ConverseMetrics(TypedDict, closed=True):
     latency_ms: "int"
     """<p>The latency of the call to <code>Converse</code>, in milliseconds. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetNetworkResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.aws_account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.resource_arn
 
 
-class GetNetworkResourcesRequest(TypedDict):
+class GetNetworkResourcesRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     core_network_id: NotRequired[

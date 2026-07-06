@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#Offering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_platform
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.recurring_charges
 
 
-class Offering(TypedDict):
+class Offering(TypedDict, closed=True):
     id: NotRequired["aws_sdk_device_farm.types.offering_identifier.OfferingIdentifier"]
     """<p>The ID that corresponds to a device offering.</p>"""
     description: NotRequired["aws_sdk_device_farm.types.message.Message"]

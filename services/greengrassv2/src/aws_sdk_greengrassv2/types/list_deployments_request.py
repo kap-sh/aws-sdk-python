@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.default_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.thing_group_arn
 
 
-class ListDeploymentsRequest(TypedDict):
+class ListDeploymentsRequest(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_greengrassv2.types.target_arn.TargetARN"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the target IoT thing or thing group.</p>"""
     history_filter: NotRequired[

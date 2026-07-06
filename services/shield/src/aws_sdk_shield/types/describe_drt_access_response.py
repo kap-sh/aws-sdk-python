@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeDRTAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.log_bucket_list
     import aws_sdk_shield.types.role_arn
 
 
-class DescribeDRTAccessResponse(TypedDict):
+class DescribeDRTAccessResponse(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_shield.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the role the SRT used to access your Amazon Web Services account.</p>"""
     log_bucket_list: NotRequired["aws_sdk_shield.types.log_bucket_list.LogBucketList"]

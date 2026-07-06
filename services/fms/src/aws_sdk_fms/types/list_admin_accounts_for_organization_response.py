@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListAdminAccountsForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.admin_account_summary_list
     import aws_sdk_fms.types.pagination_token
 
 
-class ListAdminAccountsForOrganizationResponse(TypedDict):
+class ListAdminAccountsForOrganizationResponse(TypedDict, closed=True):
     admin_accounts: NotRequired[
         "aws_sdk_fms.types.admin_account_summary_list.AdminAccountSummaryList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeOutputStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth._iter import AnyIterator
 from aws_sdk_connecthealth._protocol.eventstream import Message
@@ -11,15 +13,15 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.medical_scribe_transcript_event
 
 
-class _MedicalScribeOutputStream_transcriptEvent(TypedDict):
+class _MedicalScribeOutputStream_transcriptEvent(TypedDict, closed=True):
     transcriptEvent: "aws_sdk_connecthealth.types.medical_scribe_transcript_event.MedicalScribeTranscriptEvent"
 
 
-class _MedicalScribeOutputStream_internalFailureException(TypedDict):
+class _MedicalScribeOutputStream_internalFailureException(TypedDict, closed=True):
     internalFailureException: "aws_sdk_connecthealth.errors.internal_server_exception.InternalServerException_"
 
 
-class _MedicalScribeOutputStream_validationException(TypedDict):
+class _MedicalScribeOutputStream_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_connecthealth.errors.validation_exception.ValidationException_"
     )

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetLayerVersionByArnRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.layer_version_arn
 
 
-class GetLayerVersionByArnRequest(TypedDict):
+class GetLayerVersionByArnRequest(TypedDict, closed=True):
     arn: "aws_sdk_lambda.types.layer_version_arn.LayerVersionArn"
     """<p>The ARN of the layer version.</p>"""
 

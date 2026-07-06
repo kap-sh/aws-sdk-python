@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#Connection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.date_time
 
 
-class Connection(TypedDict):
+class Connection(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_account.types.catalog.Catalog"
     """<p>The catalog identifier that the connection belongs to.</p>"""
     id: "aws_sdk_partnercentral_account.types.connection_id.ConnectionId"

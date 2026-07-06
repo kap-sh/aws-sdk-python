@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#UpdateEventRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.status_summary_by_region
 
 
-class UpdateEventRuleResponse(TypedDict):
+class UpdateEventRuleResponse(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.event_rule_arn.EventRuleArn"
     """<p>The Amazon Resource Name (ARN) to use to update the <code>EventRule</code>.</p>"""
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInstancePropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.describe_instance_properties_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeInstancePropertiesRequest(TypedDict):
+class DescribeInstancePropertiesRequest(TypedDict, closed=True):
     instance_property_filter_list: NotRequired[
         "aws_sdk_ssm.types.instance_property_filter_list.InstancePropertyFilterList"
     ]

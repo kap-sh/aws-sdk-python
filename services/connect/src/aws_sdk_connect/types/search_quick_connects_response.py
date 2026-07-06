@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchQuickConnectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.quick_connect_search_summary_list
 
 
-class SearchQuickConnectsResponse(TypedDict):
+class SearchQuickConnectsResponse(TypedDict, closed=True):
     quick_connects: NotRequired[
         "aws_sdk_connect.types.quick_connect_search_summary_list.QuickConnectSearchSummaryList"
     ]

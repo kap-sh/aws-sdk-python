@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#PillarDifference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.difference_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.question_differences
 
 
-class PillarDifference(TypedDict):
+class PillarDifference(TypedDict, closed=True):
     pillar_id: NotRequired["aws_sdk_wellarchitected.types.pillar_id.PillarId"]
     pillar_name: NotRequired["aws_sdk_wellarchitected.types.pillar_name.PillarName"]
     difference_status: NotRequired[

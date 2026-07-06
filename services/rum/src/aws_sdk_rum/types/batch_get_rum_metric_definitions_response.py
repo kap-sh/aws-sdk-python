@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#BatchGetRumMetricDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_definitions
 
 
-class BatchGetRumMetricDefinitionsResponse(TypedDict):
+class BatchGetRumMetricDefinitionsResponse(TypedDict, closed=True):
     metric_definitions: NotRequired[
         "aws_sdk_rum.types.metric_definitions.MetricDefinitions"
     ]

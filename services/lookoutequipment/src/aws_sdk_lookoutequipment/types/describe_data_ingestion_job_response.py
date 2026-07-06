@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeDataIngestionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.bounded_length_string
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class DescribeDataIngestionJobResponse(TypedDict):
+class DescribeDataIngestionJobResponse(TypedDict, closed=True):
     job_id: NotRequired[
         "aws_sdk_lookoutequipment.types.ingestion_job_id.IngestionJobId"
     ]

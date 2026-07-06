@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetEvidenceFolderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.control_set_id
     import aws_sdk_auditmanager.types.uuid
 
 
-class GetEvidenceFolderRequest(TypedDict):
+class GetEvidenceFolderRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The unique identifier for the assessment. </p>"""
     control_set_id: "aws_sdk_auditmanager.types.control_set_id.ControlSetId"

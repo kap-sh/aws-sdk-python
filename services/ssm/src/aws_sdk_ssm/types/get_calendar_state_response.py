@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetCalendarStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.calendar_state
     import aws_sdk_ssm.types.iso8601_string
 
 
-class GetCalendarStateResponse(TypedDict):
+class GetCalendarStateResponse(TypedDict, closed=True):
     state: NotRequired["aws_sdk_ssm.types.calendar_state.CalendarState"]
     """<p>The state of the calendar. An <code>OPEN</code> calendar indicates that actions are allowed to proceed, and a <code>CLOSED</code> calendar indicates that actions aren't allowed to proceed.</p>"""
     at_time: NotRequired["aws_sdk_ssm.types.iso8601_string.ISO8601String"]

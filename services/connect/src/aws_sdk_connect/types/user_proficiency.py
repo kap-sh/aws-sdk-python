@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserProficiency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.proficiency_level
 
 
-class UserProficiency(TypedDict):
+class UserProficiency(TypedDict, closed=True):
     attribute_name: (
         "aws_sdk_connect.types.predefined_attribute_name.PredefinedAttributeName"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#LifecyclePolicyPreviewFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.tag_status
 
 
-class LifecyclePolicyPreviewFilter(TypedDict):
+class LifecyclePolicyPreviewFilter(TypedDict, closed=True):
     tag_status: NotRequired["aws_sdk_ecr.types.tag_status.TagStatus"]
     """<p>The tag status of the image.</p>"""
 

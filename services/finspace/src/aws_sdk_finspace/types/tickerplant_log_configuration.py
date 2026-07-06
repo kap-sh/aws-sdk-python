@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#TickerplantLogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.tickerplant_log_volumes
 
 
-class TickerplantLogConfiguration(TypedDict):
+class TickerplantLogConfiguration(TypedDict, closed=True):
     tickerplant_log_volumes: NotRequired[
         "aws_sdk_finspace.types.tickerplant_log_volumes.TickerplantLogVolumes"
     ]

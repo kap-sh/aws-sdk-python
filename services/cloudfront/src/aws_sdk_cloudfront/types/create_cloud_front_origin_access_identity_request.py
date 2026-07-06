@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateCloudFrontOriginAccessIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.cloud_front_origin_access_identity_config
 
 
-class CreateCloudFrontOriginAccessIdentityRequest(TypedDict):
+class CreateCloudFrontOriginAccessIdentityRequest(TypedDict, closed=True):
     cloud_front_origin_access_identity_config: "aws_sdk_cloudfront.types.cloud_front_origin_access_identity_config.CloudFrontOriginAccessIdentityConfig"
     """<p>The current configuration information for the identity.</p>"""
 

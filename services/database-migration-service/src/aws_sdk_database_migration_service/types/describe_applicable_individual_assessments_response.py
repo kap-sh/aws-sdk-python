@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeApplicableIndividualAssessmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.individual_assessment_name_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeApplicableIndividualAssessmentsResponse(TypedDict):
+class DescribeApplicableIndividualAssessmentsResponse(TypedDict, closed=True):
     individual_assessment_names: NotRequired[
         "aws_sdk_database_migration_service.types.individual_assessment_name_list.IndividualAssessmentNameList"
     ]

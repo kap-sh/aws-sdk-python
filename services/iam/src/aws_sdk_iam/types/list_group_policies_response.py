@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListGroupPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListGroupPoliciesResponse(TypedDict):
+class ListGroupPoliciesResponse(TypedDict, closed=True):
     policy_names: "aws_sdk_iam.types.policy_name_list_type.policyNameListType"
     r"""<p>A list of policy names.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     is_truncated: "aws_sdk_iam.types.boolean_type.booleanType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ColorCorrector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max2147483647
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.sample_range_conversion
 
 
-class ColorCorrector(TypedDict):
+class ColorCorrector(TypedDict, closed=True):
     brightness: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max100.__integerMin1Max100"
     ]

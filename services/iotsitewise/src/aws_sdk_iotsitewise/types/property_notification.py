@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PropertyNotification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.property_notification_topic
 
 
-class PropertyNotification(TypedDict):
+class PropertyNotification(TypedDict, closed=True):
     topic: "aws_sdk_iotsitewise.types.property_notification_topic.PropertyNotificationTopic"
     """<p>The MQTT topic to which IoT SiteWise publishes property value update notifications.</p>"""
     state: "aws_sdk_iotsitewise.types.property_notification_state.PropertyNotificationState"

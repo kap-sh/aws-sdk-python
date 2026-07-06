@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetServicesInScopeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.service_metadata_list
 
 
-class GetServicesInScopeResponse(TypedDict):
+class GetServicesInScopeResponse(TypedDict, closed=True):
     service_metadata: NotRequired[
         "aws_sdk_auditmanager.types.service_metadata_list.ServiceMetadataList"
     ]

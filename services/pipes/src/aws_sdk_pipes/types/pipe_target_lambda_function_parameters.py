@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetLambdaFunctionParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_target_invocation_type
 
 
-class PipeTargetLambdaFunctionParameters(TypedDict):
+class PipeTargetLambdaFunctionParameters(TypedDict, closed=True):
     invocation_type: NotRequired[
         "aws_sdk_pipes.types.pipe_target_invocation_type.PipeTargetInvocationType"
     ]

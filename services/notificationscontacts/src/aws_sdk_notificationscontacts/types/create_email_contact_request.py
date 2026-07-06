@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#CreateEmailContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notificationscontacts.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.tag_map
 
 
-class CreateEmailContactRequest(TypedDict):
+class CreateEmailContactRequest(TypedDict, closed=True):
     name: "aws_sdk_notificationscontacts.types.email_contact_name.EmailContactName"
     """<p>The name of the email contact.</p>"""
     email_address: (

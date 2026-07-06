@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ContainerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class ContainerSummary(TypedDict):
+class ContainerSummary(TypedDict, closed=True):
     exit_code: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The exit code to return upon completion.</p>"""
     reason: NotRequired["aws_sdk_batch.types.string.String"]

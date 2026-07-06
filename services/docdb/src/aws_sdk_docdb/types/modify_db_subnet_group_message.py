@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#ModifyDBSubnetGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.subnet_identifier_list
 
 
-class ModifyDBSubnetGroupMessage(TypedDict):
+class ModifyDBSubnetGroupMessage(TypedDict, closed=True):
     db_subnet_group_name: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The name for the subnet group. This value is stored as a lowercase string. You can't modify the default subnet group. </p> <p>Constraints: Must match the name of an existing <code>DBSubnetGroup</code>. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>"""
     db_subnet_group_description: NotRequired["aws_sdk_docdb.types.string.String"]

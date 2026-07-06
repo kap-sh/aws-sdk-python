@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#InstanceLaunchTemplateUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class InstanceLaunchTemplateUpdate(TypedDict):
+class InstanceLaunchTemplateUpdate(TypedDict, closed=True):
     ec2_instance_profile_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     r"""<p>The updated Amazon Resource Name (ARN) of the instance profile. The new instance profile must have the necessary permissions for your tasks.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/managed-instances-instance-profile.html\">Amazon ECS instance profile for Managed Instances</a> in the <i>Amazon ECS Developer Guide</i>. </p>"""
     network_configuration: NotRequired[

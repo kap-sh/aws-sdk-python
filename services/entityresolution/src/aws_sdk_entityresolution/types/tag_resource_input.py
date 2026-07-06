@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.venice_global_arn
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
     """<p>The ARN of the resource for which you want to view tags.</p>"""
     tags: "aws_sdk_entityresolution.types.tag_map.TagMap"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#Duration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.duration_value
     import aws_sdk_opensearch.types.time_unit
 
 
-class Duration(TypedDict):
+class Duration(TypedDict, closed=True):
     value: NotRequired["aws_sdk_opensearch.types.duration_value.DurationValue"]
     """<p>Integer to specify the value of a maintenance schedule duration.</p>"""
     unit: NotRequired["aws_sdk_opensearch.types.time_unit.TimeUnit"]

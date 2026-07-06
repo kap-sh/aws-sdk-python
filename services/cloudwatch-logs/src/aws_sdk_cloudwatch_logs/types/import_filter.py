@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ImportFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class ImportFilter(TypedDict):
+class ImportFilter(TypedDict, closed=True):
     start_event_time: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]
     """<p>The start of the time range for events to import, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>"""
     end_event_time: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]

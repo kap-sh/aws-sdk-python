@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteEventOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.event_id
 
 
-class DeleteEventOutput(TypedDict):
+class DeleteEventOutput(TypedDict, closed=True):
     event_id: "aws_sdk_bedrock_agentcore.types.event_id.EventId"
     """<p>The identifier of the event that was deleted.</p>"""
 

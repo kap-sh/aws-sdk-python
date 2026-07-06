@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#Networking``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.network_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.subnet_id_list
 
 
-class Networking(TypedDict):
+class Networking(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_pcs.types.subnet_id_list.SubnetIdList"]
     """<p>The ID of the subnet where PCS creates an Elastic Network Interface (ENI) to enable communication between managed controllers and PCS resources. The subnet must have an available IP address, cannot reside in Outposts, Wavelength, or an Amazon Web Services Local Zone.</p> <p> Example: <code>subnet-abcd1234</code> </p>"""
     security_group_ids: NotRequired[

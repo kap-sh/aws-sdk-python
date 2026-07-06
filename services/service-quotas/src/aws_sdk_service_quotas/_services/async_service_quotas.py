@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import AsyncIterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_service_quotas._auth._signers
@@ -106,7 +106,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.update_auto_management_response
 
 
-class AsyncServiceQuotasClientConfig(TypedDict, total=False):
+class AsyncServiceQuotasClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

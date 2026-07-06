@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ObjectIdentifierAndLinkNameTuple``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.link_name
     import aws_sdk_clouddirectory.types.object_identifier
 
 
-class ObjectIdentifierAndLinkNameTuple(TypedDict):
+class ObjectIdentifierAndLinkNameTuple(TypedDict, closed=True):
     object_identifier: NotRequired[
         "aws_sdk_clouddirectory.types.object_identifier.ObjectIdentifier"
     ]

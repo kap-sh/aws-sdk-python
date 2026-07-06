@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#ListTablesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
     import aws_sdk_redshift_data.types.table_list
 
 
-class ListTablesResponse(TypedDict):
+class ListTablesResponse(TypedDict, closed=True):
     tables: NotRequired["aws_sdk_redshift_data.types.table_list.TableList"]
     """<p>The tables that match the request pattern. </p>"""
     next_token: NotRequired["aws_sdk_redshift_data.types.string.String"]

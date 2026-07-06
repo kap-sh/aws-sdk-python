@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DeleteBridgeResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteBridgeResponse(TypedDict):
+class DeleteBridgeResponse(TypedDict, closed=True):
     bridge_arn: NotRequired["str"]
     """<p> The ARN of the deleted bridge.</p>"""
 

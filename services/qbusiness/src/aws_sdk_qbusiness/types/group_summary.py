@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.group_name
 
 
-class GroupSummary(TypedDict):
+class GroupSummary(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_qbusiness.types.group_name.GroupName"]
     """<p>The name of the group the summary information is for.</p>"""
 

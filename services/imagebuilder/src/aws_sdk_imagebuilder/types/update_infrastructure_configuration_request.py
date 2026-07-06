@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#UpdateInfrastructureConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.sns_topic_arn
 
 
-class UpdateInfrastructureConfigurationRequest(TypedDict):
+class UpdateInfrastructureConfigurationRequest(TypedDict, closed=True):
     infrastructure_configuration_arn: "aws_sdk_imagebuilder.types.infrastructure_configuration_arn.InfrastructureConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to update.</p>"""
     description: NotRequired[

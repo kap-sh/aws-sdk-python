@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListSignalCatalogNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.signal_node_type
 
 
-class ListSignalCatalogNodesRequest(TypedDict):
+class ListSignalCatalogNodesRequest(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.resource_name.resourceName"
     """<p> The name of the signal catalog to list information about. </p>"""
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]

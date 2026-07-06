@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialPolygonSymbolStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_color
     import aws_sdk_quicksight.types.geospatial_line_width
 
 
-class GeospatialPolygonSymbolStyle(TypedDict):
+class GeospatialPolygonSymbolStyle(TypedDict, closed=True):
     fill_color: NotRequired["aws_sdk_quicksight.types.geospatial_color.GeospatialColor"]
     """<p>The color and opacity values for the fill color.</p>"""
     stroke_color: NotRequired[

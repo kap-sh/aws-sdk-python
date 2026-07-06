@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBProxyEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.t_stamp
 
 
-class DBProxyEndpoint(TypedDict):
+class DBProxyEndpoint(TypedDict, closed=True):
     db_proxy_endpoint_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name for the DB proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>"""
     db_proxy_endpoint_arn: NotRequired["aws_sdk_rds.types.string.String"]

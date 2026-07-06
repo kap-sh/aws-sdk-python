@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#OnPremisesTagSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.on_premises_tag_set_list
 
 
-class OnPremisesTagSet(TypedDict):
+class OnPremisesTagSet(TypedDict, closed=True):
     on_premises_tag_set_list: NotRequired[
         "aws_sdk_codedeploy.types.on_premises_tag_set_list.OnPremisesTagSetList"
     ]

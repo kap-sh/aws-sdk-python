@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MapRunItemCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.long_object
     import aws_sdk_sfn.types.unsigned_long
 
 
-class MapRunItemCounts(TypedDict):
+class MapRunItemCounts(TypedDict, closed=True):
     pending: "aws_sdk_sfn.types.unsigned_long.UnsignedLong"
     """<p>The total number of items to process in child workflow executions that haven't started running yet.</p>"""
     running: "aws_sdk_sfn.types.unsigned_long.UnsignedLong"

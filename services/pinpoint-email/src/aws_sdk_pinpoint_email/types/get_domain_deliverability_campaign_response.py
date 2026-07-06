@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetDomainDeliverabilityCampaignResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.domain_deliverability_campaign
 
 
-class GetDomainDeliverabilityCampaignResponse(TypedDict):
+class GetDomainDeliverabilityCampaignResponse(TypedDict, closed=True):
     domain_deliverability_campaign: "aws_sdk_pinpoint_email.types.domain_deliverability_campaign.DomainDeliverabilityCampaign"
     """<p>An object that contains the deliverability data for the campaign.</p>"""
 

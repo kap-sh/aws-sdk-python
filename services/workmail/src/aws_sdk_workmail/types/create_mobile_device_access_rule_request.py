@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateMobileDeviceAccessRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class CreateMobileDeviceAccessRuleRequest(TypedDict):
+class CreateMobileDeviceAccessRuleRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization under which the rule will be created.</p>"""
     client_token: NotRequired[

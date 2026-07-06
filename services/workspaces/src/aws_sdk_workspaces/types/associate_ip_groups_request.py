@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AssociateIpGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.ip_group_id_list
 
 
-class AssociateIpGroupsRequest(TypedDict):
+class AssociateIpGroupsRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The identifier of the directory.</p>"""
     group_ids: "aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList"

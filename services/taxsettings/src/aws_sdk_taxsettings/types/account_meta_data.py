@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#AccountMetaData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.seller
 
 
-class AccountMetaData(TypedDict):
+class AccountMetaData(TypedDict, closed=True):
     account_name: NotRequired["aws_sdk_taxsettings.types.account_name.AccountName"]
     """<p> The Amazon Web Services accounts name. </p>"""
     seller: NotRequired["aws_sdk_taxsettings.types.seller.Seller"]

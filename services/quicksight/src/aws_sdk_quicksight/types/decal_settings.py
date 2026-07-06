@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DecalSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.decal_pattern_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class DecalSettings(TypedDict):
+class DecalSettings(TypedDict, closed=True):
     element_value: NotRequired["aws_sdk_quicksight.types.element_value.ElementValue"]
     """<p>Field value of the field that you are setting the decal pattern to. Applicable only for field level settings.</p>"""
     decal_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]

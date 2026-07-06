@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#TabularConditions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.order_by_list
     import aws_sdk_iottwinmaker.types.property_filters
 
 
-class TabularConditions(TypedDict):
+class TabularConditions(TypedDict, closed=True):
     order_by: NotRequired["aws_sdk_iottwinmaker.types.order_by_list.OrderByList"]
     """<p>Filter criteria that orders the output. It can be sorted in ascending or descending order.</p>"""
     property_filters: NotRequired[

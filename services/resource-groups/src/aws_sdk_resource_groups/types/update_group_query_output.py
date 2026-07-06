@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UpdateGroupQueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_query
 
 
-class UpdateGroupQueryOutput(TypedDict):
+class UpdateGroupQueryOutput(TypedDict, closed=True):
     group_query: NotRequired["aws_sdk_resource_groups.types.group_query.GroupQuery"]
     """<p>The updated resource query associated with the resource group after the update.</p>"""
 

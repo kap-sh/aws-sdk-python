@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#VerificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.dns_verification
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.http_verification
 
 
-class VerificationDetails(TypedDict):
+class VerificationDetails(TypedDict, closed=True):
     method: NotRequired[
         "aws_sdk_securityagent.types.domain_verification_method.DomainVerificationMethod"
     ]

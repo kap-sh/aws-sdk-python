@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmguiconnect#DeleteConnectionRecordingPreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_guiconnect.types.client_token
 
 
-class DeleteConnectionRecordingPreferencesRequest(TypedDict):
+class DeleteConnectionRecordingPreferencesRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_ssm_guiconnect.types.client_token.ClientToken"]
     """<p>User-provided idempotency token.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#CreateQueryLoggingConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class CreateQueryLoggingConfigurationRequest(TypedDict):
+class CreateQueryLoggingConfigurationRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace for which to create the query logging configuration.</p>"""
     destinations: "aws_sdk_amp.types.logging_destinations.LoggingDestinations"

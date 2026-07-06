@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#Checksum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.checksum_string
     import aws_sdk_sagemaker_edge.types.checksum_type
 
 
-class Checksum(TypedDict):
+class Checksum(TypedDict, closed=True):
     type: NotRequired["aws_sdk_sagemaker_edge.types.checksum_type.ChecksumType"]
     """<p>The type of the checksum.</p>"""
     sum: NotRequired["aws_sdk_sagemaker_edge.types.checksum_string.ChecksumString"]

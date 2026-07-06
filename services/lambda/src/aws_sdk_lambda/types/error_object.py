@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ErrorObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.error_data
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.stack_trace_entries
 
 
-class ErrorObject(TypedDict):
+class ErrorObject(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_lambda.types.error_message.ErrorMessage"]
     """<p>A human-readable error message.</p>"""
     error_type: NotRequired["aws_sdk_lambda.types.error_type.ErrorType"]

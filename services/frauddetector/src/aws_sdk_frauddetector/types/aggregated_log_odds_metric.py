@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#AggregatedLogOddsMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_strings
 
 
-class AggregatedLogOddsMetric(TypedDict):
+class AggregatedLogOddsMetric(TypedDict, closed=True):
     variable_names: "aws_sdk_frauddetector.types.list_of_strings.ListOfStrings"
     """<p> The names of all the variables. </p>"""
     aggregated_variables_importance: "aws_sdk_frauddetector.types.float.float"

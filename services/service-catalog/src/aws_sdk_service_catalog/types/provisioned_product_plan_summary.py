@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisionedProductPlanSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.provisioned_product_plan_type
 
 
-class ProvisionedProductPlanSummary(TypedDict):
+class ProvisionedProductPlanSummary(TypedDict, closed=True):
     plan_name: NotRequired[
         "aws_sdk_service_catalog.types.provisioned_product_plan_name.ProvisionedProductPlanName"
     ]

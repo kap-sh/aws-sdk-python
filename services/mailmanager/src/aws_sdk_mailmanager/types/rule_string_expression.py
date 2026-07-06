@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleStringExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_string_to_evaluate
 
 
-class RuleStringExpression(TypedDict):
+class RuleStringExpression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.rule_string_to_evaluate.RuleStringToEvaluate"
     """<p>The string to evaluate in a string condition expression.</p>"""
     operator: "aws_sdk_mailmanager.types.rule_string_operator.RuleStringOperator"

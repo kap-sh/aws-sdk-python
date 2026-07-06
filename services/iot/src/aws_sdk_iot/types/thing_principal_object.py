@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingPrincipalObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_principal_type
 
 
-class ThingPrincipalObject(TypedDict):
+class ThingPrincipalObject(TypedDict, closed=True):
     principal: "aws_sdk_iot.types.principal.Principal"
     """<p>The principal of the thing principal object.</p>"""
     thing_principal_type: NotRequired[

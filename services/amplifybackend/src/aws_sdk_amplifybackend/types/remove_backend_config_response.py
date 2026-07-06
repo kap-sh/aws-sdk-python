@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#RemoveBackendConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class RemoveBackendConfigResponse(TypedDict):
+class RemoveBackendConfigResponse(TypedDict, closed=True):
     error: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>If the request fails, this error is returned.</p>"""
 

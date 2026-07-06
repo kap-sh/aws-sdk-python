@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SecurityControlParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.type_list
 
 
-class SecurityControlParameter(TypedDict):
+class SecurityControlParameter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The name of a </p>"""
     value: NotRequired["aws_sdk_securityhub.types.type_list.TypeList"]

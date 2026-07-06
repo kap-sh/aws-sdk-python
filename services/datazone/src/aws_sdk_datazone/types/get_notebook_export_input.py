@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetNotebookExportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.export_id
 
 
-class GetNotebookExportInput(TypedDict):
+class GetNotebookExportInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook export exists.</p>"""
     identifier: "aws_sdk_datazone.types.export_id.ExportId"

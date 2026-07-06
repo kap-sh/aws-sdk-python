@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NoiseReducerFilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max3
 
 
-class NoiseReducerFilterSettings(TypedDict):
+class NoiseReducerFilterSettings(TypedDict, closed=True):
     strength: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max3.__integerMin0Max3"
     ]

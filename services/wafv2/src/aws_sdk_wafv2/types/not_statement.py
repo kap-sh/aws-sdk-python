@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#NotStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.statement
 
 
-class NotStatement(TypedDict):
+class NotStatement(TypedDict, closed=True):
     statement: "aws_sdk_wafv2.types.statement.Statement"
     """<p>The statement to negate. You can use any statement that can be nested.</p>"""
 

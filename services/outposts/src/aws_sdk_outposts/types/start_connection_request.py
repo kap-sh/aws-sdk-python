@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#StartConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.wire_guard_public_key
 
 
-class StartConnectionRequest(TypedDict):
+class StartConnectionRequest(TypedDict, closed=True):
     device_serial_number: NotRequired[
         "aws_sdk_outposts.types.device_serial_number.DeviceSerialNumber"
     ]

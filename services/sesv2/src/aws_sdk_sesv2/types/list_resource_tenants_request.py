@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListResourceTenantsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token
 
 
-class ListResourceTenantsRequest(TypedDict):
+class ListResourceTenantsRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_sesv2.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the resource to list associated tenants for.</p>"""
     page_size: NotRequired["aws_sdk_sesv2.types.max_items.MaxItems"]

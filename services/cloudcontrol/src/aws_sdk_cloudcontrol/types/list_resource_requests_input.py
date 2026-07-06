@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ListResourceRequestsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.resource_request_status_filter
 
 
-class ListResourceRequestsInput(TypedDict):
+class ListResourceRequestsInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_cloudcontrol.types.max_results.MaxResults"]
     """<p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p> <p>The default is <code>20</code>.</p>"""
     next_token: NotRequired["aws_sdk_cloudcontrol.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DeleteNetworkAclEntriesAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.action_target
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
 
 
-class DeleteNetworkAclEntriesAction(TypedDict):
+class DeleteNetworkAclEntriesAction(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_fms.types.length_bounded_string.LengthBoundedString"
     ]

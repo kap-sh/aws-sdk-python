@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#UpdateResolverRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class UpdateResolverRuleRequest(TypedDict):
+class UpdateResolverRuleRequest(TypedDict, closed=True):
     resolver_rule_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the Resolver rule that you want to update.</p>"""
     config: "aws_sdk_route53resolver.types.resolver_rule_config.ResolverRuleConfig"

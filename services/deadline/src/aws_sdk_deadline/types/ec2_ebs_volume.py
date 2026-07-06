@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#Ec2EbsVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.ebs_iops
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.integer
 
 
-class Ec2EbsVolume(TypedDict):
+class Ec2EbsVolume(TypedDict, closed=True):
     size_gi_b: "aws_sdk_deadline.types.integer.Integer"
     """<p>The EBS volume size in GiB.</p>"""
     iops: "aws_sdk_deadline.types.ebs_iops.EbsIops"

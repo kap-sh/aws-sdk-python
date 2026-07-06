@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RdsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.secret_arn
 
 
-class RdsConfiguration(TypedDict):
+class RdsConfiguration(TypedDict, closed=True):
     resource_arn: "aws_sdk_bedrock_agent.types.rds_arn.RdsArn"
     """<p>The Amazon Resource Name (ARN) of the vector store.</p>"""
     credentials_secret_arn: "aws_sdk_bedrock_agent.types.secret_arn.SecretArn"

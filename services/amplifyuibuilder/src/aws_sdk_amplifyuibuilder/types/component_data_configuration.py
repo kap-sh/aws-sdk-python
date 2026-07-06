@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ComponentDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.sort_property_list
 
 
-class ComponentDataConfiguration(TypedDict):
+class ComponentDataConfiguration(TypedDict, closed=True):
     model: "str"
     """<p>The name of the data model to use to bind data to a component.</p>"""
     sort: NotRequired[

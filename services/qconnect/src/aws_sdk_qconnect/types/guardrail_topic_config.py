@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GuardrailTopicConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_topic_type
 
 
-class GuardrailTopicConfig(TypedDict):
+class GuardrailTopicConfig(TypedDict, closed=True):
     name: "aws_sdk_qconnect.types.guardrail_topic_name.GuardrailTopicName"
     """<p>The name of the topic to deny.</p>"""
     definition: (

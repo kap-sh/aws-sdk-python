@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#DeleteRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class DeleteRuleRequest(TypedDict):
+class DeleteRuleRequest(TypedDict, closed=True):
     rule_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>RuleId</code> of the <a>Rule</a> that you want to delete. <code>RuleId</code> is returned by <a>CreateRule</a> and by <a>ListRules</a>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

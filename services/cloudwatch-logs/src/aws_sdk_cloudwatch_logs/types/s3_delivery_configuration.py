@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#S3DeliveryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.boolean
     import aws_sdk_cloudwatch_logs.types.delivery_suffix_path
 
 
-class S3DeliveryConfiguration(TypedDict):
+class S3DeliveryConfiguration(TypedDict, closed=True):
     suffix_path: NotRequired[
         "aws_sdk_cloudwatch_logs.types.delivery_suffix_path.DeliverySuffixPath"
     ]

@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import Iterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_service_catalog_appregistry._auth._signers
@@ -100,7 +100,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.update_attribute_group_response
 
 
-class ServiceCatalogAppRegistryClientConfig(TypedDict, total=False):
+class ServiceCatalogAppRegistryClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

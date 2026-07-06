@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#PipelinePauseStateSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.pipeline_id
 
 
-class PipelinePauseStateSettings(TypedDict):
+class PipelinePauseStateSettings(TypedDict, closed=True):
     pipeline_id: NotRequired["aws_sdk_medialive.types.pipeline_id.PipelineId"]
     r"""Pipeline ID to pause (\"PIPELINE_0\" or \"PIPELINE_1\")."""
 

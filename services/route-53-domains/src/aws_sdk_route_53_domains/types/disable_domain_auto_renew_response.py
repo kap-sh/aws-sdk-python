@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DisableDomainAutoRenewResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableDomainAutoRenewResponse(TypedDict):
+class DisableDomainAutoRenewResponse(TypedDict, closed=True):
     pass
 
 

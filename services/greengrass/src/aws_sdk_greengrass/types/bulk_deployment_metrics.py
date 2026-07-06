@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#BulkDeploymentMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__integer
 
 
-class BulkDeploymentMetrics(TypedDict):
+class BulkDeploymentMetrics(TypedDict, closed=True):
     invalid_input_records: NotRequired["aws_sdk_greengrass.types.__integer.__integer"]
     """The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version."""
     records_processed: NotRequired["aws_sdk_greengrass.types.__integer.__integer"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListCatalogItemsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.catalog_item_list_definition
     import aws_sdk_outposts.types.token
 
 
-class ListCatalogItemsOutput(TypedDict):
+class ListCatalogItemsOutput(TypedDict, closed=True):
     catalog_items: NotRequired[
         "aws_sdk_outposts.types.catalog_item_list_definition.CatalogItemListDefinition"
     ]

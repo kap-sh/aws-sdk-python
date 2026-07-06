@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.polly#ListSpeechSynthesisTasksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.next_token
     import aws_sdk_polly.types.synthesis_tasks
 
 
-class ListSpeechSynthesisTasksOutput(TypedDict):
+class ListSpeechSynthesisTasksOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_polly.types.next_token.NextToken"]
     """<p>An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.</p>"""
     synthesis_tasks: NotRequired["aws_sdk_polly.types.synthesis_tasks.SynthesisTasks"]

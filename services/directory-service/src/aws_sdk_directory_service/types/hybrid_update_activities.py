@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#HybridUpdateActivities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.hybrid_update_info_entries
 
 
-class HybridUpdateActivities(TypedDict):
+class HybridUpdateActivities(TypedDict, closed=True):
     self_managed_instances: NotRequired[
         "aws_sdk_directory_service.types.hybrid_update_info_entries.HybridUpdateInfoEntries"
     ]

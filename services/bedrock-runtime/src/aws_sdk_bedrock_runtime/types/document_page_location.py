@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#DocumentPageLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DocumentPageLocation(TypedDict):
+class DocumentPageLocation(TypedDict, closed=True):
     document_index: NotRequired["int"]
     """<p>The index of the document within the array of documents provided in the request.</p>"""
     start: NotRequired["int"]

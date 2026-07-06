@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#InstanceLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.instance_count_limits
 
 
-class InstanceLimits(TypedDict):
+class InstanceLimits(TypedDict, closed=True):
     instance_count_limits: NotRequired[
         "aws_sdk_elasticsearch_service.types.instance_count_limits.InstanceCountLimits"
     ]

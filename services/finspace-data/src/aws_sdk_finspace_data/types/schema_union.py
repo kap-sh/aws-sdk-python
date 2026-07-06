@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#SchemaUnion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.schema_definition
 
 
-class SchemaUnion(TypedDict):
+class SchemaUnion(TypedDict, closed=True):
     tabular_schema_config: NotRequired[
         "aws_sdk_finspace_data.types.schema_definition.SchemaDefinition"
     ]

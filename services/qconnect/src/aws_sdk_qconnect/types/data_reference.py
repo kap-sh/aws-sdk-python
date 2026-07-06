@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DataReference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.suggested_message_reference
 
 
-class _DataReference_contentReference(TypedDict):
+class _DataReference_contentReference(TypedDict, closed=True):
     contentReference: "aws_sdk_qconnect.types.content_reference.ContentReference"
 
 
-class _DataReference_generativeReference(TypedDict):
+class _DataReference_generativeReference(TypedDict, closed=True):
     generativeReference: (
         "aws_sdk_qconnect.types.generative_reference.GenerativeReference"
     )
 
 
-class _DataReference_suggestedMessageReference(TypedDict):
+class _DataReference_suggestedMessageReference(TypedDict, closed=True):
     suggestedMessageReference: (
         "aws_sdk_qconnect.types.suggested_message_reference.SuggestedMessageReference"
     )

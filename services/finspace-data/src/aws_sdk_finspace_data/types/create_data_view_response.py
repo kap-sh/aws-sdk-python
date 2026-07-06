@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#CreateDataViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.data_view_id
     import aws_sdk_finspace_data.types.dataset_id
 
 
-class CreateDataViewResponse(TypedDict):
+class CreateDataViewResponse(TypedDict, closed=True):
     dataset_id: NotRequired["aws_sdk_finspace_data.types.dataset_id.DatasetId"]
     """<p>The unique identifier of the Dataset used for the Dataview.</p>"""
     data_view_id: NotRequired["aws_sdk_finspace_data.types.data_view_id.DataViewId"]

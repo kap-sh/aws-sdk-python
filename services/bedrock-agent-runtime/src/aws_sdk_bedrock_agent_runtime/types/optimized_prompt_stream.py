@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#OptimizedPromptStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime._iter import AnyIterator
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import Message
@@ -16,41 +18,41 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event
 
 
-class _OptimizedPromptStream_optimizedPromptEvent(TypedDict):
+class _OptimizedPromptStream_optimizedPromptEvent(TypedDict, closed=True):
     optimizedPromptEvent: "aws_sdk_bedrock_agent_runtime.types.optimized_prompt_event.OptimizedPromptEvent"
 
 
-class _OptimizedPromptStream_analyzePromptEvent(TypedDict):
+class _OptimizedPromptStream_analyzePromptEvent(TypedDict, closed=True):
     analyzePromptEvent: (
         "aws_sdk_bedrock_agent_runtime.types.analyze_prompt_event.AnalyzePromptEvent"
     )
 
 
-class _OptimizedPromptStream_internalServerException(TypedDict):
+class _OptimizedPromptStream_internalServerException(TypedDict, closed=True):
     internalServerException: "aws_sdk_bedrock_agent_runtime.errors.internal_server_exception.InternalServerException_"
 
 
-class _OptimizedPromptStream_throttlingException(TypedDict):
+class _OptimizedPromptStream_throttlingException(TypedDict, closed=True):
     throttlingException: (
         "aws_sdk_bedrock_agent_runtime.errors.throttling_exception.ThrottlingException_"
     )
 
 
-class _OptimizedPromptStream_validationException(TypedDict):
+class _OptimizedPromptStream_validationException(TypedDict, closed=True):
     validationException: (
         "aws_sdk_bedrock_agent_runtime.errors.validation_exception.ValidationException_"
     )
 
 
-class _OptimizedPromptStream_dependencyFailedException(TypedDict):
+class _OptimizedPromptStream_dependencyFailedException(TypedDict, closed=True):
     dependencyFailedException: "aws_sdk_bedrock_agent_runtime.errors.dependency_failed_exception.DependencyFailedException_"
 
 
-class _OptimizedPromptStream_accessDeniedException(TypedDict):
+class _OptimizedPromptStream_accessDeniedException(TypedDict, closed=True):
     accessDeniedException: "aws_sdk_bedrock_agent_runtime.errors.access_denied_exception.AccessDeniedException_"
 
 
-class _OptimizedPromptStream_badGatewayException(TypedDict):
+class _OptimizedPromptStream_badGatewayException(TypedDict, closed=True):
     badGatewayException: "aws_sdk_bedrock_agent_runtime.errors.bad_gateway_exception.BadGatewayException_"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.integer
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: "aws_sdk_m2.types.integer.Integer"
     """<p>The number of seconds to wait before retrying the request.</p>"""

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#UzbekistanAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.uzbekistan_tax_registration_number_type
     import aws_sdk_taxsettings.types.vat_registration_number
 
 
-class UzbekistanAdditionalInfo(TypedDict):
+class UzbekistanAdditionalInfo(TypedDict, closed=True):
     tax_registration_number_type: NotRequired[
         "aws_sdk_taxsettings.types.uzbekistan_tax_registration_number_type.UzbekistanTaxRegistrationNumberType"
     ]

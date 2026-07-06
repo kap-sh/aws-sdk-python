@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsClusterConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_cluster_configuration_execute_command_configuration_details
 
 
-class AwsEcsClusterConfigurationDetails(TypedDict):
+class AwsEcsClusterConfigurationDetails(TypedDict, closed=True):
     execute_command_configuration: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_cluster_configuration_execute_command_configuration_details.AwsEcsClusterConfigurationExecuteCommandConfigurationDetails"
     ]

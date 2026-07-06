@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#TaskScheduledEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timeout_in_seconds
 
 
-class TaskScheduledEventDetails(TypedDict):
+class TaskScheduledEventDetails(TypedDict, closed=True):
     resource_type: "aws_sdk_sfn.types.name.Name"
     """<p>The service name of the resource in a task state.</p>"""
     resource: "aws_sdk_sfn.types.name.Name"

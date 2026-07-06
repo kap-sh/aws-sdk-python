@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#CopySourceImageSetProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.image_set_workflow_status
 
 
-class CopySourceImageSetProperties(TypedDict):
+class CopySourceImageSetProperties(TypedDict, closed=True):
     image_set_id: "aws_sdk_medical_imaging.types.image_set_id.ImageSetId"
     """<p>The image set identifier for the copied source image set.</p>"""
     latest_version_id: "aws_sdk_medical_imaging.types.image_set_external_version_id.ImageSetExternalVersionId"

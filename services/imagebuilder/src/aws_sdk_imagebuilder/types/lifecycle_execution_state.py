@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecycleExecutionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_execution_status
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class LifecycleExecutionState(TypedDict):
+class LifecycleExecutionState(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_execution_status.LifecycleExecutionStatus"
     ]

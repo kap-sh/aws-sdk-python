@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListenerTlsAcmCertificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.arn
 
 
-class ListenerTlsAcmCertificate(TypedDict):
+class ListenerTlsAcmCertificate(TypedDict, closed=True):
     certificate_arn: "aws_sdk_app_mesh.types.arn.Arn"
     r"""<p>The Amazon Resource Name (ARN) for the certificate. The certificate must meet specific requirements and you must have proxy authorization enabled. For more information, see <a href=\"https://docs.aws.amazon.com/app-mesh/latest/userguide/tls.html#virtual-node-tls-prerequisites\">Transport Layer Security (TLS)</a>.</p>"""
 

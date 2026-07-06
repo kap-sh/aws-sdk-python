@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentParameter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EnvironmentParameter(TypedDict):
+class EnvironmentParameter(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of an environment profile parameter.</p>"""
     value: NotRequired["str"]

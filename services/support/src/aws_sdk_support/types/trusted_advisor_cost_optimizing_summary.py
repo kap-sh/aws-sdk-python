@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#TrustedAdvisorCostOptimizingSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.double
 
 
-class TrustedAdvisorCostOptimizingSummary(TypedDict):
+class TrustedAdvisorCostOptimizingSummary(TypedDict, closed=True):
     estimated_monthly_savings: "aws_sdk_support.types.double.Double"
     """<p>The estimated monthly savings that might be realized if the recommended operations are taken.</p>"""
     estimated_percent_monthly_savings: "aws_sdk_support.types.double.Double"

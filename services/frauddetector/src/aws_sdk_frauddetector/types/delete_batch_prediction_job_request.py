@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DeleteBatchPredictionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.identifier
 
 
-class DeleteBatchPredictionJobRequest(TypedDict):
+class DeleteBatchPredictionJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The ID of the batch prediction job to delete.</p>"""
 

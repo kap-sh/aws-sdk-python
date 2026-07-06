@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RegionsInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.additional_regions
     import aws_sdk_directory_service.types.region_name
 
 
-class RegionsInfo(TypedDict):
+class RegionsInfo(TypedDict, closed=True):
     primary_region: NotRequired[
         "aws_sdk_directory_service.types.region_name.RegionName"
     ]

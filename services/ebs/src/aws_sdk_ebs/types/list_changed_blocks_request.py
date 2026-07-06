@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#ListChangedBlocksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_index
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.snapshot_id
 
 
-class ListChangedBlocksRequest(TypedDict):
+class ListChangedBlocksRequest(TypedDict, closed=True):
     first_snapshot_id: NotRequired["aws_sdk_ebs.types.snapshot_id.SnapshotId"]
     """<p>The ID of the first snapshot to use for the comparison.</p> <important> <p>The <code>FirstSnapshotID</code> parameter must be specified with a <code>SecondSnapshotId</code> parameter; otherwise, an error occurs.</p> </important>"""
     second_snapshot_id: "aws_sdk_ebs.types.snapshot_id.SnapshotId"

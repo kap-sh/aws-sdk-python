@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListManagedNotificationEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.source
 
 
-class ListManagedNotificationEventsRequest(TypedDict):
+class ListManagedNotificationEventsRequest(TypedDict, closed=True):
     start_time: NotRequired["datetime.datetime"]
     """<p>The earliest time of events to return from this call.</p>"""
     end_time: NotRequired["datetime.datetime"]

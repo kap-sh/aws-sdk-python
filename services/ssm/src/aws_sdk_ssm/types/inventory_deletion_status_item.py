@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryDeletionStatusItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_deletion_last_status_message
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.uuid
 
 
-class InventoryDeletionStatusItem(TypedDict):
+class InventoryDeletionStatusItem(TypedDict, closed=True):
     deletion_id: NotRequired["aws_sdk_ssm.types.uuid.UUID"]
     """<p>The deletion ID returned by the <code>DeleteInventory</code> operation.</p>"""
     type_name: NotRequired[

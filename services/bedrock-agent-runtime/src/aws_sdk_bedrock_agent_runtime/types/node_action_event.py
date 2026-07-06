@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#NodeActionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.node_name
 
 
-class NodeActionEvent(TypedDict):
+class NodeActionEvent(TypedDict, closed=True):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
     """<p>The name of the node that called the operation.</p>"""
     timestamp: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"

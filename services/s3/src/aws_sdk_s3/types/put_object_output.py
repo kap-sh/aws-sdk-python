@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutObjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.ssekms_key_id
 
 
-class PutObjectOutput(TypedDict):
+class PutObjectOutput(TypedDict, closed=True):
     expiration: NotRequired["aws_sdk_s3.types.expiration.Expiration"]
     r"""<p>If the expiration is configured for the object (see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html\">PutBucketLifecycleConfiguration</a>) in the <i>Amazon S3 User Guide</i>, the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide information about object expiration. The value of the <code>rule-id</code> is URL-encoded.</p> <note> <p>Object expiration information is not returned in directory buckets and this header returns the value \"<code>NotImplemented</code>\" in all responses for directory buckets.</p> </note>"""
     e_tag: NotRequired["aws_sdk_s3.types.e_tag.ETag"]

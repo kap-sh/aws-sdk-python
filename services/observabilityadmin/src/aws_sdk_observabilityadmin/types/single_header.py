@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#SingleHeader``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SingleHeader(TypedDict):
+class SingleHeader(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p> The name value, limited to 64 characters. </p>"""
 

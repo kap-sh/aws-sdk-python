@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisSegmentEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_time_data
 
 
-class RealTimeContactAnalysisSegmentEvent(TypedDict):
+class RealTimeContactAnalysisSegmentEvent(TypedDict, closed=True):
     id: "aws_sdk_connect.types.real_time_contact_analysis_id256.RealTimeContactAnalysisId256"
     """<p>The identifier of the contact event.</p>"""
     participant_id: NotRequired["aws_sdk_connect.types.participant_id.ParticipantId"]

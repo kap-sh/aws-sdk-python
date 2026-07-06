@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#DeleteBillingGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_arn
 
 
-class DeleteBillingGroupInput(TypedDict):
+class DeleteBillingGroupInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"
     """<p>The Amazon Resource Name (ARN) of the billing group that you're deleting.</p>"""
 

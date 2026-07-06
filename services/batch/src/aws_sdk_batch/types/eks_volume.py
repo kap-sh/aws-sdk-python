@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.eks_empty_dir
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EksVolume(TypedDict):
+class EksVolume(TypedDict, closed=True):
     name: NotRequired["aws_sdk_batch.types.string.String"]
     r"""<p>The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see <a href=\"https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names\">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>"""
     host_path: NotRequired["aws_sdk_batch.types.eks_host_path.EksHostPath"]

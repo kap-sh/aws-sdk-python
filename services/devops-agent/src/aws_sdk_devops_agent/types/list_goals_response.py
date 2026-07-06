@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListGoalsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.goal_list
 
 
-class ListGoalsResponse(TypedDict):
+class ListGoalsResponse(TypedDict, closed=True):
     goals: "aws_sdk_devops_agent.types.goal_list.GoalList"
     """<p>List of goals matching the criteria</p>"""
     next_token: NotRequired["str"]

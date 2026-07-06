@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#Authorization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
 
 
-class Authorization(TypedDict):
+class Authorization(TypedDict, closed=True):
     cdn_identifier_secret: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """The Amazon Resource Name (ARN) for the secret in Secrets Manager that your Content Distribution Network (CDN) uses for authorization to access your endpoint."""
     secrets_role_arn: NotRequired["aws_sdk_mediapackage.types.__string.__string"]

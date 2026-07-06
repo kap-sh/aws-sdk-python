@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#OcuLimitExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError, ServiceError
 
 
-class OcuLimitExceededException_(TypedDict):
+class OcuLimitExceededException_(TypedDict, closed=True):
     message: "str"
     """Description of the error."""
 

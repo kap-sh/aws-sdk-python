@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DeleteApplicationAssignmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.principal_type
 
 
-class DeleteApplicationAssignmentRequest(TypedDict):
+class DeleteApplicationAssignmentRequest(TypedDict, closed=True):
     application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
     """<p>Specifies the ARN of the application.</p>"""
     principal_id: "aws_sdk_sso_admin.types.principal_id.PrincipalId"

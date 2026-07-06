@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIPromptInferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.max_tokens_to_sample
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.top_k
 
 
-class AIPromptInferenceConfiguration(TypedDict):
+class AIPromptInferenceConfiguration(TypedDict, closed=True):
     temperature: NotRequired["aws_sdk_qconnect.types.probability.Probability"]
     """<p>The temperature setting for controlling randomness in the generated response.</p>"""
     top_p: NotRequired["aws_sdk_qconnect.types.probability.Probability"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#OidcJwtUpdateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.claim_attribute_path
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.jwks_retrieval_option
 
 
-class OidcJwtUpdateConfiguration(TypedDict):
+class OidcJwtUpdateConfiguration(TypedDict, closed=True):
     claim_attribute_path: NotRequired[
         "aws_sdk_sso_admin.types.claim_attribute_path.ClaimAttributePath"
     ]

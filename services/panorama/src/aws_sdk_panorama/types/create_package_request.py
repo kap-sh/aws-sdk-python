@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#CreatePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.tag_map
 
 
-class CreatePackageRequest(TypedDict):
+class CreatePackageRequest(TypedDict, closed=True):
     package_name: "aws_sdk_panorama.types.node_package_name.NodePackageName"
     """<p>A name for the package.</p>"""
     tags: NotRequired["aws_sdk_panorama.types.tag_map.TagMap"]

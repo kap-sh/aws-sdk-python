@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ResultRowValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class ResultRowValue(TypedDict):
+class ResultRowValue(TypedDict, closed=True):
     key: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The friendly name of the metric whose value is specified by the Value property.</p>"""
     type: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

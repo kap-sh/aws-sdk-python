@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateDistributionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.viewer_minimum_tls_protocol_version_enum
 
 
-class UpdateDistributionRequest(TypedDict):
+class UpdateDistributionRequest(TypedDict, closed=True):
     distribution_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the distribution to update.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>"""
     origin: NotRequired["aws_sdk_lightsail.types.input_origin.InputOrigin"]

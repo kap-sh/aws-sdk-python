@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetVpcResourcesBlockingEncryptionEnforcementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_id
 
 
-class GetVpcResourcesBlockingEncryptionEnforcementRequest(TypedDict):
+class GetVpcResourcesBlockingEncryptionEnforcementRequest(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_ec2.types.vpc_id.VpcId"]
     """<p>The ID of the VPC to check for resources blocking encryption enforcement.</p>"""
     max_results: NotRequired[

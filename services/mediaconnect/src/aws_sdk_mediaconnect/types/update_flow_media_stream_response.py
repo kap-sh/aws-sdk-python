@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateFlowMediaStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.media_stream
 
 
-class UpdateFlowMediaStreamResponse(TypedDict):
+class UpdateFlowMediaStreamResponse(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p>The ARN of the flow that is associated with the media stream that you updated. </p>"""
     media_stream: NotRequired["aws_sdk_mediaconnect.types.media_stream.MediaStream"]

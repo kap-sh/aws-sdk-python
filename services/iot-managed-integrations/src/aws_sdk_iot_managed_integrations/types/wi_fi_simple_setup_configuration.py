@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#WiFiSimpleSetupConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.enable_as_provisionee
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.timeout_in_minutes
 
 
-class WiFiSimpleSetupConfiguration(TypedDict):
+class WiFiSimpleSetupConfiguration(TypedDict, closed=True):
     enable_as_provisioner: NotRequired[
         "aws_sdk_iot_managed_integrations.types.enable_as_provisioner.EnableAsProvisioner"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#HopDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
 
 
-class HopDestination(TypedDict):
+class HopDestination(TypedDict, closed=True):
     priority: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min_negative50_max50.__integerMinNegative50Max50"
     ]

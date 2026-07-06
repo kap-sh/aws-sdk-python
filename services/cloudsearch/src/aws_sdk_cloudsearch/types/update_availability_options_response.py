@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#UpdateAvailabilityOptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.availability_options_status
 
 
-class UpdateAvailabilityOptionsResponse(TypedDict):
+class UpdateAvailabilityOptionsResponse(TypedDict, closed=True):
     availability_options: NotRequired[
         "aws_sdk_cloudsearch.types.availability_options_status.AvailabilityOptionsStatus"
     ]

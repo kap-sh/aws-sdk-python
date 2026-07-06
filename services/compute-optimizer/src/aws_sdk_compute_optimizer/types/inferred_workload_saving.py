@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#InferredWorkloadSaving``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.estimated_monthly_savings
     import aws_sdk_compute_optimizer.types.inferred_workload_types
 
 
-class InferredWorkloadSaving(TypedDict):
+class InferredWorkloadSaving(TypedDict, closed=True):
     inferred_workload_types: NotRequired[
         "aws_sdk_compute_optimizer.types.inferred_workload_types.InferredWorkloadTypes"
     ]

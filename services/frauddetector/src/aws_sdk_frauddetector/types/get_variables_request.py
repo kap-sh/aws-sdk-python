@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetVariablesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
     import aws_sdk_frauddetector.types.variables_max_results
 
 
-class GetVariablesRequest(TypedDict):
+class GetVariablesRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.string.string"]
     """<p>The name of the variable. </p>"""
     next_token: NotRequired["aws_sdk_frauddetector.types.string.string"]

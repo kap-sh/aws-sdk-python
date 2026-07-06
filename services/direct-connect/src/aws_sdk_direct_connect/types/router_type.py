@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#RouterType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.platform
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.xslt_template_name_for_mac_sec
 
 
-class RouterType(TypedDict):
+class RouterType(TypedDict, closed=True):
     vendor: NotRequired["aws_sdk_direct_connect.types.vendor.Vendor"]
     """<p>The vendor for the virtual interface's router.</p>"""
     platform: NotRequired["aws_sdk_direct_connect.types.platform.Platform"]

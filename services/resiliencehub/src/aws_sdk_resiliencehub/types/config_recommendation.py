@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ConfigRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.suggested_changes_list
 
 
-class ConfigRecommendation(TypedDict):
+class ConfigRecommendation(TypedDict, closed=True):
     cost: NotRequired["aws_sdk_resiliencehub.types.cost.Cost"]
     """<p>The cost for the application.</p>"""
     app_component_name: NotRequired["aws_sdk_resiliencehub.types.entity_id.EntityId"]

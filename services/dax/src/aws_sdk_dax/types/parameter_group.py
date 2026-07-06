@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#ParameterGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class ParameterGroup(TypedDict):
+class ParameterGroup(TypedDict, closed=True):
     parameter_group_name: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The name of the parameter group.</p>"""
     description: NotRequired["aws_sdk_dax.types.string.String"]

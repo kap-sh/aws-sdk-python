@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StartPiiEntitiesDetectionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.tag_list
 
 
-class StartPiiEntitiesDetectionJobRequest(TypedDict):
+class StartPiiEntitiesDetectionJobRequest(TypedDict, closed=True):
     input_data_config: "aws_sdk_comprehend.types.input_data_config.InputDataConfig"
     """<p>The input properties for a PII entities detection job.</p>"""
     output_data_config: "aws_sdk_comprehend.types.output_data_config.OutputDataConfig"

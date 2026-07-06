@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#OperatorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class OperatorResponse(TypedDict):
+class OperatorResponse(TypedDict, closed=True):
     managed: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>If <code>true</code>, the resource is managed by a service provider.</p>"""
     principal: NotRequired["aws_sdk_ec2.types.string.String"]

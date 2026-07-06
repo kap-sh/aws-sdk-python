@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#VolumeRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.volume_recommendation_options
 
 
-class VolumeRecommendation(TypedDict):
+class VolumeRecommendation(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_compute_optimizer.types.volume_arn.VolumeArn"]
     """<p>The Amazon Resource Name (ARN) of the current volume.</p>"""
     account_id: NotRequired["aws_sdk_compute_optimizer.types.account_id.AccountId"]

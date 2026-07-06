@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.xray#DeleteResourcePolicyResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteResourcePolicyResult(TypedDict):
+class DeleteResourcePolicyResult(TypedDict, closed=True):
     pass
 
 

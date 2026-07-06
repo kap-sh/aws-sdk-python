@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#CallAnalyticsEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.confidence
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class CallAnalyticsEntity(TypedDict):
+class CallAnalyticsEntity(TypedDict, closed=True):
     begin_offset_millis: NotRequired["aws_sdk_transcribe_streaming.types.long.Long"]
     """<p>The time, in milliseconds, from the beginning of the audio stream to the start of the identified entity.</p>"""
     end_offset_millis: NotRequired["aws_sdk_transcribe_streaming.types.long.Long"]

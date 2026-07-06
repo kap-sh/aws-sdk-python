@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenGenericDataModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_primary_keys_list
 
 
-class CodegenGenericDataModel(TypedDict):
+class CodegenGenericDataModel(TypedDict, closed=True):
     fields: "aws_sdk_amplifyuibuilder.types.codegen_generic_data_fields.CodegenGenericDataFields"
     """<p>The fields in the generic data model.</p>"""
     is_join_table: NotRequired["bool"]

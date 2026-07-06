@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#SavingsPlanOfferingFilterElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.filter_values_list
     import aws_sdk_savingsplans.types.savings_plan_offering_filter_attribute
 
 
-class SavingsPlanOfferingFilterElement(TypedDict):
+class SavingsPlanOfferingFilterElement(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_savingsplans.types.savings_plan_offering_filter_attribute.SavingsPlanOfferingFilterAttribute"
     ]

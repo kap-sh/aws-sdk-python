@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpsertRedshiftTargetOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.enclosed_in_string_properties_min_one
     import aws_sdk_glue.types.enclosed_in_string_property
 
 
-class UpsertRedshiftTargetOptions(TypedDict):
+class UpsertRedshiftTargetOptions(TypedDict, closed=True):
     table_location: NotRequired[
         "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"
     ]

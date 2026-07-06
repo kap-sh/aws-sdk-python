@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#ResponseCard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.content_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.string
 
 
-class ResponseCard(TypedDict):
+class ResponseCard(TypedDict, closed=True):
     version: NotRequired["aws_sdk_lex_runtime_service.types.string.String"]
     """<p>The version of the response card format.</p>"""
     content_type: NotRequired[

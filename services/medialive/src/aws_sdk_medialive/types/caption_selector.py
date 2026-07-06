@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CaptionSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.caption_selector_settings
 
 
-class CaptionSelector(TypedDict):
+class CaptionSelector(TypedDict, closed=True):
     language_code: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """When specified this field indicates the three letter language code of the caption track to extract from the source."""
     name: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]

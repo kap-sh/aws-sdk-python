@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListConnectorsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.connector_provider_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
 
 
-class ListConnectorsV2Request(TypedDict):
+class ListConnectorsV2Request(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]
     """<p>The pagination token per the Amazon Web Services Pagination standard</p>"""
     max_results: NotRequired["aws_sdk_securityhub.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#PathElement``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -8,19 +10,19 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.substring
 
 
-class _PathElement_index(TypedDict):
+class _PathElement_index(TypedDict, closed=True):
     index: "int"
 
 
-class _PathElement_key(TypedDict):
+class _PathElement_key(TypedDict, closed=True):
     key: "str"
 
 
-class _PathElement_substring(TypedDict):
+class _PathElement_substring(TypedDict, closed=True):
     substring: "aws_sdk_accessanalyzer.types.substring.Substring"
 
 
-class _PathElement_value(TypedDict):
+class _PathElement_value(TypedDict, closed=True):
     value: "str"
 
 

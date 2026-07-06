@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UserStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.non_empty_string
 
 
-class UserStorage(TypedDict):
+class UserStorage(TypedDict, closed=True):
     capacity: "aws_sdk_workspaces.types.non_empty_string.NonEmptyString"
     """<p>The size of the user volume.</p>"""
 

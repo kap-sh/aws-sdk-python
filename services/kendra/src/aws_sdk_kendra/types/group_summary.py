@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#GroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.group_id
     import aws_sdk_kendra.types.principal_ordering_id
 
 
-class GroupSummary(TypedDict):
+class GroupSummary(TypedDict, closed=True):
     group_id: NotRequired["aws_sdk_kendra.types.group_id.GroupId"]
     """<p>The identifier of the group you want group summary information on.</p>"""
     ordering_id: NotRequired[

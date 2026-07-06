@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#JobScheduleFrequency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.daily_schedule
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.weekly_schedule
 
 
-class JobScheduleFrequency(TypedDict):
+class JobScheduleFrequency(TypedDict, closed=True):
     daily_schedule: NotRequired["aws_sdk_macie2.types.daily_schedule.DailySchedule"]
     """<p>Specifies a daily recurrence pattern for running the job.</p>"""
     monthly_schedule: NotRequired[

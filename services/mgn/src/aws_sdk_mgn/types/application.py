@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#Application``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.application_aggregated_status
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.wave_id
 
 
-class Application(TypedDict):
+class Application(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_mgn.types.application_id.ApplicationID"]
     """<p>Application ID.</p>"""
     arn: NotRequired["aws_sdk_mgn.types.arn.ARN"]

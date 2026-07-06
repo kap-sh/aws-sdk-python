@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#EmailSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class EmailSettings(TypedDict):
+class EmailSettings(TypedDict, closed=True):
     email_message: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>The contents of the email message.</p>"""
     email_subject: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

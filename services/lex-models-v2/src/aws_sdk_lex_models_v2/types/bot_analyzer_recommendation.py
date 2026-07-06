@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotAnalyzerRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.priority
 
 
-class BotAnalyzerRecommendation(TypedDict):
+class BotAnalyzerRecommendation(TypedDict, closed=True):
     issue_location: "aws_sdk_lex_models_v2.types.issue_location.IssueLocation"
     """<p>The location information for the identified issue within the bot configuration.</p>"""
     priority: "aws_sdk_lex_models_v2.types.priority.Priority"

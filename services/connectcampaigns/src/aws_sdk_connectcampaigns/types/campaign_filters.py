@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#CampaignFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.instance_id_filter
 
 
-class CampaignFilters(TypedDict):
+class CampaignFilters(TypedDict, closed=True):
     instance_id_filter: NotRequired[
         "aws_sdk_connectcampaigns.types.instance_id_filter.InstanceIdFilter"
     ]

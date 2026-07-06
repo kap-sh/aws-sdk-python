@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#TerraformSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.s3_url
 
 
-class TerraformSource(TypedDict):
+class TerraformSource(TypedDict, closed=True):
     s3_state_file_url: "aws_sdk_resiliencehub.types.s3_url.S3Url"
     """<p> The URL of the Terraform s3 state file you need to import. </p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PutGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutGroupResponse(TypedDict):
+class PutGroupResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#GetTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.column_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.table_properties
 
 
-class GetTableResponse(TypedDict):
+class GetTableResponse(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_bcm_data_exports.types.table_name.TableName"]
     """<p>The name of the table.</p>"""
     description: NotRequired[

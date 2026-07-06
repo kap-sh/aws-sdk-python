@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#WhatsAppMessageTemplateSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.whats_app_message_template_id
 
 
-class WhatsAppMessageTemplateSourceConfiguration(TypedDict):
+class WhatsAppMessageTemplateSourceConfiguration(TypedDict, closed=True):
     business_account_id: (
         "aws_sdk_qconnect.types.whats_app_business_account_id.WhatsAppBusinessAccountId"
     )

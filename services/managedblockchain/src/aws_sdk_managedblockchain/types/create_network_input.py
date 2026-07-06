@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#CreateNetworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.voting_policy
 
 
-class CreateNetworkInput(TypedDict):
+class CreateNetworkInput(TypedDict, closed=True):
     client_request_token: "aws_sdk_managedblockchain.types.client_request_token_string.ClientRequestTokenString"
     """<p>This is a unique, case-sensitive identifier that you provide to ensure the idempotency of the operation. An idempotent operation completes no more than once. This identifier is required only if you make a service request directly using an HTTP client. It is generated automatically if you use an Amazon Web Services SDK or the Amazon Web Services CLI. </p>"""
     name: "aws_sdk_managedblockchain.types.name_string.NameString"

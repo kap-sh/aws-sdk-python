@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListPublishedSchemaArnsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.number_results
 
 
-class ListPublishedSchemaArnsRequest(TypedDict):
+class ListPublishedSchemaArnsRequest(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]

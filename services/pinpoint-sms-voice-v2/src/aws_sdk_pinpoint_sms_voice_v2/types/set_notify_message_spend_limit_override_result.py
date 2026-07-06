@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SetNotifyMessageSpendLimitOverrideResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit
 
 
-class SetNotifyMessageSpendLimitOverrideResult(TypedDict):
+class SetNotifyMessageSpendLimitOverrideResult(TypedDict, closed=True):
     monthly_limit: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.monthly_limit.MonthlyLimit"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#GetPermissionsBoundaryForPermissionSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.permissions_boundary
 
 
-class GetPermissionsBoundaryForPermissionSetResponse(TypedDict):
+class GetPermissionsBoundaryForPermissionSetResponse(TypedDict, closed=True):
     permissions_boundary: NotRequired[
         "aws_sdk_sso_admin.types.permissions_boundary.PermissionsBoundary"
     ]

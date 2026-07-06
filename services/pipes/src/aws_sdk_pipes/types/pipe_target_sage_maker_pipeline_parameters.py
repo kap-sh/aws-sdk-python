@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetSageMakerPipelineParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.sage_maker_pipeline_parameter_list
 
 
-class PipeTargetSageMakerPipelineParameters(TypedDict):
+class PipeTargetSageMakerPipelineParameters(TypedDict, closed=True):
     pipeline_parameter_list: NotRequired[
         "aws_sdk_pipes.types.sage_maker_pipeline_parameter_list.SageMakerPipelineParameterList"
     ]

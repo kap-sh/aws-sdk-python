@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#ListRecommendationResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.account_recommendation_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.resource_status
 
 
-class ListRecommendationResourcesRequest(TypedDict):
+class ListRecommendationResourcesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>"""
     max_results: NotRequired["int"]

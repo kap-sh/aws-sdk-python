@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeevents#PutActionInteractionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_events.types.string_type
 
 
-class PutActionInteractionsRequest(TypedDict):
+class PutActionInteractionsRequest(TypedDict, closed=True):
     tracking_id: "aws_sdk_personalize_events.types.string_type.StringType"
     r"""<p>The ID of your action interaction event tracker. When you create an Action interactions dataset, Amazon Personalize creates an action interaction event tracker for you. For more information, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/action-interaction-tracker-id.html\">Action interaction event tracker ID</a>.</p>"""
     action_interactions: "aws_sdk_personalize_events.types.action_interactions_list.ActionInteractionsList"

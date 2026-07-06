@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#Hits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.count
 
 
-class Hits(TypedDict):
+class Hits(TypedDict, closed=True):
     count: "aws_sdk_network_firewall.types.count.Count"
     """<p>The number of attempts made to access a domain.</p>"""
 

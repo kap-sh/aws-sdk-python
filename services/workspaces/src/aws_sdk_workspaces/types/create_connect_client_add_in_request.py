@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateConnectClientAddInRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class CreateConnectClientAddInRequest(TypedDict):
+class CreateConnectClientAddInRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The directory identifier for which to configure the client add-in.</p>"""
     name: "aws_sdk_workspaces.types.add_in_name.AddInName"

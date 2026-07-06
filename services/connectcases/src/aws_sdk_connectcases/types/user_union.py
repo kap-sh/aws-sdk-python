@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#UserUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.user_arn
 
 
-class _UserUnion_userArn(TypedDict):
+class _UserUnion_userArn(TypedDict, closed=True):
     userArn: "aws_sdk_connectcases.types.user_arn.UserArn"
 
 
-class _UserUnion_customEntity(TypedDict):
+class _UserUnion_customEntity(TypedDict, closed=True):
     customEntity: "aws_sdk_connectcases.types.custom_entity.CustomEntity"
 
 

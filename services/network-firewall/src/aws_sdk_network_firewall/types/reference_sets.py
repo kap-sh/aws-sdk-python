@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ReferenceSets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.ip_set_reference_map
 
 
-class ReferenceSets(TypedDict):
+class ReferenceSets(TypedDict, closed=True):
     ip_set_references: NotRequired[
         "aws_sdk_network_firewall.types.ip_set_reference_map.IPSetReferenceMap"
     ]

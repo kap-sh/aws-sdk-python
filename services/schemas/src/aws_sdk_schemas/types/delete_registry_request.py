@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#DeleteRegistryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
 
 
-class DeleteRegistryRequest(TypedDict):
+class DeleteRegistryRequest(TypedDict, closed=True):
     registry_name: "aws_sdk_schemas.types.__string.__string"
     """<p>The name of the registry.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AssociatePackagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_details_for_association_list
 
 
-class AssociatePackagesRequest(TypedDict):
+class AssociatePackagesRequest(TypedDict, closed=True):
     package_list: "aws_sdk_opensearch.types.package_details_for_association_list.PackageDetailsForAssociationList"
     """<p>A list of packages and their prerequisites to be associated with a domain.</p>"""
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"

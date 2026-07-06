@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#TagResourceOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TagResourceOutput(TypedDict):
+class TagResourceOutput(TypedDict, closed=True):
     status_code: NotRequired["int"]
     """<p>The status code of the tag resource operation.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.response_headers_policy_type
 
 
-class ResponseHeadersPolicySummary(TypedDict):
+class ResponseHeadersPolicySummary(TypedDict, closed=True):
     type: "aws_sdk_cloudfront.types.response_headers_policy_type.ResponseHeadersPolicyType"
     """<p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or <code>custom</code> (created in this Amazon Web Services account).</p>"""
     response_headers_policy: (

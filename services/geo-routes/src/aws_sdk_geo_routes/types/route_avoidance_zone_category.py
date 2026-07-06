@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteAvoidanceZoneCategory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_zone_category
 
 
-class RouteAvoidanceZoneCategory(TypedDict):
+class RouteAvoidanceZoneCategory(TypedDict, closed=True):
     category: "aws_sdk_geo_routes.types.route_zone_category.RouteZoneCategory"
     """<p>Zone category to be avoided.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#CreateProjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.project
 
 
-class CreateProjectOutput(TypedDict):
+class CreateProjectOutput(TypedDict, closed=True):
     project: NotRequired["aws_sdk_codebuild.types.project.Project"]
     """<p>Information about the build project that was created.</p>"""
 

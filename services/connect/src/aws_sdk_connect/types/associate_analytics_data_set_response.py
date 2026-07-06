@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociateAnalyticsDataSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class AssociateAnalyticsDataSetResponse(TypedDict):
+class AssociateAnalyticsDataSetResponse(TypedDict, closed=True):
     data_set_id: NotRequired["aws_sdk_connect.types.data_set_id.DataSetId"]
     """<p>The identifier of the dataset that was associated.</p>"""
     target_account_id: NotRequired["aws_sdk_connect.types.aws_account_id.AWSAccountId"]

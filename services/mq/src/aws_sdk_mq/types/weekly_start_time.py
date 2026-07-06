@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#WeeklyStartTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
     import aws_sdk_mq.types.day_of_week
 
 
-class WeeklyStartTime(TypedDict):
+class WeeklyStartTime(TypedDict, closed=True):
     day_of_week: NotRequired["aws_sdk_mq.types.day_of_week.DayOfWeek"]
     """<p>Required. The day of the week.</p>"""
     time_of_day: NotRequired["aws_sdk_mq.types.__string.__string"]

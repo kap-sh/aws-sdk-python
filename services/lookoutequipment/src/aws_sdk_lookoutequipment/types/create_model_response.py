@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CreateModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_arn
     import aws_sdk_lookoutequipment.types.model_status
 
 
-class CreateModelResponse(TypedDict):
+class CreateModelResponse(TypedDict, closed=True):
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]
     """<p>The Amazon Resource Name (ARN) of the model being created. </p>"""
     status: NotRequired["aws_sdk_lookoutequipment.types.model_status.ModelStatus"]

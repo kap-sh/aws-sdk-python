@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#InsertAdBreakResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.ad_break_id
 
 
-class InsertAdBreakResponse(TypedDict):
+class InsertAdBreakResponse(TypedDict, closed=True):
     ad_break_id: NotRequired["aws_sdk_ivs.types.ad_break_id.AdBreakId"]
     """<p>Unique identifier for the ad break that was inserted into the playlist.</p>"""
 

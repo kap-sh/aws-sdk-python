@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormNumericQuestionAutomation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.numeric_question_property_value_automation
 
 
-class _EvaluationFormNumericQuestionAutomation_PropertyValue(TypedDict):
+class _EvaluationFormNumericQuestionAutomation_PropertyValue(TypedDict, closed=True):
     PropertyValue: "aws_sdk_connect.types.numeric_question_property_value_automation.NumericQuestionPropertyValueAutomation"
 
 
-class _EvaluationFormNumericQuestionAutomation_AnswerSource(TypedDict):
+class _EvaluationFormNumericQuestionAutomation_AnswerSource(TypedDict, closed=True):
     AnswerSource: "aws_sdk_connect.types.evaluation_form_question_automation_answer_source.EvaluationFormQuestionAutomationAnswerSource"
 
 

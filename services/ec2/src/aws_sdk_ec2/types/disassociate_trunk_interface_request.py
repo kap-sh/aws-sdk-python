@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DisassociateTrunkInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.trunk_interface_association_id
 
 
-class DisassociateTrunkInterfaceRequest(TypedDict):
+class DisassociateTrunkInterfaceRequest(TypedDict, closed=True):
     association_id: NotRequired[
         "aws_sdk_ec2.types.trunk_interface_association_id.TrunkInterfaceAssociationId"
     ]

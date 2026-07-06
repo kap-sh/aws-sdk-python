@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StartSyncExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.trace_header
 
 
-class StartSyncExecutionInput(TypedDict):
+class StartSyncExecutionInput(TypedDict, closed=True):
     state_machine_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the state machine to execute.</p>"""
     name: NotRequired["aws_sdk_sfn.types.name.Name"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseApex``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AutonomousDatabaseApex(TypedDict):
+class AutonomousDatabaseApex(TypedDict, closed=True):
     apex_version: NotRequired["str"]
     """<p>The Oracle Application Express (APEX) version of the Autonomous Database.</p>"""
     ords_version: NotRequired["str"]

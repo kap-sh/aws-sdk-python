@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#MlResourceDefinition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MlResourceDefinition(TypedDict):
+class MlResourceDefinition(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The resource name.</p>"""
     arn: NotRequired["str"]

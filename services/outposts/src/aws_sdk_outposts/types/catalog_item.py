@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CatalogItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.catalog_item_power_kva
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.supported_uplink_gbps_list_definition
 
 
-class CatalogItem(TypedDict):
+class CatalogItem(TypedDict, closed=True):
     catalog_item_id: NotRequired["aws_sdk_outposts.types.sku_code.SkuCode"]
     """<p> The ID of the catalog item. </p>"""
     item_status: NotRequired[

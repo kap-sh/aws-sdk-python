@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergCompactionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_compaction_strategy
     import aws_sdk_s3tables.types.positive_integer
 
 
-class IcebergCompactionSettings(TypedDict):
+class IcebergCompactionSettings(TypedDict, closed=True):
     target_file_size_mb: NotRequired[
         "aws_sdk_s3tables.types.positive_integer.PositiveInteger"
     ]

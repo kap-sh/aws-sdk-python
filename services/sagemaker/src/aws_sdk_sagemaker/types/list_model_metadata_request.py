@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListModelMetadataRequest(TypedDict):
+class ListModelMetadataRequest(TypedDict, closed=True):
     search_expression: NotRequired[
         "aws_sdk_sagemaker.types.model_metadata_search_expression.ModelMetadataSearchExpression"
     ]

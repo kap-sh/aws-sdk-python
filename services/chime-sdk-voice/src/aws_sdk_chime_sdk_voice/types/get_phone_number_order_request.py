@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetPhoneNumberOrderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.guid_string
 
 
-class GetPhoneNumberOrderRequest(TypedDict):
+class GetPhoneNumberOrderRequest(TypedDict, closed=True):
     phone_number_order_id: "aws_sdk_chime_sdk_voice.types.guid_string.GuidString"
     """<p>The ID of the phone number order .</p>"""
 

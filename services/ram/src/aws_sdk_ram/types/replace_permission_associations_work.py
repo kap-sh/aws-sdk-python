@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ReplacePermissionAssociationsWork``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ReplacePermissionAssociationsWork(TypedDict):
+class ReplacePermissionAssociationsWork(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The unique identifier for the background task associated with one <a>ReplacePermissionAssociations</a> request.</p>"""
     from_permission_arn: NotRequired["aws_sdk_ram.types.string.String"]

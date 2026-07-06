@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CodeReviewJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.step_list
 
 
-class CodeReviewJob(TypedDict):
+class CodeReviewJob(TypedDict, closed=True):
     code_review_job_id: NotRequired["str"]
     """<p>The unique identifier of the code review job.</p>"""
     code_review_id: NotRequired["str"]

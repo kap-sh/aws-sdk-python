@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MediaAnalysisModelVersions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class MediaAnalysisModelVersions(TypedDict):
+class MediaAnalysisModelVersions(TypedDict, closed=True):
     moderation: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The Moderation base model version.</p>"""
 

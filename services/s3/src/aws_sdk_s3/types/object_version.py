@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ObjectVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.size
 
 
-class ObjectVersion(TypedDict):
+class ObjectVersion(TypedDict, closed=True):
     e_tag: NotRequired["aws_sdk_s3.types.e_tag.ETag"]
     """<p>The entity tag is an MD5 hash of that version of the object.</p>"""
     checksum_algorithm: NotRequired[

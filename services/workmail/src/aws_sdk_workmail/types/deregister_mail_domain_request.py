@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeregisterMailDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_domain_name
 
 
-class DeregisterMailDomainRequest(TypedDict):
+class DeregisterMailDomainRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization for which the domain will be deregistered.</p>"""
     domain_name: "aws_sdk_workmail.types.work_mail_domain_name.WorkMailDomainName"

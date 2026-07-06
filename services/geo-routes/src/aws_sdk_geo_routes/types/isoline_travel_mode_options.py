@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineTravelModeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.isoline_car_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.isoline_truck_options
 
 
-class IsolineTravelModeOptions(TypedDict):
+class IsolineTravelModeOptions(TypedDict, closed=True):
     car: NotRequired["aws_sdk_geo_routes.types.isoline_car_options.IsolineCarOptions"]
     """<p>Options specific to passenger vehicle routing (<code>Car</code>, such as vehicle characteristics and license plate restrictions.</p>"""
     scooter: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AssociatedAccessPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.access_scope
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class AssociatedAccessPolicy(TypedDict):
+class AssociatedAccessPolicy(TypedDict, closed=True):
     policy_arn: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The ARN of the <code>AccessPolicy</code>.</p>"""
     access_scope: NotRequired["aws_sdk_eks.types.access_scope.AccessScope"]

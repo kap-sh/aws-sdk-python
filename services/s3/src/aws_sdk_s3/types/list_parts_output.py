@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListPartsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class
 
 
-class ListPartsOutput(TypedDict):
+class ListPartsOutput(TypedDict, closed=True):
     abort_date: NotRequired["aws_sdk_s3.types.abort_date.AbortDate"]
     r"""<p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, then the response includes this header indicating when the initiated multipart upload will become eligible for abort operation. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config\">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a>.</p> <p>The response will also include the <code>x-amz-abort-rule-id</code> header that will provide the ID of the lifecycle configuration rule that defines this action.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     abort_rule_id: NotRequired["aws_sdk_s3.types.abort_rule_id.AbortRuleId"]

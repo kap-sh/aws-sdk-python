@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.base_prompt_template
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_type
 
 
-class PromptConfiguration(TypedDict):
+class PromptConfiguration(TypedDict, closed=True):
     prompt_type: NotRequired["aws_sdk_bedrock_agent.types.prompt_type.PromptType"]
     """<p>The step in the agent sequence that this prompt configuration applies to.</p>"""
     prompt_creation_mode: NotRequired[

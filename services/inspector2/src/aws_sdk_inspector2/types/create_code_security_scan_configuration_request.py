@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateCodeSecurityScanConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.tag_map
 
 
-class CreateCodeSecurityScanConfigurationRequest(TypedDict):
+class CreateCodeSecurityScanConfigurationRequest(TypedDict, closed=True):
     name: "aws_sdk_inspector2.types.scan_configuration_name.ScanConfigurationName"
     """<p>The name of the scan configuration.</p>"""
     level: "aws_sdk_inspector2.types.configuration_level.ConfigurationLevel"

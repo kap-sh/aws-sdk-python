@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#SendEventResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.chat_item_id
     import aws_sdk_connectparticipant.types.instant
 
 
-class SendEventResponse(TypedDict):
+class SendEventResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connectparticipant.types.chat_item_id.ChatItemId"]
     """<p>The ID of the response.</p>"""
     absolute_time: NotRequired["aws_sdk_connectparticipant.types.instant.Instant"]

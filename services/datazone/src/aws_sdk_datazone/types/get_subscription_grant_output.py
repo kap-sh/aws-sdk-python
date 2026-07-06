@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetSubscriptionGrantOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class GetSubscriptionGrantOutput(TypedDict):
+class GetSubscriptionGrantOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.subscription_grant_id.SubscriptionGrantId"
     """<p>The ID of the subscription grant.</p>"""
     created_by: "aws_sdk_datazone.types.created_by.CreatedBy"

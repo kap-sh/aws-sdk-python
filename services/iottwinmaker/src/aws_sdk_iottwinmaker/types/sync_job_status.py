@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#SyncJobStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.error_details
     import aws_sdk_iottwinmaker.types.sync_job_state
 
 
-class SyncJobStatus(TypedDict):
+class SyncJobStatus(TypedDict, closed=True):
     state: NotRequired["aws_sdk_iottwinmaker.types.sync_job_state.SyncJobState"]
     """<p>The SyncJob status state.</p>"""
     error: NotRequired["aws_sdk_iottwinmaker.types.error_details.ErrorDetails"]

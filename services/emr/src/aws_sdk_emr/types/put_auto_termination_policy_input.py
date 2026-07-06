@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PutAutoTerminationPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.auto_termination_policy
     import aws_sdk_emr.types.cluster_id
 
 
-class PutAutoTerminationPolicyInput(TypedDict):
+class PutAutoTerminationPolicyInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>Specifies the ID of the Amazon EMR cluster to which the auto-termination policy will be attached.</p>"""
     auto_termination_policy: NotRequired[

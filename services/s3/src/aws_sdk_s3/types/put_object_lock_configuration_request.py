@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutObjectLockConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.request_payer
 
 
-class PutObjectLockConfigurationRequest(TypedDict):
+class PutObjectLockConfigurationRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The bucket whose Object Lock configuration you want to create or replace.</p>"""
     object_lock_configuration: NotRequired[

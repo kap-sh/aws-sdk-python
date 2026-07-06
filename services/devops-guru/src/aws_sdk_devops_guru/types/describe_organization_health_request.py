@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeOrganizationHealthRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.account_id_list
     import aws_sdk_devops_guru.types.organizational_unit_id_list
 
 
-class DescribeOrganizationHealthRequest(TypedDict):
+class DescribeOrganizationHealthRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_devops_guru.types.account_id_list.AccountIdList"]
     """<p>The ID of the Amazon Web Services account.</p>"""
     organizational_unit_ids: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ListApplicationOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_operation_info_list
     import aws_sdk_kinesis_analytics_v2.types.next_token
 
 
-class ListApplicationOperationsResponse(TypedDict):
+class ListApplicationOperationsResponse(TypedDict, closed=True):
     application_operation_info_list: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.application_operation_info_list.ApplicationOperationInfoList"
     ]

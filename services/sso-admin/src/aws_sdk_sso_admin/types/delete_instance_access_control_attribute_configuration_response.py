@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DeleteInstanceAccessControlAttributeConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteInstanceAccessControlAttributeConfigurationResponse(TypedDict):
+class DeleteInstanceAccessControlAttributeConfigurationResponse(TypedDict, closed=True):
     pass
 
 

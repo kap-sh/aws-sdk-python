@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_name
 
 
-class CreateWorkspaceRequest(TypedDict):
+class CreateWorkspaceRequest(TypedDict, closed=True):
     account_access_type: "aws_sdk_grafana.types.account_access_type.AccountAccessType"
     """<p>Specifies whether the workspace can access Amazon Web Services resources in this Amazon Web Services account only, or whether it can also access Amazon Web Services resources in other accounts in the same organization. If you specify <code>ORGANIZATION</code>, you must specify which organizational units the workspace can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>"""
     client_token: NotRequired["aws_sdk_grafana.types.client_token.ClientToken"]

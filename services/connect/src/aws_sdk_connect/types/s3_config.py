@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#S3Config``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.prefix
 
 
-class S3Config(TypedDict):
+class S3Config(TypedDict, closed=True):
     bucket_name: "aws_sdk_connect.types.bucket_name.BucketName"
     """<p>The S3 bucket name.</p>"""
     bucket_prefix: "aws_sdk_connect.types.prefix.Prefix"

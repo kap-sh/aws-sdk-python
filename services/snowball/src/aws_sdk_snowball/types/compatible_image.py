@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CompatibleImage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class CompatibleImage(TypedDict):
+class CompatibleImage(TypedDict, closed=True):
     ami_id: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The unique identifier for an individual Snow device AMI.</p>"""
     name: NotRequired["aws_sdk_snowball.types.string.String"]

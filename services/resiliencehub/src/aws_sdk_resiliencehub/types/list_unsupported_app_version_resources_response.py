@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListUnsupportedAppVersionResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.unsupported_resource_list
 
 
-class ListUnsupportedAppVersionResourcesResponse(TypedDict):
+class ListUnsupportedAppVersionResourcesResponse(TypedDict, closed=True):
     unsupported_resources: (
         "aws_sdk_resiliencehub.types.unsupported_resource_list.UnsupportedResourceList"
     )

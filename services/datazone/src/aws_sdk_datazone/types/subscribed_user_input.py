@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedUserInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_profile_id
 
 
-class SubscribedUserInput(TypedDict):
+class SubscribedUserInput(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_datazone.types.user_profile_id.UserProfileId"]
     """<p>The ID of the subscribed user.</p>"""
 

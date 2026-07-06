@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#OutputDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class OutputDestinationSettings(TypedDict):
+class OutputDestinationSettings(TypedDict, closed=True):
     password_param: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """key used to extract the password from EC2 Parameter store"""
     stream_name: NotRequired["aws_sdk_medialive.types.__string.__string"]

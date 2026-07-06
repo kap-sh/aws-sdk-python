@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#EC2ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class EC2ResourceDetails(TypedDict):
+class EC2ResourceDetails(TypedDict, closed=True):
     hourly_on_demand_rate: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

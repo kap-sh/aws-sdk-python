@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperbandStrategyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyperband_strategy_max_resource
     import aws_sdk_sagemaker.types.hyperband_strategy_min_resource
 
 
-class HyperbandStrategyConfig(TypedDict):
+class HyperbandStrategyConfig(TypedDict, closed=True):
     min_resource: NotRequired[
         "aws_sdk_sagemaker.types.hyperband_strategy_min_resource.HyperbandStrategyMinResource"
     ]

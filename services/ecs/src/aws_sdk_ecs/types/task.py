@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Task``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attachments
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class Task(TypedDict):
+class Task(TypedDict, closed=True):
     attachments: NotRequired["aws_sdk_ecs.types.attachments.Attachments"]
     """<p>The Elastic Network Adapter that's associated with the task if the task uses the <code>awsvpc</code> network mode.</p>"""
     attributes: NotRequired["aws_sdk_ecs.types.attributes.Attributes"]

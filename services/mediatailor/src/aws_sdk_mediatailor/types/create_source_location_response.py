@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#CreateSourceLocationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_segment_delivery_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_configuration
 
 
-class CreateSourceLocationResponse(TypedDict):
+class CreateSourceLocationResponse(TypedDict, closed=True):
     access_configuration: NotRequired[
         "aws_sdk_mediatailor.types.access_configuration.AccessConfiguration"
     ]

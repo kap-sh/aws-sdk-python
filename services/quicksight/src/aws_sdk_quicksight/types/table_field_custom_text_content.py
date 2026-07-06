@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldCustomTextContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class TableFieldCustomTextContent(TypedDict):
+class TableFieldCustomTextContent(TypedDict, closed=True):
     value: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The string value of the custom text content for the table URL link content.</p>"""
     font_configuration: "aws_sdk_quicksight.types.font_configuration.FontConfiguration"

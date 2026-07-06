@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#DeleteGraphSnapshotOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.snapshot_status
 
 
-class DeleteGraphSnapshotOutput(TypedDict):
+class DeleteGraphSnapshotOutput(TypedDict, closed=True):
     id: "aws_sdk_neptune_graph.types.snapshot_id.SnapshotId"
     """<p>The unique identifier of the graph snapshot.</p>"""
     name: "aws_sdk_neptune_graph.types.snapshot_name.SnapshotName"

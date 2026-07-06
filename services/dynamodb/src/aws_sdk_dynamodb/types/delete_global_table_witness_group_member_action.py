@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DeleteGlobalTableWitnessGroupMemberAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.region_name
 
 
-class DeleteGlobalTableWitnessGroupMemberAction(TypedDict):
+class DeleteGlobalTableWitnessGroupMemberAction(TypedDict, closed=True):
     region_name: "aws_sdk_dynamodb.types.region_name.RegionName"
     """<p>The witness Region name to be removed from the MRSC global table.</p>"""
 

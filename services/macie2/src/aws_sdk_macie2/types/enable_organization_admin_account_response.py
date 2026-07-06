@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#EnableOrganizationAdminAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EnableOrganizationAdminAccountResponse(TypedDict):
+class EnableOrganizationAdminAccountResponse(TypedDict, closed=True):
     pass
 
 

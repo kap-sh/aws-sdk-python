@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Alarm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.alarm_name
 
 
-class Alarm(TypedDict):
+class Alarm(TypedDict, closed=True):
     alarm_name: NotRequired["aws_sdk_sagemaker.types.alarm_name.AlarmName"]
     """<p>The name of a CloudWatch alarm in your account.</p>"""
 

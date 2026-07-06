@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowFailureEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_error_code
 
 
-class FlowFailureEvent(TypedDict):
+class FlowFailureEvent(TypedDict, closed=True):
     timestamp: "aws_sdk_bedrock_agent_runtime.types.date_timestamp.DateTimestamp"
     """<p>The timestamp when the failure occurred.</p>"""
     error_code: "aws_sdk_bedrock_agent_runtime.types.flow_error_code.FlowErrorCode"

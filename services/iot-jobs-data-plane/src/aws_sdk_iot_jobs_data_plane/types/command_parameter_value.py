@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#CommandParameterValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.binary_parameter_value
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.unsigned_long_parameter_value
 
 
-class CommandParameterValue(TypedDict):
+class CommandParameterValue(TypedDict, closed=True):
     s: NotRequired[
         "aws_sdk_iot_jobs_data_plane.types.string_parameter_value.StringParameterValue"
     ]

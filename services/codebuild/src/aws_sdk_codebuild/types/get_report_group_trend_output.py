@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#GetReportGroupTrendOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_group_trend_raw_data_list
     import aws_sdk_codebuild.types.report_group_trend_stats
 
 
-class GetReportGroupTrendOutput(TypedDict):
+class GetReportGroupTrendOutput(TypedDict, closed=True):
     stats: NotRequired[
         "aws_sdk_codebuild.types.report_group_trend_stats.ReportGroupTrendStats"
     ]

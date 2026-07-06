@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#GetCognitoEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.events
 
 
-class GetCognitoEventsResponse(TypedDict):
+class GetCognitoEventsResponse(TypedDict, closed=True):
     events: NotRequired["aws_sdk_cognito_sync.types.events.Events"]
     """<p>The Cognito Events returned from the GetCognitoEvents request</p>"""
 

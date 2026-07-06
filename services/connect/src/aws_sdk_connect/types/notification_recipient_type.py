@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NotificationRecipientType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.user_id_list
     import aws_sdk_connect.types.user_tag_map
 
 
-class NotificationRecipientType(TypedDict):
+class NotificationRecipientType(TypedDict, closed=True):
     user_tags: NotRequired["aws_sdk_connect.types.user_tag_map.UserTagMap"]
     r"""<p>The tags used to organize, track, or control access for this resource. For example, { \"Tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }. Connect Customer users with the specified tags will be notified.</p>"""
     user_ids: NotRequired["aws_sdk_connect.types.user_id_list.UserIdList"]

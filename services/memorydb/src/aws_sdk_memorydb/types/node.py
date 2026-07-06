@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Node``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.endpoint
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.t_stamp
 
 
-class Node(TypedDict):
+class Node(TypedDict, closed=True):
     name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The node identifier. A node name is a numeric identifier (0001, 0002, etc.). The combination of cluster name, shard name and node name uniquely identifies every node used in a customer's Amazon account.</p>"""
     status: NotRequired["aws_sdk_memorydb.types.string.String"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_maps.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the resource.</p>"""
     message: "str"

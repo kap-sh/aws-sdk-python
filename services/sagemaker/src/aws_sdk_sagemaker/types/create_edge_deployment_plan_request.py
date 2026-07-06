@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateEdgeDeploymentPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.deployment_stages
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateEdgeDeploymentPlanRequest(TypedDict):
+class CreateEdgeDeploymentPlanRequest(TypedDict, closed=True):
     edge_deployment_plan_name: NotRequired[
         "aws_sdk_sagemaker.types.entity_name.EntityName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ParticipatingServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_actions_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_server_id
 
 
-class ParticipatingServer(TypedDict):
+class ParticipatingServer(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_drs.types.source_server_id.SourceServerID"]
     """<p>The Source Server ID of a participating server.</p>"""
     recovery_instance_id: NotRequired[

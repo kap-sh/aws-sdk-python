@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AccountDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.account_id
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AccountDetails(TypedDict):
+class AccountDetails(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_securityhub.types.account_id.AccountId"]
     """<p>The ID of an Amazon Web Services account.</p>"""
     email: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

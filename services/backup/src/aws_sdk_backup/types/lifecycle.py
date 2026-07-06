@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#Lifecycle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.long
 
 
-class Lifecycle(TypedDict):
+class Lifecycle(TypedDict, closed=True):
     move_to_cold_storage_after_days: NotRequired["aws_sdk_backup.types.long.Long"]
     """<p>The number of days after creation that a recovery point is moved to cold storage.</p>"""
     delete_after_days: NotRequired["aws_sdk_backup.types.long.Long"]

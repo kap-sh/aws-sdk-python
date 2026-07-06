@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelGremlinQueryInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelGremlinQueryInput(TypedDict):
+class CancelGremlinQueryInput(TypedDict, closed=True):
     query_id: "str"
     """<p>The unique identifier that identifies the query to be canceled.</p>"""
 

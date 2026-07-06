@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#JobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.aspect_ratio
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.time_span
 
 
-class JobInput(TypedDict):
+class JobInput(TypedDict, closed=True):
     key: NotRequired["aws_sdk_elastic_transcoder.types.long_key.LongKey"]
     """<p> The name of the file to transcode. Elsewhere in the body of the JSON block is the the ID of the pipeline to use for processing the job. The <code>InputBucket</code> object in that pipeline tells Elastic Transcoder which Amazon S3 bucket to get the file from. </p> <p>If the file name includes a prefix, such as <code>cooking/lasagna.mpg</code>, include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.</p>"""
     frame_rate: NotRequired["aws_sdk_elastic_transcoder.types.frame_rate.FrameRate"]

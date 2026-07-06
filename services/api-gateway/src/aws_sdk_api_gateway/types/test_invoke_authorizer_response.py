@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#TestInvokeAuthorizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class TestInvokeAuthorizerResponse(TypedDict):
+class TestInvokeAuthorizerResponse(TypedDict, closed=True):
     client_status: "aws_sdk_api_gateway.types.integer.Integer"
     """<p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>"""
     log: NotRequired["aws_sdk_api_gateway.types.string.String"]

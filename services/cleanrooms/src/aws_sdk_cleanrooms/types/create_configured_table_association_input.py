@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CreateConfiguredTableAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.tag_map
 
 
-class CreateConfiguredTableAssociationInput(TypedDict):
+class CreateConfiguredTableAssociationInput(TypedDict, closed=True):
     name: "aws_sdk_cleanrooms.types.table_alias.TableAlias"
     """<p>The name of the configured table association. This name is used to query the underlying configured table.</p>"""
     description: NotRequired[

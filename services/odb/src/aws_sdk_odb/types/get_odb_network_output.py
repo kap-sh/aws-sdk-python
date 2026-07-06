@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetOdbNetworkOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.odb_network
 
 
-class GetOdbNetworkOutput(TypedDict):
+class GetOdbNetworkOutput(TypedDict, closed=True):
     odb_network: NotRequired["aws_sdk_odb.types.odb_network.OdbNetwork"]
     """<p>The ODB network.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#EnvironmentFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class EnvironmentFile(TypedDict):
+class EnvironmentFile(TypedDict, closed=True):
     value: "aws_sdk_ecs.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the Amazon S3 object containing the environment variable file.</p>"""
     type: "aws_sdk_ecs.types.environment_file_type.EnvironmentFileType"

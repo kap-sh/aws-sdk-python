@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RoutingCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.index
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class RoutingCriteria(TypedDict):
+class RoutingCriteria(TypedDict, closed=True):
     steps: NotRequired["aws_sdk_connect.types.steps.Steps"]
     """<p>List of routing steps. When Connect Customer does not find an available agent meeting the requirements in a step for a given step duration, the routing criteria will move on to the next step sequentially until a join is completed with an agent. When all steps are exhausted, the contact will be offered to any agent in the queue.</p>"""
     activation_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

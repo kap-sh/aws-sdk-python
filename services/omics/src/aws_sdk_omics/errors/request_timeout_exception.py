@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RequestTimeoutException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, ServiceError
 
 
-class RequestTimeoutException_(TypedDict):
+class RequestTimeoutException_(TypedDict, closed=True):
     message: "str"
 
 

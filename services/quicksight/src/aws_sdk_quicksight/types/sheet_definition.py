@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_list
 
 
-class SheetDefinition(TypedDict):
+class SheetDefinition(TypedDict, closed=True):
     sheet_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The unique identifier of a sheet.</p>"""
     title: NotRequired["aws_sdk_quicksight.types.sheet_title.SheetTitle"]

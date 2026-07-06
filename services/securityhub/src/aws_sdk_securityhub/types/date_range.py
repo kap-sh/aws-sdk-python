@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DateRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.date_range_comparison
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class DateRange(TypedDict):
+class DateRange(TypedDict, closed=True):
     value: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>A date range value for the date filter.</p>"""
     unit: NotRequired["aws_sdk_securityhub.types.date_range_unit.DateRangeUnit"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetTriggersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.trigger_list
     import aws_sdk_glue.types.trigger_name_list
 
 
-class BatchGetTriggersResponse(TypedDict):
+class BatchGetTriggersResponse(TypedDict, closed=True):
     triggers: NotRequired["aws_sdk_glue.types.trigger_list.TriggerList"]
     """<p>A list of trigger definitions.</p>"""
     triggers_not_found: NotRequired[

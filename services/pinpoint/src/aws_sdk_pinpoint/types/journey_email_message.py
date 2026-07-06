@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyEmailMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class JourneyEmailMessage(TypedDict):
+class JourneyEmailMessage(TypedDict, closed=True):
     from_address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The verified email address to send the email message from. The default address is the FromAddress specified for the email channel for the application.</p>"""
 

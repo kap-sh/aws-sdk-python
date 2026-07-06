@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#BucketLevelPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.access_control_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.bucket_policy
 
 
-class BucketLevelPermissions(TypedDict):
+class BucketLevelPermissions(TypedDict, closed=True):
     access_control_list: NotRequired[
         "aws_sdk_guardduty.types.access_control_list.AccessControlList"
     ]

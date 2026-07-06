@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxNAS1Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_nas1_size
     import aws_sdk_finspace.types.kx_nas1_type
 
 
-class KxNAS1Configuration(TypedDict):
+class KxNAS1Configuration(TypedDict, closed=True):
     type: NotRequired["aws_sdk_finspace.types.kx_nas1_type.KxNAS1Type"]
     """<p> The type of the network attached storage. </p>"""
     size: NotRequired["aws_sdk_finspace.types.kx_nas1_size.KxNAS1Size"]

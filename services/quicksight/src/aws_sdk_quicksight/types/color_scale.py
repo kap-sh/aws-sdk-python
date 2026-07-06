@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColorScale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_color
 
 
-class ColorScale(TypedDict):
+class ColorScale(TypedDict, closed=True):
     colors: "aws_sdk_quicksight.types.color_scale_color_list.ColorScaleColorList"
     """<p>Determines the list of colors that are applied to the visual.</p>"""
     color_fill_type: "aws_sdk_quicksight.types.color_fill_type.ColorFillType"

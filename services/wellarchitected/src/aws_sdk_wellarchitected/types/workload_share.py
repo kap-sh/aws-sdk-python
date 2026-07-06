@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#WorkloadShare``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.aws_account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name
 
 
-class WorkloadShare(TypedDict):
+class WorkloadShare(TypedDict, closed=True):
     share_id: NotRequired["aws_sdk_wellarchitected.types.share_id.ShareId"]
     shared_by: NotRequired["aws_sdk_wellarchitected.types.aws_account_id.AwsAccountId"]
     shared_with: NotRequired["aws_sdk_wellarchitected.types.shared_with.SharedWith"]

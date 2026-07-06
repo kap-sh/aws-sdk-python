@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#AddHeaderAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.header_value
 
 
-class AddHeaderAction(TypedDict):
+class AddHeaderAction(TypedDict, closed=True):
     header_name: "aws_sdk_mailmanager.types.header_name.HeaderName"
     r"""<p>The name of the header to add to an email. The header must be prefixed with \"X-\". Headers are added regardless of whether the header name pre-existed in the email.</p>"""
     header_value: "aws_sdk_mailmanager.types.header_value.HeaderValue"

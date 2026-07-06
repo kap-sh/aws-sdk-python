@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetServiceInstanceSyncStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_sync_attempt
     import aws_sdk_proton.types.revision
 
 
-class GetServiceInstanceSyncStatusOutput(TypedDict):
+class GetServiceInstanceSyncStatusOutput(TypedDict, closed=True):
     latest_sync: NotRequired[
         "aws_sdk_proton.types.resource_sync_attempt.ResourceSyncAttempt"
     ]

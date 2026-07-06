@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#CategoryDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.points_of_interest
 
 
-class CategoryDetails(TypedDict):
+class CategoryDetails(TypedDict, closed=True):
     points_of_interest: NotRequired[
         "aws_sdk_connect_contact_lens.types.points_of_interest.PointsOfInterest"
     ]

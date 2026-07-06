@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#GetAccountPreferencesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountPreferencesRequest(TypedDict):
+class GetAccountPreferencesRequest(TypedDict, closed=True):
     pass
 
 

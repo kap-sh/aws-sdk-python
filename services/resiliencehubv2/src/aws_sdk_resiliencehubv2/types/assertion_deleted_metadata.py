@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#AssertionDeletedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AssertionDeletedMetadata(TypedDict):
+class AssertionDeletedMetadata(TypedDict, closed=True):
     assertion_id: NotRequired["str"]
     """<p>The unique identifier of the deleted assertion.</p>"""
     assertion_name: NotRequired["str"]

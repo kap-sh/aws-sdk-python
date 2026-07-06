@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SendDurableExecutionCallbackFailureRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.callback_id
     import aws_sdk_lambda.types.error_object
 
 
-class SendDurableExecutionCallbackFailureRequest(TypedDict):
+class SendDurableExecutionCallbackFailureRequest(TypedDict, closed=True):
     callback_id: "aws_sdk_lambda.types.callback_id.CallbackId"
     """<p>The unique identifier for the callback operation.</p>"""
     error: NotRequired["aws_sdk_lambda.types.error_object.ErrorObject"]

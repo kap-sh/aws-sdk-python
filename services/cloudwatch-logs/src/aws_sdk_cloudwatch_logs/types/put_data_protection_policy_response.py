@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutDataProtectionPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data_protection_policy_document
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class PutDataProtectionPolicyResponse(TypedDict):
+class PutDataProtectionPolicyResponse(TypedDict, closed=True):
     log_group_identifier: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_identifier.LogGroupIdentifier"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UserAttributeUpdateSettingsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.attributes_require_verification_before_update_type
 
 
-class UserAttributeUpdateSettingsType(TypedDict):
+class UserAttributeUpdateSettingsType(TypedDict, closed=True):
     attributes_require_verification_before_update: NotRequired[
         "aws_sdk_cognito_identity_provider.types.attributes_require_verification_before_update_type.AttributesRequireVerificationBeforeUpdateType"
     ]

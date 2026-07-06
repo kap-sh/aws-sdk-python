@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#S3DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.bucket_name
 
 
-class S3DestinationConfiguration(TypedDict):
+class S3DestinationConfiguration(TypedDict, closed=True):
     bucket_name: "aws_sdk_ivschat.types.bucket_name.BucketName"
     """<p>Name of the Amazon S3 bucket where chat activity will be logged.</p>"""
 

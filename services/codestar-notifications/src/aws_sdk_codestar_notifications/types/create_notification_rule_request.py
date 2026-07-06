@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#CreateNotificationRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_notifications.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.targets
 
 
-class CreateNotificationRuleRequest(TypedDict):
+class CreateNotificationRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_codestar_notifications.types.notification_rule_name.NotificationRuleName"
     """<p>The name for the notification rule. Notification rule names must be unique in your Amazon Web Services account.</p>"""
     event_type_ids: "aws_sdk_codestar_notifications.types.event_type_ids.EventTypeIds"

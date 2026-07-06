@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#NewGeolocationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.ip_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.location
 
 
-class NewGeolocationDetail(TypedDict):
+class NewGeolocationDetail(TypedDict, closed=True):
     location: NotRequired["aws_sdk_detective.types.location.Location"]
     """<p>Location where the resource was accessed.</p>"""
     ip_address: NotRequired["aws_sdk_detective.types.ip_address.IpAddress"]

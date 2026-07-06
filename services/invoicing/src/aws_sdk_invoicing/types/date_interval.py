@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#DateInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class DateInterval(TypedDict):
+class DateInterval(TypedDict, closed=True):
     start_date: "datetime.datetime"
     """<p> The beginning of the time period that you want invoice-related documents for. The start date is inclusive. For example, if <code>start</code> is <code>2019-01-01</code>, AWS retrieves invoices starting at <code>2019-01-01</code> up to the end date. </p>"""
     end_date: "datetime.datetime"

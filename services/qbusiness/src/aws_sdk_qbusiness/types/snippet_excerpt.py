@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#SnippetExcerpt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.snippet_excerpt_text
 
 
-class SnippetExcerpt(TypedDict):
+class SnippetExcerpt(TypedDict, closed=True):
     text: NotRequired["aws_sdk_qbusiness.types.snippet_excerpt_text.SnippetExcerptText"]
     """<p>The relevant text excerpt from a source that was used to generate a citation text segment in an Amazon Q chat response.</p>"""
 

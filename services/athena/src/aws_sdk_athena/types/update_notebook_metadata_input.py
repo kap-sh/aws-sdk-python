@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateNotebookMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.notebook_name
 
 
-class UpdateNotebookMetadataInput(TypedDict):
+class UpdateNotebookMetadataInput(TypedDict, closed=True):
     notebook_id: "aws_sdk_athena.types.notebook_id.NotebookId"
     """<p>The ID of the notebook to update the metadata for.</p>"""
     client_request_token: NotRequired[

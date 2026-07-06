@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableBucketStorageClassResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.storage_class_configuration
 
 
-class GetTableBucketStorageClassResponse(TypedDict):
+class GetTableBucketStorageClassResponse(TypedDict, closed=True):
     storage_class_configuration: (
         "aws_sdk_s3tables.types.storage_class_configuration.StorageClassConfiguration"
     )

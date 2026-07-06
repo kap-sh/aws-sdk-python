@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#RecognizeTextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.interpretations
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.string_map
 
 
-class RecognizeTextResponse(TypedDict):
+class RecognizeTextResponse(TypedDict, closed=True):
     messages: NotRequired["aws_sdk_lex_runtime_v2.types.messages.Messages"]
     """<p>A list of messages last sent to the user. The messages are ordered based on the order that you returned the messages from your Lambda function or the order that the messages are defined in the bot.</p>"""
     session_state: NotRequired[

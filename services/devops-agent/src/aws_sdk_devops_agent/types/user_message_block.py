@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#UserMessageBlock``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
 
-class _UserMessageBlock_text(TypedDict):
+class _UserMessageBlock_text(TypedDict, closed=True):
     text: "str"
 
 
-class _UserMessageBlock_toolResult(TypedDict):
+class _UserMessageBlock_toolResult(TypedDict, closed=True):
     toolResult: "object"
 
 

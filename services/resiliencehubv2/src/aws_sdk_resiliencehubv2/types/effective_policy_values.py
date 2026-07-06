@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#EffectivePolicyValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.disaster_recovery_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.target_source
 
 
-class EffectivePolicyValues(TypedDict):
+class EffectivePolicyValues(TypedDict, closed=True):
     availability_slo: NotRequired["aws_sdk_resiliencehubv2.types.slo_source.SloSource"]
     """<p>The effective availability SLO value for the service.</p>"""
     multi_az_rto: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CancelMLTaskRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
     import aws_sdk_glue.types.task_status_type
 
 
-class CancelMLTaskRunResponse(TypedDict):
+class CancelMLTaskRunResponse(TypedDict, closed=True):
     transform_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique identifier of the machine learning transform.</p>"""
     task_run_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

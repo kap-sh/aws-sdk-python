@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListContactChannelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn
 
 
-class ListContactChannelsRequest(TypedDict):
+class ListContactChannelsRequest(TypedDict, closed=True):
     contact_id: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     """<p>The Amazon Resource Name (ARN) of the contact.</p>"""
     next_token: NotRequired[

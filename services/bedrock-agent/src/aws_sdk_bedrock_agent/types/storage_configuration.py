@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#StorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.s3_vectors_configuration
 
 
-class StorageConfiguration(TypedDict):
+class StorageConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.knowledge_base_storage_type.KnowledgeBaseStorageType"
     """<p>The vector store service in which the knowledge base is stored.</p>"""
     opensearch_serverless_configuration: NotRequired[

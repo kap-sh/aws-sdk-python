@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TopicRulePayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.sql
 
 
-class TopicRulePayload(TypedDict):
+class TopicRulePayload(TypedDict, closed=True):
     sql: "aws_sdk_iot.types.sql.SQL"
     r"""<p>The SQL statement used to query the topic. For more information, see <a href=\"https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html\">IoT SQL Reference</a> in the <i>IoT Developer Guide</i>.</p>"""
     description: NotRequired["aws_sdk_iot.types.description.Description"]

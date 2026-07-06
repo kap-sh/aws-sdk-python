@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#UsageBasedRateCardItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.rate_card_list
 
 
-class UsageBasedRateCardItem(TypedDict):
+class UsageBasedRateCardItem(TypedDict, closed=True):
     rate_card: "aws_sdk_marketplace_discovery.types.rate_card_list.RateCardList"
     """<p>The per-unit rates for this usage-based rate card.</p>"""
 

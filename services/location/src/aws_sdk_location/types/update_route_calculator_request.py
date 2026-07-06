@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdateRouteCalculatorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.pricing_plan
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class UpdateRouteCalculatorRequest(TypedDict):
+class UpdateRouteCalculatorRequest(TypedDict, closed=True):
     calculator_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the route calculator resource to update.</p>"""
     pricing_plan: NotRequired["aws_sdk_location.types.pricing_plan.PricingPlan"]

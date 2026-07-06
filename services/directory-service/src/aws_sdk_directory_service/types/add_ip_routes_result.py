@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AddIpRoutesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddIpRoutesResult(TypedDict):
+class AddIpRoutesResult(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutDeliveryDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tags
 
 
-class PutDeliveryDestinationRequest(TypedDict):
+class PutDeliveryDestinationRequest(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_logs.types.delivery_destination_name.DeliveryDestinationName"
     """<p>A name for this delivery destination. This name must be unique for all delivery destinations in your account.</p>"""
     output_format: NotRequired[

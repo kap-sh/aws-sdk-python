@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CitationSourceContent``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
 
-class _CitationSourceContent_text(TypedDict):
+class _CitationSourceContent_text(TypedDict, closed=True):
     text: "str"
 
 

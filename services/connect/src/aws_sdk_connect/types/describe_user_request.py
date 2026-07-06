@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
     import aws_sdk_connect.types.user_id
 
 
-class DescribeUserRequest(TypedDict):
+class DescribeUserRequest(TypedDict, closed=True):
     user_id: "aws_sdk_connect.types.user_id.UserId"
     """<p>The identifier of the user account.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetFleetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_names
 
 
-class BatchGetFleetsInput(TypedDict):
+class BatchGetFleetsInput(TypedDict, closed=True):
     names: "aws_sdk_codebuild.types.fleet_names.FleetNames"
     """<p>The names or ARNs of the compute fleets.</p>"""
 

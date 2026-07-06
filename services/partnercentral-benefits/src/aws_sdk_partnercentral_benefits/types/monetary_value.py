@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#MonetaryValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.currency_code
 
 
-class MonetaryValue(TypedDict):
+class MonetaryValue(TypedDict, closed=True):
     amount: "str"
     """<p>The numeric amount of the monetary value.</p>"""
     currency_code: "aws_sdk_partnercentral_benefits.types.currency_code.CurrencyCode"

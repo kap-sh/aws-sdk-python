@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#GetOperationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.operation_id
 
 
-class GetOperationInput(TypedDict):
+class GetOperationInput(TypedDict, closed=True):
     operation_id: "aws_sdk_ssm_sap.types.operation_id.OperationId"
     """<p>The ID of the operation.</p>"""
 

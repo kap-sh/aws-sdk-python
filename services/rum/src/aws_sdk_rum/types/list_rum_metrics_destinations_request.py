@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rum#ListRumMetricsDestinationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_name
     import aws_sdk_rum.types.max_results_integer
 
 
-class ListRumMetricsDestinationsRequest(TypedDict):
+class ListRumMetricsDestinationsRequest(TypedDict, closed=True):
     app_monitor_name: "aws_sdk_rum.types.app_monitor_name.AppMonitorName"
     """<p>The name of the app monitor associated with the destinations that you want to retrieve.</p>"""
     max_results: NotRequired["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"]

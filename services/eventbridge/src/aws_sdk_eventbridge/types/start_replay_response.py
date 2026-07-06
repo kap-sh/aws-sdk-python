@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#StartReplayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.replay_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.timestamp
 
 
-class StartReplayResponse(TypedDict):
+class StartReplayResponse(TypedDict, closed=True):
     replay_arn: NotRequired["aws_sdk_eventbridge.types.replay_arn.ReplayArn"]
     """<p>The ARN of the replay.</p>"""
     state: NotRequired["aws_sdk_eventbridge.types.replay_state.ReplayState"]

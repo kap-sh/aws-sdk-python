@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#LambdaFunctionMemoryRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.lambda_function_memory_projected_metrics
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class LambdaFunctionMemoryRecommendationOption(TypedDict):
+class LambdaFunctionMemoryRecommendationOption(TypedDict, closed=True):
     rank: "aws_sdk_compute_optimizer.types.rank.Rank"
     """<p>The rank of the function recommendation option.</p> <p>The top recommendation option is ranked as <code>1</code>.</p>"""
     memory_size: "aws_sdk_compute_optimizer.types.memory_size.MemorySize"

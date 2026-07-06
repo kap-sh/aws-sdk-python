@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#CreateClusterV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__map_of__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.serverless_request
 
 
-class CreateClusterV2Request(TypedDict):
+class CreateClusterV2Request(TypedDict, closed=True):
     cluster_name: NotRequired[
         "aws_sdk_kafka.types.__string_min1_max64.__stringMin1Max64"
     ]

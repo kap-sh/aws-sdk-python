@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotTableConditionalFormatting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_conditional_formatting_option_list
 
 
-class PivotTableConditionalFormatting(TypedDict):
+class PivotTableConditionalFormatting(TypedDict, closed=True):
     conditional_formatting_options: NotRequired[
         "aws_sdk_quicksight.types.pivot_table_conditional_formatting_option_list.PivotTableConditionalFormattingOptionList"
     ]

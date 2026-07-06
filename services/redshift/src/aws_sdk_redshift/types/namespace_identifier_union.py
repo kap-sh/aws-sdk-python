@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#NamespaceIdentifierUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 from aws_sdk_redshift.errors import DeserializationError, SerializationError
@@ -10,13 +12,13 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.serverless_identifier
 
 
-class _NamespaceIdentifierUnion_ServerlessIdentifier(TypedDict):
+class _NamespaceIdentifierUnion_ServerlessIdentifier(TypedDict, closed=True):
     ServerlessIdentifier: (
         "aws_sdk_redshift.types.serverless_identifier.ServerlessIdentifier"
     )
 
 
-class _NamespaceIdentifierUnion_ProvisionedIdentifier(TypedDict):
+class _NamespaceIdentifierUnion_ProvisionedIdentifier(TypedDict, closed=True):
     ProvisionedIdentifier: (
         "aws_sdk_redshift.types.provisioned_identifier.ProvisionedIdentifier"
     )

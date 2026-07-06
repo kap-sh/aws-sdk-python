@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.location#LegGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.line_string
 
 
-class LegGeometry(TypedDict):
+class LegGeometry(TypedDict, closed=True):
     line_string: NotRequired["aws_sdk_location.types.line_string.LineString"]
     """<p>An ordered list of positions used to plot a route on a map. </p> <p>The first position is closest to the start position for the leg, and the last position is the closest to the end position for the leg.</p> <ul> <li> <p>For example, <code>[[-123.117, 49.284],[-123.115, 49.285],[-123.115, 49.285]]</code> </p> </li> </ul>"""
 

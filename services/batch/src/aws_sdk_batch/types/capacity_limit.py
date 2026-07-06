@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CapacityLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class CapacityLimit(TypedDict):
+class CapacityLimit(TypedDict, closed=True):
     max_capacity: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The maximum capacity available for the service environment. For a quota management enabled service environment, this value represents the maximum quantity of a particular resource type (specified by <code>capacityUnit</code>) that can be allocated to service jobs. For other service environments, this value represents the maximum quantity of all resources that can be allocated to service jobs.</p> <p>For example, if <code>maxCapacity=50</code> and <code>capacityUnit=NUM_INSTANCES</code>, you can run up to 50 instances concurrently. If you run 5 SageMaker Training jobs that each use 10 instances, a subsequent job requiring 10 instances waits in the queue until capacity is available. In a quota management enabled service environment with <code>capacityUnit=ml.m5.large</code>, only <code>ml.m5.large</code> instances count against this limit, and jobs requiring other instance types wait until a matching capacity limit is configured.</p>"""
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]

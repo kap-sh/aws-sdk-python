@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutEmailIdentityMailFromAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.behavior_on_mx_failure
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.mail_from_domain_name
 
 
-class PutEmailIdentityMailFromAttributesRequest(TypedDict):
+class PutEmailIdentityMailFromAttributesRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_pinpoint_email.types.identity.Identity"
     """<p>The verified email identity that you want to set up the custom MAIL FROM domain for.</p>"""
     mail_from_domain: NotRequired[

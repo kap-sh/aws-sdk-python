@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchArrayProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_array_size
 
 
-class BatchArrayProperties(TypedDict):
+class BatchArrayProperties(TypedDict, closed=True):
     size: NotRequired["aws_sdk_pipes.types.batch_array_size.BatchArraySize"]
     """<p>The size of the array, if this is an array batch job.</p>"""
 

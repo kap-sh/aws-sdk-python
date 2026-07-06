@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CategoricalScaleDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class CategoricalScaleDefinition(TypedDict):
+class CategoricalScaleDefinition(TypedDict, closed=True):
     definition: "str"
     """<p> The description that explains what this categorical rating represents and when it should be used. </p>"""
     label: "str"

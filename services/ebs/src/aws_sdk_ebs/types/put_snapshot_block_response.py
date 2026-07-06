@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#PutSnapshotBlockResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.checksum
     import aws_sdk_ebs.types.checksum_algorithm
 
 
-class PutSnapshotBlockResponse(TypedDict):
+class PutSnapshotBlockResponse(TypedDict, closed=True):
     checksum: NotRequired["aws_sdk_ebs.types.checksum.Checksum"]
     """<p>The SHA256 checksum generated for the block data by Amazon EBS.</p>"""
     checksum_algorithm: NotRequired[

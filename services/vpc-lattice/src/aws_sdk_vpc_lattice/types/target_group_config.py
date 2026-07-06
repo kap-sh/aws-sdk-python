@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#TargetGroupConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.health_check_config
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.vpc_id
 
 
-class TargetGroupConfig(TypedDict):
+class TargetGroupConfig(TypedDict, closed=True):
     port: NotRequired["aws_sdk_vpc_lattice.types.port.Port"]
     """<p>The port on which the targets are listening. For HTTP, the default is 80. For HTTPS, the default is 443. Not supported if the target group type is <code>LAMBDA</code>.</p>"""
     protocol: NotRequired[

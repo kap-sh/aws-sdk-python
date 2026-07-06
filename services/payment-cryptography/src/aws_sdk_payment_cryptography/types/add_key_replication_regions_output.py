@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#AddKeyReplicationRegionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key
 
 
-class AddKeyReplicationRegionsOutput(TypedDict):
+class AddKeyReplicationRegionsOutput(TypedDict, closed=True):
     key: "aws_sdk_payment_cryptography.types.key.Key"
     """<p>The updated key metadata after adding the replication regions.</p> <p>This includes the current state of the key and its replication configuration.</p>"""
 

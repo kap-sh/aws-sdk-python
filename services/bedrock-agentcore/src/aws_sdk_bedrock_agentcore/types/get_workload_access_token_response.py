@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetWorkloadAccessTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.workload_identity_token_type
 
 
-class GetWorkloadAccessTokenResponse(TypedDict):
+class GetWorkloadAccessTokenResponse(TypedDict, closed=True):
     workload_access_token: "aws_sdk_bedrock_agentcore.types.workload_identity_token_type.WorkloadIdentityTokenType"
     """<p>An opaque token representing the identity of both the workload and the user.</p>"""
 

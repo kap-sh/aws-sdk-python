@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#HealthCheckConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.health_check_healthy_threshold
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.health_check_unhealthy_threshold
 
 
-class HealthCheckConfiguration(TypedDict):
+class HealthCheckConfiguration(TypedDict, closed=True):
     protocol: NotRequired[
         "aws_sdk_apprunner.types.health_check_protocol.HealthCheckProtocol"
     ]

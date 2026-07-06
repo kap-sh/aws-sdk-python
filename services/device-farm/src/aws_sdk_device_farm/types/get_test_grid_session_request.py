@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetTestGridSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_farm_arn
     import aws_sdk_device_farm.types.resource_id
 
 
-class GetTestGridSessionRequest(TypedDict):
+class GetTestGridSessionRequest(TypedDict, closed=True):
     project_arn: NotRequired["aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"]
     """<p>The ARN for the project that this session belongs to. See <a>CreateTestGridProject</a> and <a>ListTestGridProjects</a>.</p>"""
     session_id: NotRequired["aws_sdk_device_farm.types.resource_id.ResourceId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UpdateAccountSettingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.account_settings
 
 
-class UpdateAccountSettingsOutput(TypedDict):
+class UpdateAccountSettingsOutput(TypedDict, closed=True):
     account_settings: NotRequired[
         "aws_sdk_resource_groups.types.account_settings.AccountSettings"
     ]

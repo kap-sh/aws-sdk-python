@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DescribeResourcePermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.page_marker_type
     import aws_sdk_workdocs.types.principal_list
 
 
-class DescribeResourcePermissionsResponse(TypedDict):
+class DescribeResourcePermissionsResponse(TypedDict, closed=True):
     principals: NotRequired["aws_sdk_workdocs.types.principal_list.PrincipalList"]
     """<p>The principals.</p>"""
     marker: NotRequired["aws_sdk_workdocs.types.page_marker_type.PageMarkerType"]

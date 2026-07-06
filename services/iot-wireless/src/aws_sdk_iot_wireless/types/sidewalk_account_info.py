@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkAccountInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.amazon_id
     import aws_sdk_iot_wireless.types.app_server_private_key
 
 
-class SidewalkAccountInfo(TypedDict):
+class SidewalkAccountInfo(TypedDict, closed=True):
     amazon_id: NotRequired["aws_sdk_iot_wireless.types.amazon_id.AmazonId"]
     """<p>The Sidewalk Amazon ID.</p>"""
     app_server_private_key: NotRequired[

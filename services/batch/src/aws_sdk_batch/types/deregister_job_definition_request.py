@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeregisterJobDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class DeregisterJobDefinitionRequest(TypedDict):
+class DeregisterJobDefinitionRequest(TypedDict, closed=True):
     job_definition: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name and revision (<code>name:revision</code>) or full Amazon Resource Name (ARN) of the job definition to deregister.</p>"""
 

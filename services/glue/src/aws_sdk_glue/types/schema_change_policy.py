@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SchemaChangePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.delete_behavior
     import aws_sdk_glue.types.update_behavior
 
 
-class SchemaChangePolicy(TypedDict):
+class SchemaChangePolicy(TypedDict, closed=True):
     update_behavior: NotRequired["aws_sdk_glue.types.update_behavior.UpdateBehavior"]
     """<p>The update behavior when the crawler finds a changed schema.</p>"""
     delete_behavior: NotRequired["aws_sdk_glue.types.delete_behavior.DeleteBehavior"]

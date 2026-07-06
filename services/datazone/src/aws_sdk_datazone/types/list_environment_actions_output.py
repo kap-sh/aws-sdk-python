@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListEnvironmentActionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.list_environment_action_summaries
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListEnvironmentActionsOutput(TypedDict):
+class ListEnvironmentActionsOutput(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_datazone.types.list_environment_action_summaries.ListEnvironmentActionSummaries"
     ]

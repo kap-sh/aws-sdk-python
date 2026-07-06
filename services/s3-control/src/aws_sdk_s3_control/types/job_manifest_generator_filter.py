@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#JobManifestGeneratorFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_class_list
 
 
-class JobManifestGeneratorFilter(TypedDict):
+class JobManifestGeneratorFilter(TypedDict, closed=True):
     eligible_for_replication: NotRequired["aws_sdk_s3_control.types.boolean.Boolean"]
     """<p>Include objects in the generated manifest only if they are eligible for replication according to the Replication configuration on the source bucket.</p>"""
     created_after: NotRequired[

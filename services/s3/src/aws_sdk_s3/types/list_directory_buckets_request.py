@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListDirectoryBucketsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.max_directory_buckets
 
 
-class ListDirectoryBucketsRequest(TypedDict):
+class ListDirectoryBucketsRequest(TypedDict, closed=True):
     continuation_token: NotRequired[
         "aws_sdk_s3.types.directory_bucket_token.DirectoryBucketToken"
     ]

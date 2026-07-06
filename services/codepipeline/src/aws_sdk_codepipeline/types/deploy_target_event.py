@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#DeployTargetEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.deploy_target_event_context
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class DeployTargetEvent(TypedDict):
+class DeployTargetEvent(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.string.String"]
     """<p>The name of the event for the deploy action.</p>"""
     status: NotRequired["aws_sdk_codepipeline.types.string.String"]

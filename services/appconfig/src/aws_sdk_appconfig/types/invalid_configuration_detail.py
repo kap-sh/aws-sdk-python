@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#InvalidConfigurationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.string
 
 
-class InvalidConfigurationDetail(TypedDict):
+class InvalidConfigurationDetail(TypedDict, closed=True):
     constraint: NotRequired["aws_sdk_appconfig.types.string.String"]
     """<p>The invalid or out-of-range validation constraint in your JSON schema that failed validation.</p>"""
     location: NotRequired["aws_sdk_appconfig.types.string.String"]

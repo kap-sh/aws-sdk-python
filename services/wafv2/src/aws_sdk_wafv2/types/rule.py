@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#Rule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.visibility_config
 
 
-class Rule(TypedDict):
+class Rule(TypedDict, closed=True):
     name: "aws_sdk_wafv2.types.entity_name.EntityName"
     """<p>The name of the rule. </p> <p>If you change the name of a <code>Rule</code> after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's <code>VisibilityConfig</code> settings. WAF doesn't automatically update the metric name when you update the rule name. </p>"""
     priority: "aws_sdk_wafv2.types.rule_priority.RulePriority"

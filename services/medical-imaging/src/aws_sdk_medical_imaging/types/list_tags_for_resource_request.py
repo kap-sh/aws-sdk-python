@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_medical_imaging.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the medical imaging resource to list tags for.</p>"""
 

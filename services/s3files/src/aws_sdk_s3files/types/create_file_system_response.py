@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateFileSystemResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_value
 
 
-class CreateFileSystemResponse(TypedDict):
+class CreateFileSystemResponse(TypedDict, closed=True):
     creation_time: NotRequired["datetime.datetime"]
     """<p>The time when the file system was created, in seconds since 1970-01-01T00:00:00Z (Unix epoch time).</p>"""
     file_system_arn: NotRequired["aws_sdk_s3files.types.file_system_arn.FileSystemArn"]

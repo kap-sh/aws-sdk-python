@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceSnapshotInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.disk_info_list
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class InstanceSnapshotInfo(TypedDict):
+class InstanceSnapshotInfo(TypedDict, closed=True):
     from_bundle_id: NotRequired[
         "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"
     ]

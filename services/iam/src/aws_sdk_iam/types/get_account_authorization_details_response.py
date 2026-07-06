@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetAccountAuthorizationDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_detail_list_type
 
 
-class GetAccountAuthorizationDetailsResponse(TypedDict):
+class GetAccountAuthorizationDetailsResponse(TypedDict, closed=True):
     user_detail_list: NotRequired[
         "aws_sdk_iam.types.user_detail_list_type.userDetailListType"
     ]

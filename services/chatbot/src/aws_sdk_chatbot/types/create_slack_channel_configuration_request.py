@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#CreateSlackChannelConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.tags
 
 
-class CreateSlackChannelConfigurationRequest(TypedDict):
+class CreateSlackChannelConfigurationRequest(TypedDict, closed=True):
     slack_team_id: "aws_sdk_chatbot.types.slack_team_id.SlackTeamId"
     """<p>The ID of the Slack workspace authorized with AWS Chatbot.</p>"""
     slack_channel_id: "aws_sdk_chatbot.types.slack_channel_id.SlackChannelId"

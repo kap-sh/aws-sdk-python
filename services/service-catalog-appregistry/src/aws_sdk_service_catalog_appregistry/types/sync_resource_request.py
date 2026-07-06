@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#SyncResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.resource_specifier
     import aws_sdk_service_catalog_appregistry.types.resource_type
 
 
-class SyncResourceRequest(TypedDict):
+class SyncResourceRequest(TypedDict, closed=True):
     resource_type: (
         "aws_sdk_service_catalog_appregistry.types.resource_type.ResourceType"
     )

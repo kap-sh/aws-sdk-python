@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#OrganizationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.account_status_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.slr_deployment_status
 
 
-class OrganizationStatus(TypedDict):
+class OrganizationStatus(TypedDict, closed=True):
     organization_id: NotRequired[
         "aws_sdk_networkmanager.types.organization_id.OrganizationId"
     ]

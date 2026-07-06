@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3HudiDirectTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.target_format
 
 
-class S3HudiDirectTarget(TypedDict):
+class S3HudiDirectTarget(TypedDict, closed=True):
     name: "aws_sdk_glue.types.node_name.NodeName"
     """<p>The name of the data target.</p>"""
     inputs: "aws_sdk_glue.types.one_input.OneInput"

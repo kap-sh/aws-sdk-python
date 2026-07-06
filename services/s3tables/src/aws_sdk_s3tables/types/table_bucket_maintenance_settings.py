@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableBucketMaintenanceSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_unreferenced_file_removal_settings
 
 
-class _TableBucketMaintenanceSettings_icebergUnreferencedFileRemoval(TypedDict):
+class _TableBucketMaintenanceSettings_icebergUnreferencedFileRemoval(
+    TypedDict, closed=True
+):
     icebergUnreferencedFileRemoval: "aws_sdk_s3tables.types.iceberg_unreferenced_file_removal_settings.IcebergUnreferencedFileRemovalSettings"
 
 

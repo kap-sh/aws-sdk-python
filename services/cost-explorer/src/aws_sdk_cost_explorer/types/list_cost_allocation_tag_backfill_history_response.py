@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostAllocationTagBackfillHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_allocation_tag_backfill_request_list
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCostAllocationTagBackfillHistoryResponse(TypedDict):
+class ListCostAllocationTagBackfillHistoryResponse(TypedDict, closed=True):
     backfill_requests: NotRequired[
         "aws_sdk_cost_explorer.types.cost_allocation_tag_backfill_request_list.CostAllocationTagBackfillRequestList"
     ]

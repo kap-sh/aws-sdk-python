@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UpdateFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.filter_name
 
 
-class UpdateFilterResponse(TypedDict):
+class UpdateFilterResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.filter_name.FilterName"]
     """<p>The name of the filter.</p>"""
 

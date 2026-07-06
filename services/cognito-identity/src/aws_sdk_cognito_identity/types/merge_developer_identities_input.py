@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#MergeDeveloperIdentitiesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_pool_id
 
 
-class MergeDeveloperIdentitiesInput(TypedDict):
+class MergeDeveloperIdentitiesInput(TypedDict, closed=True):
     source_user_identifier: "aws_sdk_cognito_identity.types.developer_user_identifier.DeveloperUserIdentifier"
     """<p>User identifier for the source user. The value should be a <code>DeveloperUserIdentifier</code>.</p>"""
     destination_user_identifier: "aws_sdk_cognito_identity.types.developer_user_identifier.DeveloperUserIdentifier"

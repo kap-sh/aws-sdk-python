@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#VerificationScript``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.verification_script_env_var_list
 
 
-class VerificationScript(TypedDict):
+class VerificationScript(TypedDict, closed=True):
     script_type: NotRequired["str"]
     """<p>The type of script. Valid values are python and bash.</p>"""
     script_url: NotRequired["str"]

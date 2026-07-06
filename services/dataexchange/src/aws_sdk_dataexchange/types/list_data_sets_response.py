@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListDataSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_data_set_entry
     import aws_sdk_dataexchange.types.next_token
 
 
-class ListDataSetsResponse(TypedDict):
+class ListDataSetsResponse(TypedDict, closed=True):
     data_sets: NotRequired[
         "aws_sdk_dataexchange.types.list_of_data_set_entry.ListOfDataSetEntry"
     ]

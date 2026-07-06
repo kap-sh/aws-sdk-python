@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateColumnStatisticsTaskSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.sample_size_percentage
 
 
-class UpdateColumnStatisticsTaskSettingsRequest(TypedDict):
+class UpdateColumnStatisticsTaskSettingsRequest(TypedDict, closed=True):
     database_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the database where the table resides.</p>"""
     table_name: "aws_sdk_glue.types.name_string.NameString"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ConfidenceInterval``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ConfidenceInterval(TypedDict):
+class ConfidenceInterval(TypedDict, closed=True):
     lower: NotRequired["float"]
     """<p>The lower bound of the confidence interval.</p>"""
     upper: NotRequired["float"]

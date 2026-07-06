@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateBotLocaleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.audio_filler_settings
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.voice_settings
 
 
-class UpdateBotLocaleResponse(TypedDict):
+class UpdateBotLocaleResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The identifier of the bot that contains the updated locale.</p>"""
     bot_version: NotRequired[

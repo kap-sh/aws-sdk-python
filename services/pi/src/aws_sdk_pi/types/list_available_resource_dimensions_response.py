@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#ListAvailableResourceDimensionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.metric_dimensions_list
     import aws_sdk_pi.types.next_token
 
 
-class ListAvailableResourceDimensionsResponse(TypedDict):
+class ListAvailableResourceDimensionsResponse(TypedDict, closed=True):
     metric_dimensions: NotRequired[
         "aws_sdk_pi.types.metric_dimensions_list.MetricDimensionsList"
     ]

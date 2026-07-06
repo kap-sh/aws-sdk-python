@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateLimitHTTPMethod``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RateLimitHTTPMethod(TypedDict):
+class RateLimitHTTPMethod(TypedDict, closed=True):
     pass
 
 

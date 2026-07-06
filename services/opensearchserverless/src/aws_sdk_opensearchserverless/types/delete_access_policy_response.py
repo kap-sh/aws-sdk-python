@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteAccessPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAccessPolicyResponse(TypedDict):
+class DeleteAccessPolicyResponse(TypedDict, closed=True):
     pass
 
 

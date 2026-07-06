@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#LabelNameCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.label_name
 
 
-class LabelNameCondition(TypedDict):
+class LabelNameCondition(TypedDict, closed=True):
     label_name: "aws_sdk_wafv2.types.label_name.LabelName"
     """<p>The label name that a log record must contain in order to meet the condition. This must be a fully qualified label name. Fully qualified labels have a prefix, optional namespaces, and label name. The prefix identifies the rule group or web ACL context of the rule that added the label. </p>"""
 

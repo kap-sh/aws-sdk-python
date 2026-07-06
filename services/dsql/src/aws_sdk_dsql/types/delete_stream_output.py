@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#DeleteStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.stream_status
 
 
-class DeleteStreamOutput(TypedDict):
+class DeleteStreamOutput(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster for the deleted stream.</p>"""
     stream_identifier: "aws_sdk_dsql.types.stream_id.StreamId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetMigrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.migration_summary_list
     import aws_sdk_lex_model_building_service.types.next_token
 
 
-class GetMigrationsResponse(TypedDict):
+class GetMigrationsResponse(TypedDict, closed=True):
     migration_summaries: NotRequired[
         "aws_sdk_lex_model_building_service.types.migration_summary_list.MigrationSummaryList"
     ]

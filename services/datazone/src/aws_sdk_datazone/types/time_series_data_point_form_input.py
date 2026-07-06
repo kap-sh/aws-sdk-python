@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#TimeSeriesDataPointFormInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.time_series_form_name
 
 
-class TimeSeriesDataPointFormInput(TypedDict):
+class TimeSeriesDataPointFormInput(TypedDict, closed=True):
     form_name: "aws_sdk_datazone.types.time_series_form_name.TimeSeriesFormName"
     """<p>The name of the time series data points form.</p>"""
     type_identifier: "aws_sdk_datazone.types.form_type_identifier.FormTypeIdentifier"

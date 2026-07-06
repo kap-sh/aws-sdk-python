@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdatePortalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.portal
 
 
-class UpdatePortalResponse(TypedDict):
+class UpdatePortalResponse(TypedDict, closed=True):
     portal: NotRequired["aws_sdk_workspaces_web.types.portal.Portal"]
     """<p>The web portal.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BuildBatchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.status_type
 
 
-class BuildBatchFilter(TypedDict):
+class BuildBatchFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codebuild.types.status_type.StatusType"]
     """<p>The status of the batch builds to retrieve. Only batch builds that have this status will be retrieved.</p>"""
 

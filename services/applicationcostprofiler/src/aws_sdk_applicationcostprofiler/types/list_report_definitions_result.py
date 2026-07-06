@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#ListReportDefinitionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.report_definition_list
     import aws_sdk_applicationcostprofiler.types.token
 
 
-class ListReportDefinitionsResult(TypedDict):
+class ListReportDefinitionsResult(TypedDict, closed=True):
     report_definitions: NotRequired[
         "aws_sdk_applicationcostprofiler.types.report_definition_list.ReportDefinitionList"
     ]

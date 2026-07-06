@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#DisassociateManagedNotificationAccountContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.managed_notification_configuration_os_arn
 
 
-class DisassociateManagedNotificationAccountContactRequest(TypedDict):
+class DisassociateManagedNotificationAccountContactRequest(TypedDict, closed=True):
     contact_identifier: (
         "aws_sdk_notifications.types.account_contact_type.AccountContactType"
     )

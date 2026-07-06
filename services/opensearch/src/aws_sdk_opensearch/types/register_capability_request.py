@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#RegisterCapabilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.capability_name
 
 
-class RegisterCapabilityRequest(TypedDict):
+class RegisterCapabilityRequest(TypedDict, closed=True):
     application_id: "aws_sdk_opensearch.types.application_id.ApplicationId"
     """<p>The unique identifier of the OpenSearch UI application to register the capability for.</p>"""
     capability_name: "aws_sdk_opensearch.types.capability_name.CapabilityName"

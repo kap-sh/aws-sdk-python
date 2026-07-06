@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PredictionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.business_name_generation_configuration
 
 
-class PredictionConfiguration(TypedDict):
+class PredictionConfiguration(TypedDict, closed=True):
     business_name_generation: NotRequired[
         "aws_sdk_datazone.types.business_name_generation_configuration.BusinessNameGenerationConfiguration"
     ]

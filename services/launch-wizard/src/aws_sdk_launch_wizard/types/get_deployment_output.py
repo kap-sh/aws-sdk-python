@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#GetDeploymentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_data
 
 
-class GetDeploymentOutput(TypedDict):
+class GetDeploymentOutput(TypedDict, closed=True):
     deployment: NotRequired[
         "aws_sdk_launch_wizard.types.deployment_data.DeploymentData"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#MultiRegionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.multi_region_key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.multi_region_key_type
 
 
-class MultiRegionConfiguration(TypedDict):
+class MultiRegionConfiguration(TypedDict, closed=True):
     multi_region_key_type: NotRequired[
         "aws_sdk_kms.types.multi_region_key_type.MultiRegionKeyType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EventsBatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_event
     import aws_sdk_pinpoint.types.public_endpoint
 
 
-class EventsBatch(TypedDict):
+class EventsBatch(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_pinpoint.types.public_endpoint.PublicEndpoint"]
     """<p>A set of properties and attributes that are associated with the endpoint.</p>"""
     events: NotRequired["aws_sdk_pinpoint.types.map_of_event.MapOfEvent"]

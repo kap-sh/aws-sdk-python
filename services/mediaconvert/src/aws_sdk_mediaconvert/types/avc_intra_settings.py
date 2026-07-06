@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AvcIntraSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max1001
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.avc_intra_uhd_settings
 
 
-class AvcIntraSettings(TypedDict):
+class AvcIntraSettings(TypedDict, closed=True):
     avc_intra_class: NotRequired[
         "aws_sdk_mediaconvert.types.avc_intra_class.AvcIntraClass"
     ]

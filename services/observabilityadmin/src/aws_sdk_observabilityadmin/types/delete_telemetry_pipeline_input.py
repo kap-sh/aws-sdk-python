@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#DeleteTelemetryPipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_pipeline_identifier
 
 
-class DeleteTelemetryPipelineInput(TypedDict):
+class DeleteTelemetryPipelineInput(TypedDict, closed=True):
     pipeline_identifier: "aws_sdk_observabilityadmin.types.telemetry_pipeline_identifier.TelemetryPipelineIdentifier"
     """<p>The ARN of the telemetry pipeline to delete.</p>"""
 

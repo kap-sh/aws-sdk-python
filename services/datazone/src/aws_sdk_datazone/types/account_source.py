@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AccountSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.custom_account_pool_handler
 
 
-class _AccountSource_accounts(TypedDict):
+class _AccountSource_accounts(TypedDict, closed=True):
     accounts: "aws_sdk_datazone.types.account_info_list.AccountInfoList"
 
 
-class _AccountSource_customAccountPoolHandler(TypedDict):
+class _AccountSource_customAccountPoolHandler(TypedDict, closed=True):
     customAccountPoolHandler: (
         "aws_sdk_datazone.types.custom_account_pool_handler.CustomAccountPoolHandler"
     )

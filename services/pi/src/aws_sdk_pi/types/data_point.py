@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#DataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.iso_timestamp
 
 
-class DataPoint(TypedDict):
+class DataPoint(TypedDict, closed=True):
     timestamp: "aws_sdk_pi.types.iso_timestamp.ISOTimestamp"
     """<p>The time, in epoch format, associated with a particular <code>Value</code>.</p>"""
     value: "aws_sdk_pi.types.double.Double"

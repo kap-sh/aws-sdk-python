@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ProxyConfigDefaultRulePhaseActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.proxy_rule_phase_action
 
 
-class ProxyConfigDefaultRulePhaseActionsRequest(TypedDict):
+class ProxyConfigDefaultRulePhaseActionsRequest(TypedDict, closed=True):
     pre_dns: NotRequired[
         "aws_sdk_network_firewall.types.proxy_rule_phase_action.ProxyRulePhaseAction"
     ]

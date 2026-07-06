@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RoutingProfileQueueConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.routing_profile_queue_reference
 
 
-class RoutingProfileQueueConfig(TypedDict):
+class RoutingProfileQueueConfig(TypedDict, closed=True):
     queue_reference: "aws_sdk_connect.types.routing_profile_queue_reference.RoutingProfileQueueReference"
     """<p>Contains information about a queue resource.</p>"""
     priority: "aws_sdk_connect.types.priority.Priority"

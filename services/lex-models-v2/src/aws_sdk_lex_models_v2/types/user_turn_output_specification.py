@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UserTurnOutputSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.user_turn_intent_output
 
 
-class UserTurnOutputSpecification(TypedDict):
+class UserTurnOutputSpecification(TypedDict, closed=True):
     intent: "aws_sdk_lex_models_v2.types.user_turn_intent_output.UserTurnIntentOutput"
     """<p>Contains information about the intent.</p>"""
     active_contexts: NotRequired[

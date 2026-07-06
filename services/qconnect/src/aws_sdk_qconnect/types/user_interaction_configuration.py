@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#UserInteractionConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UserInteractionConfiguration(TypedDict):
+class UserInteractionConfiguration(TypedDict, closed=True):
     is_user_confirmation_required: NotRequired["bool"]
     """<p>Indicates whether user confirmation is required for the interaction.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#MagneticStoreWriteProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.magnetic_store_rejected_data_location
 
 
-class MagneticStoreWriteProperties(TypedDict):
+class MagneticStoreWriteProperties(TypedDict, closed=True):
     enable_magnetic_store_writes: "aws_sdk_timestream_write.types.boolean.Boolean"
     """<p>A flag to enable magnetic store writes.</p>"""
     magnetic_store_rejected_data_location: NotRequired[

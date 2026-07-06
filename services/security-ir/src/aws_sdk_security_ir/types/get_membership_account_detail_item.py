@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#GetMembershipAccountDetailItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.membership_account_relationship_type
 
 
-class GetMembershipAccountDetailItem(TypedDict):
+class GetMembershipAccountDetailItem(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_security_ir.types.aws_account_id.AWSAccountId"]
     """<p/>"""
     relationship_status: NotRequired[

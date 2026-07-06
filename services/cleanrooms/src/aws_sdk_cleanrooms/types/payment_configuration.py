@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PaymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.query_compute_payment_config
 
 
-class PaymentConfiguration(TypedDict):
+class PaymentConfiguration(TypedDict, closed=True):
     query_compute: "aws_sdk_cleanrooms.types.query_compute_payment_config.QueryComputePaymentConfig"
     """<p>The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.</p>"""
     machine_learning: NotRequired[

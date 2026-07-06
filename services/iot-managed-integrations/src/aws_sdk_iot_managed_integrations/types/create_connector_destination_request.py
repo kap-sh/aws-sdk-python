@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateConnectorDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.secrets_manager
 
 
-class CreateConnectorDestinationRequest(TypedDict):
+class CreateConnectorDestinationRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_iot_managed_integrations.types.connector_destination_name.ConnectorDestinationName"
     ]

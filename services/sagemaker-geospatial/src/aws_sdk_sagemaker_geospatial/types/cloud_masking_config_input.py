@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#CloudMaskingConfigInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CloudMaskingConfigInput(TypedDict):
+class CloudMaskingConfigInput(TypedDict, closed=True):
     pass
 
 

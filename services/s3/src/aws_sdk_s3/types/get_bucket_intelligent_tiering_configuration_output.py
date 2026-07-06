@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketIntelligentTieringConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.intelligent_tiering_configuration
 
 
-class GetBucketIntelligentTieringConfigurationOutput(TypedDict):
+class GetBucketIntelligentTieringConfigurationOutput(TypedDict, closed=True):
     intelligent_tiering_configuration: NotRequired[
         "aws_sdk_s3.types.intelligent_tiering_configuration.IntelligentTieringConfiguration"
     ]

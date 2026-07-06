@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#AddTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.taggable_resource_type
 
 
-class AddTagsInput(TypedDict):
+class AddTagsInput(TypedDict, closed=True):
     tags: "aws_sdk_machine_learning.types.tag_list.TagList"
     """<p>The key-value pairs to use to create tags. If you specify a key without specifying a value, Amazon ML creates a tag with the specified key and a value of null.</p>"""
     resource_id: "aws_sdk_machine_learning.types.entity_id.EntityId"

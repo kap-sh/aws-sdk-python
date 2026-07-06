@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListJobsResponseEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class ListJobsResponseEntry(TypedDict):
+class ListJobsResponseEntry(TypedDict, closed=True):
     action: "aws_sdk_location.types.job_action.JobAction"
     """<p>Action performed by the job.</p>"""
     action_options: NotRequired[

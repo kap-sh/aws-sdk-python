@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#TestRepositoryTriggersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_trigger_execution_failure_list
     import aws_sdk_codecommit.types.repository_trigger_name_list
 
 
-class TestRepositoryTriggersOutput(TypedDict):
+class TestRepositoryTriggersOutput(TypedDict, closed=True):
     successful_executions: NotRequired[
         "aws_sdk_codecommit.types.repository_trigger_name_list.RepositoryTriggerNameList"
     ]

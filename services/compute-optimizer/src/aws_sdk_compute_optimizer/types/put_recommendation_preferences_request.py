@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#PutRecommendationPreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.utilization_preferences
 
 
-class PutRecommendationPreferencesRequest(TypedDict):
+class PutRecommendationPreferencesRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_compute_optimizer.types.resource_type.ResourceType"
     """<p>The target resource type of the recommendation preference to create.</p> <p>The <code>Ec2Instance</code> option encompasses standalone instances and instances that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option encompasses only instances that are part of an Auto Scaling group.</p>"""
     scope: NotRequired["aws_sdk_compute_optimizer.types.scope.Scope"]

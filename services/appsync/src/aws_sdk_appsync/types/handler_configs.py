@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#HandlerConfigs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.handler_config
 
 
-class HandlerConfigs(TypedDict):
+class HandlerConfigs(TypedDict, closed=True):
     on_publish: NotRequired["aws_sdk_appsync.types.handler_config.HandlerConfig"]
     """<p>The configuration for the <code>OnPublish</code> handler.</p>"""
     on_subscribe: NotRequired["aws_sdk_appsync.types.handler_config.HandlerConfig"]

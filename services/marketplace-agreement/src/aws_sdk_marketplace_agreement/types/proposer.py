@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#Proposer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.aws_account_id
 
 
-class Proposer(TypedDict):
+class Proposer(TypedDict, closed=True):
     account_id: NotRequired[
         "aws_sdk_marketplace_agreement.types.aws_account_id.AWSAccountId"
     ]

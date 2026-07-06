@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetTableVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.get_table_versions_list
     import aws_sdk_glue.types.token
 
 
-class GetTableVersionsResponse(TypedDict):
+class GetTableVersionsResponse(TypedDict, closed=True):
     table_versions: NotRequired[
         "aws_sdk_glue.types.get_table_versions_list.GetTableVersionsList"
     ]

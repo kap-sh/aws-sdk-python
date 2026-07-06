@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#AttachmentRoutingPolicyAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string_list
 
 
-class AttachmentRoutingPolicyAssociationSummary(TypedDict):
+class AttachmentRoutingPolicyAssociationSummary(TypedDict, closed=True):
     attachment_id: NotRequired[
         "aws_sdk_networkmanager.types.attachment_id.AttachmentId"
     ]

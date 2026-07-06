@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ConnectionPoolConfigurationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string_list
 
 
-class ConnectionPoolConfigurationInfo(TypedDict):
+class ConnectionPoolConfigurationInfo(TypedDict, closed=True):
     max_connections_percent: NotRequired["aws_sdk_rds.types.integer.Integer"]
     """<p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>"""
     max_idle_connections_percent: NotRequired["aws_sdk_rds.types.integer.Integer"]

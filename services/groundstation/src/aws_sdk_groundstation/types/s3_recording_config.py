@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#S3RecordingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_key_prefix
 
 
-class S3RecordingConfig(TypedDict):
+class S3RecordingConfig(TypedDict, closed=True):
     bucket_arn: "aws_sdk_groundstation.types.bucket_arn.BucketArn"
     """<p>ARN of the bucket to record to.</p>"""
     role_arn: "aws_sdk_groundstation.types.role_arn.RoleArn"

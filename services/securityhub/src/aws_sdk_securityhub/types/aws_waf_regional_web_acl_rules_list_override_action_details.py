@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafRegionalWebAclRulesListOverrideActionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafRegionalWebAclRulesListOverrideActionDetails(TypedDict):
+class AwsWafRegionalWebAclRulesListOverrideActionDetails(TypedDict, closed=True):
     type: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Overrides the rule evaluation result in the rule group. </p>"""
 

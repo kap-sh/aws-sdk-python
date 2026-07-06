@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeAttackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.attack_id
 
 
-class DescribeAttackRequest(TypedDict):
+class DescribeAttackRequest(TypedDict, closed=True):
     attack_id: "aws_sdk_shield.types.attack_id.AttackId"
     """<p>The unique identifier (ID) for the attack.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#TimecodeBurnin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min10_max48
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.timecode_burnin_position
 
 
-class TimecodeBurnin(TypedDict):
+class TimecodeBurnin(TypedDict, closed=True):
     font_size: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min10_max48.__integerMin10Max48"
     ]

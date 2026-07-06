@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StartBuildInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class StartBuildInput(TypedDict):
+class StartBuildInput(TypedDict, closed=True):
     project_name: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The name of the CodeBuild build project to start running a build.</p>"""
     secondary_sources_override: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TrinoParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.port
 
 
-class TrinoParameters(TypedDict):
+class TrinoParameters(TypedDict, closed=True):
     host: "aws_sdk_quicksight.types.host.Host"
     """<p>The host name of the Trino data source.</p>"""
     port: "aws_sdk_quicksight.types.port.Port"

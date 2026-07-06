@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CustomSecretConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.iam_role_arn_or_empty_string
     import aws_sdk_datasync.types.secret_arn
 
 
-class CustomSecretConfig(TypedDict):
+class CustomSecretConfig(TypedDict, closed=True):
     secret_arn: NotRequired["aws_sdk_datasync.types.secret_arn.SecretArn"]
     """<p>Specifies the ARN for an Secrets Manager secret.</p>"""
     secret_access_role_arn: NotRequired[

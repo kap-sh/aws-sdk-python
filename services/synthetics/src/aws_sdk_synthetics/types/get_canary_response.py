@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#GetCanaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.canary
 
 
-class GetCanaryResponse(TypedDict):
+class GetCanaryResponse(TypedDict, closed=True):
     canary: NotRequired["aws_sdk_synthetics.types.canary.Canary"]
     """<p>A structure that contains the full information about the canary.</p>"""
 

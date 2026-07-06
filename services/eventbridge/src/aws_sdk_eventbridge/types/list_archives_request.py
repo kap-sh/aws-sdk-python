@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListArchivesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.archive_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListArchivesRequest(TypedDict):
+class ListArchivesRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_eventbridge.types.archive_name.ArchiveName"]
     """<p>A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.</p>"""
     event_source_arn: NotRequired["aws_sdk_eventbridge.types.event_bus_arn.EventBusArn"]

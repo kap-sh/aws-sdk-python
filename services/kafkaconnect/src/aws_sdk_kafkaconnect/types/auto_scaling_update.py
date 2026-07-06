@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#AutoScalingUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.scale_out_policy_update
 
 
-class AutoScalingUpdate(TypedDict):
+class AutoScalingUpdate(TypedDict, closed=True):
     max_worker_count: "aws_sdk_kafkaconnect.types.__integer.__integer"
     """<p>The target maximum number of workers allocated to the connector.</p>"""
     mcu_count: "aws_sdk_kafkaconnect.types.__integer_min1_max8.__integerMin1Max8"

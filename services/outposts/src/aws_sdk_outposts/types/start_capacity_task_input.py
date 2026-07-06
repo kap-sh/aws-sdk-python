@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#StartCapacityTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_outposts.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.task_action_on_blocking_instances
 
 
-class StartCapacityTaskInput(TypedDict):
+class StartCapacityTaskInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p>The ID or ARN of the Outposts associated with the specified capacity task.</p>"""
     order_id: NotRequired["aws_sdk_outposts.types.order_id.OrderId"]

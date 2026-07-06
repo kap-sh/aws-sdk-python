@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetTemporaryGlueTableCredentialsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource_arn_string
 
 
-class GetTemporaryGlueTableCredentialsRequest(TypedDict):
+class GetTemporaryGlueTableCredentialsRequest(TypedDict, closed=True):
     table_arn: "aws_sdk_lakeformation.types.resource_arn_string.ResourceArnString"
     """<p>The ARN identifying a table in the Data Catalog for the temporary credentials request.</p>"""
     permissions: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#DatasourcePackageUsageInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.byte_value
     import aws_sdk_detective.types.timestamp
 
 
-class DatasourcePackageUsageInfo(TypedDict):
+class DatasourcePackageUsageInfo(TypedDict, closed=True):
     volume_usage_in_bytes: NotRequired["aws_sdk_detective.types.byte_value.ByteValue"]
     """<p>Total volume of data in bytes per day ingested for a given data source package.</p>"""
     volume_usage_update_time: NotRequired["aws_sdk_detective.types.timestamp.Timestamp"]

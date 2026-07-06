@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#RestApi``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.api_key_source_type
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.timestamp
 
 
-class RestApi(TypedDict):
+class RestApi(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>"""
     name: NotRequired["aws_sdk_api_gateway.types.string.String"]

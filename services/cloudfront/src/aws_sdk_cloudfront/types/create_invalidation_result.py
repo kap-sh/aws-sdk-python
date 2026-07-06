@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateInvalidationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class CreateInvalidationResult(TypedDict):
+class CreateInvalidationResult(TypedDict, closed=True):
     location: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>The fully qualified URI of the distribution and invalidation batch request, including the <code>Invalidation ID</code>.</p>"""
     invalidation: NotRequired["aws_sdk_cloudfront.types.invalidation.Invalidation"]

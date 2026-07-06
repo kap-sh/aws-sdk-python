@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CancelCertificateTransferRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_id
 
 
-class CancelCertificateTransferRequest(TypedDict):
+class CancelCertificateTransferRequest(TypedDict, closed=True):
     certificate_id: "aws_sdk_iot.types.certificate_id.CertificateId"
     """<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>"""
 

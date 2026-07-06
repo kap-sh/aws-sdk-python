@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchDescribeMergeConflictsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class BatchDescribeMergeConflictsError(TypedDict):
+class BatchDescribeMergeConflictsError(TypedDict, closed=True):
     file_path: "aws_sdk_codecommit.types.path.Path"
     """<p>The path to the file.</p>"""
     exception_name: "aws_sdk_codecommit.types.exception_name.ExceptionName"

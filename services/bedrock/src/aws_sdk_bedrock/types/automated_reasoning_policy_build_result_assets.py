@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildResultAssets``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -15,35 +17,41 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_source_document
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_policyDefinition(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_policyDefinition(
+    TypedDict, closed=True
+):
     policyDefinition: "aws_sdk_bedrock.types.automated_reasoning_policy_definition.AutomatedReasoningPolicyDefinition"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_qualityReport(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_qualityReport(TypedDict, closed=True):
     qualityReport: "aws_sdk_bedrock.types.automated_reasoning_policy_definition_quality_report.AutomatedReasoningPolicyDefinitionQualityReport"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_buildLog(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_buildLog(TypedDict, closed=True):
     buildLog: "aws_sdk_bedrock.types.automated_reasoning_policy_build_log.AutomatedReasoningPolicyBuildLog"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_generatedTestCases(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_generatedTestCases(
+    TypedDict, closed=True
+):
     generatedTestCases: "aws_sdk_bedrock.types.automated_reasoning_policy_generated_test_cases.AutomatedReasoningPolicyGeneratedTestCases"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_policyScenarios(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_policyScenarios(
+    TypedDict, closed=True
+):
     policyScenarios: "aws_sdk_bedrock.types.automated_reasoning_policy_scenarios.AutomatedReasoningPolicyScenarios"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_assetManifest(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_assetManifest(TypedDict, closed=True):
     assetManifest: "aws_sdk_bedrock.types.automated_reasoning_policy_build_result_asset_manifest.AutomatedReasoningPolicyBuildResultAssetManifest"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_document(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_document(TypedDict, closed=True):
     document: "aws_sdk_bedrock.types.automated_reasoning_policy_source_document.AutomatedReasoningPolicySourceDocument"
 
 
-class _AutomatedReasoningPolicyBuildResultAssets_fidelityReport(TypedDict):
+class _AutomatedReasoningPolicyBuildResultAssets_fidelityReport(TypedDict, closed=True):
     fidelityReport: "aws_sdk_bedrock.types.automated_reasoning_policy_fidelity_report.AutomatedReasoningPolicyFidelityReport"
 
 

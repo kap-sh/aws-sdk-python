@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#Asset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.resource_id
 
 
-class Asset(TypedDict):
+class Asset(TypedDict, closed=True):
     asset_id: "aws_sdk_devops_agent.types.resource_id.ResourceId"
     """<p>The unique identifier for this asset</p>"""
     asset_type: "aws_sdk_devops_agent.types.asset_type.AssetType"

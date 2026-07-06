@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#ListSecretsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.next_token_type
     import aws_sdk_secrets_manager.types.secret_list_type
 
 
-class ListSecretsResponse(TypedDict):
+class ListSecretsResponse(TypedDict, closed=True):
     secret_list: NotRequired[
         "aws_sdk_secrets_manager.types.secret_list_type.SecretListType"
     ]

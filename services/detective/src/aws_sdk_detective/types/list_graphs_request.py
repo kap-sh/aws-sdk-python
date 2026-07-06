@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListGraphsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.member_results_limit
     import aws_sdk_detective.types.pagination_token
 
 
-class ListGraphsRequest(TypedDict):
+class ListGraphsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_detective.types.pagination_token.PaginationToken"]
     """<p>For requests to get the next page of results, the pagination token that was returned with the previous set of results. The initial request does not include a pagination token.</p>"""
     max_results: NotRequired[

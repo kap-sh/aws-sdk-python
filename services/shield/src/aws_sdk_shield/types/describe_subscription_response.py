@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.subscription
 
 
-class DescribeSubscriptionResponse(TypedDict):
+class DescribeSubscriptionResponse(TypedDict, closed=True):
     subscription: NotRequired["aws_sdk_shield.types.subscription.Subscription"]
     """<p>The Shield Advanced subscription details for an account.</p>"""
 

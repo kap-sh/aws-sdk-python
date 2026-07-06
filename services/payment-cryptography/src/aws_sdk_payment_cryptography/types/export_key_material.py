@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ExportKeyMaterial``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError, SerializationError
 
@@ -12,29 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.export_tr34_key_block
 
 
-class _ExportKeyMaterial_Tr31KeyBlock(TypedDict):
+class _ExportKeyMaterial_Tr31KeyBlock(TypedDict, closed=True):
     Tr31KeyBlock: (
         "aws_sdk_payment_cryptography.types.export_tr31_key_block.ExportTr31KeyBlock"
     )
 
 
-class _ExportKeyMaterial_Tr34KeyBlock(TypedDict):
+class _ExportKeyMaterial_Tr34KeyBlock(TypedDict, closed=True):
     Tr34KeyBlock: (
         "aws_sdk_payment_cryptography.types.export_tr34_key_block.ExportTr34KeyBlock"
     )
 
 
-class _ExportKeyMaterial_KeyCryptogram(TypedDict):
+class _ExportKeyMaterial_KeyCryptogram(TypedDict, closed=True):
     KeyCryptogram: (
         "aws_sdk_payment_cryptography.types.export_key_cryptogram.ExportKeyCryptogram"
     )
 
 
-class _ExportKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict):
+class _ExportKeyMaterial_DiffieHellmanTr31KeyBlock(TypedDict, closed=True):
     DiffieHellmanTr31KeyBlock: "aws_sdk_payment_cryptography.types.export_diffie_hellman_tr31_key_block.ExportDiffieHellmanTr31KeyBlock"
 
 
-class _ExportKeyMaterial_As2805KeyCryptogram(TypedDict):
+class _ExportKeyMaterial_As2805KeyCryptogram(TypedDict, closed=True):
     As2805KeyCryptogram: "aws_sdk_payment_cryptography.types.export_as2805_key_cryptogram.ExportAs2805KeyCryptogram"
 
 

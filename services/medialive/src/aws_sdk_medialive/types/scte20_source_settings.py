@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte20SourceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max4
     import aws_sdk_medialive.types.scte20_convert608_to708
 
 
-class Scte20SourceSettings(TypedDict):
+class Scte20SourceSettings(TypedDict, closed=True):
     convert608_to708: NotRequired[
         "aws_sdk_medialive.types.scte20_convert608_to708.Scte20Convert608To708"
     ]

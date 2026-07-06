@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#Observation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.cloud_watch_event_detail_type
@@ -52,7 +52,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.x_ray_throttle_percent
 
 
-class Observation(TypedDict):
+class Observation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_application_insights.types.observation_id.ObservationId"]
     """<p>The ID of the observation type.</p>"""
     start_time: NotRequired["aws_sdk_application_insights.types.start_time.StartTime"]

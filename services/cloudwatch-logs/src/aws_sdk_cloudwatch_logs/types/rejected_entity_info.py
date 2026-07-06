@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#RejectedEntityInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.entity_rejection_error_type
 
 
-class RejectedEntityInfo(TypedDict):
+class RejectedEntityInfo(TypedDict, closed=True):
     error_type: "aws_sdk_cloudwatch_logs.types.entity_rejection_error_type.EntityRejectionErrorType"
     """<p>The type of error that caused the rejection of the entity when calling <code>PutLogEvents</code>.</p>"""
 

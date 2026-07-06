@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_list
     import aws_sdk_omics.types.run_list_token
 
 
-class ListRunsResponse(TypedDict):
+class ListRunsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_omics.types.run_list.RunList"]
     """<p>A list of runs.</p>"""
     next_token: NotRequired["aws_sdk_omics.types.run_list_token.RunListToken"]

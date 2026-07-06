@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#NetworkEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.autonomous_system
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class NetworkEndpoint(TypedDict):
+class NetworkEndpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The ID of the network endpoint.</p>"""
     ip: NotRequired["aws_sdk_guardduty.types.string.String"]

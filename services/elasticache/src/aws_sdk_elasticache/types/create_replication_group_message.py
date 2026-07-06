@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateReplicationGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_group_id_list_input
 
 
-class CreateReplicationGroupMessage(TypedDict):
+class CreateReplicationGroupMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The replication group identifier. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>A name must contain from 1 to 40 alphanumeric characters or hyphens.</p> </li> <li> <p>The first character must be a letter.</p> </li> <li> <p>A name cannot end with a hyphen or contain two consecutive hyphens.</p> </li> </ul>"""
     replication_group_description: NotRequired[

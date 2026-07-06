@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#PostCallAnalyticsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.string
 
 
-class PostCallAnalyticsSettings(TypedDict):
+class PostCallAnalyticsSettings(TypedDict, closed=True):
     output_location: "aws_sdk_chime_sdk_media_pipelines.types.string.String"
     """<p>The URL of the Amazon S3 bucket that contains the post-call data.</p>"""
     data_access_role_arn: "aws_sdk_chime_sdk_media_pipelines.types.string.String"

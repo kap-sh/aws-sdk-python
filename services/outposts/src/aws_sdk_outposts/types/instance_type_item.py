@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#InstanceTypeItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.instance_type
     import aws_sdk_outposts.types.vcpu_count
 
 
-class InstanceTypeItem(TypedDict):
+class InstanceTypeItem(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_outposts.types.instance_type.InstanceType"]
     vcp_us: NotRequired["aws_sdk_outposts.types.vcpu_count.VCPUCount"]
     """<p>The number of default VCPUs in an instance type.</p>"""

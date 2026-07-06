@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#MemorySizeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.nullable_memory
     import aws_sdk_compute_optimizer.types.nullable_memory_reservation
 
 
-class MemorySizeConfiguration(TypedDict):
+class MemorySizeConfiguration(TypedDict, closed=True):
     memory: NotRequired[
         "aws_sdk_compute_optimizer.types.nullable_memory.NullableMemory"
     ]

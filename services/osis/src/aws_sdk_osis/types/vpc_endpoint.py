@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#VpcEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.string
     import aws_sdk_osis.types.vpc_options
 
 
-class VpcEndpoint(TypedDict):
+class VpcEndpoint(TypedDict, closed=True):
     vpc_endpoint_id: NotRequired["aws_sdk_osis.types.string.String"]
     """<p>The unique identifier of the endpoint.</p>"""
     vpc_id: NotRequired["aws_sdk_osis.types.string.String"]

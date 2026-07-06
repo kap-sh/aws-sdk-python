@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ReservationOffering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.charge
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.offering_type
 
 
-class ReservationOffering(TypedDict):
+class ReservationOffering(TypedDict, closed=True):
     offering_id: NotRequired["aws_sdk_redshift_serverless.types.offering_id.OfferingId"]
     """<p>The offering identifier.</p>"""
     duration: "aws_sdk_redshift_serverless.types.duration.Duration"

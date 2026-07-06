@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#FederationSourceException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.message_string
 
 
-class FederationSourceException_(TypedDict):
+class FederationSourceException_(TypedDict, closed=True):
     federation_source_error_code: NotRequired[
         "aws_sdk_glue.types.federation_source_error_code.FederationSourceErrorCode"
     ]

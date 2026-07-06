@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CreateConnectionApiKeyAuthRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.auth_header_parameters_sensitive
 
 
-class CreateConnectionApiKeyAuthRequestParameters(TypedDict):
+class CreateConnectionApiKeyAuthRequestParameters(TypedDict, closed=True):
     api_key_name: (
         "aws_sdk_cloudwatch_events.types.auth_header_parameters.AuthHeaderParameters"
     )

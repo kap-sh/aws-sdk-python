@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Span``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Span(TypedDict):
+class Span(TypedDict, closed=True):
     start: NotRequired["int"]
     """<p>Where the text with a citation starts in the generated output.</p>"""
     end: NotRequired["int"]

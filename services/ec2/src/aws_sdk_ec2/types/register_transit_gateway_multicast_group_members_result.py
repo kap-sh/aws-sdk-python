@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RegisterTransitGatewayMulticastGroupMembersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_multicast_registered_group_members
 
 
-class RegisterTransitGatewayMulticastGroupMembersResult(TypedDict):
+class RegisterTransitGatewayMulticastGroupMembersResult(TypedDict, closed=True):
     registered_multicast_group_members: NotRequired[
         "aws_sdk_ec2.types.transit_gateway_multicast_registered_group_members.TransitGatewayMulticastRegisteredGroupMembers"
     ]

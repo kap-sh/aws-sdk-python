@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIPromptSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.visibility_status
 
 
-class AIPromptSummary(TypedDict):
+class AIPromptSummary(TypedDict, closed=True):
     name: "aws_sdk_qconnect.types.name.Name"
     """<p>The name of the AI Prompt.</p>"""
     assistant_id: "aws_sdk_qconnect.types.uuid.Uuid"

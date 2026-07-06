@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListNetworkMigrationDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.list_network_migration_definitions_request_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListNetworkMigrationDefinitionsRequest(TypedDict):
+class ListNetworkMigrationDefinitionsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_mgn.types.list_network_migration_definitions_request_filters.ListNetworkMigrationDefinitionsRequestFilters"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchUpdateAutomationRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.update_automation_rules_request_items_list
 
 
-class BatchUpdateAutomationRulesRequest(TypedDict):
+class BatchUpdateAutomationRulesRequest(TypedDict, closed=True):
     update_automation_rules_request_items: NotRequired[
         "aws_sdk_securityhub.types.update_automation_rules_request_items_list.UpdateAutomationRulesRequestItemsList"
     ]

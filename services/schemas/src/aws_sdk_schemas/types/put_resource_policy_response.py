@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
     import aws_sdk_schemas.types.synthesized_json__string
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     policy: NotRequired[
         "aws_sdk_schemas.types.synthesized_json__string.SynthesizedJson__string"
     ]

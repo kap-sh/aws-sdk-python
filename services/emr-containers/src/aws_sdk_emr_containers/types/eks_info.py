@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#EksInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.kubernetes_namespace
     import aws_sdk_emr_containers.types.resource_name_string
 
 
-class EksInfo(TypedDict):
+class EksInfo(TypedDict, closed=True):
     namespace: NotRequired[
         "aws_sdk_emr_containers.types.kubernetes_namespace.KubernetesNamespace"
     ]

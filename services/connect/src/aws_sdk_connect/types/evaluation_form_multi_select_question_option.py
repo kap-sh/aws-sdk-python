@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormMultiSelectQuestionOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id
 
 
-class EvaluationFormMultiSelectQuestionOption(TypedDict):
+class EvaluationFormMultiSelectQuestionOption(TypedDict, closed=True):
     ref_id: "aws_sdk_connect.types.reference_id.ReferenceId"
     """<p>Reference identifier for this option.</p>"""
     text: "aws_sdk_connect.types.evaluation_form_multi_select_question_option_text.EvaluationFormMultiSelectQuestionOptionText"

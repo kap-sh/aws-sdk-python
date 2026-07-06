@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReadSetS3Access``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.s3_uri
 
 
-class ReadSetS3Access(TypedDict):
+class ReadSetS3Access(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_omics.types.s3_uri.S3Uri"]
     """<p>The S3 URI for each read set file.</p>"""
 

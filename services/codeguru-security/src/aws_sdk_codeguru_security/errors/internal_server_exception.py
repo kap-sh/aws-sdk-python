@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_security.errors import ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     error: NotRequired["str"]
     """<p>The internal error encountered by the server.</p>"""
     message: NotRequired["str"]

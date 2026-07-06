@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SourcePriority``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SourcePriority(TypedDict):
+class SourcePriority(TypedDict, closed=True):
     primary_source: NotRequired["str"]
     """<p> The name of the source you choose as the primary source for this flow.</p>"""
 

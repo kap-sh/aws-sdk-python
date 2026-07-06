@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#Invite``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.email_address
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class Invite(TypedDict):
+class Invite(TypedDict, closed=True):
     invite_id: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The invite ID.</p>"""
     status: NotRequired["aws_sdk_chime.types.invite_status.InviteStatus"]

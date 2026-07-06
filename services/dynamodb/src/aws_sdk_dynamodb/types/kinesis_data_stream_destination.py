@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#KinesisDataStreamDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.approximate_creation_date_time_precision
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string
 
 
-class KinesisDataStreamDestination(TypedDict):
+class KinesisDataStreamDestination(TypedDict, closed=True):
     stream_arn: NotRequired["aws_sdk_dynamodb.types.stream_arn.StreamArn"]
     """<p>The ARN for a specific Kinesis data stream.</p>"""
     destination_status: NotRequired[

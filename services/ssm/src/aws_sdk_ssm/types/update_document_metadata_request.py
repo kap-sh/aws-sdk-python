@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateDocumentMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_version
 
 
-class UpdateDocumentMetadataRequest(TypedDict):
+class UpdateDocumentMetadataRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_name.DocumentName"
     """<p>The name of the change template for which a version's metadata is to be updated.</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationSystemRollbackConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.boolean_object
 
 
-class ApplicationSystemRollbackConfigurationUpdate(TypedDict):
+class ApplicationSystemRollbackConfigurationUpdate(TypedDict, closed=True):
     rollback_enabled_update: (
         "aws_sdk_kinesis_analytics_v2.types.boolean_object.BooleanObject"
     )

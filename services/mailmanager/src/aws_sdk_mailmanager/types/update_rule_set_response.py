@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#UpdateRuleSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRuleSetResponse(TypedDict):
+class UpdateRuleSetResponse(TypedDict, closed=True):
     pass
 
 

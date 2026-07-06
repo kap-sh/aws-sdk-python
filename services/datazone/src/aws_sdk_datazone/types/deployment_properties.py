@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeploymentProperties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeploymentProperties(TypedDict):
+class DeploymentProperties(TypedDict, closed=True):
     start_timeout_minutes: NotRequired["int"]
     """<p>The start timeout of the environment blueprint deployment.</p>"""
     end_timeout_minutes: NotRequired["int"]

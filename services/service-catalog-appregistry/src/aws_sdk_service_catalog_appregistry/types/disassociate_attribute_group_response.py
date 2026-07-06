@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#DisassociateAttributeGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.application_arn
     import aws_sdk_service_catalog_appregistry.types.attribute_group_arn
 
 
-class DisassociateAttributeGroupResponse(TypedDict):
+class DisassociateAttributeGroupResponse(TypedDict, closed=True):
     application_arn: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.application_arn.ApplicationArn"
     ]

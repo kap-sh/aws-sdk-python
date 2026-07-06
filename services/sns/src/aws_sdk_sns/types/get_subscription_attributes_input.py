@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetSubscriptionAttributesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.subscription_arn
 
 
-class GetSubscriptionAttributesInput(TypedDict):
+class GetSubscriptionAttributesInput(TypedDict, closed=True):
     subscription_arn: "aws_sdk_sns.types.subscription_arn.subscriptionARN"
     """<p>The ARN of the subscription whose properties you want to get.</p>"""
 

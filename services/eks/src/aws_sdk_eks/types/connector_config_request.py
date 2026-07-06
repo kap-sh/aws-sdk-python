@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ConnectorConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class ConnectorConfigRequest(TypedDict):
+class ConnectorConfigRequest(TypedDict, closed=True):
     role_arn: "aws_sdk_eks.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the role that is authorized to request the connector configuration.</p>"""
     provider: "aws_sdk_eks.types.connector_config_provider.ConnectorConfigProvider"

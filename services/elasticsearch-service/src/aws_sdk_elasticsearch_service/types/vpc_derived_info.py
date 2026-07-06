@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#VPCDerivedInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.string
     import aws_sdk_elasticsearch_service.types.string_list
 
 
-class VPCDerivedInfo(TypedDict):
+class VPCDerivedInfo(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_elasticsearch_service.types.string.String"]
     """<p>The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.</p>"""
     subnet_ids: NotRequired[

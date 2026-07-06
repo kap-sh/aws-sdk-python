@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ConsumedUsages``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
 
-class ConsumedUsages(TypedDict):
+class ConsumedUsages(TypedDict, closed=True):
     approximate_dollar_usage: "float"
     """<p>The amount of the budget consumed.</p>"""
 

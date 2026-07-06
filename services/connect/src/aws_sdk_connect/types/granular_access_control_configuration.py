@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GranularAccessControlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_access_control_configuration
 
 
-class GranularAccessControlConfiguration(TypedDict):
+class GranularAccessControlConfiguration(TypedDict, closed=True):
     data_table_access_control_configuration: NotRequired[
         "aws_sdk_connect.types.data_table_access_control_configuration.DataTableAccessControlConfiguration"
     ]

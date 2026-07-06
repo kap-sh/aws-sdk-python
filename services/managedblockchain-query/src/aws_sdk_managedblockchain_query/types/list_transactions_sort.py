@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ListTransactionsSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.list_transactions_sort_by
     import aws_sdk_managedblockchain_query.types.sort_order
 
 
-class ListTransactionsSort(TypedDict):
+class ListTransactionsSort(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_managedblockchain_query.types.list_transactions_sort_by.ListTransactionsSortBy"
     ]

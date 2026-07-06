@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetSensitiveDataOccurrencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class GetSensitiveDataOccurrencesRequest(TypedDict):
+class GetSensitiveDataOccurrencesRequest(TypedDict, closed=True):
     finding_id: "aws_sdk_macie2.types.__string.__string"
     """<p>The unique identifier for the finding.</p>"""
 

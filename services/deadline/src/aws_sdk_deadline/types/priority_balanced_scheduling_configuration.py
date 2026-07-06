@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#PriorityBalancedSchedulingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.scheduling_rendering_task_buffer
 
 
-class PriorityBalancedSchedulingConfiguration(TypedDict):
+class PriorityBalancedSchedulingConfiguration(TypedDict, closed=True):
     rendering_task_buffer: "aws_sdk_deadline.types.scheduling_rendering_task_buffer.SchedulingRenderingTaskBuffer"
     """<p>The rendering task buffer controls worker stickiness. A worker only switches from its current job to another job at the same priority if the other job has fewer rendering tasks by more than this buffer value. Higher values make workers stickier to their current jobs. The default value is <code>1</code>.</p>"""
 

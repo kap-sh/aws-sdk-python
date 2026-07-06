@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateDocumentDefaultVersionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_default_version_description
 
 
-class UpdateDocumentDefaultVersionResult(TypedDict):
+class UpdateDocumentDefaultVersionResult(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_ssm.types.document_default_version_description.DocumentDefaultVersionDescription"
     ]

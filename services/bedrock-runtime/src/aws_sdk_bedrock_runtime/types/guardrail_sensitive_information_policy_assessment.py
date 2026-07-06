@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailSensitiveInformationPolicyAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_regex_filter_list
 
 
-class GuardrailSensitiveInformationPolicyAssessment(TypedDict):
+class GuardrailSensitiveInformationPolicyAssessment(TypedDict, closed=True):
     pii_entities: "aws_sdk_bedrock_runtime.types.guardrail_pii_entity_filter_list.GuardrailPiiEntityFilterList"
     """<p>The PII entities in the assessment.</p>"""
     regexes: "aws_sdk_bedrock_runtime.types.guardrail_regex_filter_list.GuardrailRegexFilterList"

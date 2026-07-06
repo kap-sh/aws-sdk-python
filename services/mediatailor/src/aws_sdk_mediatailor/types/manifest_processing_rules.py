@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ManifestProcessingRules``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.ad_marker_passthrough
 
 
-class ManifestProcessingRules(TypedDict):
+class ManifestProcessingRules(TypedDict, closed=True):
     ad_marker_passthrough: NotRequired[
         "aws_sdk_mediatailor.types.ad_marker_passthrough.AdMarkerPassthrough"
     ]

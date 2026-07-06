@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#CreateAdapterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_id
 
 
-class CreateAdapterResponse(TypedDict):
+class CreateAdapterResponse(TypedDict, closed=True):
     adapter_id: NotRequired["aws_sdk_textract.types.adapter_id.AdapterId"]
     """<p>A string containing the unique ID for the adapter that has been created.</p>"""
 

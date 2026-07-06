@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#GetDatasetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.dataset_identifier
 
 
-class GetDatasetInput(TypedDict):
+class GetDatasetInput(TypedDict, closed=True):
     dataset_identifier: NotRequired[
         "aws_sdk_cloudwatch.types.dataset_identifier.DatasetIdentifier"
     ]

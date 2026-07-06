@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Lambdas``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.iam_role_arn
     import aws_sdk_arc_region_switch.types.lambda_arn
 
 
-class Lambdas(TypedDict):
+class Lambdas(TypedDict, closed=True):
     cross_account_role: NotRequired[
         "aws_sdk_arc_region_switch.types.iam_role_arn.IamRoleArn"
     ]

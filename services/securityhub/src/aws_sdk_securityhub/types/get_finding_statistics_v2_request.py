@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetFindingStatisticsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.finding_scopes
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sort_order
 
 
-class GetFindingStatisticsV2Request(TypedDict):
+class GetFindingStatisticsV2Request(TypedDict, closed=True):
     group_by_rules: NotRequired["aws_sdk_securityhub.types.group_by_rules.GroupByRules"]
     """<p>Specifies how security findings should be aggregated and organized in the statistical analysis. It can accept up to 5 <code>groupBy</code> fields in a single call.</p>"""
     scopes: NotRequired["aws_sdk_securityhub.types.finding_scopes.FindingScopes"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#Difference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.blob_metadata
     import aws_sdk_codecommit.types.change_type_enum
 
 
-class Difference(TypedDict):
+class Difference(TypedDict, closed=True):
     before_blob: NotRequired["aws_sdk_codecommit.types.blob_metadata.BlobMetadata"]
     """<p>Information about a <code>beforeBlob</code> data type object, including the ID, the file mode permission code, and the path.</p>"""
     after_blob: NotRequired["aws_sdk_codecommit.types.blob_metadata.BlobMetadata"]

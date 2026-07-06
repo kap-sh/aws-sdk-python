@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#DeleteSimulationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSimulationOutput(TypedDict):
+class DeleteSimulationOutput(TypedDict, closed=True):
     pass
 
 

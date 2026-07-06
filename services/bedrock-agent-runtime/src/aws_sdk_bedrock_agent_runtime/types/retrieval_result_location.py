@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.retrieval_result_web_location
 
 
-class RetrievalResultLocation(TypedDict):
+class RetrievalResultLocation(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.retrieval_result_location_type.RetrievalResultLocationType"
     """<p>The type of data source location.</p>"""
     s3_location: NotRequired[

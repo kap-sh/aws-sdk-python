@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#GenerateAccessLogsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.start_time
 
 
-class GenerateAccessLogsRequest(TypedDict):
+class GenerateAccessLogsRequest(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_amplify.types.start_time.StartTime"]
     """<p>The time at which the logs should start. The time range specified is inclusive of the start time. </p>"""
     end_time: NotRequired["aws_sdk_amplify.types.end_time.EndTime"]

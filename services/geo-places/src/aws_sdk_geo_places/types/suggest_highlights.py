@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SuggestHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.highlight_list
     import aws_sdk_geo_places.types.suggest_address_highlights
 
 
-class SuggestHighlights(TypedDict):
+class SuggestHighlights(TypedDict, closed=True):
     title: NotRequired["aws_sdk_geo_places.types.highlight_list.HighlightList"]
     """<p>Indicates the starting and ending index of the title in the text query that match the found title. </p>"""
     address: NotRequired[

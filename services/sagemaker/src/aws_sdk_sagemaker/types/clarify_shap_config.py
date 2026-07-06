@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClarifyShapConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_shap_baseline_config
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_text_config
 
 
-class ClarifyShapConfig(TypedDict):
+class ClarifyShapConfig(TypedDict, closed=True):
     shap_baseline_config: NotRequired[
         "aws_sdk_sagemaker.types.clarify_shap_baseline_config.ClarifyShapBaselineConfig"
     ]

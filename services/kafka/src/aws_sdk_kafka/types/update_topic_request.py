@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#UpdateTopicRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer
     import aws_sdk_kafka.types.__string
 
 
-class UpdateTopicRequest(TypedDict):
+class UpdateTopicRequest(TypedDict, closed=True):
     cluster_arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>"""
     topic_name: "aws_sdk_kafka.types.__string.__string"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ListExtensibleSourceServersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.pagination_token
 
 
-class ListExtensibleSourceServersRequest(TypedDict):
+class ListExtensibleSourceServersRequest(TypedDict, closed=True):
     staging_account_id: "aws_sdk_drs.types.account_id.AccountID"
     """<p>The Id of the staging Account to retrieve extensible source servers from.</p>"""
     max_results: NotRequired[

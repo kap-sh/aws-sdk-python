@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListWorkteamsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.workteams
 
 
-class ListWorkteamsResponse(TypedDict):
+class ListWorkteamsResponse(TypedDict, closed=True):
     workteams: NotRequired["aws_sdk_sagemaker.types.workteams.Workteams"]
     """<p>An array of <code>Workteam</code> objects, each describing a work team.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

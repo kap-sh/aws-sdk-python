@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListDevicePoolsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_pools
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListDevicePoolsResult(TypedDict):
+class ListDevicePoolsResult(TypedDict, closed=True):
     device_pools: NotRequired["aws_sdk_device_farm.types.device_pools.DevicePools"]
     """<p>Information about the device pools.</p>"""
     next_token: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateRadiusResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateRadiusResult(TypedDict):
+class UpdateRadiusResult(TypedDict, closed=True):
     pass
 
 

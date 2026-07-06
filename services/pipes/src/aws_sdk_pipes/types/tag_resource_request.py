@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.tag_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_pipes.types.pipe_arn.PipeArn"
     """<p>The ARN of the pipe.</p>"""
     tags: "aws_sdk_pipes.types.tag_map.TagMap"

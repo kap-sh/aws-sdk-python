@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#TopicConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.topic_description
 
 
-class TopicConfiguration(TypedDict):
+class TopicConfiguration(TypedDict, closed=True):
     name: "aws_sdk_qbusiness.types.topic_configuration_name.TopicConfigurationName"
     """<p>A name for your topic control configuration.</p>"""
     description: NotRequired[

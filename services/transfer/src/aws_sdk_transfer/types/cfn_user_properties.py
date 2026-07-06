@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.necco.coral#CfnUserProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.cfn_ssh_public_keys
 
 
-class CfnUserProperties(TypedDict):
+class CfnUserProperties(TypedDict, closed=True):
     ssh_public_keys: NotRequired[
         "aws_sdk_transfer.types.cfn_ssh_public_keys.CfnSshPublicKeys"
     ]

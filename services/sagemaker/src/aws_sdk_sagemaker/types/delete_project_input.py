@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteProjectInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.project_entity_name
 
 
-class DeleteProjectInput(TypedDict):
+class DeleteProjectInput(TypedDict, closed=True):
     project_name: NotRequired[
         "aws_sdk_sagemaker.types.project_entity_name.ProjectEntityName"
     ]

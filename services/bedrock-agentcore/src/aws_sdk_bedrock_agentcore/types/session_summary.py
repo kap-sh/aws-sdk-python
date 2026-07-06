@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SessionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_id
 
 
-class SessionSummary(TypedDict):
+class SessionSummary(TypedDict, closed=True):
     session_id: "aws_sdk_bedrock_agentcore.types.session_id.SessionId"
     """<p>The unique identifier of the session.</p>"""
     actor_id: "aws_sdk_bedrock_agentcore.types.actor_id.ActorId"

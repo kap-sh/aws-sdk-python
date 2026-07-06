@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#QuotaPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.period_unit
     import aws_sdk_service_quotas.types.period_value
 
 
-class QuotaPeriod(TypedDict):
+class QuotaPeriod(TypedDict, closed=True):
     period_value: NotRequired["aws_sdk_service_quotas.types.period_value.PeriodValue"]
     """<p>The value associated with the reported <code>PeriodUnit</code>.</p>"""
     period_unit: NotRequired["aws_sdk_service_quotas.types.period_unit.PeriodUnit"]

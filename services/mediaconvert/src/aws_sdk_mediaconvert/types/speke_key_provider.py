@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#SpekeKeyProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of__string_pattern09a_faf809a_faf409a_faf409a_faf409a_faf12
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.encryption_contract_configuration
 
 
-class SpekeKeyProvider(TypedDict):
+class SpekeKeyProvider(TypedDict, closed=True):
     certificate_arn: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_arn_aws_us_gov_acm.__stringPatternArnAwsUsGovAcm"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#PatchOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.op
@@ -16,6 +16,7 @@ PatchOperation = TypedDict(
         "value": NotRequired["aws_sdk_api_gateway.types.string.String"],
         "from": NotRequired["aws_sdk_api_gateway.types.string.String"],
     },
+    closed=True,
 )
 
 

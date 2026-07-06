@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_voice_id.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_voice_id.types.string.String"]
     conflict_type: NotRequired["aws_sdk_voice_id.types.conflict_type.ConflictType"]
     """<p>The type of conflict which caused a ConflictException. Possible types and the corresponding error messages are as follows:</p> <ul> <li> <p> <code>DOMAIN_NOT_ACTIVE</code>: The domain is not active.</p> </li> <li> <p> <code>CANNOT_CHANGE_SPEAKER_AFTER_ENROLLMENT</code>: You cannot change the speaker ID after an enrollment has been requested.</p> </li> <li> <p> <code>ENROLLMENT_ALREADY_EXISTS</code>: There is already an enrollment for this session.</p> </li> <li> <p> <code>SPEAKER_NOT_SET</code>: You must set the speaker ID before requesting an enrollment.</p> </li> <li> <p> <code>SPEAKER_OPTED_OUT</code>: You cannot request an enrollment for an opted out speaker.</p> </li> <li> <p> <code>CONCURRENT_CHANGES</code>: The request could not be processed as the resource was modified by another request during execution.</p> </li> </ul>"""

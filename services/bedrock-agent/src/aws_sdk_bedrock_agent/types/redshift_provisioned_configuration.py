@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedshiftProvisionedConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.redshift_provisioned_auth_configuration
 
 
-class RedshiftProvisionedConfiguration(TypedDict):
+class RedshiftProvisionedConfiguration(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_bedrock_agent.types.redshift_cluster_identifier.RedshiftClusterIdentifier"
     """<p>The ID of the Amazon Redshift cluster.</p>"""
     auth_configuration: "aws_sdk_bedrock_agent.types.redshift_provisioned_auth_configuration.RedshiftProvisionedAuthConfiguration"

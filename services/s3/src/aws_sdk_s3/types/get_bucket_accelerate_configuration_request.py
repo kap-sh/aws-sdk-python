@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketAccelerateConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.request_payer
 
 
-class GetBucketAccelerateConfigurationRequest(TypedDict):
+class GetBucketAccelerateConfigurationRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The name of the bucket for which the accelerate configuration is retrieved.</p>"""
     expected_bucket_owner: NotRequired["aws_sdk_s3.types.account_id.AccountId"]

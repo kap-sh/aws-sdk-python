@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StartRecommendationReportGenerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.group_ids
     import aws_sdk_migrationhubstrategy.types.output_format
 
 
-class StartRecommendationReportGenerationRequest(TypedDict):
+class StartRecommendationReportGenerationRequest(TypedDict, closed=True):
     output_format: NotRequired[
         "aws_sdk_migrationhubstrategy.types.output_format.OutputFormat"
     ]

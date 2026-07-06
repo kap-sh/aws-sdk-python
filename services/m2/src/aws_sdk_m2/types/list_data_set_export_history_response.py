@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListDataSetExportHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListDataSetExportHistoryResponse(TypedDict):
+class ListDataSetExportHistoryResponse(TypedDict, closed=True):
     data_set_export_tasks: (
         "aws_sdk_m2.types.data_set_export_task_list.DataSetExportTaskList"
     )

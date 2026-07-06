@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.group_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.timestamp
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     id: NotRequired["aws_sdk_synthetics.types.string.String"]
     """<p>The unique ID of the group.</p>"""
     name: NotRequired["aws_sdk_synthetics.types.group_name.GroupName"]

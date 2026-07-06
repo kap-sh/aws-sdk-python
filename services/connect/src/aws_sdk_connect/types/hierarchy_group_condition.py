@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HierarchyGroupCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_group_match_type
     import aws_sdk_connect.types.string
 
 
-class HierarchyGroupCondition(TypedDict):
+class HierarchyGroupCondition(TypedDict, closed=True):
     value: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The value in the hierarchy group condition.</p>"""
     hierarchy_group_match_type: NotRequired[

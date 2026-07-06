@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupPlansListMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.advanced_backup_settings
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class BackupPlansListMember(TypedDict):
+class BackupPlansListMember(TypedDict, closed=True):
     backup_plan_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>"""
     backup_plan_id: NotRequired["aws_sdk_backup.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#CreateProvisionedProductPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.update_provisioning_parameters
 
 
-class CreateProvisionedProductPlanInput(TypedDict):
+class CreateProvisionedProductPlanInput(TypedDict, closed=True):
     accept_language: NotRequired[
         "aws_sdk_service_catalog.types.accept_language.AcceptLanguage"
     ]

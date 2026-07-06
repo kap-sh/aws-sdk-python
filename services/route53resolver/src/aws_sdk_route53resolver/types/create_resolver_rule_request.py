@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#CreateResolverRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.target_list
 
 
-class CreateResolverRuleRequest(TypedDict):
+class CreateResolverRuleRequest(TypedDict, closed=True):
     creator_request_id: (
         "aws_sdk_route53resolver.types.creator_request_id.CreatorRequestId"
     )

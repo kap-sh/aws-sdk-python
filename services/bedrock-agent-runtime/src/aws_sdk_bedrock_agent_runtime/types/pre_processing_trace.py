@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#PreProcessingTrace``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.pre_processing_model_invocation_output
 
 
-class _PreProcessingTrace_modelInvocationInput(TypedDict):
+class _PreProcessingTrace_modelInvocationInput(TypedDict, closed=True):
     modelInvocationInput: "aws_sdk_bedrock_agent_runtime.types.model_invocation_input.ModelInvocationInput"
 
 
-class _PreProcessingTrace_modelInvocationOutput(TypedDict):
+class _PreProcessingTrace_modelInvocationOutput(TypedDict, closed=True):
     modelInvocationOutput: "aws_sdk_bedrock_agent_runtime.types.pre_processing_model_invocation_output.PreProcessingModelInvocationOutput"
 
 

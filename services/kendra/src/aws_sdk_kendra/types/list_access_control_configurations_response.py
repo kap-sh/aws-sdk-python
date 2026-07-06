@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListAccessControlConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.string
 
 
-class ListAccessControlConfigurationsResponse(TypedDict):
+class ListAccessControlConfigurationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>If the response is truncated, Amazon Kendra returns this token, which you can use in the subsequent request to retrieve the next set of access control configurations.</p>"""
     access_control_configurations: "aws_sdk_kendra.types.access_control_configuration_summary_list.AccessControlConfigurationSummaryList"

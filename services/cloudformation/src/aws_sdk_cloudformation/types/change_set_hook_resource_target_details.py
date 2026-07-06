@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ChangeSetHookResourceTargetDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.logical_resource_id
 
 
-class ChangeSetHookResourceTargetDetails(TypedDict):
+class ChangeSetHookResourceTargetDetails(TypedDict, closed=True):
     logical_resource_id: NotRequired[
         "aws_sdk_cloudformation.types.logical_resource_id.LogicalResourceId"
     ]

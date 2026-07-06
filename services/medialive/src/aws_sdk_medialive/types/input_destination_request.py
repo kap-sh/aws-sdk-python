@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_input_request_destination_route
     import aws_sdk_medialive.types.__string
 
 
-class InputDestinationRequest(TypedDict):
+class InputDestinationRequest(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """A unique name for the location the RTMP stream is being pushed to."""
     network: NotRequired["aws_sdk_medialive.types.__string.__string"]

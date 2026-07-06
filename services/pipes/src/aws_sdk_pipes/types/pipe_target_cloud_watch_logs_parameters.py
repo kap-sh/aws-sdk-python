@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetCloudWatchLogsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.json_path
     import aws_sdk_pipes.types.log_stream_name
 
 
-class PipeTargetCloudWatchLogsParameters(TypedDict):
+class PipeTargetCloudWatchLogsParameters(TypedDict, closed=True):
     log_stream_name: NotRequired["aws_sdk_pipes.types.log_stream_name.LogStreamName"]
     """<p>The name of the log stream.</p>"""
     timestamp: NotRequired["aws_sdk_pipes.types.json_path.JsonPath"]

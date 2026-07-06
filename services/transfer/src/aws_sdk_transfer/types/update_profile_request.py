@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.profile_id
 
 
-class UpdateProfileRequest(TypedDict):
+class UpdateProfileRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_transfer.types.profile_id.ProfileId"
     """<p>The identifier of the profile object that you are updating.</p>"""
     certificate_ids: NotRequired[

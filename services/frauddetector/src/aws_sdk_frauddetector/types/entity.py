@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     entity_type: "aws_sdk_frauddetector.types.string.string"
     """<p>The entity type.</p>"""
     entity_id: (

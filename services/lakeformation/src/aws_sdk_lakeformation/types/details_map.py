@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#DetailsMap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource_share_list
 
 
-class DetailsMap(TypedDict):
+class DetailsMap(TypedDict, closed=True):
     resource_share: NotRequired[
         "aws_sdk_lakeformation.types.resource_share_list.ResourceShareList"
     ]

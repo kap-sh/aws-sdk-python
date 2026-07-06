@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetDefaultViewOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetDefaultViewOutput(TypedDict):
+class GetDefaultViewOutput(TypedDict, closed=True):
     view_arn: NotRequired["str"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon resource name (ARN)</a> of the view that is the current default for the Amazon Web Services Region in which you called this operation.</p>"""
 

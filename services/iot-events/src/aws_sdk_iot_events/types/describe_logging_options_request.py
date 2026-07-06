@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DescribeLoggingOptionsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeLoggingOptionsRequest(TypedDict):
+class DescribeLoggingOptionsRequest(TypedDict, closed=True):
     pass
 
 

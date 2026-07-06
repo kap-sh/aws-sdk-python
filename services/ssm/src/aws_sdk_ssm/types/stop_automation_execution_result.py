@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StopAutomationExecutionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopAutomationExecutionResult(TypedDict):
+class StopAutomationExecutionResult(TypedDict, closed=True):
     pass
 
 

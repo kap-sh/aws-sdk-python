@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ResolverRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.account_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.target_list
 
 
-class ResolverRule(TypedDict):
+class ResolverRule(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The ID that Resolver assigned to the Resolver rule when you created it.</p>"""
     creator_request_id: NotRequired[

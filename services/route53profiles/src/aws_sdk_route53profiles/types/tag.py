@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_route53profiles.types.tag_key.TagKey"
     """<p> Key associated with the <code>Tag</code>. </p>"""
     value: "aws_sdk_route53profiles.types.tag_value.TagValue"

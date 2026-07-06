@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12CodeListValidationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.element_id
 
 
-class X12CodeListValidationRule(TypedDict):
+class X12CodeListValidationRule(TypedDict, closed=True):
     element_id: "aws_sdk_b2bi.types.element_id.ElementId"
     """<p>Specifies the four-digit element ID to which the code list modifications apply. This identifies which X12 element will have its allowed code values modified.</p>"""
     codes_to_add: NotRequired["aws_sdk_b2bi.types.code_list.CodeList"]

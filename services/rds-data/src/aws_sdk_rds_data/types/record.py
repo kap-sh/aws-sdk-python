@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#Record``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.row
 
 
-class Record(TypedDict):
+class Record(TypedDict, closed=True):
     values: NotRequired["aws_sdk_rds_data.types.row.Row"]
     """<p>The values returned in the record.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EndpointBatchItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class EndpointBatchItem(TypedDict):
+class EndpointBatchItem(TypedDict, closed=True):
     address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The destination address for messages or push notifications that you send to the endpoint. The address varies by channel. For a push-notification channel, use the token provided by the push notification service, such as an Apple Push Notification service (APNs) device token or a Firebase Cloud Messaging (FCM) registration token. For the SMS channel, use a phone number in E.164 format, such as +12065550100. For the email channel, use an email address.</p>"""
     attributes: NotRequired[

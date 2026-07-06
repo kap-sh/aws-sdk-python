@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#Function``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.function_configuration
 
 
-class Function(TypedDict):
+class Function(TypedDict, closed=True):
     function_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the Lambda function."""
     function_configuration: NotRequired[

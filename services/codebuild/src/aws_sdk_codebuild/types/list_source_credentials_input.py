@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListSourceCredentialsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListSourceCredentialsInput(TypedDict):
+class ListSourceCredentialsInput(TypedDict, closed=True):
     pass
 
 

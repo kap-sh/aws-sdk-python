@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListChannelNamespacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.channel_namespaces
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListChannelNamespacesResponse(TypedDict):
+class ListChannelNamespacesResponse(TypedDict, closed=True):
     channel_namespaces: NotRequired[
         "aws_sdk_appsync.types.channel_namespaces.ChannelNamespaces"
     ]

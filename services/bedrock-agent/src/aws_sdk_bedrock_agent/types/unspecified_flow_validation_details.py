@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#UnspecifiedFlowValidationDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UnspecifiedFlowValidationDetails(TypedDict):
+class UnspecifiedFlowValidationDetails(TypedDict, closed=True):
     pass
 
 

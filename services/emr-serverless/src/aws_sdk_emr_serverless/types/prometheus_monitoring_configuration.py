@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#PrometheusMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.prometheus_url_string
 
 
-class PrometheusMonitoringConfiguration(TypedDict):
+class PrometheusMonitoringConfiguration(TypedDict, closed=True):
     remote_write_url: NotRequired[
         "aws_sdk_emr_serverless.types.prometheus_url_string.PrometheusUrlString"
     ]

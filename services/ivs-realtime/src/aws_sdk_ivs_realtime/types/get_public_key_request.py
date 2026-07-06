@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#GetPublicKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.public_key_arn
 
 
-class GetPublicKeyRequest(TypedDict):
+class GetPublicKeyRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs_realtime.types.public_key_arn.PublicKeyArn"
     """<p>ARN of the public key for which the information is to be retrieved.</p>"""
 

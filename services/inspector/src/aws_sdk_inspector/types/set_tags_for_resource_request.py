@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#SetTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.tag_list
 
 
-class SetTagsForResourceRequest(TypedDict):
+class SetTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN of the assessment template that you want to set tags to.</p>"""
     tags: NotRequired["aws_sdk_inspector.types.tag_list.TagList"]

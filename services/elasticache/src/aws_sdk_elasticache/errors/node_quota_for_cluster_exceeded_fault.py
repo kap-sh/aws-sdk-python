@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#NodeQuotaForClusterExceededFault``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 from aws_sdk_elasticache.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.exception_message
 
 
-class NodeQuotaForClusterExceededFault_(TypedDict):
+class NodeQuotaForClusterExceededFault_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_elasticache.types.exception_message.ExceptionMessage"]
 
 

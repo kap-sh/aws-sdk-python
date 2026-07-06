@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#UpdateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.user_id
 
 
-class UpdateUserResponse(TypedDict):
+class UpdateUserResponse(TypedDict, closed=True):
     user_id: "aws_sdk_wickr.types.user_id.UserId"
     """<p>The unique identifier of the updated user.</p>"""
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"

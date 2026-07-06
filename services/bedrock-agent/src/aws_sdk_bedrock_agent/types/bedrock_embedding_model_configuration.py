@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#BedrockEmbeddingModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.audio_configurations
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.video_configurations
 
 
-class BedrockEmbeddingModelConfiguration(TypedDict):
+class BedrockEmbeddingModelConfiguration(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_bedrock_agent.types.dimensions.Dimensions"]
     """<p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>"""
     embedding_data_type: NotRequired[

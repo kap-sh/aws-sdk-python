@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#EncryptionAtRestOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
     import aws_sdk_elasticsearch_service.types.kms_key_id
 
 
-class EncryptionAtRestOptions(TypedDict):
+class EncryptionAtRestOptions(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_elasticsearch_service.types.boolean.Boolean"]
     """<p>Specifies the option to enable Encryption At Rest.</p>"""
     kms_key_id: NotRequired["aws_sdk_elasticsearch_service.types.kms_key_id.KmsKeyId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListObjectTypeAttributeValuesItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class ListObjectTypeAttributeValuesItem(TypedDict):
+class ListObjectTypeAttributeValuesItem(TypedDict, closed=True):
     value: "aws_sdk_customer_profiles.types.sensitive_string1_to1000.sensitiveString1To1000"
     """<p>The actual value of the object type attribute.</p>"""
     last_updated_at: "aws_sdk_customer_profiles.types.timestamp.timestamp"

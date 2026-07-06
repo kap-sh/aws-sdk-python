@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DeleteRecommendationTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.recommendation_template_status
 
 
-class DeleteRecommendationTemplateResponse(TypedDict):
+class DeleteRecommendationTemplateResponse(TypedDict, closed=True):
     recommendation_template_arn: "aws_sdk_resiliencehub.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for a recommendation template.</p>"""
     status: "aws_sdk_resiliencehub.types.recommendation_template_status.RecommendationTemplateStatus"

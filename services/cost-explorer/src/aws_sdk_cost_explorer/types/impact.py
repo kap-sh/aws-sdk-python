@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#Impact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_double
     import aws_sdk_cost_explorer.types.nullable_non_negative_double
 
 
-class Impact(TypedDict):
+class Impact(TypedDict, closed=True):
     max_impact: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"
     """<p>The maximum dollar value that's observed for an anomaly.</p>"""
     total_impact: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"

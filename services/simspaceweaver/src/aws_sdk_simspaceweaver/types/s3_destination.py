@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#S3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_simspaceweaver.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.object_key_prefix
 
 
-class S3Destination(TypedDict):
+class S3Destination(TypedDict, closed=True):
     bucket_name: "aws_sdk_simspaceweaver.types.bucket_name.BucketName"
     r"""<p>The name of an Amazon S3 bucket. For more information about buckets, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html\">Creating, configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>"""
     object_key_prefix: NotRequired[

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     """<p>The exception message.</p>"""
     service_code: NotRequired["str"]

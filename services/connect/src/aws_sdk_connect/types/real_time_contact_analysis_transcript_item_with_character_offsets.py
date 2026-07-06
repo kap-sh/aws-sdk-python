@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisTranscriptItemWithCharacterOffsets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_id256
 
 
-class RealTimeContactAnalysisTranscriptItemWithCharacterOffsets(TypedDict):
+class RealTimeContactAnalysisTranscriptItemWithCharacterOffsets(TypedDict, closed=True):
     id: "aws_sdk_connect.types.real_time_contact_analysis_id256.RealTimeContactAnalysisId256"
     """<p>Transcript identifier. Matches the identifier from one of the TranscriptSegments.</p>"""
     character_offsets: NotRequired[

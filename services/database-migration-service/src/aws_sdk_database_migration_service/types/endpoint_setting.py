@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#EndpointSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class EndpointSetting(TypedDict):
+class EndpointSetting(TypedDict, closed=True):
     name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The name that you want to give the endpoint settings.</p>"""
     type: NotRequired[

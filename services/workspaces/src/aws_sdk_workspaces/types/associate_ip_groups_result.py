@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AssociateIpGroupsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateIpGroupsResult(TypedDict):
+class AssociateIpGroupsResult(TypedDict, closed=True):
     pass
 
 

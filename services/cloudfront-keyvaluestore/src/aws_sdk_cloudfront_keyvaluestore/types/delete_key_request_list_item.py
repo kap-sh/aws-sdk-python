@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#DeleteKeyRequestListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront_keyvaluestore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.key
 
 
-class DeleteKeyRequestListItem(TypedDict):
+class DeleteKeyRequestListItem(TypedDict, closed=True):
     key: "aws_sdk_cloudfront_keyvaluestore.types.key.Key"
     """<p>The key of the key value pair to be deleted.</p>"""
 

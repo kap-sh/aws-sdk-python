@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeDomainAutoTunesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.auto_tune_list
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class DescribeDomainAutoTunesResponse(TypedDict):
+class DescribeDomainAutoTunesResponse(TypedDict, closed=True):
     auto_tunes: NotRequired[
         "aws_sdk_elasticsearch_service.types.auto_tune_list.AutoTuneList"
     ]

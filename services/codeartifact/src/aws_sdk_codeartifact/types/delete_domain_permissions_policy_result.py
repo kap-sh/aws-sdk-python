@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#DeleteDomainPermissionsPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.resource_policy
 
 
-class DeleteDomainPermissionsPolicyResult(TypedDict):
+class DeleteDomainPermissionsPolicyResult(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_codeartifact.types.resource_policy.ResourcePolicy"]
     """<p> Information about the deleted resource policy after processing the request. </p>"""
 

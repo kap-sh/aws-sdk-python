@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetMaintenanceWindowExecutionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_execution_task_id_list
 
 
-class GetMaintenanceWindowExecutionResult(TypedDict):
+class GetMaintenanceWindowExecutionResult(TypedDict, closed=True):
     window_execution_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_execution_id.MaintenanceWindowExecutionId"
     ]

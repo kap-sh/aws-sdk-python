@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_states
 
 
-class ContactFilter(TypedDict):
+class ContactFilter(TypedDict, closed=True):
     contact_states: NotRequired["aws_sdk_connect.types.contact_states.ContactStates"]
     r"""<p>A list of up to 9 <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html\">contact states</a>.</p>"""
 

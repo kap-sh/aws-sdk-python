@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#OAuth2Defaults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.auth_code_url_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.token_url_list
 
 
-class OAuth2Defaults(TypedDict):
+class OAuth2Defaults(TypedDict, closed=True):
     oauth_scopes: NotRequired["aws_sdk_appflow.types.o_auth_scope_list.OAuthScopeList"]
     """<p>OAuth 2.0 scopes that the connector supports.</p>"""
     token_urls: NotRequired["aws_sdk_appflow.types.token_url_list.TokenUrlList"]

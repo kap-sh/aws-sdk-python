@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateConnectorV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.tag_map
 
 
-class CreateConnectorV2Request(TypedDict):
+class CreateConnectorV2Request(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The unique name of the connectorV2.</p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListIAMPolicyAssignmentsForUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.active_iam_policy_assignment_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListIAMPolicyAssignmentsForUserResponse(TypedDict):
+class ListIAMPolicyAssignmentsForUserResponse(TypedDict, closed=True):
     active_assignments: NotRequired[
         "aws_sdk_quicksight.types.active_iam_policy_assignment_list.ActiveIAMPolicyAssignmentList"
     ]

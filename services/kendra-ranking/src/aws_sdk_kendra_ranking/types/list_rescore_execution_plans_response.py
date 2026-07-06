@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#ListRescoreExecutionPlansResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.next_token
     import aws_sdk_kendra_ranking.types.rescore_execution_plan_summary_list
 
 
-class ListRescoreExecutionPlansResponse(TypedDict):
+class ListRescoreExecutionPlansResponse(TypedDict, closed=True):
     summary_items: NotRequired[
         "aws_sdk_kendra_ranking.types.rescore_execution_plan_summary_list.RescoreExecutionPlanSummaryList"
     ]

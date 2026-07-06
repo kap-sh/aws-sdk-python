@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisLinearScale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
     import aws_sdk_quicksight.types.integer
 
 
-class AxisLinearScale(TypedDict):
+class AxisLinearScale(TypedDict, closed=True):
     step_count: NotRequired["aws_sdk_quicksight.types.integer.Integer"]
     """<p>The step count setup of a linear axis.</p>"""
     step_size: NotRequired["aws_sdk_quicksight.types.double.Double"]

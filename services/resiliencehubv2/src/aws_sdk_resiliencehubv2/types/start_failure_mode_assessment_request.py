@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#StartFailureModeAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.client_token
 
 
-class StartFailureModeAssessmentRequest(TypedDict):
+class StartFailureModeAssessmentRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     client_token: NotRequired["aws_sdk_resiliencehubv2.types.client_token.ClientToken"]
 

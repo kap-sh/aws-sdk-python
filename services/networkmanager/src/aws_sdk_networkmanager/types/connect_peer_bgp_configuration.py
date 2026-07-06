@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConnectPeerBgpConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.ip_address
     import aws_sdk_networkmanager.types.long
 
 
-class ConnectPeerBgpConfiguration(TypedDict):
+class ConnectPeerBgpConfiguration(TypedDict, closed=True):
     core_network_asn: NotRequired["aws_sdk_networkmanager.types.long.Long"]
     """<p>The ASN of the Coret Network.</p>"""
     peer_asn: NotRequired["aws_sdk_networkmanager.types.long.Long"]

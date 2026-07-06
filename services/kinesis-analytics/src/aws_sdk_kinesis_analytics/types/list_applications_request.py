@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.application_name
     import aws_sdk_kinesis_analytics.types.list_applications_input_limit
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     limit: NotRequired[
         "aws_sdk_kinesis_analytics.types.list_applications_input_limit.ListApplicationsInputLimit"
     ]

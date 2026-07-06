@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#ServiceFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.service_filter_name
 
 
-class ServiceFilter(TypedDict):
+class ServiceFilter(TypedDict, closed=True):
     name: "aws_sdk_servicediscovery.types.service_filter_name.ServiceFilterName"
     r"""<p>Specify the services that you want to get using one of the following.</p> <ul> <li> <p> <code>NAMESPACE_ID</code>: Gets the services associated with the specified namespace.</p> </li> <li> <p> <code>RESOURCE_OWNER</code>: Gets the services associated with the namespaces created by your Amazon Web Services account or by other accounts. This can be used to filter for services created in a shared namespace. For more information about shared namespaces, see <a href=\"https://docs.aws.amazon.com/cloud-map/latest/dg/sharing-namespaces.html\">Cross-account Cloud Map namespace sharing</a> in the <i>Cloud Map Developer Guide</i>.</p> </li> </ul>"""
     values: "aws_sdk_servicediscovery.types.filter_values.FilterValues"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CommandFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.command_filter_value
 
 
-class CommandFilter(TypedDict):
+class CommandFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.command_filter_key.CommandFilterKey"
     """<p>The name of the filter.</p> <note> <p>The <code>ExecutionStage</code> filter can't be used with the <code>ListCommandInvocations</code> operation, only with <code>ListCommands</code>.</p> </note>"""
     value: "aws_sdk_ssm.types.command_filter_value.CommandFilterValue"

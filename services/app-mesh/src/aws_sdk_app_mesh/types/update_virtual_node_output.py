@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#UpdateVirtualNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_node_data
 
 
-class UpdateVirtualNodeOutput(TypedDict):
+class UpdateVirtualNodeOutput(TypedDict, closed=True):
     virtual_node: "aws_sdk_app_mesh.types.virtual_node_data.VirtualNodeData"
     """<p>A full description of the virtual node that was updated.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterCapabilityReportAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.action_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.matter_capability_report_attribute_value
 
 
-class MatterCapabilityReportAttribute(TypedDict):
+class MatterCapabilityReportAttribute(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_iot_managed_integrations.types.matter_attribute_id.MatterAttributeId"
     ]

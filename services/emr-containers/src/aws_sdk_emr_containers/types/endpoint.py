@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.acm_cert_arn
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.uri_string
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr_containers.types.resource_id_string.ResourceIdString"]
     """<p>The ID of the endpoint.</p>"""
     name: NotRequired[

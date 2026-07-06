@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListCrossAccountResourceAccountsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListCrossAccountResourceAccountsRequest(TypedDict):
+class ListCrossAccountResourceAccountsRequest(TypedDict, closed=True):
     pass
 
 

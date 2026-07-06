@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#NetworkConnectionAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class NetworkConnectionAction(TypedDict):
+class NetworkConnectionAction(TypedDict, closed=True):
     blocked: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>Indicates whether EC2 blocked the network connection to your instance.</p>"""
     connection_direction: NotRequired["aws_sdk_guardduty.types.string.String"]

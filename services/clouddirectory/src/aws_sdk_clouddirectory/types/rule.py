@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#Rule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.rule_parameter_map
     import aws_sdk_clouddirectory.types.rule_type
 
 
-class Rule(TypedDict):
+class Rule(TypedDict, closed=True):
     type: NotRequired["aws_sdk_clouddirectory.types.rule_type.RuleType"]
     """<p>The type of attribute validation rule.</p>"""
     parameters: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetColumnStatisticsForTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class GetColumnStatisticsForTableRequest(TypedDict):
+class GetColumnStatisticsForTableRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the Data Catalog where the partitions in question reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>"""
     database_name: "aws_sdk_glue.types.name_string.NameString"

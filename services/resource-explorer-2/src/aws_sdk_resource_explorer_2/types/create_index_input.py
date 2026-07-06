@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#CreateIndexInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.tag_map
 
 
-class CreateIndexInput(TypedDict):
+class CreateIndexInput(TypedDict, closed=True):
     client_token: NotRequired["str"]
     r"""<p>This value helps ensure idempotency. Resource Explorer uses this value to prevent the accidental creation of duplicate versions. We recommend that you generate a <a href=\"https://wikipedia.org/wiki/Universally_unique_identifier\">UUID-type value</a> to ensure the uniqueness of your index.</p>"""
     tags: NotRequired["aws_sdk_resource_explorer_2.types.tag_map.TagMap"]

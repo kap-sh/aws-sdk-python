@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#DeleteDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_status
 
 
-class DeleteDomainOutput(TypedDict):
+class DeleteDomainOutput(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p>The id of the Domain requested for deletion</p>"""
     arn: "aws_sdk_connecthealth.types.domain_arn.DomainArn"

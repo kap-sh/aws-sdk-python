@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteDataSourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.self_grant_status_output
 
 
-class DeleteDataSourceOutput(TypedDict):
+class DeleteDataSourceOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.data_source_id.DataSourceId"
     """<p>The ID of the data source that is deleted.</p>"""
     status: NotRequired["aws_sdk_datazone.types.data_source_status.DataSourceStatus"]

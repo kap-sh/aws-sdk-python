@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FieldAttributes``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.text_attributes
 
 
-class _FieldAttributes_text(TypedDict):
+class _FieldAttributes_text(TypedDict, closed=True):
     text: "aws_sdk_connectcases.types.text_attributes.TextAttributes"
 
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetDomainUnitInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.domain_unit_id
 
 
-class GetDomainUnitInput(TypedDict):
+class GetDomainUnitInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where you want to get a domain unit.</p>"""
     identifier: "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"

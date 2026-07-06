@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ListConfigurationCheckDefinitionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.configuration_check_definition_list
     import aws_sdk_ssm_sap.types.next_token
 
 
-class ListConfigurationCheckDefinitionsOutput(TypedDict):
+class ListConfigurationCheckDefinitionsOutput(TypedDict, closed=True):
     configuration_checks: NotRequired[
         "aws_sdk_ssm_sap.types.configuration_check_definition_list.ConfigurationCheckDefinitionList"
     ]

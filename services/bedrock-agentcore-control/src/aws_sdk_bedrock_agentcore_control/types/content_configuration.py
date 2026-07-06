@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ContentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.content_type
 
 
-class ContentConfiguration(TypedDict):
+class ContentConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agentcore_control.types.content_type.ContentType"
     """<p>Type of content to stream.</p>"""
     level: "aws_sdk_bedrock_agentcore_control.types.content_level.ContentLevel"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeleteDBProxyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.db_proxy
 
 
-class DeleteDBProxyResponse(TypedDict):
+class DeleteDBProxyResponse(TypedDict, closed=True):
     db_proxy: NotRequired["aws_sdk_rds.types.db_proxy.DBProxy"]
     """<p>The data structure representing the details of the DB proxy that you delete.</p>"""
 

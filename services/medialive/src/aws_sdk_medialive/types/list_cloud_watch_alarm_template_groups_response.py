@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListCloudWatchAlarmTemplateGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_cloud_watch_alarm_template_group_summary
     import aws_sdk_medialive.types.__string_min1_max2048
 
 
-class ListCloudWatchAlarmTemplateGroupsResponse(TypedDict):
+class ListCloudWatchAlarmTemplateGroupsResponse(TypedDict, closed=True):
     cloud_watch_alarm_template_groups: NotRequired[
         "aws_sdk_medialive.types.__list_of_cloud_watch_alarm_template_group_summary.__listOfCloudWatchAlarmTemplateGroupSummary"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxDatabasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_databases
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxDatabasesResponse(TypedDict):
+class ListKxDatabasesResponse(TypedDict, closed=True):
     kx_databases: NotRequired["aws_sdk_finspace.types.kx_databases.KxDatabases"]
     """<p>A list of databases in the kdb environment.</p>"""
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]

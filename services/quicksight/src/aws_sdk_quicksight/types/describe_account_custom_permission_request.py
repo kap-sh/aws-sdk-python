@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeAccountCustomPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
 
 
-class DescribeAccountCustomPermissionRequest(TypedDict):
+class DescribeAccountCustomPermissionRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account for which you want to describe the applied custom permissions profile.</p>"""
 

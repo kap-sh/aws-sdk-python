@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.arn
 
 
-class ListTagsRequest(TypedDict):
+class ListTagsRequest(TypedDict, closed=True):
     arn: "aws_sdk_elasticsearch_service.types.arn.ARN"
     """<p> Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view.</p>"""
 

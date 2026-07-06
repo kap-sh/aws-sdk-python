@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ReasonCodeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.finding_reason_code
     import aws_sdk_compute_optimizer.types.summary_value
 
 
-class ReasonCodeSummary(TypedDict):
+class ReasonCodeSummary(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_compute_optimizer.types.finding_reason_code.FindingReasonCode"
     ]

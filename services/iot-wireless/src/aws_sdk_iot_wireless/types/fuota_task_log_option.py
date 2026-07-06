@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#FuotaTaskLogOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.log_level
 
 
-class FuotaTaskLogOption(TypedDict):
+class FuotaTaskLogOption(TypedDict, closed=True):
     type: "aws_sdk_iot_wireless.types.fuota_task_type.FuotaTaskType"
     """<p>The FUOTA task type.</p>"""
     log_level: "aws_sdk_iot_wireless.types.log_level.LogLevel"

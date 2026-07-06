@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobDashboardOverrideTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tag_list
 
 
-class AssetBundleImportJobDashboardOverrideTags(TypedDict):
+class AssetBundleImportJobDashboardOverrideTags(TypedDict, closed=True):
     dashboard_ids: "aws_sdk_quicksight.types.asset_bundle_restrictive_resource_id_list.AssetBundleRestrictiveResourceIdList"
     """<p>A list of dashboard IDs that you want to apply overrides to. You can use <code>*</code> to override all dashboards in this asset bundle.</p>"""
     tags: "aws_sdk_quicksight.types.tag_list.TagList"

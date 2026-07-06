@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CollectorHealthCheck``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean_optional
     import aws_sdk_database_migration_service.types.collector_status
 
 
-class CollectorHealthCheck(TypedDict):
+class CollectorHealthCheck(TypedDict, closed=True):
     collector_status: NotRequired[
         "aws_sdk_database_migration_service.types.collector_status.CollectorStatus"
     ]

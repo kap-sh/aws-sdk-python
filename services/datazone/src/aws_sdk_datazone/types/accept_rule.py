@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AcceptRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.accept_rule_behavior
 
 
-class AcceptRule(TypedDict):
+class AcceptRule(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_datazone.types.accept_rule_behavior.AcceptRuleBehavior"]
     """<p>Specifies whether you want to accept the top prediction for all targets or none.</p>"""
     threshold: NotRequired["float"]

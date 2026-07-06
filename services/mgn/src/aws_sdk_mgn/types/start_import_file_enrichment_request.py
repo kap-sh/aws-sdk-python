@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartImportFileEnrichmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.ip_assignment_strategy
 
 
-class StartImportFileEnrichmentRequest(TypedDict):
+class StartImportFileEnrichmentRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_mgn.types.client_idempotency_token.ClientIdempotencyToken"
     ]

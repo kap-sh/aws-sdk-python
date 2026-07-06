@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EnhancedMetricsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.resolver_level_metrics_behavior
 
 
-class EnhancedMetricsConfig(TypedDict):
+class EnhancedMetricsConfig(TypedDict, closed=True):
     resolver_level_metrics_behavior: "aws_sdk_appsync.types.resolver_level_metrics_behavior.ResolverLevelMetricsBehavior"
     """<p>Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:</p> <ul> <li> <p>GraphQL errors: The number of GraphQL errors that occurred.</p> </li> <li> <p>Requests: The number of invocations that occurred during a request. </p> </li> <li> <p>Latency: The time to complete a resolver invocation.</p> </li> <li> <p>Cache hits: The number of cache hits during a request.</p> </li> <li> <p>Cache misses: The number of cache misses during a request.</p> </li> </ul> <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics will be recorded by API ID and resolver name. <code>resolverLevelMetricsBehavior</code> accepts one of these values at a time:</p> <ul> <li> <p> <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data for all resolvers in the request.</p> </li> <li> <p> <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the <code>metricsConfig</code> value set to <code>ENABLED</code>.</p> </li> </ul>"""
     data_source_level_metrics_behavior: "aws_sdk_appsync.types.data_source_level_metrics_behavior.DataSourceLevelMetricsBehavior"

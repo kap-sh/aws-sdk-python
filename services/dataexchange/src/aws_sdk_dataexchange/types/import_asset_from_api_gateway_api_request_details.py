@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ImportAssetFromApiGatewayApiRequestDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.protocol_type
 
 
-class ImportAssetFromApiGatewayApiRequestDetails(TypedDict):
+class ImportAssetFromApiGatewayApiRequestDetails(TypedDict, closed=True):
     api_description: NotRequired[
         "aws_sdk_dataexchange.types.api_description.ApiDescription"
     ]

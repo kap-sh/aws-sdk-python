@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#CostAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.currency_code
 
 
-class CostAmount(TypedDict):
+class CostAmount(TypedDict, closed=True):
     amount: NotRequired["float"]
     """<p> The numeric value of the cost. </p>"""
     currency: NotRequired[

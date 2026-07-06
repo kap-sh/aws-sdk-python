@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANGetServiceProfileInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.add_gw_metadata
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.ul_rate_policy
 
 
-class LoRaWANGetServiceProfileInfo(TypedDict):
+class LoRaWANGetServiceProfileInfo(TypedDict, closed=True):
     ul_rate: NotRequired["aws_sdk_iot_wireless.types.ul_rate.UlRate"]
     """<p>The ULRate value.</p>"""
     ul_bucket_size: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DnsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class DnsConfiguration(TypedDict):
+class DnsConfiguration(TypedDict, closed=True):
     domain: "aws_sdk_cloudfront.types.string.string"
     """<p>The domain name that you're verifying.</p>"""
     status: "aws_sdk_cloudfront.types.dns_configuration_status.DnsConfigurationStatus"

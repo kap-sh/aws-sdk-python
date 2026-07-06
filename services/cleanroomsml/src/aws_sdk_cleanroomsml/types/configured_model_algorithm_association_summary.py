@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ConfiguredModelAlgorithmAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class ConfiguredModelAlgorithmAssociationSummary(TypedDict):
+class ConfiguredModelAlgorithmAssociationSummary(TypedDict, closed=True):
     create_time: "datetime.datetime"
     """<p>The time at which the configured model algorithm association was created.</p>"""
     update_time: "datetime.datetime"

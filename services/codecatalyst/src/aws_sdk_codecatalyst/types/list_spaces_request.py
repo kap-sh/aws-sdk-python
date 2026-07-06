@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListSpacesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListSpacesRequest(TypedDict):
+class ListSpacesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"""
 

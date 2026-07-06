@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetRateBasedRuleManagedKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class GetRateBasedRuleManagedKeysRequest(TypedDict):
+class GetRateBasedRuleManagedKeysRequest(TypedDict, closed=True):
     rule_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RuleId</code> of the <a>RateBasedRule</a> for which you want to get a list of <code>ManagedKeys</code>. <code>RuleId</code> is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</p>"""
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]

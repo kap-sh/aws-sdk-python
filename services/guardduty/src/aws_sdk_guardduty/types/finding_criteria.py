@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FindingCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.criterion
 
 
-class FindingCriteria(TypedDict):
+class FindingCriteria(TypedDict, closed=True):
     criterion: NotRequired["aws_sdk_guardduty.types.criterion.Criterion"]
     """<p>Represents a map of finding properties that match specified conditions and values when querying findings.</p>"""
 

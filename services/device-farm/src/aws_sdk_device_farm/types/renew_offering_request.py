@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#RenewOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.offering_identifier
 
 
-class RenewOfferingRequest(TypedDict):
+class RenewOfferingRequest(TypedDict, closed=True):
     offering_id: "aws_sdk_device_farm.types.offering_identifier.OfferingIdentifier"
     """<p>The ID of a request to renew an offering.</p>"""
     quantity: "aws_sdk_device_farm.types.integer.Integer"

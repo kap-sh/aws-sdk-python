@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListBootstrapActionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.command_list
     import aws_sdk_emr.types.marker
 
 
-class ListBootstrapActionsOutput(TypedDict):
+class ListBootstrapActionsOutput(TypedDict, closed=True):
     bootstrap_actions: NotRequired["aws_sdk_emr.types.command_list.CommandList"]
     """<p>The bootstrap actions associated with the cluster.</p>"""
     marker: NotRequired["aws_sdk_emr.types.marker.Marker"]

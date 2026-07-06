@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateComponentTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.tag_map
 
 
-class CreateComponentTypeRequest(TypedDict):
+class CreateComponentTypeRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the workspace that contains the component type.</p>"""
     is_singleton: NotRequired["aws_sdk_iottwinmaker.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetWebIdentityTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.web_identity_token_type
 
 
-class GetWebIdentityTokenResponse(TypedDict):
+class GetWebIdentityTokenResponse(TypedDict, closed=True):
     web_identity_token: NotRequired[
         "aws_sdk_sts.types.web_identity_token_type.webIdentityTokenType"
     ]

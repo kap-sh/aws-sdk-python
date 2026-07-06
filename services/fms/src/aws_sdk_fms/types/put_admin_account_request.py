@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PutAdminAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
 
 
-class PutAdminAccountRequest(TypedDict):
+class PutAdminAccountRequest(TypedDict, closed=True):
     admin_account: "aws_sdk_fms.types.aws_account_id.AWSAccountId"
     r"""<p>The Amazon Web Services account ID to add as an Firewall Manager administrator account. The account must be a member of the organization that was onboarded to Firewall Manager by <a>AssociateAdminAccount</a>. For more information about Organizations, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html\">Managing the Amazon Web Services Accounts in Your Organization</a>.</p>"""
     admin_scope: NotRequired["aws_sdk_fms.types.admin_scope.AdminScope"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#InputDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.attributes
 
 
-class InputDefinition(TypedDict):
+class InputDefinition(TypedDict, closed=True):
     attributes: "aws_sdk_iot_events.types.attributes.Attributes"
     """<p>The attributes from the JSON payload that are made available by the input. Inputs are derived from messages sent to the AWS IoT Events system using <code>BatchPutMessage</code>. Each such message contains a JSON payload, and those attributes (and their paired values) specified here are available for use in the <code>condition</code> expressions used by detectors that monitor this input. </p>"""
 

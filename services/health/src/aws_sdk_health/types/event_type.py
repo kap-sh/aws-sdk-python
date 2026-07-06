@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#EventType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.event_type_actionability
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.service
 
 
-class EventType(TypedDict):
+class EventType(TypedDict, closed=True):
     service: NotRequired["aws_sdk_health.types.service.service"]
     """<p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>"""
     code: NotRequired["aws_sdk_health.types.event_type_code.eventTypeCode"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DatadogAuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.mcp_server_authorization_discovery_config
 
 
-class _DatadogAuthorizationConfig_authorizationDiscovery(TypedDict):
+class _DatadogAuthorizationConfig_authorizationDiscovery(TypedDict, closed=True):
     authorizationDiscovery: "aws_sdk_devops_agent.types.mcp_server_authorization_discovery_config.MCPServerAuthorizationDiscoveryConfig"
 
 

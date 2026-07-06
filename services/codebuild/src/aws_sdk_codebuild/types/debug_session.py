@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DebugSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class DebugSession(TypedDict):
+class DebugSession(TypedDict, closed=True):
     session_enabled: NotRequired[
         "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
     ]

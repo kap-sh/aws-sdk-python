@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#DeleteRegexPatternSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class DeleteRegexPatternSetRequest(TypedDict):
+class DeleteRegexPatternSetRequest(TypedDict, closed=True):
     regex_pattern_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>RegexPatternSetId</code> of the <a>RegexPatternSet</a> that you want to delete. <code>RegexPatternSetId</code> is returned by <a>CreateRegexPatternSet</a> and by <a>ListRegexPatternSets</a>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

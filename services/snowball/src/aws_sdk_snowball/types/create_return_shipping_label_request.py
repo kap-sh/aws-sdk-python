@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CreateReturnShippingLabelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.shipping_option
 
 
-class CreateReturnShippingLabelRequest(TypedDict):
+class CreateReturnShippingLabelRequest(TypedDict, closed=True):
     job_id: "aws_sdk_snowball.types.job_id.JobId"
     """<p>The ID for a job that you want to create the return shipping label for; for example, <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     shipping_option: NotRequired[

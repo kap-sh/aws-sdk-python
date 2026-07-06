@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WaterfallChartConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_display_options
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.waterfall_chart_sort_configuration
 
 
-class WaterfallChartConfiguration(TypedDict):
+class WaterfallChartConfiguration(TypedDict, closed=True):
     field_wells: NotRequired[
         "aws_sdk_quicksight.types.waterfall_chart_field_wells.WaterfallChartFieldWells"
     ]

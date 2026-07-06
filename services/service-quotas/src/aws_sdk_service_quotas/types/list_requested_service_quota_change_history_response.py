@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ListRequestedServiceQuotaChangeHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.next_token
     import aws_sdk_service_quotas.types.requested_service_quota_change_history_list_definition
 
 
-class ListRequestedServiceQuotaChangeHistoryResponse(TypedDict):
+class ListRequestedServiceQuotaChangeHistoryResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_service_quotas.types.next_token.NextToken"]
     """<p>If present, indicates that more output is available than is included in the current response. Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>"""
     requested_quotas: NotRequired[

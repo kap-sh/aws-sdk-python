@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#UpdateAccountSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.deletion_protection_settings
 
 
-class UpdateAccountSettingsRequest(TypedDict):
+class UpdateAccountSettingsRequest(TypedDict, closed=True):
     deletion_protection: NotRequired[
         "aws_sdk_appconfig.types.deletion_protection_settings.DeletionProtectionSettings"
     ]

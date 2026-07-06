@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#CreateProgramManagementAccountDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.arn
     import aws_sdk_partnercentral_channel.types.program_management_account_id
 
 
-class CreateProgramManagementAccountDetail(TypedDict):
+class CreateProgramManagementAccountDetail(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_partnercentral_channel.types.program_management_account_id.ProgramManagementAccountId"
     ]

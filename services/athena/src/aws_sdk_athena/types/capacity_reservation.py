@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CapacityReservation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.timestamp
 
 
-class CapacityReservation(TypedDict):
+class CapacityReservation(TypedDict, closed=True):
     name: "aws_sdk_athena.types.capacity_reservation_name.CapacityReservationName"
     """<p>The name of the capacity reservation.</p>"""
     status: "aws_sdk_athena.types.capacity_reservation_status.CapacityReservationStatus"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Actor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.authentication
     import aws_sdk_securityagent.types.uri_list
 
 
-class Actor(TypedDict):
+class Actor(TypedDict, closed=True):
     identifier: NotRequired["str"]
     """<p>The unique identifier for the actor.</p>"""
     uris: NotRequired["aws_sdk_securityagent.types.uri_list.UriList"]

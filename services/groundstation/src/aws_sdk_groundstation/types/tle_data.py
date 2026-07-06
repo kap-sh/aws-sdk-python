@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#TLEData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.tle_line_two
 
 
-class TLEData(TypedDict):
+class TLEData(TypedDict, closed=True):
     tle_line1: "aws_sdk_groundstation.types.tle_line_one.TleLineOne"
     """<p>First line of two-line element set (TLE) data.</p>"""
     tle_line2: "aws_sdk_groundstation.types.tle_line_two.TleLineTwo"

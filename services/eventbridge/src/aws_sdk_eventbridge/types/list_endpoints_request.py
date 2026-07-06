@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.endpoint_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListEndpointsRequest(TypedDict):
+class ListEndpointsRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_eventbridge.types.endpoint_name.EndpointName"]
     r"""<p>A value that will return a subset of the endpoints associated with this account. For example, <code>\"NamePrefix\": \"ABC\"</code> will return all endpoints with \"ABC\" in the name.</p>"""
     home_region: NotRequired["aws_sdk_eventbridge.types.home_region.HomeRegion"]

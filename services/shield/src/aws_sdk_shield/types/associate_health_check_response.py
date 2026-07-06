@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AssociateHealthCheckResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateHealthCheckResponse(TypedDict):
+class AssociateHealthCheckResponse(TypedDict, closed=True):
     pass
 
 

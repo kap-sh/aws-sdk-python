@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceNetworkInterfaceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class InstanceNetworkInterfaceSpecification(TypedDict):
+class InstanceNetworkInterfaceSpecification(TypedDict, closed=True):
     associate_public_ip_address: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     r"""<p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p> <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href=\"http://aws.amazon.com/vpc/pricing/\">Amazon VPC pricing page</a>.</p>"""
     delete_on_termination: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

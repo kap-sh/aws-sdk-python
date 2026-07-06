@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeletePersonalAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.personal_access_token_id
 
 
-class DeletePersonalAccessTokenRequest(TypedDict):
+class DeletePersonalAccessTokenRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p> The Organization ID. </p>"""
     personal_access_token_id: (

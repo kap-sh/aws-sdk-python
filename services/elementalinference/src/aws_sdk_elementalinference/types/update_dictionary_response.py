@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#UpdateDictionaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.tag_map
 
 
-class UpdateDictionaryResponse(TypedDict):
+class UpdateDictionaryResponse(TypedDict, closed=True):
     name: "aws_sdk_elementalinference.types.resource_name.ResourceName"
     """<p>The updated or original name of the dictionary.</p>"""
     arn: "aws_sdk_elementalinference.types.dictionary_arn.DictionaryArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_token
     import aws_sdk_fms.types.policy_summary_list
 
 
-class ListPoliciesResponse(TypedDict):
+class ListPoliciesResponse(TypedDict, closed=True):
     policy_list: NotRequired["aws_sdk_fms.types.policy_summary_list.PolicySummaryList"]
     """<p>An array of <code>PolicySummary</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetLineageEventInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.lineage_event_identifier
 
 
-class GetLineageEventInput(TypedDict):
+class GetLineageEventInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain.</p>"""
     identifier: "aws_sdk_datazone.types.lineage_event_identifier.LineageEventIdentifier"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#DataPrivacyScores``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.membership_inference_attack_score_list
 
 
-class DataPrivacyScores(TypedDict):
+class DataPrivacyScores(TypedDict, closed=True):
     membership_inference_attack_scores: "aws_sdk_cleanroomsml.types.membership_inference_attack_score_list.MembershipInferenceAttackScoreList"
     """<p>Scores that evaluate the vulnerability of the synthetic data to membership inference attacks, which attempt to determine whether a specific individual was a member of the original dataset.</p>"""
 

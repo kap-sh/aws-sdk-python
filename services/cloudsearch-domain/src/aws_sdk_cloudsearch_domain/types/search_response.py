@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SearchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.facets
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.stats
 
 
-class SearchResponse(TypedDict):
+class SearchResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_cloudsearch_domain.types.search_status.SearchStatus"]
     """<p>The status information returned for the search request.</p>"""
     hits: NotRequired["aws_sdk_cloudsearch_domain.types.hits.Hits"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#TraceUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.service_ids
     import aws_sdk_xray.types.string
 
 
-class TraceUser(TypedDict):
+class TraceUser(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The user's name.</p>"""
     service_ids: NotRequired["aws_sdk_xray.types.service_ids.ServiceIds"]

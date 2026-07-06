@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListV2LoggingLevelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.log_target_configurations
     import aws_sdk_iot.types.next_token
 
 
-class ListV2LoggingLevelsResponse(TypedDict):
+class ListV2LoggingLevelsResponse(TypedDict, closed=True):
     log_target_configurations: NotRequired[
         "aws_sdk_iot.types.log_target_configurations.LogTargetConfigurations"
     ]

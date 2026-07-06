@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ClusterExtendedCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.t_stamp
 
 
-class ClusterExtendedCredentials(TypedDict):
+class ClusterExtendedCredentials(TypedDict, closed=True):
     db_user: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A database user name that you provide when you connect to a database. The database user is mapped 1:1 to the source IAM identity. </p>"""
     db_password: NotRequired["aws_sdk_redshift.types.sensitive_string.SensitiveString"]

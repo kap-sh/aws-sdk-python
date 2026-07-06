@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3Encryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.kms_key_arn
     import aws_sdk_glue.types.s3_encryption_mode
 
 
-class S3Encryption(TypedDict):
+class S3Encryption(TypedDict, closed=True):
     s3_encryption_mode: NotRequired[
         "aws_sdk_glue.types.s3_encryption_mode.S3EncryptionMode"
     ]

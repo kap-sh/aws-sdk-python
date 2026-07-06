@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ListServicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.next_token
     import aws_sdk_migration_hub_refactor_spaces.types.service_summaries
 
 
-class ListServicesResponse(TypedDict):
+class ListServicesResponse(TypedDict, closed=True):
     service_summary_list: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.service_summaries.ServiceSummaries"
     ]

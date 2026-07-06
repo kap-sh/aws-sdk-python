@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#SendTaskHeartbeatOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendTaskHeartbeatOutput(TypedDict):
+class SendTaskHeartbeatOutput(TypedDict, closed=True):
     pass
 
 

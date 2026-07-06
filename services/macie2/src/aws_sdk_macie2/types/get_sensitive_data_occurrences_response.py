@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetSensitiveDataOccurrencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.sensitive_data_occurrences
 
 
-class GetSensitiveDataOccurrencesResponse(TypedDict):
+class GetSensitiveDataOccurrencesResponse(TypedDict, closed=True):
     error: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>If an error occurred when Amazon Macie attempted to retrieve occurrences of sensitive data reported by the finding, a description of the error that occurred. This value is null if the status (status) of the request is PROCESSING or SUCCESS.</p>"""
     sensitive_data_occurrences: NotRequired[

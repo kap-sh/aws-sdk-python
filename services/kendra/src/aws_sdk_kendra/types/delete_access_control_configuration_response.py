@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DeleteAccessControlConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAccessControlConfigurationResponse(TypedDict):
+class DeleteAccessControlConfigurationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutEmailIdentityMailFromAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.behavior_on_mx_failure
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.mail_from_domain_name
 
 
-class PutEmailIdentityMailFromAttributesRequest(TypedDict):
+class PutEmailIdentityMailFromAttributesRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_sesv2.types.identity.Identity"
     """<p>The verified email identity.</p>"""
     mail_from_domain: NotRequired[

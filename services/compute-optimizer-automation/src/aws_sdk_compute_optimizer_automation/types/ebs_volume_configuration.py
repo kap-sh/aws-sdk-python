@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#EbsVolumeConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EbsVolumeConfiguration(TypedDict):
+class EbsVolumeConfiguration(TypedDict, closed=True):
     type: NotRequired["str"]
     """<p>The EBS volume type, such as gp2, gp3, io1, io2, st1, or sc1.</p>"""
     size_in_gib: NotRequired["int"]

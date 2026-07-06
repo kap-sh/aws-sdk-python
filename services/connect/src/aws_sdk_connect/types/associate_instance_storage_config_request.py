@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AssociateInstanceStorageConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_storage_resource_type
 
 
-class AssociateInstanceStorageConfigRequest(TypedDict):
+class AssociateInstanceStorageConfigRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     r"""<p>The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     resource_type: "aws_sdk_connect.types.instance_storage_resource_type.InstanceStorageResourceType"

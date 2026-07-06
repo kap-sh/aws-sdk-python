@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SecurityControlDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.customizable_properties
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.severity_rating
 
 
-class SecurityControlDefinition(TypedDict):
+class SecurityControlDefinition(TypedDict, closed=True):
     security_control_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

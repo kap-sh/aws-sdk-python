@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListResourceRecordSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.rr_type
 
 
-class ListResourceRecordSetsResponse(TypedDict):
+class ListResourceRecordSetsResponse(TypedDict, closed=True):
     resource_record_sets: (
         "aws_sdk_route_53.types.resource_record_sets.ResourceRecordSets"
     )

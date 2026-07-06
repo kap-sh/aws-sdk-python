@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#GetLicenseConversionTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_conversion_task_id
 
 
-class GetLicenseConversionTaskRequest(TypedDict):
+class GetLicenseConversionTaskRequest(TypedDict, closed=True):
     license_conversion_task_id: "aws_sdk_license_manager.types.license_conversion_task_id.LicenseConversionTaskId"
     """<p>ID of the license type conversion task to retrieve information on.</p>"""
 

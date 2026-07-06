@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UserMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.matched_user
     import aws_sdk_rekognition.types.percent
 
 
-class UserMatch(TypedDict):
+class UserMatch(TypedDict, closed=True):
     similarity: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p> Describes the UserID metadata.</p>"""
     user: NotRequired["aws_sdk_rekognition.types.matched_user.MatchedUser"]

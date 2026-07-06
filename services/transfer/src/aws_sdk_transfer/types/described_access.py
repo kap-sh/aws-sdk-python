@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.external_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.role
 
 
-class DescribedAccess(TypedDict):
+class DescribedAccess(TypedDict, closed=True):
     home_directory: NotRequired["aws_sdk_transfer.types.home_directory.HomeDirectory"]
     """<p>The landing directory (folder) for a user when they log in to the server using the client.</p> <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p> <note> <p>You can use the <code>HomeDirectory</code> parameter for <code>HomeDirectoryType</code> when it is set to either <code>PATH</code> or <code>LOGICAL</code>.</p> </note>"""
     home_directory_mappings: NotRequired[

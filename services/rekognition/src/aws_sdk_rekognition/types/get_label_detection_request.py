@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetLabelDetectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
 
 
-class GetLabelDetectionRequest(TypedDict):
+class GetLabelDetectionRequest(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.job_id.JobId"
     """<p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartlabelDetection</code>.</p>"""
     max_results: NotRequired["aws_sdk_rekognition.types.max_results.MaxResults"]

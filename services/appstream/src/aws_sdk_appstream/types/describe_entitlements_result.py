@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeEntitlementsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.entitlement_list
     import aws_sdk_appstream.types.string
 
 
-class DescribeEntitlementsResult(TypedDict):
+class DescribeEntitlementsResult(TypedDict, closed=True):
     entitlements: NotRequired[
         "aws_sdk_appstream.types.entitlement_list.EntitlementList"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.ssm_sap_arn
     import aws_sdk_ssm_sap.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_ssm_sap.types.ssm_sap_arn.SsmSapArn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     tag_keys: "aws_sdk_ssm_sap.types.tag_key_list.TagKeyList"

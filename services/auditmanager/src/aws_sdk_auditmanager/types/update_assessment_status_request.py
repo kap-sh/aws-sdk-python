@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#UpdateAssessmentStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class UpdateAssessmentStatusRequest(TypedDict):
+class UpdateAssessmentStatusRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_auditmanager.types.uuid.UUID"
     """<p> The unique identifier for the assessment. </p>"""
     status: "aws_sdk_auditmanager.types.assessment_status.AssessmentStatus"

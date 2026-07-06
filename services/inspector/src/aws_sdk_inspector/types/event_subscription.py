@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#EventSubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class EventSubscription(TypedDict):
+class EventSubscription(TypedDict, closed=True):
     event: "aws_sdk_inspector.types.inspector_event.InspectorEvent"
     """<p>The event for which Amazon Simple Notification Service (SNS) notifications are sent.</p>"""
     subscribed_at: "aws_sdk_inspector.types.timestamp.Timestamp"

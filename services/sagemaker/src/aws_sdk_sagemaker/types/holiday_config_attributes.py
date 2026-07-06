@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HolidayConfigAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.country_code
 
 
-class HolidayConfigAttributes(TypedDict):
+class HolidayConfigAttributes(TypedDict, closed=True):
     country_code: NotRequired["aws_sdk_sagemaker.types.country_code.CountryCode"]
     r"""<p>The country code for the holiday calendar.</p> <p>For the list of public holiday calendars supported by AutoML job V2, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-timeseries-forecasting-holiday-calendars.html#holiday-country-codes\">Country Codes</a>. Use the country code corresponding to the country of your choice.</p>"""
 

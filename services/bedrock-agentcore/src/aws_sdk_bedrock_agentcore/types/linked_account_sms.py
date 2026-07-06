@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LinkedAccountSms``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.phone_number
 
 
-class LinkedAccountSms(TypedDict):
+class LinkedAccountSms(TypedDict, closed=True):
     phone_number: "aws_sdk_bedrock_agentcore.types.phone_number.PhoneNumber"
     """<p>The phone number in E.164 format (e.g., +1234567890).</p>"""
 

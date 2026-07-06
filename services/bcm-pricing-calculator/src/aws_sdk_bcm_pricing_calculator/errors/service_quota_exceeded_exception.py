@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p> The identifier of the resource that exceeded quota. </p>"""

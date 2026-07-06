@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#PipConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.attribute_key
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.video_fill_mode
 
 
-class PipConfiguration(TypedDict):
+class PipConfiguration(TypedDict, closed=True):
     featured_participant_attribute: NotRequired[
         "aws_sdk_ivs_realtime.types.attribute_key.AttributeKey"
     ]

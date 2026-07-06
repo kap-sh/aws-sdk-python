@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UserTurnIntentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.user_turn_slot_output_map
 
 
-class UserTurnIntentOutput(TypedDict):
+class UserTurnIntentOutput(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the intent.</p>"""
     slots: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DeleteAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_arn
 
 
-class DeleteAgentRequest(TypedDict):
+class DeleteAgentRequest(TypedDict, closed=True):
     agent_arn: "aws_sdk_datasync.types.agent_arn.AgentArn"
     """<p>The Amazon Resource Name (ARN) of the agent to delete. Use the <code>ListAgents</code> operation to return a list of agents for your account and Amazon Web Services Region.</p>"""
 

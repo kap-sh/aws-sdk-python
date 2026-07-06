@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.timestamp
 
 
-class TimeRange(TypedDict):
+class TimeRange(TypedDict, closed=True):
     from_inclusive: NotRequired["aws_sdk_shield.types.timestamp.Timestamp"]
     """<p>The start time, in Unix time in seconds. </p>"""
     to_exclusive: NotRequired["aws_sdk_shield.types.timestamp.Timestamp"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#ThirdPartySourceRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.owner
 
 
-class ThirdPartySourceRepository(TypedDict):
+class ThirdPartySourceRepository(TypedDict, closed=True):
     name: "aws_sdk_codeguru_reviewer.types.name.Name"
     """<p>The name of the third party source repository.</p>"""
     connection_arn: "aws_sdk_codeguru_reviewer.types.connection_arn.ConnectionArn"

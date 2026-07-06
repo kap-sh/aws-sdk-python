@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PropertyValueNullValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.raw_value_type
 
 
-class PropertyValueNullValue(TypedDict):
+class PropertyValueNullValue(TypedDict, closed=True):
     value_type: "aws_sdk_iotsitewise.types.raw_value_type.RawValueType"
     """<p>The type of null asset property data.</p>"""
 

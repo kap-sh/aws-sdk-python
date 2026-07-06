@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SelectedStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string256
 
 
-class SelectedStep(TypedDict):
+class SelectedStep(TypedDict, closed=True):
     step_name: NotRequired["aws_sdk_sagemaker.types.string256.String256"]
     """<p>The name of the pipeline step.</p>"""
 

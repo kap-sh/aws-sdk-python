@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ObjectAttributeUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.attribute_key
     import aws_sdk_clouddirectory.types.object_attribute_action
 
 
-class ObjectAttributeUpdate(TypedDict):
+class ObjectAttributeUpdate(TypedDict, closed=True):
     object_attribute_key: NotRequired[
         "aws_sdk_clouddirectory.types.attribute_key.AttributeKey"
     ]

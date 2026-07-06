@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#StandardRouterInputStreamDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StandardRouterInputStreamDetails(TypedDict):
+class StandardRouterInputStreamDetails(TypedDict, closed=True):
     source_ip_address: NotRequired["str"]
     """<p>The source IP address for the standard router input stream.</p>"""
 

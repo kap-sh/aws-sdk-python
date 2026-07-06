@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#SlaFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.sla_name
     import aws_sdk_connectcases.types.sla_status
 
 
-class SlaFilter(TypedDict):
+class SlaFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_connectcases.types.sla_name.SlaName"]
     """<p>Name of an SLA.</p>"""
     status: NotRequired["aws_sdk_connectcases.types.sla_status.SlaStatus"]

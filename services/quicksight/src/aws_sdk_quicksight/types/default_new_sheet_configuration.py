@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultNewSheetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_interactive_layout_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_content_type
 
 
-class DefaultNewSheetConfiguration(TypedDict):
+class DefaultNewSheetConfiguration(TypedDict, closed=True):
     interactive_layout_configuration: NotRequired[
         "aws_sdk_quicksight.types.default_interactive_layout_configuration.DefaultInteractiveLayoutConfiguration"
     ]

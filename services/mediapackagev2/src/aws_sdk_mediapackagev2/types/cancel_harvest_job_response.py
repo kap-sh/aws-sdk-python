@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CancelHarvestJobResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelHarvestJobResponse(TypedDict):
+class CancelHarvestJobResponse(TypedDict, closed=True):
     pass
 
 

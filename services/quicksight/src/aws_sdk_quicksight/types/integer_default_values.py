@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#IntegerDefaultValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dynamic_default_value
     import aws_sdk_quicksight.types.integer_default_value_list
 
 
-class IntegerDefaultValues(TypedDict):
+class IntegerDefaultValues(TypedDict, closed=True):
     dynamic_value: NotRequired[
         "aws_sdk_quicksight.types.dynamic_default_value.DynamicDefaultValue"
     ]

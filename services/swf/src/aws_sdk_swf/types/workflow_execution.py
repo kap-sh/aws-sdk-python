@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_run_id
 
 
-class WorkflowExecution(TypedDict):
+class WorkflowExecution(TypedDict, closed=True):
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"
     """<p>The user defined identifier associated with the workflow execution.</p>"""
     run_id: "aws_sdk_swf.types.workflow_run_id.WorkflowRunId"

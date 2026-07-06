@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ReportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.acceptance_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_artifact.types.version_attribute
 
 
-class ReportSummary(TypedDict):
+class ReportSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_artifact.types.report_id.ReportId"]
     """<p>Unique resource ID for the report resource.</p>"""
     name: NotRequired[

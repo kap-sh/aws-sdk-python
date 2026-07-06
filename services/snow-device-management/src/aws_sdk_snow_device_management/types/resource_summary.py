@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#ResourceSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snow_device_management.errors import DeserializationError
 
 
-class ResourceSummary(TypedDict):
+class ResourceSummary(TypedDict, closed=True):
     resource_type: "str"
     """<p>The resource type.</p>"""
     arn: NotRequired["str"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#FilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.filter_string
 
 
-class FilterCondition(TypedDict):
+class FilterCondition(TypedDict, closed=True):
     value: NotRequired["aws_sdk_frauddetector.types.filter_string.filterString"]
     """<p> A statement containing a resource property and a value to specify filter condition. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreateAssociationBatchRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class CreateAssociationBatchRequestEntry(TypedDict):
+class CreateAssociationBatchRequestEntry(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     """<p>The name of the SSM document that contains the configuration information for the managed node. You can specify Command or Automation runbooks.</p> <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is shared with you from another account.</p> <p>For SSM documents that are shared with you from other Amazon Web Services accounts, you must specify the complete SSM document ARN, in the following format:</p> <p> <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code> </p> <p>For example:</p> <p> <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p> <p>For Amazon Web Services-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>"""
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]

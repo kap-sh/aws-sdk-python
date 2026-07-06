@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#NetworkFirewallBlackHoleRouteDetectedViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.violation_target
 
 
-class NetworkFirewallBlackHoleRouteDetectedViolation(TypedDict):
+class NetworkFirewallBlackHoleRouteDetectedViolation(TypedDict, closed=True):
     violation_target: NotRequired["aws_sdk_fms.types.violation_target.ViolationTarget"]
     """<p>The subnet that has an inactive state.</p>"""
     route_table_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]

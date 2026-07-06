@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#SourceLogsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.logs_filter_string
 
 
-class SourceLogsConfiguration(TypedDict):
+class SourceLogsConfiguration(TypedDict, closed=True):
     log_group_selection_criteria: (
         "aws_sdk_observabilityadmin.types.logs_filter_string.LogsFilterString"
     )

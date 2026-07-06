@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#OutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.s3_uri
 
 
-class OutputDataConfig(TypedDict):
+class OutputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_voice_id.types.s3_uri.S3Uri"
     """<p>The S3 path of the folder where Voice ID writes the job output file. It has a <code>*.out</code> extension. For example, if the input file name is <code>input-file.json</code> and the output folder path is <code>s3://output-bucket/output-folder</code>, the full output file path is <code>s3://output-bucket/output-folder/job-Id/input-file.json.out</code>.</p>"""
     kms_key_id: NotRequired["aws_sdk_voice_id.types.kms_key_id.KmsKeyId"]

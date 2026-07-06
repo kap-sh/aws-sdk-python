@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Readiness``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.percentage_integer
     import aws_sdk_customer_profiles.types.text
 
 
-class Readiness(TypedDict):
+class Readiness(TypedDict, closed=True):
     progress_percentage: NotRequired[
         "aws_sdk_customer_profiles.types.percentage_integer.percentageInteger"
     ]

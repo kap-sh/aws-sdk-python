@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#DBStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.allocated_storage
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.storage_type
 
 
-class DBStorageConfiguration(TypedDict):
+class DBStorageConfiguration(TypedDict, closed=True):
     storage_type: NotRequired[
         "aws_sdk_compute_optimizer.types.storage_type.StorageType"
     ]

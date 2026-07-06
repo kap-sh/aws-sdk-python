@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.configuration_list
     import aws_sdk_omics.types.configuration_list_token
 
 
-class ListConfigurationsResponse(TypedDict):
+class ListConfigurationsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_omics.types.configuration_list.ConfigurationList"]
     """<p>List of configuration items.</p>"""
     next_token: NotRequired[

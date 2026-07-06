@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#NodeTypeSpecificValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class NodeTypeSpecificValue(TypedDict):
+class NodeTypeSpecificValue(TypedDict, closed=True):
     node_type: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>A node type to which the parameter value applies.</p>"""
     value: NotRequired["aws_sdk_dax.types.string.String"]

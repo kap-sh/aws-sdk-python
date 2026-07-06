@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.timestamp
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.account_id.AccountId"]
     r"""<p>The unique identifier (ID) of the account.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for an account ID string requires exactly 12 digits.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.account_arn.AccountArn"]

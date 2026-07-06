@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetDbNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.db_node
 
 
-class GetDbNodeOutput(TypedDict):
+class GetDbNodeOutput(TypedDict, closed=True):
     db_node: NotRequired["aws_sdk_odb.types.db_node.DbNode"]
 
 

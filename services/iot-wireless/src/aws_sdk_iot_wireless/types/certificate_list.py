@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CertificateList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.signing_alg
 
 
-class CertificateList(TypedDict):
+class CertificateList(TypedDict, closed=True):
     signing_alg: "aws_sdk_iot_wireless.types.signing_alg.SigningAlg"
     """<p>The certificate chain algorithm provided by sidewalk.</p>"""
     value: "aws_sdk_iot_wireless.types.certificate_value.CertificateValue"

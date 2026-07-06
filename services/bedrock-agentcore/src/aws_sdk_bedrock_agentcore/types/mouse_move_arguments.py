@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MouseMoveArguments``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class MouseMoveArguments(TypedDict):
+class MouseMoveArguments(TypedDict, closed=True):
     x: "int"
     """<p>The target X coordinate on screen.</p>"""
     y: "int"

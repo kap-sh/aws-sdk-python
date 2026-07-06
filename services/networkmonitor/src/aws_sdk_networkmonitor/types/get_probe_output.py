@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#GetProbeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkmonitor.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.vpc_id
 
 
-class GetProbeOutput(TypedDict):
+class GetProbeOutput(TypedDict, closed=True):
     probe_id: NotRequired["aws_sdk_networkmonitor.types.probe_id.ProbeId"]
     """<p>The ID of the probe for which details are returned.</p>"""
     probe_arn: NotRequired["aws_sdk_networkmonitor.types.arn.Arn"]

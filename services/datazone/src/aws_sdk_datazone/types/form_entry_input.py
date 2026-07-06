@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#FormEntryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class FormEntryInput(TypedDict):
+class FormEntryInput(TypedDict, closed=True):
     type_identifier: "aws_sdk_datazone.types.form_type_identifier.FormTypeIdentifier"
     """<p>The type ID of the form entry.</p>"""
     type_revision: "aws_sdk_datazone.types.revision.Revision"

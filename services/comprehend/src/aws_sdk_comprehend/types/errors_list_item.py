@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ErrorsListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class ErrorsListItem(TypedDict):
+class ErrorsListItem(TypedDict, closed=True):
     page: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>Page number where the error occurred.</p>"""
     error_code: NotRequired[

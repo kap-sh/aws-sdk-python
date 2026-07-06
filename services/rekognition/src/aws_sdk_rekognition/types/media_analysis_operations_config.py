@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MediaAnalysisOperationsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.media_analysis_detect_moderation_labels_config
 
 
-class MediaAnalysisOperationsConfig(TypedDict):
+class MediaAnalysisOperationsConfig(TypedDict, closed=True):
     detect_moderation_labels: NotRequired[
         "aws_sdk_rekognition.types.media_analysis_detect_moderation_labels_config.MediaAnalysisDetectModerationLabelsConfig"
     ]

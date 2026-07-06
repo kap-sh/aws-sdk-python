@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#SnowflakeDestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.cloud_watch_logging_options
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.snowflake_vpc_configuration
 
 
-class SnowflakeDestinationDescription(TypedDict):
+class SnowflakeDestinationDescription(TypedDict, closed=True):
     account_url: NotRequired[
         "aws_sdk_firehose.types.snowflake_account_url.SnowflakeAccountUrl"
     ]

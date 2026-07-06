@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UltraServerInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UltraServerInfo(TypedDict):
+class UltraServerInfo(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The unique identifier of the UltraServer.</p>"""
     type: NotRequired["str"]

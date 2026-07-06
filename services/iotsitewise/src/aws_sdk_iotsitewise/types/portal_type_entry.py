@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PortalTypeEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.portal_tools
 
 
-class PortalTypeEntry(TypedDict):
+class PortalTypeEntry(TypedDict, closed=True):
     portal_tools: NotRequired["aws_sdk_iotsitewise.types.portal_tools.PortalTools"]
     """<p>The array of tools associated with the specified portal type. The possible values are <code>ASSISTANT</code> and <code>DASHBOARD</code>.</p>"""
 

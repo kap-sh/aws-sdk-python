@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#FsxProtocolSmb``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.smb_user
 
 
-class FsxProtocolSmb(TypedDict):
+class FsxProtocolSmb(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_datasync.types.smb_domain.SmbDomain"]
     """<p>Specifies the name of the Windows domain that your storage virtual machine (SVM) belongs to.</p> <p>If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SVM.</p> <p>If you have multiple Active Directory domains in your environment, configuring this parameter makes sure that DataSync connects to the right SVM.</p>"""
     mount_options: NotRequired[

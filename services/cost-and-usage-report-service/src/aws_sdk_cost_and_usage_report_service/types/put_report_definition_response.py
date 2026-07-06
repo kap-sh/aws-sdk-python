@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#PutReportDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutReportDefinitionResponse(TypedDict):
+class PutReportDefinitionResponse(TypedDict, closed=True):
     pass
 
 

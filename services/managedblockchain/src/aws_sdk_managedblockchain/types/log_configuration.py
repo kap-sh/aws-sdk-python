@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#LogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.enabled
 
 
-class LogConfiguration(TypedDict):
+class LogConfiguration(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_managedblockchain.types.enabled.Enabled"]
     """<p>Indicates whether logging is enabled.</p>"""
 

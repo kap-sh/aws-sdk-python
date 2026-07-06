@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateReplicationConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class CreateReplicationConfigurationTemplateRequest(TypedDict):
+class CreateReplicationConfigurationTemplateRequest(TypedDict, closed=True):
     staging_area_subnet_id: "aws_sdk_drs.types.subnet_id.SubnetID"
     """<p>The subnet to be used by the replication staging area.</p>"""
     associate_default_security_group: NotRequired["bool"]

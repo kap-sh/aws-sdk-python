@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentDisambiguationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.custom_disambiguation_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.max_disambiguation_intents
 
 
-class IntentDisambiguationSettings(TypedDict):
+class IntentDisambiguationSettings(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.enabled.Enabled"
     """<p>Determines whether the Intent Disambiguation feature is enabled. When set to <code>true</code>, Amazon Lex will present disambiguation options to users when multiple intents could match their input, with the default being <code>false</code>.</p>"""
     max_disambiguation_intents: NotRequired[

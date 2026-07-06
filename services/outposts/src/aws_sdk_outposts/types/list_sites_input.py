@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListSitesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.city_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class ListSitesInput(TypedDict):
+class ListSitesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_outposts.types.token.Token"]
     max_results: NotRequired["aws_sdk_outposts.types.max_results1000.MaxResults1000"]
     operating_address_country_code_filter: NotRequired[

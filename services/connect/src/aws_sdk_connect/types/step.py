@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Step``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.expiry
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.routing_criteria_step_status
 
 
-class Step(TypedDict):
+class Step(TypedDict, closed=True):
     expiry: NotRequired["aws_sdk_connect.types.expiry.Expiry"]
     """<p>An object to specify the expiration of a routing step.</p>"""
     expression: NotRequired["aws_sdk_connect.types.expression.Expression"]

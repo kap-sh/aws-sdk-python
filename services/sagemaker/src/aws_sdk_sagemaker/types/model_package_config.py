@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_group_arn
 
 
-class ModelPackageConfig(TypedDict):
+class ModelPackageConfig(TypedDict, closed=True):
     model_package_group_arn: (
         "aws_sdk_sagemaker.types.model_package_group_arn.ModelPackageGroupArn"
     )

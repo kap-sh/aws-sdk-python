@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.row_alternate_color_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_orientation
 
 
-class TableOptions(TypedDict):
+class TableOptions(TypedDict, closed=True):
     orientation: NotRequired[
         "aws_sdk_quicksight.types.table_orientation.TableOrientation"
     ]

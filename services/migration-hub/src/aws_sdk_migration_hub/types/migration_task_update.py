@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#MigrationTaskUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.task
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.update_type
 
 
-class MigrationTaskUpdate(TypedDict):
+class MigrationTaskUpdate(TypedDict, closed=True):
     update_date_time: NotRequired[
         "aws_sdk_migration_hub.types.update_date_time.UpdateDateTime"
     ]

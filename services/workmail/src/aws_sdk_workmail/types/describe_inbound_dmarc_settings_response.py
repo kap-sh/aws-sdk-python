@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DescribeInboundDmarcSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.boolean
 
 
-class DescribeInboundDmarcSettingsResponse(TypedDict):
+class DescribeInboundDmarcSettingsResponse(TypedDict, closed=True):
     enforced: "aws_sdk_workmail.types.boolean.Boolean"
     """<p>Lists the enforcement setting of the applied policy.</p>"""
 

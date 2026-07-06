@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdatePartnerAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.sidewalk_update_account
 
 
-class UpdatePartnerAccountRequest(TypedDict):
+class UpdatePartnerAccountRequest(TypedDict, closed=True):
     sidewalk: "aws_sdk_iot_wireless.types.sidewalk_update_account.SidewalkUpdateAccount"
     """<p>The Sidewalk account credentials.</p>"""
     partner_account_id: "aws_sdk_iot_wireless.types.partner_account_id.PartnerAccountId"

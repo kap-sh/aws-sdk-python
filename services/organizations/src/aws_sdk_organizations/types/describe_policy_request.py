@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DescribePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_id
 
 
-class DescribePolicyRequest(TypedDict):
+class DescribePolicyRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_organizations.types.policy_id.PolicyId"
     r"""<p>ID for the policy that you want details about. You can get the ID from the <a>ListPolicies</a> or <a>ListPoliciesForTarget</a> operations.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
 

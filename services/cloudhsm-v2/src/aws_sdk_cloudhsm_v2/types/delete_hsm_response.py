@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DeleteHsmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.hsm_id
 
 
-class DeleteHsmResponse(TypedDict):
+class DeleteHsmResponse(TypedDict, closed=True):
     hsm_id: NotRequired["aws_sdk_cloudhsm_v2.types.hsm_id.HsmId"]
     """<p>The identifier (ID) of the HSM that was deleted.</p>"""
 

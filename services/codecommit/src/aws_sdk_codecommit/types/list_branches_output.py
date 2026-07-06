@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListBranchesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.branch_name_list
     import aws_sdk_codecommit.types.next_token
 
 
-class ListBranchesOutput(TypedDict):
+class ListBranchesOutput(TypedDict, closed=True):
     branches: NotRequired["aws_sdk_codecommit.types.branch_name_list.BranchNameList"]
     """<p>The list of branch names.</p>"""
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]

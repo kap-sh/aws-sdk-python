@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Update``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.error_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.update_type
 
 
-class Update(TypedDict):
+class Update(TypedDict, closed=True):
     id: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>A UUID that is used to track the update.</p>"""
     status: NotRequired["aws_sdk_eks.types.update_status.UpdateStatus"]

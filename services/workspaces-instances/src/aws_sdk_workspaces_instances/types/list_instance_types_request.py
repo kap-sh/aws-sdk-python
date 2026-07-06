@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ListInstanceTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.instance_configuration_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.next_token
 
 
-class ListInstanceTypesRequest(TypedDict):
+class ListInstanceTypesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_workspaces_instances.types.list_instance_types_max_results.ListInstanceTypesMaxResults"
     ]

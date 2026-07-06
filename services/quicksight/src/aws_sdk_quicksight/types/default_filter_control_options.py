@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultFilterControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_date_time_picker_control_options
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.default_text_field_control_options
 
 
-class DefaultFilterControlOptions(TypedDict):
+class DefaultFilterControlOptions(TypedDict, closed=True):
     default_date_time_picker_options: NotRequired[
         "aws_sdk_quicksight.types.default_date_time_picker_control_options.DefaultDateTimePickerControlOptions"
     ]

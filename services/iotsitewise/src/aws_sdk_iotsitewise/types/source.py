@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.location
     import aws_sdk_iotsitewise.types.string
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     """<p>Contains the ARN of the dataset. If the source is Kendra, it's the ARN of the Kendra index.</p>"""
     location: NotRequired["aws_sdk_iotsitewise.types.location.Location"]

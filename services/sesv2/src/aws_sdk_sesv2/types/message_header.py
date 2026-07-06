@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MessageHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.message_header_value
 
 
-class MessageHeader(TypedDict):
+class MessageHeader(TypedDict, closed=True):
     name: "aws_sdk_sesv2.types.message_header_name.MessageHeaderName"
     """<p>The name of the message header. The message header name has to meet the following criteria:</p> <ul> <li> <p>Can contain any printable ASCII character (33 - 126) except for colon (:).</p> </li> <li> <p>Can contain no more than 126 characters.</p> </li> </ul>"""
     value: "aws_sdk_sesv2.types.message_header_value.MessageHeaderValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotVersionReplicaSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class BotVersionReplicaSummary(TypedDict):
+class BotVersionReplicaSummary(TypedDict, closed=True):
     bot_version: NotRequired["aws_sdk_lex_models_v2.types.bot_version.BotVersion"]
     """<p>The bot version for the summary information for all the version replication statuses.</p>"""
     bot_version_replication_status: NotRequired[

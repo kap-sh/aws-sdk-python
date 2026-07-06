@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#EvaluationCriteria``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 from aws_sdk_cloudwatch.errors import DeserializationError, SerializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.alarm_prom_ql_criteria
 
 
-class _EvaluationCriteria_PromQLCriteria(TypedDict):
+class _EvaluationCriteria_PromQLCriteria(TypedDict, closed=True):
     PromQLCriteria: (
         "aws_sdk_cloudwatch.types.alarm_prom_ql_criteria.AlarmPromQLCriteria"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#CardStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.submission_list
 
 
-class CardStatus(TypedDict):
+class CardStatus(TypedDict, closed=True):
     current_state: "aws_sdk_qapps.types.execution_status.ExecutionStatus"
     """<p>The current state of the card.</p>"""
     current_value: "str"

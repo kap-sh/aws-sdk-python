@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#ListHarvestJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
     import aws_sdk_mediapackage.types.max_results
 
 
-class ListHarvestJobsRequest(TypedDict):
+class ListHarvestJobsRequest(TypedDict, closed=True):
     include_channel_id: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """When specified, the request will return only HarvestJobs associated with the given Channel ID."""
     include_status: NotRequired["aws_sdk_mediapackage.types.__string.__string"]

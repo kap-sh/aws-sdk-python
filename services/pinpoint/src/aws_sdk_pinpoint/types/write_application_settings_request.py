@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#WriteApplicationSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.quiet_time
 
 
-class WriteApplicationSettingsRequest(TypedDict):
+class WriteApplicationSettingsRequest(TypedDict, closed=True):
     campaign_hook: NotRequired["aws_sdk_pinpoint.types.campaign_hook.CampaignHook"]
     r"""<p>The settings for the AWS Lambda function to invoke by default as a code hook for campaigns in the application. You can use this hook to customize segments that are used by campaigns in the application.</p> <p>To override these settings and define custom settings for a specific campaign, use the CampaignHook object of the <link linkend=\"apps-application-id-campaigns-campaign-id\">Campaign</link> resource.</p>"""
     cloud_watch_metrics_enabled: NotRequired[

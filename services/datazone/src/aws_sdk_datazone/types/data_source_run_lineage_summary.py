@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataSourceRunLineageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_import_status
 
 
-class DataSourceRunLineageSummary(TypedDict):
+class DataSourceRunLineageSummary(TypedDict, closed=True):
     import_status: NotRequired[
         "aws_sdk_datazone.types.lineage_import_status.LineageImportStatus"
     ]

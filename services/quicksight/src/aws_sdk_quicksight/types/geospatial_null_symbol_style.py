@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialNullSymbolStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_width
     import aws_sdk_quicksight.types.hex_color_with_transparency
 
 
-class GeospatialNullSymbolStyle(TypedDict):
+class GeospatialNullSymbolStyle(TypedDict, closed=True):
     fill_color: NotRequired[
         "aws_sdk_quicksight.types.hex_color_with_transparency.HexColorWithTransparency"
     ]

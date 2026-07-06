@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#VectorEnrichmentJobConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.reverse_geocoding_config
 
 
-class _VectorEnrichmentJobConfig_ReverseGeocodingConfig(TypedDict):
+class _VectorEnrichmentJobConfig_ReverseGeocodingConfig(TypedDict, closed=True):
     ReverseGeocodingConfig: "aws_sdk_sagemaker_geospatial.types.reverse_geocoding_config.ReverseGeocodingConfig"
 
 
-class _VectorEnrichmentJobConfig_MapMatchingConfig(TypedDict):
+class _VectorEnrichmentJobConfig_MapMatchingConfig(TypedDict, closed=True):
     MapMatchingConfig: (
         "aws_sdk_sagemaker_geospatial.types.map_matching_config.MapMatchingConfig"
     )

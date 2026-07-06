@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LendingDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.geometry
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.string
 
 
-class LendingDetection(TypedDict):
+class LendingDetection(TypedDict, closed=True):
     text: NotRequired["aws_sdk_textract.types.string.String"]
     """<p>The text extracted for a detected value in a lending document.</p>"""
     selection_status: NotRequired[

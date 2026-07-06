@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#TableObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.e_tag_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.uri
 
 
-class TableObject(TypedDict):
+class TableObject(TypedDict, closed=True):
     uri: NotRequired["aws_sdk_lakeformation.types.uri.URI"]
     """<p>The Amazon S3 location of the object.</p>"""
     e_tag: NotRequired["aws_sdk_lakeformation.types.e_tag_string.ETagString"]

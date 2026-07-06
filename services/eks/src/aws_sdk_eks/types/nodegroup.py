@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Nodegroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.ami_types
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.warm_pool_config
 
 
-class Nodegroup(TypedDict):
+class Nodegroup(TypedDict, closed=True):
     nodegroup_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name associated with an Amazon EKS managed node group.</p>"""
     nodegroup_arn: NotRequired["aws_sdk_eks.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_message_result
 
 
-class MessageResponse(TypedDict):
+class MessageResponse(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the application that was used to send the message.</p>"""
     endpoint_result: NotRequired[

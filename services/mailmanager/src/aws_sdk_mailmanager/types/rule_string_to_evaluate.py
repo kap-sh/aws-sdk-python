@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleStringToEvaluate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -11,23 +13,23 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_string_email_attribute
 
 
-class _RuleStringToEvaluate_Attribute(TypedDict):
+class _RuleStringToEvaluate_Attribute(TypedDict, closed=True):
     Attribute: (
         "aws_sdk_mailmanager.types.rule_string_email_attribute.RuleStringEmailAttribute"
     )
 
 
-class _RuleStringToEvaluate_MimeHeaderAttribute(TypedDict):
+class _RuleStringToEvaluate_MimeHeaderAttribute(TypedDict, closed=True):
     MimeHeaderAttribute: (
         "aws_sdk_mailmanager.types.mime_header_attribute.MimeHeaderAttribute"
     )
 
 
-class _RuleStringToEvaluate_Analysis(TypedDict):
+class _RuleStringToEvaluate_Analysis(TypedDict, closed=True):
     Analysis: "aws_sdk_mailmanager.types.analysis.Analysis"
 
 
-class _RuleStringToEvaluate_ClientCertificateAttribute(TypedDict):
+class _RuleStringToEvaluate_ClientCertificateAttribute(TypedDict, closed=True):
     ClientCertificateAttribute: "aws_sdk_mailmanager.types.rule_client_certificate_attribute.RuleClientCertificateAttribute"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeDataSharesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DescribeDataSharesResult(TypedDict):
+class DescribeDataSharesResult(TypedDict, closed=True):
     data_shares: NotRequired["aws_sdk_redshift.types.data_share_list.DataShareList"]
     """<p>The results returned from describing datashares.</p>"""
     marker: NotRequired["aws_sdk_redshift.types.string.String"]

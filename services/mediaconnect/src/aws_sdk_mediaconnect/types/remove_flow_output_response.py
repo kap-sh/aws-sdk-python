@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RemoveFlowOutputResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RemoveFlowOutputResponse(TypedDict):
+class RemoveFlowOutputResponse(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The ARN of the flow that the output was removed from. </p>"""
     output_arn: NotRequired["str"]

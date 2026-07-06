@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#State``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.status
 
 
-class State(TypedDict):
+class State(TypedDict, closed=True):
     status: "aws_sdk_inspector2.types.status.Status"
     """<p>The status of Amazon Inspector for the account.</p>"""
     error_code: "aws_sdk_inspector2.types.error_code.ErrorCode"

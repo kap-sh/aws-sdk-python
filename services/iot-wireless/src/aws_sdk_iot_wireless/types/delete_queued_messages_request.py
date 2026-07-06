@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeleteQueuedMessagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.message_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_type
 
 
-class DeleteQueuedMessagesRequest(TypedDict):
+class DeleteQueuedMessagesRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_device_id.WirelessDeviceId"
     """<p>The ID of a given wireless device for which downlink messages will be deleted.</p>"""
     message_id: "aws_sdk_iot_wireless.types.message_id.MessageId"

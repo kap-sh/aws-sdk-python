@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#SendBonusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class SendBonusRequest(TypedDict):
+class SendBonusRequest(TypedDict, closed=True):
     worker_id: "aws_sdk_mturk.types.customer_id.CustomerId"
     """<p>The ID of the Worker being paid the bonus.</p>"""
     bonus_amount: "aws_sdk_mturk.types.currency_amount.CurrencyAmount"

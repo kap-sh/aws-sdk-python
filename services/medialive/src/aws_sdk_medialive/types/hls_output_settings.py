@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsOutputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.hls_settings
 
 
-class HlsOutputSettings(TypedDict):
+class HlsOutputSettings(TypedDict, closed=True):
     h265_packaging_type: NotRequired[
         "aws_sdk_medialive.types.hls_h265_packaging_type.HlsH265PackagingType"
     ]

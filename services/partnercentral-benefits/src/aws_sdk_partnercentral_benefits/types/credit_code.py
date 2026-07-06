@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#CreditCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.timestamp
 
 
-class CreditCode(TypedDict):
+class CreditCode(TypedDict, closed=True):
     aws_account_id: "str"
     """<p>The AWS account ID that the credit code is associated with or can be applied to.</p>"""
     value: "aws_sdk_partnercentral_benefits.types.monetary_value.MonetaryValue"

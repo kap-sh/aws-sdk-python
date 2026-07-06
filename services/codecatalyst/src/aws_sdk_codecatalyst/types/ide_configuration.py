@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#IdeConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IdeConfiguration(TypedDict):
+class IdeConfiguration(TypedDict, closed=True):
     runtime: NotRequired["str"]
     """<p>A link to the IDE runtime image. </p> <note> <p>This parameter is not required for <code>VSCode</code>.</p> </note>"""
     name: NotRequired["str"]

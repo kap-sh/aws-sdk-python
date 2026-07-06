@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PhysicalConnectionRequirements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
     import aws_sdk_glue.types.security_group_id_list
 
 
-class PhysicalConnectionRequirements(TypedDict):
+class PhysicalConnectionRequirements(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The subnet ID used by the connection.</p>"""
     security_group_id_list: NotRequired[

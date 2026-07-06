@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Ec2InstanceAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256_list
 
 
-class Ec2InstanceAttributes(TypedDict):
+class Ec2InstanceAttributes(TypedDict, closed=True):
     ec2_key_name: NotRequired["aws_sdk_emr.types.string.String"]
     r"""<p>The name of the Amazon EC2 key pair to use when connecting with SSH into the master node as a user named \"hadoop\".</p>"""
     ec2_subnet_id: NotRequired["aws_sdk_emr.types.string.String"]

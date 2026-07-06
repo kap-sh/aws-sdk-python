@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#AlternateContact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_account.types.alternate_contact_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.title
 
 
-class AlternateContact(TypedDict):
+class AlternateContact(TypedDict, closed=True):
     name: NotRequired["aws_sdk_account.types.name.Name"]
     """<p>The name associated with this alternate contact.</p>"""
     title: NotRequired["aws_sdk_account.types.title.Title"]

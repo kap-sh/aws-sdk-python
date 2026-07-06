@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutMetricDataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.strict_entity_validation
 
 
-class PutMetricDataInput(TypedDict):
+class PutMetricDataInput(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]
     """<p>The namespace for the metric data. You can use ASCII characters for the namespace, except for control characters which are not supported.</p> <p>To avoid conflicts with Amazon Web Services service namespaces, you should not specify a namespace that begins with <code>AWS/</code> </p>"""
     metric_data: NotRequired["aws_sdk_cloudwatch.types.metric_data.MetricData"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#TargetDataSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.table_preparation_mode
 
 
-class TargetDataSetting(TypedDict):
+class TargetDataSetting(TypedDict, closed=True):
     table_preparation_mode: NotRequired[
         "aws_sdk_database_migration_service.types.table_preparation_mode.TablePreparationMode"
     ]

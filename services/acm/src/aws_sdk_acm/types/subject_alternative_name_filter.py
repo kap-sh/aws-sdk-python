@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#SubjectAlternativeNameFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.dns_name_filter
 
 
-class _SubjectAlternativeNameFilter_DnsName(TypedDict):
+class _SubjectAlternativeNameFilter_DnsName(TypedDict, closed=True):
     DnsName: "aws_sdk_acm.types.dns_name_filter.DnsNameFilter"
 
 

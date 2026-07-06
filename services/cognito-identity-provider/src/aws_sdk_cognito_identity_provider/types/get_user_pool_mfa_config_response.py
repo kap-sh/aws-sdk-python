@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GetUserPoolMfaConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.email_mfa_config_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.web_authn_configuration_type
 
 
-class GetUserPoolMfaConfigResponse(TypedDict):
+class GetUserPoolMfaConfigResponse(TypedDict, closed=True):
     sms_mfa_configuration: NotRequired[
         "aws_sdk_cognito_identity_provider.types.sms_mfa_config_type.SmsMfaConfigType"
     ]

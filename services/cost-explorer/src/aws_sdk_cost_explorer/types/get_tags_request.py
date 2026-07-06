@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.tag_key
 
 
-class GetTagsRequest(TypedDict):
+class GetTagsRequest(TypedDict, closed=True):
     search_string: NotRequired["aws_sdk_cost_explorer.types.search_string.SearchString"]
     """<p>The value that you want to search for.</p>"""
     time_period: "aws_sdk_cost_explorer.types.date_interval.DateInterval"

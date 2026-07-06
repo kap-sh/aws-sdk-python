@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListPoliciesGrantingServiceAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListPoliciesGrantingServiceAccessResponse(TypedDict):
+class ListPoliciesGrantingServiceAccessResponse(TypedDict, closed=True):
     policies_granting_service_access: "aws_sdk_iam.types.list_policy_granting_service_access_response_list_type.listPolicyGrantingServiceAccessResponseListType"
     """<p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>"""
     is_truncated: "aws_sdk_iam.types.boolean_type.booleanType"

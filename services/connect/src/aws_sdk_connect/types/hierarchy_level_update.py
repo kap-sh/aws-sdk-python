@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HierarchyLevelUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_level_name
 
 
-class HierarchyLevelUpdate(TypedDict):
+class HierarchyLevelUpdate(TypedDict, closed=True):
     name: "aws_sdk_connect.types.hierarchy_level_name.HierarchyLevelName"
     """<p>The name of the user hierarchy level. Must not be more than 50 characters.</p>"""
 

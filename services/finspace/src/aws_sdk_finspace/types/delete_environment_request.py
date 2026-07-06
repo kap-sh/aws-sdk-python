@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#DeleteEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.id_type
 
 
-class DeleteEnvironmentRequest(TypedDict):
+class DeleteEnvironmentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.id_type.IdType"
     """<p>The identifier for the FinSpace environment.</p>"""
 

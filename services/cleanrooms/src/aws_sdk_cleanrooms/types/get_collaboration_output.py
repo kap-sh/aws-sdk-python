@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetCollaborationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration
 
 
-class GetCollaborationOutput(TypedDict):
+class GetCollaborationOutput(TypedDict, closed=True):
     collaboration: "aws_sdk_cleanrooms.types.collaboration.Collaboration"
     """<p>The entire collaboration for this identifier.</p>"""
 

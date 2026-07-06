@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#AdvancedFieldSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.string_list
 
 
-class AdvancedFieldSelector(TypedDict):
+class AdvancedFieldSelector(TypedDict, closed=True):
     field: "str"
     """<p> The name of the field to use for selection. </p>"""
     equals: NotRequired["aws_sdk_observabilityadmin.types.string_list.StringList"]

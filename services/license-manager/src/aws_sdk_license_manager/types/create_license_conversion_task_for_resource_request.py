@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CreateLicenseConversionTaskForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_conversion_context
 
 
-class CreateLicenseConversionTaskForResourceRequest(TypedDict):
+class CreateLicenseConversionTaskForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_license_manager.types.arn.Arn"
     """<p>Amazon Resource Name (ARN) of the resource you are converting the license type for.</p>"""
     source_license_context: "aws_sdk_license_manager.types.license_conversion_context.LicenseConversionContext"

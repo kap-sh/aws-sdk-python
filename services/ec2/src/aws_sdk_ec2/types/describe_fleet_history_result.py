@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeFleetHistoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeFleetHistoryResult(TypedDict):
+class DescribeFleetHistoryResult(TypedDict, closed=True):
     history_records: NotRequired[
         "aws_sdk_ec2.types.history_record_set.HistoryRecordSet"
     ]

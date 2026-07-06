@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CidrBlockSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.cidr_location_name_default_not_allowed
 
 
-class CidrBlockSummary(TypedDict):
+class CidrBlockSummary(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_route_53.types.cidr.Cidr"]
     """<p>Value for the CIDR block.</p>"""
     location_name: NotRequired[

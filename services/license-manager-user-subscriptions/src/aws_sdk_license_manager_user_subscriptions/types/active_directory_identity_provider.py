@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ActiveDirectoryIdentityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.active_directory_settings
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.directory
 
 
-class ActiveDirectoryIdentityProvider(TypedDict):
+class ActiveDirectoryIdentityProvider(TypedDict, closed=True):
     directory_id: NotRequired[
         "aws_sdk_license_manager_user_subscriptions.types.directory.Directory"
     ]

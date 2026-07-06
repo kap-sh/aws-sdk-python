@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Bundle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.app_category_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class Bundle(TypedDict):
+class Bundle(TypedDict, closed=True):
     price: NotRequired["aws_sdk_lightsail.types.float.float"]
     """<p>The price in US dollars (<code>5.0</code>) of the bundle.</p>"""
     cpu_count: NotRequired["aws_sdk_lightsail.types.integer.integer"]

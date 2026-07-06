@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListApplicationsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.application_i_ds_filter
     import aws_sdk_mgn.types.wave_i_ds_filter
 
 
-class ListApplicationsRequestFilters(TypedDict):
+class ListApplicationsRequestFilters(TypedDict, closed=True):
     application_i_ds: NotRequired[
         "aws_sdk_mgn.types.application_i_ds_filter.ApplicationIDsFilter"
     ]

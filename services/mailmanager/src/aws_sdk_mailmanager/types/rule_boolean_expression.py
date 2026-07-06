@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleBooleanExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_boolean_to_evaluate
 
 
-class RuleBooleanExpression(TypedDict):
+class RuleBooleanExpression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.rule_boolean_to_evaluate.RuleBooleanToEvaluate"
     """<p>The operand on which to perform a boolean condition operation.</p>"""
     operator: "aws_sdk_mailmanager.types.rule_boolean_operator.RuleBooleanOperator"

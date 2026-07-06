@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ListPricesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.list_prices_page_max_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.tld_name
 
 
-class ListPricesRequest(TypedDict):
+class ListPricesRequest(TypedDict, closed=True):
     tld: NotRequired["aws_sdk_route_53_domains.types.tld_name.TldName"]
     """<p>The TLD for which you want to receive the pricing information. For example. <code>.net</code>.</p> <p>If a <code>Tld</code> value is not provided, a list of prices for all TLDs supported by Route 53 is returned.</p>"""
     marker: NotRequired["aws_sdk_route_53_domains.types.page_marker.PageMarker"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListRecipesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.domain
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.recipe_provider
 
 
-class ListRecipesRequest(TypedDict):
+class ListRecipesRequest(TypedDict, closed=True):
     recipe_provider: NotRequired[
         "aws_sdk_personalize.types.recipe_provider.RecipeProvider"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#UpdateFlowTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.version
 
 
-class UpdateFlowTemplateRequest(TypedDict):
+class UpdateFlowTemplateRequest(TypedDict, closed=True):
     id: "aws_sdk_iotthingsgraph.types.urn.Urn"
     """<p>The ID of the workflow to be updated.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:workflow:WORKFLOWNAME</code> </p>"""
     definition: "aws_sdk_iotthingsgraph.types.definition_document.DefinitionDocument"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#CreateLifecyclePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.copy_tags_nullable
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.tag_map
 
 
-class CreateLifecyclePolicyRequest(TypedDict):
+class CreateLifecyclePolicyRequest(TypedDict, closed=True):
     execution_role_arn: NotRequired[
         "aws_sdk_dlm.types.execution_role_arn.ExecutionRoleArn"
     ]

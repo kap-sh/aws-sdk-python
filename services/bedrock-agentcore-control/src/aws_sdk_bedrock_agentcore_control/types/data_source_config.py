@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.cloud_watch_logs_input_config
 
 
-class _DataSourceConfig_cloudWatchLogs(TypedDict):
+class _DataSourceConfig_cloudWatchLogs(TypedDict, closed=True):
     cloudWatchLogs: "aws_sdk_bedrock_agentcore_control.types.cloud_watch_logs_input_config.CloudWatchLogsInputConfig"
 
 

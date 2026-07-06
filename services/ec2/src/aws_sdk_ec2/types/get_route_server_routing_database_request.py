@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetRouteServerRoutingDatabaseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class GetRouteServerRoutingDatabaseRequest(TypedDict):
+class GetRouteServerRoutingDatabaseRequest(TypedDict, closed=True):
     route_server_id: NotRequired["aws_sdk_ec2.types.route_server_id.RouteServerId"]
     """<p>The ID of the route server for which to get the routing database.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

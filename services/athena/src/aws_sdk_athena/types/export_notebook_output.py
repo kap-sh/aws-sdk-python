@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ExportNotebookOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.notebook_metadata
     import aws_sdk_athena.types.payload
 
 
-class ExportNotebookOutput(TypedDict):
+class ExportNotebookOutput(TypedDict, closed=True):
     notebook_metadata: NotRequired[
         "aws_sdk_athena.types.notebook_metadata.NotebookMetadata"
     ]

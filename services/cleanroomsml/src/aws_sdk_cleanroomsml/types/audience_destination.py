@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#AudienceDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.s3_config_map
 
 
-class AudienceDestination(TypedDict):
+class AudienceDestination(TypedDict, closed=True):
     s3_destination: "aws_sdk_cleanroomsml.types.s3_config_map.S3ConfigMap"
     """<p>The Amazon S3 bucket and path for the configured audience.</p>"""
 

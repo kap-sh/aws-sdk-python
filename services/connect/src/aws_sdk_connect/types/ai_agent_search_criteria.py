@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AiAgentSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.ai_agent_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
 
 
-class AiAgentSearchCriteria(TypedDict):
+class AiAgentSearchCriteria(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.ai_agent_id.AiAgentId"]
     """<p>ID of the AI Agent that was involved in the contact.</p>"""
     version_number: NotRequired[

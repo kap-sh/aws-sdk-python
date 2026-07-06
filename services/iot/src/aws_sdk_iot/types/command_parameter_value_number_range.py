@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandParameterValueNumberRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string_parameter_value
 
 
-class CommandParameterValueNumberRange(TypedDict):
+class CommandParameterValueNumberRange(TypedDict, closed=True):
     min: "aws_sdk_iot.types.string_parameter_value.StringParameterValue"
     """<p>The minimum value of a numerical range of a command parameter value.</p>"""
     max: "aws_sdk_iot.types.string_parameter_value.StringParameterValue"

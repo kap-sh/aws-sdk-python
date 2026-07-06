@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SingleSignOn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.auth_type
     import aws_sdk_datazone.types.user_assignment
 
 
-class SingleSignOn(TypedDict):
+class SingleSignOn(TypedDict, closed=True):
     type: NotRequired["aws_sdk_datazone.types.auth_type.AuthType"]
     """<p>The type of single sign-on in Amazon DataZone.</p>"""
     user_assignment: NotRequired[

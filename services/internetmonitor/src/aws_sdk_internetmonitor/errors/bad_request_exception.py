@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#BadRequestException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import ServiceError
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

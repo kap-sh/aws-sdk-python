@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#ListResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudcontrol.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.type_version_id
 
 
-class ListResourcesInput(TypedDict):
+class ListResourcesInput(TypedDict, closed=True):
     type_name: "aws_sdk_cloudcontrol.types.type_name.TypeName"
     """<p>The name of the resource type.</p>"""
     type_version_id: NotRequired[

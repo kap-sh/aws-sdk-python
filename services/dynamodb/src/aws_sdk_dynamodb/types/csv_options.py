@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#CsvOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.csv_delimiter
     import aws_sdk_dynamodb.types.csv_header_list
 
 
-class CsvOptions(TypedDict):
+class CsvOptions(TypedDict, closed=True):
     delimiter: NotRequired["aws_sdk_dynamodb.types.csv_delimiter.CsvDelimiter"]
     """<p> The delimiter used for separating items in the CSV file being imported. </p>"""
     header_list: NotRequired["aws_sdk_dynamodb.types.csv_header_list.CsvHeaderList"]

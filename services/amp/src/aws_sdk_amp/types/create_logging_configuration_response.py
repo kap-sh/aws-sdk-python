@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#CreateLoggingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.logging_configuration_status
 
 
-class CreateLoggingConfigurationResponse(TypedDict):
+class CreateLoggingConfigurationResponse(TypedDict, closed=True):
     status: "aws_sdk_amp.types.logging_configuration_status.LoggingConfigurationStatus"
     """<p>A structure that displays the current status of the logging configuration.</p>"""
 

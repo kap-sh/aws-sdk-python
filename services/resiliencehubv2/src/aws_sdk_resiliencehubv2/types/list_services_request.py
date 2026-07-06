@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.user_journey_id
 
 
-class ListServicesRequest(TypedDict):
+class ListServicesRequest(TypedDict, closed=True):
     system_arn: NotRequired["aws_sdk_resiliencehubv2.types.arn.Arn"]
     user_journey_id: NotRequired[
         "aws_sdk_resiliencehubv2.types.user_journey_id.UserJourneyId"

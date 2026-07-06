@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReferenceLineLabelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.font_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.reference_line_value_label_configuration
 
 
-class ReferenceLineLabelConfiguration(TypedDict):
+class ReferenceLineLabelConfiguration(TypedDict, closed=True):
     value_label_configuration: NotRequired[
         "aws_sdk_quicksight.types.reference_line_value_label_configuration.ReferenceLineValueLabelConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TableAutoScalingDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.replica_auto_scaling_description_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_status
 
 
-class TableAutoScalingDescription(TypedDict):
+class TableAutoScalingDescription(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]
     """<p>The name of the table.</p>"""
     table_status: NotRequired["aws_sdk_dynamodb.types.table_status.TableStatus"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AdsInteractionLog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__ads_interaction_exclude_event_types_list
     import aws_sdk_mediatailor.types.__ads_interaction_publish_opt_in_event_types_list
 
 
-class AdsInteractionLog(TypedDict):
+class AdsInteractionLog(TypedDict, closed=True):
     publish_opt_in_event_types: NotRequired[
         "aws_sdk_mediatailor.types.__ads_interaction_publish_opt_in_event_types_list.__adsInteractionPublishOptInEventTypesList"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetServiceNetworkServiceAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_service_association_identifier
 
 
-class GetServiceNetworkServiceAssociationRequest(TypedDict):
+class GetServiceNetworkServiceAssociationRequest(TypedDict, closed=True):
     service_network_service_association_identifier: "aws_sdk_vpc_lattice.types.service_network_service_association_identifier.ServiceNetworkServiceAssociationIdentifier"
     """<p>The ID or ARN of the association.</p>"""
 

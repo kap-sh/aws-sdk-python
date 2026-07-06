@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#UpdateAccountSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.account_settings_detail
 
 
-class UpdateAccountSettingsResponse(TypedDict):
+class UpdateAccountSettingsResponse(TypedDict, closed=True):
     account_settings_detail: NotRequired[
         "aws_sdk_opensearchserverless.types.account_settings_detail.AccountSettingsDetail"
     ]

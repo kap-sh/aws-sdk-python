@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowAsset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_flow_asset_type
 
 
-class MetaFlowAsset(TypedDict):
+class MetaFlowAsset(TypedDict, closed=True):
     name: "aws_sdk_socialmessaging.types.meta_flow_asset_name.MetaFlowAssetName"
     """<p>The filename of the asset (for example, flow.json).</p>"""
     asset_type: "aws_sdk_socialmessaging.types.meta_flow_asset_type.MetaFlowAssetType"

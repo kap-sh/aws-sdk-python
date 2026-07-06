@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_cloudhsm_v2.types.resource_id.ResourceId"
     """<p>The cluster identifier (ID) for the cluster whose tags you are removing. To find the cluster ID, use <a>DescribeClusters</a>.</p>"""
     tag_key_list: "aws_sdk_cloudhsm_v2.types.tag_key_list.TagKeyList"

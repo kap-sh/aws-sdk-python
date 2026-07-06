@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#UserBucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class UserBucket(TypedDict):
+class UserBucket(TypedDict, closed=True):
     s3_bucket: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The name of the Amazon S3 bucket where the disk image is located.</p>"""
     s3_key: NotRequired["aws_sdk_ec2.types.string.String"]

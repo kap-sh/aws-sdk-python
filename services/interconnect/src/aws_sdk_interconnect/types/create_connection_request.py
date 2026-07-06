@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#CreateConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.tag_map
 
 
-class CreateConnectionRequest(TypedDict):
+class CreateConnectionRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_interconnect.types.connection_description.ConnectionDescription"
     ]

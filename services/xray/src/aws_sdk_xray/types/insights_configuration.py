@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#InsightsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_boolean
 
 
-class InsightsConfiguration(TypedDict):
+class InsightsConfiguration(TypedDict, closed=True):
     insights_enabled: NotRequired["aws_sdk_xray.types.nullable_boolean.NullableBoolean"]
     """<p>Set the InsightsEnabled value to true to enable insights or false to disable insights.</p>"""
     notifications_enabled: NotRequired[

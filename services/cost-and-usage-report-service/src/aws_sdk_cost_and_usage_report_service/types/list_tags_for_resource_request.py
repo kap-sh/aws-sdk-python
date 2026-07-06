@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_and_usage_report_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.report_name
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     report_name: "aws_sdk_cost_and_usage_report_service.types.report_name.ReportName"
     """<p>The report name of the report definition that tags are to be returned for.</p>"""
 

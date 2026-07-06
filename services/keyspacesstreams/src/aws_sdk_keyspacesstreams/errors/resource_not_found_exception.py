@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspacesstreams.errors import ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The requested resource wasn't found. Verify that the resource exists and try again.</p>"""
 

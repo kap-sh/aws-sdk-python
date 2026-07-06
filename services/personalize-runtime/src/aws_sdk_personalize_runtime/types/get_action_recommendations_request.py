@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#GetActionRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.user_id
 
 
-class GetActionRecommendationsRequest(TypedDict):
+class GetActionRecommendationsRequest(TypedDict, closed=True):
     campaign_arn: NotRequired["aws_sdk_personalize_runtime.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the campaign to use for getting action recommendations. This campaign must deploy a solution version trained with a PERSONALIZED_ACTIONS recipe.</p>"""
     user_id: NotRequired["aws_sdk_personalize_runtime.types.user_id.UserID"]

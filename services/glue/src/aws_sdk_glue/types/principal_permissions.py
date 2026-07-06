@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PrincipalPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_lake_principal
     import aws_sdk_glue.types.permission_list
 
 
-class PrincipalPermissions(TypedDict):
+class PrincipalPermissions(TypedDict, closed=True):
     principal: NotRequired["aws_sdk_glue.types.data_lake_principal.DataLakePrincipal"]
     """<p>The principal who is granted permissions.</p>"""
     permissions: NotRequired["aws_sdk_glue.types.permission_list.PermissionList"]

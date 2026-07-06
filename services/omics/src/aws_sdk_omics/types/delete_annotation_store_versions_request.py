@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteAnnotationStoreVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.version_list
 
 
-class DeleteAnnotationStoreVersionsRequest(TypedDict):
+class DeleteAnnotationStoreVersionsRequest(TypedDict, closed=True):
     name: "str"
     """<p> The name of the annotation store from which versions are being deleted. </p>"""
     versions: "aws_sdk_omics.types.version_list.VersionList"

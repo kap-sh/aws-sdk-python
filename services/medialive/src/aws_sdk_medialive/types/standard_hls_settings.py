@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#StandardHlsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.m3u8_settings
 
 
-class StandardHlsSettings(TypedDict):
+class StandardHlsSettings(TypedDict, closed=True):
     audio_rendition_sets: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','."""
     m3u8_settings: NotRequired["aws_sdk_medialive.types.m3u8_settings.M3u8Settings"]

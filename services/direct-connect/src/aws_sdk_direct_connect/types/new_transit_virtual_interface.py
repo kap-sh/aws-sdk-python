@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#NewTransitVirtualInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.address_family
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.vlan
 
 
-class NewTransitVirtualInterface(TypedDict):
+class NewTransitVirtualInterface(TypedDict, closed=True):
     virtual_interface_name: NotRequired[
         "aws_sdk_direct_connect.types.virtual_interface_name.VirtualInterfaceName"
     ]

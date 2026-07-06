@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#EncryptionKeyAccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.message
 
 
-class EncryptionKeyAccessDeniedException_(TypedDict):
+class EncryptionKeyAccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_codecommit.types.message.Message"]
     """<p>Any message associated with the exception.</p>"""
 

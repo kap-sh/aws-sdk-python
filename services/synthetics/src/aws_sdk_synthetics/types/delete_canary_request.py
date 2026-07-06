@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DeleteCanaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.boolean
     import aws_sdk_synthetics.types.canary_name
 
 
-class DeleteCanaryRequest(TypedDict):
+class DeleteCanaryRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
     r"""<p>The name of the canary that you want to delete. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p>"""
     delete_lambda: "aws_sdk_synthetics.types.boolean.boolean"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CreateCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_id
 
 
-class CreateCaseResponse(TypedDict):
+class CreateCaseResponse(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>A response element providing responses for requests to CreateCase. This element responds with the case ID. </p>"""
 

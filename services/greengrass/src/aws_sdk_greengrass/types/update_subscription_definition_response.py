@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#UpdateSubscriptionDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateSubscriptionDefinitionResponse(TypedDict):
+class UpdateSubscriptionDefinitionResponse(TypedDict, closed=True):
     pass
 
 

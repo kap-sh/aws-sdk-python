@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AggregationKey``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
 
-class AggregationKey(TypedDict):
+class AggregationKey(TypedDict, closed=True):
     name: "str"
     """<p>Indicates the type of aggregation key.</p>"""
     value: "str"

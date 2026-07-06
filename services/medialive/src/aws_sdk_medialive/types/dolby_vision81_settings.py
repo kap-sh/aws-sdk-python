@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DolbyVision81Settings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DolbyVision81Settings(TypedDict):
+class DolbyVision81Settings(TypedDict, closed=True):
     pass
 
 

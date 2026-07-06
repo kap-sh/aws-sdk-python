@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#StartingPosition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.timestamp
 
 
-class StartingPosition(TypedDict):
+class StartingPosition(TypedDict, closed=True):
     type: "aws_sdk_kinesis.types.shard_iterator_type.ShardIteratorType"
     """<p>You can set the starting position to one of the following values:</p> <p> <code>AT_SEQUENCE_NUMBER</code>: Start streaming from the position denoted by the sequence number specified in the <code>SequenceNumber</code> field.</p> <p> <code>AFTER_SEQUENCE_NUMBER</code>: Start streaming right after the position denoted by the sequence number specified in the <code>SequenceNumber</code> field.</p> <p> <code>AT_TIMESTAMP</code>: Start streaming from the position denoted by the time stamp specified in the <code>Timestamp</code> field.</p> <p> <code>TRIM_HORIZON</code>: Start streaming at the last untrimmed record in the shard, which is the oldest data record in the shard.</p> <p> <code>LATEST</code>: Start streaming just after the most recent record in the shard, so that you always read the most recent data in the shard.</p>"""
     sequence_number: NotRequired["aws_sdk_kinesis.types.sequence_number.SequenceNumber"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ReservedInstancesPricing``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ReservedInstancesPricing(TypedDict):
+class ReservedInstancesPricing(TypedDict, closed=True):
     estimated_on_demand_cost: NotRequired["float"]
     """<p>The remaining On-Demand cost estimated to not be covered by the recommended reserved instance, over the length of the lookback period.</p>"""
     monthly_reservation_eligible_cost: NotRequired["float"]

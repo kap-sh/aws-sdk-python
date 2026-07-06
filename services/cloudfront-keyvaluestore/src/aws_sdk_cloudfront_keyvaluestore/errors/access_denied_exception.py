@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront_keyvaluestore.errors import ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetSoftwareUpdatesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class GetSoftwareUpdatesResult(TypedDict):
+class GetSoftwareUpdatesResult(TypedDict, closed=True):
     updates_uri: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The Amazon S3 presigned URL for the update file associated with the specified <code>JobId</code> value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to <code>GetSoftwareUpdates</code>.</p>"""
 

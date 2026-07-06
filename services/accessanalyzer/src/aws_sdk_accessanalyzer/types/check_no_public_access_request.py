@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CheckNoPublicAccessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.access_check_resource_type
 
 
-class CheckNoPublicAccessRequest(TypedDict):
+class CheckNoPublicAccessRequest(TypedDict, closed=True):
     policy_document: "aws_sdk_accessanalyzer.types.access_check_policy_document.AccessCheckPolicyDocument"
     """<p>The JSON policy document to evaluate for public access.</p>"""
     resource_type: "aws_sdk_accessanalyzer.types.access_check_resource_type.AccessCheckResourceType"

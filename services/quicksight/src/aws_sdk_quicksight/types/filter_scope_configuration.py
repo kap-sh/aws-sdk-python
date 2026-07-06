@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FilterScopeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.all_sheets_filter_scope_configuration
     import aws_sdk_quicksight.types.selected_sheets_filter_scope_configuration
 
 
-class FilterScopeConfiguration(TypedDict):
+class FilterScopeConfiguration(TypedDict, closed=True):
     selected_sheets: NotRequired[
         "aws_sdk_quicksight.types.selected_sheets_filter_scope_configuration.SelectedSheetsFilterScopeConfiguration"
     ]

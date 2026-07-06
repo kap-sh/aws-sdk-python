@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#ListExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.execution_reference_list
     import aws_sdk_bcm_data_exports.types.next_page_token
 
 
-class ListExecutionsResponse(TypedDict):
+class ListExecutionsResponse(TypedDict, closed=True):
     executions: NotRequired[
         "aws_sdk_bcm_data_exports.types.execution_reference_list.ExecutionReferenceList"
     ]

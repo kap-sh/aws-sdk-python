@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#RegisterNamespaceOutputMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.namespace_registration_status
 
 
-class RegisterNamespaceOutputMessage(TypedDict):
+class RegisterNamespaceOutputMessage(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_redshift.types.namespace_registration_status.NamespaceRegistrationStatus"
     ]

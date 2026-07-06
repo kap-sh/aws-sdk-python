@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationPrecomputedInferenceSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_precomputed_inference_source_identifier
 
 
-class EvaluationPrecomputedInferenceSource(TypedDict):
+class EvaluationPrecomputedInferenceSource(TypedDict, closed=True):
     inference_source_identifier: "aws_sdk_bedrock.types.evaluation_precomputed_inference_source_identifier.EvaluationPrecomputedInferenceSourceIdentifier"
     """<p>A label that identifies a model used in a model evaluation job where you provide your own inference response data.</p>"""
 

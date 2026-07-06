@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListMaterializedViewRefreshTaskRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.materialized_view_refresh_task_runs_list
     import aws_sdk_glue.types.token
 
 
-class ListMaterializedViewRefreshTaskRunsResponse(TypedDict):
+class ListMaterializedViewRefreshTaskRunsResponse(TypedDict, closed=True):
     materialized_view_refresh_task_runs: NotRequired[
         "aws_sdk_glue.types.materialized_view_refresh_task_runs_list.MaterializedViewRefreshTaskRunsList"
     ]

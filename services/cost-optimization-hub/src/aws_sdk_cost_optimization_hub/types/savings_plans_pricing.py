@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#SavingsPlansPricing``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SavingsPlansPricing(TypedDict):
+class SavingsPlansPricing(TypedDict, closed=True):
     monthly_savings_plans_eligible_cost: NotRequired["float"]
     """<p>The cost of paying for the recommended Savings Plans monthly.</p>"""
     estimated_monthly_commitment: NotRequired["float"]

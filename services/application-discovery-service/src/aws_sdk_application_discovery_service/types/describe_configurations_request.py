@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DescribeConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.configuration_id_list
 
 
-class DescribeConfigurationsRequest(TypedDict):
+class DescribeConfigurationsRequest(TypedDict, closed=True):
     configuration_ids: "aws_sdk_application_discovery_service.types.configuration_id_list.ConfigurationIdList"
     """<p>One or more configuration IDs.</p>"""
 

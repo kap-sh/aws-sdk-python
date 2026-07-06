@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DescribeCrossAccountAccessRoleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class DescribeCrossAccountAccessRoleResponse(TypedDict):
+class DescribeCrossAccountAccessRoleResponse(TypedDict, closed=True):
     role_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the IAM role that Amazon Inspector uses to access your AWS account.</p>"""
     valid: "aws_sdk_inspector.types.bool.Bool"

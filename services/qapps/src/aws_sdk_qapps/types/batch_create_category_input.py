@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#BatchCreateCategoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.instance_id
 
 
-class BatchCreateCategoryInput(TypedDict):
+class BatchCreateCategoryInput(TypedDict, closed=True):
     instance_id: "aws_sdk_qapps.types.instance_id.InstanceId"
     """<p>The unique identifier of the Amazon Q Business application environment instance.</p>"""
     categories: "aws_sdk_qapps.types.batch_create_category_input_category_list.BatchCreateCategoryInputCategoryList"

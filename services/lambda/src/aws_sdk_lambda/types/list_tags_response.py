@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.tags
 
 
-class ListTagsResponse(TypedDict):
+class ListTagsResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_lambda.types.tags.Tags"]
     """<p>The function's tags.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PutUserStatusResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutUserStatusResponse(TypedDict):
+class PutUserStatusResponse(TypedDict, closed=True):
     pass
 
 

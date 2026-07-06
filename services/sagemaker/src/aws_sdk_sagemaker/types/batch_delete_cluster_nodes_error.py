@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchDeleteClusterNodesError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_delete_cluster_nodes_error_code
     import aws_sdk_sagemaker.types.cluster_node_id
 
 
-class BatchDeleteClusterNodesError(TypedDict):
+class BatchDeleteClusterNodesError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_sagemaker.types.batch_delete_cluster_nodes_error_code.BatchDeleteClusterNodesErrorCode"
     ]

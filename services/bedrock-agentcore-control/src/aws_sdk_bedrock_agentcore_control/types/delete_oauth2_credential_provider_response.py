@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteOauth2CredentialProviderResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOauth2CredentialProviderResponse(TypedDict):
+class DeleteOauth2CredentialProviderResponse(TypedDict, closed=True):
     pass
 
 

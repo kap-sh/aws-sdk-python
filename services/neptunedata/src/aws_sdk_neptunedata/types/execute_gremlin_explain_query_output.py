@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinExplainQueryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.report_as_text
 
 
-class ExecuteGremlinExplainQueryOutput(TypedDict):
+class ExecuteGremlinExplainQueryOutput(TypedDict, closed=True):
     output: NotRequired["aws_sdk_neptunedata.types.report_as_text.ReportAsText"]
     r"""<p>A text blob containing the Gremlin explain result, as described in <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/gremlin-traversal-tuning.html\">Tuning Gremlin queries</a>.</p>"""
 

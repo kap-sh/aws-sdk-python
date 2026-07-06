@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NetworkConnectionAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_local_port_details
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class NetworkConnectionAction(TypedDict):
+class NetworkConnectionAction(TypedDict, closed=True):
     connection_direction: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

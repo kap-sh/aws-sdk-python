@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ResponsibilityTransfer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.transfer_participant
 
 
-class ResponsibilityTransfer(TypedDict):
+class ResponsibilityTransfer(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_organizations.types.responsibility_transfer_arn.ResponsibilityTransferArn"
     ]

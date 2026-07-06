@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RunScheduledInstancesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_id_set
 
 
-class RunScheduledInstancesResult(TypedDict):
+class RunScheduledInstancesResult(TypedDict, closed=True):
     instance_id_set: NotRequired["aws_sdk_ec2.types.instance_id_set.InstanceIdSet"]
     """<p>The IDs of the newly launched instances.</p>"""
 

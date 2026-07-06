@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InstanceState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
     import aws_sdk_lightsail.types.string
 
 
-class InstanceState(TypedDict):
+class InstanceState(TypedDict, closed=True):
     code: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The status code for the instance.</p>"""
     name: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Fmp4HlsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.fmp4_timed_metadata_behavior
 
 
-class Fmp4HlsSettings(TypedDict):
+class Fmp4HlsSettings(TypedDict, closed=True):
     audio_rendition_sets: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','."""
     nielsen_id3_behavior: NotRequired[

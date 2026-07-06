@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetCodeSecurityScanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_security_uuid
 
 
-class GetCodeSecurityScanResponse(TypedDict):
+class GetCodeSecurityScanResponse(TypedDict, closed=True):
     scan_id: NotRequired["aws_sdk_inspector2.types.code_security_uuid.CodeSecurityUuid"]
     """<p>The unique identifier of the scan.</p>"""
     resource: NotRequired[

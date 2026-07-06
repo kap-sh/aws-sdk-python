@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ListSupplementalTaxRegistrationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.max_results
     import aws_sdk_taxsettings.types.pagination_token_string
 
 
-class ListSupplementalTaxRegistrationsRequest(TypedDict):
+class ListSupplementalTaxRegistrationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_taxsettings.types.max_results.MaxResults"]
     """<p> The number of <code>taxRegistrations</code> results you want in one response. </p>"""
     next_token: NotRequired[

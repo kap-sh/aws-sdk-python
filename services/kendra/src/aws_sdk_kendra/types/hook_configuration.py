@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#HookConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.s3_bucket_name
 
 
-class HookConfiguration(TypedDict):
+class HookConfiguration(TypedDict, closed=True):
     invocation_condition: NotRequired[
         "aws_sdk_kendra.types.document_attribute_condition.DocumentAttributeCondition"
     ]

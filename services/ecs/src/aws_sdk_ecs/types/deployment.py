@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Deployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.capacity_provider_strategy
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.vpc_lattice_configurations
 
 
-class Deployment(TypedDict):
+class Deployment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ID of the deployment.</p>"""
     status: NotRequired["aws_sdk_ecs.types.string.String"]

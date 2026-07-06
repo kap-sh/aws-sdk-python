@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ListDataLakesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
 
 
-class ListDataLakesRequest(TypedDict):
+class ListDataLakesRequest(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_securitylake.types.region_list.RegionList"]
     """<p>The list of Regions where Security Lake is enabled.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#ListEnvironmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.max_results
     import aws_sdk_migration_hub_refactor_spaces.types.next_token
 
 
-class ListEnvironmentsRequest(TypedDict):
+class ListEnvironmentsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_migration_hub_refactor_spaces.types.next_token.NextToken"
     ]

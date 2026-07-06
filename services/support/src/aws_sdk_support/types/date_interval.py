@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.support#DateInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.validated_date_time
 
 
-class DateInterval(TypedDict):
+class DateInterval(TypedDict, closed=True):
     start_date_time: NotRequired[
         "aws_sdk_support.types.validated_date_time.ValidatedDateTime"
     ]

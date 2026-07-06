@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#GifSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max2147483647
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.gif_framerate_conversion_algorithm
 
 
-class GifSettings(TypedDict):
+class GifSettings(TypedDict, closed=True):
     framerate_control: NotRequired[
         "aws_sdk_mediaconvert.types.gif_framerate_control.GifFramerateControl"
     ]

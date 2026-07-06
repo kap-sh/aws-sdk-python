@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#TagResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.failed_resources_map
 
 
-class TagResourcesOutput(TypedDict):
+class TagResourcesOutput(TypedDict, closed=True):
     failed_resources_map: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.failed_resources_map.FailedResourcesMap"
     ]

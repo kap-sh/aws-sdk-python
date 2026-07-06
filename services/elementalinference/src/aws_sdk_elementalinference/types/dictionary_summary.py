@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#DictionarySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.resource_name
 
 
-class DictionarySummary(TypedDict):
+class DictionarySummary(TypedDict, closed=True):
     arn: "aws_sdk_elementalinference.types.dictionary_arn.DictionaryArn"
     """<p>The ARN of the dictionary.</p>"""
     id: "aws_sdk_elementalinference.types.dictionary_id.DictionaryId"

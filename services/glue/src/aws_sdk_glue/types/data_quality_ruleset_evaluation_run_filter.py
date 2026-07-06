@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityRulesetEvaluationRunFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class DataQualityRulesetEvaluationRunFilter(TypedDict):
+class DataQualityRulesetEvaluationRunFilter(TypedDict, closed=True):
     data_source: "aws_sdk_glue.types.data_source.DataSource"
     """<p>Filter based on a data source (an Glue table) associated with the run.</p>"""
     started_before: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]

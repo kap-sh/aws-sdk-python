@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#UpdatePackageGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_group_pattern
 
 
-class UpdatePackageGroupRequest(TypedDict):
+class UpdatePackageGroupRequest(TypedDict, closed=True):
     domain: "aws_sdk_codeartifact.types.domain_name.DomainName"
     """<p> The name of the domain which contains the package group to be updated. </p>"""
     domain_owner: NotRequired["aws_sdk_codeartifact.types.account_id.AccountId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GrantedEntityInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.listing_revision_input
 
 
-class _GrantedEntityInput_listing(TypedDict):
+class _GrantedEntityInput_listing(TypedDict, closed=True):
     listing: "aws_sdk_datazone.types.listing_revision_input.ListingRevisionInput"
 
 

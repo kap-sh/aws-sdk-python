@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#CalculateRoutesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_response_notice_list
 
 
-class CalculateRoutesResponse(TypedDict):
+class CalculateRoutesResponse(TypedDict, closed=True):
     leg_geometry_format: "aws_sdk_geo_routes.types.geometry_format.GeometryFormat"
     """<p>Specifies the format of the geometry returned for each leg of the route.</p>"""
     notices: (

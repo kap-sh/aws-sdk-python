@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#GetPipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline
 
 
-class GetPipelineResponse(TypedDict):
+class GetPipelineResponse(TypedDict, closed=True):
     pipeline: NotRequired["aws_sdk_osis.types.pipeline.Pipeline"]
     """<p>Detailed information about the requested pipeline.</p>"""
 

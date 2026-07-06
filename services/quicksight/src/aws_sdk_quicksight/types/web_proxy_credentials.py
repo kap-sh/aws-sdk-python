@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WebProxyCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.password
 
 
-class WebProxyCredentials(TypedDict):
+class WebProxyCredentials(TypedDict, closed=True):
     web_proxy_username: "aws_sdk_quicksight.types.db_username.DbUsername"
     """<p>The username for authenticating with the web proxy server.</p>"""
     web_proxy_password: "aws_sdk_quicksight.types.password.Password"

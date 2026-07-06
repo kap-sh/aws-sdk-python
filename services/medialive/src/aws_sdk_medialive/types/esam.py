@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Esam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min_negative1000_max1000
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_max2048
 
 
-class Esam(TypedDict):
+class Esam(TypedDict, closed=True):
     acquisition_point_id: NotRequired[
         "aws_sdk_medialive.types.__string_max256.__stringMax256"
     ]

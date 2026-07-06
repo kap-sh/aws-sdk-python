@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SiteMapsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.site_maps_list
 
 
-class SiteMapsConfiguration(TypedDict):
+class SiteMapsConfiguration(TypedDict, closed=True):
     site_maps: "aws_sdk_kendra.types.site_maps_list.SiteMapsList"
     """<p>The list of sitemap URLs of the websites you want to crawl.</p> <p>The list can include a maximum of three sitemap URLs.</p>"""
 

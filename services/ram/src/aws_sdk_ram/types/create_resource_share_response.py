@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#CreateResourceShareResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_share
     import aws_sdk_ram.types.string
 
 
-class CreateResourceShareResponse(TypedDict):
+class CreateResourceShareResponse(TypedDict, closed=True):
     resource_share: NotRequired["aws_sdk_ram.types.resource_share.ResourceShare"]
     """<p>An object with information about the new resource share.</p>"""
     client_token: NotRequired["aws_sdk_ram.types.string.String"]

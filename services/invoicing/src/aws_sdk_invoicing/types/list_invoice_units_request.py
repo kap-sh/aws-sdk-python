@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#ListInvoiceUnitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.as_of_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.next_token_string
 
 
-class ListInvoiceUnitsRequest(TypedDict):
+class ListInvoiceUnitsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_invoicing.types.filters.Filters"]
     """<p> An optional input to the list API. If multiple filters are specified, the returned list will be a configuration that match all of the provided filters. Supported filter types are <code>InvoiceReceivers</code>, <code>Names</code>, and <code>Accounts</code>. </p>"""
     next_token: NotRequired["aws_sdk_invoicing.types.next_token_string.NextTokenString"]

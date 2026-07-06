@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3ClassificationScopeExclusion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_s3_bucket_name
 
 
-class S3ClassificationScopeExclusion(TypedDict):
+class S3ClassificationScopeExclusion(TypedDict, closed=True):
     bucket_names: NotRequired[
         "aws_sdk_macie2.types.__list_of_s3_bucket_name.__listOfS3BucketName"
     ]

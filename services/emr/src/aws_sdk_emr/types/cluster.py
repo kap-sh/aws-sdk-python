@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.application_list
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The unique identifier for the cluster.</p>"""
     name: NotRequired["aws_sdk_emr.types.string.String"]

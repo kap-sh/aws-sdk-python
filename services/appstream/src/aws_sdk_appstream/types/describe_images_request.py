@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeImagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.arn_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.visibility_type
 
 
-class DescribeImagesRequest(TypedDict):
+class DescribeImagesRequest(TypedDict, closed=True):
     names: NotRequired["aws_sdk_appstream.types.string_list.StringList"]
     """<p>The names of the public or private images to describe.</p>"""
     arns: NotRequired["aws_sdk_appstream.types.arn_list.ArnList"]

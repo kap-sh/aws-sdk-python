@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#KendraConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.query_filter_string
 
 
-class KendraConfiguration(TypedDict):
+class KendraConfiguration(TypedDict, closed=True):
     kendra_index: "aws_sdk_lex_models_v2.types.kendra_index_arn.KendraIndexArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon Kendra index that you want the <code>AMAZON.KendraSearchIntent</code> intent to search. The index must be in the same account and Region as the Amazon Lex bot.</p>"""
     query_filter_string_enabled: "aws_sdk_lex_models_v2.types.boolean.Boolean"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetBlueprintRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint_version
 
 
-class GetBlueprintRequest(TypedDict):
+class GetBlueprintRequest(TypedDict, closed=True):
     blueprint_arn: "aws_sdk_bedrock_data_automation.types.blueprint_arn.BlueprintArn"
     """ARN generated at the server side when a Blueprint is created"""
     blueprint_version: NotRequired[

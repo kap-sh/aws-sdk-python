@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DefaultRunSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class DefaultRunSetting(TypedDict):
+class DefaultRunSetting(TypedDict, closed=True):
     workflow_id: "aws_sdk_omics.types.workflow_id.WorkflowId"
     """<p>The identifier of the workflow to run.</p>"""
     workflow_type: NotRequired["aws_sdk_omics.types.workflow_type.WorkflowType"]

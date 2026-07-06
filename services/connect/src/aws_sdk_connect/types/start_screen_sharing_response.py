@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartScreenSharingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartScreenSharingResponse(TypedDict):
+class StartScreenSharingResponse(TypedDict, closed=True):
     pass
 
 

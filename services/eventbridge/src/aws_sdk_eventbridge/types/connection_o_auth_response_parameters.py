@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ConnectionOAuthResponseParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.connection_http_parameters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.https_endpoint
 
 
-class ConnectionOAuthResponseParameters(TypedDict):
+class ConnectionOAuthResponseParameters(TypedDict, closed=True):
     client_parameters: NotRequired[
         "aws_sdk_eventbridge.types.connection_o_auth_client_response_parameters.ConnectionOAuthClientResponseParameters"
     ]

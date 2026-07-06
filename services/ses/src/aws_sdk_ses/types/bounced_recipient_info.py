@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#BouncedRecipientInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.recipient_dsn_fields
 
 
-class BouncedRecipientInfo(TypedDict):
+class BouncedRecipientInfo(TypedDict, closed=True):
     recipient: "aws_sdk_ses.types.address.Address"
     """<p>The email address of the recipient of the bounced email.</p>"""
     recipient_arn: NotRequired[

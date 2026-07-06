@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ServerSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.rds_sal_settings
 
 
-class _ServerSettings_RdsSalSettings(TypedDict):
+class _ServerSettings_RdsSalSettings(TypedDict, closed=True):
     RdsSalSettings: "aws_sdk_license_manager_user_subscriptions.types.rds_sal_settings.RdsSalSettings"
 
 

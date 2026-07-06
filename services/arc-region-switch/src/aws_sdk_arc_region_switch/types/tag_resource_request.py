@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) for a tag that you add to a resource.</p>"""
     tags: "aws_sdk_arc_region_switch.types.tags.Tags"

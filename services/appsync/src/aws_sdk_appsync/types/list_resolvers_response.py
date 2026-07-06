@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListResolversResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.pagination_token
     import aws_sdk_appsync.types.resolvers
 
 
-class ListResolversResponse(TypedDict):
+class ListResolversResponse(TypedDict, closed=True):
     resolvers: NotRequired["aws_sdk_appsync.types.resolvers.Resolvers"]
     """<p>The <code>Resolver</code> objects.</p>"""
     next_token: NotRequired["aws_sdk_appsync.types.pagination_token.PaginationToken"]

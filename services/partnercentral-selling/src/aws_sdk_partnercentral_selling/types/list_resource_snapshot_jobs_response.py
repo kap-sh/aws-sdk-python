@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ListResourceSnapshotJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.resource_snapshot_job_summary_list
 
 
-class ListResourceSnapshotJobsResponse(TypedDict):
+class ListResourceSnapshotJobsResponse(TypedDict, closed=True):
     resource_snapshot_job_summaries: "aws_sdk_partnercentral_selling.types.resource_snapshot_job_summary_list.ResourceSnapshotJobSummaryList"
     """<p> An array of resource snapshot job summary objects. </p>"""
     next_token: NotRequired["str"]

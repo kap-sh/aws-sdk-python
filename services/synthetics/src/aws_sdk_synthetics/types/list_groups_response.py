@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#ListGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.group_summary_list
     import aws_sdk_synthetics.types.token
 
 
-class ListGroupsResponse(TypedDict):
+class ListGroupsResponse(TypedDict, closed=True):
     groups: NotRequired["aws_sdk_synthetics.types.group_summary_list.GroupSummaryList"]
     """<p>An array of structures that each contain information about one group.</p>"""
     next_token: NotRequired["aws_sdk_synthetics.types.token.Token"]

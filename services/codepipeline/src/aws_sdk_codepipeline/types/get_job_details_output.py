@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GetJobDetailsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.job_details
 
 
-class GetJobDetailsOutput(TypedDict):
+class GetJobDetailsOutput(TypedDict, closed=True):
     job_details: NotRequired["aws_sdk_codepipeline.types.job_details.JobDetails"]
     """<p>The details of the job.</p> <note> <p>If AWSSessionCredentials is used, a long-running job can call <code>GetJobDetails</code> again to obtain new credentials.</p> </note>"""
 

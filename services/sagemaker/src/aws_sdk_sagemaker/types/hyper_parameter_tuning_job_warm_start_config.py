@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperParameterTuningJobWarmStartConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyper_parameter_tuning_job_warm_start_type
     import aws_sdk_sagemaker.types.parent_hyper_parameter_tuning_jobs
 
 
-class HyperParameterTuningJobWarmStartConfig(TypedDict):
+class HyperParameterTuningJobWarmStartConfig(TypedDict, closed=True):
     parent_hyper_parameter_tuning_jobs: NotRequired[
         "aws_sdk_sagemaker.types.parent_hyper_parameter_tuning_jobs.ParentHyperParameterTuningJobs"
     ]

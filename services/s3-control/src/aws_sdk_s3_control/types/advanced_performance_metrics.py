@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#AdvancedPerformanceMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.is_enabled
 
 
-class AdvancedPerformanceMetrics(TypedDict):
+class AdvancedPerformanceMetrics(TypedDict, closed=True):
     is_enabled: "aws_sdk_s3_control.types.is_enabled.IsEnabled"
     """<p>A container that indicates whether S3 Storage Lens advanced performance metrics are enabled.</p>"""
 

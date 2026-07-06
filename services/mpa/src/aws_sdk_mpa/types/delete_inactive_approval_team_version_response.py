@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#DeleteInactiveApprovalTeamVersionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteInactiveApprovalTeamVersionResponse(TypedDict):
+class DeleteInactiveApprovalTeamVersionResponse(TypedDict, closed=True):
     pass
 
 

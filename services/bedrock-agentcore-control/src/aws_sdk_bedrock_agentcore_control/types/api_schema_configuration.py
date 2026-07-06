@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ApiSchemaConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.s3_configuration
 
 
-class _ApiSchemaConfiguration_s3(TypedDict):
+class _ApiSchemaConfiguration_s3(TypedDict, closed=True):
     s3: "aws_sdk_bedrock_agentcore_control.types.s3_configuration.S3Configuration"
 
 
-class _ApiSchemaConfiguration_inlinePayload(TypedDict):
+class _ApiSchemaConfiguration_inlinePayload(TypedDict, closed=True):
     inlinePayload: (
         "aws_sdk_bedrock_agentcore_control.types.inline_payload.InlinePayload"
     )

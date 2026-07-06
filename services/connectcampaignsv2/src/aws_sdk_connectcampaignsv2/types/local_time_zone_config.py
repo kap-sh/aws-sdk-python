@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#LocalTimeZoneConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.local_time_zone_detection
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.time_zone
 
 
-class LocalTimeZoneConfig(TypedDict):
+class LocalTimeZoneConfig(TypedDict, closed=True):
     default_time_zone: NotRequired[
         "aws_sdk_connectcampaignsv2.types.time_zone.TimeZone"
     ]

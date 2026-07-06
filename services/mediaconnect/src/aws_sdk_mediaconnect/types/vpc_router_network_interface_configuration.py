@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#VpcRouterNetworkInterfaceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.security_group_id_list
 
 
-class VpcRouterNetworkInterfaceConfiguration(TypedDict):
+class VpcRouterNetworkInterfaceConfiguration(TypedDict, closed=True):
     security_group_ids: (
         "aws_sdk_mediaconnect.types.security_group_id_list.SecurityGroupIdList"
     )

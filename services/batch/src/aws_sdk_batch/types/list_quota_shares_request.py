@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ListQuotaSharesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class ListQuotaSharesRequest(TypedDict):
+class ListQuotaSharesRequest(TypedDict, closed=True):
     job_queue: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or full Amazon Resource Name (ARN) of the job queue used to list quota shares.</p>"""
     max_results: NotRequired["aws_sdk_batch.types.integer.Integer"]

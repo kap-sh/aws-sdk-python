@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#SqlStatementResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.records_updated
     import aws_sdk_rds_data.types.result_frame
 
 
-class SqlStatementResult(TypedDict):
+class SqlStatementResult(TypedDict, closed=True):
     result_frame: NotRequired["aws_sdk_rds_data.types.result_frame.ResultFrame"]
     """<p>The result set of the SQL statement.</p>"""
     number_of_records_updated: "aws_sdk_rds_data.types.records_updated.RecordsUpdated"

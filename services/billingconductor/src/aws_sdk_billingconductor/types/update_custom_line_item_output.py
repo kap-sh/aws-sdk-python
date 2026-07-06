@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateCustomLineItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_full_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.number_of_associations
 
 
-class UpdateCustomLineItemOutput(TypedDict):
+class UpdateCustomLineItemOutput(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_billingconductor.types.custom_line_item_arn.CustomLineItemArn"
     ]

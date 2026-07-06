@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#PendingTaskCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.count
     import aws_sdk_swf.types.truncated
 
 
-class PendingTaskCount(TypedDict):
+class PendingTaskCount(TypedDict, closed=True):
     count: "aws_sdk_swf.types.count.Count"
     """<p>The number of tasks in the task list.</p>"""
     truncated: "aws_sdk_swf.types.truncated.Truncated"

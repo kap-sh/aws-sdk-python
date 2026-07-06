@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BodySectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class BodySectionConfiguration(TypedDict):
+class BodySectionConfiguration(TypedDict, closed=True):
     section_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The unique identifier of a body section.</p>"""
     content: "aws_sdk_quicksight.types.body_section_content.BodySectionContent"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateCaseActionDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.field_values
 
 
-class UpdateCaseActionDefinition(TypedDict):
+class UpdateCaseActionDefinition(TypedDict, closed=True):
     fields: "aws_sdk_connect.types.field_values.FieldValues"
     """<p>An array of objects with <code>Field ID</code> and Value data.</p>"""
 

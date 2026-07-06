@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SegmentImportResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of__integer
 
 
-class SegmentImportResource(TypedDict):
+class SegmentImportResource(TypedDict, closed=True):
     channel_counts: NotRequired["aws_sdk_pinpoint.types.map_of__integer.MapOf__integer"]
     """<p>The number of channel types in the endpoint definitions that were imported to create the segment.</p>"""
     external_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

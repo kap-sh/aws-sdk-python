@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#AssociateBackupVaultMpaApprovalTeamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.requester_comment
 
 
-class AssociateBackupVaultMpaApprovalTeamInput(TypedDict):
+class AssociateBackupVaultMpaApprovalTeamInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of the backup vault to associate with the MPA approval team.</p>"""
     mpa_approval_team_arn: "aws_sdk_backup.types.arn.ARN"

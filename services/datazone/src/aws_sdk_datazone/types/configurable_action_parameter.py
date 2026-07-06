@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ConfigurableActionParameter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ConfigurableActionParameter(TypedDict):
+class ConfigurableActionParameter(TypedDict, closed=True):
     key: NotRequired["str"]
     """<p>The key of the configurable action parameter.</p>"""
     value: NotRequired["str"]

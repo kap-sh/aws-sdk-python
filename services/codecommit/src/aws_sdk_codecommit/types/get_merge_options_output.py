@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetMergeOptionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class GetMergeOptionsOutput(TypedDict):
+class GetMergeOptionsOutput(TypedDict, closed=True):
     merge_options: "aws_sdk_codecommit.types.merge_options.MergeOptions"
     """<p>The merge option or strategy used to merge the code.</p>"""
     source_commit_id: "aws_sdk_codecommit.types.object_id.ObjectId"

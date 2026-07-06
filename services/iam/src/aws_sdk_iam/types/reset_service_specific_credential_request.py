@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ResetServiceSpecificCredentialRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class ResetServiceSpecificCredentialRequest(TypedDict):
+class ResetServiceSpecificCredentialRequest(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     r"""<p>The name of the IAM user associated with the service-specific credential. If this value is not specified, then the operation assumes the user whose credentials are used to call the operation.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     service_specific_credential_id: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#ListPermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.next_token
 
 
-class ListPermissionsRequest(TypedDict):
+class ListPermissionsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_acm_pca.types.max_results.MaxResults"]
     """<p>When paginating results, use this parameter to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the <b>NextToken</b> element is sent in the response. Use this <b>NextToken</b> value in a subsequent request to retrieve additional items.</p>"""
     next_token: NotRequired["aws_sdk_acm_pca.types.next_token.NextToken"]

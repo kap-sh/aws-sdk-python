@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssignedSessionAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.session_action_id
 
 
-class AssignedSessionAction(TypedDict):
+class AssignedSessionAction(TypedDict, closed=True):
     session_action_id: "aws_sdk_deadline.types.session_action_id.SessionActionId"
     """<p>The session action ID for the assigned session.</p>"""
     definition: "aws_sdk_deadline.types.assigned_session_action_definition.AssignedSessionActionDefinition"

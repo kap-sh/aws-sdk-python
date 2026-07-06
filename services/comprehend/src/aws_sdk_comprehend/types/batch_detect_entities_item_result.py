@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#BatchDetectEntitiesItemResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
     import aws_sdk_comprehend.types.list_of_entities
 
 
-class BatchDetectEntitiesItemResult(TypedDict):
+class BatchDetectEntitiesItemResult(TypedDict, closed=True):
     index: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>The zero-based index of the document in the input list.</p>"""
     entities: NotRequired["aws_sdk_comprehend.types.list_of_entities.ListOfEntities"]

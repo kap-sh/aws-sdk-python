@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The field name where the invalid entry was detected.</p>"""
     message: "str"

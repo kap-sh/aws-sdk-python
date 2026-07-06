@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#GetStatementResultResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
 
 
-class GetStatementResultResponse(TypedDict):
+class GetStatementResultResponse(TypedDict, closed=True):
     records: "aws_sdk_redshift_data.types.sql_records.SqlRecords"
     """<p>The results of the SQL statement in JSON format.</p>"""
     column_metadata: NotRequired[

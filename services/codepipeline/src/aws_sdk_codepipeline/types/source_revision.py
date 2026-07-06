@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#SourceRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.url
 
 
-class SourceRevision(TypedDict):
+class SourceRevision(TypedDict, closed=True):
     action_name: "aws_sdk_codepipeline.types.action_name.ActionName"
     """<p>The name of the action that processed the revision to the source artifact.</p>"""
     revision_id: NotRequired["aws_sdk_codepipeline.types.revision.Revision"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#PipelineOutputError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PipelineOutputError(TypedDict):
+class PipelineOutputError(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The detailed error message describing what went wrong during the pipeline test operation for this record.</p>"""
 

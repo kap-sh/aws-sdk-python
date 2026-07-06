@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#RecommendationError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
 
-class RecommendationError(TypedDict):
+class RecommendationError(TypedDict, closed=True):
     code: "str"
     """<p>The error code for a failed retrieval of a recommendation for a finding.</p>"""
     message: "str"

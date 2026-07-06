@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ListClustersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.next_token
 
 
-class ListClustersOutput(TypedDict):
+class ListClustersOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_dsql.types.next_token.NextToken"]
     """<p>If nextToken is returned, there are more results available. The value of nextToken is a unique pagination token for each page. To retrieve the next page, make the call again using the returned token.</p>"""
     clusters: "aws_sdk_dsql.types.cluster_list.ClusterList"

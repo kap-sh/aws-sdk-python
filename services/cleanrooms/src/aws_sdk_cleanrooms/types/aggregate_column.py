@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AggregateColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_rule_column_name_list
 
 
-class AggregateColumn(TypedDict):
+class AggregateColumn(TypedDict, closed=True):
     column_names: "aws_sdk_cleanrooms.types.analysis_rule_column_name_list.AnalysisRuleColumnNameList"
     """<p>Column names in configured table of aggregate columns.</p>"""
     function: "aws_sdk_cleanrooms.types.aggregate_function_name.AggregateFunctionName"

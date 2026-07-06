@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pi#Data``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.performance_insights_metric
 
 
-class Data(TypedDict):
+class Data(TypedDict, closed=True):
     performance_insights_metric: NotRequired[
         "aws_sdk_pi.types.performance_insights_metric.PerformanceInsightsMetric"
     ]

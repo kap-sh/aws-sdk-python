@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max65535
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1000000_max100000000
 
 
-class MultiplexSettings(TypedDict):
+class MultiplexSettings(TypedDict, closed=True):
     maximum_video_buffer_delay_milliseconds: NotRequired[
         "aws_sdk_medialive.types.__integer_min800_max3000.__integerMin800Max3000"
     ]

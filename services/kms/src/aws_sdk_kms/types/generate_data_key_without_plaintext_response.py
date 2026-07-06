@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GenerateDataKeyWithoutPlaintextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.backing_key_id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.key_id_type
 
 
-class GenerateDataKeyWithoutPlaintextResponse(TypedDict):
+class GenerateDataKeyWithoutPlaintextResponse(TypedDict, closed=True):
     ciphertext_blob: NotRequired["aws_sdk_kms.types.ciphertext_type.CiphertextType"]
     """<p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>"""
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]

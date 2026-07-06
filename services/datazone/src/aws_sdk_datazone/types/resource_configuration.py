@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ResourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.resource_configuration_parameter_map
 
 
-class ResourceConfiguration(TypedDict):
+class ResourceConfiguration(TypedDict, closed=True):
     identifier: "str"
     """<p>The identifier of the resource configuration.</p>"""
     name: "str"

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetDataSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.data_source_id
     import aws_sdk_datazone.types.domain_id
 
 
-class GetDataSourceInput(TypedDict):
+class GetDataSourceInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which the data source exists.</p>"""
     identifier: "aws_sdk_datazone.types.data_source_id.DataSourceId"

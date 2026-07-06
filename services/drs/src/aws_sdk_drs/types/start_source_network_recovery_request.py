@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StartSourceNetworkRecoveryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class StartSourceNetworkRecoveryRequest(TypedDict):
+class StartSourceNetworkRecoveryRequest(TypedDict, closed=True):
     source_networks: "aws_sdk_drs.types.start_source_network_recovery_request_network_entries.StartSourceNetworkRecoveryRequestNetworkEntries"
     """<p>The Source Networks that we want to start a Recovery Job for.</p>"""
     deploy_as_new: NotRequired["bool"]

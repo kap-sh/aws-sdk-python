@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#OverallTestResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_result_match_status_count_map
 
 
-class OverallTestResultItem(TypedDict):
+class OverallTestResultItem(TypedDict, closed=True):
     multi_turn_conversation: "aws_sdk_lex_models_v2.types.boolean.Boolean"
     """<p>Indicates whether the conversation contains multiple turns or not.</p>"""
     total_result_count: "aws_sdk_lex_models_v2.types.count.Count"

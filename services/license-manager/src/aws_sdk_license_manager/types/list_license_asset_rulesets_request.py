@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListLicenseAssetRulesetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ListLicenseAssetRulesetsRequest(TypedDict):
+class ListLicenseAssetRulesetsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_license_manager.types.filters.Filters"]
     """<p>Filters to scope the results. Following filters are supported</p> <ul> <li> <p> <code>Name</code> </p> </li> </ul>"""
     show_aws_managed_license_asset_rulesets: (

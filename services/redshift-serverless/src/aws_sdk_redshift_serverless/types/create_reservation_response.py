@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#CreateReservationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.reservation
 
 
-class CreateReservationResponse(TypedDict):
+class CreateReservationResponse(TypedDict, closed=True):
     reservation: NotRequired[
         "aws_sdk_redshift_serverless.types.reservation.Reservation"
     ]

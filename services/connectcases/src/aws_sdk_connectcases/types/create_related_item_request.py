@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CreateRelatedItemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.user_union
 
 
-class CreateRelatedItemRequest(TypedDict):
+class CreateRelatedItemRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     case_id: "aws_sdk_connectcases.types.case_id.CaseId"

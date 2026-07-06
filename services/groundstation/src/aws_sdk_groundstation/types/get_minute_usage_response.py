@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#GetMinuteUsageResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMinuteUsageResponse(TypedDict):
+class GetMinuteUsageResponse(TypedDict, closed=True):
     is_reserved_minutes_customer: NotRequired["bool"]
     """<p>Returns whether or not an account has signed up for the reserved minutes pricing plan, specific to the month being requested.</p>"""
     total_reserved_minute_allocation: NotRequired["int"]

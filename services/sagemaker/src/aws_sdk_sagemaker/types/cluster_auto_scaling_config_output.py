@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterAutoScalingConfigOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_auto_scaling_status
 
 
-class ClusterAutoScalingConfigOutput(TypedDict):
+class ClusterAutoScalingConfigOutput(TypedDict, closed=True):
     mode: "aws_sdk_sagemaker.types.cluster_auto_scaling_mode.ClusterAutoScalingMode"
     """<p>Describes whether autoscaling is enabled or disabled for the cluster.</p>"""
     auto_scaler_type: NotRequired[

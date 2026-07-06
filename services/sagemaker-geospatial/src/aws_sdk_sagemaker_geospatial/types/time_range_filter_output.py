@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#TimeRangeFilterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class TimeRangeFilterOutput(TypedDict):
+class TimeRangeFilterOutput(TypedDict, closed=True):
     start_time: "datetime.datetime"
     """<p>The starting time for the time range filter.</p>"""
     end_time: "datetime.datetime"

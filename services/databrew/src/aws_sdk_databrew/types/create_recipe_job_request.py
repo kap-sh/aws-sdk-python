@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#CreateRecipeJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.timeout
 
 
-class CreateRecipeJobRequest(TypedDict):
+class CreateRecipeJobRequest(TypedDict, closed=True):
     dataset_name: NotRequired["aws_sdk_databrew.types.dataset_name.DatasetName"]
     """<p>The name of the dataset that this job processes.</p>"""
     encryption_key_arn: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeploySystemInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.urn
 
 
-class DeploySystemInstanceRequest(TypedDict):
+class DeploySystemInstanceRequest(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotthingsgraph.types.urn.Urn"]
     """<p>The ID of the system instance. This value is returned by the <code>CreateSystemInstance</code> action.</p> <p>The ID should be in the following format.</p> <p> <code>urn:tdm:REGION/ACCOUNT ID/default:deployment:DEPLOYMENTNAME</code> </p>"""
 

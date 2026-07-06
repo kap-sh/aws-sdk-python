@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#DeleteSyncConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sync_configuration_type
 
 
-class DeleteSyncConfigurationInput(TypedDict):
+class DeleteSyncConfigurationInput(TypedDict, closed=True):
     sync_type: "aws_sdk_codestar_connections.types.sync_configuration_type.SyncConfigurationType"
     """<p>The type of sync configuration to be deleted.</p>"""
     resource_name: "aws_sdk_codestar_connections.types.resource_name.ResourceName"

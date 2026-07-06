@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#RegisterIdentityProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.tags
 
 
-class RegisterIdentityProviderRequest(TypedDict):
+class RegisterIdentityProviderRequest(TypedDict, closed=True):
     identity_provider: "aws_sdk_license_manager_user_subscriptions.types.identity_provider.IdentityProvider"
     """<p>An object that specifies details for the identity provider to register.</p>"""
     product: "str"

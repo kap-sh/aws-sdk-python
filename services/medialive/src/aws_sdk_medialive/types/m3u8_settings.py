@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#M3u8Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.m3u8_timed_metadata_behavior
 
 
-class M3u8Settings(TypedDict):
+class M3u8Settings(TypedDict, closed=True):
     audio_frames_per_pes: NotRequired[
         "aws_sdk_medialive.types.__integer_min0.__integerMin0"
     ]

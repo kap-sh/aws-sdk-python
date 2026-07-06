@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StartLiveTailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.start_live_tail_log_group_identifiers
 
 
-class StartLiveTailRequest(TypedDict):
+class StartLiveTailRequest(TypedDict, closed=True):
     log_group_identifiers: "aws_sdk_cloudwatch_logs.types.start_live_tail_log_group_identifiers.StartLiveTailLogGroupIdentifiers"
     """<p>An array where each item in the array is a log group to include in the Live Tail session.</p> <p>Specify each log group by its ARN. </p> <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p> <note> <p> You can include up to 10 log groups.</p> </note>"""
     log_stream_names: NotRequired[

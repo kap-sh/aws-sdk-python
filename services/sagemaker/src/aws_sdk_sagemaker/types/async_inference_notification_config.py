@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AsyncInferenceNotificationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.async_notification_topic_type_list
     import aws_sdk_sagemaker.types.sns_topic_arn
 
 
-class AsyncInferenceNotificationConfig(TypedDict):
+class AsyncInferenceNotificationConfig(TypedDict, closed=True):
     success_topic: NotRequired["aws_sdk_sagemaker.types.sns_topic_arn.SnsTopicArn"]
     """<p>Amazon SNS topic to post a notification to when inference completes successfully. If no topic is provided, no notification is sent on success.</p>"""
     error_topic: NotRequired["aws_sdk_sagemaker.types.sns_topic_arn.SnsTopicArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#StartResourceEvaluationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_details
 
 
-class StartResourceEvaluationRequest(TypedDict):
+class StartResourceEvaluationRequest(TypedDict, closed=True):
     resource_details: "aws_sdk_config_service.types.resource_details.ResourceDetails"
     """<p>Returns a <code>ResourceDetails</code> object.</p>"""
     evaluation_context: NotRequired[

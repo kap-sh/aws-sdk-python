@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#DeleteResolverRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class DeleteResolverRuleRequest(TypedDict):
+class DeleteResolverRuleRequest(TypedDict, closed=True):
     resolver_rule_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p>The ID of the Resolver rule that you want to delete.</p>"""
 

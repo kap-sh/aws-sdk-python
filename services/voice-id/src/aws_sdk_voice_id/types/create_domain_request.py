@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#CreateDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.tag_list
 
 
-class CreateDomainRequest(TypedDict):
+class CreateDomainRequest(TypedDict, closed=True):
     name: "aws_sdk_voice_id.types.domain_name.DomainName"
     """<p>The name of the domain.</p>"""
     description: NotRequired["aws_sdk_voice_id.types.description.Description"]

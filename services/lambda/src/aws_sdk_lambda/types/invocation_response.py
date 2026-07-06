@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvocationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.version
 
 
-class InvocationResponse(TypedDict):
+class InvocationResponse(TypedDict, closed=True):
     status_code: "aws_sdk_lambda.types.integer.Integer"
     """<p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>"""
     function_error: NotRequired["aws_sdk_lambda.types.string.String"]

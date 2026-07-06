@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#StreamingConfigurations``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StreamingConfigurations(TypedDict):
+class StreamingConfigurations(TypedDict, closed=True):
     stream_final_response: "bool"
     """<p> Specifies whether to enable streaming for the final response. This is set to <code>false</code> by default. </p>"""
     apply_guardrail_interval: NotRequired["int"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#DeleteServiceLevelObjectiveInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_objective_id
 
 
-class DeleteServiceLevelObjectiveInput(TypedDict):
+class DeleteServiceLevelObjectiveInput(TypedDict, closed=True):
     id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId"
     """<p>The ARN or name of the service level objective to delete.</p>"""
 

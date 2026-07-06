@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DefaultConditionalBranch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.dialog_state
     import aws_sdk_lex_models_v2.types.response_specification
 
 
-class DefaultConditionalBranch(TypedDict):
+class DefaultConditionalBranch(TypedDict, closed=True):
     next_step: NotRequired["aws_sdk_lex_models_v2.types.dialog_state.DialogState"]
     """<p>The next step in the conversation.</p>"""
     response: NotRequired[

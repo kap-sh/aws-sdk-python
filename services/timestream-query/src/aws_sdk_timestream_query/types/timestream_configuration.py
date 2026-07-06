@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#TimestreamConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.schema_name
 
 
-class TimestreamConfiguration(TypedDict):
+class TimestreamConfiguration(TypedDict, closed=True):
     database_name: "aws_sdk_timestream_query.types.resource_name.ResourceName"
     """<p>Name of Timestream database to which the query result will be written.</p>"""
     table_name: "aws_sdk_timestream_query.types.resource_name.ResourceName"

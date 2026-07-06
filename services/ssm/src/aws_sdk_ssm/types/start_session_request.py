@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_target
 
 
-class StartSessionRequest(TypedDict):
+class StartSessionRequest(TypedDict, closed=True):
     target: "aws_sdk_ssm.types.session_target.SessionTarget"
     """<p>The managed node to connect to for the session.</p>"""
     document_name: NotRequired["aws_sdk_ssm.types.document_arn.DocumentARN"]

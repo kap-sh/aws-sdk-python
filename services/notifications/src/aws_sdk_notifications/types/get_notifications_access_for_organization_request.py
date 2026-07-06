@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#GetNotificationsAccessForOrganizationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetNotificationsAccessForOrganizationRequest(TypedDict):
+class GetNotificationsAccessForOrganizationRequest(TypedDict, closed=True):
     pass
 
 

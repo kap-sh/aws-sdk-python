@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListDetectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.detector_ids
     import aws_sdk_guardduty.types.string
 
 
-class ListDetectorsResponse(TypedDict):
+class ListDetectorsResponse(TypedDict, closed=True):
     detector_ids: NotRequired["aws_sdk_guardduty.types.detector_ids.DetectorIds"]
     """<p>A list of detector IDs.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

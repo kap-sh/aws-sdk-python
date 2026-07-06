@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#CrossAccountConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_aiops.types.role_arn
 
 
-class CrossAccountConfiguration(TypedDict):
+class CrossAccountConfiguration(TypedDict, closed=True):
     source_role_arn: NotRequired["aws_sdk_aiops.types.role_arn.RoleArn"]
     """<p>The ARN of an existing role which will be used to do investigations on your behalf. </p>"""
 

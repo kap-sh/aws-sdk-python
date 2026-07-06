@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetInstanceTpmEkPubRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_id
 
 
-class GetInstanceTpmEkPubRequest(TypedDict):
+class GetInstanceTpmEkPubRequest(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_ec2.types.instance_id.InstanceId"]
     """<p>The ID of the instance for which to get the public endorsement key.</p>"""
     key_type: NotRequired["aws_sdk_ec2.types.ek_pub_key_type.EkPubKeyType"]

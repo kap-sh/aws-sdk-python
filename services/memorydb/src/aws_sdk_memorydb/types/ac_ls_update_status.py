@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ACLsUpdateStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.acl_name
 
 
-class ACLsUpdateStatus(TypedDict):
+class ACLsUpdateStatus(TypedDict, closed=True):
     acl_to_apply: NotRequired["aws_sdk_memorydb.types.acl_name.ACLName"]
     """<p>A list of ACLs pending to be applied.</p>"""
 

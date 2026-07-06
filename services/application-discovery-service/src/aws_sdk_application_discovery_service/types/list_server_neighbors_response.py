@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#ListServerNeighborsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.string
 
 
-class ListServerNeighborsResponse(TypedDict):
+class ListServerNeighborsResponse(TypedDict, closed=True):
     neighbors: "aws_sdk_application_discovery_service.types.neighbor_details_list.NeighborDetailsList"
     """<p>List of distinct servers that are one hop away from the given server.</p>"""
     next_token: NotRequired["aws_sdk_application_discovery_service.types.string.String"]

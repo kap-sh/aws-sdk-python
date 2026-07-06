@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateTagsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class CreateTagsMessage(TypedDict):
+class CreateTagsMessage(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The Amazon Resource Name (ARN) to which you want to add the tag or tags. For example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>"""
     tags: NotRequired["aws_sdk_redshift.types.tag_list.TagList"]

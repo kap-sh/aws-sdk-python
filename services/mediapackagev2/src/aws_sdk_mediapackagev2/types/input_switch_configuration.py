@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#InputSwitchConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class InputSwitchConfiguration(TypedDict):
+class InputSwitchConfiguration(TypedDict, closed=True):
     mqcs_input_switching: NotRequired["bool"]
     """<p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is false. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>"""
     preferred_input: NotRequired["int"]

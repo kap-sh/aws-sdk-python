@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AgentAccessSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.agent_action
     import aws_sdk_appstream.types.permission
 
 
-class AgentAccessSetting(TypedDict):
+class AgentAccessSetting(TypedDict, closed=True):
     agent_action: NotRequired["aws_sdk_appstream.types.agent_action.AgentAction"]
     """<p>The agent action to configure. Valid values are COMPUTER_VISION and COMPUTER_INPUT. If you enable COMPUTER_INPUT, you must also enable COMPUTER_VISION.</p>"""
     permission: NotRequired["aws_sdk_appstream.types.permission.Permission"]

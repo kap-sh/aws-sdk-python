@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetConfigurationSetEventDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.event_destinations
 
 
-class GetConfigurationSetEventDestinationsResponse(TypedDict):
+class GetConfigurationSetEventDestinationsResponse(TypedDict, closed=True):
     event_destinations: NotRequired[
         "aws_sdk_pinpoint_email.types.event_destinations.EventDestinations"
     ]

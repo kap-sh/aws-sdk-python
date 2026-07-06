@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#QueryStagePlanNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.query_stage_plan_nodes
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string_list
 
 
-class QueryStagePlanNode(TypedDict):
+class QueryStagePlanNode(TypedDict, closed=True):
     name: NotRequired["aws_sdk_athena.types.string.String"]
     """<p>Name of the query stage plan that describes the operation this stage is performing as part of query execution.</p>"""
     identifier: NotRequired["aws_sdk_athena.types.string.String"]

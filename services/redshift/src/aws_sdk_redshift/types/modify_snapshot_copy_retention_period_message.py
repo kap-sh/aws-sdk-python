@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ModifySnapshotCopyRetentionPeriodMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class ModifySnapshotCopyRetentionPeriodMessage(TypedDict):
+class ModifySnapshotCopyRetentionPeriodMessage(TypedDict, closed=True):
     cluster_identifier: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The unique identifier of the cluster for which you want to change the retention period for either automated or manual snapshots that are copied to a destination Amazon Web Services Region.</p> <p>Constraints: Must be the valid name of an existing cluster that has cross-region snapshot copy enabled.</p>"""
     retention_period: NotRequired["aws_sdk_redshift.types.integer.Integer"]

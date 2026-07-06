@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.access_request_id
 
 
-class GetAccessTokenRequest(TypedDict):
+class GetAccessTokenRequest(TypedDict, closed=True):
     access_request_id: "aws_sdk_ssm.types.access_request_id.AccessRequestId"
     """<p>The ID of a just-in-time node access request.</p>"""
 

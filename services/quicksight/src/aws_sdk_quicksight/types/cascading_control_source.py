@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CascadingControlSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_identifier
     import aws_sdk_quicksight.types.string
 
 
-class CascadingControlSource(TypedDict):
+class CascadingControlSource(TypedDict, closed=True):
     source_sheet_control_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The source sheet control ID of a <code>CascadingControlSource</code>.</p>"""
     column_to_match: NotRequired[

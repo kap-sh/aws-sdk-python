@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ListCrossAccountAuthorizationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_cross_account_authorization
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class ListCrossAccountAuthorizationsResponse(TypedDict):
+class ListCrossAccountAuthorizationsResponse(TypedDict, closed=True):
     cross_account_authorizations: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__list_of_cross_account_authorization.__listOfCrossAccountAuthorization"
     ]

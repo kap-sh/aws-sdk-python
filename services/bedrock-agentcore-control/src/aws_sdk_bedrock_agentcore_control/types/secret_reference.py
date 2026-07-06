@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SecretReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.secret_json_key_type
 
 
-class SecretReference(TypedDict):
+class SecretReference(TypedDict, closed=True):
     secret_id: "aws_sdk_bedrock_agentcore_control.types.secret_id_type.SecretIdType"
     """<p>The ID of the AWS Secrets Manager secret that stores the secret value.</p>"""
     json_key: (

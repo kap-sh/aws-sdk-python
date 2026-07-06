@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRegionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.region_list
 
 
-class GetRegionsResult(TypedDict):
+class GetRegionsResult(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_lightsail.types.region_list.RegionList"]
     """<p>An array of key-value pairs containing information about your get regions request.</p>"""
 

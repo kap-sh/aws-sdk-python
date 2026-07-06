@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CloudWatchLogsConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.arn_type
 
 
-class CloudWatchLogsConfigurationType(TypedDict):
+class CloudWatchLogsConfigurationType(TypedDict, closed=True):
     log_group_arn: NotRequired[
         "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     ]

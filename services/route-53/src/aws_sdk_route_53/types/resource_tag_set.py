@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ResourceTagSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.tag_resource_type
 
 
-class ResourceTagSet(TypedDict):
+class ResourceTagSet(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_route_53.types.tag_resource_type.TagResourceType"
     ]

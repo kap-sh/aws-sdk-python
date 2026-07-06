@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#RegistryCatalogData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.registry_display_name
 
 
-class RegistryCatalogData(TypedDict):
+class RegistryCatalogData(TypedDict, closed=True):
     display_name: NotRequired[
         "aws_sdk_ecr_public.types.registry_display_name.RegistryDisplayName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ExecuteQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.columns_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.rows
 
 
-class ExecuteQueryResponse(TypedDict):
+class ExecuteQueryResponse(TypedDict, closed=True):
     columns: NotRequired["aws_sdk_iotsitewise.types.columns_list.ColumnsList"]
     """<p>Represents a single column in the query results.</p>"""
     rows: NotRequired["aws_sdk_iotsitewise.types.rows.Rows"]

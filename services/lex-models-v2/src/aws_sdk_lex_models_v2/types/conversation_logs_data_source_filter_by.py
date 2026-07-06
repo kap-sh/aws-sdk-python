@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ConversationLogsDataSourceFilterBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class ConversationLogsDataSourceFilterBy(TypedDict):
+class ConversationLogsDataSourceFilterBy(TypedDict, closed=True):
     start_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"
     """<p>The start time for the conversation log.</p>"""
     end_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"

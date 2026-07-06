@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListAutomatedReasoningPolicyBuildWorkflowsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListAutomatedReasoningPolicyBuildWorkflowsRequest(TypedDict):
+class ListAutomatedReasoningPolicyBuildWorkflowsRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_bedrock.types.automated_reasoning_policy_arn.AutomatedReasoningPolicyArn"
     """<p>The Amazon Resource Name (ARN) of the Automated Reasoning policy whose build workflows you want to list.</p>"""
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]

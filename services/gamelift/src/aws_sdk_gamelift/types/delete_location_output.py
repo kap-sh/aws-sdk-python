@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteLocationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLocationOutput(TypedDict):
+class DeleteLocationOutput(TypedDict, closed=True):
     pass
 
 

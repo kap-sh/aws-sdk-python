@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RejectNetworkFirewallTransitGatewayAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.transit_gateway_attachment_status
 
 
-class RejectNetworkFirewallTransitGatewayAttachmentResponse(TypedDict):
+class RejectNetworkFirewallTransitGatewayAttachmentResponse(TypedDict, closed=True):
     transit_gateway_attachment_id: "aws_sdk_network_firewall.types.transit_gateway_attachment_id.TransitGatewayAttachmentId"
     """<p>The unique identifier of the transit gateway attachment that was rejected.</p>"""
     transit_gateway_attachment_status: "aws_sdk_network_firewall.types.transit_gateway_attachment_status.TransitGatewayAttachmentStatus"

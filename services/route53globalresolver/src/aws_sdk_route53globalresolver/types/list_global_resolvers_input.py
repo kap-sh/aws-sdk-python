@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ListGlobalResolversInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListGlobalResolversInput(TypedDict):
+class ListGlobalResolversInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of Route 53 Global Resolver instances to return in the response. Valid range is 1-100.</p>"""
     next_token: NotRequired["str"]

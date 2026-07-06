@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StartDataQualityRuleRecommendationRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timeout
 
 
-class StartDataQualityRuleRecommendationRunRequest(TypedDict):
+class StartDataQualityRuleRecommendationRunRequest(TypedDict, closed=True):
     data_source: "aws_sdk_glue.types.data_source.DataSource"
     """<p>The data source (Glue table) associated with this run.</p>"""
     role: "aws_sdk_glue.types.role_string.RoleString"

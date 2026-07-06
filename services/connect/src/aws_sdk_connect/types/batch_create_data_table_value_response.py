@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BatchCreateDataTableValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.batch_create_data_table_value_success_result_list
 
 
-class BatchCreateDataTableValueResponse(TypedDict):
+class BatchCreateDataTableValueResponse(TypedDict, closed=True):
     successful: "aws_sdk_connect.types.batch_create_data_table_value_success_result_list.BatchCreateDataTableValueSuccessResultList"
     """<p>A list of successfully created values with their identifiers and lock versions.</p>"""
     failed: "aws_sdk_connect.types.batch_create_data_table_value_failure_result_list.BatchCreateDataTableValueFailureResultList"

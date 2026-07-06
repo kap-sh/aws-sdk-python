@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     """<p>Unexpected error during processing of request.</p>"""
     retry_after_seconds: NotRequired["int"]

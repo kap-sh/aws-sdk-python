@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CustomPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.custom_payload_value
 
 
-class CustomPayload(TypedDict):
+class CustomPayload(TypedDict, closed=True):
     value: "aws_sdk_lex_models_v2.types.custom_payload_value.CustomPayloadValue"
     """<p>The string that is sent to your application.</p>"""
 

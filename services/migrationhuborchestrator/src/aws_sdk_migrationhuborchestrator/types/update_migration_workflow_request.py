@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#UpdateMigrationWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.string_list
 
 
-class UpdateMigrationWorkflowRequest(TypedDict):
+class UpdateMigrationWorkflowRequest(TypedDict, closed=True):
     id: "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
     """<p>The ID of the migration workflow.</p>"""
     name: NotRequired["str"]

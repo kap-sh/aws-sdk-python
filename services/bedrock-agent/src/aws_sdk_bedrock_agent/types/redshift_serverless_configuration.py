@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedshiftServerlessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.workgroup_arn
 
 
-class RedshiftServerlessConfiguration(TypedDict):
+class RedshiftServerlessConfiguration(TypedDict, closed=True):
     workgroup_arn: "aws_sdk_bedrock_agent.types.workgroup_arn.WorkgroupArn"
     """<p>The ARN of the Amazon Redshift workgroup.</p>"""
     auth_configuration: "aws_sdk_bedrock_agent.types.redshift_serverless_auth_configuration.RedshiftServerlessAuthConfiguration"

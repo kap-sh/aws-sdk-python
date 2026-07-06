@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#CreateEventActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.map_of__string
 
 
-class CreateEventActionRequest(TypedDict):
+class CreateEventActionRequest(TypedDict, closed=True):
     action: "aws_sdk_dataexchange.types.action.Action"
     """<p>What occurs after a certain event.</p>"""
     event: "aws_sdk_dataexchange.types.event.Event"

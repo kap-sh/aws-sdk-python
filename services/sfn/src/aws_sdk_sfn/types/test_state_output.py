@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#TestStateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.inspection_data
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.test_execution_status
 
 
-class TestStateOutput(TypedDict):
+class TestStateOutput(TypedDict, closed=True):
     output: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>"""
     error: NotRequired["aws_sdk_sfn.types.sensitive_error.SensitiveError"]

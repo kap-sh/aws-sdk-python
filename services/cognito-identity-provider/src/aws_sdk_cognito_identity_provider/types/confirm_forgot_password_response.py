@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ConfirmForgotPasswordResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ConfirmForgotPasswordResponse(TypedDict):
+class ConfirmForgotPasswordResponse(TypedDict, closed=True):
     pass
 
 

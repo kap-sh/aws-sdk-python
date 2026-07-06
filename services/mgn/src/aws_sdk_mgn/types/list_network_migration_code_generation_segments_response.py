@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListNetworkMigrationCodeGenerationSegmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.network_migration_code_generation_segments_list
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListNetworkMigrationCodeGenerationSegmentsResponse(TypedDict):
+class ListNetworkMigrationCodeGenerationSegmentsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_mgn.types.network_migration_code_generation_segments_list.NetworkMigrationCodeGenerationSegmentsList"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRelationalDatabaseLogStreamsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string_list
 
 
-class GetRelationalDatabaseLogStreamsResult(TypedDict):
+class GetRelationalDatabaseLogStreamsResult(TypedDict, closed=True):
     log_streams: NotRequired["aws_sdk_lightsail.types.string_list.StringList"]
     """<p>An object describing the result of your get relational database log streams request.</p>"""
 

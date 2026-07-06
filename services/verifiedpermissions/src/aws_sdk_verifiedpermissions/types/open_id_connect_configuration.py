@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#OpenIdConnectConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.open_id_connect_token_selection
 
 
-class OpenIdConnectConfiguration(TypedDict):
+class OpenIdConnectConfiguration(TypedDict, closed=True):
     issuer: "aws_sdk_verifiedpermissions.types.issuer.Issuer"
     """<p>The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path <code>.well-known/openid-configuration</code>.</p>"""
     entity_id_prefix: NotRequired[

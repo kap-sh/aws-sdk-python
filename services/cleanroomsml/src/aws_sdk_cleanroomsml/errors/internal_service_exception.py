@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#InternalServiceException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError, ServiceError
 
 
-class InternalServiceException_(TypedDict):
+class InternalServiceException_(TypedDict, closed=True):
     message: "str"
 
 

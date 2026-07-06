@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ParameterRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.categorical_parameter_range_specification
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer_parameter_range_specification
 
 
-class ParameterRange(TypedDict):
+class ParameterRange(TypedDict, closed=True):
     integer_parameter_range_specification: NotRequired[
         "aws_sdk_sagemaker.types.integer_parameter_range_specification.IntegerParameterRangeSpecification"
     ]

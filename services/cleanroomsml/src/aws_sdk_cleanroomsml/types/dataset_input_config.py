@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#DatasetInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.dataset_schema_list
 
 
-class DatasetInputConfig(TypedDict):
+class DatasetInputConfig(TypedDict, closed=True):
     schema: "aws_sdk_cleanroomsml.types.dataset_schema_list.DatasetSchemaList"
     """<p>The schema information for the training data.</p>"""
     data_source: "aws_sdk_cleanroomsml.types.data_source.DataSource"

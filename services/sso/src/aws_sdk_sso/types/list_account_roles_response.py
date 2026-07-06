@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sso#ListAccountRolesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso.types.next_token_type
     import aws_sdk_sso.types.role_list_type
 
 
-class ListAccountRolesResponse(TypedDict):
+class ListAccountRolesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sso.types.next_token_type.NextTokenType"]
     """<p>The page token client that is used to retrieve the list of accounts.</p>"""
     role_list: NotRequired["aws_sdk_sso.types.role_list_type.RoleListType"]

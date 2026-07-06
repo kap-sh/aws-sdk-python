@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DatasetSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hub_data_set_arn
 
 
-class DatasetSource(TypedDict):
+class DatasetSource(TypedDict, closed=True):
     dataset_arn: "aws_sdk_sagemaker.types.hub_data_set_arn.HubDataSetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset resource. </p>"""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AccountUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.long
 
 
-class AccountUsage(TypedDict):
+class AccountUsage(TypedDict, closed=True):
     total_code_size: "aws_sdk_lambda.types.long.Long"
     """<p>The amount of storage space, in bytes, that's being used by deployment packages and layer archives.</p>"""
     function_count: "aws_sdk_lambda.types.long.Long"

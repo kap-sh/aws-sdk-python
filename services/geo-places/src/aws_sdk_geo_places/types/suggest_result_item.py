@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SuggestResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.suggest_result_item_type
 
 
-class SuggestResultItem(TypedDict):
+class SuggestResultItem(TypedDict, closed=True):
     title: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The display title that should be used when presenting this option to the end user.</p>"""
     suggest_result_item_type: (

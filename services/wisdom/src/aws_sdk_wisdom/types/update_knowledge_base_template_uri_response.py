@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#UpdateKnowledgeBaseTemplateUriResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.knowledge_base_data
 
 
-class UpdateKnowledgeBaseTemplateUriResponse(TypedDict):
+class UpdateKnowledgeBaseTemplateUriResponse(TypedDict, closed=True):
     knowledge_base: NotRequired[
         "aws_sdk_wisdom.types.knowledge_base_data.KnowledgeBaseData"
     ]

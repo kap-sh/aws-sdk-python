@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#StreamingAccessDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class StreamingAccessDetails(TypedDict):
+class StreamingAccessDetails(TypedDict, closed=True):
     service_principal: "str"
     """<p>The service principal of the Amazon Web Services service that has streaming access to your Resource Explorer data. A service principal is a unique identifier for an Amazon Web Services service.</p>"""
     created_at: "datetime.datetime"

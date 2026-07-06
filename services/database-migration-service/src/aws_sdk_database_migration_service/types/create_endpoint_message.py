@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateEndpointMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.timestream_settings
 
 
-class CreateEndpointMessage(TypedDict):
+class CreateEndpointMessage(TypedDict, closed=True):
     endpoint_identifier: "aws_sdk_database_migration_service.types.string.String"
     """<p>The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.</p>"""
     endpoint_type: "aws_sdk_database_migration_service.types.replication_endpoint_type_value.ReplicationEndpointTypeValue"

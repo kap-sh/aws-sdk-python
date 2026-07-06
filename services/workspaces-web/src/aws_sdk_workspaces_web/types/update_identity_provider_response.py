@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdateIdentityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.identity_provider
 
 
-class UpdateIdentityProviderResponse(TypedDict):
+class UpdateIdentityProviderResponse(TypedDict, closed=True):
     identity_provider: "aws_sdk_workspaces_web.types.identity_provider.IdentityProvider"
     """<p>The identity provider.</p>"""
 

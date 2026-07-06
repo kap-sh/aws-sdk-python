@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetFindingsStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.finding_statistics
     import aws_sdk_guardduty.types.string
 
 
-class GetFindingsStatisticsResponse(TypedDict):
+class GetFindingsStatisticsResponse(TypedDict, closed=True):
     finding_statistics: NotRequired[
         "aws_sdk_guardduty.types.finding_statistics.FindingStatistics"
     ]

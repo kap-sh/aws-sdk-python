@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#SqsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.use_base64
 
 
-class SqsAction(TypedDict):
+class SqsAction(TypedDict, closed=True):
     queue_url: "aws_sdk_iot_events.types.queue_url.QueueUrl"
     """<p>The URL of the SQS queue where the data is written.</p>"""
     use_base64: NotRequired["aws_sdk_iot_events.types.use_base64.UseBase64"]

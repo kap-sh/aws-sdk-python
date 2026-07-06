@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DriftCheckBias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_source
     import aws_sdk_sagemaker.types.metrics_source
 
 
-class DriftCheckBias(TypedDict):
+class DriftCheckBias(TypedDict, closed=True):
     config_file: NotRequired["aws_sdk_sagemaker.types.file_source.FileSource"]
     """<p>The bias config file for a model.</p>"""
     pre_training_constraints: NotRequired[

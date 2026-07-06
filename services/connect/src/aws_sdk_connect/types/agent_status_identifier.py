@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentStatusIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_status_id
     import aws_sdk_connect.types.arn
 
 
-class AgentStatusIdentifier(TypedDict):
+class AgentStatusIdentifier(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the agent status.</p>"""
     id: NotRequired["aws_sdk_connect.types.agent_status_id.AgentStatusId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeStreamProcessorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.date_time
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class DescribeStreamProcessorResponse(TypedDict):
+class DescribeStreamProcessorResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_rekognition.types.stream_processor_name.StreamProcessorName"
     ]

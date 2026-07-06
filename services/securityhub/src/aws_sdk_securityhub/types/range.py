@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.long
 
 
-class Range(TypedDict):
+class Range(TypedDict, closed=True):
     start: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>"""
     end: NotRequired["aws_sdk_securityhub.types.long.Long"]

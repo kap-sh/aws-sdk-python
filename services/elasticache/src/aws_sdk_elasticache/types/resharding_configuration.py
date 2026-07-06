@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ReshardingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.availability_zones_list
 
 
-class ReshardingConfiguration(TypedDict):
+class ReshardingConfiguration(TypedDict, closed=True):
     node_group_id: NotRequired[
         "aws_sdk_elasticache.types.allowed_node_group_id.AllowedNodeGroupId"
     ]

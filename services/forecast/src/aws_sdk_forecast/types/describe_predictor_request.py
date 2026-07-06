@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribePredictorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class DescribePredictorRequest(TypedDict):
+class DescribePredictorRequest(TypedDict, closed=True):
     predictor_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the predictor that you want information about.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#MCPServerDatadogConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MCPServerDatadogConfiguration(TypedDict):
+class MCPServerDatadogConfiguration(TypedDict, closed=True):
     pass
 
 

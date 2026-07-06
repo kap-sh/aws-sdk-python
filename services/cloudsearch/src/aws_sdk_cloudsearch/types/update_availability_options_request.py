@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#UpdateAvailabilityOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.domain_name
 
 
-class UpdateAvailabilityOptionsRequest(TypedDict):
+class UpdateAvailabilityOptionsRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_cloudsearch.types.domain_name.DomainName"
     multi_az: "aws_sdk_cloudsearch.types.boolean.Boolean"
     """<p>You expand an existing search domain to a second Availability Zone by setting the Multi-AZ option to true. Similarly, you can turn off the Multi-AZ option to downgrade the domain to a single Availability Zone by setting the Multi-AZ option to <code>false</code>. </p>"""

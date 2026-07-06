@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#KinesisVideoStreamPoolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.kinesis_video_stream_pool_status
 
 
-class KinesisVideoStreamPoolConfiguration(TypedDict):
+class KinesisVideoStreamPoolConfiguration(TypedDict, closed=True):
     pool_arn: NotRequired["aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"]
     """<p>The ARN of the video stream pool configuration.</p>"""
     pool_name: NotRequired[

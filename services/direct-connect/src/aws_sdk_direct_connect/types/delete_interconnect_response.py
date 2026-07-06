@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DeleteInterconnectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.interconnect_state
 
 
-class DeleteInterconnectResponse(TypedDict):
+class DeleteInterconnectResponse(TypedDict, closed=True):
     interconnect_state: NotRequired[
         "aws_sdk_direct_connect.types.interconnect_state.InterconnectState"
     ]

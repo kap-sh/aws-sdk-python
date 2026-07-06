@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListFindingAggregationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class ListFindingAggregationsRequest(TypedDict):
+class ListFindingAggregationsRequest(TypedDict, closed=True):
     aggregation_type: "aws_sdk_inspector2.types.aggregation_type.AggregationType"
     """<p>The type of the aggregation request.</p>"""
     next_token: NotRequired["aws_sdk_inspector2.types.next_token.NextToken"]

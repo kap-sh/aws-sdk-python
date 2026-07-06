@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#CreateHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.ip_address
 
 
-class CreateHsmRequest(TypedDict):
+class CreateHsmRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_cloudhsm_v2.types.cluster_id.ClusterId"
     """<p>The identifier (ID) of the HSM's cluster. To find the cluster ID, use <a>DescribeClusters</a>.</p>"""
     availability_zone: "aws_sdk_cloudhsm_v2.types.external_az.ExternalAz"

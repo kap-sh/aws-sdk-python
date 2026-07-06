@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#InvalidInputException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_machine_learning.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.error_message
 
 
-class InvalidInputException_(TypedDict):
+class InvalidInputException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_machine_learning.types.error_message.ErrorMessage"]
     code: "aws_sdk_machine_learning.types.error_code.ErrorCode"
 

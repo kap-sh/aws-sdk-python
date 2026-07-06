@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#GetMessagingSessionEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.network_type
 
 
-class GetMessagingSessionEndpointRequest(TypedDict):
+class GetMessagingSessionEndpointRequest(TypedDict, closed=True):
     network_type: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.network_type.NetworkType"
     ]

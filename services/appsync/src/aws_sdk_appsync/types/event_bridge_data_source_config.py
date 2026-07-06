@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EventBridgeDataSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class EventBridgeDataSourceConfig(TypedDict):
+class EventBridgeDataSourceConfig(TypedDict, closed=True):
     event_bus_arn: "aws_sdk_appsync.types.string.String"
     r"""<p>The ARN of the event bus. For more information about event buses, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-bus.html\">Amazon EventBridge event buses</a>.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchAttachToIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_reference
 
 
-class BatchAttachToIndex(TypedDict):
+class BatchAttachToIndex(TypedDict, closed=True):
     index_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"
     """<p>A reference to the index that you are attaching the object to.</p>"""
     target_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"

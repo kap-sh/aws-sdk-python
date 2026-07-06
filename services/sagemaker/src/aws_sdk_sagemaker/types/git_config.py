@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GitConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.branch
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.secret_arn
 
 
-class GitConfig(TypedDict):
+class GitConfig(TypedDict, closed=True):
     repository_url: NotRequired["aws_sdk_sagemaker.types.git_config_url.GitConfigUrl"]
     """<p>The URL where the Git repository is located.</p>"""
     branch: NotRequired["aws_sdk_sagemaker.types.branch.Branch"]

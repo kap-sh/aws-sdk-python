@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#UpdateResiliencyPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.resiliency_policy
 
 
-class UpdateResiliencyPolicyResponse(TypedDict):
+class UpdateResiliencyPolicyResponse(TypedDict, closed=True):
     policy: "aws_sdk_resiliencehub.types.resiliency_policy.ResiliencyPolicy"
     """<p>The resiliency policy that was updated, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.</p>"""
 

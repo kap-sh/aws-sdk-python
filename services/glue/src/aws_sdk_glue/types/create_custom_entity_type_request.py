@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateCustomEntityTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class CreateCustomEntityTypeRequest(TypedDict):
+class CreateCustomEntityTypeRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>A name for the custom pattern that allows it to be retrieved or deleted later. This name must be unique per Amazon Web Services account.</p>"""
     regex_string: "aws_sdk_glue.types.name_string.NameString"

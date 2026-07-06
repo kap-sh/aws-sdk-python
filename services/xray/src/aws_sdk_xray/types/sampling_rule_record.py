@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#SamplingRuleRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.sampling_rule
     import aws_sdk_xray.types.timestamp
 
 
-class SamplingRuleRecord(TypedDict):
+class SamplingRuleRecord(TypedDict, closed=True):
     sampling_rule: NotRequired["aws_sdk_xray.types.sampling_rule.SamplingRule"]
     """<p>The sampling rule.</p>"""
     created_at: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BatchDeletePhoneNumberResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.phone_number_error_list
 
 
-class BatchDeletePhoneNumberResponse(TypedDict):
+class BatchDeletePhoneNumberResponse(TypedDict, closed=True):
     phone_number_errors: NotRequired[
         "aws_sdk_chime.types.phone_number_error_list.PhoneNumberErrorList"
     ]

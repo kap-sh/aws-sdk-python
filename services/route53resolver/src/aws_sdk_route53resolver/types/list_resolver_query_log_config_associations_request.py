@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverQueryLogConfigAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.filters
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.sort_order
 
 
-class ListResolverQueryLogConfigAssociationsRequest(TypedDict):
+class ListResolverQueryLogConfigAssociationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]
     """<p>The maximum number of query logging associations that you want to return in the response to a <code>ListResolverQueryLogConfigAssociations</code> request. If you don't specify a value for <code>MaxResults</code>, Resolver returns up to 100 query logging associations. </p>"""
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#StopMigrationWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_status_enum
 
 
-class StopMigrationWorkflowResponse(TypedDict):
+class StopMigrationWorkflowResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
     ]

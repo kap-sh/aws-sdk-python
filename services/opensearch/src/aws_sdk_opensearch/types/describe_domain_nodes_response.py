@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainNodesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_nodes_status_list
 
 
-class DescribeDomainNodesResponse(TypedDict):
+class DescribeDomainNodesResponse(TypedDict, closed=True):
     domain_nodes_status_list: NotRequired[
         "aws_sdk_opensearch.types.domain_nodes_status_list.DomainNodesStatusList"
     ]

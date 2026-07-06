@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StartNotebookExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class StartNotebookExecutionOutput(TypedDict):
+class StartNotebookExecutionOutput(TypedDict, closed=True):
     notebook_execution_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]

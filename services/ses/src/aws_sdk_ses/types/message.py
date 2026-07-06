@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.content
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     subject: "aws_sdk_ses.types.content.Content"
     """<p>The subject of the message: A short summary of the content, which appears in the recipient's inbox.</p>"""
     body: "aws_sdk_ses.types.body.Body"

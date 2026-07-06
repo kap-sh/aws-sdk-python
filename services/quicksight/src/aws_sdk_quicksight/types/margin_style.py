@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#MarginStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class MarginStyle(TypedDict):
+class MarginStyle(TypedDict, closed=True):
     show: NotRequired["aws_sdk_quicksight.types.boolean.Boolean"]
     """<p>This Boolean value controls whether to display sheet margins.</p>"""
 

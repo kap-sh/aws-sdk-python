@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ListApplicationComponentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.application_component_details
     import aws_sdk_migrationhubstrategy.types.next_token
 
 
-class ListApplicationComponentsResponse(TypedDict):
+class ListApplicationComponentsResponse(TypedDict, closed=True):
     application_component_infos: NotRequired[
         "aws_sdk_migrationhubstrategy.types.application_component_details.ApplicationComponentDetails"
     ]

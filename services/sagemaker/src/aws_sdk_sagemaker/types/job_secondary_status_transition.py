@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#JobSecondaryStatusTransition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_secondary_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class JobSecondaryStatusTransition(TypedDict):
+class JobSecondaryStatusTransition(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker.types.job_secondary_status.JobSecondaryStatus"
     ]

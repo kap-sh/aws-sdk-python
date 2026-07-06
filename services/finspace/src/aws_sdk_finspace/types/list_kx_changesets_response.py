@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxChangesetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_changesets
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxChangesetsResponse(TypedDict):
+class ListKxChangesetsResponse(TypedDict, closed=True):
     kx_changesets: NotRequired["aws_sdk_finspace.types.kx_changesets.KxChangesets"]
     """<p>A list of changesets for a database.</p>"""
     next_token: NotRequired["aws_sdk_finspace.types.pagination_token.PaginationToken"]

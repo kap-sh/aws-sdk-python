@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterCapabilityReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.node_id
 
 
-class MatterCapabilityReport(TypedDict):
+class MatterCapabilityReport(TypedDict, closed=True):
     version: "aws_sdk_iot_managed_integrations.types.capability_report_version.CapabilityReportVersion"
     """<p>The version of the capability report.</p>"""
     node_id: NotRequired["aws_sdk_iot_managed_integrations.types.node_id.NodeId"]

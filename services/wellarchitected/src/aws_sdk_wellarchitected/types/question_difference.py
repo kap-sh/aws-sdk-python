@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#QuestionDifference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.difference_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.question_title
 
 
-class QuestionDifference(TypedDict):
+class QuestionDifference(TypedDict, closed=True):
     question_id: NotRequired["aws_sdk_wellarchitected.types.question_id.QuestionId"]
     question_title: NotRequired[
         "aws_sdk_wellarchitected.types.question_title.QuestionTitle"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetRemoteAccessSessionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.remote_access_session
 
 
-class GetRemoteAccessSessionResult(TypedDict):
+class GetRemoteAccessSessionResult(TypedDict, closed=True):
     remote_access_session: NotRequired[
         "aws_sdk_device_farm.types.remote_access_session.RemoteAccessSession"
     ]

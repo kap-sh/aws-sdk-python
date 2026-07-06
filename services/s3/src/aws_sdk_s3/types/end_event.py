@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.s3#EndEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.eventstream import HeaderValue, Message
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 
-class EndEvent(TypedDict):
+class EndEvent(TypedDict, closed=True):
     pass
 
 

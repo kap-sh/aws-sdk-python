@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MotionGraphicsActivateScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__long_min0_max86400000
     import aws_sdk_medialive.types.__string
 
 
-class MotionGraphicsActivateScheduleActionSettings(TypedDict):
+class MotionGraphicsActivateScheduleActionSettings(TypedDict, closed=True):
     duration: NotRequired[
         "aws_sdk_medialive.types.__long_min0_max86400000.__longMin0Max86400000"
     ]

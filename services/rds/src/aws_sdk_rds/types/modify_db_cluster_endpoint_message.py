@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyDBClusterEndpointMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string_list
 
 
-class ModifyDBClusterEndpointMessage(TypedDict):
+class ModifyDBClusterEndpointMessage(TypedDict, closed=True):
     db_cluster_endpoint_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier of the endpoint to modify. This parameter is stored as a lowercase string.</p>"""
     endpoint_type: NotRequired["aws_sdk_rds.types.string.String"]

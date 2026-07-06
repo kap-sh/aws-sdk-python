@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListDashboardVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dashboard_version_summary_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListDashboardVersionsResponse(TypedDict):
+class ListDashboardVersionsResponse(TypedDict, closed=True):
     dashboard_version_summary_list: NotRequired[
         "aws_sdk_quicksight.types.dashboard_version_summary_list.DashboardVersionSummaryList"
     ]

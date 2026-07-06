@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetRemainingFreeTrialDaysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_free_trial_infos
     import aws_sdk_guardduty.types.unprocessed_accounts
 
 
-class GetRemainingFreeTrialDaysResponse(TypedDict):
+class GetRemainingFreeTrialDaysResponse(TypedDict, closed=True):
     accounts: NotRequired[
         "aws_sdk_guardduty.types.account_free_trial_infos.AccountFreeTrialInfos"
     ]

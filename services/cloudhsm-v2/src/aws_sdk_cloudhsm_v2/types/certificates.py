@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#Certificates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.cert
 
 
-class Certificates(TypedDict):
+class Certificates(TypedDict, closed=True):
     cluster_csr: NotRequired["aws_sdk_cloudhsm_v2.types.cert.Cert"]
     """<p>The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is <code>UNINITIALIZED</code>.</p>"""
     hsm_certificate: NotRequired["aws_sdk_cloudhsm_v2.types.cert.Cert"]

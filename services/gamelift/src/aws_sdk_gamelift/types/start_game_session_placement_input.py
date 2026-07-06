@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#StartGameSessionPlacementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.desired_player_session_list
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class StartGameSessionPlacementInput(TypedDict):
+class StartGameSessionPlacementInput(TypedDict, closed=True):
     placement_id: NotRequired["aws_sdk_gamelift.types.id_string_model.IdStringModel"]
     """<p>A unique identifier to assign to the new game session placement. This value is developer-defined. The value must be unique across all Regions and cannot be reused.</p>"""
     game_session_queue_name: NotRequired[

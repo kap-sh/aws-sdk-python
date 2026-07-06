@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.s3_destination_config
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     s3_destination: (
         "aws_sdk_mediapackagev2.types.s3_destination_config.S3DestinationConfig"
     )

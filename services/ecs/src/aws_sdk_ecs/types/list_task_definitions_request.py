@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListTaskDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.task_definition_status
 
 
-class ListTaskDefinitionsRequest(TypedDict):
+class ListTaskDefinitionsRequest(TypedDict, closed=True):
     family_prefix: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The full family name to filter the <code>ListTaskDefinitions</code> results with. Specifying a <code>familyPrefix</code> limits the listed task definitions to task definition revisions that belong to that family.</p>"""
     status: NotRequired["aws_sdk_ecs.types.task_definition_status.TaskDefinitionStatus"]

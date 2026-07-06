@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeSessionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.session_list
 
 
-class DescribeSessionsResponse(TypedDict):
+class DescribeSessionsResponse(TypedDict, closed=True):
     sessions: NotRequired["aws_sdk_ssm.types.session_list.SessionList"]
     """<p>A list of sessions meeting the request parameters.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

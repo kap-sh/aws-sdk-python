@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#PublicKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.public_key_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.tags
 
 
-class PublicKey(TypedDict):
+class PublicKey(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ivs_realtime.types.public_key_arn.PublicKeyArn"]
     """<p>Public key ARN.</p>"""
     name: NotRequired["aws_sdk_ivs_realtime.types.public_key_name.PublicKeyName"]

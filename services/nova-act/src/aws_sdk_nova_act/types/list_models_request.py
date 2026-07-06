@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ListModelsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListModelsRequest(TypedDict):
+class ListModelsRequest(TypedDict, closed=True):
     client_compatibility_version: "int"
     """<p>The client compatibility version to filter models by compatibility.</p>"""
 

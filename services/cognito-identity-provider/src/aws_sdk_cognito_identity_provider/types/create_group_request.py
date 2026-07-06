@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CreateGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class CreateGroupRequest(TypedDict):
+class CreateGroupRequest(TypedDict, closed=True):
     group_name: "aws_sdk_cognito_identity_provider.types.group_name_type.GroupNameType"
     """<p>A name for the group. This name must be unique in your user pool.</p>"""
     user_pool_id: (

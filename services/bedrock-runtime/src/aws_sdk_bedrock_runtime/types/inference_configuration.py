@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.non_empty_string_list
 
 
-class InferenceConfiguration(TypedDict):
+class InferenceConfiguration(TypedDict, closed=True):
     max_tokens: NotRequired["int"]
     r"""<p>The maximum number of tokens to allow in the generated response. The default value is the maximum allowed value for the model that you are using. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters for foundation models</a>. </p>"""
     temperature: NotRequired["float"]

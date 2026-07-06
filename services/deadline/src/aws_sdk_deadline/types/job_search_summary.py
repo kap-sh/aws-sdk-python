@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#JobSearchSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.created_at
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.updated_by
 
 
-class JobSearchSummary(TypedDict):
+class JobSearchSummary(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_deadline.types.job_id.JobId"]
     """<p>The job ID.</p>"""
     queue_id: NotRequired["aws_sdk_deadline.types.queue_id.QueueId"]

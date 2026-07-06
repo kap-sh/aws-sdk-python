@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#NetworkAnalyzerConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.network_analyzer_configuration_arn
     import aws_sdk_iot_wireless.types.network_analyzer_configuration_name
 
 
-class NetworkAnalyzerConfigurations(TypedDict):
+class NetworkAnalyzerConfigurations(TypedDict, closed=True):
     arn: NotRequired[
         "aws_sdk_iot_wireless.types.network_analyzer_configuration_arn.NetworkAnalyzerConfigurationArn"
     ]

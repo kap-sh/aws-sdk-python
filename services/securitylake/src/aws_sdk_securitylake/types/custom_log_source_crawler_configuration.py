@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CustomLogSourceCrawlerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.role_arn
 
 
-class CustomLogSourceCrawlerConfiguration(TypedDict):
+class CustomLogSourceCrawlerConfiguration(TypedDict, closed=True):
     role_arn: "aws_sdk_securitylake.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role to be used by the Glue crawler. The recommended IAM policies are:</p> <ul> <li> <p>The managed policy <code>AWSGlueServiceRole</code> </p> </li> <li> <p>A custom policy granting access to your Amazon S3 Data Lake</p> </li> </ul>"""
 

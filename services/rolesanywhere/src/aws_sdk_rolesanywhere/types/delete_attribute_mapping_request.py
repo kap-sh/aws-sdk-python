@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#DeleteAttributeMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.certificate_field
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class DeleteAttributeMappingRequest(TypedDict):
+class DeleteAttributeMappingRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the profile.</p>"""
     certificate_field: "aws_sdk_rolesanywhere.types.certificate_field.CertificateField"

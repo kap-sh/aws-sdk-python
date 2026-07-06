@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#GetCampaignStateBatchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.failed_campaign_state_response_list
     import aws_sdk_connectcampaignsv2.types.successful_campaign_state_response_list
 
 
-class GetCampaignStateBatchResponse(TypedDict):
+class GetCampaignStateBatchResponse(TypedDict, closed=True):
     successful_requests: NotRequired[
         "aws_sdk_connectcampaignsv2.types.successful_campaign_state_response_list.SuccessfulCampaignStateResponseList"
     ]

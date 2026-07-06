@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#FileDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.timestamp
 
 
-class FileDetail(TypedDict):
+class FileDetail(TypedDict, closed=True):
     file_uri: "aws_sdk_partnercentral_benefits.types.file_uri.FileURI"
     """<p>The URI or location where the file is stored.</p>"""
     business_use_case: NotRequired["str"]

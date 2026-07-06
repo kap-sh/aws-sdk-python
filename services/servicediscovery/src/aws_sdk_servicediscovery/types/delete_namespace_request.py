@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DeleteNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.arn
 
 
-class DeleteNamespaceRequest(TypedDict):
+class DeleteNamespaceRequest(TypedDict, closed=True):
     id: "aws_sdk_servicediscovery.types.arn.Arn"
     """<p>The ID or Amazon Resource Name (ARN) of the namespace that you want to delete.</p>"""
 

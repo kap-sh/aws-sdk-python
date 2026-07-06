@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.access_config_response
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.zonal_shift_config_response
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of your cluster.</p>"""
     arn: NotRequired["aws_sdk_eks.types.string.String"]

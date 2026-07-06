@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DetachSecurityProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.security_profile_name
     import aws_sdk_iot.types.security_profile_target_arn
 
 
-class DetachSecurityProfileRequest(TypedDict):
+class DetachSecurityProfileRequest(TypedDict, closed=True):
     security_profile_name: "aws_sdk_iot.types.security_profile_name.SecurityProfileName"
     """<p>The security profile that is detached.</p>"""
     security_profile_target_arn: (

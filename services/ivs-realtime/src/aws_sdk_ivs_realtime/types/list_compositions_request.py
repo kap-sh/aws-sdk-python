@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListCompositionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.encoder_configuration_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.stage_arn
 
 
-class ListCompositionsRequest(TypedDict):
+class ListCompositionsRequest(TypedDict, closed=True):
     filter_by_stage_arn: NotRequired["aws_sdk_ivs_realtime.types.stage_arn.StageArn"]
     """<p>Filters the Composition list to match the specified Stage ARN.</p>"""
     filter_by_encoder_configuration_arn: NotRequired[

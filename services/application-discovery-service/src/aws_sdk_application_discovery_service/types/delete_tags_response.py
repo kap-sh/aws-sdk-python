@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DeleteTagsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTagsResponse(TypedDict):
+class DeleteTagsResponse(TypedDict, closed=True):
     pass
 
 

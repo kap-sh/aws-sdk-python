@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#SetupHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.setup_status
 
 
-class SetupHistory(TypedDict):
+class SetupHistory(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>A GUID that's used to identify the operation.</p>"""
     request: NotRequired["aws_sdk_lightsail.types.setup_request.SetupRequest"]

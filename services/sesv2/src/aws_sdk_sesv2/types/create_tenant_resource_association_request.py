@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateTenantResourceAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tenant_name
 
 
-class CreateTenantResourceAssociationRequest(TypedDict):
+class CreateTenantResourceAssociationRequest(TypedDict, closed=True):
     tenant_name: "aws_sdk_sesv2.types.tenant_name.TenantName"
     """<p>The name of the tenant to associate the resource with.</p>"""
     resource_arn: "aws_sdk_sesv2.types.amazon_resource_name.AmazonResourceName"

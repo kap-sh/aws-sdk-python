@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#BatchInferenceJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.s3_data_config
 
 
-class BatchInferenceJobOutput(TypedDict):
+class BatchInferenceJobOutput(TypedDict, closed=True):
     s3_data_destination: "aws_sdk_personalize.types.s3_data_config.S3DataConfig"
     """<p>Information on the Amazon S3 bucket in which the batch inference job's output is stored.</p>"""
 

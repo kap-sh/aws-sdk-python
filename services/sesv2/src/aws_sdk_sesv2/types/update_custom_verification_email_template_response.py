@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#UpdateCustomVerificationEmailTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateCustomVerificationEmailTemplateResponse(TypedDict):
+class UpdateCustomVerificationEmailTemplateResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#RecordOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.output_value
 
 
-class RecordOutput(TypedDict):
+class RecordOutput(TypedDict, closed=True):
     output_key: NotRequired["aws_sdk_service_catalog.types.output_key.OutputKey"]
     """<p>The output key.</p>"""
     output_value: NotRequired["aws_sdk_service_catalog.types.output_value.OutputValue"]

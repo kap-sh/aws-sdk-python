@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Xavc4kIntraCbgProfileSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.xavc4k_intra_cbg_profile_class
 
 
-class Xavc4kIntraCbgProfileSettings(TypedDict):
+class Xavc4kIntraCbgProfileSettings(TypedDict, closed=True):
     xavc_class: NotRequired[
         "aws_sdk_mediaconvert.types.xavc4k_intra_cbg_profile_class.Xavc4kIntraCbgProfileClass"
     ]

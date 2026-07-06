@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteIndexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
     import aws_sdk_qbusiness.types.index_id
 
 
-class DeleteIndexRequest(TypedDict):
+class DeleteIndexRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the Amazon Q Business application the Amazon Q Business index is linked to.</p>"""
     index_id: "aws_sdk_qbusiness.types.index_id.IndexId"

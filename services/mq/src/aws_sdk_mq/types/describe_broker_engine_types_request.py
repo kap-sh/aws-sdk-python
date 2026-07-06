@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#DescribeBrokerEngineTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
     import aws_sdk_mq.types.max_results
 
 
-class DescribeBrokerEngineTypesRequest(TypedDict):
+class DescribeBrokerEngineTypesRequest(TypedDict, closed=True):
     engine_type: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>Filter response by engine type.</p>"""
     max_results: NotRequired["aws_sdk_mq.types.max_results.MaxResults"]

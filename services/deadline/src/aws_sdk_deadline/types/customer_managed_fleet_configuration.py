@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#CustomerManagedFleetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.tag_propagation_mode
 
 
-class CustomerManagedFleetConfiguration(TypedDict):
+class CustomerManagedFleetConfiguration(TypedDict, closed=True):
     mode: "aws_sdk_deadline.types.auto_scaling_mode.AutoScalingMode"
     """<p>The Auto Scaling mode for the customer managed fleet.</p>"""
     auto_scaling_configuration: NotRequired[

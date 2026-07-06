@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#DescribeQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.uuid
 
 
-class DescribeQueryRequest(TypedDict):
+class DescribeQueryRequest(TypedDict, closed=True):
     event_data_store: NotRequired[
         "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     ]

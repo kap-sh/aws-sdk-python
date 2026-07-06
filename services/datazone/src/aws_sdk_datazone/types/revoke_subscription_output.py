@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RevokeSubscriptionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class RevokeSubscriptionOutput(TypedDict):
+class RevokeSubscriptionOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.subscription_id.SubscriptionId"
     """<p>The identifier of the revoked subscription.</p>"""
     created_by: "aws_sdk_datazone.types.created_by.CreatedBy"

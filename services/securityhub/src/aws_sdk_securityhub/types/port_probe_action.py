@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#PortProbeAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.port_probe_detail_list
 
 
-class PortProbeAction(TypedDict):
+class PortProbeAction(TypedDict, closed=True):
     port_probe_details: NotRequired[
         "aws_sdk_securityhub.types.port_probe_detail_list.PortProbeDetailList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#UpdateExperimentTemplateTargetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fis.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.target_resource_type_id
 
 
-class UpdateExperimentTemplateTargetInput(TypedDict):
+class UpdateExperimentTemplateTargetInput(TypedDict, closed=True):
     resource_type: "aws_sdk_fis.types.target_resource_type_id.TargetResourceTypeId"
     """<p>The resource type. The resource type must be supported for the specified action.</p>"""
     resource_arns: NotRequired["aws_sdk_fis.types.resource_arn_list.ResourceArnList"]

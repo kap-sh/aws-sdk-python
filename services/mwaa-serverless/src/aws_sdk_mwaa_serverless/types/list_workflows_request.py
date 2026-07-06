@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ListWorkflowsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListWorkflowsRequest(TypedDict):
+class ListWorkflowsRequest(TypedDict, closed=True):
     max_results: "int"
     """<p>The maximum number of workflows you want to return in a single response.</p>"""
     next_token: NotRequired["str"]

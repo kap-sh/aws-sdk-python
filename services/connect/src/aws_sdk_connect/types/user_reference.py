@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.user_id
 
 
-class UserReference(TypedDict):
+class UserReference(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.user_id.UserId"]
     """<p>The unique identifier for the user.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

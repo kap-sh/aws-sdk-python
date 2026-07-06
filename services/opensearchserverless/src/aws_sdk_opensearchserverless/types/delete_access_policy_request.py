@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteAccessPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.policy_name
 
 
-class DeleteAccessPolicyRequest(TypedDict):
+class DeleteAccessPolicyRequest(TypedDict, closed=True):
     type: "aws_sdk_opensearchserverless.types.access_policy_type.AccessPolicyType"
     """<p>The type of policy.</p>"""
     name: "aws_sdk_opensearchserverless.types.policy_name.PolicyName"

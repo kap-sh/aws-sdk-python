@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListEndpointConfigsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_config_name_contains
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListEndpointConfigsInput(TypedDict):
+class ListEndpointConfigsInput(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_sagemaker.types.endpoint_config_sort_key.EndpointConfigSortKey"
     ]

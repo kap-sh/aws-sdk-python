@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListWavesRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.wave_i_ds_filter
 
 
-class ListWavesRequestFilters(TypedDict):
+class ListWavesRequestFilters(TypedDict, closed=True):
     wave_i_ds: NotRequired["aws_sdk_mgn.types.wave_i_ds_filter.WaveIDsFilter"]
     """<p>Filter waves list by wave ID.</p>"""
     is_archived: NotRequired["bool"]

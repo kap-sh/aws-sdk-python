@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutBucketAclRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.grant_write_acp
 
 
-class PutBucketAclRequest(TypedDict):
+class PutBucketAclRequest(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_s3.types.bucket_canned_acl.BucketCannedACL"]
     """<p>The canned ACL to apply to the bucket.</p>"""
     access_control_policy: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicConstantValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.collective_constant_entry_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.constant_value_string
 
 
-class TopicConstantValue(TypedDict):
+class TopicConstantValue(TypedDict, closed=True):
     constant_type: NotRequired["aws_sdk_quicksight.types.constant_type.ConstantType"]
     """<p>The constant type of a <code>TopicConstantValue</code>.</p>"""
     value: NotRequired[

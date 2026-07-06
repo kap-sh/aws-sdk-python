@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#CreateDeploymentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_arn
     import aws_sdk_greengrassv2.types.non_empty_string
 
 
-class CreateDeploymentResponse(TypedDict):
+class CreateDeploymentResponse(TypedDict, closed=True):
     deployment_id: NotRequired[
         "aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"
     ]

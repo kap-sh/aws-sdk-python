@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#DescribeICD10CMInferenceJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.comprehend_medical_async_job_properties
 
 
-class DescribeICD10CMInferenceJobResponse(TypedDict):
+class DescribeICD10CMInferenceJobResponse(TypedDict, closed=True):
     comprehend_medical_async_job_properties: NotRequired[
         "aws_sdk_comprehendmedical.types.comprehend_medical_async_job_properties.ComprehendMedicalAsyncJobProperties"
     ]

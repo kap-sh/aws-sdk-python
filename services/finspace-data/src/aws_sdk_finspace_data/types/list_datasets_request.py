@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ListDatasetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.pagination_token
     import aws_sdk_finspace_data.types.result_limit
 
 
-class ListDatasetsRequest(TypedDict):
+class ListDatasetsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_finspace_data.types.pagination_token.PaginationToken"
     ]

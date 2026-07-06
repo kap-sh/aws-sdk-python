@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#TypedAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError, SerializationError
 
@@ -12,31 +14,31 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.string_attribute_value
 
 
-class _TypedAttributeValue_StringValue(TypedDict):
+class _TypedAttributeValue_StringValue(TypedDict, closed=True):
     StringValue: (
         "aws_sdk_clouddirectory.types.string_attribute_value.StringAttributeValue"
     )
 
 
-class _TypedAttributeValue_BinaryValue(TypedDict):
+class _TypedAttributeValue_BinaryValue(TypedDict, closed=True):
     BinaryValue: (
         "aws_sdk_clouddirectory.types.binary_attribute_value.BinaryAttributeValue"
     )
 
 
-class _TypedAttributeValue_BooleanValue(TypedDict):
+class _TypedAttributeValue_BooleanValue(TypedDict, closed=True):
     BooleanValue: (
         "aws_sdk_clouddirectory.types.boolean_attribute_value.BooleanAttributeValue"
     )
 
 
-class _TypedAttributeValue_NumberValue(TypedDict):
+class _TypedAttributeValue_NumberValue(TypedDict, closed=True):
     NumberValue: (
         "aws_sdk_clouddirectory.types.number_attribute_value.NumberAttributeValue"
     )
 
 
-class _TypedAttributeValue_DatetimeValue(TypedDict):
+class _TypedAttributeValue_DatetimeValue(TypedDict, closed=True):
     DatetimeValue: (
         "aws_sdk_clouddirectory.types.datetime_attribute_value.DatetimeAttributeValue"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#EBSStorageInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer_min1_max16384
     import aws_sdk_kafka.types.provisioned_throughput
 
 
-class EBSStorageInfo(TypedDict):
+class EBSStorageInfo(TypedDict, closed=True):
     provisioned_throughput: NotRequired[
         "aws_sdk_kafka.types.provisioned_throughput.ProvisionedThroughput"
     ]

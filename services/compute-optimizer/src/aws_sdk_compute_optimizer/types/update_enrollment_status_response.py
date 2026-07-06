@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#UpdateEnrollmentStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.status
     import aws_sdk_compute_optimizer.types.status_reason
 
 
-class UpdateEnrollmentStatusResponse(TypedDict):
+class UpdateEnrollmentStatusResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_compute_optimizer.types.status.Status"]
     """<p>The enrollment status of the account.</p>"""
     status_reason: NotRequired[

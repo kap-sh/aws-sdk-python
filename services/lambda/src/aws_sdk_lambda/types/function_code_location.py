@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionCodeLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class FunctionCodeLocation(TypedDict):
+class FunctionCodeLocation(TypedDict, closed=True):
     repository_type: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The service that's hosting the file.</p>"""
     location: NotRequired["aws_sdk_lambda.types.string.String"]

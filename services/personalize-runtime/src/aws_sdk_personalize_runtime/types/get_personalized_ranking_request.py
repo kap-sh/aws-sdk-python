@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#GetPersonalizedRankingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize_runtime.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.user_id
 
 
-class GetPersonalizedRankingRequest(TypedDict):
+class GetPersonalizedRankingRequest(TypedDict, closed=True):
     campaign_arn: "aws_sdk_personalize_runtime.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the campaign to use for generating the personalized ranking.</p>"""
     input_list: "aws_sdk_personalize_runtime.types.input_list.InputList"

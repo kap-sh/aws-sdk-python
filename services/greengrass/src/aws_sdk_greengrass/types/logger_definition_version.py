@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#LoggerDefinitionVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_logger
 
 
-class LoggerDefinitionVersion(TypedDict):
+class LoggerDefinitionVersion(TypedDict, closed=True):
     loggers: NotRequired["aws_sdk_greengrass.types.__list_of_logger.__listOfLogger"]
     """A list of loggers."""
 

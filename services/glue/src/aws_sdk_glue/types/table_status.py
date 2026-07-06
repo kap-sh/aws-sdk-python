@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TableStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.error_detail
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class TableStatus(TypedDict):
+class TableStatus(TypedDict, closed=True):
     requested_by: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The ARN of the user who requested the asynchronous change.</p>"""
     updated_by: NotRequired["aws_sdk_glue.types.name_string.NameString"]

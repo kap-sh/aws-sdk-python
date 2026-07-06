@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#AccessLog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.s3_bucket_name
 
 
-class AccessLog(TypedDict):
+class AccessLog(TypedDict, closed=True):
     enabled: "aws_sdk_elastic_load_balancing.types.access_log_enabled.AccessLogEnabled"
     """<p>Specifies whether access logs are enabled for the load balancer.</p>"""
     s3_bucket_name: NotRequired[

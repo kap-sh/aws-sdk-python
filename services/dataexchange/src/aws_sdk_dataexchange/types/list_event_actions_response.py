@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListEventActionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_event_action_entry
     import aws_sdk_dataexchange.types.next_token
 
 
-class ListEventActionsResponse(TypedDict):
+class ListEventActionsResponse(TypedDict, closed=True):
     event_actions: NotRequired[
         "aws_sdk_dataexchange.types.list_of_event_action_entry.ListOfEventActionEntry"
     ]

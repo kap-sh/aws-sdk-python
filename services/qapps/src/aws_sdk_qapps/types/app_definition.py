@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#AppDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.card_model_list
 
 
-class AppDefinition(TypedDict):
+class AppDefinition(TypedDict, closed=True):
     app_definition_version: "str"
     """<p>The version of the app definition schema or specification.</p>"""
     cards: "aws_sdk_qapps.types.card_model_list.CardModelList"

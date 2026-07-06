@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#TargetTrackingMetricStat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_metric_stat
 
 
-class TargetTrackingMetricStat(TypedDict):
+class TargetTrackingMetricStat(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_auto_scaling.types.metric.Metric"]
     """<p>The metric to use.</p>"""
     stat: NotRequired[

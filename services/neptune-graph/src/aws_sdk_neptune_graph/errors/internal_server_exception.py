@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#InternalServerException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the problem.</p>"""
 

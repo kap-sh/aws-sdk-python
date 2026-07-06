@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#GetPersonalizedRankingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.item_list
     import aws_sdk_personalize_runtime.types.recommendation_id
 
 
-class GetPersonalizedRankingResponse(TypedDict):
+class GetPersonalizedRankingResponse(TypedDict, closed=True):
     personalized_ranking: NotRequired[
         "aws_sdk_personalize_runtime.types.item_list.ItemList"
     ]

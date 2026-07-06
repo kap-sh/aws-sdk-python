@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetApiResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.api
 
 
-class GetApiResponse(TypedDict):
+class GetApiResponse(TypedDict, closed=True):
     api: NotRequired["aws_sdk_appsync.types.api.Api"]
     """<p>The <code>Api</code> object.</p>"""
 

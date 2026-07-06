@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ResourceCount``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ResourceCount(TypedDict):
+class ResourceCount(TypedDict, closed=True):
     total_resources: NotRequired["int"]
     """<p>The number of resources that match the search query. This value can't exceed 1,000. If there are more than 1,000 resources that match the query, then only 1,000 are counted and the <code>Complete</code> field is set to false. We recommend that you refine your query to return a smaller number of results.</p>"""
     complete: NotRequired["bool"]

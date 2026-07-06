@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#VariantProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.variant_property_type
 
 
-class VariantProperty(TypedDict):
+class VariantProperty(TypedDict, closed=True):
     variant_property_type: NotRequired[
         "aws_sdk_sagemaker.types.variant_property_type.VariantPropertyType"
     ]

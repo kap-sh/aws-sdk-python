@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#LambdaFunctionScheduledEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timeout_in_seconds
 
 
-class LambdaFunctionScheduledEventDetails(TypedDict):
+class LambdaFunctionScheduledEventDetails(TypedDict, closed=True):
     resource: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the scheduled Lambda function.</p>"""
     input: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]

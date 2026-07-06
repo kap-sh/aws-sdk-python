@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostCategoryResourceAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCostCategoryResourceAssociationsRequest(TypedDict):
+class ListCostCategoryResourceAssociationsRequest(TypedDict, closed=True):
     cost_category_arn: NotRequired["aws_sdk_cost_explorer.types.arn.Arn"]
     """<p>The unique identifier for your cost category.</p>"""
     next_token: NotRequired["aws_sdk_cost_explorer.types.next_page_token.NextPageToken"]

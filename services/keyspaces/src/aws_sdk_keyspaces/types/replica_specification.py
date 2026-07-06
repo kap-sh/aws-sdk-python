@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ReplicaSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.region
 
 
-class ReplicaSpecification(TypedDict):
+class ReplicaSpecification(TypedDict, closed=True):
     region: "aws_sdk_keyspaces.types.region.region"
     """<p>The Amazon Web Services Region.</p>"""
     read_capacity_units: NotRequired[

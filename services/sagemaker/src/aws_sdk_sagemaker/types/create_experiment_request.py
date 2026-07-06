@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateExperimentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.experiment_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateExperimentRequest(TypedDict):
+class CreateExperimentRequest(TypedDict, closed=True):
     experiment_name: NotRequired[
         "aws_sdk_sagemaker.types.experiment_entity_name.ExperimentEntityName"
     ]

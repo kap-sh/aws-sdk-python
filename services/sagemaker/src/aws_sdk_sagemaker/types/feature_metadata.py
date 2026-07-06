@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FeatureMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.last_modified_time
 
 
-class FeatureMetadata(TypedDict):
+class FeatureMetadata(TypedDict, closed=True):
     feature_group_arn: NotRequired[
         "aws_sdk_sagemaker.types.feature_group_arn.FeatureGroupArn"
     ]

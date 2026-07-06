@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeThingRegistrationTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.task_id
 
 
-class DescribeThingRegistrationTaskRequest(TypedDict):
+class DescribeThingRegistrationTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.task_id.TaskId"
     """<p>The task ID.</p>"""
 

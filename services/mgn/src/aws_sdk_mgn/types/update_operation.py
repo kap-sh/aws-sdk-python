@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#UpdateOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.construct_properties
     import aws_sdk_mgn.types.segment_construct_name
 
 
-class UpdateOperation(TypedDict):
+class UpdateOperation(TypedDict, closed=True):
     name: NotRequired["aws_sdk_mgn.types.segment_construct_name.SegmentConstructName"]
     """<p>The updated name for the construct.</p>"""
     excluded: NotRequired["bool"]

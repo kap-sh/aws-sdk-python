@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateModelCustomizationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.vpc_config
 
 
-class CreateModelCustomizationJobRequest(TypedDict):
+class CreateModelCustomizationJobRequest(TypedDict, closed=True):
     job_name: "aws_sdk_bedrock.types.job_name.JobName"
     """<p>A name for the fine-tuning job.</p>"""
     custom_model_name: "aws_sdk_bedrock.types.custom_model_name.CustomModelName"

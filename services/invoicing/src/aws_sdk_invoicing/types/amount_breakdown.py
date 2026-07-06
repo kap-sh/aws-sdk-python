@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#AmountBreakdown``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.taxes_breakdown
 
 
-class AmountBreakdown(TypedDict):
+class AmountBreakdown(TypedDict, closed=True):
     sub_total_amount: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p> The total of a set of the breakdown. </p>"""
     discounts: NotRequired[

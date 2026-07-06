@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
     import aws_sdk_lex_models_v2.types.import_export_file_password
 
 
-class UpdateExportRequest(TypedDict):
+class UpdateExportRequest(TypedDict, closed=True):
     export_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier Amazon Lex assigned to the export.</p>"""
     file_password: NotRequired[

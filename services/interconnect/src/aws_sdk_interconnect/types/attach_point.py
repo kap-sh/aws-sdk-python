@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#AttachPoint``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.direct_connect_gateway_attach_point
 
 
-class _AttachPoint_directConnectGateway(TypedDict):
+class _AttachPoint_directConnectGateway(TypedDict, closed=True):
     directConnectGateway: "aws_sdk_interconnect.types.direct_connect_gateway_attach_point.DirectConnectGatewayAttachPoint"
 
 
-class _AttachPoint_arn(TypedDict):
+class _AttachPoint_arn(TypedDict, closed=True):
     arn: "aws_sdk_interconnect.types.amazon_resource_name.AmazonResourceName"
 
 

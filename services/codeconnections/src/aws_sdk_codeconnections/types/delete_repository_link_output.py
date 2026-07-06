@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#DeleteRepositoryLinkOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRepositoryLinkOutput(TypedDict):
+class DeleteRepositoryLinkOutput(TypedDict, closed=True):
     pass
 
 

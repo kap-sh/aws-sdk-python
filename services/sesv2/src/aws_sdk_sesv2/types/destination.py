@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_address_list
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     to_addresses: NotRequired["aws_sdk_sesv2.types.email_address_list.EmailAddressList"]
     r"""<p>An array that contains the email addresses of the \"To\" recipients for the email.</p>"""
     cc_addresses: NotRequired["aws_sdk_sesv2.types.email_address_list.EmailAddressList"]

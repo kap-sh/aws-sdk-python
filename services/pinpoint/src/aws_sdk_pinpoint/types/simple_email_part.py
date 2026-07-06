@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SimpleEmailPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class SimpleEmailPart(TypedDict):
+class SimpleEmailPart(TypedDict, closed=True):
     charset: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The applicable character set for the message content.</p>"""
     data: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

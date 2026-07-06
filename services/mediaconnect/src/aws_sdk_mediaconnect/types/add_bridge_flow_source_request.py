@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddBridgeFlowSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.vpc_interface_attachment
 
 
-class AddBridgeFlowSourceRequest(TypedDict):
+class AddBridgeFlowSourceRequest(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The Amazon Resource Number (ARN) of the flow to use as a source of this bridge. </p>"""
     flow_vpc_interface_attachment: NotRequired[

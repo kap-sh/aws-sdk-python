@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#PolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.action_list
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.target_tag_list
 
 
-class PolicyDetails(TypedDict):
+class PolicyDetails(TypedDict, closed=True):
     policy_type: NotRequired["aws_sdk_dlm.types.policy_type_values.PolicyTypeValues"]
     """<p>The type of policy. Specify <code>EBS_SNAPSHOT_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify <code>IMAGE_MANAGEMENT</code> to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify <code>EVENT_BASED_POLICY </code> to create an event-based policy that performs specific actions when a defined event occurs in your Amazon Web Services account.</p> <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>"""
     resource_types: NotRequired[

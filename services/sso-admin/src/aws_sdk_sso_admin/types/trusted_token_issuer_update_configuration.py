@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#TrustedTokenIssuerUpdateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.oidc_jwt_update_configuration
 
 
-class _TrustedTokenIssuerUpdateConfiguration_OidcJwtConfiguration(TypedDict):
+class _TrustedTokenIssuerUpdateConfiguration_OidcJwtConfiguration(
+    TypedDict, closed=True
+):
     OidcJwtConfiguration: "aws_sdk_sso_admin.types.oidc_jwt_update_configuration.OidcJwtUpdateConfiguration"
 
 

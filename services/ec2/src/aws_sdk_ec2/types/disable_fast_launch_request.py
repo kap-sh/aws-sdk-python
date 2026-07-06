@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DisableFastLaunchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_id
 
 
-class DisableFastLaunchRequest(TypedDict):
+class DisableFastLaunchRequest(TypedDict, closed=True):
     image_id: NotRequired["aws_sdk_ec2.types.image_id.ImageId"]
     """<p>Specify the ID of the image for which to disable Windows fast launch.</p>"""
     force: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

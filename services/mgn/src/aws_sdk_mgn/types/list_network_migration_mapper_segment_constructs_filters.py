@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListNetworkMigrationMapperSegmentConstructsFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.list_network_migration_mapper_segment_construct_types_filter
     import aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_i_ds_filter
 
 
-class ListNetworkMigrationMapperSegmentConstructsFilters(TypedDict):
+class ListNetworkMigrationMapperSegmentConstructsFilters(TypedDict, closed=True):
     construct_i_ds: NotRequired[
         "aws_sdk_mgn.types.list_network_migration_mapper_segment_constructs_i_ds_filter.ListNetworkMigrationMapperSegmentConstructsIDsFilter"
     ]

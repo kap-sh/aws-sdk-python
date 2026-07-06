@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MaintenanceWindowTask``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.alarm_configuration
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class MaintenanceWindowTask(TypedDict):
+class MaintenanceWindowTask(TypedDict, closed=True):
     window_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_id.MaintenanceWindowId"
     ]

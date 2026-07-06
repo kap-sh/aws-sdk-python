@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetDomainVerificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.verification_status
 
 
-class GetDomainVerificationResponse(TypedDict):
+class GetDomainVerificationResponse(TypedDict, closed=True):
     id: "aws_sdk_vpc_lattice.types.domain_verification_id.DomainVerificationId"
     """<p> The ID of the domain verification. </p>"""
     arn: "aws_sdk_vpc_lattice.types.domain_verification_arn.DomainVerificationArn"

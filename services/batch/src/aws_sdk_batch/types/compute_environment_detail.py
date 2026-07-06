@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ComputeEnvironmentDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.ce_state
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.update_policy
 
 
-class ComputeEnvironmentDetail(TypedDict):
+class ComputeEnvironmentDetail(TypedDict, closed=True):
     compute_environment_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>"""
     compute_environment_arn: NotRequired["aws_sdk_batch.types.string.String"]

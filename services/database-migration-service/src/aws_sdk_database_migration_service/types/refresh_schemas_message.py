@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RefreshSchemasMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class RefreshSchemasMessage(TypedDict):
+class RefreshSchemasMessage(TypedDict, closed=True):
     endpoint_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>"""
     replication_instance_arn: "aws_sdk_database_migration_service.types.string.String"

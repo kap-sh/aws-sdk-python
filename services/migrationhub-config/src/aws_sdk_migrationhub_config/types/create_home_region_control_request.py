@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#CreateHomeRegionControlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhub_config.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.target
 
 
-class CreateHomeRegionControlRequest(TypedDict):
+class CreateHomeRegionControlRequest(TypedDict, closed=True):
     home_region: "aws_sdk_migrationhub_config.types.home_region.HomeRegion"
     """<p>The name of the home region of the calling account.</p>"""
     target: "aws_sdk_migrationhub_config.types.target.Target"

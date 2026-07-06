@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SessionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_filter_value
 
 
-class SessionFilter(TypedDict):
+class SessionFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.session_filter_key.SessionFilterKey"
     """<p>The name of the filter.</p>"""
     value: "aws_sdk_ssm.types.session_filter_value.SessionFilterValue"

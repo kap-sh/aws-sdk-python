@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnalysisError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.analysis_error_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_empty_string
 
 
-class AnalysisError(TypedDict):
+class AnalysisError(TypedDict, closed=True):
     type: NotRequired["aws_sdk_quicksight.types.analysis_error_type.AnalysisErrorType"]
     """<p>The type of the analysis error.</p>"""
     message: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]

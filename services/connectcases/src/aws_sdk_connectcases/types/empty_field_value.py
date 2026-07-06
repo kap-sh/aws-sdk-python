@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#EmptyFieldValue``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EmptyFieldValue(TypedDict):
+class EmptyFieldValue(TypedDict, closed=True):
     pass
 
 

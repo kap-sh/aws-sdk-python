@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RawEmail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__blob
 
 
-class RawEmail(TypedDict):
+class RawEmail(TypedDict, closed=True):
     data: NotRequired["aws_sdk_pinpoint.types.__blob.__blob"]
     """<p>The email message, represented as a raw MIME message. The entire message must be base64 encoded.</p>"""
 

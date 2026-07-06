@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListResourceTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.tag_list
 
 
-class ListResourceTagsResponse(TypedDict):
+class ListResourceTagsResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_kms.types.tag_list.TagList"]
     r"""<p>A list of tags. Each tag consists of a tag key and a tag value.</p> <note> <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/abac.html\">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p> </note>"""
     next_marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

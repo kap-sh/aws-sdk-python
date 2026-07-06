@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#PutSchemaFromJsonResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class PutSchemaFromJsonResponse(TypedDict):
+class PutSchemaFromJsonResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>The ARN of the schema to update.</p>"""
 

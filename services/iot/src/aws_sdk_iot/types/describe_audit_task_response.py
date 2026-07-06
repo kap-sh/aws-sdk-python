@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeAuditTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class DescribeAuditTaskResponse(TypedDict):
+class DescribeAuditTaskResponse(TypedDict, closed=True):
     task_status: NotRequired["aws_sdk_iot.types.audit_task_status.AuditTaskStatus"]
     r"""<p>The status of the audit: one of \"IN_PROGRESS\", \"COMPLETED\", \"FAILED\", or \"CANCELED\".</p>"""
     task_type: NotRequired["aws_sdk_iot.types.audit_task_type.AuditTaskType"]

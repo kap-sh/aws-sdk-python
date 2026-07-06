@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#EmergencyContact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.phone_number
 
 
-class EmergencyContact(TypedDict):
+class EmergencyContact(TypedDict, closed=True):
     email_address: "aws_sdk_shield.types.email_address.EmailAddress"
     """<p>The email address for the contact.</p>"""
     phone_number: NotRequired["aws_sdk_shield.types.phone_number.PhoneNumber"]

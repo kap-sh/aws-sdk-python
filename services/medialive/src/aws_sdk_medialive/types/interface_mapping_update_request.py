@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InterfaceMappingUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class InterfaceMappingUpdateRequest(TypedDict):
+class InterfaceMappingUpdateRequest(TypedDict, closed=True):
     logical_interface_name: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The logical name for one interface (on every Node) that handles a specific type of traffic. We recommend that the name hints at the physical interface it applies to. For example, it could refer to the traffic that the physical interface handles. For example, my-Inputs-Interface."""
     network_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

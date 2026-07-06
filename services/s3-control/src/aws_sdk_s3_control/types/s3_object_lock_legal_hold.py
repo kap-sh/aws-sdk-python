@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3ObjectLockLegalHold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_object_lock_legal_hold_status
 
 
-class S3ObjectLockLegalHold(TypedDict):
+class S3ObjectLockLegalHold(TypedDict, closed=True):
     status: "aws_sdk_s3_control.types.s3_object_lock_legal_hold_status.S3ObjectLockLegalHoldStatus"
     """<p>The Object Lock legal hold status to be applied to all objects in the Batch Operations job.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CancelBatchJobExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.auth_secrets_manager_arn
     import aws_sdk_m2.types.identifier
 
 
-class CancelBatchJobExecutionRequest(TypedDict):
+class CancelBatchJobExecutionRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the application.</p>"""
     execution_id: "aws_sdk_m2.types.identifier.Identifier"

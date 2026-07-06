@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeregisterComputeOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterComputeOutput(TypedDict):
+class DeregisterComputeOutput(TypedDict, closed=True):
     pass
 
 

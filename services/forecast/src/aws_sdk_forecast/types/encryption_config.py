@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.kms_key_arn
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     role_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The ARN of the IAM role that Amazon Forecast can assume to access the KMS key.</p> <p>Passing a role across Amazon Web Services accounts is not allowed. If you pass a role that isn't in your account, you get an <code>InvalidInputException</code> error.</p>"""
     kms_key_arn: "aws_sdk_forecast.types.kms_key_arn.KMSKeyArn"

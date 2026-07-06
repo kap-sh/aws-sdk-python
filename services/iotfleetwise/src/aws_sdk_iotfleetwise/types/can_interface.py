@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CanInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.protocol_version
 
 
-class CanInterface(TypedDict):
+class CanInterface(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.can_interface_name.CanInterfaceName"
     """<p>The unique name of the interface.</p>"""
     protocol_name: NotRequired["aws_sdk_iotfleetwise.types.protocol_name.ProtocolName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageScanState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_scan_status
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class ImageScanState(TypedDict):
+class ImageScanState(TypedDict, closed=True):
     status: NotRequired["aws_sdk_imagebuilder.types.image_scan_status.ImageScanStatus"]
     """<p>The current state of vulnerability scans for the image.</p>"""
     reason: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

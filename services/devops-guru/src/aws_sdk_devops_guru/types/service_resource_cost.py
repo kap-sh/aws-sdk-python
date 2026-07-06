@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ServiceResourceCost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cost
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_type
 
 
-class ServiceResourceCost(TypedDict):
+class ServiceResourceCost(TypedDict, closed=True):
     type: NotRequired["aws_sdk_devops_guru.types.resource_type.ResourceType"]
     """<p>The type of the Amazon Web Services resource.</p>"""
     state: NotRequired[

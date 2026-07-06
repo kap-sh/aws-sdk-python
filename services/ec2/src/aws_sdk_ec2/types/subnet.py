@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Subnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class Subnet(TypedDict):
+class Subnet(TypedDict, closed=True):
     availability_zone_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The AZ ID of the subnet.</p>"""
     enable_lni_at_device_index: NotRequired["aws_sdk_ec2.types.integer.Integer"]

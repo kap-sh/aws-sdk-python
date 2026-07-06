@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ExecutionStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.long
 
 
-class ExecutionStats(TypedDict):
+class ExecutionStats(TypedDict, closed=True):
     execution_time_in_millis: "aws_sdk_timestream_query.types.long.Long"
     """<p>Total time, measured in milliseconds, that was needed for the scheduled query run to complete.</p>"""
     data_writes: "aws_sdk_timestream_query.types.long.Long"

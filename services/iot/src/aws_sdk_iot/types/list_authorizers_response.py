@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListAuthorizersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.authorizers
     import aws_sdk_iot.types.marker
 
 
-class ListAuthorizersResponse(TypedDict):
+class ListAuthorizersResponse(TypedDict, closed=True):
     authorizers: NotRequired["aws_sdk_iot.types.authorizers.Authorizers"]
     """<p>The authorizers.</p>"""
     next_marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

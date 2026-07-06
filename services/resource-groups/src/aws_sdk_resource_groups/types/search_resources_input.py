@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#SearchResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_query
 
 
-class SearchResourcesInput(TypedDict):
+class SearchResourcesInput(TypedDict, closed=True):
     resource_query: "aws_sdk_resource_groups.types.resource_query.ResourceQuery"
     """<p>The search query, using the same formats that are supported for resource group definition. For more information, see <a>CreateGroup</a>.</p>"""
     max_results: NotRequired["aws_sdk_resource_groups.types.max_results.MaxResults"]

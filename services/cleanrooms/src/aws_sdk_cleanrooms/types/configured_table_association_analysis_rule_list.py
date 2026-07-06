@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTableAssociationAnalysisRuleList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.allowed_additional_analyses
     import aws_sdk_cleanrooms.types.allowed_result_receivers
 
 
-class ConfiguredTableAssociationAnalysisRuleList(TypedDict):
+class ConfiguredTableAssociationAnalysisRuleList(TypedDict, closed=True):
     allowed_result_receivers: NotRequired[
         "aws_sdk_cleanrooms.types.allowed_result_receivers.AllowedResultReceivers"
     ]

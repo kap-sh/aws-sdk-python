@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListSlotTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_type_sort_by
 
 
-class ListSlotTypesRequest(TypedDict):
+class ListSlotTypesRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier of the bot that contains the slot types.</p>"""
     bot_version: "aws_sdk_lex_models_v2.types.bot_version.BotVersion"

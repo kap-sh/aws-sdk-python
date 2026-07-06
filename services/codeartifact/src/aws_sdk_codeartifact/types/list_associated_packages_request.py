@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListAssociatedPackagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.pagination_token
 
 
-class ListAssociatedPackagesRequest(TypedDict):
+class ListAssociatedPackagesRequest(TypedDict, closed=True):
     domain: "aws_sdk_codeartifact.types.domain_name.DomainName"
     """<p> The name of the domain that contains the package group from which to list associated packages. </p>"""
     domain_owner: NotRequired["aws_sdk_codeartifact.types.account_id.AccountId"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DeleteApiMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class DeleteApiMappingRequest(TypedDict):
+class DeleteApiMappingRequest(TypedDict, closed=True):
     api_mapping_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API mapping identifier.</p>"""
     domain_name: "aws_sdk_apigatewayv2.types.__string.__string"

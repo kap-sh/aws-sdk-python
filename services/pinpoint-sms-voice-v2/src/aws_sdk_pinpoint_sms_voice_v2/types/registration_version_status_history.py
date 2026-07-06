@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationVersionStatusHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class RegistrationVersionStatusHistory(TypedDict):
+class RegistrationVersionStatusHistory(TypedDict, closed=True):
     draft_timestamp: "datetime.datetime"
     r"""<p>The time when the registration was in the draft state, in <a href=\"https://www.epochconverter.com/\">UNIX epoch time</a> format.</p>"""
     submitted_timestamp: NotRequired["datetime.datetime"]

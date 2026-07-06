@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetCatalogRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
 
 
-class GetCatalogRequest(TypedDict):
+class GetCatalogRequest(TypedDict, closed=True):
     catalog_id: "aws_sdk_glue.types.catalog_id_string.CatalogIdString"
     """<p>The ID of the parent catalog in which the catalog resides. If none is provided, the Amazon Web Services Account Number is used by default.</p>"""
 

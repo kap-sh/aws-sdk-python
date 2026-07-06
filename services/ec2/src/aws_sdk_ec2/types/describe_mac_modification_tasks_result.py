@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeMacModificationTasksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeMacModificationTasksResult(TypedDict):
+class DescribeMacModificationTasksResult(TypedDict, closed=True):
     mac_modification_tasks: NotRequired[
         "aws_sdk_ec2.types.mac_modification_task_list.MacModificationTaskList"
     ]

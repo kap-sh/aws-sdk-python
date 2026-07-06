@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#CapabilityOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.inbound_edi_options
     import aws_sdk_b2bi.types.outbound_edi_options
 
 
-class CapabilityOptions(TypedDict):
+class CapabilityOptions(TypedDict, closed=True):
     outbound_edi: NotRequired[
         "aws_sdk_b2bi.types.outbound_edi_options.OutboundEdiOptions"
     ]

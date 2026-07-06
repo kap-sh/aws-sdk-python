@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#GetDataLakeExceptionSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.safe_string
     import aws_sdk_securitylake.types.subscription_protocol
 
 
-class GetDataLakeExceptionSubscriptionResponse(TypedDict):
+class GetDataLakeExceptionSubscriptionResponse(TypedDict, closed=True):
     subscription_protocol: NotRequired[
         "aws_sdk_securitylake.types.subscription_protocol.SubscriptionProtocol"
     ]

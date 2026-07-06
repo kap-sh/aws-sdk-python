@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeInsightRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.aws_account_id
     import aws_sdk_devops_guru.types.insight_id
 
 
-class DescribeInsightRequest(TypedDict):
+class DescribeInsightRequest(TypedDict, closed=True):
     id: "aws_sdk_devops_guru.types.insight_id.InsightId"
     """<p> The ID of the insight. </p>"""
     account_id: NotRequired["aws_sdk_devops_guru.types.aws_account_id.AwsAccountId"]

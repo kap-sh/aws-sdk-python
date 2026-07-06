@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#GroupMembership``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.string_type
 
 
-class GroupMembership(TypedDict):
+class GroupMembership(TypedDict, closed=True):
     identity_store_id: "aws_sdk_identitystore.types.identity_store_id.IdentityStoreId"
     """<p>The globally unique identifier for the identity store.</p>"""
     membership_id: NotRequired["aws_sdk_identitystore.types.resource_id.ResourceId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AdminUpdateAuthEventFeedbackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.username_type
 
 
-class AdminUpdateAuthEventFeedbackRequest(TypedDict):
+class AdminUpdateAuthEventFeedbackRequest(TypedDict, closed=True):
     user_pool_id: (
         "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#CreateChatTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivschat.types.chat_token
     import aws_sdk_ivschat.types.time
 
 
-class CreateChatTokenResponse(TypedDict):
+class CreateChatTokenResponse(TypedDict, closed=True):
     token: NotRequired["aws_sdk_ivschat.types.chat_token.ChatToken"]
     """<p>The issued client token, encrypted.</p>"""
     token_expiration_time: NotRequired["aws_sdk_ivschat.types.time.Time"]

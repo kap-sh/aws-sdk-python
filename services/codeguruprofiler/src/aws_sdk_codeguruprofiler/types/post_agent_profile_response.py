@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#PostAgentProfileResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PostAgentProfileResponse(TypedDict):
+class PostAgentProfileResponse(TypedDict, closed=True):
     pass
 
 

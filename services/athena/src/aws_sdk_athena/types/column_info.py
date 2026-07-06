@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ColumnInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.string
 
 
-class ColumnInfo(TypedDict):
+class ColumnInfo(TypedDict, closed=True):
     catalog_name: NotRequired["aws_sdk_athena.types.string.String"]
     """<p>The catalog to which the query results belong.</p>"""
     schema_name: NotRequired["aws_sdk_athena.types.string.String"]

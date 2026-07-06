@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetMobileDeviceAccessEffectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class GetMobileDeviceAccessEffectRequest(TypedDict):
+class GetMobileDeviceAccessEffectRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization to simulate the access effect for.</p>"""
     device_type: NotRequired["aws_sdk_workmail.types.device_type.DeviceType"]

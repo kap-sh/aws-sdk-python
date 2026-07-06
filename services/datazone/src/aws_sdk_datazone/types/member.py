@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Member``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
 
-class _Member_userIdentifier(TypedDict):
+class _Member_userIdentifier(TypedDict, closed=True):
     userIdentifier: "str"
 
 
-class _Member_groupIdentifier(TypedDict):
+class _Member_groupIdentifier(TypedDict, closed=True):
     groupIdentifier: "str"
 
 

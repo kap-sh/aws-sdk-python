@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#OriginGroupMembers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.origin_group_member_list
 
 
-class OriginGroupMembers(TypedDict):
+class OriginGroupMembers(TypedDict, closed=True):
     quantity: "aws_sdk_cloudfront.types.integer.integer"
     """<p>The number of origins in an origin group.</p>"""
     items: "aws_sdk_cloudfront.types.origin_group_member_list.OriginGroupMemberList"

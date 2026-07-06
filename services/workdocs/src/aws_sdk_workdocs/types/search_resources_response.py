@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#SearchResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.next_marker_type
     import aws_sdk_workdocs.types.response_items_list
 
 
-class SearchResourcesResponse(TypedDict):
+class SearchResourcesResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_workdocs.types.response_items_list.ResponseItemsList"]
     """<p>List of Documents, Folders, Comments, and Document Versions matching the query.</p>"""
     marker: NotRequired["aws_sdk_workdocs.types.next_marker_type.NextMarkerType"]

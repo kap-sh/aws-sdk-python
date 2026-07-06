@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#VoteSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.network_member_name_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.vote_value
 
 
-class VoteSummary(TypedDict):
+class VoteSummary(TypedDict, closed=True):
     vote: NotRequired["aws_sdk_managedblockchain.types.vote_value.VoteValue"]
     """<p> The vote value, either <code>YES</code> or <code>NO</code>. </p>"""
     member_name: NotRequired[

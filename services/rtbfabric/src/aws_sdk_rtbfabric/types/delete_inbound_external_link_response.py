@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#DeleteInboundExternalLinkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.link_status
 
 
-class DeleteInboundExternalLinkResponse(TypedDict):
+class DeleteInboundExternalLinkResponse(TypedDict, closed=True):
     link_id: "aws_sdk_rtbfabric.types.link_id.LinkId"
     """<p>The unique identifier of the link.</p>"""
     status: "aws_sdk_rtbfabric.types.link_status.LinkStatus"

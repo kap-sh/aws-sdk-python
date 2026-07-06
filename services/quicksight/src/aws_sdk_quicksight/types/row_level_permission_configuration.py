@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RowLevelPermissionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.row_level_permission_data_set
     import aws_sdk_quicksight.types.row_level_permission_tag_configuration
 
 
-class RowLevelPermissionConfiguration(TypedDict):
+class RowLevelPermissionConfiguration(TypedDict, closed=True):
     tag_configuration: NotRequired[
         "aws_sdk_quicksight.types.row_level_permission_tag_configuration.RowLevelPermissionTagConfiguration"
     ]

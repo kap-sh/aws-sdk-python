@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_arn
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_vpc_lattice.types.resource_arn.ResourceArn"
     """<p>The ID or ARN of the service network or service for which the policy is created.</p>"""
     policy: "aws_sdk_vpc_lattice.types.policy_string.PolicyString"

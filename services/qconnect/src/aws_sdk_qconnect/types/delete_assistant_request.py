@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DeleteAssistantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid_or_arn
 
 
-class DeleteAssistantRequest(TypedDict):
+class DeleteAssistantRequest(TypedDict, closed=True):
     assistant_id: "aws_sdk_qconnect.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateWorkspaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.twin_maker_arn
 
 
-class CreateWorkspaceResponse(TypedDict):
+class CreateWorkspaceResponse(TypedDict, closed=True):
     arn: "aws_sdk_iottwinmaker.types.twin_maker_arn.TwinMakerArn"
     """<p>The ARN of the workspace.</p>"""
     creation_date_time: "aws_sdk_iottwinmaker.types.timestamp.Timestamp"

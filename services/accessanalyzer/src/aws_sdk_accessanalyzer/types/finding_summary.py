@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class FindingSummary(TypedDict):
+class FindingSummary(TypedDict, closed=True):
     id: "aws_sdk_accessanalyzer.types.finding_id.FindingId"
     """<p>The ID of the finding.</p>"""
     principal: NotRequired["aws_sdk_accessanalyzer.types.principal_map.PrincipalMap"]

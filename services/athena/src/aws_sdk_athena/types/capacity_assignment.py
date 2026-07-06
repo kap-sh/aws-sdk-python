@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CapacityAssignment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_names_list
 
 
-class CapacityAssignment(TypedDict):
+class CapacityAssignment(TypedDict, closed=True):
     work_group_names: NotRequired[
         "aws_sdk_athena.types.work_group_names_list.WorkGroupNamesList"
     ]

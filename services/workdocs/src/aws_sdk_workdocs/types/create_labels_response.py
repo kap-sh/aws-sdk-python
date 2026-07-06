@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateLabelsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateLabelsResponse(TypedDict):
+class CreateLabelsResponse(TypedDict, closed=True):
     pass
 
 

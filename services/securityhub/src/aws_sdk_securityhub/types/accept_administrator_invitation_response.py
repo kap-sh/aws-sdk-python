@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AcceptAdministratorInvitationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AcceptAdministratorInvitationResponse(TypedDict):
+class AcceptAdministratorInvitationResponse(TypedDict, closed=True):
     pass
 
 

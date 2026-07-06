@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DisableApplicationLayerAutomaticResponseResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableApplicationLayerAutomaticResponseResponse(TypedDict):
+class DisableApplicationLayerAutomaticResponseResponse(TypedDict, closed=True):
     pass
 
 

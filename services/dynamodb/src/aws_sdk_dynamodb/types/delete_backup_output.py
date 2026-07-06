@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DeleteBackupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.backup_description
 
 
-class DeleteBackupOutput(TypedDict):
+class DeleteBackupOutput(TypedDict, closed=True):
     backup_description: NotRequired[
         "aws_sdk_dynamodb.types.backup_description.BackupDescription"
     ]

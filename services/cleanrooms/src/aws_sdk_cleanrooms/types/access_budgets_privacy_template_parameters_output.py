@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AccessBudgetsPrivacyTemplateParametersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.budgeted_resource_arn
 
 
-class AccessBudgetsPrivacyTemplateParametersOutput(TypedDict):
+class AccessBudgetsPrivacyTemplateParametersOutput(TypedDict, closed=True):
     budget_parameters: "aws_sdk_cleanrooms.types.budget_parameters.BudgetParameters"
     """<p>An array of budget parameters returned from the access budget configuration.</p>"""
     resource_arn: "aws_sdk_cleanrooms.types.budgeted_resource_arn.BudgetedResourceArn"

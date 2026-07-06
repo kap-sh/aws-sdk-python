@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ListProtectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.protections
     import aws_sdk_shield.types.token
 
 
-class ListProtectionsResponse(TypedDict):
+class ListProtectionsResponse(TypedDict, closed=True):
     protections: NotRequired["aws_sdk_shield.types.protections.Protections"]
     """<p>The array of enabled <a>Protection</a> objects.</p>"""
     next_token: NotRequired["aws_sdk_shield.types.token.Token"]

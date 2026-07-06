@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#WorkflowVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_version
 
 
-class WorkflowVersionSummary(TypedDict):
+class WorkflowVersionSummary(TypedDict, closed=True):
     workflow_version: "aws_sdk_mwaa_serverless.types.workflow_version.WorkflowVersion"
     """<p>The version identifier of the workflow version.</p>"""
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"

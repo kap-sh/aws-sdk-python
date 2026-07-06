@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#MemoryMiBRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.memory_amount_mi_b
 
 
-class MemoryMiBRange(TypedDict):
+class MemoryMiBRange(TypedDict, closed=True):
     min: "aws_sdk_deadline.types.memory_amount_mi_b.MemoryAmountMiB"
     """<p>The minimum amount of memory (in MiB).</p>"""
     max: NotRequired["aws_sdk_deadline.types.memory_amount_mi_b.MemoryAmountMiB"]

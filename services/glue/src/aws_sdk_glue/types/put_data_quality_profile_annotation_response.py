@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutDataQualityProfileAnnotationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutDataQualityProfileAnnotationResponse(TypedDict):
+class PutDataQualityProfileAnnotationResponse(TypedDict, closed=True):
     pass
 
 

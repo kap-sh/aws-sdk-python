@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#FilterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.branch_filter
     import aws_sdk_bedrock_agentcore.types.event_metadata_filter_list
 
 
-class FilterInput(TypedDict):
+class FilterInput(TypedDict, closed=True):
     branch: NotRequired["aws_sdk_bedrock_agentcore.types.branch_filter.BranchFilter"]
     """<p>The branch filter criteria to apply when listing events.</p>"""
     event_metadata: NotRequired[

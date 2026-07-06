@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationTravelModeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_pedestrian_options
     import aws_sdk_geo_routes.types.waypoint_optimization_truck_options
 
 
-class WaypointOptimizationTravelModeOptions(TypedDict):
+class WaypointOptimizationTravelModeOptions(TypedDict, closed=True):
     pedestrian: NotRequired[
         "aws_sdk_geo_routes.types.waypoint_optimization_pedestrian_options.WaypointOptimizationPedestrianOptions"
     ]

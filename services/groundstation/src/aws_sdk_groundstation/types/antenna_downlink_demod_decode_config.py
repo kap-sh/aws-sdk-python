@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AntennaDownlinkDemodDecodeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.spectrum_config
 
 
-class AntennaDownlinkDemodDecodeConfig(TypedDict):
+class AntennaDownlinkDemodDecodeConfig(TypedDict, closed=True):
     spectrum_config: "aws_sdk_groundstation.types.spectrum_config.SpectrumConfig"
     """<p>Information about the spectral <code>Config</code>.</p>"""
     demodulation_config: (

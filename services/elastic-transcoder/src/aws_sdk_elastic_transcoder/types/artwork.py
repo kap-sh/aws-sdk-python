@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Artwork``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.digits_or_auto
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.watermark_key
 
 
-class Artwork(TypedDict):
+class Artwork(TypedDict, closed=True):
     input_key: NotRequired[
         "aws_sdk_elastic_transcoder.types.watermark_key.WatermarkKey"
     ]

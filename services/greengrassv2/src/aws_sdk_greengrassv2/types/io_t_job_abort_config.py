@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#IoTJobAbortConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_abort_criteria_list
 
 
-class IoTJobAbortConfig(TypedDict):
+class IoTJobAbortConfig(TypedDict, closed=True):
     criteria_list: "aws_sdk_greengrassv2.types.io_t_job_abort_criteria_list.IoTJobAbortCriteriaList"
     """<p>The list of criteria that define when and how to cancel the configuration deployment.</p>"""
 

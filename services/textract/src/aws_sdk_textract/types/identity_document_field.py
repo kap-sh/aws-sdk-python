@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#IdentityDocumentField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.analyze_id_detections
 
 
-class IdentityDocumentField(TypedDict):
+class IdentityDocumentField(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_textract.types.analyze_id_detections.AnalyzeIDDetections"
     ]

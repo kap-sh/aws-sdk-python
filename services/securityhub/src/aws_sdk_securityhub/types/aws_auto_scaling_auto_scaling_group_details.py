@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAutoScalingAutoScalingGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_auto_scaling_auto_scaling_group_availability_zones_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsAutoScalingAutoScalingGroupDetails(TypedDict):
+class AwsAutoScalingAutoScalingGroupDetails(TypedDict, closed=True):
     launch_configuration_name: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

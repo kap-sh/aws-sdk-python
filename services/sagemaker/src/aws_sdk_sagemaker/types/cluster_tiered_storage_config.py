@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterTieredStorageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_config_mode
     import aws_sdk_sagemaker.types.cluster_instance_memory_allocation_percentage
 
 
-class ClusterTieredStorageConfig(TypedDict):
+class ClusterTieredStorageConfig(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_sagemaker.types.cluster_config_mode.ClusterConfigMode"]
     """<p>Specifies whether managed tier checkpointing is enabled or disabled for the HyperPod cluster. When set to <code>Enable</code>, the system installs a memory management daemon that provides disaggregated memory as a service for checkpoint storage. When set to <code>Disable</code>, the feature is turned off and the memory management daemon is removed from the cluster.</p>"""
     instance_memory_allocation_percentage: NotRequired[

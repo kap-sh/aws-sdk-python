@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#UpdateApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.version
 
 
-class UpdateApplicationResponse(TypedDict):
+class UpdateApplicationResponse(TypedDict, closed=True):
     application_version: "aws_sdk_m2.types.version.Version"
     """<p>The new version of the application.</p>"""
 

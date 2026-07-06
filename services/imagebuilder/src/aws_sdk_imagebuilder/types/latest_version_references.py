@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LatestVersionReferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_builder_arn
 
 
-class LatestVersionReferences(TypedDict):
+class LatestVersionReferences(TypedDict, closed=True):
     latest_version_arn: NotRequired[
         "aws_sdk_imagebuilder.types.image_builder_arn.ImageBuilderArn"
     ]

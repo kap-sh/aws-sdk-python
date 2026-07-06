@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#AccessKeyMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class AccessKeyMetadata(TypedDict):
+class AccessKeyMetadata(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]
     """<p>The name of the IAM user that the key is associated with.</p>"""
     access_key_id: NotRequired["aws_sdk_iam.types.access_key_id_type.accessKeyIdType"]

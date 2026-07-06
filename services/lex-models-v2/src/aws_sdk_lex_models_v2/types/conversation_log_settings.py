@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ConversationLogSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.audio_log_settings_list
     import aws_sdk_lex_models_v2.types.text_log_settings_list
 
 
-class ConversationLogSettings(TypedDict):
+class ConversationLogSettings(TypedDict, closed=True):
     text_log_settings: NotRequired[
         "aws_sdk_lex_models_v2.types.text_log_settings_list.TextLogSettingsList"
     ]

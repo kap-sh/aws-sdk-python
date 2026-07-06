@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateCodeRepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
     import aws_sdk_sagemaker.types.git_config_for_update
 
 
-class UpdateCodeRepositoryInput(TypedDict):
+class UpdateCodeRepositoryInput(TypedDict, closed=True):
     code_repository_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the Git repository to update.</p>"""
     git_config: NotRequired[

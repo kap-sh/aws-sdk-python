@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#MetricValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.metric
 
 
-class MetricValue(TypedDict):
+class MetricValue(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_ec2.types.metric.Metric"]
     """<p> The name of the metric. </p>"""
     value: NotRequired["aws_sdk_ec2.types.double.Double"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateNotificationSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.subscription
 
 
-class CreateNotificationSubscriptionResponse(TypedDict):
+class CreateNotificationSubscriptionResponse(TypedDict, closed=True):
     subscription: NotRequired["aws_sdk_workdocs.types.subscription.Subscription"]
     """<p>The subscription.</p>"""
 

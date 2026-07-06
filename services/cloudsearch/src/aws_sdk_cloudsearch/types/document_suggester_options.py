@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DocumentSuggesterOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.suggester_fuzzy_matching
 
 
-class DocumentSuggesterOptions(TypedDict):
+class DocumentSuggesterOptions(TypedDict, closed=True):
     source_field: "aws_sdk_cloudsearch.types.field_name.FieldName"
     """<p>The name of the index field you want to use for suggestions. </p>"""
     fuzzy_matching: NotRequired[

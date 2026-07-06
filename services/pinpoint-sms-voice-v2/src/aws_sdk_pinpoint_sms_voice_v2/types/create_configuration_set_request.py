@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CreateConfigurationSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
 
 
-class CreateConfigurationSetRequest(TypedDict):
+class CreateConfigurationSetRequest(TypedDict, closed=True):
     configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name.ConfigurationSetName"
     """<p>The name to use for the new configuration set.</p>"""
     tags: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.tag_list.TagList"]

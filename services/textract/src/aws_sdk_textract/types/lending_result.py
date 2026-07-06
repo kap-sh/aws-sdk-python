@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#LendingResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.extraction_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.u_integer
 
 
-class LendingResult(TypedDict):
+class LendingResult(TypedDict, closed=True):
     page: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>The page number for a page, with regard to whole submission.</p>"""
     page_classification: NotRequired[

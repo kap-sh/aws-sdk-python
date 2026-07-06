@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ElasticsearchDestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.cloud_watch_logging_options
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.vpc_configuration_description
 
 
-class ElasticsearchDestinationDescription(TypedDict):
+class ElasticsearchDestinationDescription(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_firehose.types.role_arn.RoleARN"]
     r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     domain_arn: NotRequired[

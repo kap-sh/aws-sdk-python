@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#Source``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.vpc_configuration
 
 
-class _Source_eksConfiguration(TypedDict):
+class _Source_eksConfiguration(TypedDict, closed=True):
     eksConfiguration: "aws_sdk_amp.types.eks_configuration.EksConfiguration"
 
 
-class _Source_vpcConfiguration(TypedDict):
+class _Source_vpcConfiguration(TypedDict, closed=True):
     vpcConfiguration: "aws_sdk_amp.types.vpc_configuration.VpcConfiguration"
 
 

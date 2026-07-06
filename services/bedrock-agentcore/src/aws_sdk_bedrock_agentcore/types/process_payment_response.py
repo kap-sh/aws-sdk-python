@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ProcessPaymentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -15,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.process_payment_id
 
 
-class ProcessPaymentResponse(TypedDict):
+class ProcessPaymentResponse(TypedDict, closed=True):
     process_payment_id: (
         "aws_sdk_bedrock_agentcore.types.process_payment_id.ProcessPaymentId"
     )

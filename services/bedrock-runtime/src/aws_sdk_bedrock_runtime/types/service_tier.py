@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ServiceTier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.service_tier_type
 
 
-class ServiceTier(TypedDict):
+class ServiceTier(TypedDict, closed=True):
     type: "aws_sdk_bedrock_runtime.types.service_tier_type.ServiceTierType"
     """<p>Specifies the processing tier type used for serving the request.</p>"""
 

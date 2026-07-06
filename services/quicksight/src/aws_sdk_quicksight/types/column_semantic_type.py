@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColumnSemanticType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geo_spatial_data_role
 
 
-class ColumnSemanticType(TypedDict):
+class ColumnSemanticType(TypedDict, closed=True):
     geographical_role: NotRequired[
         "aws_sdk_quicksight.types.geo_spatial_data_role.GeoSpatialDataRole"
     ]

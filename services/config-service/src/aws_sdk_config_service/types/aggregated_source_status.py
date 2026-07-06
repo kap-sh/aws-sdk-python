@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregatedSourceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.aggregated_source_status_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class AggregatedSourceStatus(TypedDict):
+class AggregatedSourceStatus(TypedDict, closed=True):
     source_id: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>The source account ID or an organization.</p>"""
     source_type: NotRequired[

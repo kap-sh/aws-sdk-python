@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ZookeeperNodeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class ZookeeperNodeInfo(TypedDict):
+class ZookeeperNodeInfo(TypedDict, closed=True):
     attached_eni_id: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The attached elastic network interface of the broker.</p>"""
     client_vpc_ip_address: NotRequired["aws_sdk_kafka.types.__string.__string"]

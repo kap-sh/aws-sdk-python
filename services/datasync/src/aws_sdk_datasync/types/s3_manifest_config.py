@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#S3ManifestConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.s3_subdirectory
 
 
-class S3ManifestConfig(TypedDict):
+class S3ManifestConfig(TypedDict, closed=True):
     manifest_object_path: "aws_sdk_datasync.types.s3_subdirectory.S3Subdirectory"
     """<p>Specifies the Amazon S3 object key of your manifest. This can include a prefix (for example, <code>prefix/my-manifest.csv</code>).</p>"""
     bucket_access_role_arn: "aws_sdk_datasync.types.iam_role_arn.IamRoleArn"

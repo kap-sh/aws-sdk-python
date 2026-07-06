@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetBucketAclOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.owner
 
 
-class GetBucketAclOutput(TypedDict):
+class GetBucketAclOutput(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_s3.types.owner.Owner"]
     """<p>Container for the bucket owner's ID.</p>"""
     grants: NotRequired["aws_sdk_s3.types.grants.Grants"]

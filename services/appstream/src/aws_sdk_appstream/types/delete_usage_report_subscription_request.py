@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteUsageReportSubscriptionRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteUsageReportSubscriptionRequest(TypedDict):
+class DeleteUsageReportSubscriptionRequest(TypedDict, closed=True):
     pass
 
 

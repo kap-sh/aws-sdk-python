@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListGatewaysOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateways
     import aws_sdk_storage_gateway.types.marker
 
 
-class ListGatewaysOutput(TypedDict):
+class ListGatewaysOutput(TypedDict, closed=True):
     gateways: NotRequired["aws_sdk_storage_gateway.types.gateways.Gateways"]
     """<p>An array of <a>GatewayInfo</a> objects.</p>"""
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]

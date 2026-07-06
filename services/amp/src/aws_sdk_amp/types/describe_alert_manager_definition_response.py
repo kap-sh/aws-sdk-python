@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeAlertManagerDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.alert_manager_definition_description
 
 
-class DescribeAlertManagerDefinitionResponse(TypedDict):
+class DescribeAlertManagerDefinitionResponse(TypedDict, closed=True):
     alert_manager_definition: "aws_sdk_amp.types.alert_manager_definition_description.AlertManagerDefinitionDescription"
     """<p>The alert manager definition.</p>"""
 

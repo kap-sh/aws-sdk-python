@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MediaConcurrency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.cross_channel_behavior
 
 
-class MediaConcurrency(TypedDict):
+class MediaConcurrency(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.channel.Channel"
     """<p>The channels that agents can handle in the Contact Control Panel (CCP).</p>"""
     concurrency: "aws_sdk_connect.types.concurrency.Concurrency"

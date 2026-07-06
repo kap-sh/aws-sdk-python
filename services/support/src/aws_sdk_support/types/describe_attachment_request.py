@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.attachment_id
 
 
-class DescribeAttachmentRequest(TypedDict):
+class DescribeAttachmentRequest(TypedDict, closed=True):
     attachment_id: "aws_sdk_support.types.attachment_id.AttachmentId"
     """<p>The ID of the attachment to return. Attachment IDs are returned by the <a>DescribeCommunications</a> operation.</p>"""
 

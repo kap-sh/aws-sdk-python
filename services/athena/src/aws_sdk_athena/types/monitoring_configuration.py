@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.cloud_watch_logging_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.s3_logging_configuration
 
 
-class MonitoringConfiguration(TypedDict):
+class MonitoringConfiguration(TypedDict, closed=True):
     cloud_watch_logging_configuration: NotRequired[
         "aws_sdk_athena.types.cloud_watch_logging_configuration.CloudWatchLoggingConfiguration"
     ]

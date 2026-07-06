@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#TargetGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.ip_address_type
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.vpc_id
 
 
-class TargetGroupSummary(TypedDict):
+class TargetGroupSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_vpc_lattice.types.target_group_id.TargetGroupId"]
     """<p>The ID of the target group.</p>"""
     arn: NotRequired["aws_sdk_vpc_lattice.types.target_group_arn.TargetGroupArn"]

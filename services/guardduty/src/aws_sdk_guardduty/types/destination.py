@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.destination_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     destination_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The unique ID of the publishing destination.</p>"""
     destination_type: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#RunConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_restore_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.sql_run_configurations
 
 
-class RunConfiguration(TypedDict):
+class RunConfiguration(TypedDict, closed=True):
     flink_run_configuration: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.flink_run_configuration.FlinkRunConfiguration"
     ]

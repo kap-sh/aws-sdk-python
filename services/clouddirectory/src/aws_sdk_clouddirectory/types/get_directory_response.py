@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#GetDirectoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.directory
 
 
-class GetDirectoryResponse(TypedDict):
+class GetDirectoryResponse(TypedDict, closed=True):
     directory: "aws_sdk_clouddirectory.types.directory.Directory"
     """<p>Metadata about the directory.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DisallowedFeature``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.pricing_plan_feature_name
     import aws_sdk_wafv2.types.required_pricing_plan_name
 
 
-class DisallowedFeature(TypedDict):
+class DisallowedFeature(TypedDict, closed=True):
     feature: NotRequired[
         "aws_sdk_wafv2.types.pricing_plan_feature_name.PricingPlanFeatureName"
     ]

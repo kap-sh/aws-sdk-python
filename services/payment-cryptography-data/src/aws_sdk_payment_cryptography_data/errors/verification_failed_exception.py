@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#VerificationFailedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.verification_failed_reason
 
 
-class VerificationFailedException_(TypedDict):
+class VerificationFailedException_(TypedDict, closed=True):
     reason: "aws_sdk_payment_cryptography_data.types.verification_failed_reason.VerificationFailedReason"
     """<p>The reason for the exception.</p>"""
     message: "str"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#UpdateMediaStorageConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.resource_arn
 
 
-class UpdateMediaStorageConfigurationInput(TypedDict):
+class UpdateMediaStorageConfigurationInput(TypedDict, closed=True):
     channel_arn: "aws_sdk_kinesis_video.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the channel.</p>"""
     media_storage_configuration: "aws_sdk_kinesis_video.types.media_storage_configuration.MediaStorageConfiguration"

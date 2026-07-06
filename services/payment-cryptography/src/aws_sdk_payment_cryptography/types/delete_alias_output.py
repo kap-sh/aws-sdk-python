@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#DeleteAliasOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAliasOutput(TypedDict):
+class DeleteAliasOutput(TypedDict, closed=True):
     pass
 
 

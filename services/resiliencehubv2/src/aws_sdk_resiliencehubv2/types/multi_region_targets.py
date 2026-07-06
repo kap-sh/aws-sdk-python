@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#MultiRegionTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.multi_region_disaster_recovery_approach
 
 
-class MultiRegionTargets(TypedDict):
+class MultiRegionTargets(TypedDict, closed=True):
     rto_in_minutes: NotRequired["int"]
     """<p>The recovery time objective (RTO) target for multi-Region, in minutes.</p>"""
     rpo_in_minutes: NotRequired["int"]

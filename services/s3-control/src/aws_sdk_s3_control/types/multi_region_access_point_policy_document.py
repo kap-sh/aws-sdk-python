@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#MultiRegionAccessPointPolicyDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.proposed_multi_region_access_point_policy
 
 
-class MultiRegionAccessPointPolicyDocument(TypedDict):
+class MultiRegionAccessPointPolicyDocument(TypedDict, closed=True):
     established: NotRequired[
         "aws_sdk_s3_control.types.established_multi_region_access_point_policy.EstablishedMultiRegionAccessPointPolicy"
     ]

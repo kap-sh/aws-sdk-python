@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#MoveAddressToVpcResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class MoveAddressToVpcResult(TypedDict):
+class MoveAddressToVpcResult(TypedDict, closed=True):
     allocation_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The allocation ID for the Elastic IP address.</p>"""
     status: NotRequired["aws_sdk_ec2.types.status.Status"]

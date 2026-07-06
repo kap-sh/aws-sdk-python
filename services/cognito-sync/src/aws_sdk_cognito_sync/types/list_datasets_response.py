@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#ListDatasetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.dataset_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.string
 
 
-class ListDatasetsResponse(TypedDict):
+class ListDatasetsResponse(TypedDict, closed=True):
     datasets: NotRequired["aws_sdk_cognito_sync.types.dataset_list.DatasetList"]
     """A set of datasets."""
     count: "aws_sdk_cognito_sync.types.integer.Integer"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#InvalidRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dlm.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.parameter_list
 
 
-class InvalidRequestException_(TypedDict):
+class InvalidRequestException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_dlm.types.error_message.ErrorMessage"]
     code: NotRequired["aws_sdk_dlm.types.error_code.ErrorCode"]
     required_parameters: NotRequired["aws_sdk_dlm.types.parameter_list.ParameterList"]

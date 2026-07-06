@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#Bandwidths``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_interconnect.types.bandwidth_list
 
 
-class Bandwidths(TypedDict):
+class Bandwidths(TypedDict, closed=True):
     available: NotRequired["aws_sdk_interconnect.types.bandwidth_list.BandwidthList"]
     """<p>The list of currently available bandwidths.</p>"""
     supported: NotRequired["aws_sdk_interconnect.types.bandwidth_list.BandwidthList"]

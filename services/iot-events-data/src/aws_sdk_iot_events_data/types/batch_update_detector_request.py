@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchUpdateDetectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.update_detector_requests
 
 
-class BatchUpdateDetectorRequest(TypedDict):
+class BatchUpdateDetectorRequest(TypedDict, closed=True):
     detectors: (
         "aws_sdk_iot_events_data.types.update_detector_requests.UpdateDetectorRequests"
     )

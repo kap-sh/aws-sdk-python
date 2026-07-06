@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteDedicatedIpPoolResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDedicatedIpPoolResponse(TypedDict):
+class DeleteDedicatedIpPoolResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#Metadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.traffic_policy_id
 
 
-class Metadata(TypedDict):
+class Metadata(TypedDict, closed=True):
     timestamp: NotRequired["datetime.datetime"]
     """<p>The timestamp of when the email was received.</p>"""
     ingress_point_id: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PaletteNavigation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
     import aws_sdk_connect.types.theme_string
 
 
-class PaletteNavigation(TypedDict):
+class PaletteNavigation(TypedDict, closed=True):
     background: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]
     """<p>The background color of the navigation area.</p>"""
     text_background_hover: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]

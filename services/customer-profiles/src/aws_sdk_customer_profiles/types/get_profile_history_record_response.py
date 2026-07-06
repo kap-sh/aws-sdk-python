@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetProfileHistoryRecordResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.uuid
 
 
-class GetProfileHistoryRecordResponse(TypedDict):
+class GetProfileHistoryRecordResponse(TypedDict, closed=True):
     id: "aws_sdk_customer_profiles.types.uuid.uuid"
     """<p>The unique identifier of the profile history record.</p>"""
     object_type_name: "aws_sdk_customer_profiles.types.type_name.typeName"

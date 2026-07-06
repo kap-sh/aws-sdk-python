@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LiveViewStream``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_stream_endpoint
 
 
-class LiveViewStream(TypedDict):
+class LiveViewStream(TypedDict, closed=True):
     stream_endpoint: NotRequired[
         "aws_sdk_bedrock_agentcore.types.browser_stream_endpoint.BrowserStreamEndpoint"
     ]

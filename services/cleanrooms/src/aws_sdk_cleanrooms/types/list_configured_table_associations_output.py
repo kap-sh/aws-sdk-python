@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListConfiguredTableAssociationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListConfiguredTableAssociationsOutput(TypedDict):
+class ListConfiguredTableAssociationsOutput(TypedDict, closed=True):
     configured_table_association_summaries: "aws_sdk_cleanrooms.types.configured_table_association_summary_list.ConfiguredTableAssociationSummaryList"
     """<p>The retrieved list of configured table associations.</p>"""
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]

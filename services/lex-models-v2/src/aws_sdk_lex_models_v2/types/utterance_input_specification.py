@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceInputSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_utterance_text
     import aws_sdk_lex_models_v2.types.utterance_audio_input_specification
 
 
-class UtteranceInputSpecification(TypedDict):
+class UtteranceInputSpecification(TypedDict, closed=True):
     text_input: NotRequired[
         "aws_sdk_lex_models_v2.types.test_set_utterance_text.TestSetUtteranceText"
     ]

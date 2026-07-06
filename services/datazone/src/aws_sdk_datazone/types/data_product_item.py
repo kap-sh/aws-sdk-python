@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataProductItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class DataProductItem(TypedDict):
+class DataProductItem(TypedDict, closed=True):
     item_type: "aws_sdk_datazone.types.data_product_item_type.DataProductItemType"
     """<p>The type of the data product.</p>"""
     identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier"

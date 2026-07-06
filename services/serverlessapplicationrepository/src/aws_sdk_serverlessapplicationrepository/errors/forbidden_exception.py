@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ForbiddenException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_serverlessapplicationrepository.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class ForbiddenException_(TypedDict):
+class ForbiddenException_(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

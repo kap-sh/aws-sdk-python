@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StopExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class StopExecutionOutput(TypedDict):
+class StopExecutionOutput(TypedDict, closed=True):
     stop_date: "aws_sdk_sfn.types.timestamp.Timestamp"
     """<p>The date the execution is stopped.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#GetAssessmentReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.url
 
 
-class GetAssessmentReportResponse(TypedDict):
+class GetAssessmentReportResponse(TypedDict, closed=True):
     status: "aws_sdk_inspector.types.report_status.ReportStatus"
     """<p>Specifies the status of the request to generate an assessment report. </p>"""
     url: NotRequired["aws_sdk_inspector.types.url.Url"]

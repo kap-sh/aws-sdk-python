@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#MetadataCatalogDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.catalog_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.string
 
 
-class MetadataCatalogDetail(TypedDict):
+class MetadataCatalogDetail(TypedDict, closed=True):
     catalog_type: NotRequired["aws_sdk_appflow.types.catalog_type.CatalogType"]
     """<p>The type of metadata catalog that Amazon AppFlow used for the associated flow run. This parameter returns the following value:</p> <dl> <dt>GLUE</dt> <dd> <p>The metadata catalog is provided by the Glue Data Catalog. Glue includes the Glue Data Catalog as a component.</p> </dd> </dl>"""
     table_name: NotRequired["aws_sdk_appflow.types.string.String"]

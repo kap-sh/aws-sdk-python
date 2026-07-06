@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#TimeShiftConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
 
 
-class TimeShiftConfiguration(TypedDict):
+class TimeShiftConfiguration(TypedDict, closed=True):
     max_time_delay_seconds: "aws_sdk_mediatailor.types.__integer.__integer"
     """<p> The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds, and the maximum allowed maximum time delay is 21600 seconds (6 hours). </p>"""
 

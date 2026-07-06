@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SnsAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.message_format
 
 
-class SnsAction(TypedDict):
+class SnsAction(TypedDict, closed=True):
     target_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the SNS topic.</p>"""
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#UpdateDomainConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.advanced_options
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.vpc_options
 
 
-class UpdateDomainConfigRequest(TypedDict):
+class UpdateDomainConfigRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain that you're updating.</p>"""
     cluster_config: NotRequired["aws_sdk_opensearch.types.cluster_config.ClusterConfig"]

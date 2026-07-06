@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ParameterMapEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
     import aws_sdk_mturk.types.string_list
 
 
-class ParameterMapEntry(TypedDict):
+class ParameterMapEntry(TypedDict, closed=True):
     key: NotRequired["aws_sdk_mturk.types.string.String"]
     """<p> The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy. </p>"""
     values: NotRequired["aws_sdk_mturk.types.string_list.StringList"]

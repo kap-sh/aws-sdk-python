@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationEventDatasetTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_event_dataset_operation_type
 
 
-class DataIntegrationEventDatasetTargetConfiguration(TypedDict):
+class DataIntegrationEventDatasetTargetConfiguration(TypedDict, closed=True):
     dataset_identifier: "aws_sdk_supplychain.types.data_integration_dataset_arn.DataIntegrationDatasetArn"
     """<p>The datalake dataset ARN identifier.</p>"""
     operation_type: "aws_sdk_supplychain.types.data_integration_event_dataset_operation_type.DataIntegrationEventDatasetOperationType"

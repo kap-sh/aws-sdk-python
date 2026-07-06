@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ValidationException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The request parameters are invalid or malformed. Review the API documentation and correct the request format.</p>"""
 

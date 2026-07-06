@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#UpdateIpAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resource_id
 
 
-class UpdateIpAddress(TypedDict):
+class UpdateIpAddress(TypedDict, closed=True):
     ip_id: "aws_sdk_route53resolver.types.resource_id.ResourceId"
     """<p> The ID of the IP address, specified by the <code>ResolverEndpointId</code>. </p>"""
     ipv6: "aws_sdk_route53resolver.types.ipv6.Ipv6"

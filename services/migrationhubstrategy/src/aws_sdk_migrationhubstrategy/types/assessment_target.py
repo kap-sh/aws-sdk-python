@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AssessmentTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class AssessmentTarget(TypedDict):
+class AssessmentTarget(TypedDict, closed=True):
     condition: "aws_sdk_migrationhubstrategy.types.condition.Condition"
     """<p>Condition of an assessment.</p>"""
     name: "aws_sdk_migrationhubstrategy.types.string.String"

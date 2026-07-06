@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#Hive``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.query
 
 
-class Hive(TypedDict):
+class Hive(TypedDict, closed=True):
     query: "aws_sdk_emr_serverless.types.query.Query"
     """<p>The query for the Hive job run.</p>"""
     init_query_file: NotRequired[

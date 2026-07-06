@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#GetExtensionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.identifier
     import aws_sdk_appconfig.types.integer
 
 
-class GetExtensionRequest(TypedDict):
+class GetExtensionRequest(TypedDict, closed=True):
     extension_identifier: "aws_sdk_appconfig.types.identifier.Identifier"
     """<p>The name, the ID, or the Amazon Resource Name (ARN) of the extension.</p>"""
     version_number: NotRequired["aws_sdk_appconfig.types.integer.Integer"]

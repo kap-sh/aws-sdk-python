@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#AnalyticsS3BucketDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.prefix
 
 
-class AnalyticsS3BucketDestination(TypedDict):
+class AnalyticsS3BucketDestination(TypedDict, closed=True):
     format: (
         "aws_sdk_s3.types.analytics_s3_export_file_format.AnalyticsS3ExportFileFormat"
     )

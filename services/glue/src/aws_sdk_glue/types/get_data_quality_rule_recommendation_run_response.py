@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDataQualityRuleRecommendationRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_ruleset_string
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class GetDataQualityRuleRecommendationRunResponse(TypedDict):
+class GetDataQualityRuleRecommendationRunResponse(TypedDict, closed=True):
     run_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique run identifier associated with this run.</p>"""
     data_source: NotRequired["aws_sdk_glue.types.data_source.DataSource"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#VpcEndpointAssociationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
 
 
-class VpcEndpointAssociationMetadata(TypedDict):
+class VpcEndpointAssociationMetadata(TypedDict, closed=True):
     vpc_endpoint_association_arn: NotRequired[
         "aws_sdk_network_firewall.types.resource_arn.ResourceArn"
     ]

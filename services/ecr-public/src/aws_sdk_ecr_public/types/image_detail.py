@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#ImageDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.image_digest
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.repository_name
 
 
-class ImageDetail(TypedDict):
+class ImageDetail(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr_public.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID that's associated with the public registry where this image belongs.</p>"""
     repository_name: NotRequired[

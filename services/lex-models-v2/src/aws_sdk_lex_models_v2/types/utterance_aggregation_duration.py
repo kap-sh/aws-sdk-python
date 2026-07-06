@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceAggregationDuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.relative_aggregation_duration
 
 
-class UtteranceAggregationDuration(TypedDict):
+class UtteranceAggregationDuration(TypedDict, closed=True):
     relative_aggregation_duration: "aws_sdk_lex_models_v2.types.relative_aggregation_duration.RelativeAggregationDuration"
     """<p>The desired time window for aggregating utterances. </p>"""
 

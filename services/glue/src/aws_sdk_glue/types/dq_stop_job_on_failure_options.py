@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DQStopJobOnFailureOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dq_stop_job_on_failure_timing
 
 
-class DQStopJobOnFailureOptions(TypedDict):
+class DQStopJobOnFailureOptions(TypedDict, closed=True):
     stop_job_on_failure_timing: NotRequired[
         "aws_sdk_glue.types.dq_stop_job_on_failure_timing.DQStopJobOnFailureTiming"
     ]

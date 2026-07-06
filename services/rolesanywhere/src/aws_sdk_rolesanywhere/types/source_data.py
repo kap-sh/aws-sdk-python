@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#SourceData``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError, SerializationError
 
 
-class _SourceData_x509CertificateData(TypedDict):
+class _SourceData_x509CertificateData(TypedDict, closed=True):
     x509CertificateData: "str"
 
 
-class _SourceData_acmPcaArn(TypedDict):
+class _SourceData_acmPcaArn(TypedDict, closed=True):
     acmPcaArn: "str"
 
 

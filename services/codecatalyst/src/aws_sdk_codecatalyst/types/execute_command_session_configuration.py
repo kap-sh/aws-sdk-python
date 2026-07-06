@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ExecuteCommandSessionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.execute_command_session_configuration_arguments
 
 
-class ExecuteCommandSessionConfiguration(TypedDict):
+class ExecuteCommandSessionConfiguration(TypedDict, closed=True):
     command: "str"
     """<p>The command used at the beginning of the SSH session to a Dev Environment.</p>"""
     arguments: NotRequired[

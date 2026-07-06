@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DescribeOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.organization
 
 
-class DescribeOrganizationResponse(TypedDict):
+class DescribeOrganizationResponse(TypedDict, closed=True):
     organization: NotRequired["aws_sdk_organizations.types.organization.Organization"]
     """<p>A structure that contains information about the organization.</p> <important> <p>The <code>AvailablePolicyTypes</code> part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. In the China (Ningxia) Region, no policy type is included. To determine which policy types are enabled in your organization, use the <code> <a>ListRoots</a> </code> operation.</p> </important>"""
 

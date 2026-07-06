@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#CustomerProjectsContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_customer
     import aws_sdk_partnercentral_selling.types.engagement_customer_project_details
 
 
-class CustomerProjectsContext(TypedDict):
+class CustomerProjectsContext(TypedDict, closed=True):
     customer: NotRequired[
         "aws_sdk_partnercentral_selling.types.engagement_customer.EngagementCustomer"
     ]

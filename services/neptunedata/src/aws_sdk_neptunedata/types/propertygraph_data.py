@@ -1,8 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#PropertygraphData``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
@@ -16,6 +14,7 @@ PropertygraphData = TypedDict(
         "from": NotRequired["str"],
         "to": NotRequired["str"],
     },
+    closed=True,
 )
 
 

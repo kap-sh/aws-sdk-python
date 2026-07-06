@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListingSummaryAssociatedEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.product_information
 
 
-class ListingSummaryAssociatedEntity(TypedDict):
+class ListingSummaryAssociatedEntity(TypedDict, closed=True):
     product: NotRequired[
         "aws_sdk_marketplace_discovery.types.product_information.ProductInformation"
     ]

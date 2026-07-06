@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#ComponentMatchScores``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.address_component_match_scores
     import aws_sdk_geo_places.types.match_score
 
 
-class ComponentMatchScores(TypedDict):
+class ComponentMatchScores(TypedDict, closed=True):
     title: "aws_sdk_geo_places.types.match_score.MatchScore"
     """<p>Indicates the match score of the title in the text query that match the found title. </p>"""
     address: NotRequired[

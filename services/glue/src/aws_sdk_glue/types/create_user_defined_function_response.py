@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateUserDefinedFunctionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateUserDefinedFunctionResponse(TypedDict):
+class CreateUserDefinedFunctionResponse(TypedDict, closed=True):
     pass
 
 

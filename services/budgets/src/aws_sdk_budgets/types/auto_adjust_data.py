@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#AutoAdjustData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.historical_options
 
 
-class AutoAdjustData(TypedDict):
+class AutoAdjustData(TypedDict, closed=True):
     auto_adjust_type: "aws_sdk_budgets.types.auto_adjust_type.AutoAdjustType"
     """<p>The string that defines whether your budget auto-adjusts based on historical or forecasted data.</p>"""
     historical_options: NotRequired[

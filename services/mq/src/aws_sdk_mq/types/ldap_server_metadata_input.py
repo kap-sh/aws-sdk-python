@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#LdapServerMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class LdapServerMetadataInput(TypedDict):
+class LdapServerMetadataInput(TypedDict, closed=True):
     hosts: NotRequired["aws_sdk_mq.types.__list_of__string.__listOf__string"]
     """<p>Specifies the location of the LDAP server such as Directory Service for Microsoft Active Directory. Optional failover server.</p>"""
     role_base: NotRequired["aws_sdk_mq.types.__string.__string"]

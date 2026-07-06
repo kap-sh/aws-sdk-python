@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CreateAccountStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.timestamp
 
 
-class CreateAccountStatus(TypedDict):
+class CreateAccountStatus(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_organizations.types.create_account_request_id.CreateAccountRequestId"
     ]

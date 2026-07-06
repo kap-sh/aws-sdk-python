@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateDistributionTenantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.tags
 
 
-class CreateDistributionTenantRequest(TypedDict):
+class CreateDistributionTenantRequest(TypedDict, closed=True):
     distribution_id: "aws_sdk_cloudfront.types.string.string"
     """<p>The ID of the multi-tenant distribution to use for creating the distribution tenant.</p>"""
     name: "aws_sdk_cloudfront.types.string.string"

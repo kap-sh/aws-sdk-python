@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KeyPairCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.private_key_passphrase
 
 
-class KeyPairCredentials(TypedDict):
+class KeyPairCredentials(TypedDict, closed=True):
     key_pair_username: "aws_sdk_quicksight.types.db_username.DbUsername"
     """<p>Username</p>"""
     private_key: "aws_sdk_quicksight.types.private_key.PrivateKey"

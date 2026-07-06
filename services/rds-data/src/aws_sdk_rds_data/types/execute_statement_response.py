@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ExecuteStatementResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.field_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.sql_records
 
 
-class ExecuteStatementResponse(TypedDict):
+class ExecuteStatementResponse(TypedDict, closed=True):
     records: NotRequired["aws_sdk_rds_data.types.sql_records.SqlRecords"]
     """<p>The records returned by the SQL statement. This field is blank if the <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>"""
     column_metadata: NotRequired["aws_sdk_rds_data.types.metadata.Metadata"]

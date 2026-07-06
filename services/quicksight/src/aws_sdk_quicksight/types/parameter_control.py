@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ParameterControl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.parameter_date_time_picker_control
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.parameter_text_field_control
 
 
-class ParameterControl(TypedDict):
+class ParameterControl(TypedDict, closed=True):
     date_time_picker: NotRequired[
         "aws_sdk_quicksight.types.parameter_date_time_picker_control.ParameterDateTimePickerControl"
     ]

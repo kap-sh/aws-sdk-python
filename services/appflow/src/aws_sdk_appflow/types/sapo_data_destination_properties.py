@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.write_operation_type
 
 
-class SAPODataDestinationProperties(TypedDict):
+class SAPODataDestinationProperties(TypedDict, closed=True):
     object_path: "aws_sdk_appflow.types.object.Object"
     """<p>The object path specified in the SAPOData flow destination.</p>"""
     success_response_handling_config: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#JoinInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.on_clause
 
 
-class JoinInstruction(TypedDict):
+class JoinInstruction(TypedDict, closed=True):
     left_operand: "aws_sdk_quicksight.types.logical_table_id.LogicalTableId"
     """<p>The operand on the left side of a join.</p>"""
     right_operand: "aws_sdk_quicksight.types.logical_table_id.LogicalTableId"

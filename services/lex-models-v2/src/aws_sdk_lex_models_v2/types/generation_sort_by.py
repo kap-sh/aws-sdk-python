@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#GenerationSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sort_order
 
 
-class GenerationSortBy(TypedDict):
+class GenerationSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.generation_sort_by_attribute.GenerationSortByAttribute"
     """<p>The attribute by which to sort the generation request information. You can sort by the following attributes.</p> <ul> <li> <p> <code>creationStartTime</code> – The time at which the generation request was created.</p> </li> <li> <p> <code>lastUpdatedTime</code> – The time at which the generation request was last updated.</p> </li> </ul>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

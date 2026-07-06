@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.available_mac_sec_port_speeds
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.region
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     location_code: NotRequired[
         "aws_sdk_direct_connect.types.location_code.LocationCode"
     ]

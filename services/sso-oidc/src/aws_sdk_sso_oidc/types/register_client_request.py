@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#RegisterClientRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_oidc.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.uri
 
 
-class RegisterClientRequest(TypedDict):
+class RegisterClientRequest(TypedDict, closed=True):
     client_name: "aws_sdk_sso_oidc.types.client_name.ClientName"
     """<p>The friendly name of the client.</p>"""
     client_type: "aws_sdk_sso_oidc.types.client_type.ClientType"

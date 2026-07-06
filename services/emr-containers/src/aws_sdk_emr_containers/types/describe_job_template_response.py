@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DescribeJobTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.job_template
 
 
-class DescribeJobTemplateResponse(TypedDict):
+class DescribeJobTemplateResponse(TypedDict, closed=True):
     job_template: NotRequired["aws_sdk_emr_containers.types.job_template.JobTemplate"]
     """<p>This output displays information about the specified job template.</p>"""
 

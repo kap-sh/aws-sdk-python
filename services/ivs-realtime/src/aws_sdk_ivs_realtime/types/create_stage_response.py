@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CreateStageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.participant_token_list
     import aws_sdk_ivs_realtime.types.stage
 
 
-class CreateStageResponse(TypedDict):
+class CreateStageResponse(TypedDict, closed=True):
     stage: NotRequired["aws_sdk_ivs_realtime.types.stage.Stage"]
     """<p>The stage that was created.</p>"""
     participant_tokens: NotRequired[

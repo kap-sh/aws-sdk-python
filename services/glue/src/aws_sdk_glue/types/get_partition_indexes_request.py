@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetPartitionIndexesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.token
 
 
-class GetPartitionIndexesRequest(TypedDict):
+class GetPartitionIndexesRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The catalog ID where the table resides.</p>"""
     database_name: "aws_sdk_glue.types.name_string.NameString"

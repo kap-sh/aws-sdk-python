@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ResetUserPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.user_password
 
 
-class ResetUserPasswordRequest(TypedDict):
+class ResetUserPasswordRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</p>"""
     user_name: "aws_sdk_directory_service.types.customer_user_name.CustomerUserName"

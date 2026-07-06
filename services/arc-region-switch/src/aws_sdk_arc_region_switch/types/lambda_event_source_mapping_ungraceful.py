@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#LambdaEventSourceMappingUngraceful``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.lambda_event_source_mapping_ungraceful_behavior
 
 
-class LambdaEventSourceMappingUngraceful(TypedDict):
+class LambdaEventSourceMappingUngraceful(TypedDict, closed=True):
     behavior: "aws_sdk_arc_region_switch.types.lambda_event_source_mapping_ungraceful_behavior.LambdaEventSourceMappingUngracefulBehavior"
     """<p>Set to <code>skip</code> to skip executing this event source mapping step during an ungraceful execution.</p>"""
 

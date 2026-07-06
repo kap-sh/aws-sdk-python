@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#Promotion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.percent_promoted_items
 
 
-class Promotion(TypedDict):
+class Promotion(TypedDict, closed=True):
     name: NotRequired["aws_sdk_personalize_runtime.types.name.Name"]
     """<p>The name of the promotion.</p>"""
     percent_promoted_items: NotRequired[

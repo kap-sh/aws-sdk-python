@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#TransportableTablespace``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TransportableTablespace(TypedDict):
+class TransportableTablespace(TypedDict, closed=True):
     tts_bundle_url: NotRequired["str"]
     """<p>The URL of the transportable tablespace bundle to use when creating the Autonomous Database.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#SageMakerPipelineParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.sage_maker_pipeline_parameter_list
 
 
-class SageMakerPipelineParameters(TypedDict):
+class SageMakerPipelineParameters(TypedDict, closed=True):
     pipeline_parameter_list: NotRequired[
         "aws_sdk_cloudwatch_events.types.sage_maker_pipeline_parameter_list.SageMakerPipelineParameterList"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetVariantStoreRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetVariantStoreRequest(TypedDict):
+class GetVariantStoreRequest(TypedDict, closed=True):
     name: "str"
     """<p>The store's name.</p>"""
 

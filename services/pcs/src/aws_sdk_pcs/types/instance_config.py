@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#InstanceConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class InstanceConfig(TypedDict):
+class InstanceConfig(TypedDict, closed=True):
     instance_type: NotRequired["str"]
     """<p>The EC2 instance type that PCS can provision in the compute node group.</p> <p> Example: <code>t2.xlarge</code> </p>"""
 

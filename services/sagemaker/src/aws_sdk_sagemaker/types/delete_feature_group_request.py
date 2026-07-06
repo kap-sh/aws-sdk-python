@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteFeatureGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_group_name
 
 
-class DeleteFeatureGroupRequest(TypedDict):
+class DeleteFeatureGroupRequest(TypedDict, closed=True):
     feature_group_name: NotRequired[
         "aws_sdk_sagemaker.types.feature_group_name.FeatureGroupName"
     ]

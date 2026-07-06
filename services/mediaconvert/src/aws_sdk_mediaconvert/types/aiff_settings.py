@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AiffSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max64
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min8000_max192000
 
 
-class AiffSettings(TypedDict):
+class AiffSettings(TypedDict, closed=True):
     bit_depth: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min16_max24.__integerMin16Max24"
     ]

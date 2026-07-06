@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#UpdateArchiveRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.retention_days
 
 
-class UpdateArchiveRequest(TypedDict):
+class UpdateArchiveRequest(TypedDict, closed=True):
     archive_name: "aws_sdk_cloudwatch_events.types.archive_name.ArchiveName"
     """<p>The name of the archive to update.</p>"""
     description: NotRequired[

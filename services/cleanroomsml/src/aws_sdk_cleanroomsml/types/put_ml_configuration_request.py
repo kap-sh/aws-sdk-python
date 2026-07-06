@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#PutMLConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class PutMLConfigurationRequest(TypedDict):
+class PutMLConfigurationRequest(TypedDict, closed=True):
     membership_identifier: "aws_sdk_cleanroomsml.types.uuid.UUID"
     """<p>The membership ID of the member that is being configured.</p>"""
     default_output_location: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ClientAuthenticationSettingInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.client_authentication_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.last_updated_date_time
 
 
-class ClientAuthenticationSettingInfo(TypedDict):
+class ClientAuthenticationSettingInfo(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_directory_service.types.client_authentication_type.ClientAuthenticationType"
     ]

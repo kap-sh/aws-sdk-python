@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance
     import aws_sdk_connect.types.replication_configuration
 
 
-class DescribeInstanceResponse(TypedDict):
+class DescribeInstanceResponse(TypedDict, closed=True):
     instance: NotRequired["aws_sdk_connect.types.instance.Instance"]
     """<p>The name of the instance.</p>"""
     replication_configuration: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#PrivateKeyAttributesV4``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.private_key_algorithm
 
 
-class PrivateKeyAttributesV4(TypedDict):
+class PrivateKeyAttributesV4(TypedDict, closed=True):
     minimal_key_length: "int"
     """<p>Set the minimum key length of the private key.</p>"""
     key_spec: "aws_sdk_pca_connector_ad.types.key_spec.KeySpec"

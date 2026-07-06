@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ContainerLogRotationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.rotation_size
 
 
-class ContainerLogRotationConfiguration(TypedDict):
+class ContainerLogRotationConfiguration(TypedDict, closed=True):
     rotation_size: "aws_sdk_emr_containers.types.rotation_size.RotationSize"
     """<p>The file size at which to rotate logs. Minimum of 2KB, Maximum of 2GB.</p>"""
     max_files_to_keep: "aws_sdk_emr_containers.types.max_files_to_keep.MaxFilesToKeep"

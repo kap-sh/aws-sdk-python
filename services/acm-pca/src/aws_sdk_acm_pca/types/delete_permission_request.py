@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#DeletePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.principal
 
 
-class DeletePermissionRequest(TypedDict):
+class DeletePermissionRequest(TypedDict, closed=True):
     certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn"
     r"""<p>The Amazon Resource Number (ARN) of the private CA that issued the permissions. You can find the CA's ARN by calling the <a href=\"https://docs.aws.amazon.com/privateca/latest/APIReference/API_ListCertificateAuthorities.html\">ListCertificateAuthorities</a> action. This must have the following form: </p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i> </code>. </p>"""
     principal: "aws_sdk_acm_pca.types.principal.Principal"

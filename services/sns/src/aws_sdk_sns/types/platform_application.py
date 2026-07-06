@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#PlatformApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class PlatformApplication(TypedDict):
+class PlatformApplication(TypedDict, closed=True):
     platform_application_arn: NotRequired["aws_sdk_sns.types.string.String"]
     """<p>PlatformApplicationArn for platform application object.</p>"""
     attributes: NotRequired["aws_sdk_sns.types.map_string_to_string.MapStringToString"]

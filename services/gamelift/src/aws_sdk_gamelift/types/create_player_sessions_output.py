@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreatePlayerSessionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.player_session_list
 
 
-class CreatePlayerSessionsOutput(TypedDict):
+class CreatePlayerSessionsOutput(TypedDict, closed=True):
     player_sessions: NotRequired[
         "aws_sdk_gamelift.types.player_session_list.PlayerSessionList"
     ]

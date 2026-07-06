@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateTimeToLiveInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.time_to_live_specification
 
 
-class UpdateTimeToLiveInput(TypedDict):
+class UpdateTimeToLiveInput(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>"""
     time_to_live_specification: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#SensorStatisticsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class SensorStatisticsSummary(TypedDict):
+class SensorStatisticsSummary(TypedDict, closed=True):
     component_name: NotRequired[
         "aws_sdk_lookoutequipment.types.component_name.ComponentName"
     ]

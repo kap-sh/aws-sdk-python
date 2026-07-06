@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.security_group_ids
     import aws_sdk_omics.types.subnet_ids
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     security_group_ids: NotRequired[
         "aws_sdk_omics.types.security_group_ids.SecurityGroupIds"
     ]

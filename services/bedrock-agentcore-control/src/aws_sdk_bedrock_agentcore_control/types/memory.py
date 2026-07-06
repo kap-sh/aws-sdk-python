@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Memory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.stream_delivery_resources
 
 
-class Memory(TypedDict):
+class Memory(TypedDict, closed=True):
     arn: "aws_sdk_bedrock_agentcore_control.types.memory_arn.MemoryArn"
     """<p>The Amazon Resource Name (ARN) of the memory.</p>"""
     id: "aws_sdk_bedrock_agentcore_control.types.memory_id.MemoryId"

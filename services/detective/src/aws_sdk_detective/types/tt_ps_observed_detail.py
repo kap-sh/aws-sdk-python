@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#TTPsObservedDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.api_failure_count
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.technique
 
 
-class TTPsObservedDetail(TypedDict):
+class TTPsObservedDetail(TypedDict, closed=True):
     tactic: NotRequired["aws_sdk_detective.types.tactic.Tactic"]
     """<p>The tactic used, identified by the investigation.</p>"""
     technique: NotRequired["aws_sdk_detective.types.technique.Technique"]

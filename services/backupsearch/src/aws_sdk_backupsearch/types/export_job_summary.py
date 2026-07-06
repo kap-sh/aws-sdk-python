@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ExportJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.search_job_arn
 
 
-class ExportJobSummary(TypedDict):
+class ExportJobSummary(TypedDict, closed=True):
     export_job_identifier: "aws_sdk_backupsearch.types.generic_id.GenericId"
     """<p>This is the unique string that identifies a specific export job.</p>"""
     export_job_arn: NotRequired[

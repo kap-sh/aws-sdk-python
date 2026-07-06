@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Match``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Match(TypedDict):
+class Match(TypedDict, closed=True):
     target_frames_index: NotRequired["int"]
     """<p>The target frame that triggered a match.</p>"""
     frame_address: NotRequired["str"]

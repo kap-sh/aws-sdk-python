@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#MappingRule``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
 
-class MappingRule(TypedDict):
+class MappingRule(TypedDict, closed=True):
     specifier: "str"
     """<p>Specifier within a certificate field, such as CN, OU, or UID from the Subject field.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IdCConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.id_c_application_arn
     import aws_sdk_securityagent.types.id_c_instance_arn
 
 
-class IdCConfiguration(TypedDict):
+class IdCConfiguration(TypedDict, closed=True):
     idc_application_arn: NotRequired[
         "aws_sdk_securityagent.types.id_c_application_arn.IdCApplicationArn"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#BaseKpiResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_result_row
 
 
-class BaseKpiResult(TypedDict):
+class BaseKpiResult(TypedDict, closed=True):
     rows: NotRequired["aws_sdk_pinpoint.types.list_of_result_row.ListOfResultRow"]
     """<p>An array of objects that provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.</p>"""
 

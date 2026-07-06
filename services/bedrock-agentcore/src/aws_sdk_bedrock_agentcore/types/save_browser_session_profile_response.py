@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SaveBrowserSessionProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.date_timestamp
 
 
-class SaveBrowserSessionProfileResponse(TypedDict):
+class SaveBrowserSessionProfileResponse(TypedDict, closed=True):
     profile_identifier: (
         "aws_sdk_bedrock_agentcore.types.browser_profile_id.BrowserProfileId"
     )

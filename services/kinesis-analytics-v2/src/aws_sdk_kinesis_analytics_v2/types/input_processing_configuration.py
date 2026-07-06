@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#InputProcessingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.input_lambda_processor
 
 
-class InputProcessingConfiguration(TypedDict):
+class InputProcessingConfiguration(TypedDict, closed=True):
     input_lambda_processor: (
         "aws_sdk_kinesis_analytics_v2.types.input_lambda_processor.InputLambdaProcessor"
     )

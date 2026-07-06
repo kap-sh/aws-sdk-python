@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#MetadataTransferJobProgress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.integer
 
 
-class MetadataTransferJobProgress(TypedDict):
+class MetadataTransferJobProgress(TypedDict, closed=True):
     total_count: NotRequired["aws_sdk_iottwinmaker.types.integer.Integer"]
     """<p>The total count. [of what]</p>"""
     succeeded_count: NotRequired["aws_sdk_iottwinmaker.types.integer.Integer"]

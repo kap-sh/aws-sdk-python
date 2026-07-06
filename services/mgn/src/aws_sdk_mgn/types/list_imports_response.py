@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListImportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.import_list
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListImportsResponse(TypedDict):
+class ListImportsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mgn.types.import_list.ImportList"]
     """<p>List import response items.</p>"""
     next_token: NotRequired["aws_sdk_mgn.types.pagination_token.PaginationToken"]

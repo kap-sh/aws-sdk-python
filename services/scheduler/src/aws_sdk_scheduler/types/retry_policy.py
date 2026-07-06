@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#RetryPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.maximum_event_age_in_seconds
     import aws_sdk_scheduler.types.maximum_retry_attempts
 
 
-class RetryPolicy(TypedDict):
+class RetryPolicy(TypedDict, closed=True):
     maximum_event_age_in_seconds: NotRequired[
         "aws_sdk_scheduler.types.maximum_event_age_in_seconds.MaximumEventAgeInSeconds"
     ]

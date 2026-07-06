@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#S3AccessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.access_log_location
 
 
-class S3AccessConfig(TypedDict):
+class S3AccessConfig(TypedDict, closed=True):
     access_log_location: NotRequired[
         "aws_sdk_omics.types.access_log_location.AccessLogLocation"
     ]

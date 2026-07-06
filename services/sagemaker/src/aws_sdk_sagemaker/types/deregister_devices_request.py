@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeregisterDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.device_names
     import aws_sdk_sagemaker.types.entity_name
 
 
-class DeregisterDevicesRequest(TypedDict):
+class DeregisterDevicesRequest(TypedDict, closed=True):
     device_fleet_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the fleet the devices belong to.</p>"""
     device_names: NotRequired["aws_sdk_sagemaker.types.device_names.DeviceNames"]

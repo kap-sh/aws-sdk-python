@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ChatEntryPointParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_id
 
 
-class ChatEntryPointParameters(TypedDict):
+class ChatEntryPointParameters(TypedDict, closed=True):
     flow_id: NotRequired["aws_sdk_connect.types.contact_flow_id.ContactFlowId"]
     """<p>The flow identifier for the test.</p>"""
 

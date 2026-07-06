@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListMailDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.mail_domains
     import aws_sdk_workmail.types.next_token
 
 
-class ListMailDomainsResponse(TypedDict):
+class ListMailDomainsResponse(TypedDict, closed=True):
     mail_domains: NotRequired["aws_sdk_workmail.types.mail_domains.MailDomains"]
     """<p>The list of mail domain summaries, specifying domains that exist in the specified WorkMail organization, along with the information about whether the domain is or isn't the default.</p>"""
     next_token: NotRequired["aws_sdk_workmail.types.next_token.NextToken"]

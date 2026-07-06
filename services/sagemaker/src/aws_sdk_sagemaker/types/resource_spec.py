@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ResourceSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_instance_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.studio_resource_spec_training_plan_arn
 
 
-class ResourceSpec(TypedDict):
+class ResourceSpec(TypedDict, closed=True):
     sage_maker_image_arn: NotRequired["aws_sdk_sagemaker.types.image_arn.ImageArn"]
     """<p>The ARN of the SageMaker AI image that the image version belongs to.</p>"""
     sage_maker_image_version_arn: NotRequired[

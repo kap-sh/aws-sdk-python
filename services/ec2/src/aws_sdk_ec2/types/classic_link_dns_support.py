@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ClassicLinkDnsSupport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ClassicLinkDnsSupport(TypedDict):
+class ClassicLinkDnsSupport(TypedDict, closed=True):
     classic_link_dns_supported: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether ClassicLink DNS support is enabled for the VPC.</p>"""
     vpc_id: NotRequired["aws_sdk_ec2.types.string.String"]

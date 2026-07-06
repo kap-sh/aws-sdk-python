@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListQueriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.query_status
 
 
-class ListQueriesRequest(TypedDict):
+class ListQueriesRequest(TypedDict, closed=True):
     event_data_store: "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     """<p>The ARN (or the ID suffix of the ARN) of an event data store on which queries were run.</p>"""
     next_token: NotRequired["aws_sdk_cloudtrail.types.pagination_token.PaginationToken"]

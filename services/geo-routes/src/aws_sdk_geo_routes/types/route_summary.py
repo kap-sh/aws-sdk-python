@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_toll_summary
 
 
-class RouteSummary(TypedDict):
+class RouteSummary(TypedDict, closed=True):
     distance: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"
     """<p>Distance of the route.</p>"""
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#SpliceInsertMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
 
 
-class SpliceInsertMessage(TypedDict):
+class SpliceInsertMessage(TypedDict, closed=True):
     avail_num: NotRequired["aws_sdk_mediatailor.types.__integer.__integer"]
     """<p>This is written to <code>splice_insert.avail_num</code>, as defined in section 9.7.3.1 of the SCTE-35 specification. The default value is <code>0</code>. Values must be between <code>0</code> and <code>256</code>, inclusive.</p>"""
     avails_expected: NotRequired["aws_sdk_mediatailor.types.__integer.__integer"]

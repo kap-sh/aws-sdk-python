@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#StartPolicyGenerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.policy_generation_details
 
 
-class StartPolicyGenerationRequest(TypedDict):
+class StartPolicyGenerationRequest(TypedDict, closed=True):
     policy_generation_details: (
         "aws_sdk_accessanalyzer.types.policy_generation_details.PolicyGenerationDetails"
     )

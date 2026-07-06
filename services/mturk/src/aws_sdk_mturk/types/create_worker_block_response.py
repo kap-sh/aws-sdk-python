@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateWorkerBlockResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateWorkerBlockResponse(TypedDict):
+class CreateWorkerBlockResponse(TypedDict, closed=True):
     pass
 
 

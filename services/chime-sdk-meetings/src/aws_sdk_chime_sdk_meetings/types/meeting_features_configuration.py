@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#MeetingFeaturesConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.attendee_features
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.video_features
 
 
-class MeetingFeaturesConfiguration(TypedDict):
+class MeetingFeaturesConfiguration(TypedDict, closed=True):
     audio: NotRequired["aws_sdk_chime_sdk_meetings.types.audio_features.AudioFeatures"]
     """<p>The configuration settings for the audio features available to a meeting.</p>"""
     video: NotRequired["aws_sdk_chime_sdk_meetings.types.video_features.VideoFeatures"]

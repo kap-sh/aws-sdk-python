@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetMemberResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.member
 
 
-class GetMemberResponse(TypedDict):
+class GetMemberResponse(TypedDict, closed=True):
     member: NotRequired["aws_sdk_inspector2.types.member.Member"]
     """<p>Details of the retrieved member account.</p>"""
 

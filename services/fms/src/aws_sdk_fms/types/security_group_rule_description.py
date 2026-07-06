@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#SecurityGroupRuleDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.cidr
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_id
 
 
-class SecurityGroupRuleDescription(TypedDict):
+class SecurityGroupRuleDescription(TypedDict, closed=True):
     ipv4_range: NotRequired["aws_sdk_fms.types.cidr.CIDR"]
     """<p>The IPv4 ranges for the security group rule.</p>"""
     ipv6_range: NotRequired["aws_sdk_fms.types.cidr.CIDR"]

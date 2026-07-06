@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LineageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.association_info_list
     import aws_sdk_sagemaker.types.map_string2048
 
 
-class LineageMetadata(TypedDict):
+class LineageMetadata(TypedDict, closed=True):
     action_arns: NotRequired["aws_sdk_sagemaker.types.map_string2048.MapString2048"]
     """<p> The Amazon Resource Name (ARN) of the lineage action. </p>"""
     artifact_arns: NotRequired["aws_sdk_sagemaker.types.map_string2048.MapString2048"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DecryptStepDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_step_name
 
 
-class DecryptStepDetails(TypedDict):
+class DecryptStepDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_transfer.types.workflow_step_name.WorkflowStepName"]
     """<p>The name of the step, used as an identifier.</p>"""
     type: "aws_sdk_transfer.types.encryption_type.EncryptionType"

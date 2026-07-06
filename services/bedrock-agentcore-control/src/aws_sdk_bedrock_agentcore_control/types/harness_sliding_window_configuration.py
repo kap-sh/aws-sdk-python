@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessSlidingWindowConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class HarnessSlidingWindowConfiguration(TypedDict):
+class HarnessSlidingWindowConfiguration(TypedDict, closed=True):
     messages_count: NotRequired["int"]
     """<p>The number of recent messages to retain in the context window.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CreatePatchBaselineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.tag_list
 
 
-class CreatePatchBaselineRequest(TypedDict):
+class CreatePatchBaselineRequest(TypedDict, closed=True):
     operating_system: NotRequired["aws_sdk_ssm.types.operating_system.OperatingSystem"]
     """<p>Defines the operating system the patch baseline applies to. The default value is <code>WINDOWS</code>.</p>"""
     name: "aws_sdk_ssm.types.baseline_name.BaselineName"

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteEnvironmentActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.environment_id
 
 
-class DeleteEnvironmentActionInput(TypedDict):
+class DeleteEnvironmentActionInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which an environment action is deleted.</p>"""
     environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId"

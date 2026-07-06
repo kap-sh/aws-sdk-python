@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#QueryConstraint``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.query_constraint_require_overlap
 
 
-class _QueryConstraint_requireOverlap(TypedDict):
+class _QueryConstraint_requireOverlap(TypedDict, closed=True):
     requireOverlap: "aws_sdk_cleanrooms.types.query_constraint_require_overlap.QueryConstraintRequireOverlap"
 
 

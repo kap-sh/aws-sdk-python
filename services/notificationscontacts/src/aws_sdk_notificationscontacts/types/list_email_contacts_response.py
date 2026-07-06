@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#ListEmailContactsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notificationscontacts.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.email_contacts
 
 
-class ListEmailContactsResponse(TypedDict):
+class ListEmailContactsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>"""
     email_contacts: "aws_sdk_notificationscontacts.types.email_contacts.EmailContacts"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#LicenseEndpointSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.license_endpoint_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.vpc_id
 
 
-class LicenseEndpointSummary(TypedDict):
+class LicenseEndpointSummary(TypedDict, closed=True):
     license_endpoint_id: NotRequired[
         "aws_sdk_deadline.types.license_endpoint_id.LicenseEndpointId"
     ]

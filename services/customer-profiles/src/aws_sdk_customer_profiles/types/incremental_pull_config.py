@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#IncrementalPullConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.datetime_type_field_name
 
 
-class IncrementalPullConfig(TypedDict):
+class IncrementalPullConfig(TypedDict, closed=True):
     datetime_type_field_name: NotRequired[
         "aws_sdk_customer_profiles.types.datetime_type_field_name.DatetimeTypeFieldName"
     ]

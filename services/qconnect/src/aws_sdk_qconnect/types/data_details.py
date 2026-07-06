@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DataDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -19,57 +21,57 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.suggested_message_data_details
 
 
-class _DataDetails_contentData(TypedDict):
+class _DataDetails_contentData(TypedDict, closed=True):
     contentData: "aws_sdk_qconnect.types.content_data_details.ContentDataDetails"
 
 
-class _DataDetails_generativeData(TypedDict):
+class _DataDetails_generativeData(TypedDict, closed=True):
     generativeData: (
         "aws_sdk_qconnect.types.generative_data_details.GenerativeDataDetails"
     )
 
 
-class _DataDetails_intentDetectedData(TypedDict):
+class _DataDetails_intentDetectedData(TypedDict, closed=True):
     intentDetectedData: (
         "aws_sdk_qconnect.types.intent_detected_data_details.IntentDetectedDataDetails"
     )
 
 
-class _DataDetails_sourceContentData(TypedDict):
+class _DataDetails_sourceContentData(TypedDict, closed=True):
     sourceContentData: (
         "aws_sdk_qconnect.types.source_content_data_details.SourceContentDataDetails"
     )
 
 
-class _DataDetails_generativeChunkData(TypedDict):
+class _DataDetails_generativeChunkData(TypedDict, closed=True):
     generativeChunkData: "aws_sdk_qconnect.types.generative_chunk_data_details.GenerativeChunkDataDetails"
 
 
-class _DataDetails_emailResponseChunkData(TypedDict):
+class _DataDetails_emailResponseChunkData(TypedDict, closed=True):
     emailResponseChunkData: "aws_sdk_qconnect.types.email_response_chunk_data_details.EmailResponseChunkDataDetails"
 
 
-class _DataDetails_emailOverviewChunkData(TypedDict):
+class _DataDetails_emailOverviewChunkData(TypedDict, closed=True):
     emailOverviewChunkData: "aws_sdk_qconnect.types.email_overview_chunk_data_details.EmailOverviewChunkDataDetails"
 
 
-class _DataDetails_emailGenerativeAnswerChunkData(TypedDict):
+class _DataDetails_emailGenerativeAnswerChunkData(TypedDict, closed=True):
     emailGenerativeAnswerChunkData: "aws_sdk_qconnect.types.email_generative_answer_chunk_data_details.EmailGenerativeAnswerChunkDataDetails"
 
 
-class _DataDetails_caseSummarizationChunkData(TypedDict):
+class _DataDetails_caseSummarizationChunkData(TypedDict, closed=True):
     caseSummarizationChunkData: "aws_sdk_qconnect.types.case_summarization_chunk_data_details.CaseSummarizationChunkDataDetails"
 
 
-class _DataDetails_suggestedMessageData(TypedDict):
+class _DataDetails_suggestedMessageData(TypedDict, closed=True):
     suggestedMessageData: "aws_sdk_qconnect.types.suggested_message_data_details.SuggestedMessageDataDetails"
 
 
-class _DataDetails_notesData(TypedDict):
+class _DataDetails_notesData(TypedDict, closed=True):
     notesData: "aws_sdk_qconnect.types.notes_data_details.NotesDataDetails"
 
 
-class _DataDetails_notesChunkData(TypedDict):
+class _DataDetails_notesChunkData(TypedDict, closed=True):
     notesChunkData: (
         "aws_sdk_qconnect.types.notes_chunk_data_details.NotesChunkDataDetails"
     )

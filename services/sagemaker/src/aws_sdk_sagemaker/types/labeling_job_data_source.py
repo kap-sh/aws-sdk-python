@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LabelingJobDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.labeling_job_s3_data_source
     import aws_sdk_sagemaker.types.labeling_job_sns_data_source
 
 
-class LabelingJobDataSource(TypedDict):
+class LabelingJobDataSource(TypedDict, closed=True):
     s3_data_source: NotRequired[
         "aws_sdk_sagemaker.types.labeling_job_s3_data_source.LabelingJobS3DataSource"
     ]

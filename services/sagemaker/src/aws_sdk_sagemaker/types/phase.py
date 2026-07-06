@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Phase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.initial_number_of_users
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.traffic_duration_in_seconds
 
 
-class Phase(TypedDict):
+class Phase(TypedDict, closed=True):
     initial_number_of_users: NotRequired[
         "aws_sdk_sagemaker.types.initial_number_of_users.InitialNumberOfUsers"
     ]

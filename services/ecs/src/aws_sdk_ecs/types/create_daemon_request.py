@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CreateDaemonRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class CreateDaemonRequest(TypedDict):
+class CreateDaemonRequest(TypedDict, closed=True):
     daemon_name: "aws_sdk_ecs.types.string.String"
     """<p>The name of the daemon. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed.</p>"""
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]

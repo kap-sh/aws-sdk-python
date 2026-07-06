@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#UpdateProxyRulePrioritiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.proxy_rule_priority_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.update_token
 
 
-class UpdateProxyRulePrioritiesResponse(TypedDict):
+class UpdateProxyRulePrioritiesResponse(TypedDict, closed=True):
     proxy_rule_group_name: NotRequired[
         "aws_sdk_network_firewall.types.resource_name.ResourceName"
     ]

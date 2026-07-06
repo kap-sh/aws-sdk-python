@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#DescribeOriginEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.tags
 
 
-class DescribeOriginEndpointResponse(TypedDict):
+class DescribeOriginEndpointResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """The Amazon Resource Name (ARN) assigned to the OriginEndpoint."""
     authorization: NotRequired["aws_sdk_mediapackage.types.authorization.Authorization"]

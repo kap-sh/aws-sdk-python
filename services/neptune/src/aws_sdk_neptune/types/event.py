@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.t_stamp
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     source_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>Provides the identifier for the source of the event.</p>"""
     source_type: NotRequired["aws_sdk_neptune.types.source_type.SourceType"]

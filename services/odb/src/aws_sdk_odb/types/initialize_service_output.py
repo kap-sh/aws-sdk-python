@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#InitializeServiceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InitializeServiceOutput(TypedDict):
+class InitializeServiceOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#CompositeSliConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.selection_config
 
 
-class CompositeSliConfig(TypedDict):
+class CompositeSliConfig(TypedDict, closed=True):
     selection_config: (
         "aws_sdk_application_signals.types.selection_config.SelectionConfig"
     )

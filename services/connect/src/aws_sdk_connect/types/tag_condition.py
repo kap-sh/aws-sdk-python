@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TagCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class TagCondition(TypedDict):
+class TagCondition(TypedDict, closed=True):
     tag_key: NotRequired["aws_sdk_connect.types.string.String"]
     """<p>The tag key in the tag condition.</p>"""
     tag_value: NotRequired["aws_sdk_connect.types.string.String"]

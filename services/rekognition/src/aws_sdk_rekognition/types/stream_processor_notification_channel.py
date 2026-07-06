@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessorNotificationChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.sns_topic_arn
 
 
-class StreamProcessorNotificationChannel(TypedDict):
+class StreamProcessorNotificationChannel(TypedDict, closed=True):
     sns_topic_arn: "aws_sdk_rekognition.types.sns_topic_arn.SNSTopicArn"
     """<p> The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status. </p>"""
 

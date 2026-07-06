@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateEgressGatewayBridgeRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UpdateEgressGatewayBridgeRequest(TypedDict):
+class UpdateEgressGatewayBridgeRequest(TypedDict, closed=True):
     max_bitrate: NotRequired["int"]
     """<p>The maximum expected bitrate (in bps). </p>"""
 

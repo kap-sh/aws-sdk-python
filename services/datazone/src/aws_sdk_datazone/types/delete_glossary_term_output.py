@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteGlossaryTermOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGlossaryTermOutput(TypedDict):
+class DeleteGlossaryTermOutput(TypedDict, closed=True):
     pass
 
 

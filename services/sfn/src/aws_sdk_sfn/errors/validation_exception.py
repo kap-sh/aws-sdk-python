@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sfn.types.error_message.ErrorMessage"]
     reason: NotRequired[
         "aws_sdk_sfn.types.validation_exception_reason.ValidationExceptionReason"

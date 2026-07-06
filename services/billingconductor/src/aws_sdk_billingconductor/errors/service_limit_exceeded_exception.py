@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ServiceLimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.string
 
 
-class ServiceLimitExceededException_(TypedDict):
+class ServiceLimitExceededException_(TypedDict, closed=True):
     message: "aws_sdk_billingconductor.types.string.String"
     resource_id: NotRequired["aws_sdk_billingconductor.types.string.String"]
     """<p>Identifier of the resource affected. </p>"""

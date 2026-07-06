@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#Matcher``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.http_code
 
 
-class Matcher(TypedDict):
+class Matcher(TypedDict, closed=True):
     http_code: NotRequired["aws_sdk_elastic_load_balancing_v2.types.http_code.HttpCode"]
     r"""<p>For Application Load Balancers, you can specify values between 200 and 499, with the default value being 200. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").</p> <p>For Network Load Balancers, you can specify values between 200 and 599, with the default value being 200-399. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").</p> <p>For Gateway Load Balancers, this must be \"200–399\".</p> <p>Note that when using shorthand syntax, some values such as commas need to be escaped.</p>"""
     grpc_code: NotRequired["aws_sdk_elastic_load_balancing_v2.types.grpc_code.GrpcCode"]

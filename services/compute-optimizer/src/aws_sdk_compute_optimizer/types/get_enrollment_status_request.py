@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEnrollmentStatusRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetEnrollmentStatusRequest(TypedDict):
+class GetEnrollmentStatusRequest(TypedDict, closed=True):
     pass
 
 

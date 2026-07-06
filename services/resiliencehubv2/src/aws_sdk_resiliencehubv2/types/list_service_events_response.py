@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServiceEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_event_list
 
 
-class ListServiceEventsResponse(TypedDict):
+class ListServiceEventsResponse(TypedDict, closed=True):
     events: "aws_sdk_resiliencehubv2.types.service_event_list.ServiceEventList"
     """<p>The list of service events.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]

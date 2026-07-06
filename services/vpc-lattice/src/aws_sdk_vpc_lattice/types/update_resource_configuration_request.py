@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateResourceConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_configuration_identifier
 
 
-class UpdateResourceConfigurationRequest(TypedDict):
+class UpdateResourceConfigurationRequest(TypedDict, closed=True):
     resource_configuration_identifier: "aws_sdk_vpc_lattice.types.resource_configuration_identifier.ResourceConfigurationIdentifier"
     """<p>The ID of the resource configuration.</p>"""
     resource_configuration_definition: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ServiceUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ServiceUnavailableException_(TypedDict):
+class ServiceUnavailableException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_backup.types.string.string"]
     message: NotRequired["aws_sdk_backup.types.string.string"]
     type: NotRequired["aws_sdk_backup.types.string.string"]

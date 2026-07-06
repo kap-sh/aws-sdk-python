@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelExportsMaxSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_exports_max_size_value
 
 
-class TrainedModelExportsMaxSize(TypedDict):
+class TrainedModelExportsMaxSize(TypedDict, closed=True):
     unit: "aws_sdk_cleanroomsml.types.trained_model_exports_max_size_unit_type.TrainedModelExportsMaxSizeUnitType"
     """<p>The unit of measurement for the data size.</p>"""
     value: "aws_sdk_cleanroomsml.types.trained_model_exports_max_size_value.TrainedModelExportsMaxSizeValue"

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#UnauthorizedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import ServiceError
 
 
-class UnauthorizedException_(TypedDict):
+class UnauthorizedException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

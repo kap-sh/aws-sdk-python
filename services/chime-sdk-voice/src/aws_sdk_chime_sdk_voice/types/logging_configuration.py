@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.boolean
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     enable_sip_logs: NotRequired["aws_sdk_chime_sdk_voice.types.boolean.Boolean"]
     """<p>Boolean that enables sending SIP message logs to Amazon CloudWatch.</p>"""
     enable_media_metric_logs: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#StartWorkflowRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.id_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.workflow_run_status
 
 
-class StartWorkflowRunResponse(TypedDict):
+class StartWorkflowRunResponse(TypedDict, closed=True):
     run_id: NotRequired["aws_sdk_mwaa_serverless.types.id_string.IdString"]
     """<p>The unique identifier of the newly started workflow run.</p>"""
     status: NotRequired[

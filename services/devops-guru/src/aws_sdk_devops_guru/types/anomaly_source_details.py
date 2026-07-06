@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#AnomalySourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cloud_watch_metrics_details
     import aws_sdk_devops_guru.types.performance_insights_metrics_details
 
 
-class AnomalySourceDetails(TypedDict):
+class AnomalySourceDetails(TypedDict, closed=True):
     cloud_watch_metrics: NotRequired[
         "aws_sdk_devops_guru.types.cloud_watch_metrics_details.CloudWatchMetricsDetails"
     ]

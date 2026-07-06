@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#UpdateCodeReviewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.service_role
 
 
-class UpdateCodeReviewInput(TypedDict):
+class UpdateCodeReviewInput(TypedDict, closed=True):
     code_review_id: "str"
     """<p>The unique identifier of the code review to update.</p>"""
     agent_space_id: "str"

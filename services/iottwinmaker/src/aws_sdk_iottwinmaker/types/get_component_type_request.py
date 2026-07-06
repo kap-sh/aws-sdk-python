@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetComponentTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.component_type_id
     import aws_sdk_iottwinmaker.types.id
 
 
-class GetComponentTypeRequest(TypedDict):
+class GetComponentTypeRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the workspace that contains the component type.</p>"""
     component_type_id: "aws_sdk_iottwinmaker.types.component_type_id.ComponentTypeId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ImportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.dicom_json_metadata_import_configuration
 
 
-class _ImportConfiguration_dicomJsonMetadataImportConfiguration(TypedDict):
+class _ImportConfiguration_dicomJsonMetadataImportConfiguration(TypedDict, closed=True):
     dicomJsonMetadataImportConfiguration: "aws_sdk_medical_imaging.types.dicom_json_metadata_import_configuration.DicomJsonMetadataImportConfiguration"
 
 

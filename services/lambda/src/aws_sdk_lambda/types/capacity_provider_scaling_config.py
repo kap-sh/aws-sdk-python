@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderScalingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider_max_v_cpu_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider_scaling_policies_list
 
 
-class CapacityProviderScalingConfig(TypedDict):
+class CapacityProviderScalingConfig(TypedDict, closed=True):
     max_v_cpu_count: NotRequired[
         "aws_sdk_lambda.types.capacity_provider_max_v_cpu_count.CapacityProviderMaxVCpuCount"
     ]

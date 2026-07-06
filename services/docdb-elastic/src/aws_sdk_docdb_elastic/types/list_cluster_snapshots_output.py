@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ListClusterSnapshotsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.cluster_snapshot_list
     import aws_sdk_docdb_elastic.types.pagination_token
 
 
-class ListClusterSnapshotsOutput(TypedDict):
+class ListClusterSnapshotsOutput(TypedDict, closed=True):
     snapshots: NotRequired[
         "aws_sdk_docdb_elastic.types.cluster_snapshot_list.ClusterSnapshotList"
     ]

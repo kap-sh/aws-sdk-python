@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#As2ConnectorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.as2_async_mdn_connector_config
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.signing_alg
 
 
-class As2ConnectorConfig(TypedDict):
+class As2ConnectorConfig(TypedDict, closed=True):
     local_profile_id: NotRequired["aws_sdk_transfer.types.profile_id.ProfileId"]
     """<p>A unique identifier for the AS2 local profile.</p>"""
     partner_profile_id: NotRequired["aws_sdk_transfer.types.profile_id.ProfileId"]

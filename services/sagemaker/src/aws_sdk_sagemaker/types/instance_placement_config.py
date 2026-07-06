@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InstancePlacementConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
     import aws_sdk_sagemaker.types.placement_specifications
 
 
-class InstancePlacementConfig(TypedDict):
+class InstancePlacementConfig(TypedDict, closed=True):
     enable_multiple_jobs: NotRequired["aws_sdk_sagemaker.types.boolean.Boolean"]
     """<p>If set to true, allows multiple jobs to share the same UltraServer instances. If set to false, ensures this job's instances are placed on an UltraServer exclusively, with no other jobs sharing the same UltraServer. Default is false.</p>"""
     placement_specifications: NotRequired[

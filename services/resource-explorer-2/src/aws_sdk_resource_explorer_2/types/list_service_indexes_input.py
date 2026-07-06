@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListServiceIndexesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.region_list
 
 
-class ListServiceIndexesInput(TypedDict):
+class ListServiceIndexesInput(TypedDict, closed=True):
     regions: NotRequired["aws_sdk_resource_explorer_2.types.region_list.RegionList"]
     """<p>A list of Amazon Web Services Regions to include in the search for indexes. If not specified, indexes from all Regions are returned.</p>"""
     max_results: NotRequired["int"]

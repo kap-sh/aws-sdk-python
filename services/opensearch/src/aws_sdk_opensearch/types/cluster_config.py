@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ClusterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.zone_awareness_config
 
 
-class ClusterConfig(TypedDict):
+class ClusterConfig(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_opensearch.types.open_search_partition_instance_type.OpenSearchPartitionInstanceType"
     ]

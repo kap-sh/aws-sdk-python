@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TelephonyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.distribution_list
 
 
-class TelephonyConfig(TypedDict):
+class TelephonyConfig(TypedDict, closed=True):
     distributions: "aws_sdk_connect.types.distribution_list.DistributionList"
     """<p>Information about traffic distributions.</p>"""
 

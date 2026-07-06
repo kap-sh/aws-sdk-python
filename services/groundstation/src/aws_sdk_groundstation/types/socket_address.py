@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#SocketAddress``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
 
-class SocketAddress(TypedDict):
+class SocketAddress(TypedDict, closed=True):
     name: "str"
     """<p>Name of a socket address.</p>"""
     port: "int"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     console_access: NotRequired["aws_sdk_mq.types.__boolean.__boolean"]
     """<p>Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.</p>"""
     groups: NotRequired["aws_sdk_mq.types.__list_of__string.__listOf__string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#RdsDbClusterSnapshotConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_attributes_map
     import aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_kms_key_id
 
 
-class RdsDbClusterSnapshotConfiguration(TypedDict):
+class RdsDbClusterSnapshotConfiguration(TypedDict, closed=True):
     attributes: NotRequired[
         "aws_sdk_accessanalyzer.types.rds_db_cluster_snapshot_attributes_map.RdsDbClusterSnapshotAttributesMap"
     ]

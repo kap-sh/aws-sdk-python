@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Tenant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.amazon_resource_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class Tenant(TypedDict):
+class Tenant(TypedDict, closed=True):
     tenant_name: NotRequired["aws_sdk_sesv2.types.tenant_name.TenantName"]
     """<p>The name of the tenant.</p>"""
     tenant_id: NotRequired["aws_sdk_sesv2.types.tenant_id.TenantId"]

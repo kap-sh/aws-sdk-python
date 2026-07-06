@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSecurityFindingFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean_filter_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_filter_list
 
 
-class AwsSecurityFindingFilters(TypedDict):
+class AwsSecurityFindingFilters(TypedDict, closed=True):
     product_arn: NotRequired[
         "aws_sdk_securityhub.types.string_filter_list.StringFilterList"
     ]

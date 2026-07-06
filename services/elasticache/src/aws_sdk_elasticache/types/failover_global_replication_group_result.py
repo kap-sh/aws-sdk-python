@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#FailoverGlobalReplicationGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.global_replication_group
 
 
-class FailoverGlobalReplicationGroupResult(TypedDict):
+class FailoverGlobalReplicationGroupResult(TypedDict, closed=True):
     global_replication_group: NotRequired[
         "aws_sdk_elasticache.types.global_replication_group.GlobalReplicationGroup"
     ]

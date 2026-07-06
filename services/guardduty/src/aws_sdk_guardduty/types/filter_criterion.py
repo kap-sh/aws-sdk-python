@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#FilterCriterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.criterion_key
     import aws_sdk_guardduty.types.filter_condition
 
 
-class FilterCriterion(TypedDict):
+class FilterCriterion(TypedDict, closed=True):
     criterion_key: NotRequired["aws_sdk_guardduty.types.criterion_key.CriterionKey"]
     """<p>An enum value representing possible scan properties to match with given scan entries.</p>"""
     filter_condition: NotRequired[

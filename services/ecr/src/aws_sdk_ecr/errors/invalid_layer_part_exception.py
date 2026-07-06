@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#InvalidLayerPartException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import ServiceError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.upload_id
 
 
-class InvalidLayerPartException_(TypedDict):
+class InvalidLayerPartException_(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The registry ID associated with the exception.</p>"""
     repository_name: NotRequired["aws_sdk_ecr.types.repository_name.RepositoryName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.next_token
     import aws_sdk_iotthingsgraph.types.tag_list
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_iotthingsgraph.types.tag_list.TagList"]
     """<p>List of tags returned by the <code>ListTagsForResource</code> operation.</p>"""
     next_token: NotRequired["aws_sdk_iotthingsgraph.types.next_token.NextToken"]

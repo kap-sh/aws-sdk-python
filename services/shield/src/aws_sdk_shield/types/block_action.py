@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#BlockAction``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class BlockAction(TypedDict):
+class BlockAction(TypedDict, closed=True):
     pass
 
 

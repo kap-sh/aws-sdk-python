@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_request_id
 
 
-class CreateWorkflowRequest(TypedDict):
+class CreateWorkflowRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.workflow_name.WorkflowName"]
     """<p>Name (optional but highly recommended) for the workflow to locate relevant information in the CloudWatch logs and Amazon Web Services HealthOmics console. </p>"""
     description: NotRequired[

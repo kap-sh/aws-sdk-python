@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_deployment.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
 
 

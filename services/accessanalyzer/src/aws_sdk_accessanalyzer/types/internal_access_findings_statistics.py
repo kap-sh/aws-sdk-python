@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InternalAccessFindingsStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.internal_access_resource_type_statistics_map
 
 
-class InternalAccessFindingsStatistics(TypedDict):
+class InternalAccessFindingsStatistics(TypedDict, closed=True):
     resource_type_statistics: NotRequired[
         "aws_sdk_accessanalyzer.types.internal_access_resource_type_statistics_map.InternalAccessResourceTypeStatisticsMap"
     ]

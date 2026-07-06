@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CapabilityIssue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capability_issue_code
     import aws_sdk_eks.types.string
 
 
-class CapabilityIssue(TypedDict):
+class CapabilityIssue(TypedDict, closed=True):
     code: NotRequired["aws_sdk_eks.types.capability_issue_code.CapabilityIssueCode"]
     """<p>A code identifying the type of issue. This can be used to programmatically handle specific issue types.</p>"""
     message: NotRequired["aws_sdk_eks.types.string.String"]

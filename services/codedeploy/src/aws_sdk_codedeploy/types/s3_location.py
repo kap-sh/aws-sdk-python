@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.bundle_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.version_id
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_codedeploy.types.s3_bucket.S3Bucket"]
     """<p>The name of the Amazon S3 bucket where the application revision is stored.</p>"""
     key: NotRequired["aws_sdk_codedeploy.types.s3_key.S3Key"]

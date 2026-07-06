@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ServiceNowConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.service_now_service_catalog_configuration
 
 
-class ServiceNowConfiguration(TypedDict):
+class ServiceNowConfiguration(TypedDict, closed=True):
     host_url: "aws_sdk_kendra.types.service_now_host_url.ServiceNowHostUrl"
     """<p>The ServiceNow instance that the data source connects to. The host endpoint should look like the following: <i>{instance}.service-now.com.</i> </p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

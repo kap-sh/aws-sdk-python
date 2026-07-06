@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RegisterDefaultPatchBaselineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.baseline_id
 
 
-class RegisterDefaultPatchBaselineRequest(TypedDict):
+class RegisterDefaultPatchBaselineRequest(TypedDict, closed=True):
     baseline_id: "aws_sdk_ssm.types.baseline_id.BaselineId"
     """<p>The ID of the patch baseline that should be the default patch baseline.</p>"""
 

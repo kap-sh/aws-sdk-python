@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ViolationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.tag_list
 
 
-class ViolationDetail(TypedDict):
+class ViolationDetail(TypedDict, closed=True):
     policy_id: "aws_sdk_fms.types.policy_id.PolicyId"
     """<p>The ID of the Firewall Manager policy that the violation details were requested for.</p>"""
     member_account: "aws_sdk_fms.types.aws_account_id.AWSAccountId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ListApplicationVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_version_summaries
     import aws_sdk_kinesis_analytics_v2.types.next_token
 
 
-class ListApplicationVersionsResponse(TypedDict):
+class ListApplicationVersionsResponse(TypedDict, closed=True):
     application_version_summaries: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.application_version_summaries.ApplicationVersionSummaries"
     ]

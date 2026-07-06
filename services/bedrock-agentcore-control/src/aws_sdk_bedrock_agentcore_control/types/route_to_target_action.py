@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RouteToTargetAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.weighted_route
 
 
-class _RouteToTargetAction_staticRoute(TypedDict):
+class _RouteToTargetAction_staticRoute(TypedDict, closed=True):
     staticRoute: "aws_sdk_bedrock_agentcore_control.types.static_route.StaticRoute"
 
 
-class _RouteToTargetAction_weightedRoute(TypedDict):
+class _RouteToTargetAction_weightedRoute(TypedDict, closed=True):
     weightedRoute: (
         "aws_sdk_bedrock_agentcore_control.types.weighted_route.WeightedRoute"
     )

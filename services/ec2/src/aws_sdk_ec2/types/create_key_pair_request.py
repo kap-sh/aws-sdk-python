@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateKeyPairRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateKeyPairRequest(TypedDict):
+class CreateKeyPairRequest(TypedDict, closed=True):
     key_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A unique name for the key pair.</p> <p>Constraints: Up to 255 ASCII characters</p>"""
     key_type: NotRequired["aws_sdk_ec2.types.key_type.KeyType"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeDomainChangeProgressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.domain_name
     import aws_sdk_elasticsearch_service.types.guid
 
 
-class DescribeDomainChangeProgressRequest(TypedDict):
+class DescribeDomainChangeProgressRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     """<p>The domain you want to get the progress information about.</p>"""
     change_id: NotRequired["aws_sdk_elasticsearch_service.types.guid.GUID"]

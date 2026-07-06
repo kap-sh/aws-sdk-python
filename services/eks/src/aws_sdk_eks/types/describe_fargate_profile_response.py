@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeFargateProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.fargate_profile
 
 
-class DescribeFargateProfileResponse(TypedDict):
+class DescribeFargateProfileResponse(TypedDict, closed=True):
     fargate_profile: NotRequired["aws_sdk_eks.types.fargate_profile.FargateProfile"]
     """<p>The full description of your Fargate profile.</p>"""
 

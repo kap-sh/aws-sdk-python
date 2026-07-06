@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#TaxConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.tax_estimation
 
 
-class TaxConfiguration(TypedDict):
+class TaxConfiguration(TypedDict, closed=True):
     tax_estimation: "aws_sdk_marketplace_agreement.types.tax_estimation.TaxEstimation"
     """<p>Toggle to estimate tax as part of the response. Values include <code>ENABLED</code> and <code>DISABLED</code>. Default is <code>DISABLED</code>.</p>"""
 

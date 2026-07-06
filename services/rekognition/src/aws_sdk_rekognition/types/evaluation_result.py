@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#EvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
     import aws_sdk_rekognition.types.summary
 
 
-class EvaluationResult(TypedDict):
+class EvaluationResult(TypedDict, closed=True):
     f1_score: NotRequired["aws_sdk_rekognition.types.float.Float"]
     """<p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision and recall performance of the model as a single value. A higher value indicates better precision and recall performance. A lower score indicates that precision, recall, or both are performing poorly. </p>"""
     summary: NotRequired["aws_sdk_rekognition.types.summary.Summary"]

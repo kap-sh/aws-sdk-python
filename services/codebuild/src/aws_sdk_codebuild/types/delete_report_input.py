@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DeleteReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class DeleteReportInput(TypedDict):
+class DeleteReportInput(TypedDict, closed=True):
     arn: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p> The ARN of the report to delete. </p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdateRepositoryEncryptionKeyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.kms_key_id
     import aws_sdk_codecommit.types.repository_id
 
 
-class UpdateRepositoryEncryptionKeyOutput(TypedDict):
+class UpdateRepositoryEncryptionKeyOutput(TypedDict, closed=True):
     repository_id: NotRequired["aws_sdk_codecommit.types.repository_id.RepositoryId"]
     """<p>The ID of the repository.</p>"""
     kms_key_id: NotRequired["aws_sdk_codecommit.types.kms_key_id.KmsKeyId"]

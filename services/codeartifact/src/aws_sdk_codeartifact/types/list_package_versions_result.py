@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListPackageVersionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_format
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.pagination_token
 
 
-class ListPackageVersionsResult(TypedDict):
+class ListPackageVersionsResult(TypedDict, closed=True):
     default_display_version: NotRequired[
         "aws_sdk_codeartifact.types.package_version.PackageVersion"
     ]

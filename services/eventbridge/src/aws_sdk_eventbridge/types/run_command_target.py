@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#RunCommandTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.run_command_target_values
 
 
-class RunCommandTarget(TypedDict):
+class RunCommandTarget(TypedDict, closed=True):
     key: "aws_sdk_eventbridge.types.run_command_target_key.RunCommandTargetKey"
     """<p>Can be either <code>tag:</code> <i>tag-key</i> or <code>InstanceIds</code>.</p>"""
     values: "aws_sdk_eventbridge.types.run_command_target_values.RunCommandTargetValues"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ArrayValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.string_array
 
 
-class _ArrayValue_booleanValues(TypedDict):
+class _ArrayValue_booleanValues(TypedDict, closed=True):
     booleanValues: "aws_sdk_rds_data.types.boolean_array.BooleanArray"
 
 
-class _ArrayValue_longValues(TypedDict):
+class _ArrayValue_longValues(TypedDict, closed=True):
     longValues: "aws_sdk_rds_data.types.long_array.LongArray"
 
 
-class _ArrayValue_doubleValues(TypedDict):
+class _ArrayValue_doubleValues(TypedDict, closed=True):
     doubleValues: "aws_sdk_rds_data.types.double_array.DoubleArray"
 
 
-class _ArrayValue_stringValues(TypedDict):
+class _ArrayValue_stringValues(TypedDict, closed=True):
     stringValues: "aws_sdk_rds_data.types.string_array.StringArray"
 
 
-class _ArrayValue_arrayValues(TypedDict):
+class _ArrayValue_arrayValues(TypedDict, closed=True):
     arrayValues: "aws_sdk_rds_data.types.array_of_array.ArrayOfArray"
 
 

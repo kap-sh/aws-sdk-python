@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ListCellsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_cell_output
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class ListCellsResponse(TypedDict):
+class ListCellsResponse(TypedDict, closed=True):
     cells: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__list_of_cell_output.__listOfCellOutput"
     ]

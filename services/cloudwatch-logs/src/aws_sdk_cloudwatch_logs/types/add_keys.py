@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#AddKeys``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.add_key_entries
 
 
-class AddKeys(TypedDict):
+class AddKeys(TypedDict, closed=True):
     entries: "aws_sdk_cloudwatch_logs.types.add_key_entries.AddKeyEntries"
     """<p>An array of objects, where each object contains the information about one key to add to the log event. </p>"""
 

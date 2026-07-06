@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#SwitchoverGlobalClusterResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.global_cluster
 
 
-class SwitchoverGlobalClusterResult(TypedDict):
+class SwitchoverGlobalClusterResult(TypedDict, closed=True):
     global_cluster: NotRequired["aws_sdk_docdb.types.global_cluster.GlobalCluster"]
 
 

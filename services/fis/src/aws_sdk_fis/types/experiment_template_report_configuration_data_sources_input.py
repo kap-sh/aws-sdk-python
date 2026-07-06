@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateReportConfigurationDataSourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.report_configuration_cloud_watch_dashboard_input_list
 
 
-class ExperimentTemplateReportConfigurationDataSourcesInput(TypedDict):
+class ExperimentTemplateReportConfigurationDataSourcesInput(TypedDict, closed=True):
     cloud_watch_dashboards: NotRequired[
         "aws_sdk_fis.types.report_configuration_cloud_watch_dashboard_input_list.ReportConfigurationCloudWatchDashboardInputList"
     ]

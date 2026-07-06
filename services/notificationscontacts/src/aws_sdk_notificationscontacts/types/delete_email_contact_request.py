@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#DeleteEmailContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.email_contact_arn
 
 
-class DeleteEmailContactRequest(TypedDict):
+class DeleteEmailContactRequest(TypedDict, closed=True):
     arn: "aws_sdk_notificationscontacts.types.email_contact_arn.EmailContactArn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
 

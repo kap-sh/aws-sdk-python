@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetBlueprintRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.page_size
 
 
-class GetBlueprintRunsRequest(TypedDict):
+class GetBlueprintRunsRequest(TypedDict, closed=True):
     blueprint_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the blueprint.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

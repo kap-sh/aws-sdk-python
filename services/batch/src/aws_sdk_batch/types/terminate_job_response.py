@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TerminateJobResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TerminateJobResponse(TypedDict):
+class TerminateJobResponse(TypedDict, closed=True):
     pass
 
 

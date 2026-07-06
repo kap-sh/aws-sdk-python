@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#Licensing``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Licensing(TypedDict):
+class Licensing(TypedDict, closed=True):
     os_byol: NotRequired["bool"]
     """<p>Configure BYOL OS licensing.</p>"""
 

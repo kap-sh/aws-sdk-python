@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     finding_arn: "aws_sdk_inspector2.types.finding_arn.FindingArn"
     """<p>The Amazon Resource Number (ARN) of the finding.</p>"""
     aws_account_id: "aws_sdk_inspector2.types.account_id.AccountId"

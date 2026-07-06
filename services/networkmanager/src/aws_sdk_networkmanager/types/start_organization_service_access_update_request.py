@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#StartOrganizationServiceAccessUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.action
 
 
-class StartOrganizationServiceAccessUpdateRequest(TypedDict):
+class StartOrganizationServiceAccessUpdateRequest(TypedDict, closed=True):
     action: "aws_sdk_networkmanager.types.action.Action"
     """<p>The action to take for the update request. This can be either <code>ENABLE</code> or <code>DISABLE</code>.</p>"""
 

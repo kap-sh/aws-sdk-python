@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateDomainConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.domain_configuration_arn
     import aws_sdk_iot.types.domain_configuration_name
 
 
-class CreateDomainConfigurationResponse(TypedDict):
+class CreateDomainConfigurationResponse(TypedDict, closed=True):
     domain_configuration_name: NotRequired[
         "aws_sdk_iot.types.domain_configuration_name.DomainConfigurationName"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeUserHierarchyGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hierarchy_group
 
 
-class DescribeUserHierarchyGroupResponse(TypedDict):
+class DescribeUserHierarchyGroupResponse(TypedDict, closed=True):
     hierarchy_group: NotRequired["aws_sdk_connect.types.hierarchy_group.HierarchyGroup"]
     """<p>Information about the hierarchy group.</p>"""
 

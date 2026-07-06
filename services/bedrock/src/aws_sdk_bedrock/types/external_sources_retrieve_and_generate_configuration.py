@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ExternalSourcesRetrieveAndGenerateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.external_sources_generation_configuration
 
 
-class ExternalSourcesRetrieveAndGenerateConfiguration(TypedDict):
+class ExternalSourcesRetrieveAndGenerateConfiguration(TypedDict, closed=True):
     model_arn: "aws_sdk_bedrock.types.bedrock_model_arn.BedrockModelArn"
     r"""<p>The Amazon Resource Name (ARN) of the foundation model or <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html\">inference profile</a> used to generate responses. </p>"""
     sources: "aws_sdk_bedrock.types.external_sources.ExternalSources"

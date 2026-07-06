@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptMetadataEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_metadata_value
 
 
-class PromptMetadataEntry(TypedDict):
+class PromptMetadataEntry(TypedDict, closed=True):
     key: "aws_sdk_bedrock_agent.types.prompt_metadata_key.PromptMetadataKey"
     """<p>The key of a metadata tag for a prompt variant.</p>"""
     value: "aws_sdk_bedrock_agent.types.prompt_metadata_value.PromptMetadataValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualGatewayListenerTls``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_gateway_listener_tls_validation_context
 
 
-class VirtualGatewayListenerTls(TypedDict):
+class VirtualGatewayListenerTls(TypedDict, closed=True):
     mode: "aws_sdk_app_mesh.types.virtual_gateway_listener_tls_mode.VirtualGatewayListenerTlsMode"
     """<p>Specify one of the following modes.</p> <ul> <li> <p> <b/>STRICT – Listener only accepts connections with TLS enabled. </p> </li> <li> <p> <b/>PERMISSIVE – Listener accepts connections with or without TLS enabled.</p> </li> <li> <p> <b/>DISABLED – Listener only accepts connections without TLS. </p> </li> </ul>"""
     validation: NotRequired[

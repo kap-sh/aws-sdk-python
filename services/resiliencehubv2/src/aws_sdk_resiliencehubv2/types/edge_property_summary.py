@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#EdgePropertySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.topology_type
 
 
-class EdgePropertySummary(TypedDict):
+class EdgePropertySummary(TypedDict, closed=True):
     topology_type: NotRequired[
         "aws_sdk_resiliencehubv2.types.topology_type.TopologyType"
     ]

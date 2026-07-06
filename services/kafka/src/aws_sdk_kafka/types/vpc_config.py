@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_kafka.types.__list_of__string.__listOf__string"]
     """<p>The IDs of the subnets associated with the cluster.</p>"""
     security_group_ids: NotRequired[

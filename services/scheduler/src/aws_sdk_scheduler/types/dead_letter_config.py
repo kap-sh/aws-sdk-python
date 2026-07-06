@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#DeadLetterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.resource_arn
 
 
-class DeadLetterConfig(TypedDict):
+class DeadLetterConfig(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_scheduler.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the SQS queue specified as the destination for the dead-letter queue.</p>"""
 

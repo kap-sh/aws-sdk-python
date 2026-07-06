@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AnalyzeIDRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.document_pages
 
 
-class AnalyzeIDRequest(TypedDict):
+class AnalyzeIDRequest(TypedDict, closed=True):
     document_pages: "aws_sdk_textract.types.document_pages.DocumentPages"
     """<p>The document being passed to AnalyzeID.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12ElementRequirementValidationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.element_requirement
 
 
-class X12ElementRequirementValidationRule(TypedDict):
+class X12ElementRequirementValidationRule(TypedDict, closed=True):
     element_position: "aws_sdk_b2bi.types.element_position.ElementPosition"
     r"""<p>Specifies the position of the element within an X12 segment for which the requirement status will be modified. The format follows the pattern of segment identifier followed by element position (e.g., \"ST-01\" for the first element of the ST segment).</p>"""
     requirement: "aws_sdk_b2bi.types.element_requirement.ElementRequirement"

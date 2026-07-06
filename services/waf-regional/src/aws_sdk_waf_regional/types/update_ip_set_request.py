@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#UpdateIPSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_id
 
 
-class UpdateIPSetRequest(TypedDict):
+class UpdateIPSetRequest(TypedDict, closed=True):
     ip_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>IPSetId</code> of the <a>IPSet</a> that you want to update. <code>IPSetId</code> is returned by <a>CreateIPSet</a> and by <a>ListIPSets</a>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

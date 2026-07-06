@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.amp#IgnoreNearExpected``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, SerializationError
 
 
-class _IgnoreNearExpected_amount(TypedDict):
+class _IgnoreNearExpected_amount(TypedDict, closed=True):
     amount: "float"
 
 
-class _IgnoreNearExpected_ratio(TypedDict):
+class _IgnoreNearExpected_ratio(TypedDict, closed=True):
     ratio: "float"
 
 

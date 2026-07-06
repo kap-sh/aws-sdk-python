@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TextControlPlaceholderOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class TextControlPlaceholderOptions(TypedDict):
+class TextControlPlaceholderOptions(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility configuration of the placeholder options in a text control.</p>"""
 

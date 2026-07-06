@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowTraceNodeInputField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.node_input_name
 
 
-class FlowTraceNodeInputField(TypedDict):
+class FlowTraceNodeInputField(TypedDict, closed=True):
     node_input_name: "aws_sdk_bedrock_agent_runtime.types.node_input_name.NodeInputName"
     """<p>The name of the node input.</p>"""
     content: "aws_sdk_bedrock_agent_runtime.types.flow_trace_node_input_content.FlowTraceNodeInputContent"

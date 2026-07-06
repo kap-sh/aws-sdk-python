@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReadAPIKeyConnectionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.endpoint
 
 
-class ReadAPIKeyConnectionMetadata(TypedDict):
+class ReadAPIKeyConnectionMetadata(TypedDict, closed=True):
     base_endpoint: "aws_sdk_quicksight.types.endpoint.Endpoint"
     """<p>The base endpoint URL for API key authentication.</p>"""
     email: NotRequired["aws_sdk_quicksight.types.email.Email"]

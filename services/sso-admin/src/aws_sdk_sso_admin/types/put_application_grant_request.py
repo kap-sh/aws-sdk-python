@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutApplicationGrantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.grant_type
 
 
-class PutApplicationGrantRequest(TypedDict):
+class PutApplicationGrantRequest(TypedDict, closed=True):
     application_arn: "aws_sdk_sso_admin.types.application_arn.ApplicationArn"
     """<p>Specifies the ARN of the application to update.</p>"""
     grant_type: "aws_sdk_sso_admin.types.grant_type.GrantType"

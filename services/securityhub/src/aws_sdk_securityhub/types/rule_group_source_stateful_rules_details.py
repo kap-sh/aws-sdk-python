@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupSourceStatefulRulesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.rule_group_source_stateful_rules_options_list
 
 
-class RuleGroupSourceStatefulRulesDetails(TypedDict):
+class RuleGroupSourceStatefulRulesDetails(TypedDict, closed=True):
     action: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>"""
     header: NotRequired[

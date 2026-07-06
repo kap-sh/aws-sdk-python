@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the throttling error.</p>"""
     service_code: NotRequired["str"]

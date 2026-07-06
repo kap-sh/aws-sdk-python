@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListFlowVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.next_token
 
 
-class ListFlowVersionsRequest(TypedDict):
+class ListFlowVersionsRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow.</p>"""
     max_results: NotRequired["aws_sdk_bedrock_agent.types.max_results.MaxResults"]

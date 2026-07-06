@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TableWarmThroughputDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_long_object
     import aws_sdk_dynamodb.types.table_status
 
 
-class TableWarmThroughputDescription(TypedDict):
+class TableWarmThroughputDescription(TypedDict, closed=True):
     read_units_per_second: NotRequired[
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     ]

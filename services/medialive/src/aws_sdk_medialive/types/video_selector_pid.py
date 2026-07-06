@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#VideoSelectorPid``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max8191
 
 
-class VideoSelectorPid(TypedDict):
+class VideoSelectorPid(TypedDict, closed=True):
     pid: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max8191.__integerMin0Max8191"
     ]

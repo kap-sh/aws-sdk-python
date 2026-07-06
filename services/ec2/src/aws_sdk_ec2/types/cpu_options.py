@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CpuOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.nested_virtualization_specification
 
 
-class CpuOptions(TypedDict):
+class CpuOptions(TypedDict, closed=True):
     core_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of CPU cores for the instance.</p>"""
     threads_per_core: NotRequired["aws_sdk_ec2.types.integer.Integer"]

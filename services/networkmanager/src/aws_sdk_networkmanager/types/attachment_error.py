@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#AttachmentError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.server_side_string
 
 
-class AttachmentError(TypedDict):
+class AttachmentError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_networkmanager.types.attachment_error_code.AttachmentErrorCode"
     ]

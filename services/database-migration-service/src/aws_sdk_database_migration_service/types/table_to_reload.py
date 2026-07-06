@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#TableToReload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class TableToReload(TypedDict):
+class TableToReload(TypedDict, closed=True):
     schema_name: "aws_sdk_database_migration_service.types.string.String"
     """<p>The schema name of the table to be reloaded.</p>"""
     table_name: "aws_sdk_database_migration_service.types.string.String"

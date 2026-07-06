@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#ApiPassthrough``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.asn1_subject
     import aws_sdk_acm_pca.types.extensions
 
 
-class ApiPassthrough(TypedDict):
+class ApiPassthrough(TypedDict, closed=True):
     extensions: NotRequired["aws_sdk_acm_pca.types.extensions.Extensions"]
     """<p>Specifies X.509 extension information for a certificate.</p>"""
     subject: NotRequired["aws_sdk_acm_pca.types.asn1_subject.ASN1Subject"]

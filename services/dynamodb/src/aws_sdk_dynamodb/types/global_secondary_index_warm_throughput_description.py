@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalSecondaryIndexWarmThroughputDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.index_status
     import aws_sdk_dynamodb.types.positive_long_object
 
 
-class GlobalSecondaryIndexWarmThroughputDescription(TypedDict):
+class GlobalSecondaryIndexWarmThroughputDescription(TypedDict, closed=True):
     read_units_per_second: NotRequired[
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     ]

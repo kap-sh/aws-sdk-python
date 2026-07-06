@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceRegistryLogin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.string
 
 
-class ContainerServiceRegistryLogin(TypedDict):
+class ContainerServiceRegistryLogin(TypedDict, closed=True):
     username: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The container service registry username to use to push container images to the container image registry of a Lightsail account.</p>"""
     password: NotRequired["aws_sdk_lightsail.types.string.string"]

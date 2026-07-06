@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#HashAlgorithmOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.hash_algorithms
 
 
-class HashAlgorithmOptions(TypedDict):
+class HashAlgorithmOptions(TypedDict, closed=True):
     allowed_values: "aws_sdk_signer.types.hash_algorithms.HashAlgorithms"
     """<p>The set of accepted hash algorithms allowed in a code-signing job.</p>"""
     default_value: "aws_sdk_signer.types.hash_algorithm.HashAlgorithm"

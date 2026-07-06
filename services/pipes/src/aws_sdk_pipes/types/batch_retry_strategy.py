@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchRetryStrategy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_retry_attempts
 
 
-class BatchRetryStrategy(TypedDict):
+class BatchRetryStrategy(TypedDict, closed=True):
     attempts: NotRequired["aws_sdk_pipes.types.batch_retry_attempts.BatchRetryAttempts"]
     """<p>The number of times to move a job to the <code>RUNNABLE</code> status. If the value of <code>attempts</code> is greater than one, the job is retried on failure the same number of attempts as the value.</p>"""
 

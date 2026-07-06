@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RunSummary(TypedDict):
+class RunSummary(TypedDict, closed=True):
     pending_run_count: NotRequired["int"]
     """<p>The number of pending runs.</p>"""
     starting_run_count: NotRequired["int"]

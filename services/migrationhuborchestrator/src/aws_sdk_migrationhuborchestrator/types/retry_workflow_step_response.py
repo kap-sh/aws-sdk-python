@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#RetryWorkflowStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.step_status
 
 
-class RetryWorkflowStepResponse(TypedDict):
+class RetryWorkflowStepResponse(TypedDict, closed=True):
     step_group_id: NotRequired["str"]
     """<p>The ID of the step group.</p>"""
     workflow_id: NotRequired["str"]

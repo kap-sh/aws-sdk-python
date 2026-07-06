@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultReuseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.result_reuse_by_age_configuration
 
 
-class ResultReuseConfiguration(TypedDict):
+class ResultReuseConfiguration(TypedDict, closed=True):
     result_reuse_by_age_configuration: NotRequired[
         "aws_sdk_athena.types.result_reuse_by_age_configuration.ResultReuseByAgeConfiguration"
     ]

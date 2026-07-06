@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RetrievalFlowNodeS3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_s3_bucket_name
 
 
-class RetrievalFlowNodeS3Configuration(TypedDict):
+class RetrievalFlowNodeS3Configuration(TypedDict, closed=True):
     bucket_name: "aws_sdk_bedrock_agent.types.flow_s3_bucket_name.FlowS3BucketName"
     """<p>The name of the Amazon S3 bucket from which to retrieve data.</p>"""
 

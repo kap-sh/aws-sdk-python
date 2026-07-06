@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressAnalysis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.result_field
 
 
-class IngressAnalysis(TypedDict):
+class IngressAnalysis(TypedDict, closed=True):
     analyzer: "aws_sdk_mailmanager.types.analyzer_arn.AnalyzerArn"
     """<p>The Amazon Resource Name (ARN) of an Add On.</p>"""
     result_field: "aws_sdk_mailmanager.types.result_field.ResultField"

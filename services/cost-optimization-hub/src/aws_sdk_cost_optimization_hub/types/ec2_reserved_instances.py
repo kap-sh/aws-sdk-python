@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Ec2ReservedInstances``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.ec2_reserved_instances_configuration
     import aws_sdk_cost_optimization_hub.types.reserved_instances_cost_calculation
 
 
-class Ec2ReservedInstances(TypedDict):
+class Ec2ReservedInstances(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.ec2_reserved_instances_configuration.Ec2ReservedInstancesConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribePatchBaselinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_orchestrator_filter_list
 
 
-class DescribePatchBaselinesRequest(TypedDict):
+class DescribePatchBaselinesRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_ssm.types.patch_orchestrator_filter_list.PatchOrchestratorFilterList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EventDestinationDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.cloud_watch_destination
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.sns_destination
 
 
-class EventDestinationDefinition(TypedDict):
+class EventDestinationDefinition(TypedDict, closed=True):
     enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>If <code>true</code>, the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</p> <p>If <code>false</code>, the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.</p>"""
     matching_event_types: NotRequired["aws_sdk_sesv2.types.event_types.EventTypes"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AllowedInputTypes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boxed_boolean
 
 
-class AllowedInputTypes(TypedDict):
+class AllowedInputTypes(TypedDict, closed=True):
     allow_audio_input: "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"
     """<p>Indicates whether audio input is allowed.</p>"""
     allow_dtmf_input: "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"

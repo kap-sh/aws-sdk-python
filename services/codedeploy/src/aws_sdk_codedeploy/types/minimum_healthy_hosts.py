@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#MinimumHealthyHosts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.minimum_healthy_hosts_type
     import aws_sdk_codedeploy.types.minimum_healthy_hosts_value
 
 
-class MinimumHealthyHosts(TypedDict):
+class MinimumHealthyHosts(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_codedeploy.types.minimum_healthy_hosts_type.MinimumHealthyHostsType"
     ]

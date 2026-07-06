@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetListingItemAdditionalAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.forms
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.time_series_data_point_summary_form_output_list
 
 
-class AssetListingItemAdditionalAttributes(TypedDict):
+class AssetListingItemAdditionalAttributes(TypedDict, closed=True):
     forms: NotRequired["aws_sdk_datazone.types.forms.Forms"]
     """<p>The metadata forms that form additional attributes of the metadata asset.</p>"""
     match_rationale: NotRequired[

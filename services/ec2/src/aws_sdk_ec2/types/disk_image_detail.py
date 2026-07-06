@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DiskImageDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.long
 
 
-class DiskImageDetail(TypedDict):
+class DiskImageDetail(TypedDict, closed=True):
     format: NotRequired["aws_sdk_ec2.types.disk_image_format.DiskImageFormat"]
     """<p>The disk image format.</p>"""
     bytes: NotRequired["aws_sdk_ec2.types.long.Long"]

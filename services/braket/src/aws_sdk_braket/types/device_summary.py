@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeviceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.device_type
 
 
-class DeviceSummary(TypedDict):
+class DeviceSummary(TypedDict, closed=True):
     device_arn: "aws_sdk_braket.types.device_arn.DeviceArn"
     """<p>The ARN of the device.</p>"""
     device_name: "str"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#StartSpeechSynthesisStreamActionStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_polly._iter import AnyIterator
 from aws_sdk_polly._protocol.eventstream import Message
@@ -10,11 +12,11 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.text_event
 
 
-class _StartSpeechSynthesisStreamActionStream_TextEvent(TypedDict):
+class _StartSpeechSynthesisStreamActionStream_TextEvent(TypedDict, closed=True):
     TextEvent: "aws_sdk_polly.types.text_event.TextEvent"
 
 
-class _StartSpeechSynthesisStreamActionStream_CloseStreamEvent(TypedDict):
+class _StartSpeechSynthesisStreamActionStream_CloseStreamEvent(TypedDict, closed=True):
     CloseStreamEvent: "aws_sdk_polly.types.close_stream_event.CloseStreamEvent"
 
 

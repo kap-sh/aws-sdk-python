@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DataSourceIntrospectionModelFieldType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.data_source_introspection_model_field_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class DataSourceIntrospectionModelFieldType(TypedDict):
+class DataSourceIntrospectionModelFieldType(TypedDict, closed=True):
     kind: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>Specifies the classification of data. For example, this could be set to values like <code>Scalar</code> or <code>NonNull</code> to indicate a fundamental property of the field.</p> <p>Valid values include:</p> <ul> <li> <p> <code>Scalar</code>: Indicates the value is a primitive type (scalar).</p> </li> <li> <p> <code>NonNull</code>: Indicates the field cannot be <code>null</code>.</p> </li> <li> <p> <code>List</code>: Indicates the field contains a list.</p> </li> </ul>"""
     name: NotRequired["aws_sdk_appsync.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CurrentInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.tag_values_list
 
 
-class CurrentInstance(TypedDict):
+class CurrentInstance(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>Resource ID of the current instance.</p>"""
     instance_name: NotRequired[

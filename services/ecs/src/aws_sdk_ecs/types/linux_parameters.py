@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#LinuxParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tmpfs_list
 
 
-class LinuxParameters(TypedDict):
+class LinuxParameters(TypedDict, closed=True):
     capabilities: NotRequired[
         "aws_sdk_ecs.types.kernel_capabilities.KernelCapabilities"
     ]

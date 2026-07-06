@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#StopSearchJobOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopSearchJobOutput(TypedDict):
+class StopSearchJobOutput(TypedDict, closed=True):
     pass
 
 

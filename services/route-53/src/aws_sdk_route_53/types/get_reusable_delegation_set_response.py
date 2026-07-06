@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetReusableDelegationSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.delegation_set
 
 
-class GetReusableDelegationSetResponse(TypedDict):
+class GetReusableDelegationSetResponse(TypedDict, closed=True):
     delegation_set: "aws_sdk_route_53.types.delegation_set.DelegationSet"
     """<p>A complex type that contains information about the reusable delegation set.</p>"""
 

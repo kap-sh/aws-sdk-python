@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#StartSpeechSynthesisStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.engine
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.voice_id
 
 
-class StartSpeechSynthesisStreamInput(TypedDict):
+class StartSpeechSynthesisStreamInput(TypedDict, closed=True):
     engine: "aws_sdk_polly.types.engine.Engine"
     """<p>Specifies the engine for Amazon Polly to use when processing input text for speech synthesis. Currently, only the <code>generative</code> engine is supported. If you specify a voice that the selected engine doesn't support, Amazon Polly returns an error.</p>"""
     language_code: NotRequired["aws_sdk_polly.types.language_code.LanguageCode"]

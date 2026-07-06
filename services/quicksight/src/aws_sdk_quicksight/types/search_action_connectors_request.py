@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SearchActionConnectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.search_action_connectors_request_max_results_integer
 
 
-class SearchActionConnectorsRequest(TypedDict):
+class SearchActionConnectorsRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account ID in which to search for action connectors.</p>"""
     max_results: "aws_sdk_quicksight.types.search_action_connectors_request_max_results_integer.SearchActionConnectorsRequestMaxResultsInteger"

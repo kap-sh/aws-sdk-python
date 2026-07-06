@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#HudiTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.path_list
 
 
-class HudiTarget(TypedDict):
+class HudiTarget(TypedDict, closed=True):
     paths: NotRequired["aws_sdk_glue.types.path_list.PathList"]
     """<p>An array of Amazon S3 location strings for Hudi, each indicating the root folder with which the metadata files for a Hudi table resides. The Hudi folder may be located in a child folder of the root folder.</p> <p>The crawler will scan all folders underneath a path for a Hudi folder.</p>"""
     connection_name: NotRequired["aws_sdk_glue.types.connection_name.ConnectionName"]

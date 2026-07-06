@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#InternetConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InternetConfiguration(TypedDict):
+class InternetConfiguration(TypedDict, closed=True):
     pass
 
 

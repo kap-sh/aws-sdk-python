@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ResumeServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.uuid
 
 
-class ResumeServiceResponse(TypedDict):
+class ResumeServiceResponse(TypedDict, closed=True):
     service: "aws_sdk_apprunner.types.service.Service"
     """<p>A description of the App Runner service that this request just resumed.</p>"""
     operation_id: NotRequired["aws_sdk_apprunner.types.uuid.UUID"]

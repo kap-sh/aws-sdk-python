@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#FindingsTrendsFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.allowed_operators
     import aws_sdk_securityhub.types.findings_trends_composite_filter_list
 
 
-class FindingsTrendsFilters(TypedDict):
+class FindingsTrendsFilters(TypedDict, closed=True):
     composite_filters: NotRequired[
         "aws_sdk_securityhub.types.findings_trends_composite_filter_list.FindingsTrendsCompositeFilterList"
     ]

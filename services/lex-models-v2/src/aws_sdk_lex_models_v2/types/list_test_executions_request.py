@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListTestExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_execution_sort_by
 
 
-class ListTestExecutionsRequest(TypedDict):
+class ListTestExecutionsRequest(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_lex_models_v2.types.test_execution_sort_by.TestExecutionSortBy"
     ]

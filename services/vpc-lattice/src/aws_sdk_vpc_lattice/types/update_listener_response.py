@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#UpdateListenerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.listener_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_id
 
 
-class UpdateListenerResponse(TypedDict):
+class UpdateListenerResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_vpc_lattice.types.listener_arn.ListenerArn"]
     """<p>The Amazon Resource Name (ARN) of the listener.</p>"""
     id: NotRequired["aws_sdk_vpc_lattice.types.listener_id.ListenerId"]

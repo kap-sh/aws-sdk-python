@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListBulkImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.list_bulk_import_jobs_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListBulkImportJobsRequest(TypedDict):
+class ListBulkImportJobsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]
     """<p>The token to be used for the next set of paginated results.</p>"""
     max_results: NotRequired["aws_sdk_iotsitewise.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetBlacklistReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.blacklist_report
 
 
-class GetBlacklistReportsResponse(TypedDict):
+class GetBlacklistReportsResponse(TypedDict, closed=True):
     blacklist_report: "aws_sdk_sesv2.types.blacklist_report.BlacklistReport"
     """<p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>"""
 

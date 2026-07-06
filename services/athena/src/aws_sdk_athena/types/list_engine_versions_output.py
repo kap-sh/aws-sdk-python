@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListEngineVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.engine_versions_list
     import aws_sdk_athena.types.token
 
 
-class ListEngineVersionsOutput(TypedDict):
+class ListEngineVersionsOutput(TypedDict, closed=True):
     engine_versions: NotRequired[
         "aws_sdk_athena.types.engine_versions_list.EngineVersionsList"
     ]

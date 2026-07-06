@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_cluster_name
     import aws_sdk_finspace.types.kx_environment_id
 
 
-class GetKxClusterRequest(TypedDict):
+class GetKxClusterRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     """<p>A unique identifier for the kdb environment.</p>"""
     cluster_name: "aws_sdk_finspace.types.kx_cluster_name.KxClusterName"

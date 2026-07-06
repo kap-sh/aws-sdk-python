@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.tag_list
     import aws_sdk_transcribe.types.transcribe_arn
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_transcribe.types.transcribe_arn.TranscribeArn"]
     """<p>The Amazon Resource Name (ARN) specified in your request.</p>"""
     tags: NotRequired["aws_sdk_transcribe.types.tag_list.TagList"]

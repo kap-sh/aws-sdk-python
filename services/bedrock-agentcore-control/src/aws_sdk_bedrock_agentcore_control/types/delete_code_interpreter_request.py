@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteCodeInterpreterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.client_token
     import aws_sdk_bedrock_agentcore_control.types.code_interpreter_id
 
 
-class DeleteCodeInterpreterRequest(TypedDict):
+class DeleteCodeInterpreterRequest(TypedDict, closed=True):
     code_interpreter_id: (
         "aws_sdk_bedrock_agentcore_control.types.code_interpreter_id.CodeInterpreterId"
     )

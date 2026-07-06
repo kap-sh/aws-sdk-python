@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListEnvironmentTemplatesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.next_token
 
 
-class ListEnvironmentTemplatesOutput(TypedDict):
+class ListEnvironmentTemplatesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next environment template in the array of environment templates, after the current requested list of environment templates.</p>"""
     templates: "aws_sdk_proton.types.environment_template_summary_list.EnvironmentTemplateSummaryList"

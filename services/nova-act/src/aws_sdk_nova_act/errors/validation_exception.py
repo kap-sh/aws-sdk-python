@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "aws_sdk_nova_act.types.non_blank_string.NonBlankString"
     """<p>The input fails to satisfy the constraints specified by the service.</p>"""
     reason: (

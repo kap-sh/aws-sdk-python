@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UpdateWorkspaceImagePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class UpdateWorkspaceImagePermissionRequest(TypedDict):
+class UpdateWorkspaceImagePermissionRequest(TypedDict, closed=True):
     image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"
     """<p>The identifier of the image.</p>"""
     allow_copy_image: "aws_sdk_workspaces.types.boolean_object.BooleanObject"

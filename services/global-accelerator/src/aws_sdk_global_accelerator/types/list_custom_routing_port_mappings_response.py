@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListCustomRoutingPortMappingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
     import aws_sdk_global_accelerator.types.port_mappings
 
 
-class ListCustomRoutingPortMappingsResponse(TypedDict):
+class ListCustomRoutingPortMappingsResponse(TypedDict, closed=True):
     port_mappings: NotRequired[
         "aws_sdk_global_accelerator.types.port_mappings.PortMappings"
     ]

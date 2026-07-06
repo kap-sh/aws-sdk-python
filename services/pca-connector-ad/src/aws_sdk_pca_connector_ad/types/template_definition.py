@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#TemplateDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.template_v4
 
 
-class _TemplateDefinition_TemplateV2(TypedDict):
+class _TemplateDefinition_TemplateV2(TypedDict, closed=True):
     TemplateV2: "aws_sdk_pca_connector_ad.types.template_v2.TemplateV2"
 
 
-class _TemplateDefinition_TemplateV3(TypedDict):
+class _TemplateDefinition_TemplateV3(TypedDict, closed=True):
     TemplateV3: "aws_sdk_pca_connector_ad.types.template_v3.TemplateV3"
 
 
-class _TemplateDefinition_TemplateV4(TypedDict):
+class _TemplateDefinition_TemplateV4(TypedDict, closed=True):
     TemplateV4: "aws_sdk_pca_connector_ad.types.template_v4.TemplateV4"
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#SystemDeletedMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SystemDeletedMetadata(TypedDict):
+class SystemDeletedMetadata(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#UpdateRegistryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
     import aws_sdk_schemas.types.__string_min0_max256
 
 
-class UpdateRegistryRequest(TypedDict):
+class UpdateRegistryRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_schemas.types.__string_min0_max256.__stringMin0Max256"
     ]

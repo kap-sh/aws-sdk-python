@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#VulnerablePackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.source_layer_hash
 
 
-class VulnerablePackage(TypedDict):
+class VulnerablePackage(TypedDict, closed=True):
     name: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]
     """<p>The name of the vulnerable package.</p>"""
     version: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

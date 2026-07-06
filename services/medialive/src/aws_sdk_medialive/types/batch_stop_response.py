@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#BatchStopResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_batch_failed_result_model
     import aws_sdk_medialive.types.__list_of_batch_successful_result_model
 
 
-class BatchStopResponse(TypedDict):
+class BatchStopResponse(TypedDict, closed=True):
     failed: NotRequired[
         "aws_sdk_medialive.types.__list_of_batch_failed_result_model.__listOfBatchFailedResultModel"
     ]

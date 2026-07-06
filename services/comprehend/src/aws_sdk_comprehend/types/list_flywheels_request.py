@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListFlywheelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.flywheel_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class ListFlywheelsRequest(TypedDict):
+class ListFlywheelsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_comprehend.types.flywheel_filter.FlywheelFilter"]
     """<p>Filters the flywheels that are returned. You can filter flywheels on their status, or the date and time that they were submitted. You can only set one filter at a time. </p>"""
     next_token: NotRequired["aws_sdk_comprehend.types.string.String"]

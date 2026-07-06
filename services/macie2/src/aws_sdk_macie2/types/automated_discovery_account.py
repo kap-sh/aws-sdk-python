@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#AutomatedDiscoveryAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.automated_discovery_account_status
 
 
-class AutomatedDiscoveryAccount(TypedDict):
+class AutomatedDiscoveryAccount(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Web Services account ID for the account.</p>"""
     status: NotRequired[

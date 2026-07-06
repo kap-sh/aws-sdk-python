@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AddThingToThingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.override_dynamic_groups
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_name
 
 
-class AddThingToThingGroupRequest(TypedDict):
+class AddThingToThingGroupRequest(TypedDict, closed=True):
     thing_group_name: NotRequired["aws_sdk_iot.types.thing_group_name.ThingGroupName"]
     """<p>The name of the group to which you are adding a thing.</p>"""
     thing_group_arn: NotRequired["aws_sdk_iot.types.thing_group_arn.ThingGroupArn"]

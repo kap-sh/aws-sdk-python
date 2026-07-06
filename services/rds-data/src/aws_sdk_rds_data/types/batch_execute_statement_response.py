@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#BatchExecuteStatementResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.update_results
 
 
-class BatchExecuteStatementResponse(TypedDict):
+class BatchExecuteStatementResponse(TypedDict, closed=True):
     update_results: NotRequired["aws_sdk_rds_data.types.update_results.UpdateResults"]
     """<p>The execution results of each batch entry.</p>"""
 

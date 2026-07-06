@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#OfferSort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.offer_sort_by
     import aws_sdk_marketplace_catalog.types.sort_order
 
 
-class OfferSort(TypedDict):
+class OfferSort(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_marketplace_catalog.types.offer_sort_by.OfferSortBy"]
     """<p>Allows to sort offers.</p>"""
     sort_order: NotRequired["aws_sdk_marketplace_catalog.types.sort_order.SortOrder"]

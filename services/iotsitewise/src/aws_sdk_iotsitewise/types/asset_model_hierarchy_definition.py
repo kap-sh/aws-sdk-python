@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetModelHierarchyDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.name
 
 
-class AssetModelHierarchyDefinition(TypedDict):
+class AssetModelHierarchyDefinition(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID to assign to the asset model hierarchy, if desired. IoT SiteWise automatically generates a unique ID for you, so this parameter is never required. However, if you prefer to supply your own ID instead, you can specify it here in UUID format. If you specify your own ID, it must be globally unique.</p>"""
     external_id: NotRequired["aws_sdk_iotsitewise.types.external_id.ExternalId"]

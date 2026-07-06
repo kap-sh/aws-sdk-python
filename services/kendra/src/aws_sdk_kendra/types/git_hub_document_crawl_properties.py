@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#GitHubDocumentCrawlProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
 
 
-class GitHubDocumentCrawlProperties(TypedDict):
+class GitHubDocumentCrawlProperties(TypedDict, closed=True):
     crawl_repository_documents: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to index all files with a repository.</p>"""
     crawl_issue: "aws_sdk_kendra.types.boolean.Boolean"

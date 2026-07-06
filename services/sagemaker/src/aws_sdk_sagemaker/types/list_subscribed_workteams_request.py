@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListSubscribedWorkteamsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_name
 
 
-class ListSubscribedWorkteamsRequest(TypedDict):
+class ListSubscribedWorkteamsRequest(TypedDict, closed=True):
     name_contains: NotRequired["aws_sdk_sagemaker.types.workteam_name.WorkteamName"]
     """<p>A string in the work team name. This filter returns only work teams whose name contains the specified string.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

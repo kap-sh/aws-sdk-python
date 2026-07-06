@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeSubscribersForNotificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.generic_string
     import aws_sdk_budgets.types.subscribers
 
 
-class DescribeSubscribersForNotificationResponse(TypedDict):
+class DescribeSubscribersForNotificationResponse(TypedDict, closed=True):
     subscribers: NotRequired["aws_sdk_budgets.types.subscribers.Subscribers"]
     """<p>A list of subscribers that are associated with a notification.</p>"""
     next_token: NotRequired["aws_sdk_budgets.types.generic_string.GenericString"]

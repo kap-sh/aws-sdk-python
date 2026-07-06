@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateAppBlockBuilderAppBlockRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.arn
     import aws_sdk_appstream.types.name
 
 
-class AssociateAppBlockBuilderAppBlockRequest(TypedDict):
+class AssociateAppBlockBuilderAppBlockRequest(TypedDict, closed=True):
     app_block_arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]
     """<p>The ARN of the app block.</p>"""
     app_block_builder_name: NotRequired["aws_sdk_appstream.types.name.Name"]

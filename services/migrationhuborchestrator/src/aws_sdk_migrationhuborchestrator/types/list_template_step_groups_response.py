@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#ListTemplateStepGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.template_step_group_summary_list
 
 
-class ListTemplateStepGroupsResponse(TypedDict):
+class ListTemplateStepGroupsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.next_token.NextToken"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CopyValueEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.target
 
 
-class CopyValueEntry(TypedDict):
+class CopyValueEntry(TypedDict, closed=True):
     source: "aws_sdk_cloudwatch_logs.types.source.Source"
     """<p>The key to copy.</p>"""
     target: "aws_sdk_cloudwatch_logs.types.target.Target"

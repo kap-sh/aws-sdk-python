@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ToscaOverride``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ToscaOverride(TypedDict):
+class ToscaOverride(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>Name of the TOSCA override.</p>"""
     default_value: NotRequired["str"]

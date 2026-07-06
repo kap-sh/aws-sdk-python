@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RepromptResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.source
 
 
-class RepromptResponse(TypedDict):
+class RepromptResponse(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>The text reprompting the input.</p>"""
     source: NotRequired["aws_sdk_bedrock_agent_runtime.types.source.Source"]

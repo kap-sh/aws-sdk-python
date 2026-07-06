@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#UpdateRealtimeLogConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class UpdateRealtimeLogConfigRequest(TypedDict):
+class UpdateRealtimeLogConfigRequest(TypedDict, closed=True):
     end_points: NotRequired["aws_sdk_cloudfront.types.end_point_list.EndPointList"]
     """<p>Contains information about the Amazon Kinesis data stream where you are sending real-time log data.</p>"""
     fields: NotRequired["aws_sdk_cloudfront.types.field_list.FieldList"]

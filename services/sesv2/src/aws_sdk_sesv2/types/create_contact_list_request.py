@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateContactListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.topics
 
 
-class CreateContactListRequest(TypedDict):
+class CreateContactListRequest(TypedDict, closed=True):
     contact_list_name: "aws_sdk_sesv2.types.contact_list_name.ContactListName"
     """<p>The name of the contact list.</p>"""
     topics: NotRequired["aws_sdk_sesv2.types.topics.Topics"]

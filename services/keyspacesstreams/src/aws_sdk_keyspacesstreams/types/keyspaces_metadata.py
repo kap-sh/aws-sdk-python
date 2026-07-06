@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#KeyspacesMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class KeyspacesMetadata(TypedDict):
+class KeyspacesMetadata(TypedDict, closed=True):
     expiration_time: NotRequired["str"]
     """<p>The time at which the associated data will expire, based on the time-to-live (TTL) setting.</p>"""
     write_time: NotRequired["str"]

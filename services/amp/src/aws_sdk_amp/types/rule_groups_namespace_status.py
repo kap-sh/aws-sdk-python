@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#RuleGroupsNamespaceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.rule_groups_namespace_status_code
 
 
-class RuleGroupsNamespaceStatus(TypedDict):
+class RuleGroupsNamespaceStatus(TypedDict, closed=True):
     status_code: "aws_sdk_amp.types.rule_groups_namespace_status_code.RuleGroupsNamespaceStatusCode"
     """<p>The current status of the namespace.</p>"""
     status_reason: NotRequired["str"]

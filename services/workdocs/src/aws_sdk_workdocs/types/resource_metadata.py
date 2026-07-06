@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#ResourceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.document_version_id_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.user_metadata
 
 
-class ResourceMetadata(TypedDict):
+class ResourceMetadata(TypedDict, closed=True):
     type: NotRequired["aws_sdk_workdocs.types.resource_type.ResourceType"]
     """<p>The type of resource.</p>"""
     name: NotRequired["aws_sdk_workdocs.types.resource_name_type.ResourceNameType"]

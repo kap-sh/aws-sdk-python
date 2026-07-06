@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetCustomVerificationEmailTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_template_name
 
 
-class GetCustomVerificationEmailTemplateRequest(TypedDict):
+class GetCustomVerificationEmailTemplateRequest(TypedDict, closed=True):
     template_name: "aws_sdk_sesv2.types.email_template_name.EmailTemplateName"
     """<p>The name of the custom verification email template that you want to retrieve.</p>"""
 

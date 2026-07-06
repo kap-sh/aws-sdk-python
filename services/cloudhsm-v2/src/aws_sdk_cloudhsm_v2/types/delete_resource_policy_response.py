@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#DeleteResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.cloud_hsm_arn
     import aws_sdk_cloudhsm_v2.types.resource_policy
 
 
-class DeleteResourcePolicyResponse(TypedDict):
+class DeleteResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_cloudhsm_v2.types.cloud_hsm_arn.CloudHsmArn"]
     """<p>Amazon Resource Name (ARN) of the resource from which the policy was deleted. </p>"""
     policy: NotRequired["aws_sdk_cloudhsm_v2.types.resource_policy.ResourcePolicy"]

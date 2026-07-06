@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#KinesisFirehoseDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.amazon_resource_name
 
 
-class KinesisFirehoseDestination(TypedDict):
+class KinesisFirehoseDestination(TypedDict, closed=True):
     iam_role_arn: "aws_sdk_pinpoint_email.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the IAM role that Amazon Pinpoint uses when sending email events to the Amazon Kinesis Data Firehose stream.</p>"""
     delivery_stream_arn: (

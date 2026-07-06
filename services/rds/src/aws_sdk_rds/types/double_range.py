@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DoubleRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -15,6 +15,7 @@ DoubleRange = TypedDict(
         "from": NotRequired["aws_sdk_rds.types.double.Double"],
         "to": NotRequired["aws_sdk_rds.types.double.Double"],
     },
+    closed=True,
 )
 
 

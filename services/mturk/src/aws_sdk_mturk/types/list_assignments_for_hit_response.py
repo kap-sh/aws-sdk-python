@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListAssignmentsForHITResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.assignment_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.pagination_token
 
 
-class ListAssignmentsForHITResponse(TypedDict):
+class ListAssignmentsForHITResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]
     num_results: NotRequired["aws_sdk_mturk.types.integer.Integer"]
     """<p> The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.</p>"""

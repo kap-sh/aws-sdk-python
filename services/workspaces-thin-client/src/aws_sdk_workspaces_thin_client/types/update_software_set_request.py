@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#UpdateSoftwareSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_thin_client.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.software_set_validation_status
 
 
-class UpdateSoftwareSetRequest(TypedDict):
+class UpdateSoftwareSetRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.software_set_id.SoftwareSetId"
     """<p>The ID of the software set to update.</p>"""
     validation_status: "aws_sdk_workspaces_thin_client.types.software_set_validation_status.SoftwareSetValidationStatus"

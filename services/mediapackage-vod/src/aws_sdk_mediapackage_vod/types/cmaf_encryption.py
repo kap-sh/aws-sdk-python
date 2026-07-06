@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#CmafEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
     import aws_sdk_mediapackage_vod.types.speke_key_provider
 
 
-class CmafEncryption(TypedDict):
+class CmafEncryption(TypedDict, closed=True):
     constant_initialization_vector: NotRequired[
         "aws_sdk_mediapackage_vod.types.__string.__string"
     ]

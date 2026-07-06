@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.boolean
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.timestamp
 
 
-class GetRuleResponse(TypedDict):
+class GetRuleResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_vpc_lattice.types.rule_arn.RuleArn"]
     """<p>The Amazon Resource Name (ARN) of the listener.</p>"""
     id: NotRequired["aws_sdk_vpc_lattice.types.rule_id.RuleId"]

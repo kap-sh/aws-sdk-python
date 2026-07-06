@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#GetLifecyclePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.evaluation_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_name
 
 
-class GetLifecyclePolicyResponse(TypedDict):
+class GetLifecyclePolicyResponse(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The registry ID associated with the request.</p>"""
     repository_name: NotRequired["aws_sdk_ecr.types.repository_name.RepositoryName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#CreateSecretRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_secrets_manager.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.tag_list_type
 
 
-class CreateSecretRequest(TypedDict):
+class CreateSecretRequest(TypedDict, closed=True):
     name: "aws_sdk_secrets_manager.types.name_type.NameType"
     """<p>The name of the new secret.</p> <p>The secret name can contain ASCII letters, numbers, and the following characters: /_+=.@-</p> <p>Do not end your secret name with a hyphen followed by six characters. If you do so, you risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager automatically adds a hyphen and six random characters after the secret name at the end of the ARN.</p>"""
     client_request_token: NotRequired[

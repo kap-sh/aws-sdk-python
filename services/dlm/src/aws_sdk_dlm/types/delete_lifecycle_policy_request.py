@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#DeleteLifecyclePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.policy_id
 
 
-class DeleteLifecyclePolicyRequest(TypedDict):
+class DeleteLifecyclePolicyRequest(TypedDict, closed=True):
     policy_id: "aws_sdk_dlm.types.policy_id.PolicyId"
     """<p>The identifier of the lifecycle policy.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetJobRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.job_run
 
 
-class GetJobRunResponse(TypedDict):
+class GetJobRunResponse(TypedDict, closed=True):
     job_run: NotRequired["aws_sdk_glue.types.job_run.JobRun"]
     """<p>The requested job-run metadata.</p>"""
 

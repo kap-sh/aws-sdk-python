@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PutTaxInheritanceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutTaxInheritanceResponse(TypedDict):
+class PutTaxInheritanceResponse(TypedDict, closed=True):
     pass
 
 

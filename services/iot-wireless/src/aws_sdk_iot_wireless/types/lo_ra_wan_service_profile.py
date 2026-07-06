@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANServiceProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.add_gw_metadata
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tx_power_index_min
 
 
-class LoRaWANServiceProfile(TypedDict):
+class LoRaWANServiceProfile(TypedDict, closed=True):
     add_gw_metadata: "aws_sdk_iot_wireless.types.add_gw_metadata.AddGwMetadata"
     """<p>The AddGWMetaData value.</p>"""
     dr_min: NotRequired["aws_sdk_iot_wireless.types.dr_min_box.DrMinBox"]

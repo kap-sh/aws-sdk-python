@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListFailuresForLicenseConfigurationOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_operation_failure_list
     import aws_sdk_license_manager.types.string
 
 
-class ListFailuresForLicenseConfigurationOperationsResponse(TypedDict):
+class ListFailuresForLicenseConfigurationOperationsResponse(TypedDict, closed=True):
     license_operation_failure_list: NotRequired[
         "aws_sdk_license_manager.types.license_operation_failure_list.LicenseOperationFailureList"
     ]

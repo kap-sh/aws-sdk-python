@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListKeyPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.policy_name_list
 
 
-class ListKeyPoliciesResponse(TypedDict):
+class ListKeyPoliciesResponse(TypedDict, closed=True):
     policy_names: NotRequired["aws_sdk_kms.types.policy_name_list.PolicyNameList"]
     """<p>A list of key policy names. The only valid value is <code>default</code>.</p>"""
     next_marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

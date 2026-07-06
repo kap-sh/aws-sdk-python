@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#ListMonitorsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.max_results
     import aws_sdk_networkmonitor.types.pagination_token
 
 
-class ListMonitorsInput(TypedDict):
+class ListMonitorsInput(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_networkmonitor.types.pagination_token.PaginationToken"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#UpstreamRepositoryInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.repository_name
 
 
-class UpstreamRepositoryInfo(TypedDict):
+class UpstreamRepositoryInfo(TypedDict, closed=True):
     repository_name: NotRequired[
         "aws_sdk_codeartifact.types.repository_name.RepositoryName"
     ]

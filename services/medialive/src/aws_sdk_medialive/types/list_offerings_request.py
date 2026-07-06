@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListOfferingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.max_results
 
 
-class ListOfferingsRequest(TypedDict):
+class ListOfferingsRequest(TypedDict, closed=True):
     channel_class: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Filter by channel class, 'STANDARD' or 'SINGLE_PIPELINE'"""
     channel_configuration: NotRequired["aws_sdk_medialive.types.__string.__string"]

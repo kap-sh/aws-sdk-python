@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.arn
     import aws_sdk_outposts.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_outposts.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     tag_keys: "aws_sdk_outposts.types.tag_key_list.TagKeyList"

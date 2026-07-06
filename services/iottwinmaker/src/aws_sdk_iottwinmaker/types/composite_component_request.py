@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CompositeComponentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.component_property_group_requests
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_requests
 
 
-class CompositeComponentRequest(TypedDict):
+class CompositeComponentRequest(TypedDict, closed=True):
     description: NotRequired["aws_sdk_iottwinmaker.types.description.Description"]
     """<p>The description of the component type.</p>"""
     properties: NotRequired[

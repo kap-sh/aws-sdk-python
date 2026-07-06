@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListGroupsOlderThanOrderingIdResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.list_of_group_summaries
     import aws_sdk_kendra.types.next_token
 
 
-class ListGroupsOlderThanOrderingIdResponse(TypedDict):
+class ListGroupsOlderThanOrderingIdResponse(TypedDict, closed=True):
     groups_summaries: NotRequired[
         "aws_sdk_kendra.types.list_of_group_summaries.ListOfGroupSummaries"
     ]

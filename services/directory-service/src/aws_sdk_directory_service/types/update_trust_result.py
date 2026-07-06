@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateTrustResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.request_id
     import aws_sdk_directory_service.types.trust_id
 
 
-class UpdateTrustResult(TypedDict):
+class UpdateTrustResult(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_directory_service.types.request_id.RequestId"]
     trust_id: NotRequired["aws_sdk_directory_service.types.trust_id.TrustId"]
     """<p>Identifier of the trust relationship.</p>"""

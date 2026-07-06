@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_tags_list_type
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"
     """<p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>"""
     tag_keys: "aws_sdk_cognito_identity_provider.types.user_pool_tags_list_type.UserPoolTagsListType"

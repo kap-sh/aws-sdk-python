@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TestInvokeAuthorizerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.authorizer_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.token_signature
 
 
-class TestInvokeAuthorizerRequest(TypedDict):
+class TestInvokeAuthorizerRequest(TypedDict, closed=True):
     authorizer_name: "aws_sdk_iot.types.authorizer_name.AuthorizerName"
     """<p>The custom authorizer name.</p>"""
     token: NotRequired["aws_sdk_iot.types.token.Token"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#EventOrchestration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.boolean
 
 
-class EventOrchestration(TypedDict):
+class EventOrchestration(TypedDict, closed=True):
     event_bridge_enabled: "aws_sdk_frauddetector.types.boolean.Boolean"
     """<p>Specifies if event orchestration is enabled through Amazon EventBridge.</p>"""
 

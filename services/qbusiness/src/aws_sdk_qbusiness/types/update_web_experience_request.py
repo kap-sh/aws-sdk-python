@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UpdateWebExperienceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.web_experience_welcome_message
 
 
-class UpdateWebExperienceRequest(TypedDict):
+class UpdateWebExperienceRequest(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the Amazon Q Business application attached to the web experience.</p>"""
     web_experience_id: "aws_sdk_qbusiness.types.web_experience_id.WebExperienceId"

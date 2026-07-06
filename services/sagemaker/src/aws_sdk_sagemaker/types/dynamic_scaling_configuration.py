@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DynamicScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
     import aws_sdk_sagemaker.types.scaling_policies
 
 
-class DynamicScalingConfiguration(TypedDict):
+class DynamicScalingConfiguration(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
     """<p>The recommended minimum capacity to specify for your autoscaling policy.</p>"""
     max_capacity: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

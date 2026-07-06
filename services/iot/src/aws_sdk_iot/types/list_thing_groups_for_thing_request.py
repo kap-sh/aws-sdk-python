@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListThingGroupsForThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_name
 
 
-class ListThingGroupsForThingRequest(TypedDict):
+class ListThingGroupsForThingRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.thing_name.ThingName"
     """<p>The thing name.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

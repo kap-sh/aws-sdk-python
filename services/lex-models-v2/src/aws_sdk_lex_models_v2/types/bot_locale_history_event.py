@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotLocaleHistoryEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class BotLocaleHistoryEvent(TypedDict):
+class BotLocaleHistoryEvent(TypedDict, closed=True):
     event: "aws_sdk_lex_models_v2.types.bot_locale_history_event_description.BotLocaleHistoryEventDescription"
     """<p>A description of the event that occurred.</p>"""
     event_date: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"

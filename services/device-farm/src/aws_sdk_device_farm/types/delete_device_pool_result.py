@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteDevicePoolResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDevicePoolResult(TypedDict):
+class DeleteDevicePoolResult(TypedDict, closed=True):
     pass
 
 

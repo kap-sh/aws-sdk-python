@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#PutCorsPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.cors_policy
 
 
-class PutCorsPolicyInput(TypedDict):
+class PutCorsPolicyInput(TypedDict, closed=True):
     container_name: "aws_sdk_mediastore.types.container_name.ContainerName"
     """<p>The name of the container that you want to assign the CORS policy to.</p>"""
     cors_policy: "aws_sdk_mediastore.types.cors_policy.CorsPolicy"

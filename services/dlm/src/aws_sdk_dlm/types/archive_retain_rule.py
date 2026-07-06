@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#ArchiveRetainRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.retention_archive_tier
 
 
-class ArchiveRetainRule(TypedDict):
+class ArchiveRetainRule(TypedDict, closed=True):
     retention_archive_tier: NotRequired[
         "aws_sdk_dlm.types.retention_archive_tier.RetentionArchiveTier"
     ]

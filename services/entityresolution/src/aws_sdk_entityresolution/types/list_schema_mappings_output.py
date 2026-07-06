@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ListSchemaMappingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.next_token
     import aws_sdk_entityresolution.types.schema_mapping_list
 
 
-class ListSchemaMappingsOutput(TypedDict):
+class ListSchemaMappingsOutput(TypedDict, closed=True):
     schema_list: NotRequired[
         "aws_sdk_entityresolution.types.schema_mapping_list.SchemaMappingList"
     ]

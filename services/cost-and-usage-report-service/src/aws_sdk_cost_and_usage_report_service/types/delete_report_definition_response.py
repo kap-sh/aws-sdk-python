@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#DeleteReportDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.delete_response_message
 
 
-class DeleteReportDefinitionResponse(TypedDict):
+class DeleteReportDefinitionResponse(TypedDict, closed=True):
     response_message: NotRequired[
         "aws_sdk_cost_and_usage_report_service.types.delete_response_message.DeleteResponseMessage"
     ]

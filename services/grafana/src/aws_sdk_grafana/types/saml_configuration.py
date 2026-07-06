@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#SamlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.role_values
 
 
-class SamlConfiguration(TypedDict):
+class SamlConfiguration(TypedDict, closed=True):
     idp_metadata: "aws_sdk_grafana.types.idp_metadata.IdpMetadata"
     """<p>A structure containing the identity provider (IdP) metadata used to integrate the identity provider with this workspace.</p>"""
     assertion_attributes: NotRequired[

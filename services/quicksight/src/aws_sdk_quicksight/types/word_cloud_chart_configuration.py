@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#WordCloudChartConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.chart_axis_label_options
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.word_cloud_sort_configuration
 
 
-class WordCloudChartConfiguration(TypedDict):
+class WordCloudChartConfiguration(TypedDict, closed=True):
     field_wells: NotRequired[
         "aws_sdk_quicksight.types.word_cloud_field_wells.WordCloudFieldWells"
     ]

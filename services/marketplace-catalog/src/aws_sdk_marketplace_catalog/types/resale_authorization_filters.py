@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ResaleAuthorizationFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resale_authorization_availability_end_date_filter
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resale_authorization_status_filter
 
 
-class ResaleAuthorizationFilters(TypedDict):
+class ResaleAuthorizationFilters(TypedDict, closed=True):
     entity_id: NotRequired[
         "aws_sdk_marketplace_catalog.types.resale_authorization_entity_id_filter.ResaleAuthorizationEntityIdFilter"
     ]

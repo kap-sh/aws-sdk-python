@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.s3_bucket_arn
 
 
-class DataLakeResource(TypedDict):
+class DataLakeResource(TypedDict, closed=True):
     data_lake_arn: "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"
     r"""<p>The Amazon Resource Name (ARN) created by you to provide to the subscriber. For more information about ARNs and how to use them in policies, see the <a href=\"https://docs.aws.amazon.com/security-lake/latest/userguide/subscriber-management.html\">Amazon Security Lake User Guide</a>.</p>"""
     region: "aws_sdk_securitylake.types.region.Region"

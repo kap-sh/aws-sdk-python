@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.mapping_list
 
 
-class GetPlanRequest(TypedDict):
+class GetPlanRequest(TypedDict, closed=True):
     mapping: "aws_sdk_glue.types.mapping_list.MappingList"
     """<p>The list of mappings from a source table to target tables.</p>"""
     source: "aws_sdk_glue.types.catalog_entry.CatalogEntry"

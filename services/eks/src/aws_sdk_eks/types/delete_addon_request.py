@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DeleteAddonRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boolean
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class DeleteAddonRequest(TypedDict):
+class DeleteAddonRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.cluster_name.ClusterName"
     """<p>The name of your cluster.</p>"""
     addon_name: "aws_sdk_eks.types.string.String"

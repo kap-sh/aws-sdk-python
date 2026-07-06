@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12AcknowledgmentOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_technical_acknowledgment
 
 
-class X12AcknowledgmentOptions(TypedDict):
+class X12AcknowledgmentOptions(TypedDict, closed=True):
     functional_acknowledgment: (
         "aws_sdk_b2bi.types.x12_functional_acknowledgment.X12FunctionalAcknowledgment"
     )

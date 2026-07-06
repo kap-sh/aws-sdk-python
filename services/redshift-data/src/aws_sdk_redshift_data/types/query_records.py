@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#QueryRecords``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
 
 
-class _QueryRecords_CSVRecords(TypedDict):
+class _QueryRecords_CSVRecords(TypedDict, closed=True):
     CSVRecords: "aws_sdk_redshift_data.types.string.String"
 
 

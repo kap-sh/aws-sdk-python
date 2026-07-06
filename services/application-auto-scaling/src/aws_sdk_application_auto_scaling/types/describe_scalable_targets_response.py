@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#DescribeScalableTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.scalable_targets
     import aws_sdk_application_auto_scaling.types.xml_string
 
 
-class DescribeScalableTargetsResponse(TypedDict):
+class DescribeScalableTargetsResponse(TypedDict, closed=True):
     scalable_targets: NotRequired[
         "aws_sdk_application_auto_scaling.types.scalable_targets.ScalableTargets"
     ]

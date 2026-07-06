@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails(TypedDict):
+class AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails(
+    TypedDict, closed=True
+):
     max: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p> The maximum amount of memory, in MiB. </p>"""
     min: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

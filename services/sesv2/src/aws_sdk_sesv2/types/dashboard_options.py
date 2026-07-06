@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DashboardOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.feature_status
 
 
-class DashboardOptions(TypedDict):
+class DashboardOptions(TypedDict, closed=True):
     engagement_metrics: NotRequired["aws_sdk_sesv2.types.feature_status.FeatureStatus"]
     """<p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p> <ul> <li> <p> <code>ENABLED</code> – Amazon SES enables engagement metrics for the configuration set.</p> </li> <li> <p> <code>DISABLED</code> – Amazon SES disables engagement metrics for the configuration set.</p> </li> </ul>"""
 

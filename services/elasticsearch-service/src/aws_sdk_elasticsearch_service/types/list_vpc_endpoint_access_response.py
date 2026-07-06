@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListVpcEndpointAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class ListVpcEndpointAccessResponse(TypedDict):
+class ListVpcEndpointAccessResponse(TypedDict, closed=True):
     authorized_principal_list: "aws_sdk_elasticsearch_service.types.authorized_principal_list.AuthorizedPrincipalList"
     """<p>List of <code>AuthorizedPrincipal</code> describing the details of the permissions to manage VPC endpoints against the specified domain.</p>"""
     next_token: "aws_sdk_elasticsearch_service.types.next_token.NextToken"

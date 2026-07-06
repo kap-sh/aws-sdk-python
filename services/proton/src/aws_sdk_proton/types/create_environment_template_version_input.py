@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateEnvironmentTemplateVersionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_source_input
 
 
-class CreateEnvironmentTemplateVersionInput(TypedDict):
+class CreateEnvironmentTemplateVersionInput(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_proton.types.client_token.ClientToken"]
     """<p>When included, if two identical requests are made with the same client token, Proton returns the environment template version that the first request created.</p>"""
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#UpdateOpenIdConnectTokenSelection``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.update_open_id_connect_identity_token_configuration
 
 
-class _UpdateOpenIdConnectTokenSelection_accessTokenOnly(TypedDict):
+class _UpdateOpenIdConnectTokenSelection_accessTokenOnly(TypedDict, closed=True):
     accessTokenOnly: "aws_sdk_verifiedpermissions.types.update_open_id_connect_access_token_configuration.UpdateOpenIdConnectAccessTokenConfiguration"
 
 
-class _UpdateOpenIdConnectTokenSelection_identityTokenOnly(TypedDict):
+class _UpdateOpenIdConnectTokenSelection_identityTokenOnly(TypedDict, closed=True):
     identityTokenOnly: "aws_sdk_verifiedpermissions.types.update_open_id_connect_identity_token_configuration.UpdateOpenIdConnectIdentityTokenConfiguration"
 
 

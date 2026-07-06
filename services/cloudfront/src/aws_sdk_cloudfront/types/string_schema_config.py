@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#StringSchemaConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.sensitive_string_type
 
 
-class StringSchemaConfig(TypedDict):
+class StringSchemaConfig(TypedDict, closed=True):
     comment: NotRequired[
         "aws_sdk_cloudfront.types.sensitive_string_type.sensitiveStringType"
     ]

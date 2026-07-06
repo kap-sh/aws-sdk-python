@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#WorkerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__string
 
 
-class WorkerConfiguration(TypedDict):
+class WorkerConfiguration(TypedDict, closed=True):
     revision: "aws_sdk_kafkaconnect.types.__long_min1.__longMin1"
     """<p>The revision of the worker configuration.</p>"""
     worker_configuration_arn: "aws_sdk_kafkaconnect.types.__string.__string"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelMLModelTransformJobOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelMLModelTransformJobOutput(TypedDict):
+class CancelMLModelTransformJobOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>the status of the cancelation.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAmazonMqBrokerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_amazon_mq_broker_encryption_options_details
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsAmazonMqBrokerDetails(TypedDict):
+class AwsAmazonMqBrokerDetails(TypedDict, closed=True):
     authentication_strategy: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

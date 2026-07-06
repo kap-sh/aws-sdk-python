@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DomainInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.registration_status
 
 
-class DomainInfo(TypedDict):
+class DomainInfo(TypedDict, closed=True):
     name: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain. This name is unique within the account.</p>"""
     status: "aws_sdk_swf.types.registration_status.RegistrationStatus"

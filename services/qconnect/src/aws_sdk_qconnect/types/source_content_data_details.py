@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SourceContentDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class SourceContentDataDetails(TypedDict):
+class SourceContentDataDetails(TypedDict, closed=True):
     id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the source content.</p>"""
     type: "aws_sdk_qconnect.types.source_content_type.SourceContentType"

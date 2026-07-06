@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#PutEventSelectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.advanced_event_selectors
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class PutEventSelectorsResponse(TypedDict):
+class PutEventSelectorsResponse(TypedDict, closed=True):
     trail_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>Specifies the ARN of the trail that was updated with event selectors. The following is the format of a trail ARN.</p> <p> <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code> </p>"""
     event_selectors: NotRequired[

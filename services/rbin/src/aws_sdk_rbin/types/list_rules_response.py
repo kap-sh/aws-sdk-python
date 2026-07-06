@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rbin#ListRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rbin.types.next_token
     import aws_sdk_rbin.types.rule_summary_list
 
 
-class ListRulesResponse(TypedDict):
+class ListRulesResponse(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_rbin.types.rule_summary_list.RuleSummaryList"]
     """<p>Information about the retention rules.</p>"""
     next_token: NotRequired["aws_sdk_rbin.types.next_token.NextToken"]

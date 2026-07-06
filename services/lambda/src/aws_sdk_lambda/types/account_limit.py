@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AccountLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.unreserved_concurrent_executions
 
 
-class AccountLimit(TypedDict):
+class AccountLimit(TypedDict, closed=True):
     total_code_size: "aws_sdk_lambda.types.long.Long"
     """<p>The amount of storage space that you can use for all deployment packages and layer archives.</p>"""
     code_size_unzipped: "aws_sdk_lambda.types.long.Long"

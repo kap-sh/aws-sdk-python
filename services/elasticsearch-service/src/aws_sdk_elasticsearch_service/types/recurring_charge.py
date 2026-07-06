@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#RecurringCharge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.double
     import aws_sdk_elasticsearch_service.types.string
 
 
-class RecurringCharge(TypedDict):
+class RecurringCharge(TypedDict, closed=True):
     recurring_charge_amount: NotRequired[
         "aws_sdk_elasticsearch_service.types.double.Double"
     ]

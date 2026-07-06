@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateAutomationRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.tag_map
 
 
-class CreateAutomationRuleRequest(TypedDict):
+class CreateAutomationRuleRequest(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_securityhub.types.tag_map.TagMap"]
     """<p> User-defined tags associated with an automation rule. </p>"""
     rule_status: NotRequired["aws_sdk_securityhub.types.rule_status.RuleStatus"]

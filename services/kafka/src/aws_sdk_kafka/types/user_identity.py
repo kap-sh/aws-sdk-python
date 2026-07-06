@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#UserIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.user_identity_type
 
 
-class UserIdentity(TypedDict):
+class UserIdentity(TypedDict, closed=True):
     type: NotRequired["aws_sdk_kafka.types.user_identity_type.UserIdentityType"]
     """<p>The identity type of the requester that calls the API operation.</p>"""
     principal_id: NotRequired["aws_sdk_kafka.types.__string.__string"]

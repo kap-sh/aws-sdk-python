@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#ListHostsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.max_results
     import aws_sdk_codestar_connections.types.next_token
 
 
-class ListHostsInput(TypedDict):
+class ListHostsInput(TypedDict, closed=True):
     max_results: "aws_sdk_codestar_connections.types.max_results.MaxResults"
     """<p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>"""
     next_token: NotRequired["aws_sdk_codestar_connections.types.next_token.NextToken"]

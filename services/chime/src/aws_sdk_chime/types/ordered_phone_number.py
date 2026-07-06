@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#OrderedPhoneNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.e164_phone_number
     import aws_sdk_chime.types.ordered_phone_number_status
 
 
-class OrderedPhoneNumber(TypedDict):
+class OrderedPhoneNumber(TypedDict, closed=True):
     e164_phone_number: NotRequired[
         "aws_sdk_chime.types.e164_phone_number.E164PhoneNumber"
     ]

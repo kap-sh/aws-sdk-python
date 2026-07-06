@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotJobS3Result``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sensitive_s3_uri
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_s3_destination_configuration
 
 
-class SnapshotJobS3Result(TypedDict):
+class SnapshotJobS3Result(TypedDict, closed=True):
     s3_destination_configuration: NotRequired[
         "aws_sdk_quicksight.types.snapshot_s3_destination_configuration.SnapshotS3DestinationConfiguration"
     ]

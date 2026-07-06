@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ImageBlockDelta``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.error_block
     import aws_sdk_bedrock_runtime.types.image_source
 
 
-class ImageBlockDelta(TypedDict):
+class ImageBlockDelta(TypedDict, closed=True):
     source: NotRequired["aws_sdk_bedrock_runtime.types.image_source.ImageSource"]
     """<p>The incremental image source data for this delta event.</p>"""
     error: NotRequired["aws_sdk_bedrock_runtime.types.error_block.ErrorBlock"]

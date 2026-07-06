@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExecuteCommandConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.execute_command_log_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ExecuteCommandConfiguration(TypedDict):
+class ExecuteCommandConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>Specify an Key Management Service key ID to encrypt the data between the local client and the container.</p>"""
     logging: NotRequired[

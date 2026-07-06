@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListPrefetchSchedulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer_min1_max100
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.list_prefetch_schedule_type
 
 
-class ListPrefetchSchedulesRequest(TypedDict):
+class ListPrefetchSchedulesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_mediatailor.types.__integer_min1_max100.__integerMin1Max100"
     ]

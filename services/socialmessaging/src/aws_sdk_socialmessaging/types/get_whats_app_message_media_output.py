@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#GetWhatsAppMessageMediaOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetWhatsAppMessageMediaOutput(TypedDict):
+class GetWhatsAppMessageMediaOutput(TypedDict, closed=True):
     mime_type: NotRequired["str"]
     """<p>The MIME type of the media.</p>"""
     file_size: NotRequired["int"]

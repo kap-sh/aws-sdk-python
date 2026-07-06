@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateDevEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class CreateDevEndpointResponse(TypedDict):
+class CreateDevEndpointResponse(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
     """<p>The name assigned to the new <code>DevEndpoint</code>.</p>"""
     status: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

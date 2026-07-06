@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DomainNameConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and128
 
 
-class DomainNameConfiguration(TypedDict):
+class DomainNameConfiguration(TypedDict, closed=True):
     api_gateway_domain_name: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]
     """<p>A domain name for the API.</p>"""
     certificate_arn: NotRequired["aws_sdk_apigatewayv2.types.arn.Arn"]

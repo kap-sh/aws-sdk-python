@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CustomRoutingDestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.port_number
     import aws_sdk_global_accelerator.types.protocols
 
 
-class CustomRoutingDestinationDescription(TypedDict):
+class CustomRoutingDestinationDescription(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_global_accelerator.types.port_number.PortNumber"]
     """<p>The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.</p>"""
     to_port: NotRequired["aws_sdk_global_accelerator.types.port_number.PortNumber"]

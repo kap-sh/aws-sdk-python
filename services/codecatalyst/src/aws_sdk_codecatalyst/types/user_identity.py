@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#UserIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.user_type
 
 
-class UserIdentity(TypedDict):
+class UserIdentity(TypedDict, closed=True):
     user_type: "aws_sdk_codecatalyst.types.user_type.UserType"
     """<p>The role assigned to the user in a Amazon CodeCatalyst space or project when the event occurred.</p>"""
     principal_id: "str"

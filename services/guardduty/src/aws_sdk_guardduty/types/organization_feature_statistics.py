@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationFeatureStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.organization_feature_statistics_additional_configurations
 
 
-class OrganizationFeatureStatistics(TypedDict):
+class OrganizationFeatureStatistics(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.org_feature.OrgFeature"]
     """<p>Name of the feature.</p>"""
     enabled_accounts_count: NotRequired["aws_sdk_guardduty.types.integer.Integer"]

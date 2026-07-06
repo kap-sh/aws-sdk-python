@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     endpoint_id: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The endpoint ID for the endpoint that is specified as a Amazon Web Services resource. </p> <p>An endpoint ID for the cross-account feature is the ARN of an Amazon Web Services resource, such as a Network Load Balancer, that Global Accelerator supports as an endpoint for an accelerator.</p>"""
     cidr: NotRequired["aws_sdk_global_accelerator.types.generic_string.GenericString"]

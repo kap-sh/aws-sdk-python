@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#GetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.group
 
 
-class GetGroupResponse(TypedDict):
+class GetGroupResponse(TypedDict, closed=True):
     group: NotRequired["aws_sdk_synthetics.types.group.Group"]
     """<p>A structure that contains information about the group.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListUsersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_list
 
 
-class ListUsersResponse(TypedDict):
+class ListUsersResponse(TypedDict, closed=True):
     user_list: NotRequired["aws_sdk_quicksight.types.user_list.UserList"]
     """<p>The list of users.</p>"""
     next_token: NotRequired["aws_sdk_quicksight.types.string.String"]

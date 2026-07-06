@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#AdvancedBackupSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_options
     import aws_sdk_backup.types.resource_type
 
 
-class AdvancedBackupSetting(TypedDict):
+class AdvancedBackupSetting(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_backup.types.resource_type.ResourceType"]
     r"""<p>Specifies an object containing resource type and backup options. The only supported resource type is Amazon EC2 instances with Windows Volume Shadow Copy Service (VSS). For a CloudFormation example, see the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/integrate-cloudformation-with-aws-backup.html\">sample CloudFormation template to enable Windows VSS</a> in the <i>Backup User Guide</i>.</p> <p>Valid values: <code>EC2</code>.</p>"""
     backup_options: NotRequired["aws_sdk_backup.types.backup_options.BackupOptions"]

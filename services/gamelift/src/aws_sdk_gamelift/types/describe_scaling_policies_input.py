@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeScalingPoliciesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.scaling_status_type
 
 
-class DescribeScalingPoliciesInput(TypedDict):
+class DescribeScalingPoliciesInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet for which to retrieve scaling policies. You can use either the fleet ID or ARN value.</p>"""
     status_filter: NotRequired[

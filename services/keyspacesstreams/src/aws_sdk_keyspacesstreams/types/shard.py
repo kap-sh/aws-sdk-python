@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#Shard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.sequence_number_range
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.shard_id_list
 
 
-class Shard(TypedDict):
+class Shard(TypedDict, closed=True):
     shard_id: NotRequired["aws_sdk_keyspacesstreams.types.shard_id.ShardId"]
     """<p>A unique identifier for this shard within the stream.</p>"""
     sequence_number_range: NotRequired[

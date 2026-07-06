@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BrowserProfileConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.browser_profile_id
 
 
-class BrowserProfileConfiguration(TypedDict):
+class BrowserProfileConfiguration(TypedDict, closed=True):
     profile_identifier: (
         "aws_sdk_bedrock_agentcore.types.browser_profile_id.BrowserProfileId"
     )

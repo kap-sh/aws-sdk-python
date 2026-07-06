@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Trace``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -17,37 +19,37 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.routing_classifier_trace
 
 
-class _Trace_guardrailTrace(TypedDict):
+class _Trace_guardrailTrace(TypedDict, closed=True):
     guardrailTrace: "aws_sdk_bedrock_agent_runtime.types.guardrail_trace.GuardrailTrace"
 
 
-class _Trace_preProcessingTrace(TypedDict):
+class _Trace_preProcessingTrace(TypedDict, closed=True):
     preProcessingTrace: (
         "aws_sdk_bedrock_agent_runtime.types.pre_processing_trace.PreProcessingTrace"
     )
 
 
-class _Trace_orchestrationTrace(TypedDict):
+class _Trace_orchestrationTrace(TypedDict, closed=True):
     orchestrationTrace: (
         "aws_sdk_bedrock_agent_runtime.types.orchestration_trace.OrchestrationTrace"
     )
 
 
-class _Trace_postProcessingTrace(TypedDict):
+class _Trace_postProcessingTrace(TypedDict, closed=True):
     postProcessingTrace: (
         "aws_sdk_bedrock_agent_runtime.types.post_processing_trace.PostProcessingTrace"
     )
 
 
-class _Trace_routingClassifierTrace(TypedDict):
+class _Trace_routingClassifierTrace(TypedDict, closed=True):
     routingClassifierTrace: "aws_sdk_bedrock_agent_runtime.types.routing_classifier_trace.RoutingClassifierTrace"
 
 
-class _Trace_failureTrace(TypedDict):
+class _Trace_failureTrace(TypedDict, closed=True):
     failureTrace: "aws_sdk_bedrock_agent_runtime.types.failure_trace.FailureTrace"
 
 
-class _Trace_customOrchestrationTrace(TypedDict):
+class _Trace_customOrchestrationTrace(TypedDict, closed=True):
     customOrchestrationTrace: "aws_sdk_bedrock_agent_runtime.types.custom_orchestration_trace.CustomOrchestrationTrace"
 
 

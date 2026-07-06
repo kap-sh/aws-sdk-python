@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.entry_points
 
 
-class CodeConfiguration(TypedDict):
+class CodeConfiguration(TypedDict, closed=True):
     code: "aws_sdk_bedrock_agentcore_control.types.code.Code"
     """<p>The source code location and configuration details.</p>"""
     runtime: "aws_sdk_bedrock_agentcore_control.types.agent_managed_runtime_type.AgentManagedRuntimeType"

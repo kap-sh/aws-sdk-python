@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#OpenTunnelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.timeout_config
 
 
-class OpenTunnelRequest(TypedDict):
+class OpenTunnelRequest(TypedDict, closed=True):
     description: NotRequired["aws_sdk_iotsecuretunneling.types.description.Description"]
     """<p>A short text description of the tunnel. </p>"""
     tags: NotRequired["aws_sdk_iotsecuretunneling.types.tag_list.TagList"]

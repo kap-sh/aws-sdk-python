@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListPartnerAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.next_token
     import aws_sdk_iot_wireless.types.sidewalk_account_list
 
 
-class ListPartnerAccountsResponse(TypedDict):
+class ListPartnerAccountsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iot_wireless.types.next_token.NextToken"]
     """<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>"""
     sidewalk: NotRequired[

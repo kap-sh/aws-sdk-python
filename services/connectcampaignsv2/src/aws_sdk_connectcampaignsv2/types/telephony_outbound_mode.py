@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#TelephonyOutboundMode``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.progressive_config
 
 
-class _TelephonyOutboundMode_progressive(TypedDict):
+class _TelephonyOutboundMode_progressive(TypedDict, closed=True):
     progressive: "aws_sdk_connectcampaignsv2.types.progressive_config.ProgressiveConfig"
 
 
-class _TelephonyOutboundMode_predictive(TypedDict):
+class _TelephonyOutboundMode_predictive(TypedDict, closed=True):
     predictive: "aws_sdk_connectcampaignsv2.types.predictive_config.PredictiveConfig"
 
 
-class _TelephonyOutboundMode_agentless(TypedDict):
+class _TelephonyOutboundMode_agentless(TypedDict, closed=True):
     agentless: "aws_sdk_connectcampaignsv2.types.agentless_config.AgentlessConfig"
 
 
-class _TelephonyOutboundMode_preview(TypedDict):
+class _TelephonyOutboundMode_preview(TypedDict, closed=True):
     preview: "aws_sdk_connectcampaignsv2.types.preview_config.PreviewConfig"
 
 

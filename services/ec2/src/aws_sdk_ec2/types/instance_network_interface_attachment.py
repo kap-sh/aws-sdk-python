@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceNetworkInterfaceAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class InstanceNetworkInterfaceAttachment(TypedDict):
+class InstanceNetworkInterfaceAttachment(TypedDict, closed=True):
     attach_time: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]
     """<p>The time stamp when the attachment initiated.</p>"""
     attachment_id: NotRequired["aws_sdk_ec2.types.string.String"]

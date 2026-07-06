@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteNumber(TypedDict):
+class RouteNumber(TypedDict, closed=True):
     direction: NotRequired["aws_sdk_geo_routes.types.route_direction.RouteDirection"]
     """<p>Directional identifier of the route.</p>"""
     language: NotRequired["aws_sdk_geo_routes.types.language_tag.LanguageTag"]

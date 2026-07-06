@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListSbomValidationResultsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.sbom_validation_result_summary_list
 
 
-class ListSbomValidationResultsResponse(TypedDict):
+class ListSbomValidationResultsResponse(TypedDict, closed=True):
     validation_result_summaries: NotRequired[
         "aws_sdk_iot.types.sbom_validation_result_summary_list.SbomValidationResultSummaryList"
     ]

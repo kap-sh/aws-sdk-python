@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.tag_map
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_wellarchitected.types.tag_map.TagMap"]
     """<p>The tags for the resource.</p>"""
 

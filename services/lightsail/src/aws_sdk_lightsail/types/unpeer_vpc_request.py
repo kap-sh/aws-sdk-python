@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UnpeerVpcRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UnpeerVpcRequest(TypedDict):
+class UnpeerVpcRequest(TypedDict, closed=True):
     pass
 
 

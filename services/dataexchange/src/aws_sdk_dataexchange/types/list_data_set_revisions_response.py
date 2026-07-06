@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListDataSetRevisionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_revision_entry
     import aws_sdk_dataexchange.types.next_token
 
 
-class ListDataSetRevisionsResponse(TypedDict):
+class ListDataSetRevisionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_dataexchange.types.next_token.NextToken"]
     """<p>The token value retrieved from a previous call to access the next page of results.</p>"""
     revisions: NotRequired[

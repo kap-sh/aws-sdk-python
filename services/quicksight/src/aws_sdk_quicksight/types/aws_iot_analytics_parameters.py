@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AwsIotAnalyticsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_name
 
 
-class AwsIotAnalyticsParameters(TypedDict):
+class AwsIotAnalyticsParameters(TypedDict, closed=True):
     data_set_name: "aws_sdk_quicksight.types.data_set_name.DataSetName"
     """<p>Dataset name.</p>"""
 

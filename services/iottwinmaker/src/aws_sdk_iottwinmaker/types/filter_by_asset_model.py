@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#FilterByAssetModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.uuid
 
 
-class FilterByAssetModel(TypedDict):
+class FilterByAssetModel(TypedDict, closed=True):
     asset_model_id: NotRequired["aws_sdk_iottwinmaker.types.uuid.Uuid"]
     """<p>The asset model Id.</p>"""
     asset_model_external_id: NotRequired[

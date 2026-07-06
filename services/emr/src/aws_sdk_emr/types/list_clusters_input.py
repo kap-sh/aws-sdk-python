@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListClustersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_state_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
 
 
-class ListClustersInput(TypedDict):
+class ListClustersInput(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_emr.types.date.Date"]
     """<p>The creation date and time beginning value filter for listing clusters.</p>"""
     created_before: NotRequired["aws_sdk_emr.types.date.Date"]

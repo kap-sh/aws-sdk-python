@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#LegalTerm``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LegalTerm(TypedDict):
+class LegalTerm(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>URL to the legal term document.</p>"""
 

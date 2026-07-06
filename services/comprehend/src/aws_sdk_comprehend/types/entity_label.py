@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityLabel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
     import aws_sdk_comprehend.types.pii_entity_type
 
 
-class EntityLabel(TypedDict):
+class EntityLabel(TypedDict, closed=True):
     name: NotRequired["aws_sdk_comprehend.types.pii_entity_type.PiiEntityType"]
     """<p>The name of the label.</p>"""
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]

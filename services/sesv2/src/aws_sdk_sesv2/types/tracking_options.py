@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#TrackingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.https_policy
 
 
-class TrackingOptions(TypedDict):
+class TrackingOptions(TypedDict, closed=True):
     custom_redirect_domain: (
         "aws_sdk_sesv2.types.custom_redirect_domain.CustomRedirectDomain"
     )

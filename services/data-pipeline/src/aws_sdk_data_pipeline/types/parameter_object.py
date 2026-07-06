@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ParameterObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.parameter_attribute_list
 
 
-class ParameterObject(TypedDict):
+class ParameterObject(TypedDict, closed=True):
     id: "aws_sdk_data_pipeline.types.field_name_string.fieldNameString"
     """<p>The ID of the parameter object. </p>"""
     attributes: (

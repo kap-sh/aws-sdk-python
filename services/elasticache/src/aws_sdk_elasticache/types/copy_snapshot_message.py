@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CopySnapshotMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.tag_list
 
 
-class CopySnapshotMessage(TypedDict):
+class CopySnapshotMessage(TypedDict, closed=True):
     source_snapshot_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of an existing snapshot from which to make a copy.</p>"""
     target_snapshot_name: NotRequired["aws_sdk_elasticache.types.string.String"]

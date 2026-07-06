@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#GetPlanResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.plan
 
 
-class GetPlanResponse(TypedDict):
+class GetPlanResponse(TypedDict, closed=True):
     plan: NotRequired["aws_sdk_arc_region_switch.types.plan.Plan"]
     """<p>The detailed information about the requested Region switch plan.</p>"""
 

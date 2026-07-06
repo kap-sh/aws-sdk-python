@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#PublicNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ip_type
 
 
-class PublicNetworkConfiguration(TypedDict):
+class PublicNetworkConfiguration(TypedDict, closed=True):
     ip_type: "aws_sdk_mailmanager.types.ip_type.IpType"
     """<p>The IP address type for the public ingress point. Valid values are IPV4 and DUAL_STACK.</p>"""
 

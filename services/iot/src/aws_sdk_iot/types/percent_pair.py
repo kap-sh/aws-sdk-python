@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#PercentPair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.percent
     import aws_sdk_iot.types.percent_value
 
 
-class PercentPair(TypedDict):
+class PercentPair(TypedDict, closed=True):
     percent: "aws_sdk_iot.types.percent.Percent"
     """<p>The percentile.</p>"""
     value: "aws_sdk_iot.types.percent_value.PercentValue"

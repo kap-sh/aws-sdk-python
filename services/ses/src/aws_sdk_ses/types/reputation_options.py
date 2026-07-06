@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ReputationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.last_fresh_start
 
 
-class ReputationOptions(TypedDict):
+class ReputationOptions(TypedDict, closed=True):
     sending_enabled: "aws_sdk_ses.types.enabled.Enabled"
     """<p>Describes whether email sending is enabled or disabled for the configuration set. If the value is <code>true</code>, then Amazon SES sends emails that use the configuration set. If the value is <code>false</code>, Amazon SES does not send emails that use the configuration set. The default value is <code>true</code>. You can change this setting using <a>UpdateConfigurationSetSendingEnabled</a>.</p>"""
     reputation_metrics_enabled: "aws_sdk_ses.types.enabled.Enabled"

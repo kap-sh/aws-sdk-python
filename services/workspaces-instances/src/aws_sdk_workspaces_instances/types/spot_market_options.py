@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#SpotMarketOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.string64
 
 
-class SpotMarketOptions(TypedDict):
+class SpotMarketOptions(TypedDict, closed=True):
     block_duration_minutes: NotRequired[
         "aws_sdk_workspaces_instances.types.non_negative_integer.NonNegativeInteger"
     ]

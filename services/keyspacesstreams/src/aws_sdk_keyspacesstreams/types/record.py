@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#Record``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.sequence_number
 
 
-class Record(TypedDict):
+class Record(TypedDict, closed=True):
     event_version: NotRequired["str"]
     """<p>The version of the record format, used to track the evolution of the record structure over time.</p>"""
     created_at: NotRequired["aws_sdk_keyspacesstreams.types.date.Date"]

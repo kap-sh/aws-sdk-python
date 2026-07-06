@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsMskClusterClusterInfoEncryptionInfoDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_encryption_info_encryption_at_rest_details
     import aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details
 
 
-class AwsMskClusterClusterInfoEncryptionInfoDetails(TypedDict):
+class AwsMskClusterClusterInfoEncryptionInfoDetails(TypedDict, closed=True):
     encryption_in_transit: NotRequired[
         "aws_sdk_securityhub.types.aws_msk_cluster_cluster_info_encryption_info_encryption_in_transit_details.AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails"
     ]

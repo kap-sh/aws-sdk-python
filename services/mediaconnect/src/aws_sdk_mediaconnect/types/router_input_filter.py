@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -11,23 +13,23 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.string_list
 
 
-class _RouterInputFilter_NameContains(TypedDict):
+class _RouterInputFilter_NameContains(TypedDict, closed=True):
     NameContains: "aws_sdk_mediaconnect.types.string_list.StringList"
 
 
-class _RouterInputFilter_RegionNames(TypedDict):
+class _RouterInputFilter_RegionNames(TypedDict, closed=True):
     RegionNames: "aws_sdk_mediaconnect.types.string_list.StringList"
 
 
-class _RouterInputFilter_NetworkInterfaceArns(TypedDict):
+class _RouterInputFilter_NetworkInterfaceArns(TypedDict, closed=True):
     NetworkInterfaceArns: "aws_sdk_mediaconnect.types.router_network_interface_arn_list.RouterNetworkInterfaceArnList"
 
 
-class _RouterInputFilter_RoutingScopes(TypedDict):
+class _RouterInputFilter_RoutingScopes(TypedDict, closed=True):
     RoutingScopes: "aws_sdk_mediaconnect.types.routing_scope_list.RoutingScopeList"
 
 
-class _RouterInputFilter_InputTypes(TypedDict):
+class _RouterInputFilter_InputTypes(TypedDict, closed=True):
     InputTypes: "aws_sdk_mediaconnect.types.router_input_type_list.RouterInputTypeList"
 
 

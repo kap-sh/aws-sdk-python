@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListOpsItemRelatedItemsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_related_item_summaries
     import aws_sdk_ssm.types.string
 
 
-class ListOpsItemRelatedItemsResponse(TypedDict):
+class ListOpsItemRelatedItemsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The token for the next set of items to return. Use this token to get the next set of results.</p>"""
     summaries: NotRequired[

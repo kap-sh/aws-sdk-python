@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceResizePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.ec2_instance_ids_list
     import aws_sdk_emr.types.integer
 
 
-class InstanceResizePolicy(TypedDict):
+class InstanceResizePolicy(TypedDict, closed=True):
     instances_to_terminate: NotRequired[
         "aws_sdk_emr.types.ec2_instance_ids_list.EC2InstanceIdsList"
     ]

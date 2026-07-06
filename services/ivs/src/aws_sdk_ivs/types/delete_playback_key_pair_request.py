@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#DeletePlaybackKeyPairRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.playback_key_pair_arn
 
 
-class DeletePlaybackKeyPairRequest(TypedDict):
+class DeletePlaybackKeyPairRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs.types.playback_key_pair_arn.PlaybackKeyPairArn"
     """<p>ARN of the key pair to be deleted.</p>"""
 

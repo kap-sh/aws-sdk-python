@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ListResourcePoliciesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.resource_policy_list
     import aws_sdk_xray.types.resource_policy_next_token
 
 
-class ListResourcePoliciesResult(TypedDict):
+class ListResourcePoliciesResult(TypedDict, closed=True):
     resource_policies: NotRequired[
         "aws_sdk_xray.types.resource_policy_list.ResourcePolicyList"
     ]

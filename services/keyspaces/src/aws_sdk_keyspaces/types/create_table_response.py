@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#CreateTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.arn
 
 
-class CreateTableResponse(TypedDict):
+class CreateTableResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_keyspaces.types.arn.ARN"
     """<p>The unique identifier of the table in the format of an Amazon Resource Name (ARN).</p>"""
 

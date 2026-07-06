@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#WarningGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
 
 
-class WarningGroup(TypedDict):
+class WarningGroup(TypedDict, closed=True):
     code: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """Warning code that identifies a specific warning in the job. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/warning_codes.html"""
     count: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]

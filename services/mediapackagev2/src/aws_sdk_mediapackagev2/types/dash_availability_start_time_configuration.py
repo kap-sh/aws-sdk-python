@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#DashAvailabilityStartTimeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import datetime
 
 
-class _DashAvailabilityStartTimeConfiguration_FixedAvailabilityStartTime(TypedDict):
+class _DashAvailabilityStartTimeConfiguration_FixedAvailabilityStartTime(
+    TypedDict, closed=True
+):
     FixedAvailabilityStartTime: "datetime.datetime"
 
 

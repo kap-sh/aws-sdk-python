@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#DeleteProfileShareInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.share_id
 
 
-class DeleteProfileShareInput(TypedDict):
+class DeleteProfileShareInput(TypedDict, closed=True):
     share_id: "aws_sdk_wellarchitected.types.share_id.ShareId"
     profile_arn: "aws_sdk_wellarchitected.types.profile_arn.ProfileArn"
     """<p>The profile ARN.</p>"""

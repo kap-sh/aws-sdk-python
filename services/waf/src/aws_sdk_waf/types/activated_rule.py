@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ActivatedRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.waf_rule_type
 
 
-class ActivatedRule(TypedDict):
+class ActivatedRule(TypedDict, closed=True):
     priority: "aws_sdk_waf.types.rule_priority.RulePriority"
     """<p>Specifies the order in which the <code>Rules</code> in a <code>WebACL</code> are evaluated. Rules with a lower value for <code>Priority</code> are evaluated before <code>Rules</code> with a higher value. The value must be a unique integer. If you add multiple <code>Rules</code> to a <code>WebACL</code>, the values don't need to be consecutive.</p>"""
     rule_id: "aws_sdk_waf.types.resource_id.ResourceId"

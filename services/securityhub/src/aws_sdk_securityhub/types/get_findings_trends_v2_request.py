@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetFindingsTrendsV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.findings_trends_filters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.timestamp
 
 
-class GetFindingsTrendsV2Request(TypedDict):
+class GetFindingsTrendsV2Request(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_securityhub.types.findings_trends_filters.FindingsTrendsFilters"
     ]

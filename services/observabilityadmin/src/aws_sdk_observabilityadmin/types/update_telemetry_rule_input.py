@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#UpdateTelemetryRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_rule
 
 
-class UpdateTelemetryRuleInput(TypedDict):
+class UpdateTelemetryRuleInput(TypedDict, closed=True):
     rule_identifier: "aws_sdk_observabilityadmin.types.rule_identifier.RuleIdentifier"
     """<p> The identifier (name or ARN) of the telemetry rule to update. </p>"""
     rule: "aws_sdk_observabilityadmin.types.telemetry_rule.TelemetryRule"

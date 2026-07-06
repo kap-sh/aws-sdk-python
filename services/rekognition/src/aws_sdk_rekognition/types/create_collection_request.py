@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.tag_map
 
 
-class CreateCollectionRequest(TypedDict):
+class CreateCollectionRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_rekognition.types.collection_id.CollectionId"
     """<p>ID for the collection that you are creating.</p>"""
     tags: NotRequired["aws_sdk_rekognition.types.tag_map.TagMap"]

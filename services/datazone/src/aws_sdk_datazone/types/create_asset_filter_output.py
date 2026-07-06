@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetFilterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_status
 
 
-class CreateAssetFilterOutput(TypedDict):
+class CreateAssetFilterOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.filter_id.FilterId"
     """<p>The ID of the asset filter.</p>"""
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"

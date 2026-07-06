@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#DeleteContainerPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteContainerPolicyOutput(TypedDict):
+class DeleteContainerPolicyOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ApprovalThresholdPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.proposal_duration_int
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.threshold_percentage_int
 
 
-class ApprovalThresholdPolicy(TypedDict):
+class ApprovalThresholdPolicy(TypedDict, closed=True):
     threshold_percentage: NotRequired[
         "aws_sdk_managedblockchain.types.threshold_percentage_int.ThresholdPercentageInt"
     ]

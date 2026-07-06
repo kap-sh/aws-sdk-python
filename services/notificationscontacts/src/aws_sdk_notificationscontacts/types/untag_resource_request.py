@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notificationscontacts.types.email_contact_arn
     import aws_sdk_notificationscontacts.types.tag_keys
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     arn: "aws_sdk_notificationscontacts.types.email_contact_arn.EmailContactArn"
     """<p>The value of the resource that will have the tag removed. An Amazon Resource Name (ARN) is an identifier for a specific AWS resource, such as a server, user, or role.</p>"""
     tag_keys: "aws_sdk_notificationscontacts.types.tag_keys.TagKeys"

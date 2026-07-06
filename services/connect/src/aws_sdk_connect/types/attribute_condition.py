@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AttributeCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.comparison_operator
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.range
 
 
-class AttributeCondition(TypedDict):
+class AttributeCondition(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_connect.types.predefined_attribute_name.PredefinedAttributeName"
     ]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#SearchResultLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SearchResultLocation(TypedDict):
+class SearchResultLocation(TypedDict, closed=True):
     search_result_index: NotRequired["int"]
     """<p>The index of the search result content block where the cited content is found.</p>"""
     start: NotRequired["int"]

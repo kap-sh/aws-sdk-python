@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#UpdateScheduledActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.scheduled_action_response
 
 
-class UpdateScheduledActionResponse(TypedDict):
+class UpdateScheduledActionResponse(TypedDict, closed=True):
     scheduled_action: NotRequired[
         "aws_sdk_redshift_serverless.types.scheduled_action_response.ScheduledActionResponse"
     ]

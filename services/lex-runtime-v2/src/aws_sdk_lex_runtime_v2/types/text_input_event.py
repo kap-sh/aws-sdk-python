@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#TextInputEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.text
 
 
-class TextInputEvent(TypedDict):
+class TextInputEvent(TypedDict, closed=True):
     text: "aws_sdk_lex_runtime_v2.types.text.Text"
     """<p>The text from the user. Amazon Lex V2 processes this as a complete statement.</p>"""
     event_id: NotRequired["aws_sdk_lex_runtime_v2.types.event_id.EventId"]

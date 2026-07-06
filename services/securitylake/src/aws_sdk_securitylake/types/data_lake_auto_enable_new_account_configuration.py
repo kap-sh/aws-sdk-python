@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeAutoEnableNewAccountConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region
 
 
-class DataLakeAutoEnableNewAccountConfiguration(TypedDict):
+class DataLakeAutoEnableNewAccountConfiguration(TypedDict, closed=True):
     region: "aws_sdk_securitylake.types.region.Region"
     """<p>The Amazon Web Services Regions where Security Lake is automatically enabled.</p>"""
     sources: "aws_sdk_securitylake.types.aws_log_source_resource_list.AwsLogSourceResourceList"

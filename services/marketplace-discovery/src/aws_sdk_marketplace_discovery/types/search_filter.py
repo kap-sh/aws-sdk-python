@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#SearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.search_filter_value_list
 
 
-class SearchFilter(TypedDict):
+class SearchFilter(TypedDict, closed=True):
     filter_type: (
         "aws_sdk_marketplace_discovery.types.search_filter_type.SearchFilterType"
     )

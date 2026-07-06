@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ModifyDBSubnetGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.subnet_identifier_list
 
 
-class ModifyDBSubnetGroupMessage(TypedDict):
+class ModifyDBSubnetGroupMessage(TypedDict, closed=True):
     db_subnet_group_name: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name for the DB subnet group. This value is stored as a lowercase string. You can't modify the default subnet group.</p> <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p> <p>Example: <code>mySubnetgroup</code> </p>"""
     db_subnet_group_description: NotRequired["aws_sdk_neptune.types.string.String"]

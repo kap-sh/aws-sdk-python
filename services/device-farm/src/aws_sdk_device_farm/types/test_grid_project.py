@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#TestGridProject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_vpc_config
 
 
-class TestGridProject(TypedDict):
+class TestGridProject(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"]
     """<p>The ARN for the project.</p>"""
     name: NotRequired["aws_sdk_device_farm.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#NoApiRenderConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NoApiRenderConfig(TypedDict):
+class NoApiRenderConfig(TypedDict, closed=True):
     pass
 
 

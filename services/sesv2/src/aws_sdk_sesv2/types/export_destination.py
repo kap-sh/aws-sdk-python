@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ExportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.s3_url
 
 
-class ExportDestination(TypedDict):
+class ExportDestination(TypedDict, closed=True):
     data_format: "aws_sdk_sesv2.types.data_format.DataFormat"
     """<p>The data format of the final export job file, can be one of the following:</p> <ul> <li> <p> <code>CSV</code> - A comma-separated values file.</p> </li> <li> <p> <code>JSON</code> - A Json file.</p> </li> </ul>"""
     s3_url: NotRequired["aws_sdk_sesv2.types.s3_url.S3Url"]

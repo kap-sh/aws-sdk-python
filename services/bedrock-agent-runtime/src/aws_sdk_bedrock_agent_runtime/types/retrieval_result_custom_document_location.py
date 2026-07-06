@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultCustomDocumentLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultCustomDocumentLocation(TypedDict):
+class RetrievalResultCustomDocumentLocation(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID of the document.</p>"""
 

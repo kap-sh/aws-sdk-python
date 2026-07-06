@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CustomOrchestration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.orchestration_executor
 
 
-class CustomOrchestration(TypedDict):
+class CustomOrchestration(TypedDict, closed=True):
     executor: NotRequired[
         "aws_sdk_bedrock_agent.types.orchestration_executor.OrchestrationExecutor"
     ]

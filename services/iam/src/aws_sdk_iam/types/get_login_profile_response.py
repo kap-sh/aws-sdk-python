@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetLoginProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.login_profile
 
 
-class GetLoginProfileResponse(TypedDict):
+class GetLoginProfileResponse(TypedDict, closed=True):
     login_profile: "aws_sdk_iam.types.login_profile.LoginProfile"
     """<p>A structure containing the user name and the profile creation date for the user.</p>"""
 

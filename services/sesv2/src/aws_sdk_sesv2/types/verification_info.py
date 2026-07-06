@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#VerificationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.soa_record
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.verification_error
 
 
-class VerificationInfo(TypedDict):
+class VerificationInfo(TypedDict, closed=True):
     last_checked_timestamp: NotRequired["aws_sdk_sesv2.types.timestamp.Timestamp"]
     """<p>The last time a verification attempt was made for this identity.</p>"""
     last_success_timestamp: NotRequired["aws_sdk_sesv2.types.timestamp.Timestamp"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of_deployment
     import aws_sdk_apigatewayv2.types.next_token
 
 
-class GetDeploymentsResponse(TypedDict):
+class GetDeploymentsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of_deployment.__listOfDeployment"
     ]

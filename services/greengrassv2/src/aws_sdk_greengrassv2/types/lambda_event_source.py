@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaEventSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.topic_string
 
 
-class LambdaEventSource(TypedDict):
+class LambdaEventSource(TypedDict, closed=True):
     topic: "aws_sdk_greengrassv2.types.topic_string.TopicString"
     """<p>The topic to which to subscribe to receive event messages.</p>"""
     type: "aws_sdk_greengrassv2.types.lambda_event_source_type.LambdaEventSourceType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DatasetImportJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class DatasetImportJobSummary(TypedDict):
+class DatasetImportJobSummary(TypedDict, closed=True):
     dataset_import_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset import job.</p>"""
     job_name: NotRequired["aws_sdk_personalize.types.name.Name"]

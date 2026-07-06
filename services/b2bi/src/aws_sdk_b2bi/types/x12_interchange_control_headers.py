@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12InterchangeControlHeaders``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_acknowledgment_requested_code
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_usage_indicator_code
 
 
-class X12InterchangeControlHeaders(TypedDict):
+class X12InterchangeControlHeaders(TypedDict, closed=True):
     sender_id_qualifier: NotRequired[
         "aws_sdk_b2bi.types.x12_id_qualifier.X12IdQualifier"
     ]

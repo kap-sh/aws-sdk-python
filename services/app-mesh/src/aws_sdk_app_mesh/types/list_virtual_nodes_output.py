@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListVirtualNodesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_node_list
 
 
-class ListVirtualNodesOutput(TypedDict):
+class ListVirtualNodesOutput(TypedDict, closed=True):
     virtual_nodes: "aws_sdk_app_mesh.types.virtual_node_list.VirtualNodeList"
     """<p>The list of existing virtual nodes for the specified service mesh.</p>"""
     next_token: NotRequired["str"]

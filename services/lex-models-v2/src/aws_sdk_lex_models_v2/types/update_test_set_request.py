@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateTestSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class UpdateTestSetRequest(TypedDict):
+class UpdateTestSetRequest(TypedDict, closed=True):
     test_set_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The test set Id for which update test operation to be performed.</p>"""
     test_set_name: "aws_sdk_lex_models_v2.types.name.Name"

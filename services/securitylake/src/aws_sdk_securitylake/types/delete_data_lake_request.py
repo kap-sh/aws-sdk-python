@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DeleteDataLakeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
 
 
-class DeleteDataLakeRequest(TypedDict):
+class DeleteDataLakeRequest(TypedDict, closed=True):
     regions: "aws_sdk_securitylake.types.region_list.RegionList"
     """<p>The list of Regions where Security Lake is enabled.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#As2AsyncMdnConnectorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.as2_async_mdn_server_ids
     import aws_sdk_transfer.types.url
 
 
-class As2AsyncMdnConnectorConfig(TypedDict):
+class As2AsyncMdnConnectorConfig(TypedDict, closed=True):
     url: NotRequired["aws_sdk_transfer.types.url.Url"]
     """<p>The URL endpoint where asynchronous MDN responses should be sent.</p>"""
     server_ids: NotRequired[

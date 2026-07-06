@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#PushConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_task_abort_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_task_timeout_config
 
 
-class PushConfig(TypedDict):
+class PushConfig(TypedDict, closed=True):
     abort_config: NotRequired[
         "aws_sdk_iot_managed_integrations.types.ota_task_abort_config.OtaTaskAbortConfig"
     ]

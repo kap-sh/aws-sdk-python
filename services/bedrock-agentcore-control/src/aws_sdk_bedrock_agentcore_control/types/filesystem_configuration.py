@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#FilesystemConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -13,15 +15,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.session_storage_configuration
 
 
-class _FilesystemConfiguration_sessionStorage(TypedDict):
+class _FilesystemConfiguration_sessionStorage(TypedDict, closed=True):
     sessionStorage: "aws_sdk_bedrock_agentcore_control.types.session_storage_configuration.SessionStorageConfiguration"
 
 
-class _FilesystemConfiguration_s3FilesAccessPoint(TypedDict):
+class _FilesystemConfiguration_s3FilesAccessPoint(TypedDict, closed=True):
     s3FilesAccessPoint: "aws_sdk_bedrock_agentcore_control.types.s3_files_access_point_configuration.S3FilesAccessPointConfiguration"
 
 
-class _FilesystemConfiguration_efsAccessPoint(TypedDict):
+class _FilesystemConfiguration_efsAccessPoint(TypedDict, closed=True):
     efsAccessPoint: "aws_sdk_bedrock_agentcore_control.types.efs_access_point_configuration.EfsAccessPointConfiguration"
 
 

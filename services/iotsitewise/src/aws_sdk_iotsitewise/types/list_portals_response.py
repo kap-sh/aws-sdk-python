@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListPortalsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
     import aws_sdk_iotsitewise.types.portal_summaries
 
 
-class ListPortalsResponse(TypedDict):
+class ListPortalsResponse(TypedDict, closed=True):
     portal_summaries: NotRequired[
         "aws_sdk_iotsitewise.types.portal_summaries.PortalSummaries"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#RetentionPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.number_of_days
     import aws_sdk_iotsitewise.types.unlimited
 
 
-class RetentionPeriod(TypedDict):
+class RetentionPeriod(TypedDict, closed=True):
     number_of_days: NotRequired["aws_sdk_iotsitewise.types.number_of_days.NumberOfDays"]
     """<p>The number of days that your data is kept.</p> <note> <p>If you specified a value for this parameter, the <code>unlimited</code> parameter must be <code>false</code>.</p> </note>"""
     unlimited: NotRequired["aws_sdk_iotsitewise.types.unlimited.Unlimited"]

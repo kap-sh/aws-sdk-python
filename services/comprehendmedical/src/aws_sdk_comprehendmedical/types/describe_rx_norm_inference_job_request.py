@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#DescribeRxNormInferenceJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.job_id
 
 
-class DescribeRxNormInferenceJobRequest(TypedDict):
+class DescribeRxNormInferenceJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_comprehendmedical.types.job_id.JobId"
     """<p>The identifier that Amazon Comprehend Medical generated for the job. The StartRxNormInferenceJob operation returns this identifier in its response.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#EndpointConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.acm_managed
     import aws_sdk_apigatewayv2.types.none
 
 
-class EndpointConfigurationRequest(TypedDict):
+class EndpointConfigurationRequest(TypedDict, closed=True):
     acm_managed: NotRequired["aws_sdk_apigatewayv2.types.acm_managed.ACMManaged"]
     """<p>Represents a domain name and certificate for a portal.</p>"""
     none: NotRequired["aws_sdk_apigatewayv2.types.none.None_"]

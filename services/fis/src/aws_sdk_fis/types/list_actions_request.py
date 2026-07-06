@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ListActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.list_actions_max_results
     import aws_sdk_fis.types.next_token
 
 
-class ListActionsRequest(TypedDict):
+class ListActionsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_fis.types.list_actions_max_results.ListActionsMaxResults"
     ]

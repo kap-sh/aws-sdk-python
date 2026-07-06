@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DurationSinceLastAccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.unit
     import aws_sdk_fsx.types.value
 
 
-class DurationSinceLastAccess(TypedDict):
+class DurationSinceLastAccess(TypedDict, closed=True):
     unit: NotRequired["aws_sdk_fsx.types.unit.Unit"]
     """<p>The unit of time used by the <code>Value</code> parameter to determine if a file can be released, based on when it was last accessed. <code>DAYS</code> is the only supported value. This is a required parameter.</p>"""
     value: NotRequired["aws_sdk_fsx.types.value.Value"]

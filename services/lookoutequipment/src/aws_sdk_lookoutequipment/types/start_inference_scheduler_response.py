@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#StartInferenceSchedulerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.inference_scheduler_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_name
 
 
-class StartInferenceSchedulerResponse(TypedDict):
+class StartInferenceSchedulerResponse(TypedDict, closed=True):
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]
     """<p>The Amazon Resource Name (ARN) of the machine learning model being used by the inference scheduler. </p>"""
     model_name: NotRequired["aws_sdk_lookoutequipment.types.model_name.ModelName"]

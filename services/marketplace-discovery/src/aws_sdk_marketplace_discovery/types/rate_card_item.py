@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#RateCardItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.dimension_label_list
 
 
-class RateCardItem(TypedDict):
+class RateCardItem(TypedDict, closed=True):
     dimension_key: "aws_sdk_marketplace_discovery.types.bounded_string.BoundedString"
     """<p>The machine-readable key identifying the dimension being priced.</p>"""
     display_name: "aws_sdk_marketplace_discovery.types.bounded_string.BoundedString"

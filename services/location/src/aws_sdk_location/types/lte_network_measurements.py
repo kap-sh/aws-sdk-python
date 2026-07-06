@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#LteNetworkMeasurements``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.earfcn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.rsrq
 
 
-class LteNetworkMeasurements(TypedDict):
+class LteNetworkMeasurements(TypedDict, closed=True):
     earfcn: "aws_sdk_location.types.earfcn.Earfcn"
     """<p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>"""
     cell_id: "aws_sdk_location.types.eutran_cell_id.EutranCellId"

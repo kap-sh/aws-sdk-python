@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#UpdatePackageGroupOriginConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_group_pattern
 
 
-class UpdatePackageGroupOriginConfigurationRequest(TypedDict):
+class UpdatePackageGroupOriginConfigurationRequest(TypedDict, closed=True):
     domain: "aws_sdk_codeartifact.types.domain_name.DomainName"
     """<p> The name of the domain which contains the package group for which to update the origin configuration. </p>"""
     domain_owner: NotRequired["aws_sdk_codeartifact.types.account_id.AccountId"]

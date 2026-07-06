@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#UpdateLFTagExpressionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateLFTagExpressionResponse(TypedDict):
+class UpdateLFTagExpressionResponse(TypedDict, closed=True):
     pass
 
 

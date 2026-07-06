@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     reason: "aws_sdk_arc_zonal_shift.types.validation_exception_reason.ValidationExceptionReason"
     """<p>The reason for the validation exception.</p>"""

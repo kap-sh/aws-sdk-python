@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#MonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.cloud_watch_monitoring_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.s3_monitoring_configuration
 
 
-class MonitoringConfiguration(TypedDict):
+class MonitoringConfiguration(TypedDict, closed=True):
     managed_logs: NotRequired["aws_sdk_emr_containers.types.managed_logs.ManagedLogs"]
     """<p>The entity that controls configuration for managed logs.</p>"""
     persistent_app_ui: NotRequired[

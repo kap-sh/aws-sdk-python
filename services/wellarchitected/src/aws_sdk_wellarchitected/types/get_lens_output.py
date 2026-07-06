@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetLensOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens
 
 
-class GetLensOutput(TypedDict):
+class GetLensOutput(TypedDict, closed=True):
     lens: NotRequired["aws_sdk_wellarchitected.types.lens.Lens"]
     """<p>A lens return object.</p>"""
 

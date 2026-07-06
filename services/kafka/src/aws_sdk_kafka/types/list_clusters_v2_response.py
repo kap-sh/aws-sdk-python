@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListClustersV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_cluster
     import aws_sdk_kafka.types.__string
 
 
-class ListClustersV2Response(TypedDict):
+class ListClustersV2Response(TypedDict, closed=True):
     cluster_info_list: NotRequired[
         "aws_sdk_kafka.types.__list_of_cluster.__listOfCluster"
     ]

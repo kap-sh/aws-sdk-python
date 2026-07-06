@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.virtualization_type
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     platform_details: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The platform details associated with the billing code of the AMI. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\">Understand AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     usage_operation: NotRequired["aws_sdk_ec2.types.string.String"]

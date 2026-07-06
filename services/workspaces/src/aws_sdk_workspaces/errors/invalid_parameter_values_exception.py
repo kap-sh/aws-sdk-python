@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#InvalidParameterValuesException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.exception_message
 
 
-class InvalidParameterValuesException_(TypedDict):
+class InvalidParameterValuesException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_workspaces.types.exception_message.ExceptionMessage"]
     """<p>The exception error message.</p>"""
 

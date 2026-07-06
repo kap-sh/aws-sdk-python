@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#UpstreamRepository``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeartifact.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.repository_name
 
 
-class UpstreamRepository(TypedDict):
+class UpstreamRepository(TypedDict, closed=True):
     repository_name: "aws_sdk_codeartifact.types.repository_name.RepositoryName"
     """<p> The name of an upstream repository. </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#Card``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.text_input_card
 
 
-class _Card_textInput(TypedDict):
+class _Card_textInput(TypedDict, closed=True):
     textInput: "aws_sdk_qapps.types.text_input_card.TextInputCard"
 
 
-class _Card_qQuery(TypedDict):
+class _Card_qQuery(TypedDict, closed=True):
     qQuery: "aws_sdk_qapps.types.q_query_card.QQueryCard"
 
 
-class _Card_qPlugin(TypedDict):
+class _Card_qPlugin(TypedDict, closed=True):
     qPlugin: "aws_sdk_qapps.types.q_plugin_card.QPluginCard"
 
 
-class _Card_fileUpload(TypedDict):
+class _Card_fileUpload(TypedDict, closed=True):
     fileUpload: "aws_sdk_qapps.types.file_upload_card.FileUploadCard"
 
 
-class _Card_formInput(TypedDict):
+class _Card_formInput(TypedDict, closed=True):
     formInput: "aws_sdk_qapps.types.form_input_card.FormInputCard"
 
 

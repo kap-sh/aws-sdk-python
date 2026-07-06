@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#MessageMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class MessageMetadata(TypedDict):
+class MessageMetadata(TypedDict, closed=True):
     event_id: "str"
     """<p>The identifier of the event associated with this message.</p>"""
     message_index: "int"

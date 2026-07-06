@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#MessageReviewHandler``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivschat.types.fallback_result
     import aws_sdk_ivschat.types.lambda_arn
 
 
-class MessageReviewHandler(TypedDict):
+class MessageReviewHandler(TypedDict, closed=True):
     uri: NotRequired["aws_sdk_ivschat.types.lambda_arn.LambdaArn"]
     """<p>Identifier of the message review handler. Currently this must be an ARN of a lambda function.</p>"""
     fallback_result: NotRequired["aws_sdk_ivschat.types.fallback_result.FallbackResult"]

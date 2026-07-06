@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#PutCommentReactionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reaction_value
 
 
-class PutCommentReactionInput(TypedDict):
+class PutCommentReactionInput(TypedDict, closed=True):
     comment_id: "aws_sdk_codecommit.types.comment_id.CommentId"
     """<p>The ID of the comment to which you want to add or update a reaction.</p>"""
     reaction_value: "aws_sdk_codecommit.types.reaction_value.ReactionValue"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EndpointProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.any_length_string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class EndpointProperties(TypedDict):
+class EndpointProperties(TypedDict, closed=True):
     endpoint_arn: NotRequired[
         "aws_sdk_comprehend.types.comprehend_endpoint_arn.ComprehendEndpointArn"
     ]

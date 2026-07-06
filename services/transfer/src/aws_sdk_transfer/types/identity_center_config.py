@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#IdentityCenterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.identity_center_instance_arn
     import aws_sdk_transfer.types.role
 
 
-class IdentityCenterConfig(TypedDict):
+class IdentityCenterConfig(TypedDict, closed=True):
     instance_arn: NotRequired[
         "aws_sdk_transfer.types.identity_center_instance_arn.IdentityCenterInstanceArn"
     ]

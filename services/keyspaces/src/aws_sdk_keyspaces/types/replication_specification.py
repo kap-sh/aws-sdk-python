@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ReplicationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.rs
 
 
-class ReplicationSpecification(TypedDict):
+class ReplicationSpecification(TypedDict, closed=True):
     replication_strategy: "aws_sdk_keyspaces.types.rs.rs"
     """<p> The <code>replicationStrategy</code> of a keyspace, the required value is <code>SINGLE_REGION</code> or <code>MULTI_REGION</code>. </p>"""
     region_list: NotRequired["aws_sdk_keyspaces.types.region_list.RegionList"]

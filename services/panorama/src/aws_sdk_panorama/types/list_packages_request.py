@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListPackagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.max_size25
     import aws_sdk_panorama.types.token
 
 
-class ListPackagesRequest(TypedDict):
+class ListPackagesRequest(TypedDict, closed=True):
     max_results: "aws_sdk_panorama.types.max_size25.MaxSize25"
     """<p>The maximum number of packages to return in one page of results.</p>"""
     next_token: NotRequired["aws_sdk_panorama.types.token.Token"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetImageSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_image_static_file_source
 
 
-class SheetImageSource(TypedDict):
+class SheetImageSource(TypedDict, closed=True):
     sheet_image_static_file_source: NotRequired[
         "aws_sdk_quicksight.types.sheet_image_static_file_source.SheetImageStaticFileSource"
     ]

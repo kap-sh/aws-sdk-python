@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#GetCostEstimationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class GetCostEstimationRequest(TypedDict):
+class GetCostEstimationRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_devops_guru.types.uuid_next_token.UuidNextToken"]
     """<p>The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.</p>"""
 

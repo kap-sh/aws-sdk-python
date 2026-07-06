@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ModuleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.version
 
 
-class ModuleConfiguration(TypedDict):
+class ModuleConfiguration(TypedDict, closed=True):
     version: NotRequired["aws_sdk_rtbfabric.types.version.Version"]
     """<p>The version of the module.</p>"""
     name: "aws_sdk_rtbfabric.types.flow_module_name.FlowModuleName"

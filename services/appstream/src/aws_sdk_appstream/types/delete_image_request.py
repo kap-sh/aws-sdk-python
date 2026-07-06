@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.name
 
 
-class DeleteImageRequest(TypedDict):
+class DeleteImageRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the image.</p>"""
 

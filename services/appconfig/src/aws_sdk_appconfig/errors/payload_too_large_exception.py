@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#PayloadTooLargeException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appconfig.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.string
 
 
-class PayloadTooLargeException_(TypedDict):
+class PayloadTooLargeException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_appconfig.types.string.String"]
     measure: NotRequired["aws_sdk_appconfig.types.bytes_measure.BytesMeasure"]
     limit: "aws_sdk_appconfig.types.float.Float"

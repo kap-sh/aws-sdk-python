@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#SeverityCounts``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SeverityCounts(TypedDict):
+class SeverityCounts(TypedDict, closed=True):
     all: NotRequired["int"]
     """<p>The total count of findings from all severities.</p>"""
     medium: NotRequired["int"]

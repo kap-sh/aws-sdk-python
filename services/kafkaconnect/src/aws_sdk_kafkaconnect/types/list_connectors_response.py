@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ListConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__list_of_connector_summary
     import aws_sdk_kafkaconnect.types.__string
 
 
-class ListConnectorsResponse(TypedDict):
+class ListConnectorsResponse(TypedDict, closed=True):
     connectors: NotRequired[
         "aws_sdk_kafkaconnect.types.__list_of_connector_summary.__listOfConnectorSummary"
     ]

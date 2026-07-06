@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.namespace
 
 
-class DeleteGroupRequest(TypedDict):
+class DeleteGroupRequest(TypedDict, closed=True):
     group_name: "aws_sdk_quicksight.types.group_name.GroupName"
     """<p>The name of the group that you want to delete.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

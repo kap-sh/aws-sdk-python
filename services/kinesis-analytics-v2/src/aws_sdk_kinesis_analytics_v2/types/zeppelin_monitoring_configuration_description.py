@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ZeppelinMonitoringConfigurationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.log_level
 
 
-class ZeppelinMonitoringConfigurationDescription(TypedDict):
+class ZeppelinMonitoringConfigurationDescription(TypedDict, closed=True):
     log_level: NotRequired["aws_sdk_kinesis_analytics_v2.types.log_level.LogLevel"]
     """<p>Describes the verbosity of the CloudWatch Logs for an application.</p>"""
 

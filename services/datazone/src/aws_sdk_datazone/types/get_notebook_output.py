@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetNotebookOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class GetNotebookOutput(TypedDict):
+class GetNotebookOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.notebook_id.NotebookId"
     """<p>The identifier of the notebook.</p>"""
     name: "aws_sdk_datazone.types.notebook_name.NotebookName"

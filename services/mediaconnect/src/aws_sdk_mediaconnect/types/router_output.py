@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.routing_scope
 
 
-class RouterOutput(TypedDict):
+class RouterOutput(TypedDict, closed=True):
     name: "str"
     """<p>The name of the router output.</p>"""
     arn: "aws_sdk_mediaconnect.types.router_output_arn.RouterOutputArn"

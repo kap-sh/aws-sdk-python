@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#SpekeKeyProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.encryption_contract_configuration
 
 
-class SpekeKeyProvider(TypedDict):
+class SpekeKeyProvider(TypedDict, closed=True):
     encryption_contract_configuration: "aws_sdk_mediapackagev2.types.encryption_contract_configuration.EncryptionContractConfiguration"
     """<p>Configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.</p>"""
     resource_id: "str"

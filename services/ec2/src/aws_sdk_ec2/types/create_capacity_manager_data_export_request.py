@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateCapacityManagerDataExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateCapacityManagerDataExportRequest(TypedDict):
+class CreateCapacityManagerDataExportRequest(TypedDict, closed=True):
     s3_bucket_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p> The name of the S3 bucket where the capacity data export files will be delivered. The bucket must exist and you must have write permissions to it. </p>"""
     s3_bucket_prefix: NotRequired["aws_sdk_ec2.types.string.String"]

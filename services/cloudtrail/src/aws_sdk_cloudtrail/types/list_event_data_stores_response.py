@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListEventDataStoresResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.event_data_stores
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListEventDataStoresResponse(TypedDict):
+class ListEventDataStoresResponse(TypedDict, closed=True):
     event_data_stores: NotRequired[
         "aws_sdk_cloudtrail.types.event_data_stores.EventDataStores"
     ]

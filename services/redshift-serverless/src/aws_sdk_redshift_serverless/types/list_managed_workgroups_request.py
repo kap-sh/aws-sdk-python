@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListManagedWorkgroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.pagination_token
     import aws_sdk_redshift_serverless.types.source_arn
 
 
-class ListManagedWorkgroupsRequest(TypedDict):
+class ListManagedWorkgroupsRequest(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_redshift_serverless.types.source_arn.SourceArn"]
     """<p>The Amazon Resource Name (ARN) for the managed workgroup in the Glue Data Catalog.</p>"""
     next_token: NotRequired[

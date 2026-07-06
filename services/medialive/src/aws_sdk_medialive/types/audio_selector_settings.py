@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioSelectorSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.audio_hls_rendition_selection
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.audio_track_selection
 
 
-class AudioSelectorSettings(TypedDict):
+class AudioSelectorSettings(TypedDict, closed=True):
     audio_hls_rendition_selection: NotRequired[
         "aws_sdk_medialive.types.audio_hls_rendition_selection.AudioHlsRenditionSelection"
     ]

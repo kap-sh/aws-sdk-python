@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListThesauriRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.next_token
 
 
-class ListThesauriRequest(TypedDict):
+class ListThesauriRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index with one or more thesauri.</p>"""
     next_token: NotRequired["aws_sdk_kendra.types.next_token.NextToken"]

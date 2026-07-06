@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelInferenceMaxOutputSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_inference_max_output_size_value
 
 
-class TrainedModelInferenceMaxOutputSize(TypedDict):
+class TrainedModelInferenceMaxOutputSize(TypedDict, closed=True):
     unit: "aws_sdk_cleanroomsml.types.trained_model_inference_max_output_size_unit_type.TrainedModelInferenceMaxOutputSizeUnitType"
     """<p>The measurement unit to use.</p>"""
     value: "aws_sdk_cleanroomsml.types.trained_model_inference_max_output_size_value.TrainedModelInferenceMaxOutputSizeValue"

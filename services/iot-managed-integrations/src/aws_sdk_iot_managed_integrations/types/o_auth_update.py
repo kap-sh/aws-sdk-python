@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#OAuthUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.proactive_refresh_token_renewal
 
 
-class OAuthUpdate(TypedDict):
+class OAuthUpdate(TypedDict, closed=True):
     o_auth_complete_redirect_url: NotRequired["str"]
     """<p>The updated URL where users are redirected after completing the OAuth authorization process.</p>"""
     proactive_refresh_token_renewal: NotRequired[

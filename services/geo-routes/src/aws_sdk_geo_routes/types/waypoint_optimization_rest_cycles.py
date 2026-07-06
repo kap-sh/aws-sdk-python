@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationRestCycles``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_rest_cycle_durations
 
 
-class WaypointOptimizationRestCycles(TypedDict):
+class WaypointOptimizationRestCycles(TypedDict, closed=True):
     long_cycle: "aws_sdk_geo_routes.types.waypoint_optimization_rest_cycle_durations.WaypointOptimizationRestCycleDurations"
     """<p>Long cycle for a driver work-rest schedule.</p>"""
     short_cycle: "aws_sdk_geo_routes.types.waypoint_optimization_rest_cycle_durations.WaypointOptimizationRestCycleDurations"

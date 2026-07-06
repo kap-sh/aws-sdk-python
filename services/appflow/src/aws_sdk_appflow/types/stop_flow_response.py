@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#StopFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.flow_arn
     import aws_sdk_appflow.types.flow_status
 
 
-class StopFlowResponse(TypedDict):
+class StopFlowResponse(TypedDict, closed=True):
     flow_arn: NotRequired["aws_sdk_appflow.types.flow_arn.FlowArn"]
     """<p> The flow's Amazon Resource Name (ARN). </p>"""
     flow_status: NotRequired["aws_sdk_appflow.types.flow_status.FlowStatus"]

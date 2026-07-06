@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#PipelineOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.pipeline_output_error
     import aws_sdk_observabilityadmin.types.record
 
 
-class PipelineOutput(TypedDict):
+class PipelineOutput(TypedDict, closed=True):
     record: NotRequired["aws_sdk_observabilityadmin.types.record.Record"]
     """<p>The processed record output from the pipeline test operation.</p>"""
     error: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RoutingProfileReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.routing_profile_id
 
 
-class RoutingProfileReference(TypedDict):
+class RoutingProfileReference(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.routing_profile_id.RoutingProfileId"]
     """<p>The identifier of the routing profile.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

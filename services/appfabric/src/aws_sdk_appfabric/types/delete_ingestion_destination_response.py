@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#DeleteIngestionDestinationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIngestionDestinationResponse(TypedDict):
+class DeleteIngestionDestinationResponse(TypedDict, closed=True):
     pass
 
 

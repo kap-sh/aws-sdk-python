@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DetectorModelDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.states
 
 
-class DetectorModelDefinition(TypedDict):
+class DetectorModelDefinition(TypedDict, closed=True):
     states: "aws_sdk_iot_events.types.states.States"
     """<p>Information about the states of the detector.</p>"""
     initial_state_name: "aws_sdk_iot_events.types.state_name.StateName"

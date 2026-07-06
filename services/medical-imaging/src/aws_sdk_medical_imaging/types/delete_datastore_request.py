@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DeleteDatastoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_id
 
 
-class DeleteDatastoreRequest(TypedDict):
+class DeleteDatastoreRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
 

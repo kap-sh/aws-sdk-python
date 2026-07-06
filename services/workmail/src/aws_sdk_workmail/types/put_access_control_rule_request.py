@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PutAccessControlRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.user_id_list
 
 
-class PutAccessControlRuleRequest(TypedDict):
+class PutAccessControlRuleRequest(TypedDict, closed=True):
     name: "aws_sdk_workmail.types.access_control_rule_name.AccessControlRuleName"
     """<p>The rule name.</p>"""
     effect: "aws_sdk_workmail.types.access_control_rule_effect.AccessControlRuleEffect"

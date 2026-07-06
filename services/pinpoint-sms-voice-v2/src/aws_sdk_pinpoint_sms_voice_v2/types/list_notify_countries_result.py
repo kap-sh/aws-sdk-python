@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ListNotifyCountriesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
     import aws_sdk_pinpoint_sms_voice_v2.types.notify_country_information_list
 
 
-class ListNotifyCountriesResult(TypedDict):
+class ListNotifyCountriesResult(TypedDict, closed=True):
     notify_countries: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.notify_country_information_list.NotifyCountryInformationList"
     ]

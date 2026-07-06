@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StartDominantLanguageDetectionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.vpc_config
 
 
-class StartDominantLanguageDetectionJobRequest(TypedDict):
+class StartDominantLanguageDetectionJobRequest(TypedDict, closed=True):
     input_data_config: "aws_sdk_comprehend.types.input_data_config.InputDataConfig"
     """<p>Specifies the format and location of the input data for the job.</p>"""
     output_data_config: "aws_sdk_comprehend.types.output_data_config.OutputDataConfig"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeInsightDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.insight_entity
 
 
-class DescribeInsightDetailsRequest(TypedDict):
+class DescribeInsightDetailsRequest(TypedDict, closed=True):
     entity: "aws_sdk_opensearch.types.insight_entity.InsightEntity"
     """<p>The entity for which to retrieve insight details. Specifies the type and value of the entity, such as a domain name or Amazon Web Services account ID.</p>"""
     insight_id: "aws_sdk_opensearch.types.guid.GUID"

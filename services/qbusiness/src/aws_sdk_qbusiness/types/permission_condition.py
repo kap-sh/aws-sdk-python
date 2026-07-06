@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PermissionCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.permission_condition_values
 
 
-class PermissionCondition(TypedDict):
+class PermissionCondition(TypedDict, closed=True):
     condition_operator: "aws_sdk_qbusiness.types.permission_condition_operator.PermissionConditionOperator"
     """<p>The operator to use for the condition evaluation. This determines how the condition values are compared.</p>"""
     condition_key: (

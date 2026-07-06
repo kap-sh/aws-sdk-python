@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleGroupMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.resource_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.vendor_name
 
 
-class RuleGroupMetadata(TypedDict):
+class RuleGroupMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_network_firewall.types.resource_name.ResourceName"]
     """<p>The descriptive name of the rule group. You can't change the name of a rule group after you create it.</p>"""
     arn: NotRequired["aws_sdk_network_firewall.types.resource_arn.ResourceArn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListApplicationInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.application_instances
     import aws_sdk_panorama.types.next_token
 
 
-class ListApplicationInstancesResponse(TypedDict):
+class ListApplicationInstancesResponse(TypedDict, closed=True):
     application_instances: NotRequired[
         "aws_sdk_panorama.types.application_instances.ApplicationInstances"
     ]

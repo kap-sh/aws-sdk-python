@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.status_summaries_list
 
 
-class ConfigurationSummary(TypedDict):
+class ConfigurationSummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>A service generated identifier for the configuration.</p>"""
     manager_arn: NotRequired["str"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AnalysisResultLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.analysis_result_location_path
 
 
-class AnalysisResultLocation(TypedDict):
+class AnalysisResultLocation(TypedDict, closed=True):
     path: NotRequired[
         "aws_sdk_iot_events.types.analysis_result_location_path.AnalysisResultLocationPath"
     ]

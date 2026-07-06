@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteRelationalDatabaseSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.operation_list
 
 
-class DeleteRelationalDatabaseSnapshotResult(TypedDict):
+class DeleteRelationalDatabaseSnapshotResult(TypedDict, closed=True):
     operations: NotRequired["aws_sdk_lightsail.types.operation_list.OperationList"]
     """<p>An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.</p>"""
 

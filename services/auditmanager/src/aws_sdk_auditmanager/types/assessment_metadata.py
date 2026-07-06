@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_description
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class AssessmentMetadata(TypedDict):
+class AssessmentMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_auditmanager.types.assessment_name.AssessmentName"]
     """<p> The name of the assessment. </p>"""
     id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DisassociateCustomerGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.customer_gateway_association
 
 
-class DisassociateCustomerGatewayResponse(TypedDict):
+class DisassociateCustomerGatewayResponse(TypedDict, closed=True):
     customer_gateway_association: NotRequired[
         "aws_sdk_networkmanager.types.customer_gateway_association.CustomerGatewayAssociation"
     ]

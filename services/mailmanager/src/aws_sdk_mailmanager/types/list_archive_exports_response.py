@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListArchiveExportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.export_summary_list
     import aws_sdk_mailmanager.types.pagination_token
 
 
-class ListArchiveExportsResponse(TypedDict):
+class ListArchiveExportsResponse(TypedDict, closed=True):
     exports: NotRequired[
         "aws_sdk_mailmanager.types.export_summary_list.ExportSummaryList"
     ]

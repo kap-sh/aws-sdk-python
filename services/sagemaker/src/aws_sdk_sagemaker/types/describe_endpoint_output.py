@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.async_inference_config
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeEndpointOutput(TypedDict):
+class DescribeEndpointOutput(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_sagemaker.types.endpoint_name.EndpointName"]
     """<p>Name of the endpoint.</p>"""
     endpoint_arn: NotRequired["aws_sdk_sagemaker.types.endpoint_arn.EndpointArn"]

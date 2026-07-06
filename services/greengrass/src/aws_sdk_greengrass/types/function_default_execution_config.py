@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#FunctionDefaultExecutionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.function_isolation_mode
     import aws_sdk_greengrass.types.function_run_as_config
 
 
-class FunctionDefaultExecutionConfig(TypedDict):
+class FunctionDefaultExecutionConfig(TypedDict, closed=True):
     isolation_mode: NotRequired[
         "aws_sdk_greengrass.types.function_isolation_mode.FunctionIsolationMode"
     ]

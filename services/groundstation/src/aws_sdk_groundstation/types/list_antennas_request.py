@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListAntennasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ground_station_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.pagination_token
 
 
-class ListAntennasRequest(TypedDict):
+class ListAntennasRequest(TypedDict, closed=True):
     ground_station_id: (
         "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
     )

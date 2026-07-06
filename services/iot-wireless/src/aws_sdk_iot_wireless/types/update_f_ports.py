@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateFPorts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.applications
     import aws_sdk_iot_wireless.types.positioning
 
 
-class UpdateFPorts(TypedDict):
+class UpdateFPorts(TypedDict, closed=True):
     positioning: NotRequired["aws_sdk_iot_wireless.types.positioning.Positioning"]
     """<p>Positioning FPorts for the ClockSync, Stream, and GNSS functions.</p>"""
     applications: NotRequired["aws_sdk_iot_wireless.types.applications.Applications"]

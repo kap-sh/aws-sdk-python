@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SelectOptionDescription``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class SelectOptionDescription(TypedDict):
+class SelectOptionDescription(TypedDict, closed=True):
     option: "str"
     """<p>The value of the option.</p>"""
     title: NotRequired["str"]

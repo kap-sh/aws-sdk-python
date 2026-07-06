@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#SortObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.sort_by
     import aws_sdk_partnercentral_selling.types.sort_order
 
 
-class SortObject(TypedDict):
+class SortObject(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_partnercentral_selling.types.sort_by.SortBy"]
     """<p> Specifies the field by which to sort the resource snapshot jobs. </p>"""
     sort_order: NotRequired["aws_sdk_partnercentral_selling.types.sort_order.SortOrder"]

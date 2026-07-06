@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#GetAccountAliasResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support_app.types.aws_account_alias
 
 
-class GetAccountAliasResult(TypedDict):
+class GetAccountAliasResult(TypedDict, closed=True):
     account_alias: NotRequired[
         "aws_sdk_support_app.types.aws_account_alias.awsAccountAlias"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DisassociateIamRoleFromResourceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateIamRoleFromResourceOutput(TypedDict):
+class DisassociateIamRoleFromResourceOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#LongTermBackupSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.repeat_cadence
 
 
-class LongTermBackupSchedule(TypedDict):
+class LongTermBackupSchedule(TypedDict, closed=True):
     is_disabled: NotRequired["bool"]
     """<p>Indicates whether the long-term backup schedule is disabled.</p>"""
     repeat_cadence: NotRequired["aws_sdk_odb.types.repeat_cadence.RepeatCadence"]

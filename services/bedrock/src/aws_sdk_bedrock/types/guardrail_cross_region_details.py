@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailCrossRegionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_arn
     import aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_id
 
 
-class GuardrailCrossRegionDetails(TypedDict):
+class GuardrailCrossRegionDetails(TypedDict, closed=True):
     guardrail_profile_id: NotRequired[
         "aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_id.GuardrailCrossRegionGuardrailProfileId"
     ]

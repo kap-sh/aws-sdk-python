@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#PermissionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.role_permission_type
     import aws_sdk_workdocs.types.role_type
 
 
-class PermissionInfo(TypedDict):
+class PermissionInfo(TypedDict, closed=True):
     role: NotRequired["aws_sdk_workdocs.types.role_type.RoleType"]
     """<p>The role of the user.</p>"""
     type: NotRequired["aws_sdk_workdocs.types.role_permission_type.RolePermissionType"]

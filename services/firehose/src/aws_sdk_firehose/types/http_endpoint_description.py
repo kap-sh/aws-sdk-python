@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.http_endpoint_name
     import aws_sdk_firehose.types.http_endpoint_url
 
 
-class HttpEndpointDescription(TypedDict):
+class HttpEndpointDescription(TypedDict, closed=True):
     url: NotRequired["aws_sdk_firehose.types.http_endpoint_url.HttpEndpointUrl"]
     """<p>The URL of the HTTP endpoint selected as the destination.</p>"""
     name: NotRequired["aws_sdk_firehose.types.http_endpoint_name.HttpEndpointName"]

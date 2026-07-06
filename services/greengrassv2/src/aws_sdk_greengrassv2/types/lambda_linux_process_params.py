@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaLinuxProcessParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.lambda_container_params
     import aws_sdk_greengrassv2.types.lambda_isolation_mode
 
 
-class LambdaLinuxProcessParams(TypedDict):
+class LambdaLinuxProcessParams(TypedDict, closed=True):
     isolation_mode: NotRequired[
         "aws_sdk_greengrassv2.types.lambda_isolation_mode.LambdaIsolationMode"
     ]

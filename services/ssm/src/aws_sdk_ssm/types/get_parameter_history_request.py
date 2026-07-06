@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetParameterHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.ps_parameter_name
 
 
-class GetParameterHistoryRequest(TypedDict):
+class GetParameterHistoryRequest(TypedDict, closed=True):
     name: "aws_sdk_ssm.types.ps_parameter_name.PSParameterName"
     """<p>The name or Amazon Resource Name (ARN) of the parameter for which you want to review history. For parameters shared with you from another account, you must use the full ARN.</p>"""
     with_decryption: NotRequired["aws_sdk_ssm.types.boolean.Boolean"]

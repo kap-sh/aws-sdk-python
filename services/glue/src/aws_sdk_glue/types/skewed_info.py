@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SkewedInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_value_string_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string_list
 
 
-class SkewedInfo(TypedDict):
+class SkewedInfo(TypedDict, closed=True):
     skewed_column_names: NotRequired[
         "aws_sdk_glue.types.name_string_list.NameStringList"
     ]

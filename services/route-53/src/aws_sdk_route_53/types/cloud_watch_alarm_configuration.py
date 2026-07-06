@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CloudWatchAlarmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.threshold
 
 
-class CloudWatchAlarmConfiguration(TypedDict):
+class CloudWatchAlarmConfiguration(TypedDict, closed=True):
     evaluation_periods: "aws_sdk_route_53.types.evaluation_periods.EvaluationPeriods"
     """<p>For the metric that the CloudWatch alarm is associated with, the number of periods that the metric is compared to the threshold.</p>"""
     threshold: "aws_sdk_route_53.types.threshold.Threshold"

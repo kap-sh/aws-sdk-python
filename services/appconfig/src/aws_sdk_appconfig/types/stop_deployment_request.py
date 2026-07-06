@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#StopDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.integer
 
 
-class StopDeploymentRequest(TypedDict):
+class StopDeploymentRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The application ID.</p>"""
     environment_id: "aws_sdk_appconfig.types.id.Id"

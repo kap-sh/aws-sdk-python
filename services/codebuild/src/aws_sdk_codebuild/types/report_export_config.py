@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ReportExportConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_export_config_type
     import aws_sdk_codebuild.types.s3_report_export_config
 
 
-class ReportExportConfig(TypedDict):
+class ReportExportConfig(TypedDict, closed=True):
     export_config_type: NotRequired[
         "aws_sdk_codebuild.types.report_export_config_type.ReportExportConfigType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UiConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.human_task_ui_arn
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class UiConfig(TypedDict):
+class UiConfig(TypedDict, closed=True):
     ui_template_s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     r"""<p>The Amazon S3 bucket location of the UI template, or worker task template. This is the template used to render the worker UI and tools for labeling job tasks. For more information about the contents of a UI template, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html\"> Creating Your Custom Labeling Task Template</a>.</p>"""
     human_task_ui_arn: NotRequired[

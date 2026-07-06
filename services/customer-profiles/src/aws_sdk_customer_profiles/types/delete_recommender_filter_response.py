@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DeleteRecommenderFilterResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
 
-class DeleteRecommenderFilterResponse(TypedDict):
+class DeleteRecommenderFilterResponse(TypedDict, closed=True):
     message: "str"
     """<p>A message that indicates the delete request is done.</p>"""
 

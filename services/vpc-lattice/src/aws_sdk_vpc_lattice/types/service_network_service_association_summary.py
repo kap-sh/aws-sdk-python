@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ServiceNetworkServiceAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.account_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.timestamp
 
 
-class ServiceNetworkServiceAssociationSummary(TypedDict):
+class ServiceNetworkServiceAssociationSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_vpc_lattice.types.service_network_service_association_identifier.ServiceNetworkServiceAssociationIdentifier"
     ]

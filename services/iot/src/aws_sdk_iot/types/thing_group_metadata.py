@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingGroupMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.creation_date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_name_and_arn_list
 
 
-class ThingGroupMetadata(TypedDict):
+class ThingGroupMetadata(TypedDict, closed=True):
     parent_group_name: NotRequired["aws_sdk_iot.types.thing_group_name.ThingGroupName"]
     """<p>The parent thing group name.</p>"""
     root_to_parent_thing_groups: NotRequired[

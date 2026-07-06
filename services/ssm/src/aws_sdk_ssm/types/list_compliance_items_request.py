@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListComplianceItemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_resource_id_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListComplianceItemsRequest(TypedDict):
+class ListComplianceItemsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_ssm.types.compliance_string_filter_list.ComplianceStringFilterList"
     ]

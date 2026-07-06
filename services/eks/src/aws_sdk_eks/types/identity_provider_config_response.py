@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#IdentityProviderConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.oidc_identity_provider_config
 
 
-class IdentityProviderConfigResponse(TypedDict):
+class IdentityProviderConfigResponse(TypedDict, closed=True):
     oidc: NotRequired[
         "aws_sdk_eks.types.oidc_identity_provider_config.OidcIdentityProviderConfig"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CapacityReservationCommitmentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.millisecond_date_time
 
 
-class CapacityReservationCommitmentInfo(TypedDict):
+class CapacityReservationCommitmentInfo(TypedDict, closed=True):
     committed_instance_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The instance capacity that you committed to when you requested the future-dated Capacity Reservation.</p>"""
     commitment_end_date: NotRequired[

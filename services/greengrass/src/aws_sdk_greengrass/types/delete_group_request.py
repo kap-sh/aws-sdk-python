@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#DeleteGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class DeleteGroupRequest(TypedDict):
+class DeleteGroupRequest(TypedDict, closed=True):
     group_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the Greengrass group."""
 

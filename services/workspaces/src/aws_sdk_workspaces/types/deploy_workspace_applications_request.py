@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeployWorkspaceApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_id
 
 
-class DeployWorkspaceApplicationsRequest(TypedDict):
+class DeployWorkspaceApplicationsRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId"
     """<p>The identifier of the WorkSpace.</p>"""
     force: NotRequired["aws_sdk_workspaces.types.boolean_object.BooleanObject"]

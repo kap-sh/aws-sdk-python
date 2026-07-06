@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RoadSnapTravelModeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.road_snap_truck_options
 
 
-class RoadSnapTravelModeOptions(TypedDict):
+class RoadSnapTravelModeOptions(TypedDict, closed=True):
     truck: NotRequired[
         "aws_sdk_geo_routes.types.road_snap_truck_options.RoadSnapTruckOptions"
     ]

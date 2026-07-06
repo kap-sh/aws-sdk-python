@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer_list
 
 
-class IcebergSchema(TypedDict):
+class IcebergSchema(TypedDict, closed=True):
     schema_id: "aws_sdk_glue.types.integer.Integer"
     """<p>The unique identifier for this schema version within the Iceberg table's schema evolution history.</p>"""
     identifier_field_ids: NotRequired["aws_sdk_glue.types.integer_list.IntegerList"]

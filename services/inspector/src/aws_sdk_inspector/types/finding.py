@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#Finding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.user_attribute_list
 
 
-class Finding(TypedDict):
+class Finding(TypedDict, closed=True):
     arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the finding.</p>"""
     schema_version: "aws_sdk_inspector.types.numeric_version.NumericVersion"

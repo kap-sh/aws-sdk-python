@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#RebootBrokerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
     import aws_sdk_kafka.types.__string
 
 
-class RebootBrokerRequest(TypedDict):
+class RebootBrokerRequest(TypedDict, closed=True):
     broker_ids: NotRequired["aws_sdk_kafka.types.__list_of__string.__listOf__string"]
     """<p>The list of broker IDs to be rebooted. The reboot-broker operation supports rebooting one broker at a time.</p>"""
     cluster_arn: "aws_sdk_kafka.types.__string.__string"

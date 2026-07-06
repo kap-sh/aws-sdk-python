@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataProductItemAdditionalAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.match_rationale
 
 
-class DataProductItemAdditionalAttributes(TypedDict):
+class DataProductItemAdditionalAttributes(TypedDict, closed=True):
     match_rationale: NotRequired[
         "aws_sdk_datazone.types.match_rationale.MatchRationale"
     ]

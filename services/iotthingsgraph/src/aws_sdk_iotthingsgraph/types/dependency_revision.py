@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DependencyRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.urn
     import aws_sdk_iotthingsgraph.types.version
 
 
-class DependencyRevision(TypedDict):
+class DependencyRevision(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotthingsgraph.types.urn.Urn"]
     """<p>The ID of the workflow or system.</p>"""
     revision_number: NotRequired["aws_sdk_iotthingsgraph.types.version.Version"]

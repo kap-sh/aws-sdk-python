@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListNetworkProfilesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.network_profiles
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListNetworkProfilesResult(TypedDict):
+class ListNetworkProfilesResult(TypedDict, closed=True):
     network_profiles: NotRequired[
         "aws_sdk_device_farm.types.network_profiles.NetworkProfiles"
     ]

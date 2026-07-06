@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#H265QvbrSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0_max1
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1000_max1466400000
 
 
-class H265QvbrSettings(TypedDict):
+class H265QvbrSettings(TypedDict, closed=True):
     max_average_bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1000_max1466400000.__integerMin1000Max1466400000"
     ]

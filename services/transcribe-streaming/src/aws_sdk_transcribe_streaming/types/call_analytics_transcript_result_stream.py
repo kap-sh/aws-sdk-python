@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#CallAnalyticsTranscriptResultStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._iter import AnyIterator
 from aws_sdk_transcribe_streaming._protocol.eventstream import Message
@@ -15,35 +17,41 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.utterance_event
 
 
-class _CallAnalyticsTranscriptResultStream_UtteranceEvent(TypedDict):
+class _CallAnalyticsTranscriptResultStream_UtteranceEvent(TypedDict, closed=True):
     UtteranceEvent: "aws_sdk_transcribe_streaming.types.utterance_event.UtteranceEvent"
 
 
-class _CallAnalyticsTranscriptResultStream_CategoryEvent(TypedDict):
+class _CallAnalyticsTranscriptResultStream_CategoryEvent(TypedDict, closed=True):
     CategoryEvent: "aws_sdk_transcribe_streaming.types.category_event.CategoryEvent"
 
 
-class _CallAnalyticsTranscriptResultStream_BadRequestException(TypedDict):
+class _CallAnalyticsTranscriptResultStream_BadRequestException(TypedDict, closed=True):
     BadRequestException: (
         "aws_sdk_transcribe_streaming.errors.bad_request_exception.BadRequestException_"
     )
 
 
-class _CallAnalyticsTranscriptResultStream_LimitExceededException(TypedDict):
+class _CallAnalyticsTranscriptResultStream_LimitExceededException(
+    TypedDict, closed=True
+):
     LimitExceededException: "aws_sdk_transcribe_streaming.errors.limit_exceeded_exception.LimitExceededException_"
 
 
-class _CallAnalyticsTranscriptResultStream_InternalFailureException(TypedDict):
+class _CallAnalyticsTranscriptResultStream_InternalFailureException(
+    TypedDict, closed=True
+):
     InternalFailureException: "aws_sdk_transcribe_streaming.errors.internal_failure_exception.InternalFailureException_"
 
 
-class _CallAnalyticsTranscriptResultStream_ConflictException(TypedDict):
+class _CallAnalyticsTranscriptResultStream_ConflictException(TypedDict, closed=True):
     ConflictException: (
         "aws_sdk_transcribe_streaming.errors.conflict_exception.ConflictException_"
     )
 
 
-class _CallAnalyticsTranscriptResultStream_ServiceUnavailableException(TypedDict):
+class _CallAnalyticsTranscriptResultStream_ServiceUnavailableException(
+    TypedDict, closed=True
+):
     ServiceUnavailableException: "aws_sdk_transcribe_streaming.errors.service_unavailable_exception.ServiceUnavailableException_"
 
 

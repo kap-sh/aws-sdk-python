@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#GetServiceLevelObjectiveInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_objective_id
 
 
-class GetServiceLevelObjectiveInput(TypedDict):
+class GetServiceLevelObjectiveInput(TypedDict, closed=True):
     id: "aws_sdk_application_signals.types.service_level_objective_id.ServiceLevelObjectiveId"
     r"""<p>The ARN or name of the SLO that you want to retrieve information about. You can find the ARNs of SLOs by using the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListServiceLevelObjectives.html\">ListServiceLevelObjectives</a> operation.</p>"""
 

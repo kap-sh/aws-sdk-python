@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#PolicyGenerationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.principal_arn
 
 
-class PolicyGenerationDetails(TypedDict):
+class PolicyGenerationDetails(TypedDict, closed=True):
     principal_arn: "aws_sdk_accessanalyzer.types.principal_arn.PrincipalArn"
     """<p>The ARN of the IAM entity (user or role) for which you are generating a policy.</p>"""
 

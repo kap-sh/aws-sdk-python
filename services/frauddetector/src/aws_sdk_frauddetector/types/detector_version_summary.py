@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DetectorVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.whole_number_version_string
 
 
-class DetectorVersionSummary(TypedDict):
+class DetectorVersionSummary(TypedDict, closed=True):
     detector_version_id: NotRequired[
         "aws_sdk_frauddetector.types.whole_number_version_string.wholeNumberVersionString"
     ]

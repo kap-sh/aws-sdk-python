@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#CreateEnvironmentMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloud9.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.user_arn
 
 
-class CreateEnvironmentMembershipRequest(TypedDict):
+class CreateEnvironmentMembershipRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_cloud9.types.environment_id.EnvironmentId"
     """<p>The ID of the environment that contains the environment member you want to add.</p>"""
     user_arn: "aws_sdk_cloud9.types.user_arn.UserArn"

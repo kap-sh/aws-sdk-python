@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeletePushNotificationRegistrationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePushNotificationRegistrationResponse(TypedDict):
+class DeletePushNotificationRegistrationResponse(TypedDict, closed=True):
     pass
 
 

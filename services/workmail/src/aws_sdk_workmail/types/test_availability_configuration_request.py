@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#TestAvailabilityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class TestAvailabilityConfigurationRequest(TypedDict):
+class TestAvailabilityConfigurationRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization where the availability provider will be tested.</p>"""
     domain_name: NotRequired["aws_sdk_workmail.types.domain_name.DomainName"]

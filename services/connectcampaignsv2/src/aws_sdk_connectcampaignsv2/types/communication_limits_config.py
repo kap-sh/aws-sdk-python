@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#CommunicationLimitsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.communication_limits
     import aws_sdk_connectcampaignsv2.types.instance_limits_handling
 
 
-class CommunicationLimitsConfig(TypedDict):
+class CommunicationLimitsConfig(TypedDict, closed=True):
     all_channel_subtypes: NotRequired[
         "aws_sdk_connectcampaignsv2.types.communication_limits.CommunicationLimits"
     ]

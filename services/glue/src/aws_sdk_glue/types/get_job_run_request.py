@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetJobRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class GetJobRunRequest(TypedDict):
+class GetJobRunRequest(TypedDict, closed=True):
     job_name: "aws_sdk_glue.types.name_string.NameString"
     """<p>Name of the job definition being run.</p>"""
     run_id: "aws_sdk_glue.types.id_string.IdString"

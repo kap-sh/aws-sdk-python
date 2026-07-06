@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchListPolicyAttachmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.next_token
     import aws_sdk_clouddirectory.types.object_identifier_list
 
 
-class BatchListPolicyAttachmentsResponse(TypedDict):
+class BatchListPolicyAttachmentsResponse(TypedDict, closed=True):
     object_identifiers: NotRequired[
         "aws_sdk_clouddirectory.types.object_identifier_list.ObjectIdentifierList"
     ]

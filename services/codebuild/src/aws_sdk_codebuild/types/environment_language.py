@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#EnvironmentLanguage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.environment_images
     import aws_sdk_codebuild.types.language_type
 
 
-class EnvironmentLanguage(TypedDict):
+class EnvironmentLanguage(TypedDict, closed=True):
     language: NotRequired["aws_sdk_codebuild.types.language_type.LanguageType"]
     """<p>The programming language for the Docker images.</p>"""
     images: NotRequired["aws_sdk_codebuild.types.environment_images.EnvironmentImages"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetLineageNodeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lineage_node_identifier
 
 
-class GetLineageNodeInput(TypedDict):
+class GetLineageNodeInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain in which you want to get the data lineage node.</p>"""
     identifier: "aws_sdk_datazone.types.lineage_node_identifier.LineageNodeIdentifier"

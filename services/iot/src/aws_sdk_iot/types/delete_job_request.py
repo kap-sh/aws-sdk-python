@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.force_flag
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.namespace_id
 
 
-class DeleteJobRequest(TypedDict):
+class DeleteJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_iot.types.job_id.JobId"
     """<p>The ID of the job to be deleted.</p> <p>After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.</p>"""
     force: "aws_sdk_iot.types.force_flag.ForceFlag"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#StartCalculationExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.session_id
 
 
-class StartCalculationExecutionRequest(TypedDict):
+class StartCalculationExecutionRequest(TypedDict, closed=True):
     session_id: "aws_sdk_athena.types.session_id.SessionId"
     """<p>The session ID.</p>"""
     description: NotRequired[

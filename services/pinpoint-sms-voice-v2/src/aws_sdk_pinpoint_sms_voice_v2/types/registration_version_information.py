@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#RegistrationVersionInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.registration_version_status_history
 
 
-class RegistrationVersionInformation(TypedDict):
+class RegistrationVersionInformation(TypedDict, closed=True):
     version_number: "aws_sdk_pinpoint_sms_voice_v2.types.registration_version_number.RegistrationVersionNumber"
     """<p>The version number of the registration.</p>"""
     registration_version_status: "aws_sdk_pinpoint_sms_voice_v2.types.registration_version_status.RegistrationVersionStatus"

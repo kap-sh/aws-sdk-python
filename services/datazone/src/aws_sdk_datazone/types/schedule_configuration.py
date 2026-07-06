@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ScheduleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.cron_string
     import aws_sdk_datazone.types.timezone
 
 
-class ScheduleConfiguration(TypedDict):
+class ScheduleConfiguration(TypedDict, closed=True):
     timezone: NotRequired["aws_sdk_datazone.types.timezone.Timezone"]
     """<p>The timezone of the data source run. </p>"""
     schedule: NotRequired["aws_sdk_datazone.types.cron_string.CronString"]

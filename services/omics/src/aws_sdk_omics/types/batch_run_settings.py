@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#BatchRunSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.s3_uri_settings
 
 
-class _BatchRunSettings_inlineSettings(TypedDict):
+class _BatchRunSettings_inlineSettings(TypedDict, closed=True):
     inlineSettings: "aws_sdk_omics.types.inline_settings.InlineSettings"
 
 
-class _BatchRunSettings_s3UriSettings(TypedDict):
+class _BatchRunSettings_s3UriSettings(TypedDict, closed=True):
     s3UriSettings: "aws_sdk_omics.types.s3_uri_settings.S3UriSettings"
 
 

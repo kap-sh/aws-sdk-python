@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsOpenSearchServiceDomainLogPublishingOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_open_search_service_domain_log_publishing_option
 
 
-class AwsOpenSearchServiceDomainLogPublishingOptionsDetails(TypedDict):
+class AwsOpenSearchServiceDomainLogPublishingOptionsDetails(TypedDict, closed=True):
     index_slow_logs: NotRequired[
         "aws_sdk_securityhub.types.aws_open_search_service_domain_log_publishing_option.AwsOpenSearchServiceDomainLogPublishingOption"
     ]

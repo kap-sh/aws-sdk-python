@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Row``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.datum_list
 
 
-class Row(TypedDict):
+class Row(TypedDict, closed=True):
     data: "aws_sdk_iotsitewise.types.datum_list.DatumList"
     """<p>List of data points in a single row of the result set.</p>"""
 

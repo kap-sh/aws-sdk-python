@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#InstallToRemoteAccessSessionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.upload
 
 
-class InstallToRemoteAccessSessionResult(TypedDict):
+class InstallToRemoteAccessSessionResult(TypedDict, closed=True):
     app_upload: NotRequired["aws_sdk_device_farm.types.upload.Upload"]
     """<p>An app to upload or that has been uploaded.</p>"""
 

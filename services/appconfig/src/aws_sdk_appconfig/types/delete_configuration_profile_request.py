@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeleteConfigurationProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.deletion_protection_check
     import aws_sdk_appconfig.types.id
 
 
-class DeleteConfigurationProfileRequest(TypedDict):
+class DeleteConfigurationProfileRequest(TypedDict, closed=True):
     application_id: "aws_sdk_appconfig.types.id.Id"
     """<p>The application ID that includes the configuration profile you want to delete.</p>"""
     configuration_profile_id: "aws_sdk_appconfig.types.id.Id"

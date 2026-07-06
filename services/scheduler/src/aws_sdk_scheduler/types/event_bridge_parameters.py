@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#EventBridgeParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.source
 
 
-class EventBridgeParameters(TypedDict):
+class EventBridgeParameters(TypedDict, closed=True):
     detail_type: "aws_sdk_scheduler.types.detail_type.DetailType"
     """<p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>"""
     source: "aws_sdk_scheduler.types.source.Source"

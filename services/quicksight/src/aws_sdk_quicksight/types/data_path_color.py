@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPathColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.time_granularity
 
 
-class DataPathColor(TypedDict):
+class DataPathColor(TypedDict, closed=True):
     element: "aws_sdk_quicksight.types.data_path_value.DataPathValue"
     """<p>The element that the color needs to be applied to.</p>"""
     color: "aws_sdk_quicksight.types.hex_color.HexColor"

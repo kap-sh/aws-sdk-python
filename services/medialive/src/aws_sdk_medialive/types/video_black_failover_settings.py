@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#VideoBlackFailoverSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double_min0_max1
     import aws_sdk_medialive.types.__integer_min1000
 
 
-class VideoBlackFailoverSettings(TypedDict):
+class VideoBlackFailoverSettings(TypedDict, closed=True):
     black_detect_threshold: NotRequired[
         "aws_sdk_medialive.types.__double_min0_max1.__doubleMin0Max1"
     ]

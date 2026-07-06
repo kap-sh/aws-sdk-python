@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartChatContactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_token
 
 
-class StartChatContactResponse(TypedDict):
+class StartChatContactResponse(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p>The identifier of this contact within the Connect Customer instance. </p>"""
     participant_id: NotRequired["aws_sdk_connect.types.participant_id.ParticipantId"]

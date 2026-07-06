@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ResponseOutputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.hls_playlist_settings
 
 
-class ResponseOutputItem(TypedDict):
+class ResponseOutputItem(TypedDict, closed=True):
     dash_playlist_settings: NotRequired[
         "aws_sdk_mediatailor.types.dash_playlist_settings.DashPlaylistSettings"
     ]

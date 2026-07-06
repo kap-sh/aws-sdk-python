@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SMSTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.template_type
 
 
-class SMSTemplateResponse(TypedDict):
+class SMSTemplateResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the message template.</p>"""
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

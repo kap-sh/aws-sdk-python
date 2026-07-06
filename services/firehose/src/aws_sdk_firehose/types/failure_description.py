@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#FailureDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.non_empty_string
 
 
-class FailureDescription(TypedDict):
+class FailureDescription(TypedDict, closed=True):
     type: (
         "aws_sdk_firehose.types.delivery_stream_failure_type.DeliveryStreamFailureType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#SlackUserIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.slack_user_id
 
 
-class SlackUserIdentity(TypedDict):
+class SlackUserIdentity(TypedDict, closed=True):
     iam_role_arn: "aws_sdk_chatbot.types.arn.Arn"
     r"""<p>A user-defined role that AWS Chatbot assumes. This is not the service-linked role.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/chatbot/latest/adminguide/chatbot-iam-policies.html\">IAM policies for AWS Chatbot</a> in the <i> AWS Chatbot Administrator Guide</i>. </p>"""
     chat_configuration_arn: (

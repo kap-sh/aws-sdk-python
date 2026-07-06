@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SigningMaterial``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.certificate_arn
 
 
-class SigningMaterial(TypedDict):
+class SigningMaterial(TypedDict, closed=True):
     certificate_arn: "aws_sdk_signer.types.certificate_arn.CertificateArn"
     """<p>The Amazon Resource Name (ARN) of the certificates that is used to sign your code.</p>"""
 

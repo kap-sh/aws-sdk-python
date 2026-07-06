@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCoverageStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.next_token
 
 
-class ListCoverageStatisticsResponse(TypedDict):
+class ListCoverageStatisticsResponse(TypedDict, closed=True):
     counts_by_group: NotRequired["aws_sdk_inspector2.types.counts_list.CountsList"]
     """<p>An array with the number for each group.</p>"""
     total_counts: "int"

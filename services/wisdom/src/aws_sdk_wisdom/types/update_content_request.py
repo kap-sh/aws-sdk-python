@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#UpdateContentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.content_metadata
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid_or_arn
 
 
-class UpdateContentRequest(TypedDict):
+class UpdateContentRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it. Can be either the ID or the ARN</p>"""
     content_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"

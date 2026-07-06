@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SigningPlatformOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.image_format
     import aws_sdk_signer.types.signing_configuration_overrides
 
 
-class SigningPlatformOverrides(TypedDict):
+class SigningPlatformOverrides(TypedDict, closed=True):
     signing_configuration: NotRequired[
         "aws_sdk_signer.types.signing_configuration_overrides.SigningConfigurationOverrides"
     ]

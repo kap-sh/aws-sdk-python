@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetAccountDataRetentionRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountDataRetentionRequest(TypedDict):
+class GetAccountDataRetentionRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListOfferingTransactionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListOfferingTransactionsRequest(TypedDict):
+class ListOfferingTransactionsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_device_farm.types.pagination_token.PaginationToken"
     ]

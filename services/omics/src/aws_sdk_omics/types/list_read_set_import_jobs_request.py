@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReadSetImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.import_read_set_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_id
 
 
-class ListReadSetImportJobsRequest(TypedDict):
+class ListReadSetImportJobsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of jobs to return in one page of results.</p>"""
     next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]

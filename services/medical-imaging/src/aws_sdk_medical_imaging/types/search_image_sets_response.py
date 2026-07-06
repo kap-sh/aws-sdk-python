@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#SearchImageSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.sort
 
 
-class SearchImageSetsResponse(TypedDict):
+class SearchImageSetsResponse(TypedDict, closed=True):
     image_sets_metadata_summaries: "aws_sdk_medical_imaging.types.image_sets_metadata_summaries.ImageSetsMetadataSummaries"
     """<p>The model containing the image set results.</p>"""
     sort: NotRequired["aws_sdk_medical_imaging.types.sort.Sort"]

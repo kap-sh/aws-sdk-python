@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#SearchRelatedItemsResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.user_union
 
 
-class SearchRelatedItemsResponseItem(TypedDict):
+class SearchRelatedItemsResponseItem(TypedDict, closed=True):
     related_item_id: "aws_sdk_connectcases.types.related_item_id.RelatedItemId"
     """<p>Unique identifier of a related item.</p>"""
     type: "aws_sdk_connectcases.types.related_item_type.RelatedItemType"

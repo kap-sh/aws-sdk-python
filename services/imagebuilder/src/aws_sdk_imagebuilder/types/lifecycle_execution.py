@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecycleExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.date_time_timestamp
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_arn
 
 
-class LifecycleExecution(TypedDict):
+class LifecycleExecution(TypedDict, closed=True):
     lifecycle_execution_id: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_execution_id.LifecycleExecutionId"
     ]

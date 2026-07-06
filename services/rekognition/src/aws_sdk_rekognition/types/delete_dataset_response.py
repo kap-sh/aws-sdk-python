@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteDatasetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDatasetResponse(TypedDict):
+class DeleteDatasetResponse(TypedDict, closed=True):
     pass
 
 

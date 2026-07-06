@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ReturnControlPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.invocation_inputs
 
 
-class ReturnControlPayload(TypedDict):
+class ReturnControlPayload(TypedDict, closed=True):
     invocation_inputs: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.invocation_inputs.InvocationInputs"
     ]

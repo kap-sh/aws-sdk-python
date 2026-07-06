@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#StartMigrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class StartMigrationRequest(TypedDict):
+class StartMigrationRequest(TypedDict, closed=True):
     v1_bot_name: "aws_sdk_lex_model_building_service.types.bot_name.BotName"
     """<p>The name of the Amazon Lex V1 bot that you are migrating to Amazon Lex V2.</p>"""
     v1_bot_version: "aws_sdk_lex_model_building_service.types.version.Version"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ExtensionAssociations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.extension_association_summaries
     import aws_sdk_appconfig.types.next_token
 
 
-class ExtensionAssociations(TypedDict):
+class ExtensionAssociations(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_appconfig.types.extension_association_summaries.ExtensionAssociationSummaries"
     ]

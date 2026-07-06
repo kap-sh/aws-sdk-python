@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#RelatedControlMappingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.control_relation_type
 
 
-class RelatedControlMappingDetails(TypedDict):
+class RelatedControlMappingDetails(TypedDict, closed=True):
     control_arn: NotRequired["aws_sdk_controlcatalog.types.control_arn.ControlArn"]
     """<p>The unique identifier of a control.</p>"""
     relation_type: (

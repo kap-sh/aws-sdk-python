@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#TemporalStatisticsConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.temporal_statistics_list_input
 
 
-class TemporalStatisticsConfigInput(TypedDict):
+class TemporalStatisticsConfigInput(TypedDict, closed=True):
     group_by: NotRequired["aws_sdk_sagemaker_geospatial.types.group_by.GroupBy"]
     """<p>The input for the temporal statistics grouping by time frequency option.</p>"""
     statistics: "aws_sdk_sagemaker_geospatial.types.temporal_statistics_list_input.TemporalStatisticsListInput"

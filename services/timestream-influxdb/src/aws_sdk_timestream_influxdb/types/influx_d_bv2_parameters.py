@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#InfluxDBv2Parameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.duration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.tracing_type
 
 
-class InfluxDBv2Parameters(TypedDict):
+class InfluxDBv2Parameters(TypedDict, closed=True):
     flux_log_enabled: NotRequired["bool"]
     """<p>Include option to show detailed logs for Flux queries.</p> <p>Default: false</p>"""
     log_level: NotRequired["aws_sdk_timestream_influxdb.types.log_level.LogLevel"]

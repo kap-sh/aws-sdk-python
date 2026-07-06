@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#IssueCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.validity
 
 
-class IssueCertificateRequest(TypedDict):
+class IssueCertificateRequest(TypedDict, closed=True):
     api_passthrough: NotRequired["aws_sdk_acm_pca.types.api_passthrough.ApiPassthrough"]
     r"""<p>Specifies X.509 certificate information to be included in the issued certificate. An <code>APIPassthrough</code> or <code>APICSRPassthrough</code> template variant must be selected, or else this parameter is ignored. For more information about using these templates, see <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html\">Understanding Certificate Templates</a>.</p> <p>If conflicting or duplicate certificate information is supplied during certificate issuance, Amazon Web Services Private CA applies <a href=\"https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html#template-order-of-operations\">order of operation rules</a> to determine what information is used.</p>"""
     certificate_authority_arn: "aws_sdk_acm_pca.types.arn.Arn"

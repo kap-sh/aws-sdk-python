@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#InitializeClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.cluster_id
 
 
-class InitializeClusterRequest(TypedDict):
+class InitializeClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_cloudhsm_v2.types.cluster_id.ClusterId"
     """<p>The identifier (ID) of the cluster that you are claiming. To find the cluster ID, use <a>DescribeClusters</a>.</p>"""
     signed_cert: "aws_sdk_cloudhsm_v2.types.cert.Cert"

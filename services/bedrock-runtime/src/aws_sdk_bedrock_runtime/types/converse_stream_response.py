@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.converse_stream_output
 
 
-class ConverseStreamResponse(TypedDict):
+class ConverseStreamResponse(TypedDict, closed=True):
     stream: NotRequired[
         "aws_sdk_bedrock_runtime.types.converse_stream_output.ConverseStreamOutput"
     ]

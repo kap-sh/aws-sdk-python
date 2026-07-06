@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#RegisterPackageVersionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegisterPackageVersionResponse(TypedDict):
+class RegisterPackageVersionResponse(TypedDict, closed=True):
     pass
 
 

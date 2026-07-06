@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#HierarchicalChunkingLevelConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
 
-class HierarchicalChunkingLevelConfiguration(TypedDict):
+class HierarchicalChunkingLevelConfiguration(TypedDict, closed=True):
     max_tokens: "int"
     """<p>The maximum number of tokens that a chunk can contain in this layer.</p>"""
 

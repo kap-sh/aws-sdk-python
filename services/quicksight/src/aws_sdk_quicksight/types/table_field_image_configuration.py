@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldImageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_cell_image_sizing_configuration
 
 
-class TableFieldImageConfiguration(TypedDict):
+class TableFieldImageConfiguration(TypedDict, closed=True):
     sizing_options: NotRequired[
         "aws_sdk_quicksight.types.table_cell_image_sizing_configuration.TableCellImageSizingConfiguration"
     ]

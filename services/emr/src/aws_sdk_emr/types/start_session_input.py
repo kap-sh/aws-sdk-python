@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StartSessionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.client_request_token
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class StartSessionInput(TypedDict):
+class StartSessionInput(TypedDict, closed=True):
     name: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>An optional name for the session.</p>"""
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]

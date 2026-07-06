@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeDatasetImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.use_geolocation_for_time_zone
 
 
-class DescribeDatasetImportJobResponse(TypedDict):
+class DescribeDatasetImportJobResponse(TypedDict, closed=True):
     dataset_import_job_name: NotRequired["aws_sdk_forecast.types.name.Name"]
     """<p>The name of the dataset import job.</p>"""
     dataset_import_job_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]

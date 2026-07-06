@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#CaptchaAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.custom_request_handling
 
 
-class CaptchaAction(TypedDict):
+class CaptchaAction(TypedDict, closed=True):
     custom_request_handling: NotRequired[
         "aws_sdk_wafv2.types.custom_request_handling.CustomRequestHandling"
     ]

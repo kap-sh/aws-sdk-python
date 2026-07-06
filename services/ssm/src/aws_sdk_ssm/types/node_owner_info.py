@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#NodeOwnerInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.node_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.node_organizational_unit_path
 
 
-class NodeOwnerInfo(TypedDict):
+class NodeOwnerInfo(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_ssm.types.node_account_id.NodeAccountId"]
     """<p>The ID of the Amazon Web Services account that owns the managed node.</p>"""
     organizational_unit_id: NotRequired[

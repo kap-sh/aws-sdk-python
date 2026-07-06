@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#IPSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.ip_set_descriptor
 
 
-class IPSetUpdate(TypedDict):
+class IPSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf.types.change_action.ChangeAction"
     """<p>Specifies whether to insert or delete an IP address with <a>UpdateIPSet</a>.</p>"""
     ip_set_descriptor: "aws_sdk_waf.types.ip_set_descriptor.IPSetDescriptor"

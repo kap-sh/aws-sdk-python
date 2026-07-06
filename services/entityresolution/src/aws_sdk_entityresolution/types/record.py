@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#Record``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.unique_id
 
 
-class Record(TypedDict):
+class Record(TypedDict, closed=True):
     input_source_arn: "aws_sdk_entityresolution.types.input_source_arn.InputSourceARN"
     """<p> The input source ARN of the record.</p>"""
     unique_id: "aws_sdk_entityresolution.types.unique_id.UniqueId"

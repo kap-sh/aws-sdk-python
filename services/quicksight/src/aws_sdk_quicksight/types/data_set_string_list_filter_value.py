@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetStringListFilterValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_string_filter_static_value_list
 
 
-class DataSetStringListFilterValue(TypedDict):
+class DataSetStringListFilterValue(TypedDict, closed=True):
     static_values: NotRequired[
         "aws_sdk_quicksight.types.data_set_string_filter_static_value_list.DataSetStringFilterStaticValueList"
     ]

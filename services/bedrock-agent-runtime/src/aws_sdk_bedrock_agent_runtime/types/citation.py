@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Citation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.generated_response_part
     import aws_sdk_bedrock_agent_runtime.types.retrieved_references
 
 
-class Citation(TypedDict):
+class Citation(TypedDict, closed=True):
     generated_response_part: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.generated_response_part.GeneratedResponsePart"
     ]

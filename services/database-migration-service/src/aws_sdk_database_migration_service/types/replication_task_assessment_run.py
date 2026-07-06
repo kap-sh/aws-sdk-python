@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ReplicationTaskAssessmentRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.t_stamp
 
 
-class ReplicationTaskAssessmentRun(TypedDict):
+class ReplicationTaskAssessmentRun(TypedDict, closed=True):
     replication_task_assessment_run_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

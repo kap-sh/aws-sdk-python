@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EFSVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.efs_authorization_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EFSVolumeConfiguration(TypedDict):
+class EFSVolumeConfiguration(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon EFS file system ID to use.</p>"""
     root_directory: NotRequired["aws_sdk_batch.types.string.String"]

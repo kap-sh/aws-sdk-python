@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#DirectMessageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.adm_message
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.voice_message
 
 
-class DirectMessageConfiguration(TypedDict):
+class DirectMessageConfiguration(TypedDict, closed=True):
     adm_message: NotRequired["aws_sdk_pinpoint.types.adm_message.ADMMessage"]
     """<p>The default push notification message for the ADM (Amazon Device Messaging) channel. This message overrides the default push notification message (DefaultPushNotificationMessage).</p>"""
     apns_message: NotRequired["aws_sdk_pinpoint.types.apns_message.APNSMessage"]

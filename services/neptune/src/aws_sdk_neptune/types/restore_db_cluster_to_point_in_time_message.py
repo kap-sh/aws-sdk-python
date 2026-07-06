@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#RestoreDBClusterToPointInTimeMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.vpc_security_group_id_list
 
 
-class RestoreDBClusterToPointInTimeMessage(TypedDict):
+class RestoreDBClusterToPointInTimeMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name of the new DB cluster to be created.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 letters, numbers, or hyphens</p> </li> <li> <p>First character must be a letter</p> </li> <li> <p>Cannot end with a hyphen or contain two consecutive hyphens</p> </li> </ul>"""
     restore_type: NotRequired["aws_sdk_neptune.types.string.String"]

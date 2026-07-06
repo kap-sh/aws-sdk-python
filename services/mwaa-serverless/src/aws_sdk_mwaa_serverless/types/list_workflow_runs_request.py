@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ListWorkflowRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.version_id
     import aws_sdk_mwaa_serverless.types.workflow_arn
 
 
-class ListWorkflowRunsRequest(TypedDict):
+class ListWorkflowRunsRequest(TypedDict, closed=True):
     max_results: "int"
     """<p>The maximum number of workflow runs to return in a single response.</p>"""
     next_token: NotRequired["str"]

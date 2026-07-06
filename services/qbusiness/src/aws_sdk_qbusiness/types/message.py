@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_execution
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The identifier of the Amazon Q Business web experience message.</p>"""
     body: NotRequired["aws_sdk_qbusiness.types.message_body.MessageBody"]

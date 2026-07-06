@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#GetConfiguredAudienceModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.configured_audience_model_arn
 
 
-class GetConfiguredAudienceModelRequest(TypedDict):
+class GetConfiguredAudienceModelRequest(TypedDict, closed=True):
     configured_audience_model_arn: "aws_sdk_cleanroomsml.types.configured_audience_model_arn.ConfiguredAudienceModelArn"
     """<p>The Amazon Resource Name (ARN) of the configured audience model that you are interested in.</p>"""
 

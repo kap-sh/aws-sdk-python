@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeAnywhereSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DescribeAnywhereSettings(TypedDict):
+class DescribeAnywhereSettings(TypedDict, closed=True):
     channel_placement_group_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ID of the channel placement group for the channel."""
     cluster_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

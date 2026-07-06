@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OwnerUserPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OwnerUserPropertiesOutput(TypedDict):
+class OwnerUserPropertiesOutput(TypedDict, closed=True):
     user_id: NotRequired["str"]
     """<p>The ID of the owner user.</p>"""
 

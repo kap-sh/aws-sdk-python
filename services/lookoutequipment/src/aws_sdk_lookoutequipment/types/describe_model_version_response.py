@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeModelVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.auto_promotion_result
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class DescribeModelVersionResponse(TypedDict):
+class DescribeModelVersionResponse(TypedDict, closed=True):
     model_name: NotRequired["aws_sdk_lookoutequipment.types.model_name.ModelName"]
     """<p>The name of the machine learning model that this version belongs to.</p>"""
     model_arn: NotRequired["aws_sdk_lookoutequipment.types.model_arn.ModelArn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTransitSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_transit_overview_summary
     import aws_sdk_geo_routes.types.route_transit_travel_only_summary
 
 
-class RouteTransitSummary(TypedDict):
+class RouteTransitSummary(TypedDict, closed=True):
     overview: NotRequired[
         "aws_sdk_geo_routes.types.route_transit_overview_summary.RouteTransitOverviewSummary"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ManualEvidence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.manual_evidence_local_file_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.s3_url
 
 
-class ManualEvidence(TypedDict):
+class ManualEvidence(TypedDict, closed=True):
     s3_resource_path: NotRequired["aws_sdk_auditmanager.types.s3_url.S3Url"]
     """<p>The S3 URL of the object that's imported as manual evidence. </p>"""
     text_response: NotRequired[

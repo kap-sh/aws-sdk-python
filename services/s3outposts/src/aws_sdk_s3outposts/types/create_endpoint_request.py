@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#CreateEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3outposts.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.subnet_id
 
 
-class CreateEndpointRequest(TypedDict):
+class CreateEndpointRequest(TypedDict, closed=True):
     outpost_id: "aws_sdk_s3outposts.types.outpost_id.OutpostId"
     """<p>The ID of the Outposts. </p>"""
     subnet_id: "aws_sdk_s3outposts.types.subnet_id.SubnetId"

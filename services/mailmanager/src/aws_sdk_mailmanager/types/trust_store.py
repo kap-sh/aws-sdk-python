@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#TrustStore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.kms_key_arn
 
 
-class TrustStore(TypedDict):
+class TrustStore(TypedDict, closed=True):
     ca_content: "aws_sdk_mailmanager.types.ca_content.CAContent"
     """<p>The PEM-encoded certificate authority (CA) certificates bundle for the trust store.</p>"""
     crl_content: NotRequired["aws_sdk_mailmanager.types.crl_content.CrlContent"]

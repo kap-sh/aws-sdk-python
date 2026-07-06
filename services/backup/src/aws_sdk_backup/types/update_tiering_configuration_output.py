@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#UpdateTieringConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class UpdateTieringConfigurationOutput(TypedDict):
+class UpdateTieringConfigurationOutput(TypedDict, closed=True):
     tiering_configuration_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An Amazon Resource Name (ARN) that uniquely identifies the updated tiering configuration.</p>"""
     tiering_configuration_name: NotRequired[

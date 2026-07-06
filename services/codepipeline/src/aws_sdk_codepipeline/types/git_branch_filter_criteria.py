@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GitBranchFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.git_branch_pattern_list
 
 
-class GitBranchFilterCriteria(TypedDict):
+class GitBranchFilterCriteria(TypedDict, closed=True):
     includes: NotRequired[
         "aws_sdk_codepipeline.types.git_branch_pattern_list.GitBranchPatternList"
     ]

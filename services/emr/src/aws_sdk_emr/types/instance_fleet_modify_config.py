@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceFleetModifyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_fleet_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class InstanceFleetModifyConfig(TypedDict):
+class InstanceFleetModifyConfig(TypedDict, closed=True):
     instance_fleet_id: NotRequired[
         "aws_sdk_emr.types.instance_fleet_id.InstanceFleetId"
     ]

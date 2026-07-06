@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#SecureNamespaceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.cluster_id
     import aws_sdk_emr_containers.types.kubernetes_namespace
 
 
-class SecureNamespaceInfo(TypedDict):
+class SecureNamespaceInfo(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr_containers.types.cluster_id.ClusterId"]
     """<p>The ID of the Amazon EKS cluster where Amazon EMR on EKS jobs run.</p>"""
     namespace: NotRequired[

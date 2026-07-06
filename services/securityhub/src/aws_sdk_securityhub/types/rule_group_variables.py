@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupVariables``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.rule_group_variables_ip_sets_details
     import aws_sdk_securityhub.types.rule_group_variables_port_sets_details
 
 
-class RuleGroupVariables(TypedDict):
+class RuleGroupVariables(TypedDict, closed=True):
     ip_sets: NotRequired[
         "aws_sdk_securityhub.types.rule_group_variables_ip_sets_details.RuleGroupVariablesIpSetsDetails"
     ]

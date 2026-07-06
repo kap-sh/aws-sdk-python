@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#RouteSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.logging_level
 
 
-class RouteSettings(TypedDict):
+class RouteSettings(TypedDict, closed=True):
     data_trace_enabled: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]
     """<p>Specifies whether (true) or not (false) data trace logging is enabled for this route. This property affects the log entries pushed to Amazon CloudWatch Logs. Supported only for WebSocket APIs.</p>"""
     detailed_metrics_enabled: NotRequired[

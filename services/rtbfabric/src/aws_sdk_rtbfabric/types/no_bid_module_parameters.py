@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#NoBidModuleParameters``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NoBidModuleParameters(TypedDict):
+class NoBidModuleParameters(TypedDict, closed=True):
     reason: NotRequired["str"]
     """<p>The reason description.</p>"""
     reason_code: NotRequired["int"]

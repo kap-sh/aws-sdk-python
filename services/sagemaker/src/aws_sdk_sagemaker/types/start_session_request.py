@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StartSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_identifier
 
 
-class StartSessionRequest(TypedDict):
+class StartSessionRequest(TypedDict, closed=True):
     resource_identifier: NotRequired[
         "aws_sdk_sagemaker.types.resource_identifier.ResourceIdentifier"
     ]

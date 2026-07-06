@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FeatureActivations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.feature_activations_input_prepare_schedule_actions
     import aws_sdk_medialive.types.feature_activations_output_static_image_overlay_schedule_actions
 
 
-class FeatureActivations(TypedDict):
+class FeatureActivations(TypedDict, closed=True):
     input_prepare_schedule_actions: NotRequired[
         "aws_sdk_medialive.types.feature_activations_input_prepare_schedule_actions.FeatureActivationsInputPrepareScheduleActions"
     ]

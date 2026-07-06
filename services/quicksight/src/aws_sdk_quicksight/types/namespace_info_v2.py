@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NamespaceInfoV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class NamespaceInfoV2(TypedDict):
+class NamespaceInfoV2(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.namespace.Namespace"]
     """<p>The name of the error.</p>"""
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]

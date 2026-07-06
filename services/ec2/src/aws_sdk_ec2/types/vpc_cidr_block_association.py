@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpcCidrBlockAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_cidr_block_state
 
 
-class VpcCidrBlockAssociation(TypedDict):
+class VpcCidrBlockAssociation(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The association ID for the IPv4 CIDR block.</p>"""
     cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]

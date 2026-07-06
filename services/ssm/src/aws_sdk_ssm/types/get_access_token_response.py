@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetAccessTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.access_request_status
     import aws_sdk_ssm.types.credentials
 
 
-class GetAccessTokenResponse(TypedDict):
+class GetAccessTokenResponse(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_ssm.types.credentials.Credentials"]
     """<p>The temporary security credentials which can be used to start just-in-time node access sessions.</p>"""
     access_request_status: NotRequired[

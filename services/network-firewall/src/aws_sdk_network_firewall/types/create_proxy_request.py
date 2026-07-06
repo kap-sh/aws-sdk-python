@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateProxyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tls_intercept_properties_request
 
 
-class CreateProxyRequest(TypedDict):
+class CreateProxyRequest(TypedDict, closed=True):
     proxy_name: "aws_sdk_network_firewall.types.resource_name.ResourceName"
     """<p>The descriptive name of the proxy. You can't change the name of a proxy after you create it.</p>"""
     nat_gateway_id: "aws_sdk_network_firewall.types.nat_gateway_id.NatGatewayId"

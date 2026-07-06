@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseTrace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_trace_assessment
     import aws_sdk_bedrock_runtime.types.prompt_router_trace
 
 
-class ConverseTrace(TypedDict):
+class ConverseTrace(TypedDict, closed=True):
     guardrail: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_trace_assessment.GuardrailTraceAssessment"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DecimalColumnStatisticsData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.decimal_number
     import aws_sdk_glue.types.non_negative_long
 
 
-class DecimalColumnStatisticsData(TypedDict):
+class DecimalColumnStatisticsData(TypedDict, closed=True):
     minimum_value: NotRequired["aws_sdk_glue.types.decimal_number.DecimalNumber"]
     """<p>The lowest value in the column.</p>"""
     maximum_value: NotRequired["aws_sdk_glue.types.decimal_number.DecimalNumber"]

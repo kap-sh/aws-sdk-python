@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetFuotaTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.created_at
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.redundancy_percent
 
 
-class GetFuotaTaskResponse(TypedDict):
+class GetFuotaTaskResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_iot_wireless.types.fuota_task_arn.FuotaTaskArn"]
     id: NotRequired["aws_sdk_iot_wireless.types.fuota_task_id.FuotaTaskId"]
     status: NotRequired["aws_sdk_iot_wireless.types.fuota_task_status.FuotaTaskStatus"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetDeviceDiscoveryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.device_discovery_id
 
 
-class GetDeviceDiscoveryRequest(TypedDict):
+class GetDeviceDiscoveryRequest(TypedDict, closed=True):
     identifier: (
         "aws_sdk_iot_managed_integrations.types.device_discovery_id.DeviceDiscoveryId"
     )

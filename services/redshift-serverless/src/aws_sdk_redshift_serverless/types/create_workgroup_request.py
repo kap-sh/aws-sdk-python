@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#CreateWorkgroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_name
 
 
-class CreateWorkgroupRequest(TypedDict):
+class CreateWorkgroupRequest(TypedDict, closed=True):
     workgroup_name: "aws_sdk_redshift_serverless.types.workgroup_name.WorkgroupName"
     """<p>The name of the created workgroup.</p>"""
     namespace_name: "aws_sdk_redshift_serverless.types.namespace_name.NamespaceName"

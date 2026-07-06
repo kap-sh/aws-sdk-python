@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ManifestServiceInteractionLog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__manifest_service_exclude_event_types_list
     import aws_sdk_mediatailor.types.__manifest_service_publish_opt_in_event_types_list
 
 
-class ManifestServiceInteractionLog(TypedDict):
+class ManifestServiceInteractionLog(TypedDict, closed=True):
     publish_opt_in_event_types: NotRequired[
         "aws_sdk_mediatailor.types.__manifest_service_publish_opt_in_event_types_list.__manifestServicePublishOptInEventTypesList"
     ]

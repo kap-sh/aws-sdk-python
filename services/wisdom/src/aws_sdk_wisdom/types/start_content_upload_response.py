@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#StartContentUploadResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.url
 
 
-class StartContentUploadResponse(TypedDict):
+class StartContentUploadResponse(TypedDict, closed=True):
     upload_id: "aws_sdk_wisdom.types.upload_id.UploadId"
     """<p>The identifier of the upload.</p>"""
     url: "aws_sdk_wisdom.types.url.Url"

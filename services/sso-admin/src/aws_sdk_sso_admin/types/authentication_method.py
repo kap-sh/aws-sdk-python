@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AuthenticationMethod``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.iam_authentication_method
 
 
-class _AuthenticationMethod_Iam(TypedDict):
+class _AuthenticationMethod_Iam(TypedDict, closed=True):
     Iam: "aws_sdk_sso_admin.types.iam_authentication_method.IamAuthenticationMethod"
 
 

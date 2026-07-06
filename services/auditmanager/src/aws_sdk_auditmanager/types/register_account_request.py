@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#RegisterAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_id
     import aws_sdk_auditmanager.types.kms_key
 
 
-class RegisterAccountRequest(TypedDict):
+class RegisterAccountRequest(TypedDict, closed=True):
     kms_key: NotRequired["aws_sdk_auditmanager.types.kms_key.KmsKey"]
     """<p> The KMS key details. </p>"""
     delegated_admin_account: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chime#AssociatePhoneNumberWithUserResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociatePhoneNumberWithUserResponse(TypedDict):
+class AssociatePhoneNumberWithUserResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UpdateDatasetEntriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.dataset_changes
 
 
-class UpdateDatasetEntriesRequest(TypedDict):
+class UpdateDatasetEntriesRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_rekognition.types.dataset_arn.DatasetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset that you want to update. </p>"""
     changes: "aws_sdk_rekognition.types.dataset_changes.DatasetChanges"

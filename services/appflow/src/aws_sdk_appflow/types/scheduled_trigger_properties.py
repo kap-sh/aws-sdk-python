@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ScheduledTriggerProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.timezone
 
 
-class ScheduledTriggerProperties(TypedDict):
+class ScheduledTriggerProperties(TypedDict, closed=True):
     schedule_expression: "aws_sdk_appflow.types.schedule_expression.ScheduleExpression"
     """<p> The scheduling expression that determines the rate at which the schedule will run, for example <code>rate(5minutes)</code>. </p>"""
     data_pull_mode: NotRequired["aws_sdk_appflow.types.data_pull_mode.DataPullMode"]

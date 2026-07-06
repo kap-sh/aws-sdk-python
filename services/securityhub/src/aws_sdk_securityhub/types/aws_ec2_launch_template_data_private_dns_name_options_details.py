@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails(TypedDict, closed=True):
     enable_resource_name_dns_aaaa_record: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]

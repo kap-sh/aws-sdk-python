@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StepExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.alarm_state_information_list
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.valid_next_step_list
 
 
-class StepExecution(TypedDict):
+class StepExecution(TypedDict, closed=True):
     step_name: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The name of this execution step.</p>"""
     action: NotRequired["aws_sdk_ssm.types.automation_action_name.AutomationActionName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#Connection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.provider_type
 
 
-class Connection(TypedDict):
+class Connection(TypedDict, closed=True):
     connection_name: NotRequired[
         "aws_sdk_codeconnections.types.connection_name.ConnectionName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.share_name
 
 
-class CreateShareRequest(TypedDict):
+class CreateShareRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The ARN of the resource to be shared.</p>"""
     principal_subscriber: "str"

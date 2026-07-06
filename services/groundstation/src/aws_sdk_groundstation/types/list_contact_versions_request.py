@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListContactVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.pagination_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class ListContactVersionsRequest(TypedDict):
+class ListContactVersionsRequest(TypedDict, closed=True):
     contact_id: "aws_sdk_groundstation.types.uuid.Uuid"
     """<p>UUID of a contact.</p>"""
     max_results: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DisassociateFromAdministratorAccountResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateFromAdministratorAccountResponse(TypedDict):
+class DisassociateFromAdministratorAccountResponse(TypedDict, closed=True):
     pass
 
 

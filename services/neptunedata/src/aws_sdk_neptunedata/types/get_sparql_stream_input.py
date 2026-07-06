@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetSparqlStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.encoding
     import aws_sdk_neptunedata.types.iterator_type
 
 
-class GetSparqlStreamInput(TypedDict):
+class GetSparqlStreamInput(TypedDict, closed=True):
     limit: NotRequired["int"]
     """<p>Specifies the maximum number of records to return. There is also a size limit of 10 MB on the response that can't be modified and that takes precedence over the number of records specified in the <code>limit</code> parameter. The response does include a threshold-breaching record if the 10 MB limit was reached.</p> <p>The range for <code>limit</code> is 1 to 100,000, with a default of 10.</p>"""
     iterator_type: NotRequired["aws_sdk_neptunedata.types.iterator_type.IteratorType"]

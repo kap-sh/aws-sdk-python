@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#LabelCategory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class LabelCategory(TypedDict):
+class LabelCategory(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The name of a category that applies to a given label.</p>"""
 

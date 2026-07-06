@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#Bot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.bot_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class Bot(TypedDict):
+class Bot(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The bot ID.</p>"""
     user_id: NotRequired["aws_sdk_chime.types.string.String"]

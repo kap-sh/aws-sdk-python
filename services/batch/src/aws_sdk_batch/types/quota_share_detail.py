@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaShareDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_capacity_limits
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class QuotaShareDetail(TypedDict):
+class QuotaShareDetail(TypedDict, closed=True):
     quota_share_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the quota share.</p>"""
     quota_share_arn: NotRequired["aws_sdk_batch.types.string.String"]

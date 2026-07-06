@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TerminateClientVpnConnectionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.terminate_connection_status_set
 
 
-class TerminateClientVpnConnectionsResult(TypedDict):
+class TerminateClientVpnConnectionsResult(TypedDict, closed=True):
     client_vpn_endpoint_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Client VPN endpoint.</p>"""
     username: NotRequired["aws_sdk_ec2.types.string.String"]

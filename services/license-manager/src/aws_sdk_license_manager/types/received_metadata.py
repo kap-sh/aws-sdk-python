@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ReceivedMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.allowed_operation_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.status_reason_message
 
 
-class ReceivedMetadata(TypedDict):
+class ReceivedMetadata(TypedDict, closed=True):
     received_status: NotRequired[
         "aws_sdk_license_manager.types.received_status.ReceivedStatus"
     ]

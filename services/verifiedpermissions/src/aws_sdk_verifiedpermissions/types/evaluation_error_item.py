@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#EvaluationErrorItem``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
 
-class EvaluationErrorItem(TypedDict):
+class EvaluationErrorItem(TypedDict, closed=True):
     error_description: "str"
     """<p>The error description.</p>"""
 

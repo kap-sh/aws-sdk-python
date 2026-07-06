@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#MemberFeaturesConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.feature_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.timestamp
 
 
-class MemberFeaturesConfigurationResult(TypedDict):
+class MemberFeaturesConfigurationResult(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.org_feature.OrgFeature"]
     """<p>Indicates the name of the feature that is enabled for the detector.</p>"""
     status: NotRequired["aws_sdk_guardduty.types.feature_status.FeatureStatus"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListViewsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.view_arn_list
 
 
-class ListViewsOutput(TypedDict):
+class ListViewsOutput(TypedDict, closed=True):
     views: NotRequired["aws_sdk_resource_explorer_2.types.view_arn_list.ViewArnList"]
     """<p>The list of views available in the Amazon Web Services Region in which you called this operation.</p>"""
     next_token: NotRequired["str"]

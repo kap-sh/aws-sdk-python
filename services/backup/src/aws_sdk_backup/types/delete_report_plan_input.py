@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DeleteReportPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.report_plan_name
 
 
-class DeleteReportPlanInput(TypedDict):
+class DeleteReportPlanInput(TypedDict, closed=True):
     report_plan_name: "aws_sdk_backup.types.report_plan_name.ReportPlanName"
     """<p>The unique name of a report plan.</p>"""
 

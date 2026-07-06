@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DescribeAssessmentTemplatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.failed_items
 
 
-class DescribeAssessmentTemplatesResponse(TypedDict):
+class DescribeAssessmentTemplatesResponse(TypedDict, closed=True):
     assessment_templates: (
         "aws_sdk_inspector.types.assessment_template_list.AssessmentTemplateList"
     )

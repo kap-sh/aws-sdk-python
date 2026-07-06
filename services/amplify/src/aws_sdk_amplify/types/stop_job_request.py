@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#StopJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.app_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.job_id
 
 
-class StopJobRequest(TypedDict):
+class StopJobRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplify.types.app_id.AppId"
     """<p> The unique ID for an Amplify app. </p>"""
     branch_name: "aws_sdk_amplify.types.branch_name.BranchName"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeJobSchemaVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_category
     import aws_sdk_sagemaker.types.job_schema_version
 
 
-class DescribeJobSchemaVersionRequest(TypedDict):
+class DescribeJobSchemaVersionRequest(TypedDict, closed=True):
     job_category: NotRequired["aws_sdk_sagemaker.types.job_category.JobCategory"]
     """<p>The category of the job schema to describe.</p>"""
     job_config_schema_version: NotRequired[

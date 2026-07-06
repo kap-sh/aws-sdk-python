@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#NodegroupHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.issue_list
 
 
-class NodegroupHealth(TypedDict):
+class NodegroupHealth(TypedDict, closed=True):
     issues: NotRequired["aws_sdk_eks.types.issue_list.IssueList"]
     """<p>Any issues that are associated with the node group. </p>"""
 

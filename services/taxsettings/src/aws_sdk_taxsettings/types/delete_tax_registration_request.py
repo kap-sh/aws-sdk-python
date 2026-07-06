@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#DeleteTaxRegistrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
 
 
-class DeleteTaxRegistrationRequest(TypedDict):
+class DeleteTaxRegistrationRequest(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_taxsettings.types.account_id.AccountId"]
     """<p>Unique account identifier for the TRN information that needs to be deleted. If this isn't passed, the account ID corresponding to the credentials of the API caller will be used for this parameter.</p>"""
 

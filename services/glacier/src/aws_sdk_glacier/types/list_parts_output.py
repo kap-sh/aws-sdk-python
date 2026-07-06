@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#ListPartsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class ListPartsOutput(TypedDict):
+class ListPartsOutput(TypedDict, closed=True):
     multipart_upload_id: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The ID of the upload to which the parts are associated.</p>"""
     vault_arn: NotRequired["aws_sdk_glacier.types.string.string"]

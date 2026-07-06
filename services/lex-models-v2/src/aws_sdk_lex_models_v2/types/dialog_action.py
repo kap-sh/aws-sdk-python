@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DialogAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class DialogAction(TypedDict):
+class DialogAction(TypedDict, closed=True):
     type: "aws_sdk_lex_models_v2.types.dialog_action_type.DialogActionType"
     """<p>The action that the bot should execute. </p>"""
     slot_to_elicit: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

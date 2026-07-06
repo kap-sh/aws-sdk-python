@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#GoogleDriveConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.secret_arn
 
 
-class GoogleDriveConfiguration(TypedDict):
+class GoogleDriveConfiguration(TypedDict, closed=True):
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"
     r"""<p>The Amazon Resource Name (ARN) of a Secrets Managersecret that contains the credentials required to connect to Google Drive. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/data-source-google-drive.html\">Using a Google Workspace Drive data source</a>.</p>"""
     inclusion_patterns: NotRequired[

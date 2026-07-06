@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteViewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.view_id
     import aws_sdk_connect.types.views_instance_id
 
 
-class DeleteViewRequest(TypedDict):
+class DeleteViewRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.views_instance_id.ViewsInstanceId"
     """<p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>"""
     view_id: "aws_sdk_connect.types.view_id.ViewId"

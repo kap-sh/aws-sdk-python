@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ShortFormatText``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.short_plain_text
     import aws_sdk_quicksight.types.short_rich_text
 
 
-class ShortFormatText(TypedDict):
+class ShortFormatText(TypedDict, closed=True):
     plain_text: NotRequired["aws_sdk_quicksight.types.short_plain_text.ShortPlainText"]
     """<p>Plain text format.</p>"""
     rich_text: NotRequired["aws_sdk_quicksight.types.short_rich_text.ShortRichText"]

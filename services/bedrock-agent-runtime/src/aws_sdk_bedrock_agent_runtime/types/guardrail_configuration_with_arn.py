@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailConfigurationWithArn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_version
 
 
-class GuardrailConfigurationWithArn(TypedDict):
+class GuardrailConfigurationWithArn(TypedDict, closed=True):
     guardrail_identifier: "aws_sdk_bedrock_agent_runtime.types.guardrail_identifier_with_arn.GuardrailIdentifierWithArn"
     """<p> The unique identifier for the guardrail. </p>"""
     guardrail_version: (

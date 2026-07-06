@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListProtocolsListsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.pagination_token
     import aws_sdk_fms.types.protocols_lists_data
 
 
-class ListProtocolsListsResponse(TypedDict):
+class ListProtocolsListsResponse(TypedDict, closed=True):
     protocols_lists: NotRequired[
         "aws_sdk_fms.types.protocols_lists_data.ProtocolsListsData"
     ]

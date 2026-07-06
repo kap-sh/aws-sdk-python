@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#NielsenConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.nielsen_pcm_to_id3_tagging_state
 
 
-class NielsenConfiguration(TypedDict):
+class NielsenConfiguration(TypedDict, closed=True):
     distributor_id: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Enter the Distributor ID assigned to your organization by Nielsen."""
     nielsen_pcm_to_id3_tagging: NotRequired[

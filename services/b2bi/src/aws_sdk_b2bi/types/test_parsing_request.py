@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#TestParsingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.s3_location
 
 
-class TestParsingRequest(TypedDict):
+class TestParsingRequest(TypedDict, closed=True):
     input_file: "aws_sdk_b2bi.types.s3_location.S3Location"
     """<p>Specifies an <code>S3Location</code> object, which contains the Amazon S3 bucket and prefix for the location of the input file.</p>"""
     file_format: "aws_sdk_b2bi.types.file_format.FileFormat"

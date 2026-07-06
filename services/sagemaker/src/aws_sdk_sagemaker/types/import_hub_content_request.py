@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ImportHubContentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.document_schema_version
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class ImportHubContentRequest(TypedDict):
+class ImportHubContentRequest(TypedDict, closed=True):
     hub_content_name: NotRequired[
         "aws_sdk_sagemaker.types.hub_content_name.HubContentName"
     ]

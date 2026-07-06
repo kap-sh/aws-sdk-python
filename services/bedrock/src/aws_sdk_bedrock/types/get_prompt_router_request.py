@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetPromptRouterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.prompt_router_arn
 
 
-class GetPromptRouterRequest(TypedDict):
+class GetPromptRouterRequest(TypedDict, closed=True):
     prompt_router_arn: "aws_sdk_bedrock.types.prompt_router_arn.PromptRouterArn"
     """<p>The prompt router's ARN</p>"""
 

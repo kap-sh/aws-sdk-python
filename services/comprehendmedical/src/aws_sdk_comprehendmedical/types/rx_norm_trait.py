@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#RxNormTrait``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.float
     import aws_sdk_comprehendmedical.types.rx_norm_trait_name
 
 
-class RxNormTrait(TypedDict):
+class RxNormTrait(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_comprehendmedical.types.rx_norm_trait_name.RxNormTraitName"
     ]

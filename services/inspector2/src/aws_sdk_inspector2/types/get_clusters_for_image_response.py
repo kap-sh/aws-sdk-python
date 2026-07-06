@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetClustersForImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.get_clusters_for_image_next_token
 
 
-class GetClustersForImageResponse(TypedDict):
+class GetClustersForImageResponse(TypedDict, closed=True):
     cluster: "aws_sdk_inspector2.types.cluster_information_list.ClusterInformationList"
     """<p>A unit of work inside of a cluster, which can include metadata about the cluster.</p>"""
     next_token: NotRequired[

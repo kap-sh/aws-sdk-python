@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#Fragment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.fragment_number_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.timestamp
 
 
-class Fragment(TypedDict):
+class Fragment(TypedDict, closed=True):
     fragment_number: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.fragment_number_string.FragmentNumberString"
     ]

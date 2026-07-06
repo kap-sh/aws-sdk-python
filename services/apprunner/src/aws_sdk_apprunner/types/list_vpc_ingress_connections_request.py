@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListVpcIngressConnectionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.list_vpc_ingress_connections_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.next_token
 
 
-class ListVpcIngressConnectionsRequest(TypedDict):
+class ListVpcIngressConnectionsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_apprunner.types.list_vpc_ingress_connections_filter.ListVpcIngressConnectionsFilter"
     ]

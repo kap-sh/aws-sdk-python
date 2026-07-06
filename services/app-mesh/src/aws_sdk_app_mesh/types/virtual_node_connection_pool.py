@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualNodeConnectionPool``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_node_tcp_connection_pool
 
 
-class _VirtualNodeConnectionPool_tcp(TypedDict):
+class _VirtualNodeConnectionPool_tcp(TypedDict, closed=True):
     tcp: "aws_sdk_app_mesh.types.virtual_node_tcp_connection_pool.VirtualNodeTcpConnectionPool"
 
 
-class _VirtualNodeConnectionPool_http(TypedDict):
+class _VirtualNodeConnectionPool_http(TypedDict, closed=True):
     http: "aws_sdk_app_mesh.types.virtual_node_http_connection_pool.VirtualNodeHttpConnectionPool"
 
 
-class _VirtualNodeConnectionPool_http2(TypedDict):
+class _VirtualNodeConnectionPool_http2(TypedDict, closed=True):
     http2: "aws_sdk_app_mesh.types.virtual_node_http2_connection_pool.VirtualNodeHttp2ConnectionPool"
 
 
-class _VirtualNodeConnectionPool_grpc(TypedDict):
+class _VirtualNodeConnectionPool_grpc(TypedDict, closed=True):
     grpc: "aws_sdk_app_mesh.types.virtual_node_grpc_connection_pool.VirtualNodeGrpcConnectionPool"
 
 

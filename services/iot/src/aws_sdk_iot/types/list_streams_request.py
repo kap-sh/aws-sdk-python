@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListStreamsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
 
 
-class ListStreamsRequest(TypedDict):
+class ListStreamsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_iot.types.max_results.MaxResults"]
     """<p>The maximum number of results to return at a time.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

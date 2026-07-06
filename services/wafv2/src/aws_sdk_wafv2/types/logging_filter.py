@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#LoggingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.filters
 
 
-class LoggingFilter(TypedDict):
+class LoggingFilter(TypedDict, closed=True):
     filters: "aws_sdk_wafv2.types.filters.Filters"
     """<p>The filters that you want to apply to the logs. </p>"""
     default_behavior: "aws_sdk_wafv2.types.filter_behavior.FilterBehavior"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListLicenseConversionTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ListLicenseConversionTasksRequest(TypedDict):
+class ListLicenseConversionTasksRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Token for the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_license_manager.types.box_integer.BoxInteger"]

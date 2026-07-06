@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#MetaFlowPreviewInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_flow_timestamp
 
 
-class MetaFlowPreviewInfo(TypedDict):
+class MetaFlowPreviewInfo(TypedDict, closed=True):
     preview_url: (
         "aws_sdk_socialmessaging.types.meta_flow_preview_url.MetaFlowPreviewUrl"
     )

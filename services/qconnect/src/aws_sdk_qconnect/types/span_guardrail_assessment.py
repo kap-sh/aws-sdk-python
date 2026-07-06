@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SpanGuardrailAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
 
 
-class SpanGuardrailAssessment(TypedDict):
+class SpanGuardrailAssessment(TypedDict, closed=True):
     guardrail_id: "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"
     """<p>Unique AI Guardrail identifier.</p>"""
     guardrail_name: "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"

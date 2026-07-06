@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ListMetricStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.next_token
 
 
-class ListMetricStreamsOutput(TypedDict):
+class ListMetricStreamsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cloudwatch.types.next_token.NextToken"]
     """<p>The token that marks the start of the next batch of returned results. You can use this token in a subsequent operation to get the next batch of results.</p>"""
     entries: NotRequired[

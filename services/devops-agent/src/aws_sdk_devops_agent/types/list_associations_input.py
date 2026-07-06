@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ListAssociationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.agent_space_id
     import aws_sdk_devops_agent.types.next_token
 
 
-class ListAssociationsInput(TypedDict):
+class ListAssociationsInput(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier of the AgentSpace</p>"""
     max_results: "int"

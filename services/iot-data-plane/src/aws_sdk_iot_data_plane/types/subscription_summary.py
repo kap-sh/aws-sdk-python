@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#SubscriptionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_data_plane.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.topic_filter
 
 
-class SubscriptionSummary(TypedDict):
+class SubscriptionSummary(TypedDict, closed=True):
     topic_filter: "aws_sdk_iot_data_plane.types.topic_filter.TopicFilter"
     """<p>The topic filter pattern that the client is subscribed to. May include MQTT wildcards such as + (single-level) and # (multi-level).</p>"""
     qos: "aws_sdk_iot_data_plane.types.qos.Qos"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DeleteApplicationOutputResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteApplicationOutputResponse(TypedDict):
+class DeleteApplicationOutputResponse(TypedDict, closed=True):
     pass
 
 

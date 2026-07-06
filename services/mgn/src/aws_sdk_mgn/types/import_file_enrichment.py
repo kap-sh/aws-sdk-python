@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ImportFileEnrichment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.large_bounded_string
 
 
-class ImportFileEnrichment(TypedDict):
+class ImportFileEnrichment(TypedDict, closed=True):
     job_id: NotRequired[
         "aws_sdk_mgn.types.import_file_enrichment_job_id.ImportFileEnrichmentJobID"
     ]

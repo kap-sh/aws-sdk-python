@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#GetBaselineOperationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.baseline_operation
 
 
-class GetBaselineOperationOutput(TypedDict):
+class GetBaselineOperationOutput(TypedDict, closed=True):
     baseline_operation: (
         "aws_sdk_controltower.types.baseline_operation.BaselineOperation"
     )

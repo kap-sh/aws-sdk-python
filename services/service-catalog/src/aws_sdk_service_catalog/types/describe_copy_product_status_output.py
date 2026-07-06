@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DescribeCopyProductStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.copy_product_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.status_detail
 
 
-class DescribeCopyProductStatusOutput(TypedDict):
+class DescribeCopyProductStatusOutput(TypedDict, closed=True):
     copy_product_status: NotRequired[
         "aws_sdk_service_catalog.types.copy_product_status.CopyProductStatus"
     ]

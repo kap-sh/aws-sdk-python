@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#DASHFragmentSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.dash_fragment_selector_type
     import aws_sdk_kinesis_video_archived_media.types.dash_timestamp_range
 
 
-class DASHFragmentSelector(TypedDict):
+class DASHFragmentSelector(TypedDict, closed=True):
     fragment_selector_type: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.dash_fragment_selector_type.DASHFragmentSelectorType"
     ]

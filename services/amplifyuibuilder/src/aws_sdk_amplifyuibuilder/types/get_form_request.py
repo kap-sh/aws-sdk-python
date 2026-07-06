@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetFormRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.uuid
 
 
-class GetFormRequest(TypedDict):
+class GetFormRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app.</p>"""
     environment_name: "str"

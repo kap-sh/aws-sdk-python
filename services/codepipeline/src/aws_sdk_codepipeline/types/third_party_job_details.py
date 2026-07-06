@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ThirdPartyJobDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.nonce
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.third_party_job_id
 
 
-class ThirdPartyJobDetails(TypedDict):
+class ThirdPartyJobDetails(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codepipeline.types.third_party_job_id.ThirdPartyJobId"]
     """<p>The identifier used to identify the job details in CodePipeline.</p>"""
     data: NotRequired[

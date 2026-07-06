@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualServiceBackend``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.service_name
 
 
-class VirtualServiceBackend(TypedDict):
+class VirtualServiceBackend(TypedDict, closed=True):
     virtual_service_name: "aws_sdk_app_mesh.types.service_name.ServiceName"
     """<p>The name of the virtual service that is acting as a virtual node backend.</p>"""
     client_policy: NotRequired["aws_sdk_app_mesh.types.client_policy.ClientPolicy"]

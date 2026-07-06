@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#UpdatePipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_declaration
 
 
-class UpdatePipelineInput(TypedDict):
+class UpdatePipelineInput(TypedDict, closed=True):
     pipeline: "aws_sdk_codepipeline.types.pipeline_declaration.PipelineDeclaration"
     """<p>The name of the pipeline to be updated.</p>"""
 

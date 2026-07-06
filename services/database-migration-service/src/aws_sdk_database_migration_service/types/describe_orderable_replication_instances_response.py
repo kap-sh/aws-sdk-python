@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeOrderableReplicationInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.orderable_replication_instance_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeOrderableReplicationInstancesResponse(TypedDict):
+class DescribeOrderableReplicationInstancesResponse(TypedDict, closed=True):
     orderable_replication_instances: NotRequired[
         "aws_sdk_database_migration_service.types.orderable_replication_instance_list.OrderableReplicationInstanceList"
     ]

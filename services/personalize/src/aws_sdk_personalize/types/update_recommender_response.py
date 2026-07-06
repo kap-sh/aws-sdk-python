@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateRecommenderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class UpdateRecommenderResponse(TypedDict):
+class UpdateRecommenderResponse(TypedDict, closed=True):
     recommender_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The same recommender Amazon Resource Name (ARN) as given in the request.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageTopAccountsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.usage_feature
     import aws_sdk_guardduty.types.usage_top_accounts_by_feature_list
 
 
-class UsageTopAccountsResult(TypedDict):
+class UsageTopAccountsResult(TypedDict, closed=True):
     feature: NotRequired["aws_sdk_guardduty.types.usage_feature.UsageFeature"]
     """<p>Features by which you can generate the usage statistics.</p> <p> <code>RDS_LOGIN_EVENTS</code> is currently not supported with <code>topAccountsByFeature</code>.</p>"""
     accounts: NotRequired[

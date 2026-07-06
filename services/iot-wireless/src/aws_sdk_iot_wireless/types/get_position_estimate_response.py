@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetPositionEstimateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.geo_json_payload
 
 
-class GetPositionEstimateResponse(TypedDict):
+class GetPositionEstimateResponse(TypedDict, closed=True):
     geo_json_payload: NotRequired[
         "aws_sdk_iot_wireless.types.geo_json_payload.GeoJsonPayload"
     ]

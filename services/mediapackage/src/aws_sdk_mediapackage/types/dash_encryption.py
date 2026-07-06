@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#DashEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__integer
     import aws_sdk_mediapackage.types.speke_key_provider
 
 
-class DashEncryption(TypedDict):
+class DashEncryption(TypedDict, closed=True):
     key_rotation_interval_seconds: NotRequired[
         "aws_sdk_mediapackage.types.__integer.__integer"
     ]

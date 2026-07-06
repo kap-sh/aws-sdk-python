@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ScalingPolicyObjective``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
 
 
-class ScalingPolicyObjective(TypedDict):
+class ScalingPolicyObjective(TypedDict, closed=True):
     min_invocations_per_minute: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
     """<p>The minimum number of expected requests to your endpoint per minute.</p>"""
     max_invocations_per_minute: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

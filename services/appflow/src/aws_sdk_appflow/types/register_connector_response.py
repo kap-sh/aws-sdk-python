@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RegisterConnectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.arn
 
 
-class RegisterConnectorResponse(TypedDict):
+class RegisterConnectorResponse(TypedDict, closed=True):
     connector_arn: NotRequired["aws_sdk_appflow.types.arn.ARN"]
     """<p>The ARN of the connector being registered.</p>"""
 

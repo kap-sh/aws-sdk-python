@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -23,67 +25,67 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.storage_flow_node_configuration
 
 
-class _FlowNodeConfiguration_input(TypedDict):
+class _FlowNodeConfiguration_input(TypedDict, closed=True):
     input: "aws_sdk_bedrock_agent.types.input_flow_node_configuration.InputFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_output(TypedDict):
+class _FlowNodeConfiguration_output(TypedDict, closed=True):
     output: "aws_sdk_bedrock_agent.types.output_flow_node_configuration.OutputFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_knowledgeBase(TypedDict):
+class _FlowNodeConfiguration_knowledgeBase(TypedDict, closed=True):
     knowledgeBase: "aws_sdk_bedrock_agent.types.knowledge_base_flow_node_configuration.KnowledgeBaseFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_condition(TypedDict):
+class _FlowNodeConfiguration_condition(TypedDict, closed=True):
     condition: "aws_sdk_bedrock_agent.types.condition_flow_node_configuration.ConditionFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_lex(TypedDict):
+class _FlowNodeConfiguration_lex(TypedDict, closed=True):
     lex: "aws_sdk_bedrock_agent.types.lex_flow_node_configuration.LexFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_prompt(TypedDict):
+class _FlowNodeConfiguration_prompt(TypedDict, closed=True):
     prompt: "aws_sdk_bedrock_agent.types.prompt_flow_node_configuration.PromptFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_lambdaFunction(TypedDict):
+class _FlowNodeConfiguration_lambdaFunction(TypedDict, closed=True):
     lambdaFunction: "aws_sdk_bedrock_agent.types.lambda_function_flow_node_configuration.LambdaFunctionFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_storage(TypedDict):
+class _FlowNodeConfiguration_storage(TypedDict, closed=True):
     storage: "aws_sdk_bedrock_agent.types.storage_flow_node_configuration.StorageFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_agent(TypedDict):
+class _FlowNodeConfiguration_agent(TypedDict, closed=True):
     agent: "aws_sdk_bedrock_agent.types.agent_flow_node_configuration.AgentFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_retrieval(TypedDict):
+class _FlowNodeConfiguration_retrieval(TypedDict, closed=True):
     retrieval: "aws_sdk_bedrock_agent.types.retrieval_flow_node_configuration.RetrievalFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_iterator(TypedDict):
+class _FlowNodeConfiguration_iterator(TypedDict, closed=True):
     iterator: "aws_sdk_bedrock_agent.types.iterator_flow_node_configuration.IteratorFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_collector(TypedDict):
+class _FlowNodeConfiguration_collector(TypedDict, closed=True):
     collector: "aws_sdk_bedrock_agent.types.collector_flow_node_configuration.CollectorFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_inlineCode(TypedDict):
+class _FlowNodeConfiguration_inlineCode(TypedDict, closed=True):
     inlineCode: "aws_sdk_bedrock_agent.types.inline_code_flow_node_configuration.InlineCodeFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_loop(TypedDict):
+class _FlowNodeConfiguration_loop(TypedDict, closed=True):
     loop: "aws_sdk_bedrock_agent.types.loop_flow_node_configuration.LoopFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_loopInput(TypedDict):
+class _FlowNodeConfiguration_loopInput(TypedDict, closed=True):
     loopInput: "aws_sdk_bedrock_agent.types.loop_input_flow_node_configuration.LoopInputFlowNodeConfiguration"
 
 
-class _FlowNodeConfiguration_loopController(TypedDict):
+class _FlowNodeConfiguration_loopController(TypedDict, closed=True):
     loopController: "aws_sdk_bedrock_agent.types.loop_controller_flow_node_configuration.LoopControllerFlowNodeConfiguration"
 
 

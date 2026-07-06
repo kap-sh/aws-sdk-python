@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#NeptuneImportOptions``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
 
-class NeptuneImportOptions(TypedDict):
+class NeptuneImportOptions(TypedDict, closed=True):
     s3_export_path: "str"
     """<p>The path to an S3 bucket from which to import data.</p>"""
     s3_export_kms_key_id: "str"

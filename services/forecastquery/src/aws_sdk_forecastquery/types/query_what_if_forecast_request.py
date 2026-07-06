@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecastquery#QueryWhatIfForecastRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecastquery.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecastquery.types.next_token
 
 
-class QueryWhatIfForecastRequest(TypedDict):
+class QueryWhatIfForecastRequest(TypedDict, closed=True):
     what_if_forecast_arn: "aws_sdk_forecastquery.types.long_arn.LongArn"
     """<p>The Amazon Resource Name (ARN) of the what-if forecast to query.</p>"""
     start_date: NotRequired["aws_sdk_forecastquery.types.date_time.DateTime"]

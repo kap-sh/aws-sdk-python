@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ScalingPolicyMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.integer
 
 
-class ScalingPolicyMetric(TypedDict):
+class ScalingPolicyMetric(TypedDict, closed=True):
     invocations_per_instance: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]
     """<p>The number of invocations sent to a model, normalized by <code>InstanceCount</code> in each ProductionVariant. <code>1/numberOfInstances</code> is sent as the value on each request, where <code>numberOfInstances</code> is the number of active instances for the ProductionVariant behind the endpoint at the time of the request.</p>"""
     model_latency: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

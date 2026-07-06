@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAlgorithmsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListAlgorithmsOutput(TypedDict):
+class ListAlgorithmsOutput(TypedDict, closed=True):
     algorithm_summary_list: NotRequired[
         "aws_sdk_sagemaker.types.algorithm_summary_list.AlgorithmSummaryList"
     ]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EqualToExpression``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class EqualToExpression(TypedDict):
+class EqualToExpression(TypedDict, closed=True):
     column_name: "str"
     """<p>The name of the column.</p>"""
     value: "str"

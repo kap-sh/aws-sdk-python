@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SeverityLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
     import aws_sdk_macie2.types.data_identifier_severity
 
 
-class SeverityLevel(TypedDict):
+class SeverityLevel(TypedDict, closed=True):
     occurrences_threshold: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The minimum number of occurrences of text that must match the custom data identifier's detection criteria in order to produce a finding with the specified severity (severity).</p>"""
     severity: NotRequired[

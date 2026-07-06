@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#NotificationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.event_bridge_configuration
 
 
-class NotificationConfiguration(TypedDict):
+class NotificationConfiguration(TypedDict, closed=True):
     event_bridge_configuration: "aws_sdk_bedrock_data_automation.types.event_bridge_configuration.EventBridgeConfiguration"
     """Event bridge configuration."""
 

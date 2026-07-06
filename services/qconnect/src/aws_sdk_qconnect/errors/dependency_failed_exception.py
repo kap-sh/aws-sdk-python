@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DependencyFailedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import ServiceError
 
 
-class DependencyFailedException_(TypedDict):
+class DependencyFailedException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#StartTag``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
 
-class StartTag(TypedDict):
+class StartTag(TypedDict, closed=True):
     time_offset: "float"
     """<p>Specify the value for TIME-OFFSET within your EXT-X-START tag. Enter a signed floating point value which, if positive, must be less than the configured manifest duration minus three times the configured segment target duration. If negative, the absolute value must be larger than three times the configured segment target duration, and the absolute value must be smaller than the configured manifest duration.</p>"""
     precise: NotRequired["bool"]

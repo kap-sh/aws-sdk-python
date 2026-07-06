@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.channel_target_info
     import aws_sdk_ssm_contacts.types.contact_target_info
 
 
-class Target(TypedDict):
+class Target(TypedDict, closed=True):
     channel_target_info: NotRequired[
         "aws_sdk_ssm_contacts.types.channel_target_info.ChannelTargetInfo"
     ]

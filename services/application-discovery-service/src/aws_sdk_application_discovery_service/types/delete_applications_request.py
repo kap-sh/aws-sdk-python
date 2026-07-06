@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DeleteApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.application_ids_list
 
 
-class DeleteApplicationsRequest(TypedDict):
+class DeleteApplicationsRequest(TypedDict, closed=True):
     configuration_ids: "aws_sdk_application_discovery_service.types.application_ids_list.ApplicationIdsList"
     """<p>Configuration ID of an application to be deleted.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#MemberLogPublishingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.member_fabric_log_publishing_configuration
 
 
-class MemberLogPublishingConfiguration(TypedDict):
+class MemberLogPublishingConfiguration(TypedDict, closed=True):
     fabric: NotRequired[
         "aws_sdk_managedblockchain.types.member_fabric_log_publishing_configuration.MemberFabricLogPublishingConfiguration"
     ]

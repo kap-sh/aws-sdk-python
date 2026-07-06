@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#DescribeModelVersionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.model_version_detail_list
     import aws_sdk_frauddetector.types.string
 
 
-class DescribeModelVersionsResult(TypedDict):
+class DescribeModelVersionsResult(TypedDict, closed=True):
     model_version_details: NotRequired[
         "aws_sdk_frauddetector.types.model_version_detail_list.modelVersionDetailList"
     ]

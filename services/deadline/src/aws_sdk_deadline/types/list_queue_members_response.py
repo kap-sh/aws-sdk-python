@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListQueueMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_member_list
 
 
-class ListQueueMembersResponse(TypedDict):
+class ListQueueMembersResponse(TypedDict, closed=True):
     members: "aws_sdk_deadline.types.queue_member_list.QueueMemberList"
     """<p>The members on the list.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

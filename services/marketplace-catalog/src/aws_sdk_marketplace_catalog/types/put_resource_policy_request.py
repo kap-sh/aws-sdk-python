@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#PutResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_catalog.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resource_policy_json
 
 
-class PutResourcePolicyRequest(TypedDict):
+class PutResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_marketplace_catalog.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the entity resource you want to associate with a resource policy.</p>"""
     policy: "aws_sdk_marketplace_catalog.types.resource_policy_json.ResourcePolicyJson"

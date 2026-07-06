@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DestinationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class DestinationInfo(TypedDict):
+class DestinationInfo(TypedDict, closed=True):
     id: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the resource created at the destination.</p>"""
     service: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

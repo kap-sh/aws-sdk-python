@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateGUISessionAccessDetailsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class CreateGUISessionAccessDetailsResult(TypedDict):
+class CreateGUISessionAccessDetailsResult(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The resource name.</p>"""
     status: NotRequired["aws_sdk_lightsail.types.status.Status"]

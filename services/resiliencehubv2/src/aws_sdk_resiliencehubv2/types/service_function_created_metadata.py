@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceFunctionCreatedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceFunctionCreatedMetadata(TypedDict):
+class ServiceFunctionCreatedMetadata(TypedDict, closed=True):
     service_function_id: NotRequired["str"]
     """<p>The identifier of the created service function.</p>"""
     service_function_name: NotRequired["str"]

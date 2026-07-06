@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#LogSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.resource_arn
 
 
-class LogSettingsRequest(TypedDict):
+class LogSettingsRequest(TypedDict, closed=True):
     log_type: "aws_sdk_lex_model_building_service.types.log_type.LogType"
     """<p>The type of logging to enable. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.</p>"""
     destination: "aws_sdk_lex_model_building_service.types.destination.Destination"

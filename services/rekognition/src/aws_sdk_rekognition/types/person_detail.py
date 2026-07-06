@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#PersonDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.person_index
 
 
-class PersonDetail(TypedDict):
+class PersonDetail(TypedDict, closed=True):
     index: "aws_sdk_rekognition.types.person_index.PersonIndex"
     """<p>Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.</p>"""
     bounding_box: NotRequired["aws_sdk_rekognition.types.bounding_box.BoundingBox"]

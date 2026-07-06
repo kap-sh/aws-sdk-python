@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacySensitivityParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.differential_privacy_aggregation_type
 
 
-class DifferentialPrivacySensitivityParameters(TypedDict):
+class DifferentialPrivacySensitivityParameters(TypedDict, closed=True):
     aggregation_type: "aws_sdk_cleanrooms.types.differential_privacy_aggregation_type.DifferentialPrivacyAggregationType"
     """<p>The type of aggregation function that was run.</p>"""
     aggregation_expression: "aws_sdk_cleanrooms.types.differential_privacy_aggregation_expression.DifferentialPrivacyAggregationExpression"

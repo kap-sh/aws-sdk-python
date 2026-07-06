@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AssetContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.asset_zip_content
 
 
-class _AssetContent_file(TypedDict):
+class _AssetContent_file(TypedDict, closed=True):
     file: "aws_sdk_devops_agent.types.asset_file_content.AssetFileContent"
 
 
-class _AssetContent_zip(TypedDict):
+class _AssetContent_zip(TypedDict, closed=True):
     zip: "aws_sdk_devops_agent.types.asset_zip_content.AssetZipContent"
 
 

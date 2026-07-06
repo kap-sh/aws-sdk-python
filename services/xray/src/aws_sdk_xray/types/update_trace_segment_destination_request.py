@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#UpdateTraceSegmentDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.trace_segment_destination
 
 
-class UpdateTraceSegmentDestinationRequest(TypedDict):
+class UpdateTraceSegmentDestinationRequest(TypedDict, closed=True):
     destination: NotRequired[
         "aws_sdk_xray.types.trace_segment_destination.TraceSegmentDestination"
     ]

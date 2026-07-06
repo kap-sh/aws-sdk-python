@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#AnomalyScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_double
 
 
-class AnomalyScore(TypedDict):
+class AnomalyScore(TypedDict, closed=True):
     max_score: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"
     """<p>The maximum score that's observed during the <code>AnomalyDateInterval</code>. </p>"""
     current_score: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"

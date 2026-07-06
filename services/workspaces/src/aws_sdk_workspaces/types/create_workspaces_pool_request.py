@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateWorkspacesPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspaces_pool_name
 
 
-class CreateWorkspacesPoolRequest(TypedDict):
+class CreateWorkspacesPoolRequest(TypedDict, closed=True):
     pool_name: "aws_sdk_workspaces.types.workspaces_pool_name.WorkspacesPoolName"
     """<p>The name of the pool.</p>"""
     description: "aws_sdk_workspaces.types.update_description.UpdateDescription"

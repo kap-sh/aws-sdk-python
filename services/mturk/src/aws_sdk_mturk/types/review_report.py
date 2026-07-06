@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ReviewReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.review_action_detail_list
     import aws_sdk_mturk.types.review_result_detail_list
 
 
-class ReviewReport(TypedDict):
+class ReviewReport(TypedDict, closed=True):
     review_results: NotRequired[
         "aws_sdk_mturk.types.review_result_detail_list.ReviewResultDetailList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListPromptRoutersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
     import aws_sdk_bedrock.types.prompt_router_summaries
 
 
-class ListPromptRoutersResponse(TypedDict):
+class ListPromptRoutersResponse(TypedDict, closed=True):
     prompt_router_summaries: NotRequired[
         "aws_sdk_bedrock.types.prompt_router_summaries.PromptRouterSummaries"
     ]

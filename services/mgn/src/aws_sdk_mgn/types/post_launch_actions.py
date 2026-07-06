@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#PostLaunchActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.ssm_documents
 
 
-class PostLaunchActions(TypedDict):
+class PostLaunchActions(TypedDict, closed=True):
     deployment: NotRequired[
         "aws_sdk_mgn.types.post_launch_actions_deployment_type.PostLaunchActionsDeploymentType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#EvaluationFailedEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.state_name
 
 
-class EvaluationFailedEventDetails(TypedDict):
+class EvaluationFailedEventDetails(TypedDict, closed=True):
     error: NotRequired["aws_sdk_sfn.types.sensitive_error.SensitiveError"]
     """<p>The error code of the failure.</p>"""
     cause: NotRequired["aws_sdk_sfn.types.sensitive_cause.SensitiveCause"]

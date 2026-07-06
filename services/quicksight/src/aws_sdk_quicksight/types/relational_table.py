@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RelationalTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.relational_table_schema
 
 
-class RelationalTable(TypedDict):
+class RelationalTable(TypedDict, closed=True):
     data_source_arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) for the data source.</p>"""
     catalog: NotRequired[

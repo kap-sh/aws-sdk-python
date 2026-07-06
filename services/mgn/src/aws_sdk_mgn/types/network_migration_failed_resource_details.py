@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationFailedResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.large_bounded_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.network_migration_failed_resource_status
 
 
-class NetworkMigrationFailedResourceDetails(TypedDict):
+class NetworkMigrationFailedResourceDetails(TypedDict, closed=True):
     logical_id: NotRequired["aws_sdk_mgn.types.logical_id.LogicalID"]
     """<p>The logical ID of the failed resource.</p>"""
     status: NotRequired[

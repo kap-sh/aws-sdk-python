@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CloudExadataInfrastructureUnallocatedResources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.cloud_autonomous_vm_cluster_resource_details_list
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class CloudExadataInfrastructureUnallocatedResources(TypedDict):
+class CloudExadataInfrastructureUnallocatedResources(TypedDict, closed=True):
     cloud_autonomous_vm_clusters: NotRequired[
         "aws_sdk_odb.types.cloud_autonomous_vm_cluster_resource_details_list.CloudAutonomousVmClusterResourceDetailsList"
     ]

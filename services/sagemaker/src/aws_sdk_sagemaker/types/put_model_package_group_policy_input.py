@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PutModelPackageGroupPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
     import aws_sdk_sagemaker.types.policy_string
 
 
-class PutModelPackageGroupPolicyInput(TypedDict):
+class PutModelPackageGroupPolicyInput(TypedDict, closed=True):
     model_package_group_name: NotRequired[
         "aws_sdk_sagemaker.types.entity_name.EntityName"
     ]

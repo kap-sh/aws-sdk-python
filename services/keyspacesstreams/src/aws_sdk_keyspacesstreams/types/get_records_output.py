@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#GetRecordsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.iterator_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.shard_iterator
 
 
-class GetRecordsOutput(TypedDict):
+class GetRecordsOutput(TypedDict, closed=True):
     change_records: NotRequired["aws_sdk_keyspacesstreams.types.record_list.RecordList"]
     """<p> An array of change data records retrieved from the specified shard. Each record represents a single data modification (insert, update, or delete) to a row in the Amazon Keyspaces table. Records include the primary key columns and information about what data was modified. </p>"""
     next_shard_iterator: NotRequired[

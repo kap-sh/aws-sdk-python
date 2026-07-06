@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BasicDeviceObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class BasicDeviceObject(TypedDict):
+class BasicDeviceObject(TypedDict, closed=True):
     app_id: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The unique application ID for the Wickr app on this device.</p>"""
     created: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

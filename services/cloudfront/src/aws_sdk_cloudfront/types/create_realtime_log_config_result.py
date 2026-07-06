@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CreateRealtimeLogConfigResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.realtime_log_config
 
 
-class CreateRealtimeLogConfigResult(TypedDict):
+class CreateRealtimeLogConfigResult(TypedDict, closed=True):
     realtime_log_config: NotRequired[
         "aws_sdk_cloudfront.types.realtime_log_config.RealtimeLogConfig"
     ]

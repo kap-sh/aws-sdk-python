@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSageMakerNotebookInstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_sage_maker_notebook_instance_metadata_service_configuration_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsSageMakerNotebookInstanceDetails(TypedDict):
+class AwsSageMakerNotebookInstanceDetails(TypedDict, closed=True):
     accelerator_types: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]

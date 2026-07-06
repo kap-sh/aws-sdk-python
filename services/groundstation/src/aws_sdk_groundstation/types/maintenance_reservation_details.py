@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#MaintenanceReservationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.maintenance_type
 
 
-class MaintenanceReservationDetails(TypedDict):
+class MaintenanceReservationDetails(TypedDict, closed=True):
     maintenance_type: "aws_sdk_groundstation.types.maintenance_type.MaintenanceType"
     """<p>Type of maintenance.</p>"""
 

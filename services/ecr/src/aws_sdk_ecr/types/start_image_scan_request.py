@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#StartImageScanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_name
 
 
-class StartImageScanRequest(TypedDict):
+class StartImageScanRequest(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID associated with the registry that contains the repository in which to start an image scan request. If you do not specify a registry, the default registry is assumed.</p>"""
     repository_name: "aws_sdk_ecr.types.repository_name.RepositoryName"

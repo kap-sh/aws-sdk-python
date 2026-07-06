@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#GetProvisionedProductOutputsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.accept_language
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.provisioned_product_name
 
 
-class GetProvisionedProductOutputsInput(TypedDict):
+class GetProvisionedProductOutputsInput(TypedDict, closed=True):
     accept_language: NotRequired[
         "aws_sdk_service_catalog.types.accept_language.AcceptLanguage"
     ]

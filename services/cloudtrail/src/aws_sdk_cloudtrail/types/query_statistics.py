@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#QueryStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.integer
     import aws_sdk_cloudtrail.types.long
 
 
-class QueryStatistics(TypedDict):
+class QueryStatistics(TypedDict, closed=True):
     results_count: NotRequired["aws_sdk_cloudtrail.types.integer.Integer"]
     """<p>The number of results returned.</p>"""
     total_results_count: NotRequired["aws_sdk_cloudtrail.types.integer.Integer"]

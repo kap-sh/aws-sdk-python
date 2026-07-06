@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#CustomerProfilesIntegrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.customer_profiles_object_type_arn
 
 
-class CustomerProfilesIntegrationConfig(TypedDict):
+class CustomerProfilesIntegrationConfig(TypedDict, closed=True):
     domain_arn: "aws_sdk_entityresolution.types.customer_profiles_domain_arn.CustomerProfilesDomainArn"
     """<p>The Amazon Resource Name (ARN) of the Customer Profiles domain where the matched output will be sent.</p>"""
     object_type_arn: "aws_sdk_entityresolution.types.customer_profiles_object_type_arn.CustomerProfilesObjectTypeArn"

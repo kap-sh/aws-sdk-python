@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SummaryMetricQueryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.aggregation_period
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.metric_unit
 
 
-class SummaryMetricQueryResult(TypedDict):
+class SummaryMetricQueryResult(TypedDict, closed=True):
     query_id: NotRequired["aws_sdk_iot_wireless.types.metric_query_id.MetricQueryId"]
     """<p>The ID of the summary metric results query operation.</p>"""
     query_status: NotRequired[

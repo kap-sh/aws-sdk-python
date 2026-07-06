@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#AccountJiraConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.account_jira_issue_management_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.jira_project_key
 
 
-class AccountJiraConfigurationInput(TypedDict):
+class AccountJiraConfigurationInput(TypedDict, closed=True):
     issue_management_status: NotRequired[
         "aws_sdk_wellarchitected.types.account_jira_issue_management_status.AccountJiraIssueManagementStatus"
     ]

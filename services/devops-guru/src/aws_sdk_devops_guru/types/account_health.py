@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#AccountHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.account_insight_health
     import aws_sdk_devops_guru.types.aws_account_id
 
 
-class AccountHealth(TypedDict):
+class AccountHealth(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_devops_guru.types.aws_account_id.AwsAccountId"]
     """<p>The ID of the Amazon Web Services account. </p>"""
     insight: NotRequired[

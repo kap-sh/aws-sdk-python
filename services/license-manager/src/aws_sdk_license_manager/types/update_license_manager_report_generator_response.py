@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#UpdateLicenseManagerReportGeneratorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateLicenseManagerReportGeneratorResponse(TypedDict):
+class UpdateLicenseManagerReportGeneratorResponse(TypedDict, closed=True):
     pass
 
 

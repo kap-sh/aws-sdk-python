@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#SystemTemplateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.system_template_filter_values
 
 
-class SystemTemplateFilter(TypedDict):
+class SystemTemplateFilter(TypedDict, closed=True):
     name: "aws_sdk_iotthingsgraph.types.system_template_filter_name.SystemTemplateFilterName"
     """<p>The name of the system search filter field.</p>"""
     value: "aws_sdk_iotthingsgraph.types.system_template_filter_values.SystemTemplateFilterValues"

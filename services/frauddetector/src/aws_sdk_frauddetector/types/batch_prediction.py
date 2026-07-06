@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#BatchPrediction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.async_job_status
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.time
 
 
-class BatchPrediction(TypedDict):
+class BatchPrediction(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The job ID for the batch prediction.</p>"""
     status: NotRequired["aws_sdk_frauddetector.types.async_job_status.AsyncJobStatus"]

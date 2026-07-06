@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UpdateConnectionAliasPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connection_alias_permission
 
 
-class UpdateConnectionAliasPermissionRequest(TypedDict):
+class UpdateConnectionAliasPermissionRequest(TypedDict, closed=True):
     alias_id: "aws_sdk_workspaces.types.connection_alias_id.ConnectionAliasId"
     """<p>The identifier of the connection alias that you want to update permissions for.</p>"""
     connection_alias_permission: (

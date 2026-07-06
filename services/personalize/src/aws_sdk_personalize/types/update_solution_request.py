@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#UpdateSolutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.solution_update_config
 
 
-class UpdateSolutionRequest(TypedDict):
+class UpdateSolutionRequest(TypedDict, closed=True):
     solution_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the solution to update.</p>"""
     perform_auto_training: NotRequired[

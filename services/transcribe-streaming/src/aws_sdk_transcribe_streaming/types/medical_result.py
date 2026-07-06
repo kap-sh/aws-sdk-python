@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class MedicalResult(TypedDict):
+class MedicalResult(TypedDict, closed=True):
     result_id: NotRequired["aws_sdk_transcribe_streaming.types.string.String"]
     """<p>Provides a unique identifier for the <code>Result</code>.</p>"""
     start_time: "aws_sdk_transcribe_streaming.types.double.Double"

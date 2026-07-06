@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkRoutingInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.routing_information_next_hop
 
 
-class CoreNetworkRoutingInformation(TypedDict):
+class CoreNetworkRoutingInformation(TypedDict, closed=True):
     prefix: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]

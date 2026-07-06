@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutThirdPartyJobSuccessResultInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.third_party_job_id
 
 
-class PutThirdPartyJobSuccessResultInput(TypedDict):
+class PutThirdPartyJobSuccessResultInput(TypedDict, closed=True):
     job_id: "aws_sdk_codepipeline.types.third_party_job_id.ThirdPartyJobId"
     """<p>The ID of the job that successfully completed. This is the same ID returned from <code>PollForThirdPartyJobs</code>.</p>"""
     client_token: "aws_sdk_codepipeline.types.client_token.ClientToken"

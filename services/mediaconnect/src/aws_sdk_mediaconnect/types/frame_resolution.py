@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#FrameResolution``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FrameResolution(TypedDict):
+class FrameResolution(TypedDict, closed=True):
     frame_height: NotRequired["int"]
     """<p> The number of pixels in the height of the video frame.</p>"""
     frame_width: NotRequired["int"]

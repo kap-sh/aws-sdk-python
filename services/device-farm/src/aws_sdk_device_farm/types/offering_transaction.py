@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#OfferingTransaction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.transaction_identifier
 
 
-class OfferingTransaction(TypedDict):
+class OfferingTransaction(TypedDict, closed=True):
     offering_status: NotRequired[
         "aws_sdk_device_farm.types.offering_status.OfferingStatus"
     ]

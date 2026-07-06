@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CancelQuantumTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string64
 
 
-class CancelQuantumTaskRequest(TypedDict):
+class CancelQuantumTaskRequest(TypedDict, closed=True):
     quantum_task_arn: "aws_sdk_braket.types.quantum_task_arn.QuantumTaskArn"
     """<p>The ARN of the quantum task to cancel.</p>"""
     client_token: "aws_sdk_braket.types.string64.String64"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Asset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.ground_truth_manifest
 
 
-class Asset(TypedDict):
+class Asset(TypedDict, closed=True):
     ground_truth_manifest: NotRequired[
         "aws_sdk_rekognition.types.ground_truth_manifest.GroundTruthManifest"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#AmazonOpenSearchServerlessDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.vpc_configuration
 
 
-class AmazonOpenSearchServerlessDestinationConfiguration(TypedDict):
+class AmazonOpenSearchServerlessDestinationConfiguration(TypedDict, closed=True):
     role_arn: "aws_sdk_firehose.types.role_arn.RoleARN"
     """<p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.</p>"""
     collection_endpoint: NotRequired[

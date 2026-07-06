@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#HookConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_attribute_condition
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.s3_bucket_name
 
 
-class HookConfiguration(TypedDict):
+class HookConfiguration(TypedDict, closed=True):
     invocation_condition: NotRequired[
         "aws_sdk_qbusiness.types.document_attribute_condition.DocumentAttributeCondition"
     ]

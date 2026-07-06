@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#DescribeDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.domain
 
 
-class DescribeDomainResponse(TypedDict):
+class DescribeDomainResponse(TypedDict, closed=True):
     domain: NotRequired["aws_sdk_voice_id.types.domain.Domain"]
     """<p>Information about the specified domain.</p>"""
 

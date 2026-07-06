@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ExpenseDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.geometry
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.string
 
 
-class ExpenseDetection(TypedDict):
+class ExpenseDetection(TypedDict, closed=True):
     text: NotRequired["aws_sdk_textract.types.string.String"]
     """<p>The word or line of text recognized by Amazon Textract</p>"""
     geometry: NotRequired["aws_sdk_textract.types.geometry.Geometry"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#TextInferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.max_tokens
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.top_p
 
 
-class TextInferenceConfig(TypedDict):
+class TextInferenceConfig(TypedDict, closed=True):
     temperature: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.temperature.Temperature"
     ]

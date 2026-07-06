@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#Widget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.query_alias
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.view_properties_map
 
 
-class Widget(TypedDict):
+class Widget(TypedDict, closed=True):
     query_alias: NotRequired["aws_sdk_cloudtrail.types.query_alias.QueryAlias"]
     """<p>The query alias used to identify the query for the widget. </p>"""
     query_statement: NotRequired[

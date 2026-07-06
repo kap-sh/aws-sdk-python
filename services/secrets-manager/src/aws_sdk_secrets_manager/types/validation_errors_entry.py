@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#ValidationErrorsEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.error_message
     import aws_sdk_secrets_manager.types.name_type
 
 
-class ValidationErrorsEntry(TypedDict):
+class ValidationErrorsEntry(TypedDict, closed=True):
     check_name: NotRequired["aws_sdk_secrets_manager.types.name_type.NameType"]
     """<p>Checks the name of the policy.</p>"""
     error_message: NotRequired[

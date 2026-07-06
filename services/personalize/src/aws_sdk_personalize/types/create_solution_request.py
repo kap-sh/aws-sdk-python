@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateSolutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.tags
 
 
-class CreateSolutionRequest(TypedDict):
+class CreateSolutionRequest(TypedDict, closed=True):
     name: "aws_sdk_personalize.types.name.Name"
     """<p>The name for the solution.</p>"""
     perform_hpo: NotRequired["aws_sdk_personalize.types.boolean.Boolean"]

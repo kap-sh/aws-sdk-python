@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#BatchDeleteFirewallRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.batch_delete_firewall_rule_errors
     import aws_sdk_route53resolver.types.firewall_rules
 
 
-class BatchDeleteFirewallRuleResponse(TypedDict):
+class BatchDeleteFirewallRuleResponse(TypedDict, closed=True):
     deleted_firewall_rules: NotRequired[
         "aws_sdk_route53resolver.types.firewall_rules.FirewallRules"
     ]

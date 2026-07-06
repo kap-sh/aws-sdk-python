@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#DateRangeType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.timestamp_type
 
 
-class DateRangeType(TypedDict):
+class DateRangeType(TypedDict, closed=True):
     start_value: NotRequired["aws_sdk_workdocs.types.timestamp_type.TimestampType"]
     """<p>Timestamp range start value (in epochs)</p>"""
     end_value: NotRequired["aws_sdk_workdocs.types.timestamp_type.TimestampType"]

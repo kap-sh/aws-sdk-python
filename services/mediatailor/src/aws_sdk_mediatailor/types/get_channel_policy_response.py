@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#GetChannelPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class GetChannelPolicyResponse(TypedDict):
+class GetChannelPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The IAM policy for the channel. IAM policies are used to control access to your channel.</p>"""
 

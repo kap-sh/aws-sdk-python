@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#ListChannelsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_repostspace.types.list_channels_limit
     import aws_sdk_repostspace.types.space_id
 
 
-class ListChannelsInput(TypedDict):
+class ListChannelsInput(TypedDict, closed=True):
     space_id: "aws_sdk_repostspace.types.space_id.SpaceId"
     """<p>The unique ID of the private re:Post.</p>"""
     next_token: NotRequired["str"]

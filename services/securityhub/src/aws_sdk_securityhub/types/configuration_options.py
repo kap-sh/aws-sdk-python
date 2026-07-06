@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ConfigurationOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -15,37 +17,37 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list_configuration_options
 
 
-class _ConfigurationOptions_Integer(TypedDict):
+class _ConfigurationOptions_Integer(TypedDict, closed=True):
     Integer: "aws_sdk_securityhub.types.integer_configuration_options.IntegerConfigurationOptions"
 
 
-class _ConfigurationOptions_IntegerList(TypedDict):
+class _ConfigurationOptions_IntegerList(TypedDict, closed=True):
     IntegerList: "aws_sdk_securityhub.types.integer_list_configuration_options.IntegerListConfigurationOptions"
 
 
-class _ConfigurationOptions_Double(TypedDict):
+class _ConfigurationOptions_Double(TypedDict, closed=True):
     Double: "aws_sdk_securityhub.types.double_configuration_options.DoubleConfigurationOptions"
 
 
-class _ConfigurationOptions_String(TypedDict):
+class _ConfigurationOptions_String(TypedDict, closed=True):
     String: "aws_sdk_securityhub.types.string_configuration_options.StringConfigurationOptions"
 
 
-class _ConfigurationOptions_StringList(TypedDict):
+class _ConfigurationOptions_StringList(TypedDict, closed=True):
     StringList: "aws_sdk_securityhub.types.string_list_configuration_options.StringListConfigurationOptions"
 
 
-class _ConfigurationOptions_Boolean(TypedDict):
+class _ConfigurationOptions_Boolean(TypedDict, closed=True):
     Boolean: "aws_sdk_securityhub.types.boolean_configuration_options.BooleanConfigurationOptions"
 
 
-class _ConfigurationOptions_Enum(TypedDict):
+class _ConfigurationOptions_Enum(TypedDict, closed=True):
     Enum: (
         "aws_sdk_securityhub.types.enum_configuration_options.EnumConfigurationOptions"
     )
 
 
-class _ConfigurationOptions_EnumList(TypedDict):
+class _ConfigurationOptions_EnumList(TypedDict, closed=True):
     EnumList: "aws_sdk_securityhub.types.enum_list_configuration_options.EnumListConfigurationOptions"
 
 

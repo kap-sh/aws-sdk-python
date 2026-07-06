@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.secrets_manager_configuration
 
 
-class HttpEndpointDestinationConfiguration(TypedDict):
+class HttpEndpointDestinationConfiguration(TypedDict, closed=True):
     endpoint_configuration: (
         "aws_sdk_firehose.types.http_endpoint_configuration.HttpEndpointConfiguration"
     )

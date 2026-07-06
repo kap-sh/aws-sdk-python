@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BillEstimateCostSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.cost_difference
     import aws_sdk_bcm_pricing_calculator.types.service_cost_difference_map
 
 
-class BillEstimateCostSummary(TypedDict):
+class BillEstimateCostSummary(TypedDict, closed=True):
     total_cost_difference: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.cost_difference.CostDifference"
     ]

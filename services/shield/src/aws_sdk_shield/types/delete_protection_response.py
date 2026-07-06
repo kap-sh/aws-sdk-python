@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DeleteProtectionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProtectionResponse(TypedDict):
+class DeleteProtectionResponse(TypedDict, closed=True):
     pass
 
 

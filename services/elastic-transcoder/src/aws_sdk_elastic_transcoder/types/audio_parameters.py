@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#AudioParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.audio_bit_rate
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.audio_sample_rate
 
 
-class AudioParameters(TypedDict):
+class AudioParameters(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_elastic_transcoder.types.audio_codec.AudioCodec"]
     """<p>The audio codec for the output file. Valid values include <code>aac</code>, <code>flac</code>, <code>mp2</code>, <code>mp3</code>, <code>pcm</code>, and <code>vorbis</code>.</p>"""
     sample_rate: NotRequired[

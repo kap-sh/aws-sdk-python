@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#DeleteGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.group_arn
     import aws_sdk_xray.types.group_name
 
 
-class DeleteGroupRequest(TypedDict):
+class DeleteGroupRequest(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_xray.types.group_name.GroupName"]
     """<p>The case-sensitive name of the group.</p>"""
     group_arn: NotRequired["aws_sdk_xray.types.group_arn.GroupARN"]

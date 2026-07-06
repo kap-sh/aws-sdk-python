@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.resource_arn
     import aws_sdk_s3vectors.types.tag_key_list
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_s3vectors.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the Amazon S3 Vectors resource that you're removing tags from. The tagged resource can be a vector bucket or a vector index. </p>"""
     tag_keys: "aws_sdk_s3vectors.types.tag_key_list.TagKeyList"

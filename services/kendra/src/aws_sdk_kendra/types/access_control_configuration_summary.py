@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#AccessControlConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.access_control_configuration_id
 
 
-class AccessControlConfigurationSummary(TypedDict):
+class AccessControlConfigurationSummary(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.access_control_configuration_id.AccessControlConfigurationId"
     """<p>The identifier of the access control configuration.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PackageVersionHistory``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.commit_message
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.plugin_properties
 
 
-class PackageVersionHistory(TypedDict):
+class PackageVersionHistory(TypedDict, closed=True):
     package_version: NotRequired[
         "aws_sdk_opensearch.types.package_version.PackageVersion"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ShipmentInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.shipment_carrier
     import aws_sdk_outposts.types.tracking_id
 
 
-class ShipmentInformation(TypedDict):
+class ShipmentInformation(TypedDict, closed=True):
     shipment_tracking_number: NotRequired[
         "aws_sdk_outposts.types.tracking_id.TrackingId"
     ]

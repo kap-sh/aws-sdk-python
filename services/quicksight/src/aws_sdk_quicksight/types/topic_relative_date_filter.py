@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicRelativeDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_relative_date_filter_function
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_time_granularity
 
 
-class TopicRelativeDateFilter(TypedDict):
+class TopicRelativeDateFilter(TypedDict, closed=True):
     time_granularity: NotRequired[
         "aws_sdk_quicksight.types.topic_time_granularity.TopicTimeGranularity"
     ]

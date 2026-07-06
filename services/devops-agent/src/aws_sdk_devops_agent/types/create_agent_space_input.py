@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#CreateAgentSpaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.tags
 
 
-class CreateAgentSpaceInput(TypedDict):
+class CreateAgentSpaceInput(TypedDict, closed=True):
     name: "aws_sdk_devops_agent.types.agent_space_name.AgentSpaceName"
     """<p>The name of the AgentSpace.</p>"""
     description: NotRequired["aws_sdk_devops_agent.types.description.Description"]

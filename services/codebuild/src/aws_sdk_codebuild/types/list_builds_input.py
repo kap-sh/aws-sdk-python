@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListBuildsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sort_order_type
     import aws_sdk_codebuild.types.string
 
 
-class ListBuildsInput(TypedDict):
+class ListBuildsInput(TypedDict, closed=True):
     sort_order: NotRequired["aws_sdk_codebuild.types.sort_order_type.SortOrderType"]
     """<p>The order to list build IDs. Valid values include:</p> <ul> <li> <p> <code>ASCENDING</code>: List the build IDs in ascending order by build ID.</p> </li> <li> <p> <code>DESCENDING</code>: List the build IDs in descending order by build ID.</p> </li> </ul>"""
     next_token: NotRequired["aws_sdk_codebuild.types.string.String"]

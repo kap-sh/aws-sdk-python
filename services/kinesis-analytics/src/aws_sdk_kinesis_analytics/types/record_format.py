@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#RecordFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.record_format_type
 
 
-class RecordFormat(TypedDict):
+class RecordFormat(TypedDict, closed=True):
     record_format_type: (
         "aws_sdk_kinesis_analytics.types.record_format_type.RecordFormatType"
     )

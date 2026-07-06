@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#PrivateDnsNamespaceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.private_dns_properties_mutable
 
 
-class PrivateDnsNamespaceProperties(TypedDict):
+class PrivateDnsNamespaceProperties(TypedDict, closed=True):
     dns_properties: "aws_sdk_servicediscovery.types.private_dns_properties_mutable.PrivateDnsPropertiesMutable"
     """<p>DNS properties for the private DNS namespace.</p>"""
 

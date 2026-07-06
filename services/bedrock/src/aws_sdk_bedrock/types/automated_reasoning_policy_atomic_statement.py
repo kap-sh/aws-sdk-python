@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAtomicStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_statement_text
 
 
-class AutomatedReasoningPolicyAtomicStatement(TypedDict):
+class AutomatedReasoningPolicyAtomicStatement(TypedDict, closed=True):
     id: "aws_sdk_bedrock.types.automated_reasoning_policy_statement_id.AutomatedReasoningPolicyStatementId"
     """<p>A unique identifier for this atomic statement within the fidelity report.</p>"""
     text: "aws_sdk_bedrock.types.automated_reasoning_policy_statement_text.AutomatedReasoningPolicyStatementText"

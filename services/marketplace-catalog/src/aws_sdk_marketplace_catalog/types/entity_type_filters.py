@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#EntityTypeFilters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_catalog.errors import DeserializationError, SerializationError
 
@@ -15,41 +17,41 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.saa_s_product_filters
 
 
-class _EntityTypeFilters_DataProductFilters(TypedDict):
+class _EntityTypeFilters_DataProductFilters(TypedDict, closed=True):
     DataProductFilters: (
         "aws_sdk_marketplace_catalog.types.data_product_filters.DataProductFilters"
     )
 
 
-class _EntityTypeFilters_SaaSProductFilters(TypedDict):
+class _EntityTypeFilters_SaaSProductFilters(TypedDict, closed=True):
     SaaSProductFilters: (
         "aws_sdk_marketplace_catalog.types.saa_s_product_filters.SaaSProductFilters"
     )
 
 
-class _EntityTypeFilters_AmiProductFilters(TypedDict):
+class _EntityTypeFilters_AmiProductFilters(TypedDict, closed=True):
     AmiProductFilters: (
         "aws_sdk_marketplace_catalog.types.ami_product_filters.AmiProductFilters"
     )
 
 
-class _EntityTypeFilters_OfferFilters(TypedDict):
+class _EntityTypeFilters_OfferFilters(TypedDict, closed=True):
     OfferFilters: "aws_sdk_marketplace_catalog.types.offer_filters.OfferFilters"
 
 
-class _EntityTypeFilters_ContainerProductFilters(TypedDict):
+class _EntityTypeFilters_ContainerProductFilters(TypedDict, closed=True):
     ContainerProductFilters: "aws_sdk_marketplace_catalog.types.container_product_filters.ContainerProductFilters"
 
 
-class _EntityTypeFilters_ResaleAuthorizationFilters(TypedDict):
+class _EntityTypeFilters_ResaleAuthorizationFilters(TypedDict, closed=True):
     ResaleAuthorizationFilters: "aws_sdk_marketplace_catalog.types.resale_authorization_filters.ResaleAuthorizationFilters"
 
 
-class _EntityTypeFilters_MachineLearningProductFilters(TypedDict):
+class _EntityTypeFilters_MachineLearningProductFilters(TypedDict, closed=True):
     MachineLearningProductFilters: "aws_sdk_marketplace_catalog.types.machine_learning_product_filters.MachineLearningProductFilters"
 
 
-class _EntityTypeFilters_OfferSetFilters(TypedDict):
+class _EntityTypeFilters_OfferSetFilters(TypedDict, closed=True):
     OfferSetFilters: (
         "aws_sdk_marketplace_catalog.types.offer_set_filters.OfferSetFilters"
     )

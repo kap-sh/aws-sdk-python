@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EmailMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.simple_email
 
 
-class EmailMessage(TypedDict):
+class EmailMessage(TypedDict, closed=True):
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The body of the email message.</p>"""
     feedback_forwarding_address: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

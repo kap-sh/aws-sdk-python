@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_configuration_map
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.role_arn
 
 
-class ActionExecutionInput(TypedDict):
+class ActionExecutionInput(TypedDict, closed=True):
     action_type_id: NotRequired[
         "aws_sdk_codepipeline.types.action_type_id.ActionTypeId"
     ]

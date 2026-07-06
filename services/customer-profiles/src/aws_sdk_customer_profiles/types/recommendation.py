@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.catalog_item
     import aws_sdk_customer_profiles.types.double0_to1
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     catalog_item: NotRequired[
         "aws_sdk_customer_profiles.types.catalog_item.CatalogItem"
     ]

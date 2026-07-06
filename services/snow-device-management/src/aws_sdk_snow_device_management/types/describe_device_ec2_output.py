@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#DescribeDeviceEc2Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.instance_summary_list
 
 
-class DescribeDeviceEc2Output(TypedDict):
+class DescribeDeviceEc2Output(TypedDict, closed=True):
     instances: NotRequired[
         "aws_sdk_snow_device_management.types.instance_summary_list.InstanceSummaryList"
     ]

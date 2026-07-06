@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ConnectionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.cross_cluster_search_connection_properties
     import aws_sdk_opensearch.types.endpoint
 
 
-class ConnectionProperties(TypedDict):
+class ConnectionProperties(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_opensearch.types.endpoint.Endpoint"]
     """<important> <p>The Endpoint attribute cannot be modified. </p> </important> <p>The endpoint of the remote domain. Applicable for VPC_ENDPOINT connection mode.</p>"""
     cross_cluster_search: NotRequired[

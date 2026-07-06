@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateViewVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.view_content_sha256
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.views_instance_id
 
 
-class CreateViewVersionRequest(TypedDict):
+class CreateViewVersionRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.views_instance_id.ViewsInstanceId"
     """<p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the instance.</p>"""
     view_id: "aws_sdk_connect.types.view_id.ViewId"

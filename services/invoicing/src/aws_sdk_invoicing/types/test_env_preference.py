@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#TestEnvPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.supplier_domain
 
 
-class TestEnvPreference(TypedDict):
+class TestEnvPreference(TypedDict, closed=True):
     buyer_domain: "aws_sdk_invoicing.types.buyer_domain.BuyerDomain"
     """<p>The domain identifier for the buyer in the test environment of the procurement portal.</p>"""
     buyer_identifier: (

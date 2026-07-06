@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BusinessCallingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class BusinessCallingSettings(TypedDict):
+class BusinessCallingSettings(TypedDict, closed=True):
     cdr_bucket: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The Amazon S3 bucket designated for call detail record storage.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#LocalSizeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.max_local_media_size_in_mb
     import aws_sdk_kinesis_video.types.strategy_on_full_size
 
 
-class LocalSizeConfig(TypedDict):
+class LocalSizeConfig(TypedDict, closed=True):
     max_local_media_size_in_mb: NotRequired[
         "aws_sdk_kinesis_video.types.max_local_media_size_in_mb.MaxLocalMediaSizeInMB"
     ]

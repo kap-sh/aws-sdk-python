@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#IcmpTypeCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.icmp_type_or_code
 
 
-class IcmpTypeCode(TypedDict):
+class IcmpTypeCode(TypedDict, closed=True):
     type: "aws_sdk_finspace.types.icmp_type_or_code.IcmpTypeOrCode"
     """<p>The ICMP type. A value of <i>-1</i> means all types. </p>"""
     code: "aws_sdk_finspace.types.icmp_type_or_code.IcmpTypeOrCode"

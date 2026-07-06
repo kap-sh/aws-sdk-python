@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#HistogramConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_display_options
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_palette
 
 
-class HistogramConfiguration(TypedDict):
+class HistogramConfiguration(TypedDict, closed=True):
     field_wells: NotRequired[
         "aws_sdk_quicksight.types.histogram_field_wells.HistogramFieldWells"
     ]

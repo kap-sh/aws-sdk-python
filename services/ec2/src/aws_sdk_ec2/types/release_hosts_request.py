@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ReleaseHostsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.request_host_id_list
 
 
-class ReleaseHostsRequest(TypedDict):
+class ReleaseHostsRequest(TypedDict, closed=True):
     host_ids: NotRequired["aws_sdk_ec2.types.request_host_id_list.RequestHostIdList"]
     """<p>The IDs of the Dedicated Hosts to release.</p>"""
 

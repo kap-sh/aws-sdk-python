@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#Parquet``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Parquet(TypedDict):
+class Parquet(TypedDict, closed=True):
     pass
 
 

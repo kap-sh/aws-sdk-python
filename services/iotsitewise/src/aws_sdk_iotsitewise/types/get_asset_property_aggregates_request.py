@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#GetAssetPropertyAggregatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.aggregate_types
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.timestamp
 
 
-class GetAssetPropertyAggregatesRequest(TypedDict):
+class GetAssetPropertyAggregatesRequest(TypedDict, closed=True):
     asset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the asset, in UUID format.</p>"""
     property_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]

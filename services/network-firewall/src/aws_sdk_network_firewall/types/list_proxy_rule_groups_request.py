@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ListProxyRuleGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.pagination_max_results
     import aws_sdk_network_firewall.types.pagination_token
 
 
-class ListProxyRuleGroupsRequest(TypedDict):
+class ListProxyRuleGroupsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_network_firewall.types.pagination_token.PaginationToken"
     ]

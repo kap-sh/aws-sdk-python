@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_status
 
 
-class CreateDomainResponse(TypedDict):
+class CreateDomainResponse(TypedDict, closed=True):
     domain_status: NotRequired["aws_sdk_opensearch.types.domain_status.DomainStatus"]
     """<p>The status of the newly created domain.</p>"""
 

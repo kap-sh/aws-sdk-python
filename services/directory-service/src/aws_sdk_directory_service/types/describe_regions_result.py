@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeRegionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.next_token
     import aws_sdk_directory_service.types.regions_description
 
 
-class DescribeRegionsResult(TypedDict):
+class DescribeRegionsResult(TypedDict, closed=True):
     regions_description: NotRequired[
         "aws_sdk_directory_service.types.regions_description.RegionsDescription"
     ]

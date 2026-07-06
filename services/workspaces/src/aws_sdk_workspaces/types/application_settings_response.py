@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ApplicationSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.settings_group
 
 
-class ApplicationSettingsResponse(TypedDict):
+class ApplicationSettingsResponse(TypedDict, closed=True):
     status: "aws_sdk_workspaces.types.application_settings_status_enum.ApplicationSettingsStatusEnum"
     """<p>Specifies whether persistent application settings are enabled for users during their pool sessions.</p>"""
     settings_group: NotRequired["aws_sdk_workspaces.types.settings_group.SettingsGroup"]

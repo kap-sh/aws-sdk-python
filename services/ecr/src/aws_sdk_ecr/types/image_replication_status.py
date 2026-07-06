@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ImageReplicationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.region
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.replication_status
 
 
-class ImageReplicationStatus(TypedDict):
+class ImageReplicationStatus(TypedDict, closed=True):
     region: NotRequired["aws_sdk_ecr.types.region.Region"]
     """<p>The destination Region for the image replication.</p>"""
     registry_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]

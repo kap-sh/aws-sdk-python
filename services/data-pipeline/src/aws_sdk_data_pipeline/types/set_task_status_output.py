@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#SetTaskStatusOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SetTaskStatusOutput(TypedDict):
+class SetTaskStatusOutput(TypedDict, closed=True):
     pass
 
 

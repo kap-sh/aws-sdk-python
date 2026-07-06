@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ValidateStateMachineDefinitionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.validate_state_machine_definition_truncated
 
 
-class ValidateStateMachineDefinitionOutput(TypedDict):
+class ValidateStateMachineDefinitionOutput(TypedDict, closed=True):
     result: "aws_sdk_sfn.types.validate_state_machine_definition_result_code.ValidateStateMachineDefinitionResultCode"
     """<p>The result value will be <code>OK</code> when no syntax errors are found, or <code>FAIL</code> if the workflow definition does not pass verification.</p>"""
     diagnostics: "aws_sdk_sfn.types.validate_state_machine_definition_diagnostic_list.ValidateStateMachineDefinitionDiagnosticList"

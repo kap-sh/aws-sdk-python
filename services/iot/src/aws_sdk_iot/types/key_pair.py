@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#KeyPair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.private_key
     import aws_sdk_iot.types.public_key
 
 
-class KeyPair(TypedDict):
+class KeyPair(TypedDict, closed=True):
     public_key: NotRequired["aws_sdk_iot.types.public_key.PublicKey"]
     """<p>The public key.</p>"""
     private_key: NotRequired["aws_sdk_iot.types.private_key.PrivateKey"]

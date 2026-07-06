@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateBotAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.tag_map
 
 
-class CreateBotAliasRequest(TypedDict):
+class CreateBotAliasRequest(TypedDict, closed=True):
     bot_alias_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The alias to create. The name must be unique for the bot.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

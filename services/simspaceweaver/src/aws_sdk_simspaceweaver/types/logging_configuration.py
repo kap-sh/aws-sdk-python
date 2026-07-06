@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.log_destinations
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     destinations: NotRequired[
         "aws_sdk_simspaceweaver.types.log_destinations.LogDestinations"
     ]

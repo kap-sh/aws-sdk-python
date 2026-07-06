@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MultiRegionEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.endpoint_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class MultiRegionEndpoint(TypedDict):
+class MultiRegionEndpoint(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_sesv2.types.endpoint_name.EndpointName"]
     """<p>The name of the multi-region endpoint (global-endpoint).</p>"""
     status: NotRequired["aws_sdk_sesv2.types.status.Status"]

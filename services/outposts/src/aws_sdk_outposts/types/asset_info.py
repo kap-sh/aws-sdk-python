@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#AssetInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.asset_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.rack_id
 
 
-class AssetInfo(TypedDict):
+class AssetInfo(TypedDict, closed=True):
     asset_id: NotRequired["aws_sdk_outposts.types.asset_id.AssetId"]
     """<p> The ID of the asset. An Outpost asset can be a single server within an Outposts rack or an Outposts server configuration.</p>"""
     rack_id: NotRequired["aws_sdk_outposts.types.rack_id.RackId"]

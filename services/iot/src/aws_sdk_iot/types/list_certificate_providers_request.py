@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCertificateProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
     import aws_sdk_iot.types.marker
 
 
-class ListCertificateProvidersRequest(TypedDict):
+class ListCertificateProvidersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iot.types.marker.Marker"]
     """<p>The token for the next set of results, or <code>null</code> if there are no more results.</p>"""
     ascending_order: "aws_sdk_iot.types.ascending_order.AscendingOrder"

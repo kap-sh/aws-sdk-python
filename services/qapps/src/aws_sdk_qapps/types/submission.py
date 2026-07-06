@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#Submission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.q_apps_timestamp
     import aws_sdk_qapps.types.uuid
 
 
-class Submission(TypedDict):
+class Submission(TypedDict, closed=True):
     value: NotRequired["object"]
     """<p>The data submitted by the user.</p>"""
     submission_id: NotRequired["aws_sdk_qapps.types.uuid.UUID"]

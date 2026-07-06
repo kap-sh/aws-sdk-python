@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#PutMetadataFlagRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.put_metadata_flag_body
 
 
-class PutMetadataFlagRequest(TypedDict):
+class PutMetadataFlagRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID for the Amplify app.</p>"""
     environment_name: "str"

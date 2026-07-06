@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#QInConnectIntentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.q_in_connect_assistant_configuration
 
 
-class QInConnectIntentConfiguration(TypedDict):
+class QInConnectIntentConfiguration(TypedDict, closed=True):
     q_in_connect_assistant_configuration: NotRequired[
         "aws_sdk_lex_models_v2.types.q_in_connect_assistant_configuration.QInConnectAssistantConfiguration"
     ]

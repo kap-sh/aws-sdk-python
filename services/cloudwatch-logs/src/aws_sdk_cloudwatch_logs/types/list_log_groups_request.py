@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListLogGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.account_ids
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tag_filters
 
 
-class ListLogGroupsRequest(TypedDict):
+class ListLogGroupsRequest(TypedDict, closed=True):
     log_group_name_pattern: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_name_regex_pattern.LogGroupNameRegexPattern"
     ]

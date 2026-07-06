@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#EmailContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.email_subject
     import aws_sdk_iot_events.types.notification_additional_message
 
 
-class EmailContent(TypedDict):
+class EmailContent(TypedDict, closed=True):
     subject: NotRequired["aws_sdk_iot_events.types.email_subject.EmailSubject"]
     """<p>The subject of the email.</p>"""
     additional_message: NotRequired[

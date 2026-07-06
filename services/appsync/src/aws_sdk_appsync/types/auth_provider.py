@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AuthProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.open_id_connect_config
 
 
-class AuthProvider(TypedDict):
+class AuthProvider(TypedDict, closed=True):
     auth_type: "aws_sdk_appsync.types.authentication_type.AuthenticationType"
     """<p>The authorization type.</p>"""
     cognito_config: NotRequired["aws_sdk_appsync.types.cognito_config.CognitoConfig"]

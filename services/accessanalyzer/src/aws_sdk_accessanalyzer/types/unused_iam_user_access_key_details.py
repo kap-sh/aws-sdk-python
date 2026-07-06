@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedIamUserAccessKeyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.timestamp
 
 
-class UnusedIamUserAccessKeyDetails(TypedDict):
+class UnusedIamUserAccessKeyDetails(TypedDict, closed=True):
     access_key_id: "str"
     """<p>The ID of the access key for which the unused access finding was generated.</p>"""
     last_accessed: NotRequired["aws_sdk_accessanalyzer.types.timestamp.Timestamp"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicyFrameOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.frame_options_list
 
 
-class ResponseHeadersPolicyFrameOptions(TypedDict):
+class ResponseHeadersPolicyFrameOptions(TypedDict, closed=True):
     override: "aws_sdk_cloudfront.types.boolean.boolean"
     """<p>A Boolean that determines whether CloudFront overrides the <code>X-Frame-Options</code> HTTP response header received from the origin with the one specified in this response headers policy.</p>"""
     frame_option: "aws_sdk_cloudfront.types.frame_options_list.FrameOptionsList"

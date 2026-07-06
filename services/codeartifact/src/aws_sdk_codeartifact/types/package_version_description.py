@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageVersionDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.license_info_list
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.timestamp
 
 
-class PackageVersionDescription(TypedDict):
+class PackageVersionDescription(TypedDict, closed=True):
     format: NotRequired["aws_sdk_codeartifact.types.package_format.PackageFormat"]
     """<p> The format of the package version. </p>"""
     namespace: NotRequired[

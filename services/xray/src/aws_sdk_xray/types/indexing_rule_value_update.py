@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#IndexingRuleValueUpdate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.probabilistic_rule_value_update
 
 
-class _IndexingRuleValueUpdate_Probabilistic(TypedDict):
+class _IndexingRuleValueUpdate_Probabilistic(TypedDict, closed=True):
     Probabilistic: "aws_sdk_xray.types.probabilistic_rule_value_update.ProbabilisticRuleValueUpdate"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.field_name
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "aws_sdk_workspaces_web.types.field_name.FieldName"
     """<p>The name of the field that failed validation.</p>"""
     message: "aws_sdk_workspaces_web.types.exception_message.ExceptionMessage"

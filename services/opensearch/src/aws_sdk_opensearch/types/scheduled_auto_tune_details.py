@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ScheduledAutoTuneDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.auto_tune_date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.scheduled_auto_tune_severity_type
 
 
-class ScheduledAutoTuneDetails(TypedDict):
+class ScheduledAutoTuneDetails(TypedDict, closed=True):
     date: NotRequired["aws_sdk_opensearch.types.auto_tune_date.AutoTuneDate"]
     """<p>The date and time when the Auto-Tune action is scheduled for the domain.</p>"""
     action_type: NotRequired[

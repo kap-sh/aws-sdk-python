@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateGeoMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token
     import aws_sdk_waf_regional.types.geo_match_set
 
 
-class CreateGeoMatchSetResponse(TypedDict):
+class CreateGeoMatchSetResponse(TypedDict, closed=True):
     geo_match_set: NotRequired["aws_sdk_waf_regional.types.geo_match_set.GeoMatchSet"]
     """<p>The <a>GeoMatchSet</a> returned in the <code>CreateGeoMatchSet</code> response. The <code>GeoMatchSet</code> contains no <code>GeoMatchConstraints</code>.</p>"""
     change_token: NotRequired["aws_sdk_waf_regional.types.change_token.ChangeToken"]

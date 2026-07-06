@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PutPermissionsBoundaryToPermissionSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutPermissionsBoundaryToPermissionSetResponse(TypedDict):
+class PutPermissionsBoundaryToPermissionSetResponse(TypedDict, closed=True):
     pass
 
 

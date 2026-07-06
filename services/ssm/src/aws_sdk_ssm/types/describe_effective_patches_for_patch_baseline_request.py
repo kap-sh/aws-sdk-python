@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeEffectivePatchesForPatchBaselineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_baseline_max_results
 
 
-class DescribeEffectivePatchesForPatchBaselineRequest(TypedDict):
+class DescribeEffectivePatchesForPatchBaselineRequest(TypedDict, closed=True):
     baseline_id: "aws_sdk_ssm.types.baseline_id.BaselineId"
     """<p>The ID of the patch baseline to retrieve the effective patches for.</p>"""
     max_results: NotRequired[

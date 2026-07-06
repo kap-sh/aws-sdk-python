@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#InstanceMetadataOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.http_put_response_hop_limit
     import aws_sdk_imagebuilder.types.http_tokens
 
 
-class InstanceMetadataOptions(TypedDict):
+class InstanceMetadataOptions(TypedDict, closed=True):
     http_tokens: NotRequired["aws_sdk_imagebuilder.types.http_tokens.HttpTokens"]
     """<p>Indicates whether a signed token header is required for instance metadata retrieval requests. The values affect the response as follows:</p> <ul> <li> <p> <b>required</b> – When you retrieve the IAM role credentials, version 2.0 credentials are returned in all cases.</p> </li> <li> <p> <b>optional</b> – You can include a signed token header in your request to retrieve instance metadata, or you can leave it out. If you include it, version 2.0 credentials are returned for the IAM role. Otherwise, version 1.0 credentials are returned.</p> </li> </ul> <p>The default setting is <b>optional</b>.</p>"""
     http_put_response_hop_limit: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ServiceManagedInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.vpc_id
 
 
-class ServiceManagedInput(TypedDict):
+class ServiceManagedInput(TypedDict, closed=True):
     host_address: "aws_sdk_devops_agent.types.ip_address_or_dns_name.IpAddressOrDnsName"
     """<p>IP address or DNS name of the target resource.</p>"""
     vpc_id: "aws_sdk_devops_agent.types.vpc_id.VpcId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ExpectedContractDuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.expected_contract_duration_term
 
 
-class ExpectedContractDuration(TypedDict):
+class ExpectedContractDuration(TypedDict, closed=True):
     term: "aws_sdk_partnercentral_selling.types.expected_contract_duration_term.ExpectedContractDurationTerm"
     """<p>The unit of measurement for the contract duration value. Currently accepts only <code>Months</code>.</p>"""
     value: "str"

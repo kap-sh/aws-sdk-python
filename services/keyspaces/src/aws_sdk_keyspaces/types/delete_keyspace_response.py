@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#DeleteKeyspaceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteKeyspaceResponse(TypedDict):
+class DeleteKeyspaceResponse(TypedDict, closed=True):
     pass
 
 

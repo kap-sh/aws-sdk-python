@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateAuthorizerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.token_key_name
 
 
-class CreateAuthorizerRequest(TypedDict):
+class CreateAuthorizerRequest(TypedDict, closed=True):
     authorizer_name: "aws_sdk_iot.types.authorizer_name.AuthorizerName"
     """<p>The authorizer name.</p>"""
     authorizer_function_arn: (

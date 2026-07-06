@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.ipv6_addresses
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.text
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     network_interface_id: NotRequired["aws_sdk_inspector.types.text.Text"]
     """<p>The ID of the network interface.</p>"""
     subnet_id: NotRequired["aws_sdk_inspector.types.text.Text"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#UpgradeElasticsearchDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.elasticsearch_version_string
 
 
-class UpgradeElasticsearchDomainResponse(TypedDict):
+class UpgradeElasticsearchDomainResponse(TypedDict, closed=True):
     domain_name: NotRequired[
         "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     ]

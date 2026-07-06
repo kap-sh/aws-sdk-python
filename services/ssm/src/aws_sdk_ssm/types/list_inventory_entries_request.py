@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListInventoryEntriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListInventoryEntriesRequest(TypedDict):
+class ListInventoryEntriesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.instance_id.InstanceId"
     """<p>The managed node ID for which you want inventory information.</p>"""
     type_name: "aws_sdk_ssm.types.inventory_item_type_name.InventoryItemTypeName"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#HlsRenditionGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
     import aws_sdk_mediaconvert.types.language_code
 
 
-class HlsRenditionGroupSettings(TypedDict):
+class HlsRenditionGroupSettings(TypedDict, closed=True):
     rendition_group_id: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Optional. Specify alternative group ID"""
     rendition_language_code: NotRequired[

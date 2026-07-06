@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotFieldSortOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.pivot_table_sort_by
 
 
-class PivotFieldSortOptions(TypedDict):
+class PivotFieldSortOptions(TypedDict, closed=True):
     field_id: "aws_sdk_quicksight.types.field_id.FieldId"
     """<p>The field ID for the field sort options.</p>"""
     sort_by: "aws_sdk_quicksight.types.pivot_table_sort_by.PivotTableSortBy"

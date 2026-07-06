@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.account#GetRegionOptStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_account.types.region_name
     import aws_sdk_account.types.region_opt_status
 
 
-class GetRegionOptStatusResponse(TypedDict):
+class GetRegionOptStatusResponse(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_account.types.region_name.RegionName"]
     """<p>The Region code that was passed in.</p>"""
     region_opt_status: NotRequired[

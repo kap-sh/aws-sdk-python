@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicNamedEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.synonyms
 
 
-class TopicNamedEntity(TypedDict):
+class TopicNamedEntity(TypedDict, closed=True):
     entity_name: "aws_sdk_quicksight.types.limited_string.LimitedString"
     """<p>The name of the named entity.</p>"""
     entity_description: NotRequired[

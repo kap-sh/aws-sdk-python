@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RegisterUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_role
 
 
-class RegisterUserRequest(TypedDict):
+class RegisterUserRequest(TypedDict, closed=True):
     identity_type: "aws_sdk_quicksight.types.identity_type.IdentityType"
     """<p>The identity type that your Quick Sight account uses to manage the identity of users.</p>"""
     email: "aws_sdk_quicksight.types.string.String"

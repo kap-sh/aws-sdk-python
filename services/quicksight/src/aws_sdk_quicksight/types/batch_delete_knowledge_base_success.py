@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BatchDeleteKnowledgeBaseSuccess``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.knowledge_base_id
 
 
-class BatchDeleteKnowledgeBaseSuccess(TypedDict):
+class BatchDeleteKnowledgeBaseSuccess(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_quicksight.types.knowledge_base_id.KnowledgeBaseId"
     """<p>The unique identifier of the successfully deleted knowledge base.</p>"""
     knowledge_base_arn: "aws_sdk_quicksight.types.knowledge_base_arn.KnowledgeBaseArn"

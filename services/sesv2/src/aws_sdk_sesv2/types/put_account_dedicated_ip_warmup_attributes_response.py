@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutAccountDedicatedIpWarmupAttributesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutAccountDedicatedIpWarmupAttributesResponse(TypedDict):
+class PutAccountDedicatedIpWarmupAttributesResponse(TypedDict, closed=True):
     pass
 
 

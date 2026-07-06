@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListDataSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_summary_list
     import aws_sdk_kendra.types.next_token
 
 
-class ListDataSourcesResponse(TypedDict):
+class ListDataSourcesResponse(TypedDict, closed=True):
     summary_items: NotRequired[
         "aws_sdk_kendra.types.data_source_summary_list.DataSourceSummaryList"
     ]

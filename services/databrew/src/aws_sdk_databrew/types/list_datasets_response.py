@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListDatasetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.next_token
 
 
-class ListDatasetsResponse(TypedDict):
+class ListDatasetsResponse(TypedDict, closed=True):
     datasets: "aws_sdk_databrew.types.dataset_list.DatasetList"
     """<p>A list of datasets that are defined.</p>"""
     next_token: NotRequired["aws_sdk_databrew.types.next_token.NextToken"]

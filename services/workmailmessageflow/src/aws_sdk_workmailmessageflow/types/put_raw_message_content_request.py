@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#PutRawMessageContentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmailmessageflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmailmessageflow.types.raw_message_content
 
 
-class PutRawMessageContentRequest(TypedDict):
+class PutRawMessageContentRequest(TypedDict, closed=True):
     message_id: "aws_sdk_workmailmessageflow.types.message_id_type.messageIdType"
     """<p>The identifier of the email message being updated.</p>"""
     content: "aws_sdk_workmailmessageflow.types.raw_message_content.RawMessageContent"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#AudioFeatures``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.meeting_feature_status
 
 
-class AudioFeatures(TypedDict):
+class AudioFeatures(TypedDict, closed=True):
     echo_reduction: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.meeting_feature_status.MeetingFeatureStatus"
     ]

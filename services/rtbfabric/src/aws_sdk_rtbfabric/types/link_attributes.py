@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#LinkAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.customer_provided_id
     import aws_sdk_rtbfabric.types.responder_error_masking
 
 
-class LinkAttributes(TypedDict):
+class LinkAttributes(TypedDict, closed=True):
     responder_error_masking: NotRequired[
         "aws_sdk_rtbfabric.types.responder_error_masking.ResponderErrorMasking"
     ]

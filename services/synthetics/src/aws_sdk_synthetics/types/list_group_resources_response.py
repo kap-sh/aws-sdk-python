@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#ListGroupResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.pagination_token
     import aws_sdk_synthetics.types.string_list
 
 
-class ListGroupResourcesResponse(TypedDict):
+class ListGroupResourcesResponse(TypedDict, closed=True):
     resources: NotRequired["aws_sdk_synthetics.types.string_list.StringList"]
     """<p>An array of ARNs. These ARNs are for the canaries that are associated with the group.</p>"""
     next_token: NotRequired["aws_sdk_synthetics.types.pagination_token.PaginationToken"]

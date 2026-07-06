@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#MediaTailorPlaybackConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.media_tailor_playback_configuration_arn
 
 
-class MediaTailorPlaybackConfiguration(TypedDict):
+class MediaTailorPlaybackConfiguration(TypedDict, closed=True):
     playback_configuration_arn: NotRequired[
         "aws_sdk_ivs.types.media_tailor_playback_configuration_arn.MediaTailorPlaybackConfigurationArn"
     ]

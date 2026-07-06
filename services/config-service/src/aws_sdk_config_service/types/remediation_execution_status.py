@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#RemediationExecutionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_key
 
 
-class RemediationExecutionStatus(TypedDict):
+class RemediationExecutionStatus(TypedDict, closed=True):
     resource_key: NotRequired["aws_sdk_config_service.types.resource_key.ResourceKey"]
     state: NotRequired[
         "aws_sdk_config_service.types.remediation_execution_state.RemediationExecutionState"

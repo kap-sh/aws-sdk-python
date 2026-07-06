@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#TraceElements``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_traces
 
 
-class _TraceElements_agentTraces(TypedDict):
+class _TraceElements_agentTraces(TypedDict, closed=True):
     agentTraces: "aws_sdk_bedrock_agent_runtime.types.agent_traces.AgentTraces"
 
 

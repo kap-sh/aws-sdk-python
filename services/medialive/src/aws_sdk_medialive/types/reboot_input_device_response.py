@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RebootInputDeviceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RebootInputDeviceResponse(TypedDict):
+class RebootInputDeviceResponse(TypedDict, closed=True):
     pass
 
 

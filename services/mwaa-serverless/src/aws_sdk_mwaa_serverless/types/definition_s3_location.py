@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#DefinitionS3Location``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
 
-class DefinitionS3Location(TypedDict):
+class DefinitionS3Location(TypedDict, closed=True):
     bucket: "str"
     """<p>The name of the Amazon S3 bucket that contains the workflow definition file.</p>"""
     object_key: "str"

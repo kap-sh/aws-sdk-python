@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetRDSDatabaseRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.get_recommendation_errors
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.rdsdb_recommendations
 
 
-class GetRDSDatabaseRecommendationsResponse(TypedDict):
+class GetRDSDatabaseRecommendationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_compute_optimizer.types.next_token.NextToken"]
     """<p> The token to advance to the next page of Amazon Aurora and RDS database recommendations. </p>"""
     rds_db_recommendations: NotRequired[

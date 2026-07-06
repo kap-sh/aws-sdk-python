@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#QualityMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_quality_metrics
     import aws_sdk_connect.types.customer_quality_metrics
 
 
-class QualityMetrics(TypedDict):
+class QualityMetrics(TypedDict, closed=True):
     agent: NotRequired[
         "aws_sdk_connect.types.agent_quality_metrics.AgentQualityMetrics"
     ]

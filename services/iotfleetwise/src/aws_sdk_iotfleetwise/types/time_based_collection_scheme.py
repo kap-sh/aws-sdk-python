@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#TimeBasedCollectionScheme``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.collection_period_ms
 
 
-class TimeBasedCollectionScheme(TypedDict):
+class TimeBasedCollectionScheme(TypedDict, closed=True):
     period_ms: "aws_sdk_iotfleetwise.types.collection_period_ms.collectionPeriodMs"
     """<p>The time period (in milliseconds) to decide how often to collect data. For example, if the time period is <code>60000</code>, the Edge Agent software collects data once every minute.</p>"""
 

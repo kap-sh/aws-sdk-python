@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AudioDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max255
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.remix_settings
 
 
-class AudioDescription(TypedDict):
+class AudioDescription(TypedDict, closed=True):
     audio_channel_tagging_settings: NotRequired[
         "aws_sdk_mediaconvert.types.audio_channel_tagging_settings.AudioChannelTaggingSettings"
     ]

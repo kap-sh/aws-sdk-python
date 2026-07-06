@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateFleetLocationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn
     import aws_sdk_gamelift.types.location_configuration_list
 
 
-class CreateFleetLocationsInput(TypedDict):
+class CreateFleetLocationsInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to add locations to. You can use either the fleet ID or ARN value.</p>"""
     locations: NotRequired[

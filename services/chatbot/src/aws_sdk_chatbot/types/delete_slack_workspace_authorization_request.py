@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DeleteSlackWorkspaceAuthorizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.slack_team_id
 
 
-class DeleteSlackWorkspaceAuthorizationRequest(TypedDict):
+class DeleteSlackWorkspaceAuthorizationRequest(TypedDict, closed=True):
     slack_team_id: "aws_sdk_chatbot.types.slack_team_id.SlackTeamId"
     """<p>The ID of the Slack workspace authorized with AWS Chatbot.</p>"""
 

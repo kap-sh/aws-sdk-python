@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeClientVpnRoutesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.next_token
 
 
-class DescribeClientVpnRoutesResult(TypedDict):
+class DescribeClientVpnRoutesResult(TypedDict, closed=True):
     routes: NotRequired["aws_sdk_ec2.types.client_vpn_route_set.ClientVpnRouteSet"]
     """<p>Information about the Client VPN endpoint routes.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#KnowledgeBaseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.knowledge_base_retrieval_configuration
 
 
-class KnowledgeBaseConfiguration(TypedDict):
+class KnowledgeBaseConfiguration(TypedDict, closed=True):
     knowledge_base_id: (
         "aws_sdk_bedrock_agent_runtime.types.knowledge_base_id.KnowledgeBaseId"
     )

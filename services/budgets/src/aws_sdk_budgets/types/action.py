@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -17,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.subscribers
 
 
-class Action(TypedDict):
+class Action(TypedDict, closed=True):
     action_id: "aws_sdk_budgets.types.action_id.ActionId"
     """<p>A system-generated universally unique identifier (UUID) for the action. </p>"""
     budget_name: "aws_sdk_budgets.types.budget_name.BudgetName"

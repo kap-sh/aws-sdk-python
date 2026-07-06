@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ListLandingZonesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.list_landing_zones_max_results
 
 
-class ListLandingZonesInput(TypedDict):
+class ListLandingZonesInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token to continue the list from a previous API call with the same parameters.</p>"""
     max_results: NotRequired[

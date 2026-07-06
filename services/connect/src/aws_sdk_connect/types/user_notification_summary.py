@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserNotificationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class UserNotificationSummary(TypedDict):
+class UserNotificationSummary(TypedDict, closed=True):
     notification_id: NotRequired["aws_sdk_connect.types.notification_id.NotificationId"]
     """<p>The unique identifier for the notification.</p>"""
     notification_status: NotRequired[

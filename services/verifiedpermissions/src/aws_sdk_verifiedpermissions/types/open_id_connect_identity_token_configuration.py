@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#OpenIdConnectIdentityTokenConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.claim
     import aws_sdk_verifiedpermissions.types.client_ids
 
 
-class OpenIdConnectIdentityTokenConfiguration(TypedDict):
+class OpenIdConnectIdentityTokenConfiguration(TypedDict, closed=True):
     principal_id_claim: "aws_sdk_verifiedpermissions.types.claim.Claim"
     """<p>The claim that determines the principal in OIDC access tokens. For example, <code>sub</code>.</p>"""
     client_ids: NotRequired["aws_sdk_verifiedpermissions.types.client_ids.ClientIds"]

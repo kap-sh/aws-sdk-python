@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListDatasetLabelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.list_dataset_labels_page_size
 
 
-class ListDatasetLabelsRequest(TypedDict):
+class ListDatasetLabelsRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_rekognition.types.dataset_arn.DatasetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset that you want to use. </p>"""
     next_token: NotRequired[

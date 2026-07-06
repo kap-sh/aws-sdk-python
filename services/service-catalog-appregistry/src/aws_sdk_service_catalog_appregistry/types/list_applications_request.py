@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.max_results
     import aws_sdk_service_catalog_appregistry.types.next_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.next_token.NextToken"
     ]

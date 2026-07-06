@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetSchemaCreationStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.schema_status
     import aws_sdk_appsync.types.string
 
 
-class GetSchemaCreationStatusResponse(TypedDict):
+class GetSchemaCreationStatusResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_appsync.types.schema_status.SchemaStatus"]
     """<p>The current state of the schema (PROCESSING, FAILED, SUCCESS, or NOT_APPLICABLE). When the schema is in the ACTIVE state, you can add data.</p>"""
     details: NotRequired["aws_sdk_appsync.types.string.String"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DetachThingPrincipalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.principal
     import aws_sdk_iot.types.thing_name
 
 
-class DetachThingPrincipalRequest(TypedDict):
+class DetachThingPrincipalRequest(TypedDict, closed=True):
     thing_name: "aws_sdk_iot.types.thing_name.ThingName"
     """<p>The name of the thing.</p>"""
     principal: "aws_sdk_iot.types.principal.Principal"

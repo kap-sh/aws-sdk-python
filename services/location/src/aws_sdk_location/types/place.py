@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#Place``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.time_zone
 
 
-class Place(TypedDict):
+class Place(TypedDict, closed=True):
     label: NotRequired["aws_sdk_location.types.sensitive_string.SensitiveString"]
     """<p>The full name and address of the point of interest such as a city, region, or country. For example, <code>123 Any Street, Any Town, USA</code>.</p>"""
     geometry: "aws_sdk_location.types.place_geometry.PlaceGeometry"

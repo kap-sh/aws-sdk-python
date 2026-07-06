@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ListFeedsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListFeedsRequest(TypedDict):
+class ListFeedsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to return per API request.</p> <p>For example, you submit a list request with MaxResults set at 5. Although 20 items match your request, the service returns no more than the first 5 items. (The service also returns a NextToken value that you can use to fetch the next batch of results.) </p> <p>The service might return fewer results than the MaxResults value. If MaxResults is not included in the request, the service defaults to pagination with a maximum of 10 results per page. </p> <p>Valid Range: Minimum value of 1. Maximum value of 1000.</p>"""
     next_token: NotRequired["str"]

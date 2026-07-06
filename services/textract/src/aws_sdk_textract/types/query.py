@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Query``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.query_pages
 
 
-class Query(TypedDict):
+class Query(TypedDict, closed=True):
     text: "aws_sdk_textract.types.query_input.QueryInput"
     r"""<p>Question that Amazon Textract will apply to the document. An example would be \"What is the customer's SSN?\"</p>"""
     alias: NotRequired["aws_sdk_textract.types.query_input.QueryInput"]

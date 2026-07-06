@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DeleteResourceTreeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class DeleteResourceTreeRequest(TypedDict):
+class DeleteResourceTreeRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the parent resource to delete. All child resources of the parent resource will also be deleted.</p>"""
 

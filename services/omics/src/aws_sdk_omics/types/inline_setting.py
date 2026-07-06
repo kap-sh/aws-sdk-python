@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#InlineSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tag_map
 
 
-class InlineSetting(TypedDict):
+class InlineSetting(TypedDict, closed=True):
     run_setting_id: "aws_sdk_omics.types.run_setting_id.RunSettingId"
     """<p>A customer-provided unique identifier for this run configuration within the batch. After submission, use <code>ListRunsInBatch</code> to map each <code>runSettingId</code> to the HealthOmics-generated <code>runId</code>.</p>"""
     name: NotRequired["aws_sdk_omics.types.run_name.RunName"]

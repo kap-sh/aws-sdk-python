@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DateTimeParameterDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.time_granularity
 
 
-class DateTimeParameterDeclaration(TypedDict):
+class DateTimeParameterDeclaration(TypedDict, closed=True):
     name: "aws_sdk_quicksight.types.parameter_name.ParameterName"
     """<p>The name of the parameter that is being declared.</p>"""
     default_values: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListModelInvocationJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.model_invocation_job_summaries
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListModelInvocationJobsResponse(TypedDict):
+class ListModelInvocationJobsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]
     """<p>If there are more results than can fit in the response, a <code>nextToken</code> is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>"""
     invocation_job_summaries: NotRequired[

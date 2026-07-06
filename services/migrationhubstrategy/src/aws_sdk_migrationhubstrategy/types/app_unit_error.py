@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AppUnitError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.app_unit_error_category
 
 
-class AppUnitError(TypedDict):
+class AppUnitError(TypedDict, closed=True):
     app_unit_error_category: NotRequired[
         "aws_sdk_migrationhubstrategy.types.app_unit_error_category.AppUnitErrorCategory"
     ]

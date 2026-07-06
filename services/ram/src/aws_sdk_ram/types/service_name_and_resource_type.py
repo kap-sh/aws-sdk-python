@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ServiceNameAndResourceType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_region_scope
     import aws_sdk_ram.types.string
 
 
-class ServiceNameAndResourceType(TypedDict):
+class ServiceNameAndResourceType(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>The type of the resource. This takes the form of: <code>service-code</code>:<code>resource-code</code>, and is case-insensitive. For example, an Amazon EC2 Subnet would be represented by the string <code>ec2:subnet</code>.</p>"""
     service_name: NotRequired["aws_sdk_ram.types.string.String"]

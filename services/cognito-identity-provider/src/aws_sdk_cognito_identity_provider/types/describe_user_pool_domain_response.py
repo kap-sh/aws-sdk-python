@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DescribeUserPoolDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.domain_description_type
 
 
-class DescribeUserPoolDomainResponse(TypedDict):
+class DescribeUserPoolDomainResponse(TypedDict, closed=True):
     domain_description: NotRequired[
         "aws_sdk_cognito_identity_provider.types.domain_description_type.DomainDescriptionType"
     ]

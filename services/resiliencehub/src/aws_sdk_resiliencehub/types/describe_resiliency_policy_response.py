@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DescribeResiliencyPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.resiliency_policy
 
 
-class DescribeResiliencyPolicyResponse(TypedDict):
+class DescribeResiliencyPolicyResponse(TypedDict, closed=True):
     policy: "aws_sdk_resiliencehub.types.resiliency_policy.ResiliencyPolicy"
     """<p>Information about the specific resiliency policy, returned as an object. This object includes creation time, data location constraints, its name, description, tags, the recovery time objective (RTO) and recovery point objective (RPO) in seconds, and more.</p>"""
 

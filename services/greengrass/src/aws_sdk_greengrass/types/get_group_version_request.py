@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetGroupVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class GetGroupVersionRequest(TypedDict):
+class GetGroupVersionRequest(TypedDict, closed=True):
     group_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the Greengrass group."""
     group_version_id: "aws_sdk_greengrass.types.__string.__string"

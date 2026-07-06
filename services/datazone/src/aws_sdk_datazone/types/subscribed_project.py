@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedProject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
     import aws_sdk_datazone.types.project_name
 
 
-class SubscribedProject(TypedDict):
+class SubscribedProject(TypedDict, closed=True):
     id: NotRequired["aws_sdk_datazone.types.project_id.ProjectId"]
     """<p>The identifier of the project that has the subscription grant.</p>"""
     name: NotRequired["aws_sdk_datazone.types.project_name.ProjectName"]

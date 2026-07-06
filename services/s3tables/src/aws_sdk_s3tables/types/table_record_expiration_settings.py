@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableRecordExpirationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.positive_integer
 
 
-class TableRecordExpirationSettings(TypedDict):
+class TableRecordExpirationSettings(TypedDict, closed=True):
     days: NotRequired["aws_sdk_s3tables.types.positive_integer.PositiveInteger"]
     """<p>If you enable record expiration for a table, you can specify the number of days to retain your table records. For example, to retain your table records for one year, set this value to <code>365</code>.</p>"""
 

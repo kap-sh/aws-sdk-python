@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#TaxExemption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_exemption_type
 
 
-class TaxExemption(TypedDict):
+class TaxExemption(TypedDict, closed=True):
     authority: "aws_sdk_taxsettings.types.authority.Authority"
     """<p>The address domain associate with tax exemption. </p>"""
     tax_exemption_type: "aws_sdk_taxsettings.types.tax_exemption_type.TaxExemptionType"

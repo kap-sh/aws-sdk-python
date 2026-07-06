@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DnssecSigningAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.dnssec_public_key
     import aws_sdk_route_53_domains.types.nullable_integer
 
 
-class DnssecSigningAttributes(TypedDict):
+class DnssecSigningAttributes(TypedDict, closed=True):
     algorithm: NotRequired[
         "aws_sdk_route_53_domains.types.nullable_integer.NullableInteger"
     ]

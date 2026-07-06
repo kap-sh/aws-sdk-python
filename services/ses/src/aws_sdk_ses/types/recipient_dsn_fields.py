@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#RecipientDsnFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.remote_mta
 
 
-class RecipientDsnFields(TypedDict):
+class RecipientDsnFields(TypedDict, closed=True):
     final_recipient: NotRequired["aws_sdk_ses.types.address.Address"]
     r"""<p>The email address that the message was ultimately delivered to. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> is set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p> <note> <p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href=\"https://tools.ietf.org/html/rfc3798\">RFC 3798</a>.</p> </note>"""
     action: "aws_sdk_ses.types.dsn_action.DsnAction"

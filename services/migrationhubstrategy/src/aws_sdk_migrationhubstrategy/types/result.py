@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#Result``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.analysis_status_union
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.status_message
 
 
-class Result(TypedDict):
+class Result(TypedDict, closed=True):
     analysis_type: NotRequired[
         "aws_sdk_migrationhubstrategy.types.analysis_type.AnalysisType"
     ]

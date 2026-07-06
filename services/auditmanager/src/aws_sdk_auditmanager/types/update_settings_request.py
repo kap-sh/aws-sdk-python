@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#UpdateSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_reports_destination
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.sns_arn
 
 
-class UpdateSettingsRequest(TypedDict):
+class UpdateSettingsRequest(TypedDict, closed=True):
     sns_topic: NotRequired["aws_sdk_auditmanager.types.sns_arn.SnsArn"]
     """<p> The Amazon Simple Notification Service (Amazon SNS) topic that Audit Manager sends notifications to. </p>"""
     default_assessment_reports_destination: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#EstimatedCarbonEmissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sustainability.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sustainability.types.time_period
 
 
-class EstimatedCarbonEmissions(TypedDict):
+class EstimatedCarbonEmissions(TypedDict, closed=True):
     time_period: "aws_sdk_sustainability.types.time_period.TimePeriod"
     """<p>The reporting period for emission values.</p>"""
     dimensions_values: "aws_sdk_sustainability.types.dimensions_map.DimensionsMap"

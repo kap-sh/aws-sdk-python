@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#RemoveSourceServerActionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveSourceServerActionResponse(TypedDict):
+class RemoveSourceServerActionResponse(TypedDict, closed=True):
     pass
 
 

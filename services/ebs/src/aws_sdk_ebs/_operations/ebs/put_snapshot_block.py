@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import zapros
@@ -135,7 +135,7 @@ def build_request(
         headers["x-amz-Checksum-Algorithm"] = str(input_["checksum_algorithm"])
     body = input_["block_data"]
     if isinstance(body, aws_sdk_ebs._iter.StaticAnyIterator):
-        body = body.content
+        body = cast(bytes, body.content)
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

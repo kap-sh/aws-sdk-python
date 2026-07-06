@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CustomerContact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.sensitive_string
 
 
-class CustomerContact(TypedDict):
+class CustomerContact(TypedDict, closed=True):
     email: NotRequired["aws_sdk_odb.types.sensitive_string.SensitiveString"]
     """<p>The email address of the contact.</p>"""
 

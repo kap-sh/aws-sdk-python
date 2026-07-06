@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StreamDeliveryResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.kinesis_resource
 
 
-class _StreamDeliveryResource_kinesis(TypedDict):
+class _StreamDeliveryResource_kinesis(TypedDict, closed=True):
     kinesis: "aws_sdk_bedrock_agentcore_control.types.kinesis_resource.KinesisResource"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SendMessageBatchRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SendMessageBatchRequestEntry(TypedDict):
+class SendMessageBatchRequestEntry(TypedDict, closed=True):
     id: "aws_sdk_sqs.types.string.String"
     """<p>An identifier for a message in this batch used to communicate the result.</p> <note> <p>The <code>Id</code>s of a batch request need to be unique within a request.</p> <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p> </note>"""
     message_body: "aws_sdk_sqs.types.string.String"

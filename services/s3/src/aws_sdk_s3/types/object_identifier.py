@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ObjectIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.size
 
 
-class ObjectIdentifier(TypedDict):
+class ObjectIdentifier(TypedDict, closed=True):
     key: "aws_sdk_s3.types.object_key.ObjectKey"
     r"""<p>Key name of the object.</p> <important> <p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints\"> XML related object key constraints</a>.</p> </important>"""
     version_id: NotRequired["aws_sdk_s3.types.object_version_id.ObjectVersionId"]

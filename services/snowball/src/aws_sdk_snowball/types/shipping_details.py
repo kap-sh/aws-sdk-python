@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ShippingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.shipment
     import aws_sdk_snowball.types.shipping_option
 
 
-class ShippingDetails(TypedDict):
+class ShippingDetails(TypedDict, closed=True):
     shipping_option: NotRequired[
         "aws_sdk_snowball.types.shipping_option.ShippingOption"
     ]

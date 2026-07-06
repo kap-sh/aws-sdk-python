@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DescribeDeliveryChannelStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.delivery_channel_name_list
 
 
-class DescribeDeliveryChannelStatusRequest(TypedDict):
+class DescribeDeliveryChannelStatusRequest(TypedDict, closed=True):
     delivery_channel_names: NotRequired[
         "aws_sdk_config_service.types.delivery_channel_name_list.DeliveryChannelNameList"
     ]

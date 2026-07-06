@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#KeyUsagePropertyFlags``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class KeyUsagePropertyFlags(TypedDict):
+class KeyUsagePropertyFlags(TypedDict, closed=True):
     decrypt: NotRequired["bool"]
     """<p>Allows key for encryption and decryption.</p>"""
     key_agreement: NotRequired["bool"]

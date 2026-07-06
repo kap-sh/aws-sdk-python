@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateMLInputChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class CreateMLInputChannelRequest(TypedDict):
+class CreateMLInputChannelRequest(TypedDict, closed=True):
     membership_identifier: "aws_sdk_cleanroomsml.types.uuid.UUID"
     """<p>The membership ID of the member that is creating the ML input channel.</p>"""
     configured_model_algorithm_associations: "aws_sdk_cleanroomsml.types.configured_model_algorithm_association_arn_list.ConfiguredModelAlgorithmAssociationArnList"

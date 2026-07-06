@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#ListStreamsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.max_stream_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_filters
 
 
-class ListStreamsRequest(TypedDict):
+class ListStreamsRequest(TypedDict, closed=True):
     filter_by: NotRequired["aws_sdk_ivs.types.stream_filters.StreamFilters"]
     """<p>Filters the stream list to match the specified criterion.</p>"""
     next_token: NotRequired["aws_sdk_ivs.types.pagination_token.PaginationToken"]

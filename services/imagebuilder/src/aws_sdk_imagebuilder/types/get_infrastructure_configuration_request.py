@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetInfrastructureConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.infrastructure_configuration_arn
 
 
-class GetInfrastructureConfigurationRequest(TypedDict):
+class GetInfrastructureConfigurationRequest(TypedDict, closed=True):
     infrastructure_configuration_arn: "aws_sdk_imagebuilder.types.infrastructure_configuration_arn.InfrastructureConfigurationArn"
     """<p>The Amazon Resource Name (ARN) of the infrastructure configuration that you want to retrieve.</p>"""
 

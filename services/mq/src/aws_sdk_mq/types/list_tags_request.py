@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ListTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class ListTagsRequest(TypedDict):
+class ListTagsRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mq.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the resource tag.</p>"""
 

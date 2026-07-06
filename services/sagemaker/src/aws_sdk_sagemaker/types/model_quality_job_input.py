@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelQualityJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_transform_input
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_ground_truth_s3_input
 
 
-class ModelQualityJobInput(TypedDict):
+class ModelQualityJobInput(TypedDict, closed=True):
     endpoint_input: NotRequired["aws_sdk_sagemaker.types.endpoint_input.EndpointInput"]
     batch_transform_input: NotRequired[
         "aws_sdk_sagemaker.types.batch_transform_input.BatchTransformInput"

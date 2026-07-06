@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ConfigurationCheckOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.rule_status_counts
 
 
-class ConfigurationCheckOperation(TypedDict):
+class ConfigurationCheckOperation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm_sap.types.operation_id.OperationId"]
     """<p>The unique identifier of the configuration check operation.</p>"""
     application_id: NotRequired["aws_sdk_ssm_sap.types.application_id.ApplicationId"]

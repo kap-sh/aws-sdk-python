@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#SupportContainerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.boolean_model
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.sha256
 
 
-class SupportContainerDefinition(TypedDict):
+class SupportContainerDefinition(TypedDict, closed=True):
     container_name: NotRequired[
         "aws_sdk_gamelift.types.non_zero_and128_max_ascii_string.NonZeroAnd128MaxAsciiString"
     ]

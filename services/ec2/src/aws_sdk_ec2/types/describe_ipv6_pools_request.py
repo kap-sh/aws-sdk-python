@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeIpv6PoolsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.next_token
 
 
-class DescribeIpv6PoolsRequest(TypedDict):
+class DescribeIpv6PoolsRequest(TypedDict, closed=True):
     pool_ids: NotRequired["aws_sdk_ec2.types.ipv6_pool_id_list.Ipv6PoolIdList"]
     """<p>The IDs of the IPv6 address pools.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.next_token.NextToken"]

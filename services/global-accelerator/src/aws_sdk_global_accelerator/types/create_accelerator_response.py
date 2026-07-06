@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CreateAcceleratorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.accelerator
 
 
-class CreateAcceleratorResponse(TypedDict):
+class CreateAcceleratorResponse(TypedDict, closed=True):
     accelerator: NotRequired["aws_sdk_global_accelerator.types.accelerator.Accelerator"]
     """<p>The accelerator that is created by specifying a listener and the supported IP address types.</p>"""
 

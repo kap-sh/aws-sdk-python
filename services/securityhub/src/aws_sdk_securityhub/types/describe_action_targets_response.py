@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DescribeActionTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.action_target_list
     import aws_sdk_securityhub.types.next_token
 
 
-class DescribeActionTargetsResponse(TypedDict):
+class DescribeActionTargetsResponse(TypedDict, closed=True):
     action_targets: NotRequired[
         "aws_sdk_securityhub.types.action_target_list.ActionTargetList"
     ]

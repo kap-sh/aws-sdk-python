@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#OrganizationFeatureConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.org_feature
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.organization_additional_configuration_results
 
 
-class OrganizationFeatureConfigurationResult(TypedDict):
+class OrganizationFeatureConfigurationResult(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.org_feature.OrgFeature"]
     """<p>The name of the feature that is configured for the member accounts within the organization.</p>"""
     auto_enable: NotRequired[

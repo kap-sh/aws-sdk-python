@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BooleanOperands``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.operand_two
 
 
-class BooleanOperands(TypedDict):
+class BooleanOperands(TypedDict, closed=True):
     operand_one: "aws_sdk_connectcases.types.operand_one.OperandOne"
     """<p>Represents the left hand operand in the condition.</p>"""
     operand_two: "aws_sdk_connectcases.types.operand_two.OperandTwo"

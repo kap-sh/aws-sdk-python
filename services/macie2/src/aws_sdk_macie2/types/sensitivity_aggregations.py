@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SensitivityAggregations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class SensitivityAggregations(TypedDict):
+class SensitivityAggregations(TypedDict, closed=True):
     classifiable_size_in_bytes: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p> <p>If versioning is enabled for any of the buckets, this value is based on the size of the latest version of each applicable object in the buckets. This value doesn't reflect the storage size of all versions of all applicable objects in the buckets.</p>"""
     publicly_accessible_count: NotRequired["aws_sdk_macie2.types.__long.__long"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#StartMLModelTrainingJobOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StartMLModelTrainingJobOutput(TypedDict):
+class StartMLModelTrainingJobOutput(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The unique ID of the new model training job.</p>"""
     arn: NotRequired["str"]

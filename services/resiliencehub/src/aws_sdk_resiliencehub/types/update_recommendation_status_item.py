@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#UpdateRecommendationStatusItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.aws_region
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class UpdateRecommendationStatusItem(TypedDict):
+class UpdateRecommendationStatusItem(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_resiliencehub.types.string500.String500"]
     """<p>Resource identifier of the operational recommendation item.</p>"""
     target_account_id: NotRequired["aws_sdk_resiliencehub.types.customer_id.CustomerId"]

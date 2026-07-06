@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConsolidatedPolicyAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.scalar_functions_list
 
 
-class ConsolidatedPolicyAggregation(TypedDict):
+class ConsolidatedPolicyAggregation(TypedDict, closed=True):
     aggregate_columns: (
         "aws_sdk_cleanrooms.types.aggregate_column_list.AggregateColumnList"
     )

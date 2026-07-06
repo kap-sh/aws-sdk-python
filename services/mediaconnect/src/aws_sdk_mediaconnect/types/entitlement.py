@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Entitlement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.entitlement_status
 
 
-class Entitlement(TypedDict):
+class Entitlement(TypedDict, closed=True):
     data_transfer_subscriber_fee_percent: NotRequired["int"]
     """<p> Percentage from 0-100 of the data transfer cost to be billed to the subscriber.</p>"""
     description: NotRequired["str"]

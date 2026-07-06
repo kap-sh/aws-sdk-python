@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateTrainingPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.spare_instance_count_per_ultra_server
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_plan_offering_id
 
 
-class CreateTrainingPlanRequest(TypedDict):
+class CreateTrainingPlanRequest(TypedDict, closed=True):
     training_plan_name: NotRequired[
         "aws_sdk_sagemaker.types.training_plan_name.TrainingPlanName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SearchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cross_account_filter_option
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.visibility_conditions_list
 
 
-class SearchRequest(TypedDict):
+class SearchRequest(TypedDict, closed=True):
     resource: NotRequired["aws_sdk_sagemaker.types.resource_type.ResourceType"]
     """<p>The name of the SageMaker resource to search for.</p>"""
     search_expression: NotRequired[

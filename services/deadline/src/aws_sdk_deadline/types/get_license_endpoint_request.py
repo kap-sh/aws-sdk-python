@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetLicenseEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.license_endpoint_id
 
 
-class GetLicenseEndpointRequest(TypedDict):
+class GetLicenseEndpointRequest(TypedDict, closed=True):
     license_endpoint_id: "aws_sdk_deadline.types.license_endpoint_id.LicenseEndpointId"
     """<p>The license endpoint ID.</p>"""
 

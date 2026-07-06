@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SecondarySubnetIpv4CidrBlockAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class SecondarySubnetIpv4CidrBlockAssociation(TypedDict):
+class SecondarySubnetIpv4CidrBlockAssociation(TypedDict, closed=True):
     association_id: NotRequired[
         "aws_sdk_ec2.types.secondary_subnet_cidr_association_id.SecondarySubnetCidrAssociationId"
     ]

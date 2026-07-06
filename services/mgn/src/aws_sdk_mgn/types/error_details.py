@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.large_bounded_string
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     message: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     """<p>Error details message.</p>"""
     code: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]

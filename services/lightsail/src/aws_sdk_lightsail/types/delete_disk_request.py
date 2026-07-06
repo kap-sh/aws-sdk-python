@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteDiskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class DeleteDiskRequest(TypedDict):
+class DeleteDiskRequest(TypedDict, closed=True):
     disk_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The unique name of the disk you want to delete (<code>my-disk</code>).</p>"""
     force_delete_add_ons: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]

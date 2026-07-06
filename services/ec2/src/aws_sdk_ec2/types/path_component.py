@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PathComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_route_table_route
 
 
-class PathComponent(TypedDict):
+class PathComponent(TypedDict, closed=True):
     sequence_number: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The sequence number.</p>"""
     acl_rule: NotRequired["aws_sdk_ec2.types.analysis_acl_rule.AnalysisAclRule"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpPathMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_path_exact
     import aws_sdk_app_mesh.types.http_path_regex
 
 
-class HttpPathMatch(TypedDict):
+class HttpPathMatch(TypedDict, closed=True):
     exact: NotRequired["aws_sdk_app_mesh.types.http_path_exact.HttpPathExact"]
     """<p>The exact path to match on.</p>"""
     regex: NotRequired["aws_sdk_app_mesh.types.http_path_regex.HttpPathRegex"]

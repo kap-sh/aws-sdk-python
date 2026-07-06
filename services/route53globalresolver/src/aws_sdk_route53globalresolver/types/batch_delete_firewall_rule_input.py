@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#BatchDeleteFirewallRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input_items
 
 
-class BatchDeleteFirewallRuleInput(TypedDict):
+class BatchDeleteFirewallRuleInput(TypedDict, closed=True):
     firewall_rules: "aws_sdk_route53globalresolver.types.batch_delete_firewall_rule_input_items.BatchDeleteFirewallRuleInputItems"
     """<p>An array of the DNS Firewall IDs to be deleted.</p>"""
 

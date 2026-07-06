@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#DisassociateEnvironmentOperationsRoleMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.environment_name
 
 
-class DisassociateEnvironmentOperationsRoleMessage(TypedDict):
+class DisassociateEnvironmentOperationsRoleMessage(TypedDict, closed=True):
     environment_name: "aws_sdk_elastic_beanstalk.types.environment_name.EnvironmentName"
     """<p>The name of the environment from which to disassociate the operations role.</p>"""
 

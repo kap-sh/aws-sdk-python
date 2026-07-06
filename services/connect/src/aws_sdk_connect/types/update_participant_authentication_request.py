@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateParticipantAuthenticationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_token
 
 
-class UpdateParticipantAuthenticationRequest(TypedDict):
+class UpdateParticipantAuthenticationRequest(TypedDict, closed=True):
     state: "aws_sdk_connect.types.participant_token.ParticipantToken"
     r"""<p>The <code>state</code> query parameter that was provided by Cognito in the <code>redirectUri</code>. This will also match the <code>state</code> parameter provided in the <code>AuthenticationUrl</code> from the <a href=\"https://docs.aws.amazon.com/connect/latest/APIReference/API_GetAuthenticationUrl.html\">GetAuthenticationUrl</a> response.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

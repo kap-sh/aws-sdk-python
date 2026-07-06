@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateFolderMembershipResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.folder_member
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class CreateFolderMembershipResponse(TypedDict):
+class CreateFolderMembershipResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code.StatusCode"
     """<p>The HTTP status of the request.</p>"""
     folder_member: NotRequired["aws_sdk_quicksight.types.folder_member.FolderMember"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#InboundIntegrationsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class InboundIntegrationsMessage(TypedDict):
+class InboundIntegrationsMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the <code>Marker</code> parameter and retrying the command. If the <code>Marker</code> field is empty, all response records have been retrieved for the request. </p>"""
     inbound_integrations: NotRequired[

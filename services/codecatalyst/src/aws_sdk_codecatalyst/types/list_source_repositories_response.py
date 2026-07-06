@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListSourceRepositoriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.list_source_repositories_items
 
 
-class ListSourceRepositoriesResponse(TypedDict):
+class ListSourceRepositoriesResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_codecatalyst.types.list_source_repositories_items.ListSourceRepositoriesItems"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream
 
 
-class GetStreamResponse(TypedDict):
+class GetStreamResponse(TypedDict, closed=True):
     stream: NotRequired["aws_sdk_ivs.types.stream.Stream"]
     """<p/>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#GetReservedNodeExchangeOfferingsOutputMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class GetReservedNodeExchangeOfferingsOutputMessage(TypedDict):
+class GetReservedNodeExchangeOfferingsOutputMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>An optional parameter that specifies the starting point for returning a set of response records. When the results of a <code>GetReservedNodeExchangeOfferings</code> request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the marker field of the response. You can retrieve the next set of response records by providing the returned marker value in the marker parameter and retrying the request. </p>"""
     reserved_node_offerings: NotRequired[

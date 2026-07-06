@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#PutDefaultEncryptionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.encryption_type
 
 
-class PutDefaultEncryptionConfigurationResponse(TypedDict):
+class PutDefaultEncryptionConfigurationResponse(TypedDict, closed=True):
     encryption_type: "aws_sdk_iotsitewise.types.encryption_type.EncryptionType"
     """<p>The type of encryption used for the encryption configuration.</p>"""
     kms_key_arn: NotRequired["aws_sdk_iotsitewise.types.arn.ARN"]

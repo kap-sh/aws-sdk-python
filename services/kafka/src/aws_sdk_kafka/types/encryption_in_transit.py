@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#EncryptionInTransit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
     import aws_sdk_kafka.types.client_broker
 
 
-class EncryptionInTransit(TypedDict):
+class EncryptionInTransit(TypedDict, closed=True):
     client_broker: NotRequired["aws_sdk_kafka.types.client_broker.ClientBroker"]
     """<p>Indicates the encryption setting for data in transit between clients and brokers. The following are the possible values.</p> <p> TLS means that client-broker communication is enabled with TLS only.</p> <p> TLS_PLAINTEXT means that client-broker communication is enabled for both TLS-encrypted, as well as plaintext data.</p> <p> PLAINTEXT means that client-broker communication is enabled in plaintext only.</p> <p>The default value is TLS_PLAINTEXT.</p>"""
     in_cluster: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]

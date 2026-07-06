@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#GetRandomPasswordResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.random_password_type
 
 
-class GetRandomPasswordResponse(TypedDict):
+class GetRandomPasswordResponse(TypedDict, closed=True):
     random_password: NotRequired[
         "aws_sdk_secrets_manager.types.random_password_type.RandomPasswordType"
     ]

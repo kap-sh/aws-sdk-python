@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GitLabDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.token_value
 
 
-class GitLabDetails(TypedDict):
+class GitLabDetails(TypedDict, closed=True):
     target_url: "str"
     """<p>GitLab instance URL (e.g., https://gitlab.com or self-hosted instance).</p>"""
     token_type: "aws_sdk_devops_agent.types.git_lab_token_type.GitLabTokenType"

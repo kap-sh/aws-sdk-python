@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ListWorkerConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__list_of_worker_configuration_summary
     import aws_sdk_kafkaconnect.types.__string
 
 
-class ListWorkerConfigurationsResponse(TypedDict):
+class ListWorkerConfigurationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>If the response of a ListWorkerConfigurations operation is truncated, it will include a NextToken. Send this NextToken in a subsequent request to continue listing from where the previous operation left off.</p>"""
     worker_configurations: NotRequired[

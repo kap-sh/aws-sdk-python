@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#EvictFilesFailingUploadOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.string
 
 
-class EvictFilesFailingUploadOutput(TypedDict):
+class EvictFilesFailingUploadOutput(TypedDict, closed=True):
     notification_id: NotRequired["aws_sdk_storage_gateway.types.string.string"]
     """<p>The randomly generated ID of the CloudWatch notification associated with the cache clean operation. This ID is in UUID format.</p>"""
 

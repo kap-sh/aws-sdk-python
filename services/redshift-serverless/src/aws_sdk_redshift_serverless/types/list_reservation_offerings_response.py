@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListReservationOfferingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.reservation_offerings_list
 
 
-class ListReservationOfferingsResponse(TypedDict):
+class ListReservationOfferingsResponse(TypedDict, closed=True):
     reservation_offerings_list: "aws_sdk_redshift_serverless.types.reservation_offerings_list.ReservationOfferingsList"
     """<p>The returned list of reservation offerings.</p>"""
     next_token: NotRequired[

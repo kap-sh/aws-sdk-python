@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#StreetComponents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.language_tag
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.type_separator
 
 
-class StreetComponents(TypedDict):
+class StreetComponents(TypedDict, closed=True):
     base_name: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     r"""<p>Base name part of the street name. </p> <p>Example: Younge from the \"Younge street\".</p>"""
     type: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

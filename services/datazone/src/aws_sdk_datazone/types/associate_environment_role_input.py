@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssociateEnvironmentRoleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.environment_id
 
 
-class AssociateEnvironmentRoleInput(TypedDict):
+class AssociateEnvironmentRoleInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which the environment role is associated.</p>"""
     environment_identifier: "aws_sdk_datazone.types.environment_id.EnvironmentId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CaptionSourceFramerate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max1001
     import aws_sdk_mediaconvert.types.__integer_min1_max60000
 
 
-class CaptionSourceFramerate(TypedDict):
+class CaptionSourceFramerate(TypedDict, closed=True):
     framerate_denominator: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max1001.__integerMin1Max1001"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Detection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.sequence
 
 
-class Detection(TypedDict):
+class Detection(TypedDict, closed=True):
     sequence: NotRequired["aws_sdk_securityhub.types.sequence.Sequence"]
     """<p> Provides details about an attack sequence. </p>"""
 

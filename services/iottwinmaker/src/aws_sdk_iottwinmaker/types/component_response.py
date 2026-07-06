@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ComponentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.sync_source
 
 
-class ComponentResponse(TypedDict):
+class ComponentResponse(TypedDict, closed=True):
     component_name: NotRequired["aws_sdk_iottwinmaker.types.name.Name"]
     """<p>The name of the component.</p>"""
     description: NotRequired["aws_sdk_iottwinmaker.types.description.Description"]

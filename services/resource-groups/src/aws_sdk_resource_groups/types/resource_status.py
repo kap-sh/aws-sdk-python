@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ResourceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_status_value
 
 
-class ResourceStatus(TypedDict):
+class ResourceStatus(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_resource_groups.types.resource_status_value.ResourceStatusValue"
     ]

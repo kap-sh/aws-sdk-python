@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#S3ExportingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.s3_key_name_customer_output_config
 
 
-class S3ExportingConfig(TypedDict):
+class S3ExportingConfig(TypedDict, closed=True):
     s3_bucket_name: "aws_sdk_customer_profiles.types.s3_bucket_name.s3BucketName"
     """<p>The name of the S3 bucket where Identity Resolution Jobs write result files.</p>"""
     s3_key_name: NotRequired[

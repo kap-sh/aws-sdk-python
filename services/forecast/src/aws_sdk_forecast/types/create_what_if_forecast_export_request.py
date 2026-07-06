@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateWhatIfForecastExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.what_if_forecast_arn_list_for_export
 
 
-class CreateWhatIfForecastExportRequest(TypedDict):
+class CreateWhatIfForecastExportRequest(TypedDict, closed=True):
     what_if_forecast_export_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the what-if forecast to export.</p>"""
     what_if_forecast_arns: "aws_sdk_forecast.types.what_if_forecast_arn_list_for_export.WhatIfForecastArnListForExport"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.address
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.sensitive_string1_to1000
 
 
-class CreateProfileRequest(TypedDict):
+class CreateProfileRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     account_number: NotRequired[

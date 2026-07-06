@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.double
 
 
-class Range(TypedDict):
+class Range(TypedDict, closed=True):
     maximum: "aws_sdk_appflow.types.double.Double"
     """<p>Maximum value supported by the field.</p>"""
     minimum: "aws_sdk_appflow.types.double.Double"

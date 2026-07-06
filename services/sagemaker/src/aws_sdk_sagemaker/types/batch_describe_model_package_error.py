@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchDescribeModelPackageError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class BatchDescribeModelPackageError(TypedDict):
+class BatchDescribeModelPackageError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p/>"""
     error_response: NotRequired["aws_sdk_sagemaker.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.tag_key
     import aws_sdk_compute_optimizer.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_compute_optimizer.types.tag_key.TagKey"]
     """<p> One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values. </p>"""
     value: NotRequired["aws_sdk_compute_optimizer.types.tag_value.TagValue"]

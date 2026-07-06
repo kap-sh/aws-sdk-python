@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteMatrixResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.route_matrix
 
 
-class CalculateRouteMatrixResponse(TypedDict):
+class CalculateRouteMatrixResponse(TypedDict, closed=True):
     route_matrix: "aws_sdk_location.types.route_matrix.RouteMatrix"
     """<p>The calculated route matrix containing the results for all pairs of <code>DeparturePositions</code> to <code>DestinationPositions</code>. Each row corresponds to one entry in <code>DeparturePositions</code>. Each entry in the row corresponds to the route from that entry in <code>DeparturePositions</code> to an entry in <code>DestinationPositions</code>. </p>"""
     snapped_departure_positions: NotRequired[

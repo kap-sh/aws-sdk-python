@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#FailoverState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class FailoverState(TypedDict):
+class FailoverState(TypedDict, closed=True):
     status: NotRequired["aws_sdk_neptune.types.failover_status.FailoverStatus"]
     """<p>The current status of the global cluster. Possible values are as follows:</p> <ul> <li> <p>pending  The service received a request to switch over or fail over the global cluster. The global cluster's primary DB cluster and the specified secondary DB cluster are being verified before the operation starts.</p> </li> <li> <p>failing-over  Neptune is promoting the chosen secondary Neptune DB cluster to become the new primary DB cluster to fail over the global cluster.</p> </li> <li> <p>cancelling  The request to switch over or fail over the global cluster was cancelled and the primary Neptune DB cluster and the selected secondary Neptune DB cluster are returning to their previous states.</p> </li> <li> <p>switching-over  This status covers the range of Neptune internal operations that take place during the switchover process, such as demoting the primary Neptune DB cluster, promoting the secondary Neptune DB cluster, and synchronizing replicas.</p> </li> </ul>"""
     from_db_cluster_arn: NotRequired["aws_sdk_neptune.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetRegexMatchSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class GetRegexMatchSetRequest(TypedDict):
+class GetRegexMatchSetRequest(TypedDict, closed=True):
     regex_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RegexMatchSetId</code> of the <a>RegexMatchSet</a> that you want to get. <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"""
 

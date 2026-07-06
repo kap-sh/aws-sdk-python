@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.status_reasons
 
 
-class DeleteGatewayResponse(TypedDict):
+class DeleteGatewayResponse(TypedDict, closed=True):
     gateway_id: "aws_sdk_bedrock_agentcore_control.types.gateway_id.GatewayId"
     """<p>The unique identifier of the deleted gateway.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.gateway_status.GatewayStatus"

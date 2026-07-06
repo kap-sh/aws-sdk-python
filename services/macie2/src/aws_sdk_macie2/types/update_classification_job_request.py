@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateClassificationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.job_status
 
 
-class UpdateClassificationJobRequest(TypedDict):
+class UpdateClassificationJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_macie2.types.__string.__string"
     """<p>The unique identifier for the classification job.</p>"""
     job_status: NotRequired["aws_sdk_macie2.types.job_status.JobStatus"]

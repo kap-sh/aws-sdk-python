@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CompletionReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.archive_path
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.report_scope
 
 
-class CompletionReport(TypedDict):
+class CompletionReport(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     """<p>Set <code>Enabled</code> to <code>True</code> to generate a <code>CompletionReport</code> when the task completes. If set to <code>true</code>, then you need to provide a report <code>Scope</code>, <code>Path</code>, and <code>Format</code>. Set <code>Enabled</code> to <code>False</code> if you do not want a <code>CompletionReport</code> generated when the task completes.</p>"""
     path: NotRequired["aws_sdk_fsx.types.archive_path.ArchivePath"]

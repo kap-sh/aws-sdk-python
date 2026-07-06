@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#IngestEndpoint``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class IngestEndpoint(TypedDict):
+class IngestEndpoint(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The system-generated unique identifier for the IngestEndpoint.</p>"""
     url: NotRequired["str"]

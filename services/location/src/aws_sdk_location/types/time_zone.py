@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#TimeZone``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_string
 
 
-class TimeZone(TypedDict):
+class TimeZone(TypedDict, closed=True):
     name: "aws_sdk_location.types.sensitive_string.SensitiveString"
     r"""<p>The name of the time zone, following the <a href=\"https://www.iana.org/time-zones\"> IANA time zone standard</a>. For example, <code>America/Los_Angeles</code>.</p>"""
     offset: NotRequired["aws_sdk_location.types.sensitive_integer.SensitiveInteger"]

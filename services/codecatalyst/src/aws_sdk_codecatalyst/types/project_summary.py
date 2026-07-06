@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ProjectSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
 
-class ProjectSummary(TypedDict):
+class ProjectSummary(TypedDict, closed=True):
     name: "str"
     """<p>The name of the project in the space.</p>"""
     display_name: NotRequired["str"]

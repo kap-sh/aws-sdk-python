@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReferenceLineValueLabelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.numeric_format_configuration
     import aws_sdk_quicksight.types.reference_line_value_label_relative_position
 
 
-class ReferenceLineValueLabelConfiguration(TypedDict):
+class ReferenceLineValueLabelConfiguration(TypedDict, closed=True):
     relative_position: NotRequired[
         "aws_sdk_quicksight.types.reference_line_value_label_relative_position.ReferenceLineValueLabelRelativePosition"
     ]

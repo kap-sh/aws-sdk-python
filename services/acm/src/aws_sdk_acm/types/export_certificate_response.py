@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ExportCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_body
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.private_key
 
 
-class ExportCertificateResponse(TypedDict):
+class ExportCertificateResponse(TypedDict, closed=True):
     certificate: NotRequired["aws_sdk_acm.types.certificate_body.CertificateBody"]
     """<p>The base64 PEM-encoded certificate.</p>"""
     certificate_chain: NotRequired[

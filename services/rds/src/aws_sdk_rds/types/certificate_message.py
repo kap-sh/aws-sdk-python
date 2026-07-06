@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CertificateMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class CertificateMessage(TypedDict):
+class CertificateMessage(TypedDict, closed=True):
     default_certificate_for_new_launches: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The default root CA for new databases created by your Amazon Web Services account. This is either the root CA override set on your Amazon Web Services account or the system default CA for the Region if no override exists. To override the default CA, use the <code>ModifyCertificates</code> operation.</p>"""
     certificates: NotRequired["aws_sdk_rds.types.certificate_list.CertificateList"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#VpcSecurityGroupMembership``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.vpc_security_group_id
 
 
-class VpcSecurityGroupMembership(TypedDict):
+class VpcSecurityGroupMembership(TypedDict, closed=True):
     vpc_security_group_id: NotRequired[
         "aws_sdk_redshift_serverless.types.vpc_security_group_id.VpcSecurityGroupId"
     ]

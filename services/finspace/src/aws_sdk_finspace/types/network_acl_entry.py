@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#NetworkACLEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.valid_cidr_block
 
 
-class NetworkACLEntry(TypedDict):
+class NetworkACLEntry(TypedDict, closed=True):
     rule_number: "aws_sdk_finspace.types.rule_number.RuleNumber"
     """<p> The rule number for the entry. For example <i>100</i>. All the network ACL entries are processed in ascending order by rule number. </p>"""
     protocol: "aws_sdk_finspace.types.protocol.Protocol"

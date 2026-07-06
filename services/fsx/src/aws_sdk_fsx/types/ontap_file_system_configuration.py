@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OntapFileSystemConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.admin_password
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.weekly_time
 
 
-class OntapFileSystemConfiguration(TypedDict):
+class OntapFileSystemConfiguration(TypedDict, closed=True):
     automatic_backup_retention_days: NotRequired[
         "aws_sdk_fsx.types.automatic_backup_retention_days.AutomaticBackupRetentionDays"
     ]

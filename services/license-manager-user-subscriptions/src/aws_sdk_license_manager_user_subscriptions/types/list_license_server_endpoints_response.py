@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ListLicenseServerEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_list
 
 
-class ListLicenseServerEndpointsResponse(TypedDict):
+class ListLicenseServerEndpointsResponse(TypedDict, closed=True):
     license_server_endpoints: NotRequired[
         "aws_sdk_license_manager_user_subscriptions.types.license_server_endpoint_list.LicenseServerEndpointList"
     ]

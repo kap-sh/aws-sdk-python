@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.pattern
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     pattern: NotRequired["aws_sdk_lambda.types.pattern.Pattern"]
     r"""<p> A filter pattern. For more information on the syntax of a filter pattern, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax\"> Filter rule syntax</a>. </p>"""
 

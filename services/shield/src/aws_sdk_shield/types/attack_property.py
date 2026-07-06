@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AttackProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.attack_layer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.unit
 
 
-class AttackProperty(TypedDict):
+class AttackProperty(TypedDict, closed=True):
     attack_layer: NotRequired["aws_sdk_shield.types.attack_layer.AttackLayer"]
     r"""<p>The type of Shield event that was observed. <code>NETWORK</code> indicates layer 3 and layer 4 events and <code>APPLICATION</code> indicates layer 7 events.</p> <p>For infrastructure layer events (L3 and L4 events), you can view metrics for top contributors in Amazon CloudWatch metrics. For more information, see <a href=\"https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms\">Shield metrics and alarms</a> in the <i>WAF Developer Guide</i>. </p>"""
     attack_property_identifier: NotRequired[

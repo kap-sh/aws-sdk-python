@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#QuickResponseOrderField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.order
 
 
-class QuickResponseOrderField(TypedDict):
+class QuickResponseOrderField(TypedDict, closed=True):
     name: "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"
     """<p>The name of the attribute to order the quick response query results by.</p>"""
     order: NotRequired["aws_sdk_qconnect.types.order.Order"]

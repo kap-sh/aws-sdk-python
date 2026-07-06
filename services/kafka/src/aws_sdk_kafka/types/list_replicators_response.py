@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListReplicatorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_replicator_summary
     import aws_sdk_kafka.types.__string
 
 
-class ListReplicatorsResponse(TypedDict):
+class ListReplicatorsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>"""
     replicators: NotRequired[

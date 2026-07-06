@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#StartCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.segment_condition
 
 
-class StartCondition(TypedDict):
+class StartCondition(TypedDict, closed=True):
     description: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The custom description of the condition.</p>"""
     event_start_condition: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#UploadPartCopyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.ssekms_key_id
 
 
-class UploadPartCopyOutput(TypedDict):
+class UploadPartCopyOutput(TypedDict, closed=True):
     copy_source_version_id: NotRequired[
         "aws_sdk_s3.types.copy_source_version_id.CopySourceVersionId"
     ]

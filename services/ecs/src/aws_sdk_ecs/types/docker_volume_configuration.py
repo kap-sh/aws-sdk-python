@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DockerVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_map
 
 
-class DockerVolumeConfiguration(TypedDict):
+class DockerVolumeConfiguration(TypedDict, closed=True):
     scope: NotRequired["aws_sdk_ecs.types.scope.Scope"]
     """<p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a <code>task</code> are automatically provisioned when the task starts and destroyed when the task stops. Docker volumes that are scoped as <code>shared</code> persist after the task stops.</p>"""
     autoprovision: NotRequired["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CfnStackUpdateParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cfn_stack_parameter_key
     import aws_sdk_sagemaker.types.cfn_stack_parameter_value
 
 
-class CfnStackUpdateParameter(TypedDict):
+class CfnStackUpdateParameter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_sagemaker.types.cfn_stack_parameter_key.CfnStackParameterKey"
     ]

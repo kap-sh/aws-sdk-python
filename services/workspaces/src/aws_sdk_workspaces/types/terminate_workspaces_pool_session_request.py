@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#TerminateWorkspacesPoolSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.amazon_uuid
 
 
-class TerminateWorkspacesPoolSessionRequest(TypedDict):
+class TerminateWorkspacesPoolSessionRequest(TypedDict, closed=True):
     session_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid"
     """<p>The identifier of the pool session.</p>"""
 

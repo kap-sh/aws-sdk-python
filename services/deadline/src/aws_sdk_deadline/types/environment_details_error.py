@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#EnvironmentDetailsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class EnvironmentDetailsError(TypedDict):
+class EnvironmentDetailsError(TypedDict, closed=True):
     job_id: "aws_sdk_deadline.types.job_id.JobId"
     """<p>The job ID.</p>"""
     environment_id: "aws_sdk_deadline.types.environment_id.EnvironmentId"

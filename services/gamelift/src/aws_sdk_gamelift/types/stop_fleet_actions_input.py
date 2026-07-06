@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#StopFleetActionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_action_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_string_model
 
 
-class StopFleetActionsInput(TypedDict):
+class StopFleetActionsInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to stop actions on. You can use either the fleet ID or ARN value.</p>"""
     actions: NotRequired["aws_sdk_gamelift.types.fleet_action_list.FleetActionList"]

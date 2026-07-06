@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateMLTransformRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class UpdateMLTransformRequest(TypedDict):
+class UpdateMLTransformRequest(TypedDict, closed=True):
     transform_id: "aws_sdk_glue.types.hash_string.HashString"
     """<p>A unique identifier that was generated when the transform was created.</p>"""
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

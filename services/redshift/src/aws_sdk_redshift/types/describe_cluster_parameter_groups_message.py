@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeClusterParameterGroupsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_value_list
 
 
-class DescribeClusterParameterGroupsMessage(TypedDict):
+class DescribeClusterParameterGroupsMessage(TypedDict, closed=True):
     parameter_group_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of a specific parameter group for which to return details. By default, details about all parameter groups and the default parameter group are returned.</p>"""
     max_records: NotRequired["aws_sdk_redshift.types.integer_optional.IntegerOptional"]

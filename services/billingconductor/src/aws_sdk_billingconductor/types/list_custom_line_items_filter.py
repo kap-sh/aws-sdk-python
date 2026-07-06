@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListCustomLineItemsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.account_id_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.custom_line_item_name_list
 
 
-class ListCustomLineItemsFilter(TypedDict):
+class ListCustomLineItemsFilter(TypedDict, closed=True):
     names: NotRequired[
         "aws_sdk_billingconductor.types.custom_line_item_name_list.CustomLineItemNameList"
     ]

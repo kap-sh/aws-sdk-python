@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#TextSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class TextSegment(TypedDict):
+class TextSegment(TypedDict, closed=True):
     begin_offset: NotRequired["aws_sdk_qbusiness.types.integer.Integer"]
     """<p>The zero-based location in the response string where the source attribution starts.</p>"""
     end_offset: NotRequired["aws_sdk_qbusiness.types.integer.Integer"]

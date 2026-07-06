@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetMaintenanceWindowExecutionTaskResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.alarm_configuration
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.service_role
 
 
-class GetMaintenanceWindowExecutionTaskResult(TypedDict):
+class GetMaintenanceWindowExecutionTaskResult(TypedDict, closed=True):
     window_execution_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_execution_id.MaintenanceWindowExecutionId"
     ]

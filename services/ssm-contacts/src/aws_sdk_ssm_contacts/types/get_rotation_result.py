@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#GetRotationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.time_zone_id
 
 
-class GetRotationResult(TypedDict):
+class GetRotationResult(TypedDict, closed=True):
     rotation_arn: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     """<p>The Amazon Resource Name (ARN) of the on-call rotation.</p>"""
     name: "aws_sdk_ssm_contacts.types.rotation_name.RotationName"

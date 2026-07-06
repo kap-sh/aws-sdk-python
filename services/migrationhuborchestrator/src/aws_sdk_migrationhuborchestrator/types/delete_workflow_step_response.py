@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#DeleteWorkflowStepResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteWorkflowStepResponse(TypedDict):
+class DeleteWorkflowStepResponse(TypedDict, closed=True):
     pass
 
 

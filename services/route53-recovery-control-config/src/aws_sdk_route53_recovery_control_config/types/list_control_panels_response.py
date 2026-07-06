@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#ListControlPanelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__list_of_control_panel
     import aws_sdk_route53_recovery_control_config.types.__string_min1_max8096_pattern_s
 
 
-class ListControlPanelsResponse(TypedDict):
+class ListControlPanelsResponse(TypedDict, closed=True):
     control_panels: NotRequired[
         "aws_sdk_route53_recovery_control_config.types.__list_of_control_panel.__listOfControlPanel"
     ]

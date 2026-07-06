@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#SearchCertificatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_filter_statement
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.search_max_results
 
 
-class SearchCertificatesRequest(TypedDict):
+class SearchCertificatesRequest(TypedDict, closed=True):
     filter_statement: NotRequired[
         "aws_sdk_acm.types.certificate_filter_statement.CertificateFilterStatement"
     ]

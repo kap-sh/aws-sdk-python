@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#ListSnapshotBlocksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_index
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.snapshot_id
 
 
-class ListSnapshotBlocksRequest(TypedDict):
+class ListSnapshotBlocksRequest(TypedDict, closed=True):
     snapshot_id: "aws_sdk_ebs.types.snapshot_id.SnapshotId"
     """<p>The ID of the snapshot from which to get block indexes and block tokens.</p>"""
     next_token: NotRequired["aws_sdk_ebs.types.page_token.PageToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#UpdateEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string20
 
 
-class UpdateEnvironmentRequest(TypedDict):
+class UpdateEnvironmentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the runtime environment that you want to update.</p>"""
     desired_capacity: NotRequired["aws_sdk_m2.types.capacity_value.CapacityValue"]

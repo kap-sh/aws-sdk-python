@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicyRemoveHeadersConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.response_headers_policy_remove_header_list
 
 
-class ResponseHeadersPolicyRemoveHeadersConfig(TypedDict):
+class ResponseHeadersPolicyRemoveHeadersConfig(TypedDict, closed=True):
     quantity: "aws_sdk_cloudfront.types.integer.integer"
     """<p>The number of HTTP header names in the list.</p>"""
     items: NotRequired[

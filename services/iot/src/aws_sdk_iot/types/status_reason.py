@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#StatusReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.status_reason_description
 
 
-class StatusReason(TypedDict):
+class StatusReason(TypedDict, closed=True):
     reason_code: "aws_sdk_iot.types.status_reason_code.StatusReasonCode"
     """<p>A code that provides additional context for the command execution status.</p>"""
     reason_description: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#VectorEnrichmentJobErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_error_type
 
 
-class VectorEnrichmentJobErrorDetails(TypedDict):
+class VectorEnrichmentJobErrorDetails(TypedDict, closed=True):
     error_type: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_error_type.VectorEnrichmentJobErrorType"
     ]

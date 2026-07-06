@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AssociatePricingRulesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.pricing_rule_arns_non_empty_input
 
 
-class AssociatePricingRulesInput(TypedDict):
+class AssociatePricingRulesInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.pricing_plan_arn.PricingPlanArn"
     """<p> The <code>PricingPlanArn</code> that the <code>PricingRuleArns</code> are associated with. </p>"""
     pricing_rule_arns: "aws_sdk_billingconductor.types.pricing_rule_arns_non_empty_input.PricingRuleArnsNonEmptyInput"

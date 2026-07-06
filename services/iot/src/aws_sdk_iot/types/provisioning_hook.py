@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ProvisioningHook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.target_arn
 
 
-class ProvisioningHook(TypedDict):
+class ProvisioningHook(TypedDict, closed=True):
     payload_version: NotRequired["aws_sdk_iot.types.payload_version.PayloadVersion"]
     """<p>The payload that was sent to the target function.</p> <p> <i>Note:</i> Only Lambda functions are currently supported.</p>"""
     target_arn: "aws_sdk_iot.types.target_arn.TargetArn"

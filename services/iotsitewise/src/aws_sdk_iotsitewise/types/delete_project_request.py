@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DeleteProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.client_token
     import aws_sdk_iotsitewise.types.id
 
 
-class DeleteProjectRequest(TypedDict):
+class DeleteProjectRequest(TypedDict, closed=True):
     project_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the project.</p>"""
     client_token: NotRequired["aws_sdk_iotsitewise.types.client_token.ClientToken"]

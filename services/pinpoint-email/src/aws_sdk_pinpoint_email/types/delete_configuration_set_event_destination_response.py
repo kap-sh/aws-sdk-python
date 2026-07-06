@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DeleteConfigurationSetEventDestinationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConfigurationSetEventDestinationResponse(TypedDict):
+class DeleteConfigurationSetEventDestinationResponse(TypedDict, closed=True):
     pass
 
 

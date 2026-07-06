@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#AuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.role_arn
 
 
-class AuthenticationConfiguration(TypedDict):
+class AuthenticationConfiguration(TypedDict, closed=True):
     role_arn: "aws_sdk_firehose.types.role_arn.RoleARN"
     """<p>The ARN of the role used to access the Amazon MSK cluster.</p>"""
     connectivity: "aws_sdk_firehose.types.connectivity.Connectivity"

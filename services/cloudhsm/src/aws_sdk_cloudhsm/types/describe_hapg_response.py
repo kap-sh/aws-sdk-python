@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#DescribeHapgResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.cloud_hsm_object_state
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.timestamp
 
 
-class DescribeHapgResponse(TypedDict):
+class DescribeHapgResponse(TypedDict, closed=True):
     hapg_arn: NotRequired["aws_sdk_cloudhsm.types.hapg_arn.HapgArn"]
     """<p>The ARN of the high-availability partition group.</p>"""
     hapg_serial: NotRequired["aws_sdk_cloudhsm.types.string.String"]

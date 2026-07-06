@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdateSessionLoggerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.log_configuration
 
 
-class UpdateSessionLoggerRequest(TypedDict):
+class UpdateSessionLoggerRequest(TypedDict, closed=True):
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the session logger to update.</p>"""
     event_filter: NotRequired["aws_sdk_workspaces_web.types.event_filter.EventFilter"]

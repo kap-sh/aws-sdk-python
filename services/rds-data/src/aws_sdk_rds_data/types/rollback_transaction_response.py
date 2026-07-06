@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#RollbackTransactionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.transaction_status
 
 
-class RollbackTransactionResponse(TypedDict):
+class RollbackTransactionResponse(TypedDict, closed=True):
     transaction_status: NotRequired[
         "aws_sdk_rds_data.types.transaction_status.TransactionStatus"
     ]

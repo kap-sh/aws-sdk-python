@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListPartnerAppsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_results
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListPartnerAppsRequest(TypedDict):
+class ListPartnerAppsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_sagemaker.types.max_results.MaxResults"]
     """<p>This parameter defines the maximum number of results that can be returned in a single response. The <code>MaxResults</code> parameter is an upper bound, not a target. If there are more results available than the value specified, a <code>NextToken</code> is provided in the response. The <code>NextToken</code> indicates that the user should get the next set of results by providing this token as a part of a subsequent call. The default value for <code>MaxResults</code> is 10.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

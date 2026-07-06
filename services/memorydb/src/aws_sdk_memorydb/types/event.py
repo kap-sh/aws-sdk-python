@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Event``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.source_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.t_stamp
 
 
-class Event(TypedDict):
+class Event(TypedDict, closed=True):
     source_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name for the source of the event. For example, if the event occurred at the cluster level, the identifier would be the name of the cluster.</p>"""
     source_type: NotRequired["aws_sdk_memorydb.types.source_type.SourceType"]

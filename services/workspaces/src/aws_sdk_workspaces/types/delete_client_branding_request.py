@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeleteClientBrandingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class DeleteClientBrandingRequest(TypedDict):
+class DeleteClientBrandingRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The directory identifier of the WorkSpace for which you want to delete client branding.</p>"""
     platforms: "aws_sdk_workspaces.types.client_device_type_list.ClientDeviceTypeList"

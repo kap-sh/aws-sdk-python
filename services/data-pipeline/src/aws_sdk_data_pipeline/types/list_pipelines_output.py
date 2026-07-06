@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ListPipelinesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_data_pipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.string
 
 
-class ListPipelinesOutput(TypedDict):
+class ListPipelinesOutput(TypedDict, closed=True):
     pipeline_id_list: "aws_sdk_data_pipeline.types.pipeline_list.pipelineList"
     """<p>The pipeline identifiers. If you require additional information about the pipelines, you can use these identifiers to call <a>DescribePipelines</a> and <a>GetPipelineDefinition</a>.</p>"""
     marker: NotRequired["aws_sdk_data_pipeline.types.string.string"]

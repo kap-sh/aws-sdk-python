@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#GetTelemetryMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.telemetry_metadata_list
 
 
-class GetTelemetryMetadataResponse(TypedDict):
+class GetTelemetryMetadataResponse(TypedDict, closed=True):
     telemetry_metadata: (
         "aws_sdk_inspector.types.telemetry_metadata_list.TelemetryMetadataList"
     )

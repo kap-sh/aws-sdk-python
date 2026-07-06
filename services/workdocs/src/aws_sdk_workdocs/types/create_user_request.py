@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CreateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workdocs.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.username_type
 
 
-class CreateUserRequest(TypedDict):
+class CreateUserRequest(TypedDict, closed=True):
     organization_id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]
     """<p>The ID of the organization.</p>"""
     username: "aws_sdk_workdocs.types.username_type.UsernameType"

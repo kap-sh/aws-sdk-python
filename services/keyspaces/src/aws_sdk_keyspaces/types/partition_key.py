@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#PartitionKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.generic_string
 
 
-class PartitionKey(TypedDict):
+class PartitionKey(TypedDict, closed=True):
     name: "aws_sdk_keyspaces.types.generic_string.GenericString"
     """<p>The name(s) of the partition key column(s).</p>"""
 

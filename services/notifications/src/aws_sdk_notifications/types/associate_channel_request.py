@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#AssociateChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_configuration_arn
 
 
-class AssociateChannelRequest(TypedDict):
+class AssociateChannelRequest(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.channel_arn.ChannelArn"
     """<p>The Amazon Resource Name (ARN) of the Channel to associate with the <code>NotificationConfiguration</code>.</p> <p>Supported ARNs include Amazon Q Developer in chat applications, the Console Mobile Application, and notifications-contacts.</p>"""
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"

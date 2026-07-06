@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EndAssociatedTasksActionDefinition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EndAssociatedTasksActionDefinition(TypedDict):
+class EndAssociatedTasksActionDefinition(TypedDict, closed=True):
     pass
 
 

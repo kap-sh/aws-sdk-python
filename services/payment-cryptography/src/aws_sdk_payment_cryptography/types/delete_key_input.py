@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#DeleteKeyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type
 
 
-class DeleteKeyInput(TypedDict):
+class DeleteKeyInput(TypedDict, closed=True):
     key_identifier: "aws_sdk_payment_cryptography.types.key_arn_or_key_alias_type.KeyArnOrKeyAliasType"
     """<p>The <code>KeyARN</code> of the key that is scheduled for deletion.</p>"""
     delete_key_in_days: NotRequired["int"]

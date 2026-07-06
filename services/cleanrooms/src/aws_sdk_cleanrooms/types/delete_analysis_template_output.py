@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteAnalysisTemplateOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAnalysisTemplateOutput(TypedDict):
+class DeleteAnalysisTemplateOutput(TypedDict, closed=True):
     pass
 
 

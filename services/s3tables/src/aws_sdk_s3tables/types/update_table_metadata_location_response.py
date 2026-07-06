@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#UpdateTableMetadataLocationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.version_token
 
 
-class UpdateTableMetadataLocationResponse(TypedDict):
+class UpdateTableMetadataLocationResponse(TypedDict, closed=True):
     name: "aws_sdk_s3tables.types.table_name.TableName"
     """<p>The name of the table.</p>"""
     table_arn: "aws_sdk_s3tables.types.table_arn.TableARN"

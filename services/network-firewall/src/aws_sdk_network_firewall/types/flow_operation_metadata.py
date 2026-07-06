@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#FlowOperationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.flow_operation_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.flow_request_timestamp
 
 
-class FlowOperationMetadata(TypedDict):
+class FlowOperationMetadata(TypedDict, closed=True):
     flow_operation_id: NotRequired[
         "aws_sdk_network_firewall.types.flow_operation_id.FlowOperationId"
     ]

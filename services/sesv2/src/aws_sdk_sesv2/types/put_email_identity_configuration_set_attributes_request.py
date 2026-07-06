@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutEmailIdentityConfigurationSetAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.configuration_set_name
     import aws_sdk_sesv2.types.identity
 
 
-class PutEmailIdentityConfigurationSetAttributesRequest(TypedDict):
+class PutEmailIdentityConfigurationSetAttributesRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_sesv2.types.identity.Identity"
     """<p>The email address or domain to associate with a configuration set.</p>"""
     configuration_set_name: NotRequired[

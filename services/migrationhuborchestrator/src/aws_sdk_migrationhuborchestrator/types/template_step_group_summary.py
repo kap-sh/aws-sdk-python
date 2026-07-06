@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#TemplateStepGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.string_list
 
 
-class TemplateStepGroupSummary(TypedDict):
+class TemplateStepGroupSummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The ID of the step group.</p>"""
     name: NotRequired["str"]

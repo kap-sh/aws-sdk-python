@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryLifeCycle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_result
 
 
-class RecoveryLifeCycle(TypedDict):
+class RecoveryLifeCycle(TypedDict, closed=True):
     api_call_date_time: NotRequired["datetime.datetime"]
     """<p>The date and time the last Source Network recovery was initiated.</p>"""
     job_id: NotRequired["aws_sdk_drs.types.job_id.JobID"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_discovery_service.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.message
 
 
-class InvalidParameterValueException_(TypedDict):
+class InvalidParameterValueException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_application_discovery_service.types.message.Message"]
 
 

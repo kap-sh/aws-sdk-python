@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AssociationSetDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.association_state_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AssociationSetDetails(TypedDict):
+class AssociationSetDetails(TypedDict, closed=True):
     association_state: NotRequired[
         "aws_sdk_securityhub.types.association_state_details.AssociationStateDetails"
     ]

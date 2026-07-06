@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#SummarizedCounter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.string
 
 
-class SummarizedCounter(TypedDict):
+class SummarizedCounter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_shield.types.string.String"]
     """<p>The counter name.</p>"""
     max: "aws_sdk_shield.types.double.Double"

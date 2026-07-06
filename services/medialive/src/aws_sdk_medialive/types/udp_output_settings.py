@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UdpOutputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0_max10000
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.udp_container_settings
 
 
-class UdpOutputSettings(TypedDict):
+class UdpOutputSettings(TypedDict, closed=True):
     buffer_msec: NotRequired[
         "aws_sdk_medialive.types.__integer_min0_max10000.__integerMin0Max10000"
     ]

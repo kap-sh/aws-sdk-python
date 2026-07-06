@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#SessionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.encryption_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.session_idle_timeout_in_minutes
 
 
-class SessionConfiguration(TypedDict):
+class SessionConfiguration(TypedDict, closed=True):
     execution_role: NotRequired["aws_sdk_athena.types.role_arn.RoleArn"]
     """<p>The ARN of the execution role used to access user resources for Spark sessions and Identity Center enabled workgroups. This property applies only to Spark enabled workgroups and Identity Center enabled workgroups.</p>"""
     working_directory: NotRequired[

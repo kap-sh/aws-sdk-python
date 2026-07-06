@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandExecutionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.target_arn
 
 
-class CommandExecutionSummary(TypedDict):
+class CommandExecutionSummary(TypedDict, closed=True):
     command_arn: NotRequired["aws_sdk_iot.types.command_arn.CommandArn"]
     """<p>The Amazon Resource Name (ARN) of the command execution.</p>"""
     execution_id: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateRecommenderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.tag_map
 
 
-class CreateRecommenderResponse(TypedDict):
+class CreateRecommenderResponse(TypedDict, closed=True):
     recommender_arn: "aws_sdk_customer_profiles.types.arn.Arn"
     """<p>The ARN of the recommender</p>"""
     tags: NotRequired["aws_sdk_customer_profiles.types.tag_map.TagMap"]

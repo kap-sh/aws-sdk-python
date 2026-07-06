@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutDedicatedIpInPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.pool_name
 
 
-class PutDedicatedIpInPoolRequest(TypedDict):
+class PutDedicatedIpInPoolRequest(TypedDict, closed=True):
     ip: "aws_sdk_pinpoint_email.types.ip.Ip"
     """<p>The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your Amazon Pinpoint account.</p>"""
     destination_pool_name: "aws_sdk_pinpoint_email.types.pool_name.PoolName"

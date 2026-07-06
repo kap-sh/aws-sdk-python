@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#DeleteAllowListResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAllowListResponse(TypedDict):
+class DeleteAllowListResponse(TypedDict, closed=True):
     pass
 
 

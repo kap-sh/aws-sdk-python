@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#FieldToMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.all_query_arguments
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.uri_path
 
 
-class FieldToMatch(TypedDict):
+class FieldToMatch(TypedDict, closed=True):
     single_header: NotRequired["aws_sdk_wafv2.types.single_header.SingleHeader"]
     r"""<p>Inspect a single header. Provide the name of the header to inspect, for example, <code>User-Agent</code> or <code>Referer</code>. This setting isn't case sensitive.</p> <p>Example JSON: <code>\"SingleHeader\": { \"Name\": \"haystack\" }</code> </p> <p>Alternately, you can filter and inspect all headers with the <code>Headers</code> <code>FieldToMatch</code> setting. </p>"""
     single_query_argument: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrialComponentStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.trial_component_primary_status
     import aws_sdk_sagemaker.types.trial_component_status_message
 
 
-class TrialComponentStatus(TypedDict):
+class TrialComponentStatus(TypedDict, closed=True):
     primary_status: NotRequired[
         "aws_sdk_sagemaker.types.trial_component_primary_status.TrialComponentPrimaryStatus"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssumeQueueRoleForWorkerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.worker_id
 
 
-class AssumeQueueRoleForWorkerRequest(TypedDict):
+class AssumeQueueRoleForWorkerRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the worker assuming the queue role.</p>"""
     fleet_id: "aws_sdk_deadline.types.fleet_id.FleetId"

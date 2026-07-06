@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ConnectivityFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.fleet_indexing_api_list
 
 
-class ConnectivityFilter(TypedDict):
+class ConnectivityFilter(TypedDict, closed=True):
     include_socket_information: NotRequired[
         "aws_sdk_iot.types.fleet_indexing_api_list.FleetIndexingApiList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#ServerSideEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.kms_key_id
 
 
-class ServerSideEncryptionConfiguration(TypedDict):
+class ServerSideEncryptionConfiguration(TypedDict, closed=True):
     kms_key_id: "aws_sdk_voice_id.types.kms_key_id.KmsKeyId"
     """<p>The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys. </p>"""
 

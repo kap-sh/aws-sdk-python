@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#MongoDbDataProviderSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.auth_mechanism_value
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class MongoDbDataProviderSettings(TypedDict):
+class MongoDbDataProviderSettings(TypedDict, closed=True):
     server_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The name of the MongoDB server.</p>"""
     port: NotRequired[

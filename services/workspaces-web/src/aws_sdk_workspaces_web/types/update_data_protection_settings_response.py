@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UpdateDataProtectionSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.data_protection_settings
 
 
-class UpdateDataProtectionSettingsResponse(TypedDict):
+class UpdateDataProtectionSettingsResponse(TypedDict, closed=True):
     data_protection_settings: (
         "aws_sdk_workspaces_web.types.data_protection_settings.DataProtectionSettings"
     )

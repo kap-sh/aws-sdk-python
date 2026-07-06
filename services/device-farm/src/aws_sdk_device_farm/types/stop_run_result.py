@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#StopRunResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.run
 
 
-class StopRunResult(TypedDict):
+class StopRunResult(TypedDict, closed=True):
     run: NotRequired["aws_sdk_device_farm.types.run.Run"]
     """<p>The run that was stopped.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AdminAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.admin_status
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AdminAccount(TypedDict):
+class AdminAccount(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The Amazon Web Services account identifier of the Security Hub CSPM administrator account.</p>"""
     status: NotRequired["aws_sdk_securityhub.types.admin_status.AdminStatus"]

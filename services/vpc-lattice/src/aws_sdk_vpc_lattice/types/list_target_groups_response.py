@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListTargetGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.next_token
     import aws_sdk_vpc_lattice.types.target_group_list
 
 
-class ListTargetGroupsResponse(TypedDict):
+class ListTargetGroupsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_vpc_lattice.types.target_group_list.TargetGroupList"]
     """<p>Information about the target groups.</p>"""
     next_token: NotRequired["aws_sdk_vpc_lattice.types.next_token.NextToken"]

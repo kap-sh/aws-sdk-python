@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#CustomerAgreement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.agreement_name
     import aws_sdk_direct_connect.types.status
 
 
-class CustomerAgreement(TypedDict):
+class CustomerAgreement(TypedDict, closed=True):
     agreement_name: NotRequired[
         "aws_sdk_direct_connect.types.agreement_name.AgreementName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#LastSync``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.last_sync_time
 
 
-class LastSync(TypedDict):
+class LastSync(TypedDict, closed=True):
     last_sync_time: NotRequired[
         "aws_sdk_service_catalog.types.last_sync_time.LastSyncTime"
     ]

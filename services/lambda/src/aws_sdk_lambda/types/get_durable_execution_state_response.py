@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetDurableExecutionStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class GetDurableExecutionStateResponse(TypedDict):
+class GetDurableExecutionStateResponse(TypedDict, closed=True):
     operations: "aws_sdk_lambda.types.operations.Operations"
     """<p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>"""
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]

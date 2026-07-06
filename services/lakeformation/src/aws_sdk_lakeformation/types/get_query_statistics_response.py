@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetQueryStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.planning_statistics
 
 
-class GetQueryStatisticsResponse(TypedDict):
+class GetQueryStatisticsResponse(TypedDict, closed=True):
     execution_statistics: NotRequired[
         "aws_sdk_lakeformation.types.execution_statistics.ExecutionStatistics"
     ]

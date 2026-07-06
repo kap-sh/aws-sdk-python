@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#AutomationEventStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.step_type
 
 
-class AutomationEventStep(TypedDict):
+class AutomationEventStep(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_compute_optimizer_automation.types.event_id.EventId"]
     """<p> The ID of the automation event this step belongs to. </p>"""
     step_id: NotRequired["aws_sdk_compute_optimizer_automation.types.step_id.StepId"]

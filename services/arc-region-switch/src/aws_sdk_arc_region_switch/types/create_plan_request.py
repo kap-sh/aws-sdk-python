@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#CreatePlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.workflow_list
 
 
-class CreatePlanRequest(TypedDict):
+class CreatePlanRequest(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>The description of a Region switch plan.</p>"""
     workflows: "aws_sdk_arc_region_switch.types.workflow_list.WorkflowList"

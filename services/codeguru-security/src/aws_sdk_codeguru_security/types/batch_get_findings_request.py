@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#BatchGetFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.finding_identifiers
 
 
-class BatchGetFindingsRequest(TypedDict):
+class BatchGetFindingsRequest(TypedDict, closed=True):
     finding_identifiers: (
         "aws_sdk_codeguru_security.types.finding_identifiers.FindingIdentifiers"
     )

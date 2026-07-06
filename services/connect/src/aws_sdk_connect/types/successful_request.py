@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SuccessfulRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
     import aws_sdk_connect.types.request_identifier
 
 
-class SuccessfulRequest(TypedDict):
+class SuccessfulRequest(TypedDict, closed=True):
     request_identifier: NotRequired[
         "aws_sdk_connect.types.request_identifier.RequestIdentifier"
     ]

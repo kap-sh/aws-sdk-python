@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioDolbyEDecode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.dolby_e_program_selection
 
 
-class AudioDolbyEDecode(TypedDict):
+class AudioDolbyEDecode(TypedDict, closed=True):
     program_selection: NotRequired[
         "aws_sdk_medialive.types.dolby_e_program_selection.DolbyEProgramSelection"
     ]

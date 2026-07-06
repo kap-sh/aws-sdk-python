@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DescribeNamespaceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.version
 
 
-class DescribeNamespaceResponse(TypedDict):
+class DescribeNamespaceResponse(TypedDict, closed=True):
     namespace_arn: NotRequired["aws_sdk_iotthingsgraph.types.arn.Arn"]
     """<p>The ARN of the namespace.</p>"""
     namespace_name: NotRequired[

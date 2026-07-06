@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SelfUpgradeRequestDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.long
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_role
 
 
-class SelfUpgradeRequestDetail(TypedDict):
+class SelfUpgradeRequestDetail(TypedDict, closed=True):
     upgrade_request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The ID of the self-upgrade request.</p>"""
     user_name: NotRequired["aws_sdk_quicksight.types.user_name.UserName"]

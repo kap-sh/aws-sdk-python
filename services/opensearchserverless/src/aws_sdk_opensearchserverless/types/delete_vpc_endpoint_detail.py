@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#DeleteVpcEndpointDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vpc_endpoint_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vpc_endpoint_status
 
 
-class DeleteVpcEndpointDetail(TypedDict):
+class DeleteVpcEndpointDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_opensearchserverless.types.vpc_endpoint_id.VpcEndpointId"]
     """<p>The unique identifier of the endpoint.</p>"""
     name: NotRequired[

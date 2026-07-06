@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListDetectMitigationActionsTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.detect_mitigation_actions_task_summary_list
     import aws_sdk_iot.types.next_token
 
 
-class ListDetectMitigationActionsTasksResponse(TypedDict):
+class ListDetectMitigationActionsTasksResponse(TypedDict, closed=True):
     tasks: NotRequired[
         "aws_sdk_iot.types.detect_mitigation_actions_task_summary_list.DetectMitigationActionsTaskSummaryList"
     ]

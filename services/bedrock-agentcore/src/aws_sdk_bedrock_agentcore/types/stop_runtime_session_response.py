@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StopRuntimeSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.http_response_code
     import aws_sdk_bedrock_agentcore.types.session_id
 
 
-class StopRuntimeSessionResponse(TypedDict):
+class StopRuntimeSessionResponse(TypedDict, closed=True):
     runtime_session_id: NotRequired[
         "aws_sdk_bedrock_agentcore.types.session_id.SessionId"
     ]

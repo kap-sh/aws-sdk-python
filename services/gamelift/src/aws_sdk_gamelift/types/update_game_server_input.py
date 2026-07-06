@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateGameServerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_data
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_utilization_status
 
 
-class UpdateGameServerInput(TypedDict):
+class UpdateGameServerInput(TypedDict, closed=True):
     game_server_group_name: NotRequired[
         "aws_sdk_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
     ]

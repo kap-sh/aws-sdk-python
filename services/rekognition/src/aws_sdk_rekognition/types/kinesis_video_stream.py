@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#KinesisVideoStream``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.kinesis_video_arn
 
 
-class KinesisVideoStream(TypedDict):
+class KinesisVideoStream(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_rekognition.types.kinesis_video_arn.KinesisVideoArn"]
     """<p>ARN of the Kinesis video stream stream that streams the source video.</p>"""
 

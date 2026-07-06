@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CatalogImportStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class CatalogImportStatus(TypedDict):
+class CatalogImportStatus(TypedDict, closed=True):
     import_completed: "aws_sdk_glue.types.boolean.Boolean"
     """<p> <code>True</code> if the migration has completed, or <code>False</code> otherwise.</p>"""
     import_time: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]

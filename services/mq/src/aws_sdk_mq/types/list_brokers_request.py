@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ListBrokersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
     import aws_sdk_mq.types.max_results
 
 
-class ListBrokersRequest(TypedDict):
+class ListBrokersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_mq.types.max_results.MaxResults"]
     """<p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>"""
     next_token: NotRequired["aws_sdk_mq.types.__string.__string"]

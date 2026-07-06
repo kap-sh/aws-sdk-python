@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#LoadBalancerTlsCertificateDnsRecordCreationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.load_balancer_tls_certificate_dns_record_creation_state_code
     import aws_sdk_lightsail.types.string
 
 
-class LoadBalancerTlsCertificateDnsRecordCreationState(TypedDict):
+class LoadBalancerTlsCertificateDnsRecordCreationState(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_lightsail.types.load_balancer_tls_certificate_dns_record_creation_state_code.LoadBalancerTlsCertificateDnsRecordCreationStateCode"
     ]

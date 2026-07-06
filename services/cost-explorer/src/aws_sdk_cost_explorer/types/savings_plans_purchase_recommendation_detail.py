@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansPurchaseRecommendationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.savings_plans_details
 
 
-class SavingsPlansPurchaseRecommendationDetail(TypedDict):
+class SavingsPlansPurchaseRecommendationDetail(TypedDict, closed=True):
     savings_plans_details: NotRequired[
         "aws_sdk_cost_explorer.types.savings_plans_details.SavingsPlansDetails"
     ]

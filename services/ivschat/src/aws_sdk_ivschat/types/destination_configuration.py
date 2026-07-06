@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.s3_destination_configuration
 
 
-class _DestinationConfiguration_s3(TypedDict):
+class _DestinationConfiguration_s3(TypedDict, closed=True):
     s3: "aws_sdk_ivschat.types.s3_destination_configuration.S3DestinationConfiguration"
 
 
-class _DestinationConfiguration_cloudWatchLogs(TypedDict):
+class _DestinationConfiguration_cloudWatchLogs(TypedDict, closed=True):
     cloudWatchLogs: "aws_sdk_ivschat.types.cloud_watch_logs_destination_configuration.CloudWatchLogsDestinationConfiguration"
 
 
-class _DestinationConfiguration_firehose(TypedDict):
+class _DestinationConfiguration_firehose(TypedDict, closed=True):
     firehose: "aws_sdk_ivschat.types.firehose_destination_configuration.FirehoseDestinationConfiguration"
 
 

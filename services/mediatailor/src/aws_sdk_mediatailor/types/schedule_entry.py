@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ScheduleEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.schedule_entry_type
 
 
-class ScheduleEntry(TypedDict):
+class ScheduleEntry(TypedDict, closed=True):
     approximate_duration_seconds: NotRequired["aws_sdk_mediatailor.types.__long.__long"]
     """<p>The approximate duration of this program, in seconds.</p>"""
     approximate_start_time: NotRequired[

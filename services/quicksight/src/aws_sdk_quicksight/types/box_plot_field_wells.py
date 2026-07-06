@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BoxPlotFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.box_plot_aggregated_field_wells
 
 
-class BoxPlotFieldWells(TypedDict):
+class BoxPlotFieldWells(TypedDict, closed=True):
     box_plot_aggregated_field_wells: NotRequired[
         "aws_sdk_quicksight.types.box_plot_aggregated_field_wells.BoxPlotAggregatedFieldWells"
     ]

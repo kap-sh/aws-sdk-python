@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ConfigurationTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.allowed_action_for_allow_vended_logs_delivery_for_resource
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.service
 
 
-class ConfigurationTemplate(TypedDict):
+class ConfigurationTemplate(TypedDict, closed=True):
     service: NotRequired["aws_sdk_cloudwatch_logs.types.service.Service"]
     r"""<p>A string specifying which service this configuration template applies to. For more information about supported services see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html\">Enable logging from Amazon Web Services services.</a>.</p>"""
     log_type: NotRequired["aws_sdk_cloudwatch_logs.types.log_type.LogType"]

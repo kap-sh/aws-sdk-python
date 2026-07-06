@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaStreamAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.fmtp
 
 
-class MediaStreamAttributes(TypedDict):
+class MediaStreamAttributes(TypedDict, closed=True):
     fmtp: NotRequired["aws_sdk_mediaconnect.types.fmtp.Fmtp"]
     """<p>The settings that you want to use to define the media stream. </p>"""
     lang: NotRequired["str"]

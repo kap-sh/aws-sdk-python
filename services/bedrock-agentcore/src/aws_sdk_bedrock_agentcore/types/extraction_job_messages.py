@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExtractionJobMessages``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.messages_list
 
 
-class _ExtractionJobMessages_messagesList(TypedDict):
+class _ExtractionJobMessages_messagesList(TypedDict, closed=True):
     messagesList: "aws_sdk_bedrock_agentcore.types.messages_list.MessagesList"
 
 

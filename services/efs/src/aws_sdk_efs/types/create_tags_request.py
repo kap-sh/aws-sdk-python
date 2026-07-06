@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#CreateTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.tags
 
 
-class CreateTagsRequest(TypedDict):
+class CreateTagsRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>The ID of the file system whose tags you want to modify (String). This operation modifies the tags only, not the file system.</p>"""
     tags: "aws_sdk_efs.types.tags.Tags"

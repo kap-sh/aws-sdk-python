@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#Configuration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.connect_configuration
 
 
-class _Configuration_connectConfiguration(TypedDict):
+class _Configuration_connectConfiguration(TypedDict, closed=True):
     connectConfiguration: (
         "aws_sdk_qconnect.types.connect_configuration.ConnectConfiguration"
     )

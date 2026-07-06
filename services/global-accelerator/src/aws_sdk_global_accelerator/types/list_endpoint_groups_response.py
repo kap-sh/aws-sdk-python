@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListEndpointGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.endpoint_groups
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class ListEndpointGroupsResponse(TypedDict):
+class ListEndpointGroupsResponse(TypedDict, closed=True):
     endpoint_groups: NotRequired[
         "aws_sdk_global_accelerator.types.endpoint_groups.EndpointGroups"
     ]

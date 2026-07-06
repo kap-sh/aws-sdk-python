@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ModifyInvocationConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.arn
 
 
-class ModifyInvocationConfigurationInput(TypedDict):
+class ModifyInvocationConfigurationInput(TypedDict, closed=True):
     topic_arn: NotRequired["aws_sdk_bedrock_agentcore_control.types.arn.Arn"]
     """<p>The updated ARN of the SNS topic for job notifications.</p>"""
     payload_delivery_bucket_name: NotRequired["str"]

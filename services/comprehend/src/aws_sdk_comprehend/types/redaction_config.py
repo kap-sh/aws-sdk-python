@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#RedactionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_pii_entity_types
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.pii_entities_detection_mask_mode
 
 
-class RedactionConfig(TypedDict):
+class RedactionConfig(TypedDict, closed=True):
     pii_entity_types: NotRequired[
         "aws_sdk_comprehend.types.list_of_pii_entity_types.ListOfPiiEntityTypes"
     ]

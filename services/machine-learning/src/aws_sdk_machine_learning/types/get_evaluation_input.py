@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#GetEvaluationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.entity_id
 
 
-class GetEvaluationInput(TypedDict):
+class GetEvaluationInput(TypedDict, closed=True):
     evaluation_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>The ID of the <code>Evaluation</code> to retrieve. The evaluation of each <code>MLModel</code> is recorded and cataloged. The ID provides the means to access the information. </p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DeleteRecommenderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class DeleteRecommenderRequest(TypedDict):
+class DeleteRecommenderRequest(TypedDict, closed=True):
     recommender_arn: "aws_sdk_personalize.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the recommender to delete.</p>"""
 

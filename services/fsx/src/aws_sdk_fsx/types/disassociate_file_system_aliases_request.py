@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DisassociateFileSystemAliasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.alternate_dns_names
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_system_id
 
 
-class DisassociateFileSystemAliasesRequest(TypedDict):
+class DisassociateFileSystemAliasesRequest(TypedDict, closed=True):
     client_request_token: NotRequired[
         "aws_sdk_fsx.types.client_request_token.ClientRequestToken"
     ]

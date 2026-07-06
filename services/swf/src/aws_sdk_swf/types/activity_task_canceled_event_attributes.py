@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTaskCanceledEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.data
     import aws_sdk_swf.types.event_id
 
 
-class ActivityTaskCanceledEventAttributes(TypedDict):
+class ActivityTaskCanceledEventAttributes(TypedDict, closed=True):
     details: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>Details of the cancellation.</p>"""
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"

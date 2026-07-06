@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#BacktrackDBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.t_stamp
 
 
-class BacktrackDBClusterMessage(TypedDict):
+class BacktrackDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The DB cluster identifier of the DB cluster to be backtracked. This parameter is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must contain from 1 to 63 alphanumeric characters or hyphens.</p> </li> <li> <p>First character must be a letter.</p> </li> <li> <p>Can't end with a hyphen or contain two consecutive hyphens.</p> </li> </ul> <p>Example: <code>my-cluster1</code> </p>"""
     backtrack_to: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]

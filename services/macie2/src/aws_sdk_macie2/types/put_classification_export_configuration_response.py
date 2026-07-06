@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#PutClassificationExportConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.classification_export_configuration
 
 
-class PutClassificationExportConfigurationResponse(TypedDict):
+class PutClassificationExportConfigurationResponse(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_macie2.types.classification_export_configuration.ClassificationExportConfiguration"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeAddonRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.cluster_name
     import aws_sdk_eks.types.string
 
 
-class DescribeAddonRequest(TypedDict):
+class DescribeAddonRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.cluster_name.ClusterName"
     """<p>The name of your cluster.</p>"""
     addon_name: "aws_sdk_eks.types.string.String"

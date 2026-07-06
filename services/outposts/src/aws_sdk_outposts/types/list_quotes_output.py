@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListQuotesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_summary_list_definition
     import aws_sdk_outposts.types.token
 
 
-class ListQuotesOutput(TypedDict):
+class ListQuotesOutput(TypedDict, closed=True):
     quotes: NotRequired[
         "aws_sdk_outposts.types.quote_summary_list_definition.QuoteSummaryListDefinition"
     ]

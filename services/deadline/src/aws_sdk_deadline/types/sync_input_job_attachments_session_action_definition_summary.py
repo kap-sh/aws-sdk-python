@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SyncInputJobAttachmentsSessionActionDefinitionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.step_id
 
 
-class SyncInputJobAttachmentsSessionActionDefinitionSummary(TypedDict):
+class SyncInputJobAttachmentsSessionActionDefinitionSummary(TypedDict, closed=True):
     step_id: NotRequired["aws_sdk_deadline.types.step_id.StepId"]
     """<p>The step ID for the sync input job attachments session action summary.</p>"""
 

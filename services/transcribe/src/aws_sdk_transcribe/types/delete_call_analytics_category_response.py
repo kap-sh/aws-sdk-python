@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#DeleteCallAnalyticsCategoryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCallAnalyticsCategoryResponse(TypedDict):
+class DeleteCallAnalyticsCategoryResponse(TypedDict, closed=True):
     pass
 
 

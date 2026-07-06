@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListPortalsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.pagination_token
     import aws_sdk_workspaces_web.types.portal_list
 
 
-class ListPortalsResponse(TypedDict):
+class ListPortalsResponse(TypedDict, closed=True):
     portals: NotRequired["aws_sdk_workspaces_web.types.portal_list.PortalList"]
     """<p>The portals in the list.</p>"""
     next_token: NotRequired[

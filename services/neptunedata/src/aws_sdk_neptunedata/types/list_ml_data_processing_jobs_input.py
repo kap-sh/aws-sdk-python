@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListMLDataProcessingJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.positive_integer
 
 
-class ListMLDataProcessingJobsInput(TypedDict):
+class ListMLDataProcessingJobsInput(TypedDict, closed=True):
     max_items: NotRequired["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"]
     """<p>The maximum number of items to return (from 1 to 1024; the default is 10).</p>"""
     neptune_iam_role_arn: NotRequired["str"]

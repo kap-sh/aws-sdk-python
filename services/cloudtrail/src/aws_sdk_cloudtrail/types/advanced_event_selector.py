@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#AdvancedEventSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.selector_name
 
 
-class AdvancedEventSelector(TypedDict):
+class AdvancedEventSelector(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudtrail.types.selector_name.SelectorName"]
     r"""<p>An optional, descriptive name for an advanced event selector, such as \"Log data events for only two S3 buckets\".</p>"""
     field_selectors: (

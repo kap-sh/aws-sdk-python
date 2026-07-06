@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ListScenesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.next_token
     import aws_sdk_iottwinmaker.types.scene_summaries
 
 
-class ListScenesResponse(TypedDict):
+class ListScenesResponse(TypedDict, closed=True):
     scene_summaries: NotRequired[
         "aws_sdk_iottwinmaker.types.scene_summaries.SceneSummaries"
     ]

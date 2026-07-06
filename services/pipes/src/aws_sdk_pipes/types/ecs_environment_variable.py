@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsEnvironmentVariable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.string
 
 
-class EcsEnvironmentVariable(TypedDict):
+class EcsEnvironmentVariable(TypedDict, closed=True):
     name: NotRequired["aws_sdk_pipes.types.string.String"]
     """<p>The name of the key-value pair. For environment variables, this is the name of the environment variable.</p>"""
     value: NotRequired["aws_sdk_pipes.types.string.String"]

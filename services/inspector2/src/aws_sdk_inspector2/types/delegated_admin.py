@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DelegatedAdmin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id
     import aws_sdk_inspector2.types.relationship_status
 
 
-class DelegatedAdmin(TypedDict):
+class DelegatedAdmin(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_inspector2.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID of the Amazon Inspector delegated administrator for your organization.</p>"""
     relationship_status: NotRequired[

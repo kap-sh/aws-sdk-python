@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioHlsRenditionSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min1
 
 
-class AudioHlsRenditionSelection(TypedDict):
+class AudioHlsRenditionSelection(TypedDict, closed=True):
     group_id: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]
     """Specifies the GROUP-ID in the #EXT-X-MEDIA tag of the target HLS audio rendition."""
     name: NotRequired["aws_sdk_medialive.types.__string_min1.__stringMin1"]

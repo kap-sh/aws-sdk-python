@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     resource_ids: NotRequired["aws_sdk_ecs.types.resource_ids.ResourceIds"]
     """<p>The existing task ARNs which are already associated with the <code>clientToken</code>.</p>"""
     message: NotRequired["aws_sdk_ecs.types.string.String"]

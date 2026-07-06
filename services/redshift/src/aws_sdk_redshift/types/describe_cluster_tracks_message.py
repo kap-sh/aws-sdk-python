@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeClusterTracksMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class DescribeClusterTracksMessage(TypedDict):
+class DescribeClusterTracksMessage(TypedDict, closed=True):
     maintenance_track_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of the maintenance track. </p>"""
     max_records: NotRequired["aws_sdk_redshift.types.integer_optional.IntegerOptional"]

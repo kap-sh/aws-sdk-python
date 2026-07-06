@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchGroupProfilesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.group_profile_summaries
     import aws_sdk_datazone.types.pagination_token
 
 
-class SearchGroupProfilesOutput(TypedDict):
+class SearchGroupProfilesOutput(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_datazone.types.group_profile_summaries.GroupProfileSummaries"
     ]

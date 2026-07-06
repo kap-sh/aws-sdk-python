@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RDSDatabaseProjectedMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.metric_values
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.timestamps
 
 
-class RDSDatabaseProjectedMetric(TypedDict):
+class RDSDatabaseProjectedMetric(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_compute_optimizer.types.rdsdb_metric_name.RDSDBMetricName"
     ]

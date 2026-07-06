@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dax#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.integer
     import aws_sdk_dax.types.string
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     address: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>The DNS hostname of the endpoint.</p>"""
     port: "aws_sdk_dax.types.integer.Integer"

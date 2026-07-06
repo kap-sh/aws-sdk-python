@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#StartLambdaFunctionFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.cause_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.start_lambda_function_failed_cause
 
 
-class StartLambdaFunctionFailedEventAttributes(TypedDict):
+class StartLambdaFunctionFailedEventAttributes(TypedDict, closed=True):
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"
     """<p>The ID of the <code>ActivityTaskScheduled</code> event that was recorded when this activity task was scheduled. To help diagnose issues, use this information to trace back the chain of events leading up to this event.</p>"""
     cause: NotRequired[

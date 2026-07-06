@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetDocumentationPartRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class GetDocumentationPartRequest(TypedDict):
+class GetDocumentationPartRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     documentation_part_id: "aws_sdk_api_gateway.types.string.String"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceRequirementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.v_cpu_count_range_request
 
 
-class InstanceRequirementsRequest(TypedDict):
+class InstanceRequirementsRequest(TypedDict, closed=True):
     v_cpu_count: NotRequired[
         "aws_sdk_ec2.types.v_cpu_count_range_request.VCpuCountRangeRequest"
     ]

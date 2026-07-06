@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#StopAdvancedPromptOptimizationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.advanced_prompt_optimization_job_identifier
 
 
-class StopAdvancedPromptOptimizationJobRequest(TypedDict):
+class StopAdvancedPromptOptimizationJobRequest(TypedDict, closed=True):
     job_identifier: "aws_sdk_bedrock.types.advanced_prompt_optimization_job_identifier.AdvancedPromptOptimizationJobIdentifier"
     """<p>The ARN or ID of the advanced prompt optimization job to stop.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#LocalSecondaryIndexDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.index_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string
 
 
-class LocalSecondaryIndexDescription(TypedDict):
+class LocalSecondaryIndexDescription(TypedDict, closed=True):
     index_name: NotRequired["aws_sdk_dynamodb.types.index_name.IndexName"]
     """<p>Represents the name of the local secondary index.</p>"""
     key_schema: NotRequired["aws_sdk_dynamodb.types.key_schema.KeySchema"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#AccessDeniedException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_maps.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "str"
 
 

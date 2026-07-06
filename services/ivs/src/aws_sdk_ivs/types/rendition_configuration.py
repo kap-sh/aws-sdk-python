@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#RenditionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.rendition_configuration_rendition_list
     import aws_sdk_ivs.types.rendition_configuration_rendition_selection
 
 
-class RenditionConfiguration(TypedDict):
+class RenditionConfiguration(TypedDict, closed=True):
     rendition_selection: NotRequired[
         "aws_sdk_ivs.types.rendition_configuration_rendition_selection.RenditionConfigurationRenditionSelection"
     ]

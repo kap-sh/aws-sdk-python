@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvocationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.action_group_invocation_input
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.trace_id
 
 
-class InvocationInput(TypedDict):
+class InvocationInput(TypedDict, closed=True):
     trace_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.trace_id.TraceId"]
     """<p>The unique identifier of the trace.</p>"""
     invocation_type: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MapIterationEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.name
     import aws_sdk_sfn.types.unsigned_integer
 
 
-class MapIterationEventDetails(TypedDict):
+class MapIterationEventDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sfn.types.name.Name"]
     """<p>The name of the iteration’s parent Map state.</p>"""
     index: "aws_sdk_sfn.types.unsigned_integer.UnsignedInteger"

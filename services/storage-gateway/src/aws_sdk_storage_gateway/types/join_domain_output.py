@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#JoinDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.active_directory_status
     import aws_sdk_storage_gateway.types.gateway_arn
 
 
-class JoinDomainOutput(TypedDict):
+class JoinDomainOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"]
     """<p>The unique Amazon Resource Name (ARN) of the gateway that joined the domain.</p>"""
     active_directory_status: NotRequired[

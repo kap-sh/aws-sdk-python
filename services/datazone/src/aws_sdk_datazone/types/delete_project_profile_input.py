@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteProjectProfileInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.project_profile_id
 
 
-class DeleteProjectProfileInput(TypedDict):
+class DeleteProjectProfileInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where a project profile is deleted.</p>"""
     identifier: "aws_sdk_datazone.types.project_profile_id.ProjectProfileId"

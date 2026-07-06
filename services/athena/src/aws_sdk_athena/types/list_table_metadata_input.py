@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListTableMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.work_group_name
 
 
-class ListTableMetadataInput(TypedDict):
+class ListTableMetadataInput(TypedDict, closed=True):
     catalog_name: "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     """<p>The name of the data catalog for which table metadata should be returned.</p>"""
     database_name: "aws_sdk_athena.types.name_string.NameString"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#StartReplicationTaskAssessmentRunMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.tag_list
 
 
-class StartReplicationTaskAssessmentRunMessage(TypedDict):
+class StartReplicationTaskAssessmentRunMessage(TypedDict, closed=True):
     replication_task_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>Amazon Resource Name (ARN) of the migration task associated with the premigration assessment run that you want to start.</p>"""
     service_access_role_arn: "aws_sdk_database_migration_service.types.string.String"

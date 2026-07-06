@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#DisassociateWhatsAppBusinessAccountOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateWhatsAppBusinessAccountOutput(TypedDict):
+class DisassociateWhatsAppBusinessAccountOutput(TypedDict, closed=True):
     pass
 
 

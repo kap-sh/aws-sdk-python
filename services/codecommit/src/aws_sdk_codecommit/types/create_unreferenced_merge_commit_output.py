@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreateUnreferencedMergeCommitOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class CreateUnreferencedMergeCommitOutput(TypedDict):
+class CreateUnreferencedMergeCommitOutput(TypedDict, closed=True):
     commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The full commit ID of the commit that contains your merge results.</p>"""
     tree_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

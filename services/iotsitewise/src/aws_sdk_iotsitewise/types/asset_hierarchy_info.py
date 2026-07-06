@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetHierarchyInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class AssetHierarchyInfo(TypedDict):
+class AssetHierarchyInfo(TypedDict, closed=True):
     parent_asset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the parent asset in this asset relationship.</p>"""
     child_asset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]

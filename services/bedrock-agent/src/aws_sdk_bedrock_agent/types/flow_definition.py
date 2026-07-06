@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_connections
     import aws_sdk_bedrock_agent.types.flow_nodes
 
 
-class FlowDefinition(TypedDict):
+class FlowDefinition(TypedDict, closed=True):
     nodes: NotRequired["aws_sdk_bedrock_agent.types.flow_nodes.FlowNodes"]
     """<p>An array of node definitions in the flow.</p>"""
     connections: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#Citation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.citation_location
     import aws_sdk_bedrock_runtime.types.citation_source_content_list
 
 
-class Citation(TypedDict):
+class Citation(TypedDict, closed=True):
     title: NotRequired["str"]
     """<p>The title or identifier of the source document being cited.</p>"""
     source: NotRequired["str"]

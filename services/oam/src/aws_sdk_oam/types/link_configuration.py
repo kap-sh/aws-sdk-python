@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.oam#LinkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_oam.types.log_group_configuration
     import aws_sdk_oam.types.metric_configuration
 
 
-class LinkConfiguration(TypedDict):
+class LinkConfiguration(TypedDict, closed=True):
     log_group_configuration: NotRequired[
         "aws_sdk_oam.types.log_group_configuration.LogGroupConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.amazon_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_sidewalk_status
 
 
-class SidewalkDevice(TypedDict):
+class SidewalkDevice(TypedDict, closed=True):
     amazon_id: NotRequired["aws_sdk_iot_wireless.types.amazon_id.AmazonId"]
     sidewalk_id: NotRequired["aws_sdk_iot_wireless.types.sidewalk_id.SidewalkId"]
     """<p>The sidewalk device identification.</p>"""

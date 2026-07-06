@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListDatasetGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.max_results
     import aws_sdk_personalize.types.next_token
 
 
-class ListDatasetGroupsRequest(TypedDict):
+class ListDatasetGroupsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]
     """<p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting the next set of dataset groups (if they exist).</p>"""
     max_results: NotRequired["aws_sdk_personalize.types.max_results.MaxResults"]

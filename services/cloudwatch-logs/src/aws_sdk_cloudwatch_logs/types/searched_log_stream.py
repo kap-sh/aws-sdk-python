@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#SearchedLogStream``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_stream_name
     import aws_sdk_cloudwatch_logs.types.log_stream_searched_completely
 
 
-class SearchedLogStream(TypedDict):
+class SearchedLogStream(TypedDict, closed=True):
     log_stream_name: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_stream_name.LogStreamName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableMetadataLocationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.warehouse_location
 
 
-class GetTableMetadataLocationResponse(TypedDict):
+class GetTableMetadataLocationResponse(TypedDict, closed=True):
     version_token: "aws_sdk_s3tables.types.version_token.VersionToken"
     """<p>The version token.</p>"""
     metadata_location: NotRequired[

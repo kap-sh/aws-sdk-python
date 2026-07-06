@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ConfirmSignUpResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.session_type
 
 
-class ConfirmSignUpResponse(TypedDict):
+class ConfirmSignUpResponse(TypedDict, closed=True):
     session: NotRequired[
         "aws_sdk_cognito_identity_provider.types.session_type.SessionType"
     ]

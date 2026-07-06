@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RedshiftConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.workgroup_name
 
 
-class RedshiftConnectorProfileProperties(TypedDict):
+class RedshiftConnectorProfileProperties(TypedDict, closed=True):
     database_url: NotRequired["aws_sdk_appflow.types.database_url.DatabaseUrl"]
     """<p> The JDBC URL of the Amazon Redshift cluster. </p>"""
     bucket_name: "aws_sdk_appflow.types.bucket_name.BucketName"

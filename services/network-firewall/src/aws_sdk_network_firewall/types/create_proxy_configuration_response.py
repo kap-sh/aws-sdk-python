@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateProxyConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.proxy_configuration
     import aws_sdk_network_firewall.types.update_token
 
 
-class CreateProxyConfigurationResponse(TypedDict):
+class CreateProxyConfigurationResponse(TypedDict, closed=True):
     proxy_configuration: NotRequired[
         "aws_sdk_network_firewall.types.proxy_configuration.ProxyConfiguration"
     ]

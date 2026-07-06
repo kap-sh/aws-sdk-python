@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#UntagResourceOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UntagResourceOutput(TypedDict):
+class UntagResourceOutput(TypedDict, closed=True):
     status_code: NotRequired["int"]
     """<p>The status code of the untag resource operation.</p>"""
 

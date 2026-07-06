@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ListDataAutomationProjectsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint_filter
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.resource_owner
 
 
-class ListDataAutomationProjectsRequest(TypedDict):
+class ListDataAutomationProjectsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_bedrock_data_automation.types.max_results.MaxResults"
     ]

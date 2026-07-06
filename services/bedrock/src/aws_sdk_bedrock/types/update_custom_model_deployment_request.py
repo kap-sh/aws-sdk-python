@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#UpdateCustomModelDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_deployment_identifier
 
 
-class UpdateCustomModelDeploymentRequest(TypedDict):
+class UpdateCustomModelDeploymentRequest(TypedDict, closed=True):
     model_arn: "aws_sdk_bedrock.types.custom_model_arn.CustomModelArn"
     """<p> ARN of the new custom model to deploy. This replaces the currently deployed model. </p>"""
     custom_model_deployment_identifier: "aws_sdk_bedrock.types.custom_model_deployment_identifier.CustomModelDeploymentIdentifier"

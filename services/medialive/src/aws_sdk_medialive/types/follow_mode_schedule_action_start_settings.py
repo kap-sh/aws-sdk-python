@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FollowModeScheduleActionStartSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.follow_point
 
 
-class FollowModeScheduleActionStartSettings(TypedDict):
+class FollowModeScheduleActionStartSettings(TypedDict, closed=True):
     follow_point: NotRequired["aws_sdk_medialive.types.follow_point.FollowPoint"]
     """Identifies whether this action starts relative to the start or relative to the end of the reference action."""
     reference_action_name: NotRequired["aws_sdk_medialive.types.__string.__string"]

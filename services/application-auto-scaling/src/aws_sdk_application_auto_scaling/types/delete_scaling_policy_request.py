@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#DeleteScalingPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.service_namespace
 
 
-class DeleteScalingPolicyRequest(TypedDict):
+class DeleteScalingPolicyRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_application_auto_scaling.types.resource_id_max_len1600.ResourceIdMaxLen1600"
     """<p>The name of the scaling policy.</p>"""
     service_namespace: (

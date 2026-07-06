@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetKeyPairsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
     import aws_sdk_lightsail.types.string
 
 
-class GetKeyPairsRequest(TypedDict):
+class GetKeyPairsRequest(TypedDict, closed=True):
     page_token: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The token to advance to the next page of results from your request.</p> <p>To get a page token, perform an initial <code>GetKeyPairs</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>"""
     include_default_key_pair: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]

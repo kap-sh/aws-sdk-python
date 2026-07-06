@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#SrtOutputDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max65535
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.connection_mode
 
 
-class SrtOutputDestinationSettings(TypedDict):
+class SrtOutputDestinationSettings(TypedDict, closed=True):
     encryption_passphrase_secret_arn: NotRequired[
         "aws_sdk_medialive.types.__string.__string"
     ]

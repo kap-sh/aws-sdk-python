@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TimeSeriesForecastingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_status
     import aws_sdk_sagemaker.types.role_arn
 
 
-class TimeSeriesForecastingSettings(TypedDict):
+class TimeSeriesForecastingSettings(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sagemaker.types.feature_status.FeatureStatus"]
     """<p>Describes whether time series forecasting is enabled or disabled in the Canvas application.</p>"""
     amazon_forecast_role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]

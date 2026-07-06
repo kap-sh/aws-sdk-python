@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#GetProvisionedProductOutputsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.page_token
     import aws_sdk_service_catalog.types.record_outputs
 
 
-class GetProvisionedProductOutputsOutput(TypedDict):
+class GetProvisionedProductOutputsOutput(TypedDict, closed=True):
     outputs: NotRequired["aws_sdk_service_catalog.types.record_outputs.RecordOutputs"]
     """<p>Information about the product created as the result of a request. For example, the output for a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL. </p>"""
     next_page_token: NotRequired["aws_sdk_service_catalog.types.page_token.PageToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#CancelStepsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.step_cancellation_option
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class CancelStepsInput(TypedDict):
+class CancelStepsInput(TypedDict, closed=True):
     cluster_id: NotRequired[
         "aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"
     ]

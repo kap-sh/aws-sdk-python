@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteArtifactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.artifact_arn
     import aws_sdk_sagemaker.types.artifact_source
 
 
-class DeleteArtifactRequest(TypedDict):
+class DeleteArtifactRequest(TypedDict, closed=True):
     artifact_arn: NotRequired["aws_sdk_sagemaker.types.artifact_arn.ArtifactArn"]
     """<p>The Amazon Resource Name (ARN) of the artifact to delete.</p>"""
     source: NotRequired["aws_sdk_sagemaker.types.artifact_source.ArtifactSource"]

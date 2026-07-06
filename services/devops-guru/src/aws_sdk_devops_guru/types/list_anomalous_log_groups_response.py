@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListAnomalousLogGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListAnomalousLogGroupsResponse(TypedDict):
+class ListAnomalousLogGroupsResponse(TypedDict, closed=True):
     insight_id: "aws_sdk_devops_guru.types.insight_id.InsightId"
     """<p> The ID of the insight containing the log groups. </p>"""
     anomalous_log_groups: (

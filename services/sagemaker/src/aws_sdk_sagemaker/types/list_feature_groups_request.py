@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListFeatureGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.offline_store_status_value
 
 
-class ListFeatureGroupsRequest(TypedDict):
+class ListFeatureGroupsRequest(TypedDict, closed=True):
     name_contains: NotRequired[
         "aws_sdk_sagemaker.types.feature_group_name_contains.FeatureGroupNameContains"
     ]

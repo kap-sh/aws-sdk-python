@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateDynamicThingGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_properties
 
 
-class UpdateDynamicThingGroupRequest(TypedDict):
+class UpdateDynamicThingGroupRequest(TypedDict, closed=True):
     thing_group_name: "aws_sdk_iot.types.thing_group_name.ThingGroupName"
     """<p>The name of the dynamic thing group to update.</p>"""
     thing_group_properties: (

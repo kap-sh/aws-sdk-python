@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListCheckDetailsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.check_details
     import aws_sdk_wellarchitected.types.next_token
 
 
-class ListCheckDetailsOutput(TypedDict):
+class ListCheckDetailsOutput(TypedDict, closed=True):
     check_details: NotRequired[
         "aws_sdk_wellarchitected.types.check_details.CheckDetails"
     ]

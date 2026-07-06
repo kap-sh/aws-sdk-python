@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisTemplateValidationStatusDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.analysis_template_validation_type
 
 
-class AnalysisTemplateValidationStatusDetail(TypedDict):
+class AnalysisTemplateValidationStatusDetail(TypedDict, closed=True):
     type: "aws_sdk_cleanrooms.types.analysis_template_validation_type.AnalysisTemplateValidationType"
     """<p>The type of validation that was performed.</p>"""
     status: "aws_sdk_cleanrooms.types.analysis_template_validation_status.AnalysisTemplateValidationStatus"

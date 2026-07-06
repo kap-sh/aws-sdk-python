@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#UpdateError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.error_code
     import aws_sdk_mwaa.types.error_message
 
 
-class UpdateError(TypedDict):
+class UpdateError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_mwaa.types.error_code.ErrorCode"]
     """<p>The error code that corresponds to the error with the last update.</p>"""
     error_message: NotRequired["aws_sdk_mwaa.types.error_message.ErrorMessage"]

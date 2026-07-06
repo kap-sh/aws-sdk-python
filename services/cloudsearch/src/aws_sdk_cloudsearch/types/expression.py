@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#Expression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.standard_name
 
 
-class Expression(TypedDict):
+class Expression(TypedDict, closed=True):
     expression_name: "aws_sdk_cloudsearch.types.standard_name.StandardName"
     expression_value: "aws_sdk_cloudsearch.types.expression_value.ExpressionValue"
 

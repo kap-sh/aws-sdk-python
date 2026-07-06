@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#Task``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.task_type
 
 
-class Task(TypedDict):
+class Task(TypedDict, closed=True):
     agent_space_id: "str"
     """<p>The unique identifier for the agent space containing this task</p>"""
     task_id: "str"

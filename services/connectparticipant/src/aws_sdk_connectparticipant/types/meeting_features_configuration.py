@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#MeetingFeaturesConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.audio_features
 
 
-class MeetingFeaturesConfiguration(TypedDict):
+class MeetingFeaturesConfiguration(TypedDict, closed=True):
     audio: NotRequired["aws_sdk_connectparticipant.types.audio_features.AudioFeatures"]
     """<p>The configuration settings for the audio features available to a meeting.</p>"""
 

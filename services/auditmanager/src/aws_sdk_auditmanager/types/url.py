@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#URL``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.hyperlink_name
     import aws_sdk_auditmanager.types.url_link
 
 
-class URL(TypedDict):
+class URL(TypedDict, closed=True):
     hyperlink_name: NotRequired[
         "aws_sdk_auditmanager.types.hyperlink_name.HyperlinkName"
     ]

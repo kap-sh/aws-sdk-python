@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#GetWhatsAppMessageTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_template
 
 
-class GetWhatsAppMessageTemplateOutput(TypedDict):
+class GetWhatsAppMessageTemplateOutput(TypedDict, closed=True):
     template: NotRequired["aws_sdk_socialmessaging.types.meta_template.MetaTemplate"]
     """<p>The complete template definition as a JSON string (maximum 6000 characters).</p>"""
 

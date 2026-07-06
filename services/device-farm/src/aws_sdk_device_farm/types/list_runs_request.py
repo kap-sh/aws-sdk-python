@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListRunsRequest(TypedDict):
+class ListRunsRequest(TypedDict, closed=True):
     arn: "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the project for which you want to list runs.</p>"""
     next_token: NotRequired[

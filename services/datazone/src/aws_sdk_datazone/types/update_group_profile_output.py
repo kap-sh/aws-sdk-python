@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateGroupProfileOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.group_profile_status
 
 
-class UpdateGroupProfileOutput(TypedDict):
+class UpdateGroupProfileOutput(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>"""
     id: NotRequired["aws_sdk_datazone.types.group_profile_id.GroupProfileId"]

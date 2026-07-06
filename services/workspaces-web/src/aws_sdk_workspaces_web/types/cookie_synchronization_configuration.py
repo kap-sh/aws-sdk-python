@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CookieSynchronizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.cookie_specifications
 
 
-class CookieSynchronizationConfiguration(TypedDict):
+class CookieSynchronizationConfiguration(TypedDict, closed=True):
     allowlist: "aws_sdk_workspaces_web.types.cookie_specifications.CookieSpecifications"
     """<p>The list of cookie specifications that are allowed to be synchronized to the remote browser.</p>"""
     blocklist: NotRequired[

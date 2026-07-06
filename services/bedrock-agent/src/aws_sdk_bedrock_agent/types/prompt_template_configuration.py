@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptTemplateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.text_prompt_template_configuration
 
 
-class _PromptTemplateConfiguration_text(TypedDict):
+class _PromptTemplateConfiguration_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agent.types.text_prompt_template_configuration.TextPromptTemplateConfiguration"
 
 
-class _PromptTemplateConfiguration_chat(TypedDict):
+class _PromptTemplateConfiguration_chat(TypedDict, closed=True):
     chat: "aws_sdk_bedrock_agent.types.chat_prompt_template_configuration.ChatPromptTemplateConfiguration"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListedGateway``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.gateway_state
 
 
-class ListedGateway(TypedDict):
+class ListedGateway(TypedDict, closed=True):
     gateway_arn: NotRequired["str"]
     """<p> The Amazon Resource Name (ARN) of the gateway.</p>"""
     gateway_state: NotRequired["aws_sdk_mediaconnect.types.gateway_state.GatewayState"]

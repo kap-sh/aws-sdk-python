@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GrpcGatewayRouteAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.grpc_gateway_route_rewrite
 
 
-class GrpcGatewayRouteAction(TypedDict):
+class GrpcGatewayRouteAction(TypedDict, closed=True):
     target: "aws_sdk_app_mesh.types.gateway_route_target.GatewayRouteTarget"
     """<p>An object that represents the target that traffic is routed to when a request matches the gateway route.</p>"""
     rewrite: NotRequired[

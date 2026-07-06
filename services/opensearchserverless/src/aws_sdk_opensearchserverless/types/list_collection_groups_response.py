@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#ListCollectionGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_group_summaries
 
 
-class ListCollectionGroupsResponse(TypedDict):
+class ListCollectionGroupsResponse(TypedDict, closed=True):
     collection_group_summaries: NotRequired[
         "aws_sdk_opensearchserverless.types.collection_group_summaries.CollectionGroupSummaries"
     ]

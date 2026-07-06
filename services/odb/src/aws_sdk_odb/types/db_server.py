@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DbServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class DbServer(TypedDict):
+class DbServer(TypedDict, closed=True):
     db_server_id: NotRequired["aws_sdk_odb.types.resource_id.ResourceId"]
     """<p>The unique identifier for the database server.</p>"""
     status: NotRequired["aws_sdk_odb.types.resource_status.ResourceStatus"]

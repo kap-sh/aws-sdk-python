@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#VideoTooLargeException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class VideoTooLargeException_(TypedDict):
+class VideoTooLargeException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_rekognition.types.string.String"]
     code: NotRequired["aws_sdk_rekognition.types.string.String"]
     logref: NotRequired["aws_sdk_rekognition.types.string.String"]

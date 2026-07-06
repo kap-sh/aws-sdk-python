@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#CreateConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.tag_list
 
 
-class CreateConnectionOutput(TypedDict):
+class CreateConnectionOutput(TypedDict, closed=True):
     connection_arn: "aws_sdk_codestar_connections.types.connection_arn.ConnectionArn"
     """<p>The Amazon Resource Name (ARN) of the connection to be created. The ARN is used as the connection reference when the connection is shared between Amazon Web Services services.</p> <note> <p>The ARN is never reused if the connection is deleted.</p> </note>"""
     tags: NotRequired["aws_sdk_codestar_connections.types.tag_list.TagList"]

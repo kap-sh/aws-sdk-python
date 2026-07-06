@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DescribeAlarmModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.alarm_capabilities
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.timestamp
 
 
-class DescribeAlarmModelResponse(TypedDict):
+class DescribeAlarmModelResponse(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_iot_events.types.timestamp.Timestamp"]
     """<p>The time the alarm model was created, in the Unix epoch format.</p>"""
     alarm_model_arn: NotRequired[

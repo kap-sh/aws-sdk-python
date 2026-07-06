@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#WorkloadJiraConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.issue_management_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_issue_management_status
 
 
-class WorkloadJiraConfigurationOutput(TypedDict):
+class WorkloadJiraConfigurationOutput(TypedDict, closed=True):
     issue_management_status: NotRequired[
         "aws_sdk_wellarchitected.types.workload_issue_management_status.WorkloadIssueManagementStatus"
     ]

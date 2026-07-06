@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DnsDuplicateRuleGroupViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
     import aws_sdk_fms.types.violation_target
 
 
-class DnsDuplicateRuleGroupViolation(TypedDict):
+class DnsDuplicateRuleGroupViolation(TypedDict, closed=True):
     violation_target: NotRequired["aws_sdk_fms.types.violation_target.ViolationTarget"]
     """<p>Information about the VPC ID. </p>"""
     violation_target_description: NotRequired[

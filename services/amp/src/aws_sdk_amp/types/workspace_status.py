@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#WorkspaceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_status_code
 
 
-class WorkspaceStatus(TypedDict):
+class WorkspaceStatus(TypedDict, closed=True):
     status_code: "aws_sdk_amp.types.workspace_status_code.WorkspaceStatusCode"
     """<p>The current status of the workspace.</p>"""
 

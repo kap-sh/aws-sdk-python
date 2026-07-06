@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.guard_duty_arn
     import aws_sdk_guardduty.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_guardduty.types.guard_duty_arn.GuardDutyArn"
     """<p>The Amazon Resource Name (ARN) for the resource to remove tags from.</p>"""
     tag_keys: NotRequired["aws_sdk_guardduty.types.tag_key_list.TagKeyList"]

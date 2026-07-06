@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetCelebrityRecognitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
 
 
-class GetCelebrityRecognitionRequest(TypedDict):
+class GetCelebrityRecognitionRequest(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.job_id.JobId"
     """<p>Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to <code>StartCelebrityRecognition</code>.</p>"""
     max_results: NotRequired["aws_sdk_rekognition.types.max_results.MaxResults"]

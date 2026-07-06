@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListInvitationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.invitations
     import aws_sdk_guardduty.types.string
 
 
-class ListInvitationsResponse(TypedDict):
+class ListInvitationsResponse(TypedDict, closed=True):
     invitations: NotRequired["aws_sdk_guardduty.types.invitations.Invitations"]
     """<p>A list of invitation descriptions.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

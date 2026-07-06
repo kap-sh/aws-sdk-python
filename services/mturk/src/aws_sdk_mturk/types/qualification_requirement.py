@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#QualificationRequirement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class QualificationRequirement(TypedDict):
+class QualificationRequirement(TypedDict, closed=True):
     qualification_type_id: "aws_sdk_mturk.types.string.String"
     """<p> The ID of the Qualification type for the requirement.</p>"""
     comparator: "aws_sdk_mturk.types.comparator.Comparator"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetPersonalAccessTokenMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.personal_access_token_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_identifier
 
 
-class GetPersonalAccessTokenMetadataResponse(TypedDict):
+class GetPersonalAccessTokenMetadataResponse(TypedDict, closed=True):
     personal_access_token_id: NotRequired[
         "aws_sdk_workmail.types.personal_access_token_id.PersonalAccessTokenId"
     ]

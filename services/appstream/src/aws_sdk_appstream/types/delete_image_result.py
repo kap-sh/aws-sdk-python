@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteImageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.image
 
 
-class DeleteImageResult(TypedDict):
+class DeleteImageResult(TypedDict, closed=True):
     image: NotRequired["aws_sdk_appstream.types.image.Image"]
     """<p>Information about the image.</p>"""
 

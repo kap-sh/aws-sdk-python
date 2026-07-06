@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#MemorySessionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.date_timestamp
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.summary_text
 
 
-class MemorySessionSummary(TypedDict):
+class MemorySessionSummary(TypedDict, closed=True):
     memory_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.memory_id.MemoryId"]
     """<p>The unique identifier of the memory where the session summary is stored.</p>"""
     session_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.session_id.SessionId"]

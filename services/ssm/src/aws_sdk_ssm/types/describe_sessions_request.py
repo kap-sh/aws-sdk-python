@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_state
 
 
-class DescribeSessionsRequest(TypedDict):
+class DescribeSessionsRequest(TypedDict, closed=True):
     state: "aws_sdk_ssm.types.session_state.SessionState"
     r"""<p>The session status to retrieve a list of sessions for. For example, \"Active\".</p>"""
     max_results: NotRequired["aws_sdk_ssm.types.session_max_results.SessionMaxResults"]

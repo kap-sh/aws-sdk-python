@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ImportCatalogToGlueResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ImportCatalogToGlueResponse(TypedDict):
+class ImportCatalogToGlueResponse(TypedDict, closed=True):
     pass
 
 

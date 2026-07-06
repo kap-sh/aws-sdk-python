@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BrandElementStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.navbar_style
 
 
-class BrandElementStyle(TypedDict):
+class BrandElementStyle(TypedDict, closed=True):
     navbar_style: NotRequired["aws_sdk_quicksight.types.navbar_style.NavbarStyle"]
     """<p>The navigation bar style.</p>"""
 

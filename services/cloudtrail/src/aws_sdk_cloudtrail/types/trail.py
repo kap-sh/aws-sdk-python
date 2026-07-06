@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#Trail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.boolean
     import aws_sdk_cloudtrail.types.string
 
 
-class Trail(TypedDict):
+class Trail(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>Name of the trail set by calling <a>CreateTrail</a>. The maximum length is 128 characters.</p>"""
     s3_bucket_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]

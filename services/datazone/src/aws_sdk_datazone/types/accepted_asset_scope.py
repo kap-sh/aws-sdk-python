@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AcceptedAssetScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_ids
 
 
-class AcceptedAssetScope(TypedDict):
+class AcceptedAssetScope(TypedDict, closed=True):
     asset_id: "aws_sdk_datazone.types.asset_id.AssetId"
     """<p>The asset ID of the accepted asset scope.</p>"""
     filter_ids: "aws_sdk_datazone.types.filter_ids.FilterIds"

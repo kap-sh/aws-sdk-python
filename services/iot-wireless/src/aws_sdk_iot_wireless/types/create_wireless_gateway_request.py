@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateWirelessGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_name
 
 
-class CreateWirelessGatewayRequest(TypedDict):
+class CreateWirelessGatewayRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_gateway_name.WirelessGatewayName"
     ]

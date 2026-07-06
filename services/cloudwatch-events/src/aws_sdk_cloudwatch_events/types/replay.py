@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#Replay``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.timestamp
 
 
-class Replay(TypedDict):
+class Replay(TypedDict, closed=True):
     replay_name: NotRequired["aws_sdk_cloudwatch_events.types.replay_name.ReplayName"]
     """<p>The name of the replay.</p>"""
     event_source_arn: NotRequired["aws_sdk_cloudwatch_events.types.arn.Arn"]

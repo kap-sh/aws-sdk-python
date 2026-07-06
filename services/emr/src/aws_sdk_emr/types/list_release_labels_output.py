@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListReleaseLabelsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
     import aws_sdk_emr.types.string_list
 
 
-class ListReleaseLabelsOutput(TypedDict):
+class ListReleaseLabelsOutput(TypedDict, closed=True):
     release_labels: NotRequired["aws_sdk_emr.types.string_list.StringList"]
     """<p>The returned release labels.</p>"""
     next_token: NotRequired["aws_sdk_emr.types.string.String"]

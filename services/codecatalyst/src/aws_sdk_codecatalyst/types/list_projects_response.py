@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListProjectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.project_summaries
 
 
-class ListProjectsResponse(TypedDict):
+class ListProjectsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"""
     items: NotRequired["aws_sdk_codecatalyst.types.project_summaries.ProjectSummaries"]

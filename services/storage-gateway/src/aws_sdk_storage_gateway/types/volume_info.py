@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#VolumeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_type
 
 
-class VolumeInfo(TypedDict):
+class VolumeInfo(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The Amazon Resource Name (ARN) for the storage volume. For example, the following is a valid ARN:</p> <p> <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB</code> </p> <p>Valid Values: 50 to 500 lowercase letters, numbers, periods (.), and hyphens (-).</p>"""
     volume_id: NotRequired["aws_sdk_storage_gateway.types.volume_id.VolumeId"]

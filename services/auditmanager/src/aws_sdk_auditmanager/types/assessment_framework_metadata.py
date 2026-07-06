@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssessmentFrameworkMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.audit_manager_arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class AssessmentFrameworkMetadata(TypedDict):
+class AssessmentFrameworkMetadata(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn"]
     """<p> The Amazon Resource Name (ARN) of the framework. </p>"""
     id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]

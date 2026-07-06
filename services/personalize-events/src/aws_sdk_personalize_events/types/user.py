@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeevents#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_events.types.synthesized_json_user_properties
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     user_id: "aws_sdk_personalize_events.types.string_type.StringType"
     """<p>The ID associated with the user.</p>"""
     properties: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#AutomationEventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.filter_values
 
 
-class AutomationEventFilter(TypedDict):
+class AutomationEventFilter(TypedDict, closed=True):
     name: "aws_sdk_compute_optimizer_automation.types.automation_event_filter_name.AutomationEventFilterName"
     """<p> The name of the filter to apply. </p>"""
     values: "aws_sdk_compute_optimizer_automation.types.filter_values.FilterValues"

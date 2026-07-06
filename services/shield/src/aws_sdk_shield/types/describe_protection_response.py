@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeProtectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.protection
 
 
-class DescribeProtectionResponse(TypedDict):
+class DescribeProtectionResponse(TypedDict, closed=True):
     protection: NotRequired["aws_sdk_shield.types.protection.Protection"]
     """<p>The <a>Protection</a> that you requested. </p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateFleetPortSettingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_arn
     import aws_sdk_gamelift.types.fleet_id
 
 
-class UpdateFleetPortSettingsOutput(TypedDict):
+class UpdateFleetPortSettingsOutput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id.FleetId"]
     """<p>A unique identifier for the fleet that was updated.</p>"""
     fleet_arn: NotRequired["aws_sdk_gamelift.types.fleet_arn.FleetArn"]

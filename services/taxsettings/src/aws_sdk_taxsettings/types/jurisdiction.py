@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#Jurisdiction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.state
 
 
-class Jurisdiction(TypedDict):
+class Jurisdiction(TypedDict, closed=True):
     state_or_region: NotRequired["aws_sdk_taxsettings.types.state.State"]
     """<p> The state, region, or province associated with the country of the jurisdiction, if applicable. </p>"""
     country_code: "aws_sdk_taxsettings.types.country_code.CountryCode"

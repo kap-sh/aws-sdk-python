@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#WiFiAccessPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.rss
 
 
-class WiFiAccessPoint(TypedDict):
+class WiFiAccessPoint(TypedDict, closed=True):
     mac_address: "aws_sdk_iot_wireless.types.mac_address.MacAddress"
     """<p>Wi-Fi MAC Address.</p>"""
     rss: "aws_sdk_iot_wireless.types.rss.RSS"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnalysisSourceEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.analysis_source_template
 
 
-class AnalysisSourceEntity(TypedDict):
+class AnalysisSourceEntity(TypedDict, closed=True):
     source_template: NotRequired[
         "aws_sdk_quicksight.types.analysis_source_template.AnalysisSourceTemplate"
     ]

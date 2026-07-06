@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#PersonMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_match_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.timestamp
 
 
-class PersonMatch(TypedDict):
+class PersonMatch(TypedDict, closed=True):
     timestamp: "aws_sdk_rekognition.types.timestamp.Timestamp"
     """<p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>"""
     person: NotRequired["aws_sdk_rekognition.types.person_detail.PersonDetail"]

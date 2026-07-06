@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListAssociationsRequest(TypedDict):
+class ListAssociationsRequest(TypedDict, closed=True):
     association_filter_list: NotRequired[
         "aws_sdk_ssm.types.association_filter_list.AssociationFilterList"
     ]

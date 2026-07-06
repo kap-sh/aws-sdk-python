@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DescribeRuntimeVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.max_size100
     import aws_sdk_synthetics.types.token
 
 
-class DescribeRuntimeVersionsRequest(TypedDict):
+class DescribeRuntimeVersionsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_synthetics.types.token.Token"]
     """<p>A token that indicates that there is more data available. You can use this token in a subsequent <code>DescribeRuntimeVersions</code> operation to retrieve the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_synthetics.types.max_size100.MaxSize100"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IdMappingTechniques``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.provider_properties
 
 
-class IdMappingTechniques(TypedDict):
+class IdMappingTechniques(TypedDict, closed=True):
     id_mapping_type: "aws_sdk_entityresolution.types.id_mapping_type.IdMappingType"
     """<p>The type of ID mapping.</p>"""
     rule_based_properties: NotRequired[

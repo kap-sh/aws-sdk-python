@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#ListBenefitsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.benefit_summaries
 
 
-class ListBenefitsOutput(TypedDict):
+class ListBenefitsOutput(TypedDict, closed=True):
     benefit_summaries: NotRequired[
         "aws_sdk_partnercentral_benefits.types.benefit_summaries.BenefitSummaries"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#FleetLaunchTemplateConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.fleet_launch_template_specification_request
 
 
-class FleetLaunchTemplateConfigRequest(TypedDict):
+class FleetLaunchTemplateConfigRequest(TypedDict, closed=True):
     launch_template_specification: NotRequired[
         "aws_sdk_ec2.types.fleet_launch_template_specification_request.FleetLaunchTemplateSpecificationRequest"
     ]

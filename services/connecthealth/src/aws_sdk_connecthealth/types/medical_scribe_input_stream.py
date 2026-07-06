@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeInputStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth._iter import AnyIterator
 from aws_sdk_connecthealth._protocol.eventstream import Message
@@ -12,21 +14,21 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.medical_scribe_session_control_event
 
 
-class _MedicalScribeInputStream_audioEvent(TypedDict):
+class _MedicalScribeInputStream_audioEvent(TypedDict, closed=True):
     audioEvent: (
         "aws_sdk_connecthealth.types.medical_scribe_audio_event.MedicalScribeAudioEvent"
     )
 
 
-class _MedicalScribeInputStream_binaryAudioEvent(TypedDict):
+class _MedicalScribeInputStream_binaryAudioEvent(TypedDict, closed=True):
     binaryAudioEvent: "aws_sdk_connecthealth.types.medical_scribe_binary_audio_event.MedicalScribeBinaryAudioEvent"
 
 
-class _MedicalScribeInputStream_sessionControlEvent(TypedDict):
+class _MedicalScribeInputStream_sessionControlEvent(TypedDict, closed=True):
     sessionControlEvent: "aws_sdk_connecthealth.types.medical_scribe_session_control_event.MedicalScribeSessionControlEvent"
 
 
-class _MedicalScribeInputStream_configurationEvent(TypedDict):
+class _MedicalScribeInputStream_configurationEvent(TypedDict, closed=True):
     configurationEvent: "aws_sdk_connecthealth.types.medical_scribe_configuration_event.MedicalScribeConfigurationEvent"
 
 

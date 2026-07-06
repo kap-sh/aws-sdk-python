@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#InternalServiceErrorException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain.errors import ServiceError
 
 
-class InternalServiceErrorException_(TypedDict):
+class InternalServiceErrorException_(TypedDict, closed=True):
     pass
 
 

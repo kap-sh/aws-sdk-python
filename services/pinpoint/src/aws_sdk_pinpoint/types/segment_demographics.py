@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SegmentDemographics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.set_dimension
 
 
-class SegmentDemographics(TypedDict):
+class SegmentDemographics(TypedDict, closed=True):
     app_version: NotRequired["aws_sdk_pinpoint.types.set_dimension.SetDimension"]
     """<p>The app version criteria for the segment.</p>"""
     channel: NotRequired["aws_sdk_pinpoint.types.set_dimension.SetDimension"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#DescribeCertificateAuthorityAuditReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.audit_report_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.t_stamp
 
 
-class DescribeCertificateAuthorityAuditReportResponse(TypedDict):
+class DescribeCertificateAuthorityAuditReportResponse(TypedDict, closed=True):
     audit_report_status: NotRequired[
         "aws_sdk_acm_pca.types.audit_report_status.AuditReportStatus"
     ]

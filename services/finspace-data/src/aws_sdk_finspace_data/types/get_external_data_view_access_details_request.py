@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetExternalDataViewAccessDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.data_view_id
     import aws_sdk_finspace_data.types.dataset_id
 
 
-class GetExternalDataViewAccessDetailsRequest(TypedDict):
+class GetExternalDataViewAccessDetailsRequest(TypedDict, closed=True):
     data_view_id: "aws_sdk_finspace_data.types.data_view_id.DataViewId"
     """<p>The unique identifier for the Dataview that you want to access.</p>"""
     dataset_id: "aws_sdk_finspace_data.types.dataset_id.DatasetId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UntagInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.tag_key_list
 
 
-class UntagInput(TypedDict):
+class UntagInput(TypedDict, closed=True):
     arn: "aws_sdk_resource_groups.types.group_arn_v2.GroupArnV2"
     """<p>The Amazon resource name (ARN) of the resource group from which to remove tags. The command removed both the specified keys and any values associated with those keys.</p>"""
     keys: "aws_sdk_resource_groups.types.tag_key_list.TagKeyList"

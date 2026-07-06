@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#BatchGetMemberAccountDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.get_membership_account_detail_errors
     import aws_sdk_security_ir.types.get_membership_account_detail_items
 
 
-class BatchGetMemberAccountDetailsResponse(TypedDict):
+class BatchGetMemberAccountDetailsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_security_ir.types.get_membership_account_detail_items.GetMembershipAccountDetailItems"
     ]

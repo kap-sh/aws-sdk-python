@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BarSeriesItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_field_bar_series_item
     import aws_sdk_quicksight.types.field_bar_series_item
 
 
-class BarSeriesItem(TypedDict):
+class BarSeriesItem(TypedDict, closed=True):
     field_bar_series_item: NotRequired[
         "aws_sdk_quicksight.types.field_bar_series_item.FieldBarSeriesItem"
     ]

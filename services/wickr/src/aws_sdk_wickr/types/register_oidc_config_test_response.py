@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#RegisterOidcConfigTestResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.string_list
 
 
-class RegisterOidcConfigTestResponse(TypedDict):
+class RegisterOidcConfigTestResponse(TypedDict, closed=True):
     token_endpoint: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The token endpoint URL discovered from the OIDC provider.</p>"""
     userinfo_endpoint: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

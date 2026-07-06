@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#DescribeLocationFsxOntapResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.ec2_security_group_arn_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class DescribeLocationFsxOntapResponse(TypedDict):
+class DescribeLocationFsxOntapResponse(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_datasync.types.time.Time"]
     """<p>The time that the location was created.</p>"""
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]

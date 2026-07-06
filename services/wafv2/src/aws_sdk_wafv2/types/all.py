@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#All``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class All(TypedDict):
+class All(TypedDict, closed=True):
     pass
 
 

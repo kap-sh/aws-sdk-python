@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BodySectionRepeatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.body_section_repeat_dimension_configuration_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_repeating_visuals_list
 
 
-class BodySectionRepeatConfiguration(TypedDict):
+class BodySectionRepeatConfiguration(TypedDict, closed=True):
     dimension_configurations: NotRequired[
         "aws_sdk_quicksight.types.body_section_repeat_dimension_configuration_list.BodySectionRepeatDimensionConfigurationList"
     ]

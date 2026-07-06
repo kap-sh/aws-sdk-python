@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#EksSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.eks_namespace_list
 
 
-class EksSource(TypedDict):
+class EksSource(TypedDict, closed=True):
     cluster_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     namespaces: "aws_sdk_resiliencehubv2.types.eks_namespace_list.EksNamespaceList"
     """<p>The list of Kubernetes namespaces within the EKS cluster.</p>"""

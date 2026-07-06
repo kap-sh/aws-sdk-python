@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DisassociateAdminAccountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateAdminAccountRequest(TypedDict):
+class DisassociateAdminAccountRequest(TypedDict, closed=True):
     pass
 
 

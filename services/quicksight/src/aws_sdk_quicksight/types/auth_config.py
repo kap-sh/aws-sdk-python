@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.connection_auth_type
 
 
-class AuthConfig(TypedDict):
+class AuthConfig(TypedDict, closed=True):
     authentication_type: (
         "aws_sdk_quicksight.types.connection_auth_type.ConnectionAuthType"
     )

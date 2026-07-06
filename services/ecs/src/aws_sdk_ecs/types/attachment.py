@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Attachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attachment_details
     import aws_sdk_ecs.types.string
 
 
-class Attachment(TypedDict):
+class Attachment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The unique identifier for the attachment.</p>"""
     type: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#BatchGetViewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.view_arn_list
 
 
-class BatchGetViewInput(TypedDict):
+class BatchGetViewInput(TypedDict, closed=True):
     view_arns: NotRequired[
         "aws_sdk_resource_explorer_2.types.view_arn_list.ViewArnList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#FleetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.service_managed_ec2_fleet_configuration
 
 
-class _FleetConfiguration_customerManaged(TypedDict):
+class _FleetConfiguration_customerManaged(TypedDict, closed=True):
     customerManaged: "aws_sdk_deadline.types.customer_managed_fleet_configuration.CustomerManagedFleetConfiguration"
 
 
-class _FleetConfiguration_serviceManagedEc2(TypedDict):
+class _FleetConfiguration_serviceManagedEc2(TypedDict, closed=True):
     serviceManagedEc2: "aws_sdk_deadline.types.service_managed_ec2_fleet_configuration.ServiceManagedEc2FleetConfiguration"
 
 

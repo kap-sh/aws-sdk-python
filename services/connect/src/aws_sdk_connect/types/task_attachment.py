@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.pre_signed_attachment_url
 
 
-class TaskAttachment(TypedDict):
+class TaskAttachment(TypedDict, closed=True):
     file_name: "aws_sdk_connect.types.file_name.FileName"
     """<p>A case-sensitive name of the attached file being uploaded.</p>"""
     s3_url: "aws_sdk_connect.types.pre_signed_attachment_url.PreSignedAttachmentUrl"

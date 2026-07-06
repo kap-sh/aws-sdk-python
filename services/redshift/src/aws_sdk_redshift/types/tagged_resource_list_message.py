@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#TaggedResourceListMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tagged_resource_list
 
 
-class TaggedResourceListMessage(TypedDict):
+class TaggedResourceListMessage(TypedDict, closed=True):
     tagged_resources: NotRequired[
         "aws_sdk_redshift.types.tagged_resource_list.TaggedResourceList"
     ]

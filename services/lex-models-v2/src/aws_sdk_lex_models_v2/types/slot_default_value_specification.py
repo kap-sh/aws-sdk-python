@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotDefaultValueSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_default_value_list
 
 
-class SlotDefaultValueSpecification(TypedDict):
+class SlotDefaultValueSpecification(TypedDict, closed=True):
     default_value_list: (
         "aws_sdk_lex_models_v2.types.slot_default_value_list.SlotDefaultValueList"
     )

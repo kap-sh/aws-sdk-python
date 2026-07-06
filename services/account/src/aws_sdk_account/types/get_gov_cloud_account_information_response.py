@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#GetGovCloudAccountInformationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.aws_account_state
 
 
-class GetGovCloudAccountInformationResponse(TypedDict):
+class GetGovCloudAccountInformationResponse(TypedDict, closed=True):
     gov_cloud_account_id: "aws_sdk_account.types.account_id.AccountId"
     """<p>The 12-digit account ID number of the linked GovCloud account.</p>"""
     account_state: "aws_sdk_account.types.aws_account_state.AwsAccountState"

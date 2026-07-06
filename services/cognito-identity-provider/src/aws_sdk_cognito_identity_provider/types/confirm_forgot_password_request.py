@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ConfirmForgotPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.username_type
 
 
-class ConfirmForgotPasswordRequest(TypedDict):
+class ConfirmForgotPasswordRequest(TypedDict, closed=True):
     client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
     """<p>The ID of the app client where the user wants to reset their password. This parameter is an identifier of the client application that users are resetting their password from, but this operation resets users' irrespective of the app clients they sign in to.</p>"""
     secret_hash: NotRequired[

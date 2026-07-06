@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateWorkloadShareInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.permission_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class UpdateWorkloadShareInput(TypedDict):
+class UpdateWorkloadShareInput(TypedDict, closed=True):
     share_id: "aws_sdk_wellarchitected.types.share_id.ShareId"
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     permission_type: NotRequired[

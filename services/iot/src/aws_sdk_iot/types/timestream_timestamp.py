@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TimestreamTimestamp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestream_timestamp_value
 
 
-class TimestreamTimestamp(TypedDict):
+class TimestreamTimestamp(TypedDict, closed=True):
     value: "aws_sdk_iot.types.timestream_timestamp_value.TimestreamTimestampValue"
     """<p>An expression that returns a long epoch time value.</p>"""
     unit: "aws_sdk_iot.types.timestream_timestamp_unit.TimestreamTimestampUnit"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#UpdateWhatsAppFlowOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateWhatsAppFlowOutput(TypedDict):
+class UpdateWhatsAppFlowOutput(TypedDict, closed=True):
     pass
 
 

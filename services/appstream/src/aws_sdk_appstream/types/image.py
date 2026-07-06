@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.applications
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.visibility_type
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The name of the image.</p>"""
     arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.step_config
     import aws_sdk_emr.types.step_execution_status_detail
 
 
-class StepDetail(TypedDict):
+class StepDetail(TypedDict, closed=True):
     step_config: NotRequired["aws_sdk_emr.types.step_config.StepConfig"]
     """<p>The step configuration.</p>"""
     execution_status_detail: NotRequired[

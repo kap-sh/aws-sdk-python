@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GatewayFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.target_path_list
 
 
-class GatewayFilter(TypedDict):
+class GatewayFilter(TypedDict, closed=True):
     target_paths: NotRequired[
         "aws_sdk_bedrock_agentcore.types.target_path_list.TargetPathList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetMFADeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class GetMFADeviceRequest(TypedDict):
+class GetMFADeviceRequest(TypedDict, closed=True):
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"
     r"""<p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">ARNs</a>.</p>"""
     user_name: NotRequired["aws_sdk_iam.types.user_name_type.userNameType"]

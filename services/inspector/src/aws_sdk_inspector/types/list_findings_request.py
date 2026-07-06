@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.finding_filter
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListFindingsRequest(TypedDict):
+class ListFindingsRequest(TypedDict, closed=True):
     assessment_run_arns: NotRequired[
         "aws_sdk_inspector.types.list_parent_arn_list.ListParentArnList"
     ]

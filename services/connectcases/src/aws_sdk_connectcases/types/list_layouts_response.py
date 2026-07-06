@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ListLayoutsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.next_token
 
 
-class ListLayoutsResponse(TypedDict):
+class ListLayoutsResponse(TypedDict, closed=True):
     layouts: "aws_sdk_connectcases.types.layout_summary_list.LayoutSummaryList"
     """<p>The layouts for the domain.</p>"""
     next_token: NotRequired["aws_sdk_connectcases.types.next_token.NextToken"]

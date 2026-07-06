@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#EnableEnhancedMonitoringInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_name
 
 
-class EnableEnhancedMonitoringInput(TypedDict):
+class EnableEnhancedMonitoringInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]
     """<p>The name of the stream for which to enable enhanced monitoring.</p>"""
     shard_level_metrics: "aws_sdk_kinesis.types.metrics_name_list.MetricsNameList"

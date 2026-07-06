@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TextDocumentStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.indexed_text_bytes
     import aws_sdk_kendra.types.indexed_text_documents_count
 
 
-class TextDocumentStatistics(TypedDict):
+class TextDocumentStatistics(TypedDict, closed=True):
     indexed_text_documents_count: (
         "aws_sdk_kendra.types.indexed_text_documents_count.IndexedTextDocumentsCount"
     )

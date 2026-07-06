@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#RollingInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.rolling_interval_duration
 
 
-class RollingInterval(TypedDict):
+class RollingInterval(TypedDict, closed=True):
     duration_unit: "aws_sdk_application_signals.types.duration_unit.DurationUnit"
     """<p>Specifies the rolling interval unit.</p>"""
     duration: "aws_sdk_application_signals.types.rolling_interval_duration.RollingIntervalDuration"

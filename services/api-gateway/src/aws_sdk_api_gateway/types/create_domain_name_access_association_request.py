@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#CreateDomainNameAccessAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class CreateDomainNameAccessAssociationRequest(TypedDict):
+class CreateDomainNameAccessAssociationRequest(TypedDict, closed=True):
     domain_name_arn: "aws_sdk_api_gateway.types.string.String"
     """<p> The ARN of the domain name. </p>"""
     access_association_source_type: "aws_sdk_api_gateway.types.access_association_source_type.AccessAssociationSourceType"

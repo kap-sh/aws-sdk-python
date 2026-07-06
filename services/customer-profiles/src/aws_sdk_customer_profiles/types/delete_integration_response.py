@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DeleteIntegrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.message
 
 
-class DeleteIntegrationResponse(TypedDict):
+class DeleteIntegrationResponse(TypedDict, closed=True):
     message: "aws_sdk_customer_profiles.types.message.message"
     """<p>A message that indicates the delete request is done.</p>"""
 

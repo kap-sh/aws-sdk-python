@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#ScalingPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.timestamp_type
 
 
-class ScalingPolicy(TypedDict):
+class ScalingPolicy(TypedDict, closed=True):
     policy_arn: "aws_sdk_application_auto_scaling.types.resource_id_max_len1600.ResourceIdMaxLen1600"
     """<p>The Amazon Resource Name (ARN) of the scaling policy.</p>"""
     policy_name: "aws_sdk_application_auto_scaling.types.policy_name.PolicyName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DestinationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class DestinationSummary(TypedDict):
+class DestinationSummary(TypedDict, closed=True):
     uri: "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     """<p>The StreamARN of the destination to deliver profile events to. For example, arn:aws:kinesis:region:account-id:stream/stream-name.</p>"""
     status: "aws_sdk_customer_profiles.types.event_stream_destination_status.EventStreamDestinationStatus"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeEventCategoriesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.filter_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeEventCategoriesMessage(TypedDict):
+class DescribeEventCategoriesMessage(TypedDict, closed=True):
     source_type: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p> The type of DMS resource that generates events. </p> <p>Valid values: replication-instance | replication-task</p>"""
     filters: NotRequired[

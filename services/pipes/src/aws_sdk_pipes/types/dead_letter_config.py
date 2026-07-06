@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#DeadLetterConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.arn
 
 
-class DeadLetterConfig(TypedDict):
+class DeadLetterConfig(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pipes.types.arn.Arn"]
     """<p>The ARN of the specified target for the dead-letter queue. </p> <p>For Amazon Kinesis stream and Amazon DynamoDB stream sources, specify either an Amazon SNS topic or Amazon SQS queue ARN.</p>"""
 

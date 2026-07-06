@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SelfGrantStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.redshift_self_grant_status_output
 
 
-class _SelfGrantStatusOutput_glueSelfGrantStatus(TypedDict):
+class _SelfGrantStatusOutput_glueSelfGrantStatus(TypedDict, closed=True):
     glueSelfGrantStatus: (
         "aws_sdk_datazone.types.glue_self_grant_status_output.GlueSelfGrantStatusOutput"
     )
 
 
-class _SelfGrantStatusOutput_redshiftSelfGrantStatus(TypedDict):
+class _SelfGrantStatusOutput_redshiftSelfGrantStatus(TypedDict, closed=True):
     redshiftSelfGrantStatus: "aws_sdk_datazone.types.redshift_self_grant_status_output.RedshiftSelfGrantStatusOutput"
 
 

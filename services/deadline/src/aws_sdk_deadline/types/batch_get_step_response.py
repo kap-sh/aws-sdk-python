@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BatchGetStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.batch_get_step_items
 
 
-class BatchGetStepResponse(TypedDict):
+class BatchGetStepResponse(TypedDict, closed=True):
     steps: "aws_sdk_deadline.types.batch_get_step_items.BatchGetStepItems"
     """<p>A list of steps that were successfully retrieved.</p>"""
     errors: "aws_sdk_deadline.types.batch_get_step_errors.BatchGetStepErrors"

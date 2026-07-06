@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ResetOriginEndpointStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.resource_name
 
 
-class ResetOriginEndpointStateRequest(TypedDict):
+class ResetOriginEndpointStateRequest(TypedDict, closed=True):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>The name of the channel group that contains the channel with the origin endpoint that you are resetting.</p>"""
     channel_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"

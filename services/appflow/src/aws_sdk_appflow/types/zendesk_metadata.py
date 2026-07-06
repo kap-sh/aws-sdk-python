@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ZendeskMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth_scope_list
 
 
-class ZendeskMetadata(TypedDict):
+class ZendeskMetadata(TypedDict, closed=True):
     o_auth_scopes: NotRequired["aws_sdk_appflow.types.o_auth_scope_list.OAuthScopeList"]
     """<p> The desired authorization scope for the Zendesk account. </p>"""
 

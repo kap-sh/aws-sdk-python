@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetBulkDeploymentStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class GetBulkDeploymentStatusRequest(TypedDict):
+class GetBulkDeploymentStatusRequest(TypedDict, closed=True):
     bulk_deployment_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the bulk deployment."""
 

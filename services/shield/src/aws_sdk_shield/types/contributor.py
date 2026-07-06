@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#Contributor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.long
     import aws_sdk_shield.types.string
 
 
-class Contributor(TypedDict):
+class Contributor(TypedDict, closed=True):
     name: NotRequired["aws_sdk_shield.types.string.String"]
     """<p>The name of the contributor. The type of name that you'll find here depends on the <code>AttackPropertyIdentifier</code> setting in the <code>AttackProperty</code> where this contributor is defined. For example, if the <code>AttackPropertyIdentifier</code> is <code>SOURCE_COUNTRY</code>, the <code>Name</code> could be <code>United States</code>.</p>"""
     value: "aws_sdk_shield.types.long.Long"

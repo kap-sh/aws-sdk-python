@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#Rule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.schedule
 
 
-class Rule(TypedDict):
+class Rule(TypedDict, closed=True):
     schedule: NotRequired["aws_sdk_cloudwatch.types.schedule.Schedule"]
     """<p>The schedule configuration that defines when the mute rule activates and how long it remains active.</p>"""
 

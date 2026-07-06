@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotAliasSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_alias_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class BotAliasSummary(TypedDict):
+class BotAliasSummary(TypedDict, closed=True):
     bot_alias_id: NotRequired["aws_sdk_lex_models_v2.types.bot_alias_id.BotAliasId"]
     r"""<p>The unique identifier assigned to the bot alias. You can use this ID to get detailed information about the alias using the <a href=\"https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html\">DescribeBotAlias</a> operation.</p>"""
     bot_alias_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

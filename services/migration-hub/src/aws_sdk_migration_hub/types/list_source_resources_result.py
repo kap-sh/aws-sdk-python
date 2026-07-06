@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ListSourceResourcesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.source_resource_list
     import aws_sdk_migration_hub.types.token
 
 
-class ListSourceResourcesResult(TypedDict):
+class ListSourceResourcesResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_migration_hub.types.token.Token"]
     """<p>If the response includes a <code>NextToken</code> value, that means that there are more results available. The value of <code>NextToken</code> is a unique pagination token for each page. To retrieve the next page of results, call this API again and specify this <code>NextToken</code> value in the request. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>"""
     source_resource_list: NotRequired[

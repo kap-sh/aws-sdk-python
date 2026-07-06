@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutLogEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.sequence_token
 
 
-class PutLogEventsRequest(TypedDict):
+class PutLogEventsRequest(TypedDict, closed=True):
     log_group_name: "aws_sdk_cloudwatch_logs.types.log_group_name.LogGroupName"
     """<p>The name of the log group.</p>"""
     log_stream_name: "aws_sdk_cloudwatch_logs.types.log_stream_name.LogStreamName"

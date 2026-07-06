@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Stage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.access_log_settings
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.timestamp
 
 
-class Stage(TypedDict):
+class Stage(TypedDict, closed=True):
     deployment_id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier of the Deployment that the stage points to.</p>"""
     client_certificate_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

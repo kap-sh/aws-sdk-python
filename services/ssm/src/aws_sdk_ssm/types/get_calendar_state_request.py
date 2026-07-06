@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetCalendarStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.iso8601_string
 
 
-class GetCalendarStateRequest(TypedDict):
+class GetCalendarStateRequest(TypedDict, closed=True):
     calendar_names: "aws_sdk_ssm.types.calendar_name_or_arn_list.CalendarNameOrARNList"
     """<p>The names of Amazon Resource Names (ARNs) of the Systems Manager documents (SSM documents) that represent the calendar entries for which you want to get the state.</p>"""
     at_time: NotRequired["aws_sdk_ssm.types.iso8601_string.ISO8601String"]

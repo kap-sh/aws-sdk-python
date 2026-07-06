@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#PutPermissionPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutPermissionPolicyResponse(TypedDict):
+class PutPermissionPolicyResponse(TypedDict, closed=True):
     pass
 
 

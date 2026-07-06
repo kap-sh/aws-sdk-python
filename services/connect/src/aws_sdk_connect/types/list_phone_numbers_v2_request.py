@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListPhoneNumbersV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number_types
 
 
-class ListPhoneNumbersV2Request(TypedDict):
+class ListPhoneNumbersV2Request(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) for Connect Customer instances or traffic distribution groups that phone number inbound traffic is routed through. If both <code>TargetArn</code> and <code>InstanceId</code> input are not provided, this API lists numbers claimed to all the Connect Customer instances belonging to your account in the same Amazon Web Services Region as the request.</p>"""
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#UpdatePackageScopeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_user_list
 
 
-class UpdatePackageScopeResponse(TypedDict):
+class UpdatePackageScopeResponse(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_opensearch.types.package_id.PackageID"]
     """<p> ID of the package whose scope was updated.</p>"""
     operation: NotRequired[

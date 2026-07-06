@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListWorkflowStepExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_execution_id
 
 
-class ListWorkflowStepExecutionsRequest(TypedDict):
+class ListWorkflowStepExecutionsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_imagebuilder.types.restricted_integer.RestrictedInteger"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GameProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_property_key
     import aws_sdk_gamelift.types.game_property_value
 
 
-class GameProperty(TypedDict):
+class GameProperty(TypedDict, closed=True):
     key: NotRequired["aws_sdk_gamelift.types.game_property_key.GamePropertyKey"]
     r"""<p>The game property identifier.</p> <note> <ul> <li> <p>Avoid using periods (\".\") in property keys if you plan to search for game sessions by properties. Property keys containing periods cannot be searched and will be filtered out from search results due to search index limitations.</p> </li> <li> <p>If you use SearchGameSessions API, there is a limit of 500 game property keys across all game sessions and all fleets per region. If the limit is exceeded, there will potentially be game session entries missing from SearchGameSessions API results.</p> </li> </ul> </note>"""
     value: NotRequired["aws_sdk_gamelift.types.game_property_value.GamePropertyValue"]

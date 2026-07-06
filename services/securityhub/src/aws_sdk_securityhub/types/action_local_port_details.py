@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ActionLocalPortDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class ActionLocalPortDetails(TypedDict):
+class ActionLocalPortDetails(TypedDict, closed=True):
     port: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of the port.</p>"""
     port_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

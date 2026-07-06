@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FrameCaptureSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max3600000
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.timecode_burnin_settings
 
 
-class FrameCaptureSettings(TypedDict):
+class FrameCaptureSettings(TypedDict, closed=True):
     capture_interval: NotRequired[
         "aws_sdk_medialive.types.__integer_min1_max3600000.__integerMin1Max3600000"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListInferenceRecommendationsJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sort_order
 
 
-class ListInferenceRecommendationsJobsRequest(TypedDict):
+class ListInferenceRecommendationsJobsRequest(TypedDict, closed=True):
     creation_time_after: NotRequired[
         "aws_sdk_sagemaker.types.creation_time.CreationTime"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#PromptAttemptSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.text_input_specification
 
 
-class PromptAttemptSpecification(TypedDict):
+class PromptAttemptSpecification(TypedDict, closed=True):
     allow_interrupt: NotRequired[
         "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchWriteResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.batch_write_operation_response_list
 
 
-class BatchWriteResponse(TypedDict):
+class BatchWriteResponse(TypedDict, closed=True):
     responses: NotRequired[
         "aws_sdk_clouddirectory.types.batch_write_operation_response_list.BatchWriteOperationResponseList"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#GetCaseAttachmentDownloadUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.attachment_id
     import aws_sdk_security_ir.types.case_id
 
 
-class GetCaseAttachmentDownloadUrlRequest(TypedDict):
+class GetCaseAttachmentDownloadUrlRequest(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>Required element for GetCaseAttachmentDownloadUrl to identify the case ID for downloading an attachment from. </p>"""
     attachment_id: "aws_sdk_security_ir.types.attachment_id.AttachmentId"

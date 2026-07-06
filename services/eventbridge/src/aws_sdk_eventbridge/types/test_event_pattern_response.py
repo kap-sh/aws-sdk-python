@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#TestEventPatternResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.boolean
 
 
-class TestEventPatternResponse(TypedDict):
+class TestEventPatternResponse(TypedDict, closed=True):
     result: "aws_sdk_eventbridge.types.boolean.Boolean"
     """<p>Indicates whether the event matches the event pattern.</p>"""
 

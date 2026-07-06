@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectProtectiveEquipmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.protective_equipment_summarization_attributes
 
 
-class DetectProtectiveEquipmentRequest(TypedDict):
+class DetectProtectiveEquipmentRequest(TypedDict, closed=True):
     image: "aws_sdk_rekognition.types.image.Image"
     """<p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket. </p>"""
     summarization_attributes: NotRequired[

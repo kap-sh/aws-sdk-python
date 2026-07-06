@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#PermissionsErrorContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.server_side_string
 
 
-class PermissionsErrorContext(TypedDict):
+class PermissionsErrorContext(TypedDict, closed=True):
     missing_permission: NotRequired[
         "aws_sdk_networkmanager.types.server_side_string.ServerSideString"
     ]

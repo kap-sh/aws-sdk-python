@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingCustomIconOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.icon
     import aws_sdk_quicksight.types.unicode_icon
 
 
-class ConditionalFormattingCustomIconOptions(TypedDict):
+class ConditionalFormattingCustomIconOptions(TypedDict, closed=True):
     icon: NotRequired["aws_sdk_quicksight.types.icon.Icon"]
     """<p>Determines the type of icon.</p>"""
     unicode_icon: NotRequired["aws_sdk_quicksight.types.unicode_icon.UnicodeIcon"]

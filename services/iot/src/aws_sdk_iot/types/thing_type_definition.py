@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingTypeDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_type_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_type_properties
 
 
-class ThingTypeDefinition(TypedDict):
+class ThingTypeDefinition(TypedDict, closed=True):
     thing_type_name: NotRequired["aws_sdk_iot.types.thing_type_name.ThingTypeName"]
     """<p>The name of the thing type.</p>"""
     thing_type_arn: NotRequired["aws_sdk_iot.types.thing_type_arn.ThingTypeArn"]

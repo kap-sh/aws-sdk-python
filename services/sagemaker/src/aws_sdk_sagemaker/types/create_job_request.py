@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_category
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateJobRequest(TypedDict):
+class CreateJobRequest(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_sagemaker.types.job_name.JobName"]
     """<p>The name of the job. The name must be unique within your account and Amazon Web Services Region.</p>"""
     role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#Tenant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.tenant_identifier
 
 
-class Tenant(TypedDict):
+class Tenant(TypedDict, closed=True):
     tenant_identifier: "aws_sdk_appfabric.types.tenant_identifier.TenantIdentifier"
     """<p>The ID of the application tenant.</p>"""
     tenant_display_name: "aws_sdk_appfabric.types.string2048.String2048"

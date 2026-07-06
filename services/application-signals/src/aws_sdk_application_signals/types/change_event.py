@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ChangeEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.change_event_type
 
 
-class ChangeEvent(TypedDict):
+class ChangeEvent(TypedDict, closed=True):
     timestamp: "datetime.datetime"
     """<p>The timestamp when this change event occurred. When used in a raw HTTP Query API, it is formatted as epoch time in seconds.</p>"""
     account_id: "aws_sdk_application_signals.types.aws_account_id.AwsAccountId"

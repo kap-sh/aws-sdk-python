@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#JobExecutionsRolloutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.exponential_rollout_rate
     import aws_sdk_iot.types.max_job_executions_per_min
 
 
-class JobExecutionsRolloutConfig(TypedDict):
+class JobExecutionsRolloutConfig(TypedDict, closed=True):
     maximum_per_minute: NotRequired[
         "aws_sdk_iot.types.max_job_executions_per_min.MaxJobExecutionsPerMin"
     ]

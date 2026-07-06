@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListModelInvocationJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.max_results
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class ListModelInvocationJobsRequest(TypedDict):
+class ListModelInvocationJobsRequest(TypedDict, closed=True):
     submit_time_after: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]
     """<p>Specify a time to filter for batch inference jobs that were submitted after the time you specify.</p>"""
     submit_time_before: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]

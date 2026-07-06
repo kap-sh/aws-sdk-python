@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CapacityAssignmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.capacity_assignments_list
     import aws_sdk_athena.types.capacity_reservation_name
 
 
-class CapacityAssignmentConfiguration(TypedDict):
+class CapacityAssignmentConfiguration(TypedDict, closed=True):
     capacity_reservation_name: NotRequired[
         "aws_sdk_athena.types.capacity_reservation_name.CapacityReservationName"
     ]

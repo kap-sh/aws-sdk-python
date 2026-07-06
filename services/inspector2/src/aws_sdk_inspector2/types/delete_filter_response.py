@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DeleteFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.filter_arn
 
 
-class DeleteFilterResponse(TypedDict):
+class DeleteFilterResponse(TypedDict, closed=True):
     arn: "aws_sdk_inspector2.types.filter_arn.FilterArn"
     """<p>The Amazon Resource Number (ARN) of the filter that has been deleted.</p>"""
 

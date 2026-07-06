@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartLabelDetectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.video
 
 
-class StartLabelDetectionRequest(TypedDict):
+class StartLabelDetectionRequest(TypedDict, closed=True):
     video: "aws_sdk_rekognition.types.video.Video"
     """<p>The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.</p>"""
     client_request_token: NotRequired[

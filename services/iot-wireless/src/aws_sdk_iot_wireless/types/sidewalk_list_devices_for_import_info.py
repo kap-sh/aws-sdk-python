@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkListDevicesForImportInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.sidewalk_positioning
 
 
-class SidewalkListDevicesForImportInfo(TypedDict):
+class SidewalkListDevicesForImportInfo(TypedDict, closed=True):
     positioning: NotRequired[
         "aws_sdk_iot_wireless.types.sidewalk_positioning.SidewalkPositioning"
     ]

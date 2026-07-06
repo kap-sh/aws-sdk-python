@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#MetadataTableConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.s3_tables_destination_result
 
 
-class MetadataTableConfigurationResult(TypedDict):
+class MetadataTableConfigurationResult(TypedDict, closed=True):
     s3_tables_destination_result: (
         "aws_sdk_s3.types.s3_tables_destination_result.S3TablesDestinationResult"
     )

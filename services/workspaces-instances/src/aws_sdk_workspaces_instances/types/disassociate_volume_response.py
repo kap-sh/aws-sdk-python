@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#DisassociateVolumeResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateVolumeResponse(TypedDict):
+class DisassociateVolumeResponse(TypedDict, closed=True):
     pass
 
 

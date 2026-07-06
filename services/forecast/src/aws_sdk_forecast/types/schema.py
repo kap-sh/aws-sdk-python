@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#Schema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.schema_attributes
 
 
-class Schema(TypedDict):
+class Schema(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_forecast.types.schema_attributes.SchemaAttributes"]
     """<p>An array of attributes specifying the name and type of each field in a dataset.</p>"""
 

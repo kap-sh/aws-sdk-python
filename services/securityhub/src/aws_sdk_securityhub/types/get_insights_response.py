@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetInsightsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.insight_list
     import aws_sdk_securityhub.types.next_token
 
 
-class GetInsightsResponse(TypedDict):
+class GetInsightsResponse(TypedDict, closed=True):
     insights: NotRequired["aws_sdk_securityhub.types.insight_list.InsightList"]
     """<p>The insights returned by the operation.</p>"""
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]

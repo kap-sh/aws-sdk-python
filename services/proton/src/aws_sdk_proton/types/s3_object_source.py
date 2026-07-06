@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#S3ObjectSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.s3_key
 
 
-class S3ObjectSource(TypedDict):
+class S3ObjectSource(TypedDict, closed=True):
     bucket: "aws_sdk_proton.types.s3_bucket.S3Bucket"
     """<p>The name of the S3 bucket that contains a template bundle.</p>"""
     key: "aws_sdk_proton.types.s3_key.S3Key"

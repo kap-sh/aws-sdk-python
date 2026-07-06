@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Computation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.forecast_computation
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unique_values_computation
 
 
-class Computation(TypedDict):
+class Computation(TypedDict, closed=True):
     top_bottom_ranked: NotRequired[
         "aws_sdk_quicksight.types.top_bottom_ranked_computation.TopBottomRankedComputation"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListThingRegistrationTaskReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.s3_file_url_list
 
 
-class ListThingRegistrationTaskReportsResponse(TypedDict):
+class ListThingRegistrationTaskReportsResponse(TypedDict, closed=True):
     resource_links: NotRequired["aws_sdk_iot.types.s3_file_url_list.S3FileUrlList"]
     """<p>Links to the task resources.</p>"""
     report_type: NotRequired["aws_sdk_iot.types.report_type.ReportType"]

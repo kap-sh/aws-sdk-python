@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#secretsmanager``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_secrets_manager._auth._signers
@@ -111,7 +111,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.validate_resource_policy_response
 
 
-class AsyncSecretsManagerClientConfig(TypedDict, total=False):
+class AsyncSecretsManagerClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ResourcePricing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.estimated_discounts
 
 
-class ResourcePricing(TypedDict):
+class ResourcePricing(TypedDict, closed=True):
     estimated_cost_before_discounts: NotRequired["float"]
     """<p>The savings estimate using Amazon Web Services public pricing without incorporating any discounts.</p>"""
     estimated_net_unused_amortized_commitments: NotRequired["float"]

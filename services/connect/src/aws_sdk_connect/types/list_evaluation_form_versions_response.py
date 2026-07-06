@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListEvaluationFormVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
 
 
-class ListEvaluationFormVersionsResponse(TypedDict):
+class ListEvaluationFormVersionsResponse(TypedDict, closed=True):
     evaluation_form_version_summary_list: "aws_sdk_connect.types.evaluation_form_version_summary_list.EvaluationFormVersionSummaryList"
     """<p>Provides details about a list of evaluation forms belonging to an instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

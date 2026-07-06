@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#AccountRecommendationLifecycleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.update_recommendation_lifecycle_stage_reason_code
 
 
-class AccountRecommendationLifecycleSummary(TypedDict):
+class AccountRecommendationLifecycleSummary(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_trustedadvisor.types.account_id.AccountId"]
     """<p>The AWS account ID</p>"""
     account_recommendation_arn: NotRequired[

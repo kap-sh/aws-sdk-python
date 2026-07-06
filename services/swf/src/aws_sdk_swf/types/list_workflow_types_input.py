@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ListWorkflowTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.reverse_order
 
 
-class ListWorkflowTypesInput(TypedDict):
+class ListWorkflowTypesInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain in which the workflow types have been registered.</p>"""
     name: NotRequired["aws_sdk_swf.types.name.Name"]

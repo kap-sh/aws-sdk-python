@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#S3OutputLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.s3_bucket_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.s3_region
 
 
-class S3OutputLocation(TypedDict):
+class S3OutputLocation(TypedDict, closed=True):
     output_s3_region: NotRequired["aws_sdk_ssm.types.s3_region.S3Region"]
     """<p>The Amazon Web Services Region of the S3 bucket.</p>"""
     output_s3_bucket_name: NotRequired["aws_sdk_ssm.types.s3_bucket_name.S3BucketName"]

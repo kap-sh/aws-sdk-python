@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ReactionForComment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reaction_value_formats
 
 
-class ReactionForComment(TypedDict):
+class ReactionForComment(TypedDict, closed=True):
     reaction: NotRequired[
         "aws_sdk_codecommit.types.reaction_value_formats.ReactionValueFormats"
     ]

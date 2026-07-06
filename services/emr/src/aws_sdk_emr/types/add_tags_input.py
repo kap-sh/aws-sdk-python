@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#AddTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.tag_list
 
 
-class AddTagsInput(TypedDict):
+class AddTagsInput(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_emr.types.resource_id.ResourceId"]
     """<p>The Amazon EMR resource identifier to which tags will be added. For example, a cluster identifier or an Amazon EMR Studio ID.</p>"""
     tags: NotRequired["aws_sdk_emr.types.tag_list.TagList"]

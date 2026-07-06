@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_list_type
 
 
-class GetGroupResponse(TypedDict):
+class GetGroupResponse(TypedDict, closed=True):
     group: "aws_sdk_iam.types.group.Group"
     """<p>A structure that contains details about the group.</p>"""
     users: "aws_sdk_iam.types.user_list_type.userListType"

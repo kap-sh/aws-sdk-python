@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateWebACLResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.change_token
     import aws_sdk_waf.types.web_acl
 
 
-class CreateWebACLResponse(TypedDict):
+class CreateWebACLResponse(TypedDict, closed=True):
     web_acl: NotRequired["aws_sdk_waf.types.web_acl.WebACL"]
     """<p>The <a>WebACL</a> returned in the <code>CreateWebACL</code> response.</p>"""
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]

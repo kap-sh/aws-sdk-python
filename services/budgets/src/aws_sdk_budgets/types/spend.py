@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#Spend``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.unit_value
 
 
-class Spend(TypedDict):
+class Spend(TypedDict, closed=True):
     amount: "aws_sdk_budgets.types.numeric_value.NumericValue"
     """<p>The cost or usage amount that's associated with a budget forecast, actual spend, or budget threshold.</p>"""
     unit: "aws_sdk_budgets.types.unit_value.UnitValue"

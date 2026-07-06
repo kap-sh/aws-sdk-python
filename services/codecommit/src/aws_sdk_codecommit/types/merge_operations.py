@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergeOperations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.change_type_enum
 
 
-class MergeOperations(TypedDict):
+class MergeOperations(TypedDict, closed=True):
     source: NotRequired["aws_sdk_codecommit.types.change_type_enum.ChangeTypeEnum"]
     """<p>The operation (add, modify, or delete) on a file in the source of a merge or pull request.</p>"""
     destination: NotRequired["aws_sdk_codecommit.types.change_type_enum.ChangeTypeEnum"]

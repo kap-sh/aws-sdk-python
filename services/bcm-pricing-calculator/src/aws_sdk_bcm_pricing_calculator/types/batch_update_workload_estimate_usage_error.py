@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateWorkloadEstimateUsageError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
     import aws_sdk_bcm_pricing_calculator.types.workload_estimate_update_usage_error_code
 
 
-class BatchUpdateWorkloadEstimateUsageError(TypedDict):
+class BatchUpdateWorkloadEstimateUsageError(TypedDict, closed=True):
     id: NotRequired["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]
     """<p> The ID of the error. </p>"""
     error_message: NotRequired["str"]

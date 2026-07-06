@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteContainerImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_service_name
     import aws_sdk_lightsail.types.string
 
 
-class DeleteContainerImageRequest(TypedDict):
+class DeleteContainerImageRequest(TypedDict, closed=True):
     service_name: "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     """<p>The name of the container service for which to delete a registered container image.</p>"""
     image: "aws_sdk_lightsail.types.string.string"

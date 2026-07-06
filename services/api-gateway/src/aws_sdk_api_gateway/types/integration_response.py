@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#IntegrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.content_handling_strategy
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class IntegrationResponse(TypedDict):
+class IntegrationResponse(TypedDict, closed=True):
     status_code: NotRequired["aws_sdk_api_gateway.types.status_code.StatusCode"]
     """<p>Specifies the status code that is used to map the integration response to an existing MethodResponse.</p>"""
     selection_pattern: NotRequired["aws_sdk_api_gateway.types.string.String"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#DeleteLifecyclePolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLifecyclePolicyResponse(TypedDict):
+class DeleteLifecyclePolicyResponse(TypedDict, closed=True):
     pass
 
 

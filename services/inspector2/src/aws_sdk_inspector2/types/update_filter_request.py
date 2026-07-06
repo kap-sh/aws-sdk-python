@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.filter_reason
 
 
-class UpdateFilterRequest(TypedDict):
+class UpdateFilterRequest(TypedDict, closed=True):
     action: NotRequired["aws_sdk_inspector2.types.filter_action.FilterAction"]
     """<p>Specifies the action that is to be applied to the findings that match the filter.</p>"""
     description: NotRequired[

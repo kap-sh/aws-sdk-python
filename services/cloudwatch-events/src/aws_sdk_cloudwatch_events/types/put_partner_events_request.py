@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#PutPartnerEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.put_partner_events_request_entry_list
 
 
-class PutPartnerEventsRequest(TypedDict):
+class PutPartnerEventsRequest(TypedDict, closed=True):
     entries: "aws_sdk_cloudwatch_events.types.put_partner_events_request_entry_list.PutPartnerEventsRequestEntryList"
     """<p>The list of events to write to the event bus.</p>"""
 

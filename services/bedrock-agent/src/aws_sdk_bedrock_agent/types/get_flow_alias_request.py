@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#GetFlowAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_alias_identifier
     import aws_sdk_bedrock_agent.types.flow_identifier
 
 
-class GetFlowAliasRequest(TypedDict):
+class GetFlowAliasRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow that the alias belongs to.</p>"""
     alias_identifier: (

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DeleteRestoreTestingPlanInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRestoreTestingPlanInput(TypedDict):
+class DeleteRestoreTestingPlanInput(TypedDict, closed=True):
     restore_testing_plan_name: "str"
     """<p>Required unique name of the restore testing plan you wish to delete.</p>"""
 

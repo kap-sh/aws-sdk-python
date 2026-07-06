@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#S3BucketConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_empty_string
 
 
-class S3BucketConfiguration(TypedDict):
+class S3BucketConfiguration(TypedDict, closed=True):
     bucket_name: "aws_sdk_quicksight.types.non_empty_string.NonEmptyString"
     """<p>The name of an existing Amazon S3 bucket where the generated snapshot artifacts are sent.</p>"""
     bucket_prefix: "aws_sdk_quicksight.types.non_empty_string.NonEmptyString"

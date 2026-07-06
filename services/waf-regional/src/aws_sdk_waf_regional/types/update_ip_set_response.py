@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#UpdateIPSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token
 
 
-class UpdateIPSetResponse(TypedDict):
+class UpdateIPSetResponse(TypedDict, closed=True):
     change_token: NotRequired["aws_sdk_waf_regional.types.change_token.ChangeToken"]
     """<p>The <code>ChangeToken</code> that you used to submit the <code>UpdateIPSet</code> request. You can also use this value to query the status of the request. For more information, see <a>GetChangeTokenStatus</a>.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ShareDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.creation_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.update_time
 
 
-class ShareDetails(TypedDict):
+class ShareDetails(TypedDict, closed=True):
     share_id: NotRequired["str"]
     """<p>The ID of the resource share.</p>"""
     resource_arn: NotRequired["str"]

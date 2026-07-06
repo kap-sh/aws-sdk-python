@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CreateMLEndpointOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CreateMLEndpointOutput(TypedDict):
+class CreateMLEndpointOutput(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The unique ID of the new inference endpoint.</p>"""
     arn: NotRequired["str"]

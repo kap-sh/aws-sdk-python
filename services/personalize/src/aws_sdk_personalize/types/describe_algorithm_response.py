@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeAlgorithmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.algorithm
 
 
-class DescribeAlgorithmResponse(TypedDict):
+class DescribeAlgorithmResponse(TypedDict, closed=True):
     algorithm: NotRequired["aws_sdk_personalize.types.algorithm.Algorithm"]
     """<p>A listing of the properties of the algorithm.</p>"""
 

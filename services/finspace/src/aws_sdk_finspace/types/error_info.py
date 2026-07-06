@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.error_details
     import aws_sdk_finspace.types.error_message
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_finspace.types.error_message.ErrorMessage"]
     """<p>Specifies the error message that appears if a flow fails. </p>"""
     error_type: NotRequired["aws_sdk_finspace.types.error_details.ErrorDetails"]

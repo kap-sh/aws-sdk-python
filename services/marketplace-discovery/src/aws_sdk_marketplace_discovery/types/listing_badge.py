@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListingBadge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.non_empty_string
 
 
-class ListingBadge(TypedDict):
+class ListingBadge(TypedDict, closed=True):
     display_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"
     """<p>The human-readable name of the badge.</p>"""
     badge_type: (

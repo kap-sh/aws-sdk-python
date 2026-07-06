@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LabelingJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_arn
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class LabelingJobOutput(TypedDict):
+class LabelingJobOutput(TypedDict, closed=True):
     output_dataset_s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 bucket location of the manifest file for labeled data. </p>"""
     final_active_learning_model_arn: NotRequired[

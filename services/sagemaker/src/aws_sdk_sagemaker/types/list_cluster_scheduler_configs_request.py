@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListClusterSchedulerConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListClusterSchedulerConfigsRequest(TypedDict):
+class ListClusterSchedulerConfigsRequest(TypedDict, closed=True):
     created_after: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     r"""<p>Filter for after this creation time. The input for this parameter is a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href=\"https://www.epochconverter.com/\">EpochConverter</a>.</p>"""
     created_before: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]

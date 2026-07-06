@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetWorkflowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_version_arn_or_build_version_arn
 
 
-class GetWorkflowRequest(TypedDict):
+class GetWorkflowRequest(TypedDict, closed=True):
     workflow_build_version_arn: "aws_sdk_imagebuilder.types.workflow_version_arn_or_build_version_arn.WorkflowVersionArnOrBuildVersionArn"
     """<p>The Amazon Resource Name (ARN) of the workflow resource that you want to get.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetAdminScopeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
 
 
-class GetAdminScopeRequest(TypedDict):
+class GetAdminScopeRequest(TypedDict, closed=True):
     admin_account: "aws_sdk_fms.types.aws_account_id.AWSAccountId"
     """<p>The administrator account that you want to get the details for.</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListServiceViewsInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListServiceViewsInput(TypedDict):
+class ListServiceViewsInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of service view results to return in a single response. Valid values are between <code>1</code> and <code>50</code>.</p>"""
     next_token: NotRequired["str"]

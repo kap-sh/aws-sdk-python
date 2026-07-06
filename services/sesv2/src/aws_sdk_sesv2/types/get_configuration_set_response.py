@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetConfigurationSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.archiving_options
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.vdm_options
 
 
-class GetConfigurationSetResponse(TypedDict):
+class GetConfigurationSetResponse(TypedDict, closed=True):
     configuration_set_name: NotRequired[
         "aws_sdk_sesv2.types.configuration_set_name.ConfigurationSetName"
     ]

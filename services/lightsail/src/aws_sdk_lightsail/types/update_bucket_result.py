@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateBucketResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.bucket
     import aws_sdk_lightsail.types.operation_list
 
 
-class UpdateBucketResult(TypedDict):
+class UpdateBucketResult(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_lightsail.types.bucket.Bucket"]
     """<p>An object that describes the bucket that is updated.</p>"""
     operations: NotRequired["aws_sdk_lightsail.types.operation_list.OperationList"]

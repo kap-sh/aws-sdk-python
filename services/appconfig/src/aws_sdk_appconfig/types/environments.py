@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Environments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.environment_list
     import aws_sdk_appconfig.types.next_token
 
 
-class Environments(TypedDict):
+class Environments(TypedDict, closed=True):
     items: NotRequired["aws_sdk_appconfig.types.environment_list.EnvironmentList"]
     """<p>The elements from this collection.</p>"""
     next_token: NotRequired["aws_sdk_appconfig.types.next_token.NextToken"]

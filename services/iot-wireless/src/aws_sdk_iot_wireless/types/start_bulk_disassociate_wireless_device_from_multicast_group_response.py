@@ -1,9 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse(TypedDict):
+class StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse(
+    TypedDict, closed=True
+):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#OutPutS3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.object_key
 
 
-class OutPutS3Location(TypedDict):
+class OutPutS3Location(TypedDict, closed=True):
     bucket_name: "aws_sdk_panorama.types.bucket_name.BucketName"
     """<p>The object's bucket.</p>"""
     object_key: "aws_sdk_panorama.types.object_key.ObjectKey"

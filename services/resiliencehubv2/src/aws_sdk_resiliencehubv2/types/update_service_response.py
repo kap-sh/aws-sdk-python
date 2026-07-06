@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#UpdateServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service
 
 
-class UpdateServiceResponse(TypedDict):
+class UpdateServiceResponse(TypedDict, closed=True):
     service: "aws_sdk_resiliencehubv2.types.service.Service"
     """<p>The updated service.</p>"""
 

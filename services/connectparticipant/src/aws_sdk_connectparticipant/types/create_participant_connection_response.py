@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#CreateParticipantConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.connection_credentials
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.websocket
 
 
-class CreateParticipantConnectionResponse(TypedDict):
+class CreateParticipantConnectionResponse(TypedDict, closed=True):
     websocket: NotRequired["aws_sdk_connectparticipant.types.websocket.Websocket"]
     """<p>Creates the participant's websocket connection.</p>"""
     connection_credentials: NotRequired[

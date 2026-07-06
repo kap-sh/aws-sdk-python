@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails(TypedDict):
+class AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails(
+    TypedDict, closed=True
+):
     in_cluster: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> When set to <code>true</code>, it indicates that data communication among the broker nodes of the cluster is encrypted. When set to <code>false</code>, the communication happens in plain text. The default value is <code>true</code>.</p>"""
     client_broker: NotRequired[

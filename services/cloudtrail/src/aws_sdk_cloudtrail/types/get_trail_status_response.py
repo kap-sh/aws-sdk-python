@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetTrailStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class GetTrailStatusResponse(TypedDict):
+class GetTrailStatusResponse(TypedDict, closed=True):
     is_logging: NotRequired["aws_sdk_cloudtrail.types.boolean.Boolean"]
     """<p>Whether the CloudTrail trail is currently logging Amazon Web Services API calls.</p>"""
     latest_delivery_error: NotRequired["aws_sdk_cloudtrail.types.string.String"]

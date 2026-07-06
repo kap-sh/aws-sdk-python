@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#UpdateTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.warm_throughput_specification
 
 
-class UpdateTableRequest(TypedDict):
+class UpdateTableRequest(TypedDict, closed=True):
     keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
     """<p>The name of the keyspace the specified table is stored in.</p>"""
     table_name: "aws_sdk_keyspaces.types.table_name.TableName"

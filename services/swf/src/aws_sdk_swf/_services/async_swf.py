@@ -2,9 +2,9 @@
 
 import warnings
 from collections.abc import AsyncIterator
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_swf._auth._signers
@@ -127,7 +127,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type_infos
 
 
-class AsyncSWFClientConfig(TypedDict, total=False):
+class AsyncSWFClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

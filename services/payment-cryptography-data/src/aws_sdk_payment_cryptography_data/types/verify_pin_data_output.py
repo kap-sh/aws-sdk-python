@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#VerifyPinDataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.key_check_value
 
 
-class VerifyPinDataOutput(TypedDict):
+class VerifyPinDataOutput(TypedDict, closed=True):
     verification_key_arn: "aws_sdk_payment_cryptography_data.types.key_arn.KeyArn"
     """<p>The <code>keyARN</code> of the PIN encryption key that Amazon Web Services Payment Cryptography uses for PIN or PIN Offset verification.</p>"""
     verification_key_check_value: (

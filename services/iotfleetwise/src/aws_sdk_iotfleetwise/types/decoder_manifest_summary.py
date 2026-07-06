@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DecoderManifestSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestamp
 
 
-class DecoderManifestSummary(TypedDict):
+class DecoderManifestSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iotfleetwise.types.string.string"]
     """<p>The name of the decoder manifest.</p>"""
     arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]

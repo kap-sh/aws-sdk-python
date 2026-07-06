@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#LensShareSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.share_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.status_message
 
 
-class LensShareSummary(TypedDict):
+class LensShareSummary(TypedDict, closed=True):
     share_id: NotRequired["aws_sdk_wellarchitected.types.share_id.ShareId"]
     shared_with: NotRequired["aws_sdk_wellarchitected.types.shared_with.SharedWith"]
     status: NotRequired["aws_sdk_wellarchitected.types.share_status.ShareStatus"]

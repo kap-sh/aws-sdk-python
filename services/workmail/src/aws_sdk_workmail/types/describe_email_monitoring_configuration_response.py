@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DescribeEmailMonitoringConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.log_group_arn
     import aws_sdk_workmail.types.role_arn
 
 
-class DescribeEmailMonitoringConfigurationResponse(TypedDict):
+class DescribeEmailMonitoringConfigurationResponse(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_workmail.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the IAM Role associated with the email monitoring configuration.</p>"""
     log_group_arn: NotRequired["aws_sdk_workmail.types.log_group_arn.LogGroupArn"]

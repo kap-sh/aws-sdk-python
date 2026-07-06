@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DBSubnetGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.subnet_list
 
 
-class DBSubnetGroup(TypedDict):
+class DBSubnetGroup(TypedDict, closed=True):
     db_subnet_group_name: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name of the DB subnet group.</p>"""
     db_subnet_group_description: NotRequired["aws_sdk_neptune.types.string.String"]

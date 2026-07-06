@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#SendDirectMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.response_message
     import aws_sdk_iot_data_plane.types.trace_id
 
 
-class SendDirectMessageResponse(TypedDict):
+class SendDirectMessageResponse(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_iot_data_plane.types.response_message.ResponseMessage"
     ]

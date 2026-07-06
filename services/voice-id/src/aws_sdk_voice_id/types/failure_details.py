@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#FailureDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.integer
     import aws_sdk_voice_id.types.string
 
 
-class FailureDetails(TypedDict):
+class FailureDetails(TypedDict, closed=True):
     status_code: NotRequired["aws_sdk_voice_id.types.integer.Integer"]
     """<p>An HTTP status code representing the nature of the error.</p>"""
     message: NotRequired["aws_sdk_voice_id.types.string.String"]

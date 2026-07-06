@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#ProxyRuleCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.condition_key
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.proxy_condition_value_list
 
 
-class ProxyRuleCondition(TypedDict):
+class ProxyRuleCondition(TypedDict, closed=True):
     condition_operator: NotRequired[
         "aws_sdk_network_firewall.types.condition_operator.ConditionOperator"
     ]

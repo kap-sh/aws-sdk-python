@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ListAudienceExportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.next_token
 
 
-class ListAudienceExportJobsResponse(TypedDict):
+class ListAudienceExportJobsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanroomsml.types.next_token.NextToken"]
     """<p>The token value used to access the next page of results.</p>"""
     audience_export_jobs: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#KnownFraudsterRisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.score
 
 
-class KnownFraudsterRisk(TypedDict):
+class KnownFraudsterRisk(TypedDict, closed=True):
     risk_score: "aws_sdk_voice_id.types.score.Score"
     """<p>The score indicating the likelihood the speaker is a known fraudster.</p>"""
     generated_fraudster_id: NotRequired[

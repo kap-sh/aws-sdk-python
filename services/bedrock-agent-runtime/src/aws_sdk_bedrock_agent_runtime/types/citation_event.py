@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CitationEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.retrieved_references
 
 
-class CitationEvent(TypedDict):
+class CitationEvent(TypedDict, closed=True):
     citation: NotRequired["aws_sdk_bedrock_agent_runtime.types.citation.Citation"]
     """<p>The citation.</p>"""
     generated_response_part: NotRequired[

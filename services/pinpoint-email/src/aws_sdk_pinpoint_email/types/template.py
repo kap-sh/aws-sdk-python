@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#Template``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.template_arn
     import aws_sdk_pinpoint_email.types.template_data
 
 
-class Template(TypedDict):
+class Template(TypedDict, closed=True):
     template_arn: NotRequired["aws_sdk_pinpoint_email.types.template_arn.TemplateArn"]
     """<p>The Amazon Resource Name (ARN) of the template.</p>"""
     template_data: NotRequired[

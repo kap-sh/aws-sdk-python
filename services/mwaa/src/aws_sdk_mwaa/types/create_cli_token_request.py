@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#CreateCliTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.environment_name
 
 
-class CreateCliTokenRequest(TypedDict):
+class CreateCliTokenRequest(TypedDict, closed=True):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
 

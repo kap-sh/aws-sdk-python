@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.network_interface_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.subnet_id
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     subnet_id: NotRequired["aws_sdk_quicksight.types.subnet_id.SubnetId"]
     """<p>The subnet ID associated with the network interface.</p>"""
     availability_zone: NotRequired["aws_sdk_quicksight.types.string.String"]

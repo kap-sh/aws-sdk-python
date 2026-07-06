@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DocumentationPartIds``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_string
 
 
-class DocumentationPartIds(TypedDict):
+class DocumentationPartIds(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_api_gateway.types.list_of_string.ListOfString"]
     """<p>A list of the returned documentation part identifiers.</p>"""
     warnings: NotRequired["aws_sdk_api_gateway.types.list_of_string.ListOfString"]

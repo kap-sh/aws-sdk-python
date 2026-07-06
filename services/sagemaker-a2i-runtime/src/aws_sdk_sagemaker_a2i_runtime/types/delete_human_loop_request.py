@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakera2iruntime#DeleteHumanLoopRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_a2i_runtime.types.human_loop_name
 
 
-class DeleteHumanLoopRequest(TypedDict):
+class DeleteHumanLoopRequest(TypedDict, closed=True):
     human_loop_name: "aws_sdk_sagemaker_a2i_runtime.types.human_loop_name.HumanLoopName"
     """<p>The name of the human loop that you want to delete.</p>"""
 

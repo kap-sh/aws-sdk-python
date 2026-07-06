@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetServiceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.service
 
 
-class GetServiceOutput(TypedDict):
+class GetServiceOutput(TypedDict, closed=True):
     service: NotRequired["aws_sdk_proton.types.service.Service"]
     """<p>The detailed data of the requested service.</p>"""
 

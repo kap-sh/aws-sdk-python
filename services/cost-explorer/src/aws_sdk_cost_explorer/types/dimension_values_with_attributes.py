@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#DimensionValuesWithAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.attributes
     import aws_sdk_cost_explorer.types.value
 
 
-class DimensionValuesWithAttributes(TypedDict):
+class DimensionValuesWithAttributes(TypedDict, closed=True):
     value: NotRequired["aws_sdk_cost_explorer.types.value.Value"]
     """<p>The value of a dimension with a specific attribute.</p>"""
     attributes: NotRequired["aws_sdk_cost_explorer.types.attributes.Attributes"]

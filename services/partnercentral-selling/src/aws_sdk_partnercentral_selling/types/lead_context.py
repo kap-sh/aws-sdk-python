@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LeadContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.lead_qualification_status
 
 
-class LeadContext(TypedDict):
+class LeadContext(TypedDict, closed=True):
     qualification_status: "aws_sdk_partnercentral_selling.types.lead_qualification_status.LeadQualificationStatus"
     """<p>Indicates the current qualification status of the lead, such as whether it has been qualified, disqualified, or is still under evaluation. This helps track the lead's progression through the qualification process.</p>"""
     customer: "aws_sdk_partnercentral_selling.types.lead_customer.LeadCustomer"

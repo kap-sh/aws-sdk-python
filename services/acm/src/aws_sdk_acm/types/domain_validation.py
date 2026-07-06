@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#DomainValidation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.validation_method
 
 
-class DomainValidation(TypedDict):
+class DomainValidation(TypedDict, closed=True):
     domain_name: "aws_sdk_acm.types.domain_name_string.DomainNameString"
     """<p>A fully qualified domain name (FQDN) in the certificate. For example, <code>www.example.com</code> or <code>example.com</code>. </p>"""
     validation_emails: NotRequired[

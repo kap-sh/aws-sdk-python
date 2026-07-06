@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#StartCostAllocationTagBackfillRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class StartCostAllocationTagBackfillRequest(TypedDict):
+class StartCostAllocationTagBackfillRequest(TypedDict, closed=True):
     backfill_from: "aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"
     """<p> The date you want the backfill to start from. The date can only be a first day of the month (a billing start date). Dates can't precede the previous twelve months, or in the future.</p>"""
 

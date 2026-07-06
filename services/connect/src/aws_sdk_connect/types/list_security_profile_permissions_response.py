@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListSecurityProfilePermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class ListSecurityProfilePermissionsResponse(TypedDict):
+class ListSecurityProfilePermissionsResponse(TypedDict, closed=True):
     permissions: NotRequired["aws_sdk_connect.types.permissions_list.PermissionsList"]
     r"""<p>The permissions granted to the security profile. For a complete list of valid permissions, see <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html\">List of security profile permissions</a>.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

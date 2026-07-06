@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#IssueCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.arn
 
 
-class IssueCertificateResponse(TypedDict):
+class IssueCertificateResponse(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_acm_pca.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the issued certificate and the certificate serial number. This is of the form:</p> <p> <code>arn:aws:acm-pca:<i>region</i>:<i>account</i>:certificate-authority/<i>12345678-1234-1234-1234-123456789012</i>/certificate/<i>286535153982981100925020015808220737245</i> </code> </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ConvertRecoveryPointToSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.snapshot
 
 
-class ConvertRecoveryPointToSnapshotResponse(TypedDict):
+class ConvertRecoveryPointToSnapshotResponse(TypedDict, closed=True):
     snapshot: NotRequired["aws_sdk_redshift_serverless.types.snapshot.Snapshot"]
     """<p>The snapshot converted from the recovery point.</p>"""
 

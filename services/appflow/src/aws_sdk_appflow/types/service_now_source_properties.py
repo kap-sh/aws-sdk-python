@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ServiceNowSourceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.object
 
 
-class ServiceNowSourceProperties(TypedDict):
+class ServiceNowSourceProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p> The object specified in the ServiceNow flow source. </p>"""
 

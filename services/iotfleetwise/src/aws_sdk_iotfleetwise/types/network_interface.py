@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.vehicle_middleware
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     interface_id: "aws_sdk_iotfleetwise.types.interface_id.InterfaceId"
     """<p>The ID of the network interface.</p>"""
     type: "aws_sdk_iotfleetwise.types.network_interface_type.NetworkInterfaceType"

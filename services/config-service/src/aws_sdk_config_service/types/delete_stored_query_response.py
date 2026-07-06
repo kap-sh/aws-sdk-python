@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteStoredQueryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteStoredQueryResponse(TypedDict):
+class DeleteStoredQueryResponse(TypedDict, closed=True):
     pass
 
 

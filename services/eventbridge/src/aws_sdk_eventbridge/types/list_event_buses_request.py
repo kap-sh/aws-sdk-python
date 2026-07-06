@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListEventBusesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.event_bus_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListEventBusesRequest(TypedDict):
+class ListEventBusesRequest(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_eventbridge.types.event_bus_name.EventBusName"]
     """<p>Specifying this limits the results to only those event buses with names that start with the specified prefix.</p>"""
     next_token: NotRequired["aws_sdk_eventbridge.types.next_token.NextToken"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AfterContactWorkConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.after_contact_work_time_limit
 
 
-class AfterContactWorkConfig(TypedDict):
+class AfterContactWorkConfig(TypedDict, closed=True):
     after_contact_work_time_limit: (
         "aws_sdk_connect.types.after_contact_work_time_limit.AfterContactWorkTimeLimit"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#BedrockDataAutomationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.parsing_modality
 
 
-class BedrockDataAutomationConfiguration(TypedDict):
+class BedrockDataAutomationConfiguration(TypedDict, closed=True):
     parsing_modality: NotRequired[
         "aws_sdk_bedrock_agent.types.parsing_modality.ParsingModality"
     ]

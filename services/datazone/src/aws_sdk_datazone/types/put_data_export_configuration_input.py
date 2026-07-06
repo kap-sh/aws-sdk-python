@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PutDataExportConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.encryption_configuration
 
 
-class PutDataExportConfigurationInput(TypedDict):
+class PutDataExportConfigurationInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The domain ID for which you want to create data export configuration details.</p>"""
     enable_export: "bool"

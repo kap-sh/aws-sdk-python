@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AttackSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.attack_timestamp
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.string
 
 
-class AttackSummary(TypedDict):
+class AttackSummary(TypedDict, closed=True):
     attack_id: NotRequired["aws_sdk_shield.types.string.String"]
     """<p>The unique identifier (ID) of the attack.</p>"""
     resource_arn: NotRequired["aws_sdk_shield.types.string.String"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.conversation_role
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     role: "aws_sdk_bedrock_agent.types.conversation_role.ConversationRole"
     """<p>The role that the message belongs to.</p>"""
     content: "aws_sdk_bedrock_agent.types.content_blocks.ContentBlocks"

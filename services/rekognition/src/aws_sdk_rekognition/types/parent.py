@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Parent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class Parent(TypedDict):
+class Parent(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The name of the parent label.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AttachedFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_map
 
 
-class AttachedFile(TypedDict):
+class AttachedFile(TypedDict, closed=True):
     creation_time: "aws_sdk_connect.types.iso8601_datetime.ISO8601Datetime"
     """<p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601 format: <code>yyyy-MM-ddThh:mm:ss.SSSZ</code>. For example, <code>2024-05-03T02:41:28.172Z</code>.</p>"""
     file_arn: "aws_sdk_connect.types.arn.ARN"

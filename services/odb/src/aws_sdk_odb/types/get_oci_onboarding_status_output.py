@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetOciOnboardingStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.oci_iam_role_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.subscription_errors
 
 
-class GetOciOnboardingStatusOutput(TypedDict):
+class GetOciOnboardingStatusOutput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_odb.types.oci_onboarding_status.OciOnboardingStatus"]
     existing_tenancy_activation_link: NotRequired["str"]
     """<p>The existing OCI tenancy activation link for your Amazon Web Services account.</p>"""

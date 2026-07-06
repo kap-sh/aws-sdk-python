@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#DeleteHomeRegionControlResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteHomeRegionControlResult(TypedDict):
+class DeleteHomeRegionControlResult(TypedDict, closed=True):
     pass
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteAccessLogSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.access_log_subscription_identifier
 
 
-class DeleteAccessLogSubscriptionRequest(TypedDict):
+class DeleteAccessLogSubscriptionRequest(TypedDict, closed=True):
     access_log_subscription_identifier: "aws_sdk_vpc_lattice.types.access_log_subscription_identifier.AccessLogSubscriptionIdentifier"
     """<p>The ID or ARN of the access log subscription.</p>"""
 

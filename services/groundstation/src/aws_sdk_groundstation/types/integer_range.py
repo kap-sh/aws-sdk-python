@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#IntegerRange``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
 
-class IntegerRange(TypedDict):
+class IntegerRange(TypedDict, closed=True):
     minimum: "int"
     """<p>A minimum value.</p>"""
     maximum: "int"

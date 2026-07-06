@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateBackupSelectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class CreateBackupSelectionInput(TypedDict):
+class CreateBackupSelectionInput(TypedDict, closed=True):
     backup_plan_id: "aws_sdk_backup.types.string.string"
     """<p>The ID of the backup plan.</p>"""
     backup_selection: "aws_sdk_backup.types.backup_selection.BackupSelection"

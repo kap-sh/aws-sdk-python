@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListDataSourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.next_token
 
 
-class ListDataSourcesRequest(TypedDict):
+class ListDataSourcesRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the knowledge base for which to return a list of information.</p>"""
     max_results: NotRequired["aws_sdk_bedrock_agent.types.max_results.MaxResults"]

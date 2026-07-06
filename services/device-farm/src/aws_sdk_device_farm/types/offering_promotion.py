@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#OfferingPromotion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.message
     import aws_sdk_device_farm.types.offering_promotion_identifier
 
 
-class OfferingPromotion(TypedDict):
+class OfferingPromotion(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_device_farm.types.offering_promotion_identifier.OfferingPromotionIdentifier"
     ]

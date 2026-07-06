@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#DeleteKxDatabaseResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteKxDatabaseResponse(TypedDict):
+class DeleteKxDatabaseResponse(TypedDict, closed=True):
     pass
 
 

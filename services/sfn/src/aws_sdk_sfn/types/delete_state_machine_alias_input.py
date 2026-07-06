@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DeleteStateMachineAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.arn
 
 
-class DeleteStateMachineAliasInput(TypedDict):
+class DeleteStateMachineAliasInput(TypedDict, closed=True):
     state_machine_alias_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the state machine alias to delete.</p>"""
 

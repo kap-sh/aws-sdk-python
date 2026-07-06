@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#MatchmakingTicket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_session_connection_info
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class MatchmakingTicket(TypedDict):
+class MatchmakingTicket(TypedDict, closed=True):
     ticket_id: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
     ]

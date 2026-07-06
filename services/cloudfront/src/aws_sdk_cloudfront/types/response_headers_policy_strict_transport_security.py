@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicyStrictTransportSecurity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.integer
 
 
-class ResponseHeadersPolicyStrictTransportSecurity(TypedDict):
+class ResponseHeadersPolicyStrictTransportSecurity(TypedDict, closed=True):
     override: "aws_sdk_cloudfront.types.boolean.boolean"
     """<p>A Boolean that determines whether CloudFront overrides the <code>Strict-Transport-Security</code> HTTP response header received from the origin with the one specified in this response headers policy.</p>"""
     include_subdomains: NotRequired["aws_sdk_cloudfront.types.boolean.boolean"]

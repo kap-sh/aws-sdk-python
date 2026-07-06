@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#JobSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max150
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.timed_metadata_insertion
 
 
-class JobSettings(TypedDict):
+class JobSettings(TypedDict, closed=True):
     ad_avail_offset: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min_negative1000_max1000.__integerMinNegative1000Max1000"
     ]

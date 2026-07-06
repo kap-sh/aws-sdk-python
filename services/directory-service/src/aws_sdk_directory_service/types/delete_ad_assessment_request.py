@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DeleteADAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_id
 
 
-class DeleteADAssessmentRequest(TypedDict):
+class DeleteADAssessmentRequest(TypedDict, closed=True):
     assessment_id: "aws_sdk_directory_service.types.assessment_id.AssessmentId"
     """<p>The unique identifier of the directory assessment to delete.</p>"""
 

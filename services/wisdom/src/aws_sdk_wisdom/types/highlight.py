@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#Highlight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.highlight_offset
 
 
-class Highlight(TypedDict):
+class Highlight(TypedDict, closed=True):
     begin_offset_inclusive: "aws_sdk_wisdom.types.highlight_offset.HighlightOffset"
     """<p>The offset for the start of the highlight.</p>"""
     end_offset_exclusive: "aws_sdk_wisdom.types.highlight_offset.HighlightOffset"

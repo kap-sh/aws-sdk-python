@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#PolicyVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.date_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.policy_version_id
 
 
-class PolicyVersion(TypedDict):
+class PolicyVersion(TypedDict, closed=True):
     version_id: NotRequired["aws_sdk_iot.types.policy_version_id.PolicyVersionId"]
     """<p>The policy version ID.</p>"""
     is_default_version: "aws_sdk_iot.types.is_default_version.IsDefaultVersion"

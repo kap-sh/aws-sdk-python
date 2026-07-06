@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#UpdateObjectEncryptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.request_payer
 
 
-class UpdateObjectEncryptionRequest(TypedDict):
+class UpdateObjectEncryptionRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     r"""<p> The name of the general purpose bucket that contains the specified object key name. </p> <p>When you use this operation with an access point attached to a general purpose bucket, you must either provide the alias of the access point in place of the bucket name or you must specify the access point Amazon Resource Name (ARN). When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <code> <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com</code>. When using this operation with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-naming.html\"> Referencing access points</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     key: "aws_sdk_s3.types.object_key.ObjectKey"

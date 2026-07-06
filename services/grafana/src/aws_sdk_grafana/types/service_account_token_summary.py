@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ServiceAccountTokenSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ServiceAccountTokenSummary(TypedDict):
+class ServiceAccountTokenSummary(TypedDict, closed=True):
     id: "str"
     """<p>The unique ID of the service account token.</p>"""
     name: "str"

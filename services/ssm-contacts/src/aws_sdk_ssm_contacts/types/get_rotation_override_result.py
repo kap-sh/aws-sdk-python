@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#GetRotationOverrideResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.date_time
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.uuid
 
 
-class GetRotationOverrideResult(TypedDict):
+class GetRotationOverrideResult(TypedDict, closed=True):
     rotation_override_id: NotRequired["aws_sdk_ssm_contacts.types.uuid.Uuid"]
     """<p>The Amazon Resource Name (ARN) of the override to an on-call rotation.</p>"""
     rotation_arn: NotRequired[

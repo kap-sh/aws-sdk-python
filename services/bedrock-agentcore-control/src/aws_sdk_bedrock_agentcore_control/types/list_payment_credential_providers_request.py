@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListPaymentCredentialProvidersRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListPaymentCredentialProvidersRequest(TypedDict):
+class ListPaymentCredentialProvidersRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>Pagination token.</p>"""
     max_results: "int"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#DeleteRunResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRunResult(TypedDict):
+class DeleteRunResult(TypedDict, closed=True):
     pass
 
 

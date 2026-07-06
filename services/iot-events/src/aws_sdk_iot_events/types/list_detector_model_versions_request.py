@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#ListDetectorModelVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.detector_model_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.next_token
 
 
-class ListDetectorModelVersionsRequest(TypedDict):
+class ListDetectorModelVersionsRequest(TypedDict, closed=True):
     detector_model_name: (
         "aws_sdk_iot_events.types.detector_model_name.DetectorModelName"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateInfoV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.task_template_name
 
 
-class TaskTemplateInfoV2(TypedDict):
+class TaskTemplateInfoV2(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the task template used to create this contact.</p>"""
     name: NotRequired["aws_sdk_connect.types.task_template_name.TaskTemplateName"]

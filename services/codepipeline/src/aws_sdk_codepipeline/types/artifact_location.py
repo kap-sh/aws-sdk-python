@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ArtifactLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.artifact_location_type
     import aws_sdk_codepipeline.types.s3_artifact_location
 
 
-class ArtifactLocation(TypedDict):
+class ArtifactLocation(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_codepipeline.types.artifact_location_type.ArtifactLocationType"
     ]

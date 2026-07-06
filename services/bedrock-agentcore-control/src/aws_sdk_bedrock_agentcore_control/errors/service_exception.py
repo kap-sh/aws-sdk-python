@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ServiceException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import ServiceError
 
 
-class ServiceException_(TypedDict):
+class ServiceException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Mp4Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max1
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.mp4_moov_placement
 
 
-class Mp4Settings(TypedDict):
+class Mp4Settings(TypedDict, closed=True):
     audio_duration: NotRequired[
         "aws_sdk_mediaconvert.types.cmfc_audio_duration.CmfcAudioDuration"
     ]

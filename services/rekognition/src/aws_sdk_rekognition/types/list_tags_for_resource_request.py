@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.resource_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_rekognition.types.resource_arn.ResourceArn"
     """<p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of. </p>"""
 

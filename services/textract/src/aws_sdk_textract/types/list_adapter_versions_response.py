@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ListAdapterVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_version_list
     import aws_sdk_textract.types.pagination_token
 
 
-class ListAdapterVersionsResponse(TypedDict):
+class ListAdapterVersionsResponse(TypedDict, closed=True):
     adapter_versions: NotRequired[
         "aws_sdk_textract.types.adapter_version_list.AdapterVersionList"
     ]

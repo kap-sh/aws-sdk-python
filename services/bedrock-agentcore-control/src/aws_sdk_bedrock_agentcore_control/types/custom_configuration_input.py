@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -15,23 +17,23 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.user_preference_override_configuration_input
 
 
-class _CustomConfigurationInput_semanticOverride(TypedDict):
+class _CustomConfigurationInput_semanticOverride(TypedDict, closed=True):
     semanticOverride: "aws_sdk_bedrock_agentcore_control.types.semantic_override_configuration_input.SemanticOverrideConfigurationInput"
 
 
-class _CustomConfigurationInput_summaryOverride(TypedDict):
+class _CustomConfigurationInput_summaryOverride(TypedDict, closed=True):
     summaryOverride: "aws_sdk_bedrock_agentcore_control.types.summary_override_configuration_input.SummaryOverrideConfigurationInput"
 
 
-class _CustomConfigurationInput_userPreferenceOverride(TypedDict):
+class _CustomConfigurationInput_userPreferenceOverride(TypedDict, closed=True):
     userPreferenceOverride: "aws_sdk_bedrock_agentcore_control.types.user_preference_override_configuration_input.UserPreferenceOverrideConfigurationInput"
 
 
-class _CustomConfigurationInput_episodicOverride(TypedDict):
+class _CustomConfigurationInput_episodicOverride(TypedDict, closed=True):
     episodicOverride: "aws_sdk_bedrock_agentcore_control.types.episodic_override_configuration_input.EpisodicOverrideConfigurationInput"
 
 
-class _CustomConfigurationInput_selfManagedConfiguration(TypedDict):
+class _CustomConfigurationInput_selfManagedConfiguration(TypedDict, closed=True):
     selfManagedConfiguration: "aws_sdk_bedrock_agentcore_control.types.self_managed_configuration_input.SelfManagedConfigurationInput"
 
 

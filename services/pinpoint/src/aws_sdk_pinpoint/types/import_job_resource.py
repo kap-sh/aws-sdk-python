@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ImportJobResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.format
 
 
-class ImportJobResource(TypedDict):
+class ImportJobResource(TypedDict, closed=True):
     define_segment: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]
     """<p>Specifies whether the import job creates a segment that contains the endpoints, when the endpoint definitions are imported.</p>"""
     external_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceNetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class InstanceNetworkInterface(TypedDict):
+class InstanceNetworkInterface(TypedDict, closed=True):
     association: NotRequired[
         "aws_sdk_ec2.types.instance_network_interface_association.InstanceNetworkInterfaceAssociation"
     ]

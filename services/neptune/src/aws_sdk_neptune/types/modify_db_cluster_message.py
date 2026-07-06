@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ModifyDBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.vpc_security_group_id_list
 
 
-class ModifyDBClusterMessage(TypedDict):
+class ModifyDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The DB cluster identifier for the cluster being modified. This parameter is not case-sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DBCluster.</p> </li> </ul>"""
     new_db_cluster_identifier: NotRequired["aws_sdk_neptune.types.string.String"]

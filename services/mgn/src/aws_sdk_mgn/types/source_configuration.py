@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_s3_configuration
 
 
-class SourceConfiguration(TypedDict):
+class SourceConfiguration(TypedDict, closed=True):
     source_environment: "aws_sdk_mgn.types.source_environment.SourceEnvironment"
     """<p>The source environment type.</p>"""
     source_s3_configuration: (

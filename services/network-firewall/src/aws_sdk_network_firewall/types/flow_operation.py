@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#FlowOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.age
     import aws_sdk_network_firewall.types.flow_filters
 
 
-class FlowOperation(TypedDict):
+class FlowOperation(TypedDict, closed=True):
     minimum_flow_age_in_seconds: NotRequired["aws_sdk_network_firewall.types.age.Age"]
     """<p>The reqested <code>FlowOperation</code> ignores flows with an age (in seconds) lower than <code>MinimumFlowAgeInSeconds</code>. You provide this for start commands.</p>"""
     flow_filters: NotRequired["aws_sdk_network_firewall.types.flow_filters.FlowFilters"]

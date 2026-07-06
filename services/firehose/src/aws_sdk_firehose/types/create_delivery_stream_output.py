@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#CreateDeliveryStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.delivery_stream_arn
 
 
-class CreateDeliveryStreamOutput(TypedDict):
+class CreateDeliveryStreamOutput(TypedDict, closed=True):
     delivery_stream_arn: NotRequired[
         "aws_sdk_firehose.types.delivery_stream_arn.DeliveryStreamARN"
     ]

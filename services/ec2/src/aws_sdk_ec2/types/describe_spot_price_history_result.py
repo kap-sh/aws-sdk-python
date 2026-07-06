@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeSpotPriceHistoryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeSpotPriceHistoryResult(TypedDict):
+class DescribeSpotPriceHistoryResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The token to include in another request to get the next page of items. This value is an empty string (<code>\"\"</code>) or <code>null</code> when there are no more items to return.</p>"""
     spot_price_history: NotRequired[

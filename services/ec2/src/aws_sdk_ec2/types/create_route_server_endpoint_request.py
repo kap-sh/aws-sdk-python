@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateRouteServerEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateRouteServerEndpointRequest(TypedDict):
+class CreateRouteServerEndpointRequest(TypedDict, closed=True):
     route_server_id: NotRequired["aws_sdk_ec2.types.route_server_id.RouteServerId"]
     """<p>The ID of the route server for which to create an endpoint.</p>"""
     subnet_id: NotRequired["aws_sdk_ec2.types.subnet_id.SubnetId"]

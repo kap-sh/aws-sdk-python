@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#DeleteTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTemplateResponse(TypedDict):
+class DeleteTemplateResponse(TypedDict, closed=True):
     pass
 
 

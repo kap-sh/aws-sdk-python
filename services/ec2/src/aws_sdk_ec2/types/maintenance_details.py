@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#MaintenanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class MaintenanceDetails(TypedDict):
+class MaintenanceDetails(TypedDict, closed=True):
     pending_maintenance: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>Verify existence of a pending maintenance.</p>"""
     maintenance_auto_applied_after: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35SpliceInsert``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min_negative1000_max1000
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_splice_insert_web_delivery_allowed_behavior
 
 
-class Scte35SpliceInsert(TypedDict):
+class Scte35SpliceInsert(TypedDict, closed=True):
     ad_avail_offset: NotRequired[
         "aws_sdk_medialive.types.__integer_min_negative1000_max1000.__integerMinNegative1000Max1000"
     ]

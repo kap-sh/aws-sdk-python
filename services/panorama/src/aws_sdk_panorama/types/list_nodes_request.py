@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.max_size25
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.token
 
 
-class ListNodesRequest(TypedDict):
+class ListNodesRequest(TypedDict, closed=True):
     category: NotRequired["aws_sdk_panorama.types.node_category.NodeCategory"]
     """<p>Search for nodes by category.</p>"""
     owner_account: NotRequired[

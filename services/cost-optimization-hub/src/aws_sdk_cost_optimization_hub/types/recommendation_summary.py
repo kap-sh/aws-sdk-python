@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#RecommendationSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RecommendationSummary(TypedDict):
+class RecommendationSummary(TypedDict, closed=True):
     group: NotRequired["str"]
     """<p>The grouping of recommendations.</p>"""
     estimated_monthly_savings: NotRequired["float"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteOpenCypherExplainQueryOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class ExecuteOpenCypherExplainQueryOutput(TypedDict):
+class ExecuteOpenCypherExplainQueryOutput(TypedDict, closed=True):
     results: "bytes"
     """<p>A text blob containing the openCypher <code>explain</code> results.</p>"""
 

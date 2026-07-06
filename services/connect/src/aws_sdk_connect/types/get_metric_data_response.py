@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetMetricDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.historical_metric_results
     import aws_sdk_connect.types.next_token
 
 
-class GetMetricDataResponse(TypedDict):
+class GetMetricDataResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]
     """<p>If there are additional results, this is the token for the next set of results.</p> <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.</p>"""
     metric_results: NotRequired[

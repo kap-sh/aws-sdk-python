@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.configuration_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.configuration_uuid
 
 
-class ConfigurationDetails(TypedDict):
+class ConfigurationDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_omics.types.configuration_name.ConfigurationName"]
     """<p>User-friendly name for the configuration.</p>"""
     arn: NotRequired["aws_sdk_omics.types.configuration_arn.ConfigurationArn"]

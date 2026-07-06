@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#MatchingBucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.object_level_statistics
 
 
-class MatchingBucket(TypedDict):
+class MatchingBucket(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the Amazon Web Services account that owns the bucket.</p>"""
     automated_discovery_monitoring_status: NotRequired[

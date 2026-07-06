@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#FileSizes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.file_size
 
 
-class FileSizes(TypedDict):
+class FileSizes(TypedDict, closed=True):
     source: "aws_sdk_codecommit.types.file_size.FileSize"
     """<p>The size of a file in the source of a merge or pull request.</p>"""
     destination: "aws_sdk_codecommit.types.file_size.FileSize"

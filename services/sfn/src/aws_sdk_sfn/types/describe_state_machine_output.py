@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#DescribeStateMachineOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.version_description
 
 
-class DescribeStateMachineOutput(TypedDict):
+class DescribeStateMachineOutput(TypedDict, closed=True):
     state_machine_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the state machine.</p> <p>If you specified a state machine version ARN in your request, the API returns the version ARN. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>"""
     name: "aws_sdk_sfn.types.name.Name"

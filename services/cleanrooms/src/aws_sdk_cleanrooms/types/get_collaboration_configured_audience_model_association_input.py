@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetCollaborationConfiguredAudienceModelAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_identifier
     import aws_sdk_cleanrooms.types.configured_audience_model_association_identifier
 
 
-class GetCollaborationConfiguredAudienceModelAssociationInput(TypedDict):
+class GetCollaborationConfiguredAudienceModelAssociationInput(TypedDict, closed=True):
     collaboration_identifier: (
         "aws_sdk_cleanrooms.types.collaboration_identifier.CollaborationIdentifier"
     )

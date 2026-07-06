@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#ModifyReportDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_and_usage_report_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.report_name
 
 
-class ModifyReportDefinitionRequest(TypedDict):
+class ModifyReportDefinitionRequest(TypedDict, closed=True):
     report_name: "aws_sdk_cost_and_usage_report_service.types.report_name.ReportName"
     report_definition: (
         "aws_sdk_cost_and_usage_report_service.types.report_definition.ReportDefinition"

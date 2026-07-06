@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ResiliencyScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.scoring_component_resiliency_scores
 
 
-class ResiliencyScore(TypedDict):
+class ResiliencyScore(TypedDict, closed=True):
     score: "aws_sdk_resiliencehub.types.double.Double"
     """<p>The outage score for a valid key.</p>"""
     disruption_score: "aws_sdk_resiliencehub.types.disruption_resiliency_score.DisruptionResiliencyScore"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeElasticsearchInstanceTypeLimitsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.limits_by_role
 
 
-class DescribeElasticsearchInstanceTypeLimitsResponse(TypedDict):
+class DescribeElasticsearchInstanceTypeLimitsResponse(TypedDict, closed=True):
     limits_by_role: NotRequired[
         "aws_sdk_elasticsearch_service.types.limits_by_role.LimitsByRole"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateCallAnalyticsCategoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.category_properties
 
 
-class CreateCallAnalyticsCategoryResponse(TypedDict):
+class CreateCallAnalyticsCategoryResponse(TypedDict, closed=True):
     category_properties: NotRequired[
         "aws_sdk_transcribe.types.category_properties.CategoryProperties"
     ]

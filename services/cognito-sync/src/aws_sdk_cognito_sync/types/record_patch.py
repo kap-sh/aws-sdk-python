@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitosync#RecordPatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_sync.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_sync.types.record_value
 
 
-class RecordPatch(TypedDict):
+class RecordPatch(TypedDict, closed=True):
     op: "aws_sdk_cognito_sync.types.operation.Operation"
     """An operation, either replace or remove."""
     key: "aws_sdk_cognito_sync.types.record_key.RecordKey"

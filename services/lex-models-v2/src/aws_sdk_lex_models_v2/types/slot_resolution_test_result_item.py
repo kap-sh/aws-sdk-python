@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotResolutionTestResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_result_slot_name
 
 
-class SlotResolutionTestResultItem(TypedDict):
+class SlotResolutionTestResultItem(TypedDict, closed=True):
     slot_name: "aws_sdk_lex_models_v2.types.test_result_slot_name.TestResultSlotName"
     """<p>The name of the slot.</p>"""
     result_counts: "aws_sdk_lex_models_v2.types.slot_resolution_test_result_item_counts.SlotResolutionTestResultItemCounts"

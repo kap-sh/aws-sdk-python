@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DeleteSuggesterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.suggester_status
 
 
-class DeleteSuggesterResponse(TypedDict):
+class DeleteSuggesterResponse(TypedDict, closed=True):
     suggester: "aws_sdk_cloudsearch.types.suggester_status.SuggesterStatus"
     """<p>The status of the suggester being deleted.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Invitation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.receiver
 
 
-class Invitation(TypedDict):
+class Invitation(TypedDict, closed=True):
     message: "aws_sdk_partnercentral_selling.types.invitation_message.InvitationMessage"
     """<p> A message accompanying the invitation. </p>"""
     receiver: "aws_sdk_partnercentral_selling.types.receiver.Receiver"

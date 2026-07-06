@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FormSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.uuid
 
 
-class FormSummary(TypedDict):
+class FormSummary(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID for the app associated with the form summary.</p>"""
     data_type: "aws_sdk_amplifyuibuilder.types.form_data_type_config.FormDataTypeConfig"

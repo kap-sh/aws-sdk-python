@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ListKeyspacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.next_token
 
 
-class ListKeyspacesResponse(TypedDict):
+class ListKeyspacesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_keyspaces.types.next_token.NextToken"]
     """<p>A token to specify where to start paginating. This is the <code>NextToken</code> from a previously truncated response.</p>"""
     keyspaces: "aws_sdk_keyspaces.types.keyspace_summary_list.KeyspaceSummaryList"

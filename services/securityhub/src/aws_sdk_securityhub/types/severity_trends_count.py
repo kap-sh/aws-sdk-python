@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SeverityTrendsCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.trends_value_count
 
 
-class SeverityTrendsCount(TypedDict):
+class SeverityTrendsCount(TypedDict, closed=True):
     unknown: NotRequired[
         "aws_sdk_securityhub.types.trends_value_count.TrendsValueCount"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ProcessingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.boolean_object
     import aws_sdk_firehose.types.processor_list
 
 
-class ProcessingConfiguration(TypedDict):
+class ProcessingConfiguration(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_firehose.types.boolean_object.BooleanObject"]
     """<p>Enables or disables data processing.</p>"""
     processors: NotRequired["aws_sdk_firehose.types.processor_list.ProcessorList"]

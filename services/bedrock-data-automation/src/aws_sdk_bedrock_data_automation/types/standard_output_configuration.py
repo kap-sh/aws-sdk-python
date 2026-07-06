@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#StandardOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.audio_standard_output_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.video_standard_output_configuration
 
 
-class StandardOutputConfiguration(TypedDict):
+class StandardOutputConfiguration(TypedDict, closed=True):
     document: NotRequired[
         "aws_sdk_bedrock_data_automation.types.document_standard_output_configuration.DocumentStandardOutputConfiguration"
     ]

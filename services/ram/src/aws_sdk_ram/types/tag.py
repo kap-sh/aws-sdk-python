@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.tag_key
     import aws_sdk_ram.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_ram.types.tag_key.TagKey"]
     """<p>The key, or name, attached to the tag. Every tag must have a key. Key names are case sensitive.</p>"""
     value: NotRequired["aws_sdk_ram.types.tag_value.TagValue"]

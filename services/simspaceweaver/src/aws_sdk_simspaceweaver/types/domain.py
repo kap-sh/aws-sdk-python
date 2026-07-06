@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#Domain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simspaceweaver.types.lifecycle_management_strategy
     import aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name
 
 
-class Domain(TypedDict):
+class Domain(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_simspaceweaver.types.sim_space_weaver_resource_name.SimSpaceWeaverResourceName"
     ]

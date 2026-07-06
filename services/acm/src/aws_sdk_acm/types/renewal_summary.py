@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#RenewalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.t_stamp
 
 
-class RenewalSummary(TypedDict):
+class RenewalSummary(TypedDict, closed=True):
     renewal_status: "aws_sdk_acm.types.renewal_status.RenewalStatus"
     r"""<p>The status of ACM's <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html\">managed renewal</a> of the certificate.</p>"""
     domain_validation_options: (

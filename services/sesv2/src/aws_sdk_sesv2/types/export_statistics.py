@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ExportStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.exported_records_count
     import aws_sdk_sesv2.types.processed_records_count
 
 
-class ExportStatistics(TypedDict):
+class ExportStatistics(TypedDict, closed=True):
     processed_records_count: NotRequired[
         "aws_sdk_sesv2.types.processed_records_count.ProcessedRecordsCount"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListDataSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListDataSetsResponse(TypedDict):
+class ListDataSetsResponse(TypedDict, closed=True):
     data_sets: "aws_sdk_m2.types.data_sets_summary_list.DataSetsSummaryList"
     """<p>The list of data sets, containing information including the creation time, the data set name, the data set organization, the data set format, and the last time the data set was referenced or updated.</p>"""
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]

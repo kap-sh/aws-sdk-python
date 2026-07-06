@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteOAuthClientApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.o_auth_client_application_id
 
 
-class DeleteOAuthClientApplicationRequest(TypedDict):
+class DeleteOAuthClientApplicationRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account ID.</p>"""
     o_auth_client_application_id: (

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ResourceServerScopeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.description
 
 
-class ResourceServerScopeDetails(TypedDict):
+class ResourceServerScopeDetails(TypedDict, closed=True):
     long_description: NotRequired["aws_sdk_sso_admin.types.description.Description"]
     """<p>The description of an access scope for a resource server.</p>"""
     detailed_title: NotRequired["aws_sdk_sso_admin.types.description.Description"]

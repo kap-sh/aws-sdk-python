@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#JobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.array_properties_summary
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class JobSummary(TypedDict):
+class JobSummary(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the job.</p>"""
     job_id: NotRequired["aws_sdk_batch.types.string.String"]

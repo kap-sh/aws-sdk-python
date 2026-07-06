@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#PutProtectConfigurationRuleSetNumberOverrideRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_rule_override_action
 
 
-class PutProtectConfigurationRuleSetNumberOverrideRequest(TypedDict):
+class PutProtectConfigurationRuleSetNumberOverrideRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.client_token.ClientToken"
     ]

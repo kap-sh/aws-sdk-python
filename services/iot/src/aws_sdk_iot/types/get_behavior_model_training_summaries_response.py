@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetBehaviorModelTrainingSummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.behavior_model_training_summaries
     import aws_sdk_iot.types.next_token
 
 
-class GetBehaviorModelTrainingSummariesResponse(TypedDict):
+class GetBehaviorModelTrainingSummariesResponse(TypedDict, closed=True):
     summaries: NotRequired[
         "aws_sdk_iot.types.behavior_model_training_summaries.BehaviorModelTrainingSummaries"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#PrivateIpAddressSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.ipv4_address
 
 
-class PrivateIpAddressSpecification(TypedDict):
+class PrivateIpAddressSpecification(TypedDict, closed=True):
     primary: NotRequired["bool"]
     """<p>Indicates if this is the primary private IP address.</p>"""
     private_ip_address: NotRequired[

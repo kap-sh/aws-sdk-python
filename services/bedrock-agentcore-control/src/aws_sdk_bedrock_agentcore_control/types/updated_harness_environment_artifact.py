@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatedHarnessEnvironmentArtifact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_environment_artifact
 
 
-class UpdatedHarnessEnvironmentArtifact(TypedDict):
+class UpdatedHarnessEnvironmentArtifact(TypedDict, closed=True):
     optional_value: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.harness_environment_artifact.HarnessEnvironmentArtifact"
     ]

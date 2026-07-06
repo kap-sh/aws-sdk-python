@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerfeaturestoreruntime#DeleteRecordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.deletion_mode
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.value_as_string
 
 
-class DeleteRecordRequest(TypedDict):
+class DeleteRecordRequest(TypedDict, closed=True):
     feature_group_name: "aws_sdk_sagemaker_featurestore_runtime.types.feature_group_name_or_arn.FeatureGroupNameOrArn"
     """<p>The name or Amazon Resource Name (ARN) of the feature group to delete the record from. </p>"""
     record_identifier_value_as_string: NotRequired[

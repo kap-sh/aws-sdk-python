@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CodeInterpreterResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.tool_result_structured_content
 
 
-class CodeInterpreterResult(TypedDict):
+class CodeInterpreterResult(TypedDict, closed=True):
     content: "aws_sdk_bedrock_agentcore.types.content_block_list.ContentBlockList"
     """<p>The textual content of the execution result. This includes standard output from the code execution, such as print statements, console output, and text representations of results.</p>"""
     structured_content: NotRequired[

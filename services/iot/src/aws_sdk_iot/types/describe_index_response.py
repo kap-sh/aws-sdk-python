@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.index_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.index_status
 
 
-class DescribeIndexResponse(TypedDict):
+class DescribeIndexResponse(TypedDict, closed=True):
     index_name: NotRequired["aws_sdk_iot.types.index_name.IndexName"]
     """<p>The index name.</p>"""
     index_status: NotRequired["aws_sdk_iot.types.index_status.IndexStatus"]

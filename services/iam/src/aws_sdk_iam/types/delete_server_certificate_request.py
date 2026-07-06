@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteServerCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.server_certificate_name_type
 
 
-class DeleteServerCertificateRequest(TypedDict):
+class DeleteServerCertificateRequest(TypedDict, closed=True):
     server_certificate_name: (
         "aws_sdk_iam.types.server_certificate_name_type.serverCertificateNameType"
     )

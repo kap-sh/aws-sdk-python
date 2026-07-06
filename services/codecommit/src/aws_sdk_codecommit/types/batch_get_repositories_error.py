@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchGetRepositoriesError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.batch_get_repositories_error_code_enum
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class BatchGetRepositoriesError(TypedDict):
+class BatchGetRepositoriesError(TypedDict, closed=True):
     repository_id: NotRequired["aws_sdk_codecommit.types.repository_id.RepositoryId"]
     """<p>The ID of a repository that either could not be found or was not in a valid state.</p>"""
     repository_name: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.swf#CancelWorkflowExecutionDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.data
 
 
-class CancelWorkflowExecutionDecisionAttributes(TypedDict):
+class CancelWorkflowExecutionDecisionAttributes(TypedDict, closed=True):
     details: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p> Details of the cancellation.</p>"""
 

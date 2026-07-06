@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DeleteVpcLinkResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteVpcLinkResponse(TypedDict):
+class DeleteVpcLinkResponse(TypedDict, closed=True):
     pass
 
 

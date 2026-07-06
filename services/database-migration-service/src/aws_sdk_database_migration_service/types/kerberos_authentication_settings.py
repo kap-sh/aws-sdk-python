@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#KerberosAuthenticationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class KerberosAuthenticationSettings(TypedDict):
+class KerberosAuthenticationSettings(TypedDict, closed=True):
     key_cache_secret_id: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

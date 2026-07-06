@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#IamInstanceProfileV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ec2_instance_uids
 
 
-class IamInstanceProfileV2(TypedDict):
+class IamInstanceProfileV2(TypedDict, closed=True):
     ec2_instance_uids: NotRequired[
         "aws_sdk_guardduty.types.ec2_instance_uids.Ec2InstanceUids"
     ]

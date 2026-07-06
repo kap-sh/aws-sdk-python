@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListTargetDomainsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.next_token
     import aws_sdk_securityagent.types.target_domain_summary_list
 
 
-class ListTargetDomainsOutput(TypedDict):
+class ListTargetDomainsOutput(TypedDict, closed=True):
     target_domain_summaries: NotRequired[
         "aws_sdk_securityagent.types.target_domain_summary_list.TargetDomainSummaryList"
     ]

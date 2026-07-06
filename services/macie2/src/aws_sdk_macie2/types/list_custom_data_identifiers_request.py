@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListCustomDataIdentifiersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
     import aws_sdk_macie2.types.__string
 
 
-class ListCustomDataIdentifiersRequest(TypedDict):
+class ListCustomDataIdentifiersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_macie2.types.__integer.__integer"]
     """<p>The maximum number of items to include in each page of the response.</p>"""
     next_token: NotRequired["aws_sdk_macie2.types.__string.__string"]

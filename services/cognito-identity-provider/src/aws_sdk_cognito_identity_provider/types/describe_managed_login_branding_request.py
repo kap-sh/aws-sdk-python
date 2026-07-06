@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DescribeManagedLoginBrandingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class DescribeManagedLoginBrandingRequest(TypedDict):
+class DescribeManagedLoginBrandingRequest(TypedDict, closed=True):
     user_pool_id: (
         "aws_sdk_cognito_identity_provider.types.user_pool_id_type.UserPoolIdType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmonitor#UpdateProbeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.destination
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmonitor.types.resource_name
 
 
-class UpdateProbeInput(TypedDict):
+class UpdateProbeInput(TypedDict, closed=True):
     monitor_name: "aws_sdk_networkmonitor.types.resource_name.ResourceName"
     """<p>The name of the monitor that the probe was updated for.</p>"""
     probe_id: "aws_sdk_networkmonitor.types.probe_id.ProbeId"

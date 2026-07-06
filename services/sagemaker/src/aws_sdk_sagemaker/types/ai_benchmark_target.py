@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIBenchmarkTarget``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_benchmark_endpoint
 
 
-class _AIBenchmarkTarget_Endpoint(TypedDict):
+class _AIBenchmarkTarget_Endpoint(TypedDict, closed=True):
     Endpoint: "aws_sdk_sagemaker.types.ai_benchmark_endpoint.AIBenchmarkEndpoint"
 
 

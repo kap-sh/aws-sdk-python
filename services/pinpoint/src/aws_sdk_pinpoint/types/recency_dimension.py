@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#RecencyDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.duration
     import aws_sdk_pinpoint.types.recency_type
 
 
-class RecencyDimension(TypedDict):
+class RecencyDimension(TypedDict, closed=True):
     duration: NotRequired["aws_sdk_pinpoint.types.duration.Duration"]
     """<p>The duration to use when determining whether an endpoint is active or inactive.</p>"""
     recency_type: NotRequired["aws_sdk_pinpoint.types.recency_type.RecencyType"]

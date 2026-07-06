@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListFleetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.resource_name
 
 
-class ListFleetsRequest(TypedDict):
+class ListFleetsRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the fleets.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

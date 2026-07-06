@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TlsValidationContextTrust``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tls_validation_context_sds_trust
 
 
-class _TlsValidationContextTrust_acm(TypedDict):
+class _TlsValidationContextTrust_acm(TypedDict, closed=True):
     acm: "aws_sdk_app_mesh.types.tls_validation_context_acm_trust.TlsValidationContextAcmTrust"
 
 
-class _TlsValidationContextTrust_file(TypedDict):
+class _TlsValidationContextTrust_file(TypedDict, closed=True):
     file: "aws_sdk_app_mesh.types.tls_validation_context_file_trust.TlsValidationContextFileTrust"
 
 
-class _TlsValidationContextTrust_sds(TypedDict):
+class _TlsValidationContextTrust_sds(TypedDict, closed=True):
     sds: "aws_sdk_app_mesh.types.tls_validation_context_sds_trust.TlsValidationContextSdsTrust"
 
 

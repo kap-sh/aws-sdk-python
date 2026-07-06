@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SourceServerActionsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.action_i_ds
 
 
-class SourceServerActionsRequestFilters(TypedDict):
+class SourceServerActionsRequestFilters(TypedDict, closed=True):
     action_i_ds: NotRequired["aws_sdk_mgn.types.action_i_ds.ActionIDs"]
     """<p>Action IDs to filter source server post migration custom actions by.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#SourceRevisionOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.source_revision_type
 
 
-class SourceRevisionOverride(TypedDict):
+class SourceRevisionOverride(TypedDict, closed=True):
     action_name: "aws_sdk_codepipeline.types.action_name.ActionName"
     """<p>The name of the action where the override will be applied.</p>"""
     revision_type: "aws_sdk_codepipeline.types.source_revision_type.SourceRevisionType"

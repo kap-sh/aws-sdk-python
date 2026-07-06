@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#DeleteSmsTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.message_body
 
 
-class DeleteSmsTemplateResponse(TypedDict):
+class DeleteSmsTemplateResponse(TypedDict, closed=True):
     message_body: NotRequired["aws_sdk_pinpoint.types.message_body.MessageBody"]
 
 

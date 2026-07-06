@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#StartChannelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartChannelResponse(TypedDict):
+class StartChannelResponse(TypedDict, closed=True):
     pass
 
 

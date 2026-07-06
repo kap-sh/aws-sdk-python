@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#MedicalScribeInputStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe_streaming._iter import AnyIterator
 from aws_sdk_transcribe_streaming._protocol.eventstream import Message
@@ -11,15 +13,15 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event
 
 
-class _MedicalScribeInputStream_AudioEvent(TypedDict):
+class _MedicalScribeInputStream_AudioEvent(TypedDict, closed=True):
     AudioEvent: "aws_sdk_transcribe_streaming.types.medical_scribe_audio_event.MedicalScribeAudioEvent"
 
 
-class _MedicalScribeInputStream_SessionControlEvent(TypedDict):
+class _MedicalScribeInputStream_SessionControlEvent(TypedDict, closed=True):
     SessionControlEvent: "aws_sdk_transcribe_streaming.types.medical_scribe_session_control_event.MedicalScribeSessionControlEvent"
 
 
-class _MedicalScribeInputStream_ConfigurationEvent(TypedDict):
+class _MedicalScribeInputStream_ConfigurationEvent(TypedDict, closed=True):
     ConfigurationEvent: "aws_sdk_transcribe_streaming.types.medical_scribe_configuration_event.MedicalScribeConfigurationEvent"
 
 

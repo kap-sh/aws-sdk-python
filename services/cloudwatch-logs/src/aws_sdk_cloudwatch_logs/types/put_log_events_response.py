@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutLogEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.rejected_entity_info
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.sequence_token
 
 
-class PutLogEventsResponse(TypedDict):
+class PutLogEventsResponse(TypedDict, closed=True):
     next_sequence_token: NotRequired[
         "aws_sdk_cloudwatch_logs.types.sequence_token.SequenceToken"
     ]

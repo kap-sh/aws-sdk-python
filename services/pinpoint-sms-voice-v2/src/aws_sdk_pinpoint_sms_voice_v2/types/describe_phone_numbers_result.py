@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribePhoneNumbersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
     import aws_sdk_pinpoint_sms_voice_v2.types.phone_number_information_list
 
 
-class DescribePhoneNumbersResult(TypedDict):
+class DescribePhoneNumbersResult(TypedDict, closed=True):
     phone_numbers: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.phone_number_information_list.PhoneNumberInformationList"
     ]

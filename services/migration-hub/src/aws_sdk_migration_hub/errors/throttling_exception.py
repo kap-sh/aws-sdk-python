@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ThrottlingException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError, ServiceError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.retry_after_seconds
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "aws_sdk_migration_hub.types.error_message.ErrorMessage"
     """<p>A message that provides information about the exception.</p>"""
     retry_after_seconds: (

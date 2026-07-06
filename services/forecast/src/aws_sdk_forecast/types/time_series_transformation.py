@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeSeriesTransformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.action
     import aws_sdk_forecast.types.time_series_conditions
 
 
-class TimeSeriesTransformation(TypedDict):
+class TimeSeriesTransformation(TypedDict, closed=True):
     action: NotRequired["aws_sdk_forecast.types.action.Action"]
     """<p>An array of actions that define a time series and how it is transformed. These transformations create a new time series that is used for the what-if analysis.</p>"""
     time_series_conditions: NotRequired[

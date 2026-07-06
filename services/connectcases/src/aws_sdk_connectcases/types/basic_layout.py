@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BasicLayout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.layout_sections
 
 
-class BasicLayout(TypedDict):
+class BasicLayout(TypedDict, closed=True):
     top_panel: NotRequired["aws_sdk_connectcases.types.layout_sections.LayoutSections"]
     """<p>This represents sections in a panel of the page layout.</p>"""
     more_info: NotRequired["aws_sdk_connectcases.types.layout_sections.LayoutSections"]

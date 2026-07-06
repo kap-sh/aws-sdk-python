@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetEventConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class GetEventConfigurationRequest(TypedDict):
+class GetEventConfigurationRequest(TypedDict, closed=True):
     trail_name: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The name of the trail for which you want to retrieve event configuration settings.</p>"""
     event_data_store: NotRequired["aws_sdk_cloudtrail.types.string.String"]

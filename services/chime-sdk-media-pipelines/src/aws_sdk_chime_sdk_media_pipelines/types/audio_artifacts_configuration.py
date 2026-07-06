@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#AudioArtifactsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.audio_mux_type
 
 
-class AudioArtifactsConfiguration(TypedDict):
+class AudioArtifactsConfiguration(TypedDict, closed=True):
     mux_type: "aws_sdk_chime_sdk_media_pipelines.types.audio_mux_type.AudioMuxType"
     """<p>The MUX type of the audio artifact configuration object.</p>"""
 

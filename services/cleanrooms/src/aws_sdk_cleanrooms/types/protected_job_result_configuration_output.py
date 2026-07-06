@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobResultConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_job_output_configuration_output
 
 
-class ProtectedJobResultConfigurationOutput(TypedDict):
+class ProtectedJobResultConfigurationOutput(TypedDict, closed=True):
     output_configuration: "aws_sdk_cleanrooms.types.protected_job_output_configuration_output.ProtectedJobOutputConfigurationOutput"
     """<p>The output configuration.</p>"""
 

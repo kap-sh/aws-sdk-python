@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#DeleteManagedThingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.managed_thing_id
 
 
-class DeleteManagedThingRequest(TypedDict):
+class DeleteManagedThingRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_managed_integrations.types.managed_thing_id.ManagedThingId"
     """<p>The id of the managed thing.</p>"""
     force: NotRequired["bool"]

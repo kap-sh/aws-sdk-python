@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#Variable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.variable_value
 
 
-class Variable(TypedDict):
+class Variable(TypedDict, closed=True):
     name: "aws_sdk_iot_events_data.types.variable_name.VariableName"
     """<p>The name of the variable.</p>"""
     value: "aws_sdk_iot_events_data.types.variable_value.VariableValue"

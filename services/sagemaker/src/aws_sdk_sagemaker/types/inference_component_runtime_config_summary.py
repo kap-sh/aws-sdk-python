@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentRuntimeConfigSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_component_copy_count
     import aws_sdk_sagemaker.types.inference_component_placement_status_list
 
 
-class InferenceComponentRuntimeConfigSummary(TypedDict):
+class InferenceComponentRuntimeConfigSummary(TypedDict, closed=True):
     desired_copy_count: NotRequired[
         "aws_sdk_sagemaker.types.inference_component_copy_count.InferenceComponentCopyCount"
     ]

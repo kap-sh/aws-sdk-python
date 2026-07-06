@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#UpdateSecretVersionStageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.secret_arn_type
     import aws_sdk_secrets_manager.types.secret_name_type
 
 
-class UpdateSecretVersionStageResponse(TypedDict):
+class UpdateSecretVersionStageResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_secrets_manager.types.secret_arn_type.SecretARNType"]
     """<p>The ARN of the secret that was updated.</p>"""
     name: NotRequired["aws_sdk_secrets_manager.types.secret_name_type.SecretNameType"]

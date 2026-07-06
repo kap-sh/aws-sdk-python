@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#MessageAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.message_attribute_string_values
 
 
-class MessageAttributeValue(TypedDict):
+class MessageAttributeValue(TypedDict, closed=True):
     string_values: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.message_attribute_string_values.MessageAttributeStringValues"
     ]

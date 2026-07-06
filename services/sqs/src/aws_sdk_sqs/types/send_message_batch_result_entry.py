@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SendMessageBatchResultEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SendMessageBatchResultEntry(TypedDict):
+class SendMessageBatchResultEntry(TypedDict, closed=True):
     id: "aws_sdk_sqs.types.string.String"
     """<p>An identifier for the message in this batch.</p>"""
     message_id: "aws_sdk_sqs.types.string.String"

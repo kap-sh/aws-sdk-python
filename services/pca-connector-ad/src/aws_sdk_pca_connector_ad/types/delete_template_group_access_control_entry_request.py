@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#DeleteTemplateGroupAccessControlEntryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.group_security_identifier
     import aws_sdk_pca_connector_ad.types.template_arn
 
 
-class DeleteTemplateGroupAccessControlEntryRequest(TypedDict):
+class DeleteTemplateGroupAccessControlEntryRequest(TypedDict, closed=True):
     template_arn: "aws_sdk_pca_connector_ad.types.template_arn.TemplateArn"
     r"""<p>The Amazon Resource Name (ARN) that was returned when you called <a href=\"https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html\">CreateTemplate</a>.</p>"""
     group_security_identifier: "aws_sdk_pca_connector_ad.types.group_security_identifier.GroupSecurityIdentifier"

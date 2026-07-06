@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DataSourceRunSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.run_statistics_for_assets
 
 
-class DataSourceRunSummary(TypedDict):
+class DataSourceRunSummary(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.data_source_run_id.DataSourceRunId"
     """<p>The identifier of the data source run.</p>"""
     data_source_id: "aws_sdk_datazone.types.data_source_id.DataSourceId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#AudioLanguageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.audio_generative_output_language
     import aws_sdk_bedrock_data_automation.types.audio_input_languages
 
 
-class AudioLanguageConfiguration(TypedDict):
+class AudioLanguageConfiguration(TypedDict, closed=True):
     input_languages: NotRequired[
         "aws_sdk_bedrock_data_automation.types.audio_input_languages.AudioInputLanguages"
     ]

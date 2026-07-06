@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverDnssecConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.next_token
 
 
-class ListResolverDnssecConfigsRequest(TypedDict):
+class ListResolverDnssecConfigsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]
     """<p> <i>Optional</i>: An integer that specifies the maximum number of DNSSEC configuration results that you want Amazon Route 53 to return. If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100 configuration per page.</p>"""
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]

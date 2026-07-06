@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ConnectionData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attendee
     import aws_sdk_connect.types.meeting
 
 
-class ConnectionData(TypedDict):
+class ConnectionData(TypedDict, closed=True):
     attendee: NotRequired["aws_sdk_connect.types.attendee.Attendee"]
     """<p>The attendee information, including attendee ID and join token.</p>"""
     meeting: NotRequired["aws_sdk_connect.types.meeting.Meeting"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#JoinOperandProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.output_column_name_override_list
 
 
-class JoinOperandProperties(TypedDict):
+class JoinOperandProperties(TypedDict, closed=True):
     output_column_name_overrides: "aws_sdk_quicksight.types.output_column_name_override_list.OutputColumnNameOverrideList"
     """<p>A list of column name overrides to apply to the join operand's output columns.</p>"""
 

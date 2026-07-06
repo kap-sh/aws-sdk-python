@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#StartOutpostDecommissionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.outpost_identifier
     import aws_sdk_outposts.types.validate_only
 
 
-class StartOutpostDecommissionInput(TypedDict):
+class StartOutpostDecommissionInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p>The ID or ARN of the Outpost that you want to decommission.</p>"""
     validate_only: "aws_sdk_outposts.types.validate_only.ValidateOnly"

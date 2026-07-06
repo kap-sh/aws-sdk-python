@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ListLandingZonesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.landing_zone_summaries
 
 
-class ListLandingZonesOutput(TypedDict):
+class ListLandingZonesOutput(TypedDict, closed=True):
     landing_zones: (
         "aws_sdk_controltower.types.landing_zone_summaries.LandingZoneSummaries"
     )

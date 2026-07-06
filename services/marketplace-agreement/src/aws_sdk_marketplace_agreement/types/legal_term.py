@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#LegalTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.document_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.unversioned_term_type
 
 
-class LegalTerm(TypedDict):
+class LegalTerm(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_marketplace_agreement.types.unversioned_term_type.UnversionedTermType"
     ]

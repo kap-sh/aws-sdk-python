@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EncryptionFailure``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, ServiceError
 
 
-class EncryptionFailure_(TypedDict):
+class EncryptionFailure_(TypedDict, closed=True):
     message: "str"
 
 

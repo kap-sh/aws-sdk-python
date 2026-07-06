@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#RegisterAccountAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.account_association_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.managed_thing_id
 
 
-class RegisterAccountAssociationResponse(TypedDict):
+class RegisterAccountAssociationResponse(TypedDict, closed=True):
     account_association_id: NotRequired[
         "aws_sdk_iot_managed_integrations.types.account_association_id.AccountAssociationId"
     ]

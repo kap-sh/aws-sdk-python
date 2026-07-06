@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnStatisticsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_statistics
     import aws_sdk_glue.types.error_detail
 
 
-class ColumnStatisticsError(TypedDict):
+class ColumnStatisticsError(TypedDict, closed=True):
     column_statistics: NotRequired[
         "aws_sdk_glue.types.column_statistics.ColumnStatistics"
     ]

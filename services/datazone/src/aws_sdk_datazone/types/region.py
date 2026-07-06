@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#Region``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.region_name
 
 
-class _Region_regionName(TypedDict):
+class _Region_regionName(TypedDict, closed=True):
     regionName: "aws_sdk_datazone.types.region_name.RegionName"
 
 
-class _Region_regionNamePath(TypedDict):
+class _Region_regionNamePath(TypedDict, closed=True):
     regionNamePath: "aws_sdk_datazone.types.parameter_store_path.ParameterStorePath"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ReceiptAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.workmail_action
 
 
-class ReceiptAction(TypedDict):
+class ReceiptAction(TypedDict, closed=True):
     s3_action: NotRequired["aws_sdk_ses.types.s3_action.S3Action"]
     """<p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.</p>"""
     bounce_action: NotRequired["aws_sdk_ses.types.bounce_action.BounceAction"]

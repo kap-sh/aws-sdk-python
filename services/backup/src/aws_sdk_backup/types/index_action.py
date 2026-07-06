@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#IndexAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_types
 
 
-class IndexAction(TypedDict):
+class IndexAction(TypedDict, closed=True):
     resource_types: NotRequired["aws_sdk_backup.types.resource_types.ResourceTypes"]
     """<p>0 or 1 index action will be accepted for each BackupRule.</p> <p>Valid values:</p> <ul> <li> <p> <code>EBS</code> for Amazon Elastic Block Store</p> </li> <li> <p> <code>S3</code> for Amazon Simple Storage Service (Amazon S3)</p> </li> </ul>"""
 

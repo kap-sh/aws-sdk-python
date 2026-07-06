@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteDriverScheduleInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
 
 
-class RouteDriverScheduleInterval(TypedDict):
+class RouteDriverScheduleInterval(TypedDict, closed=True):
     drive_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Maximum allowed driving time before stopping to rest.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     rest_duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

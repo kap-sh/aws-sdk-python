@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#SeverityCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.severity_count_number
 
 
-class SeverityCounts(TypedDict):
+class SeverityCounts(TypedDict, closed=True):
     all: NotRequired[
         "aws_sdk_imagebuilder.types.severity_count_number.SeverityCountNumber"
     ]

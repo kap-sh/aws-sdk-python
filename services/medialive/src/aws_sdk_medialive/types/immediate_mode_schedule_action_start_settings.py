@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ImmediateModeScheduleActionStartSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ImmediateModeScheduleActionStartSettings(TypedDict):
+class ImmediateModeScheduleActionStartSettings(TypedDict, closed=True):
     pass
 
 

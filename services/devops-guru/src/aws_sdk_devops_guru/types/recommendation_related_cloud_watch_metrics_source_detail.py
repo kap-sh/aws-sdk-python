@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#RecommendationRelatedCloudWatchMetricsSourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.recommendation_related_cloud_watch_metrics_source_metric_name
     import aws_sdk_devops_guru.types.recommendation_related_cloud_watch_metrics_source_namespace
 
 
-class RecommendationRelatedCloudWatchMetricsSourceDetail(TypedDict):
+class RecommendationRelatedCloudWatchMetricsSourceDetail(TypedDict, closed=True):
     metric_name: NotRequired[
         "aws_sdk_devops_guru.types.recommendation_related_cloud_watch_metrics_source_metric_name.RecommendationRelatedCloudWatchMetricsSourceMetricName"
     ]

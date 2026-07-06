@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CreateGroupMembershipResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.group_member
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class CreateGroupMembershipResponse(TypedDict):
+class CreateGroupMembershipResponse(TypedDict, closed=True):
     group_member: NotRequired["aws_sdk_quicksight.types.group_member.GroupMember"]
     """<p>The group member.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

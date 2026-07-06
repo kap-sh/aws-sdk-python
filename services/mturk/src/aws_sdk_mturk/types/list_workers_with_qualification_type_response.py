@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListWorkersWithQualificationTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.qualification_list
 
 
-class ListWorkersWithQualificationTypeResponse(TypedDict):
+class ListWorkersWithQualificationTypeResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]
     num_results: NotRequired["aws_sdk_mturk.types.integer.Integer"]
     """<p> The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.</p>"""

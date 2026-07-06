@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTagsForResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.tag_resource_type
 
 
-class ListTagsForResourcesRequest(TypedDict):
+class ListTagsForResourcesRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_route_53.types.tag_resource_type.TagResourceType"
     """<p>The type of the resources.</p> <ul> <li> <p>The resource type for health checks is <code>healthcheck</code>.</p> </li> <li> <p>The resource type for hosted zones is <code>hostedzone</code>.</p> </li> </ul>"""
     resource_ids: "aws_sdk_route_53.types.tag_resource_id_list.TagResourceIdList"

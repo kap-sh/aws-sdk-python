@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Extraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.expense_document
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.lending_document
 
 
-class Extraction(TypedDict):
+class Extraction(TypedDict, closed=True):
     lending_document: NotRequired[
         "aws_sdk_textract.types.lending_document.LendingDocument"
     ]

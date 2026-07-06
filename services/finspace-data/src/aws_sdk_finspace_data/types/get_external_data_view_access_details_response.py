@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetExternalDataViewAccessDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.aws_credentials
     import aws_sdk_finspace_data.types.s3_location
 
 
-class GetExternalDataViewAccessDetailsResponse(TypedDict):
+class GetExternalDataViewAccessDetailsResponse(TypedDict, closed=True):
     credentials: NotRequired[
         "aws_sdk_finspace_data.types.aws_credentials.AwsCredentials"
     ]

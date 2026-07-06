@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketServerSideEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.type
 
 
-class BucketServerSideEncryption(TypedDict):
+class BucketServerSideEncryption(TypedDict, closed=True):
     kms_master_key_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) or unique identifier (key ID) for the KMS key that's used by default to encrypt objects that are added to the bucket. This value is null if the bucket is configured to use an Amazon S3 managed key to encrypt new objects.</p>"""
     type: NotRequired["aws_sdk_macie2.types.type.Type"]

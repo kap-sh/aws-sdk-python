@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ListActivityTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.reverse_order
 
 
-class ListActivityTypesInput(TypedDict):
+class ListActivityTypesInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain in which the activity types have been registered.</p>"""
     name: NotRequired["aws_sdk_swf.types.name.Name"]

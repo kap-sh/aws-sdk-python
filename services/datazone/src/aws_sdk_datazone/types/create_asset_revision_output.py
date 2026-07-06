@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetRevisionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.time_series_data_point_summary_form_output_list
 
 
-class CreateAssetRevisionOutput(TypedDict):
+class CreateAssetRevisionOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.asset_id.AssetId"
     """<p>The unique identifier of the asset revision.</p>"""
     name: "aws_sdk_datazone.types.asset_name.AssetName"

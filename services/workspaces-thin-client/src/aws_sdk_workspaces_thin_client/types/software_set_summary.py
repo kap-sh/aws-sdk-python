@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#SoftwareSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.timestamp
 
 
-class SoftwareSetSummary(TypedDict):
+class SoftwareSetSummary(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_workspaces_thin_client.types.software_set_id.SoftwareSetId"
     ]

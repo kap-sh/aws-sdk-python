@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListKnowledgeBasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
 
 
-class ListKnowledgeBasesResponse(TypedDict):
+class ListKnowledgeBasesResponse(TypedDict, closed=True):
     knowledge_base_summaries: (
         "aws_sdk_qconnect.types.knowledge_base_list.KnowledgeBaseList"
     )

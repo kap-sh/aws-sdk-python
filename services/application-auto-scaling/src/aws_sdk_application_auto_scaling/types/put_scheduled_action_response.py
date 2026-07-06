@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#PutScheduledActionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutScheduledActionResponse(TypedDict):
+class PutScheduledActionResponse(TypedDict, closed=True):
     pass
 
 

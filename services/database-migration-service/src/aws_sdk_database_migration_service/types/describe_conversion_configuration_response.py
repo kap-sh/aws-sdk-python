@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeConversionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeConversionConfigurationResponse(TypedDict):
+class DescribeConversionConfigurationResponse(TypedDict, closed=True):
     migration_project_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

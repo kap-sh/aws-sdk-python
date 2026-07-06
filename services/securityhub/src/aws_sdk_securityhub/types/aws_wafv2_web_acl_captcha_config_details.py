@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2WebAclCaptchaConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_web_acl_captcha_config_immunity_time_property_details
 
 
-class AwsWafv2WebAclCaptchaConfigDetails(TypedDict):
+class AwsWafv2WebAclCaptchaConfigDetails(TypedDict, closed=True):
     immunity_time_property: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_web_acl_captcha_config_immunity_time_property_details.AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails"
     ]

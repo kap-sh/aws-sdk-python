@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#MlConfigDefinition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MlConfigDefinition(TypedDict):
+class MlConfigDefinition(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The configuration name.</p>"""
     arn: NotRequired["str"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribePatchPropertiesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.patch_properties_list
 
 
-class DescribePatchPropertiesResult(TypedDict):
+class DescribePatchPropertiesResult(TypedDict, closed=True):
     properties: NotRequired[
         "aws_sdk_ssm.types.patch_properties_list.PatchPropertiesList"
     ]

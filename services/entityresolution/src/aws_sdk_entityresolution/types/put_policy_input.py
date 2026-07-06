@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#PutPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.venice_global_arn
 
 
-class PutPolicyInput(TypedDict):
+class PutPolicyInput(TypedDict, closed=True):
     arn: "aws_sdk_entityresolution.types.venice_global_arn.VeniceGlobalArn"
     """<p>The Amazon Resource Name (ARN) of the resource for which the policy needs to be updated.</p>"""
     token: NotRequired["aws_sdk_entityresolution.types.policy_token.PolicyToken"]

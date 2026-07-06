@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#BatchDisassociateServiceActionFromProvisioningArtifactInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -11,7 +11,9 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.service_action_associations
 
 
-class BatchDisassociateServiceActionFromProvisioningArtifactInput(TypedDict):
+class BatchDisassociateServiceActionFromProvisioningArtifactInput(
+    TypedDict, closed=True
+):
     service_action_associations: "aws_sdk_service_catalog.types.service_action_associations.ServiceActionAssociations"
     """<p>One or more associations, each consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.</p>"""
     accept_language: NotRequired[

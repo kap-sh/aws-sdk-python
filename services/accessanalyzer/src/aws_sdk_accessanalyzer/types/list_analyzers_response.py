@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListAnalyzersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.token
 
 
-class ListAnalyzersResponse(TypedDict):
+class ListAnalyzersResponse(TypedDict, closed=True):
     analyzers: "aws_sdk_accessanalyzer.types.analyzers_list.AnalyzersList"
     """<p>The analyzers retrieved.</p>"""
     next_token: NotRequired["aws_sdk_accessanalyzer.types.token.Token"]

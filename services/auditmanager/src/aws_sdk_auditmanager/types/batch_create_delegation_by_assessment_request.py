@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#BatchCreateDelegationByAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class BatchCreateDelegationByAssessmentRequest(TypedDict):
+class BatchCreateDelegationByAssessmentRequest(TypedDict, closed=True):
     create_delegation_requests: (
         "aws_sdk_auditmanager.types.create_delegation_requests.CreateDelegationRequests"
     )

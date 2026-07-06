@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeSecurityScanConfigurationAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.code_security_resource
 
 
-class CodeSecurityScanConfigurationAssociationSummary(TypedDict):
+class CodeSecurityScanConfigurationAssociationSummary(TypedDict, closed=True):
     resource: NotRequired[
         "aws_sdk_inspector2.types.code_security_resource.CodeSecurityResource"
     ]

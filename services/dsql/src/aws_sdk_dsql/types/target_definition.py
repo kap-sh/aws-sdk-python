@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#TargetDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.kinesis_target_definition
 
 
-class _TargetDefinition_kinesis(TypedDict):
+class _TargetDefinition_kinesis(TypedDict, closed=True):
     kinesis: "aws_sdk_dsql.types.kinesis_target_definition.KinesisTargetDefinition"
 
 

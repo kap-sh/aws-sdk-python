@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#EntityDisplayData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.name_type
 
 
-class EntityDisplayData(TypedDict):
+class EntityDisplayData(TypedDict, closed=True):
     user_name: NotRequired["aws_sdk_kendra.types.name_type.NameType"]
     """<p>The name of the user.</p>"""
     group_name: NotRequired["aws_sdk_kendra.types.name_type.NameType"]

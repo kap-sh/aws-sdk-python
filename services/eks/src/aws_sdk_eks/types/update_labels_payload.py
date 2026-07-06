@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateLabelsPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.labels_key_list
     import aws_sdk_eks.types.labels_map
 
 
-class UpdateLabelsPayload(TypedDict):
+class UpdateLabelsPayload(TypedDict, closed=True):
     add_or_update_labels: NotRequired["aws_sdk_eks.types.labels_map.labelsMap"]
     """<p>The Kubernetes <code>labels</code> to add or update.</p>"""
     remove_labels: NotRequired["aws_sdk_eks.types.labels_key_list.labelsKeyList"]

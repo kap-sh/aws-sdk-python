@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UpdateAccountSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_lifecycle_events_desired_status
 
 
-class UpdateAccountSettingsInput(TypedDict):
+class UpdateAccountSettingsInput(TypedDict, closed=True):
     group_lifecycle_events_desired_status: NotRequired[
         "aws_sdk_resource_groups.types.group_lifecycle_events_desired_status.GroupLifecycleEventsDesiredStatus"
     ]

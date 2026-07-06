@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.braket#GetJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.hybrid_job_additional_attribute_names_list
     import aws_sdk_braket.types.job_arn
 
 
-class GetJobRequest(TypedDict):
+class GetJobRequest(TypedDict, closed=True):
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"
     """<p>The ARN of the hybrid job to retrieve.</p>"""
     additional_attribute_names: NotRequired[

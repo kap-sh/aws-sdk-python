@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#SessionKeyDerivation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -15,25 +17,25 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.session_key_visa
 
 
-class _SessionKeyDerivation_EmvCommon(TypedDict):
+class _SessionKeyDerivation_EmvCommon(TypedDict, closed=True):
     EmvCommon: "aws_sdk_payment_cryptography_data.types.session_key_emv_common.SessionKeyEmvCommon"
 
 
-class _SessionKeyDerivation_Mastercard(TypedDict):
+class _SessionKeyDerivation_Mastercard(TypedDict, closed=True):
     Mastercard: "aws_sdk_payment_cryptography_data.types.session_key_mastercard.SessionKeyMastercard"
 
 
-class _SessionKeyDerivation_Emv2000(TypedDict):
+class _SessionKeyDerivation_Emv2000(TypedDict, closed=True):
     Emv2000: (
         "aws_sdk_payment_cryptography_data.types.session_key_emv2000.SessionKeyEmv2000"
     )
 
 
-class _SessionKeyDerivation_Amex(TypedDict):
+class _SessionKeyDerivation_Amex(TypedDict, closed=True):
     Amex: "aws_sdk_payment_cryptography_data.types.session_key_amex.SessionKeyAmex"
 
 
-class _SessionKeyDerivation_Visa(TypedDict):
+class _SessionKeyDerivation_Visa(TypedDict, closed=True):
     Visa: "aws_sdk_payment_cryptography_data.types.session_key_visa.SessionKeyVisa"
 
 

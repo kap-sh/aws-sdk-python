@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateReplicationGroupMemberAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_class
 
 
-class UpdateReplicationGroupMemberAction(TypedDict):
+class UpdateReplicationGroupMemberAction(TypedDict, closed=True):
     region_name: "aws_sdk_dynamodb.types.region_name.RegionName"
     """<p>The Region where the replica exists.</p>"""
     kms_master_key_id: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeImagePermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.aws_account_id_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class DescribeImagePermissionsRequest(TypedDict):
+class DescribeImagePermissionsRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the private image for which to describe permissions. The image must be one that you own. </p>"""
     max_results: NotRequired["aws_sdk_appstream.types.max_results.MaxResults"]

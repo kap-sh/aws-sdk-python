@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#BillingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.billed_duration
     import aws_sdk_sfn.types.billed_memory_used
 
 
-class BillingDetails(TypedDict):
+class BillingDetails(TypedDict, closed=True):
     billed_memory_used_in_mb: "aws_sdk_sfn.types.billed_memory_used.BilledMemoryUsed"
     """<p>Billed memory consumption of your workflow, in MB.</p>"""
     billed_duration_in_milliseconds: "aws_sdk_sfn.types.billed_duration.BilledDuration"

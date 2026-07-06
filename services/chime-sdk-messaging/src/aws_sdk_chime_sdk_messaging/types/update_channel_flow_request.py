@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#UpdateChannelFlowRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.processor_list
 
 
-class UpdateChannelFlowRequest(TypedDict):
+class UpdateChannelFlowRequest(TypedDict, closed=True):
     channel_flow_arn: "aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"
     """<p>The ARN of the channel flow.</p>"""
     processors: "aws_sdk_chime_sdk_messaging.types.processor_list.ProcessorList"

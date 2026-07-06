@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DeleteCodeSecurityScanConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.scan_configuration_arn
 
 
-class DeleteCodeSecurityScanConfigurationResponse(TypedDict):
+class DeleteCodeSecurityScanConfigurationResponse(TypedDict, closed=True):
     scan_configuration_arn: NotRequired[
         "aws_sdk_inspector2.types.scan_configuration_arn.ScanConfigurationArn"
     ]

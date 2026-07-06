@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateBridgeStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.bridge_arn
     import aws_sdk_mediaconnect.types.desired_state
 
 
-class UpdateBridgeStateRequest(TypedDict):
+class UpdateBridgeStateRequest(TypedDict, closed=True):
     bridge_arn: "aws_sdk_mediaconnect.types.bridge_arn.BridgeArn"
     """<p> The Amazon Resource Name (ARN) of the bridge that you want to update the state of. </p>"""
     desired_state: NotRequired["aws_sdk_mediaconnect.types.desired_state.DesiredState"]

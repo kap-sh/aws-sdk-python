@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#PutAuthPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.auth_policy_state
     import aws_sdk_vpc_lattice.types.auth_policy_string
 
 
-class PutAuthPolicyResponse(TypedDict):
+class PutAuthPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_vpc_lattice.types.auth_policy_string.AuthPolicyString"]
     """<p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>"""
     state: NotRequired["aws_sdk_vpc_lattice.types.auth_policy_state.AuthPolicyState"]

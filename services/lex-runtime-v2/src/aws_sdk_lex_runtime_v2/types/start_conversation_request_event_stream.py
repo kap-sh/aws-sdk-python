@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#StartConversationRequestEventStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_v2._iter import AnyIterator
 from aws_sdk_lex_runtime_v2._protocol.eventstream import Message
@@ -14,31 +16,33 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.text_input_event
 
 
-class _StartConversationRequestEventStream_ConfigurationEvent(TypedDict):
+class _StartConversationRequestEventStream_ConfigurationEvent(TypedDict, closed=True):
     ConfigurationEvent: (
         "aws_sdk_lex_runtime_v2.types.configuration_event.ConfigurationEvent"
     )
 
 
-class _StartConversationRequestEventStream_AudioInputEvent(TypedDict):
+class _StartConversationRequestEventStream_AudioInputEvent(TypedDict, closed=True):
     AudioInputEvent: "aws_sdk_lex_runtime_v2.types.audio_input_event.AudioInputEvent"
 
 
-class _StartConversationRequestEventStream_DTMFInputEvent(TypedDict):
+class _StartConversationRequestEventStream_DTMFInputEvent(TypedDict, closed=True):
     DTMFInputEvent: "aws_sdk_lex_runtime_v2.types.dtmf_input_event.DTMFInputEvent"
 
 
-class _StartConversationRequestEventStream_TextInputEvent(TypedDict):
+class _StartConversationRequestEventStream_TextInputEvent(TypedDict, closed=True):
     TextInputEvent: "aws_sdk_lex_runtime_v2.types.text_input_event.TextInputEvent"
 
 
-class _StartConversationRequestEventStream_PlaybackCompletionEvent(TypedDict):
+class _StartConversationRequestEventStream_PlaybackCompletionEvent(
+    TypedDict, closed=True
+):
     PlaybackCompletionEvent: (
         "aws_sdk_lex_runtime_v2.types.playback_completion_event.PlaybackCompletionEvent"
     )
 
 
-class _StartConversationRequestEventStream_DisconnectionEvent(TypedDict):
+class _StartConversationRequestEventStream_DisconnectionEvent(TypedDict, closed=True):
     DisconnectionEvent: (
         "aws_sdk_lex_runtime_v2.types.disconnection_event.DisconnectionEvent"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectionTypeBrief``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.capabilities
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.vendor
 
 
-class ConnectionTypeBrief(TypedDict):
+class ConnectionTypeBrief(TypedDict, closed=True):
     connection_type: NotRequired["aws_sdk_glue.types.connection_type.ConnectionType"]
     """<p>The name of the connection type.</p>"""
     display_name: NotRequired["aws_sdk_glue.types.display_name.DisplayName"]

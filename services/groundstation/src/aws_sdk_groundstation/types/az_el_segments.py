@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElSegments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.az_el_segment_list
 
 
-class AzElSegments(TypedDict):
+class AzElSegments(TypedDict, closed=True):
     angle_unit: "aws_sdk_groundstation.types.angle_units.AngleUnits"
     """<p>The unit of measure for azimuth and elevation angles. All angles in all segments must use the same unit.</p>"""
     az_el_segment_list: "aws_sdk_groundstation.types.az_el_segment_list.AzElSegmentList"

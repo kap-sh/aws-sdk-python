@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ClusterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.execute_command_configuration
     import aws_sdk_ecs.types.managed_storage_configuration
 
 
-class ClusterConfiguration(TypedDict):
+class ClusterConfiguration(TypedDict, closed=True):
     execute_command_configuration: NotRequired[
         "aws_sdk_ecs.types.execute_command_configuration.ExecuteCommandConfiguration"
     ]

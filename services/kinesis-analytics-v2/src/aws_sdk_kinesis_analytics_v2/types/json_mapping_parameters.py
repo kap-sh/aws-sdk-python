@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#JSONMappingParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.record_row_path
 
 
-class JSONMappingParameters(TypedDict):
+class JSONMappingParameters(TypedDict, closed=True):
     record_row_path: "aws_sdk_kinesis_analytics_v2.types.record_row_path.RecordRowPath"
     """<p>The path to the top-level parent that contains the records.</p>"""
 

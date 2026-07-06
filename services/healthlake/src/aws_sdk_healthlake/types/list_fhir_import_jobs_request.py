@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#ListFHIRImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.timestamp
 
 
-class ListFHIRImportJobsRequest(TypedDict):
+class ListFHIRImportJobsRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_healthlake.types.datastore_id.DatastoreId"
     """<p>Limits the response to the import job with the specified data store ID. </p>"""
     next_token: NotRequired["aws_sdk_healthlake.types.next_token.NextToken"]

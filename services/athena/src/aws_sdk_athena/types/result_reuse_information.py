@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultReuseInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boolean
 
 
-class ResultReuseInformation(TypedDict):
+class ResultReuseInformation(TypedDict, closed=True):
     reused_previous_result: "aws_sdk_athena.types.boolean.Boolean"
     """<p>True if a previous query result was reused; false if the result was generated from a new run of the query.</p>"""
 

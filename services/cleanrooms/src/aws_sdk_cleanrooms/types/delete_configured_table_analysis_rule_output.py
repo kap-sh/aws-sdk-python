@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteConfiguredTableAnalysisRuleOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConfiguredTableAnalysisRuleOutput(TypedDict):
+class DeleteConfiguredTableAnalysisRuleOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListAllowedRepositoriesForGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.pagination_token
     import aws_sdk_codeartifact.types.repository_name_list
 
 
-class ListAllowedRepositoriesForGroupResult(TypedDict):
+class ListAllowedRepositoriesForGroupResult(TypedDict, closed=True):
     allowed_repositories: NotRequired[
         "aws_sdk_codeartifact.types.repository_name_list.RepositoryNameList"
     ]

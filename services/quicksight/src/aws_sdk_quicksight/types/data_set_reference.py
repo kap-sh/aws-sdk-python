@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_empty_string
 
 
-class DataSetReference(TypedDict):
+class DataSetReference(TypedDict, closed=True):
     data_set_placeholder: "aws_sdk_quicksight.types.non_empty_string.NonEmptyString"
     """<p>Dataset placeholder.</p>"""
     data_set_arn: "aws_sdk_quicksight.types.arn.Arn"

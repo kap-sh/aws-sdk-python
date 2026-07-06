@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#AssociateTrackerConsumerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class AssociateTrackerConsumerRequest(TypedDict):
+class AssociateTrackerConsumerRequest(TypedDict, closed=True):
     tracker_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the tracker resource to be associated with a geofence collection.</p>"""
     consumer_arn: "aws_sdk_location.types.arn.Arn"

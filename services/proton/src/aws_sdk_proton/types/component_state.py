@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ComponentState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name_or_empty
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_file_contents
 
 
-class ComponentState(TypedDict):
+class ComponentState(TypedDict, closed=True):
     service_name: NotRequired[
         "aws_sdk_proton.types.resource_name_or_empty.ResourceNameOrEmpty"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UpdateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class UpdateClusterRequest(TypedDict):
+class UpdateClusterRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_memorydb.types.string.String"
     """<p>The name of the cluster to update.</p>"""
     description: NotRequired["aws_sdk_memorydb.types.string.String"]

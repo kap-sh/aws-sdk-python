@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#AgreementEntitlement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_entitlement_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resource
 
 
-class AgreementEntitlement(TypedDict):
+class AgreementEntitlement(TypedDict, closed=True):
     resource: NotRequired["aws_sdk_marketplace_agreement.types.resource.Resource"]
     """<p>The resource that the entitlement is provisioned to, such as a product.</p>"""
     type: NotRequired[

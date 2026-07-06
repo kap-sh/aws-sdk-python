@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Bias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.metrics_source
 
 
-class Bias(TypedDict):
+class Bias(TypedDict, closed=True):
     report: NotRequired["aws_sdk_sagemaker.types.metrics_source.MetricsSource"]
     """<p>The bias report for a model</p>"""
     pre_training_report: NotRequired[

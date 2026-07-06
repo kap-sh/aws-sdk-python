@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#VersionDifferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.pillar_differences
 
 
-class VersionDifferences(TypedDict):
+class VersionDifferences(TypedDict, closed=True):
     pillar_differences: NotRequired[
         "aws_sdk_wellarchitected.types.pillar_differences.PillarDifferences"
     ]

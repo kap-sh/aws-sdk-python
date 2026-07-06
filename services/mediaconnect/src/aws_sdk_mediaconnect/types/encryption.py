@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Encryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.algorithm
     import aws_sdk_mediaconnect.types.key_type
 
 
-class Encryption(TypedDict):
+class Encryption(TypedDict, closed=True):
     algorithm: NotRequired["aws_sdk_mediaconnect.types.algorithm.Algorithm"]
     """<p> The type of algorithm that is used for the encryption (such as aes128, aes192, or aes256).</p>"""
     constant_initialization_vector: NotRequired["str"]

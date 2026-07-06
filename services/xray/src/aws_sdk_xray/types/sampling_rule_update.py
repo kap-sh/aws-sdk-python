@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#SamplingRuleUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.attribute_map
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.url_path
 
 
-class SamplingRuleUpdate(TypedDict):
+class SamplingRuleUpdate(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_xray.types.rule_name.RuleName"]
     """<p>The name of the sampling rule. Specify a rule by either name or ARN, but not both.</p>"""
     rule_arn: NotRequired["aws_sdk_xray.types.string.String"]

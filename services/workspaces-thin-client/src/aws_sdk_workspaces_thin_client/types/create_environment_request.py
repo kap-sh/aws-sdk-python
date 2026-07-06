@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#CreateEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_thin_client.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.tags_map
 
 
-class CreateEnvironmentRequest(TypedDict):
+class CreateEnvironmentRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_workspaces_thin_client.types.environment_name.EnvironmentName"
     ]

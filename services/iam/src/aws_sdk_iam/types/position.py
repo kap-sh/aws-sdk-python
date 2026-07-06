@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#Position``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.line_number
 
 
-class Position(TypedDict):
+class Position(TypedDict, closed=True):
     line: "aws_sdk_iam.types.line_number.LineNumber"
     """<p>The line containing the specified position in the document.</p>"""
     column: "aws_sdk_iam.types.column_number.ColumnNumber"

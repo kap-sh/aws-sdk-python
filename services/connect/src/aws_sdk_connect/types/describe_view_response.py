@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.view
 
 
-class DescribeViewResponse(TypedDict):
+class DescribeViewResponse(TypedDict, closed=True):
     view: NotRequired["aws_sdk_connect.types.view.View"]
     """<p>All view data is contained within the View object.</p>"""
 

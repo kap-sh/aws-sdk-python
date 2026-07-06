@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#AmazonMachineImageRecommendation``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
 
-class AmazonMachineImageRecommendation(TypedDict):
+class AmazonMachineImageRecommendation(TypedDict, closed=True):
     instance_type: "str"
     """<p>The recommended EC2 instance type for this AMI.</p>"""
 

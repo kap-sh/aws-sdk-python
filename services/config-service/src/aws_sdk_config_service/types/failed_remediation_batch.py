@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#FailedRemediationBatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.remediation_configurations
     import aws_sdk_config_service.types.string
 
 
-class FailedRemediationBatch(TypedDict):
+class FailedRemediationBatch(TypedDict, closed=True):
     failure_message: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>Returns a failure message. For example, the resource is already compliant.</p>"""
     failed_items: NotRequired[

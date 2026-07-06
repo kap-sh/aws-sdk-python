@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.dataset_arn
 
 
-class DescribeDatasetRequest(TypedDict):
+class DescribeDatasetRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_rekognition.types.dataset_arn.DatasetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset that you want to describe. </p>"""
 

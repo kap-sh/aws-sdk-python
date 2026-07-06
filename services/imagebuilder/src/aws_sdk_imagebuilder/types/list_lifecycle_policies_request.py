@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListLifecyclePoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListLifecyclePoliciesRequest(TypedDict):
+class ListLifecyclePoliciesRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]
     """<p>Streamline results based on one of the following values: <code>Name</code>, <code>Status</code>.</p>"""
     max_results: NotRequired[

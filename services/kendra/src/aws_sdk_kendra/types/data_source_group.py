@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DataSourceGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.principal_name
 
 
-class DataSourceGroup(TypedDict):
+class DataSourceGroup(TypedDict, closed=True):
     group_id: "aws_sdk_kendra.types.principal_name.PrincipalName"
     """<p>The identifier of the group you want to add to your list of groups. This is for filtering search results based on the groups' access to documents.</p>"""
     data_source_id: "aws_sdk_kendra.types.data_source_id.DataSourceId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AnalysisTemplateArtifacts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.role_arn
 
 
-class AnalysisTemplateArtifacts(TypedDict):
+class AnalysisTemplateArtifacts(TypedDict, closed=True):
     entry_point: (
         "aws_sdk_cleanrooms.types.analysis_template_artifact.AnalysisTemplateArtifact"
     )

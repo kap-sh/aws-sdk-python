@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Hdr10Plus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max4000
 
 
-class Hdr10Plus(TypedDict):
+class Hdr10Plus(TypedDict, closed=True):
     mastering_monitor_nits: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max4000.__integerMin0Max4000"
     ]

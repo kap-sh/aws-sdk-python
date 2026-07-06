@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListBlockingInstancesForCapacityTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.capacity_task_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class ListBlockingInstancesForCapacityTaskInput(TypedDict):
+class ListBlockingInstancesForCapacityTaskInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p>The ID or ARN of the Outpost associated with the specified capacity task.</p>"""
     capacity_task_id: "aws_sdk_outposts.types.capacity_task_id.CapacityTaskId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#LoadBalancerInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.elb_info_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.target_group_pair_info_list
 
 
-class LoadBalancerInfo(TypedDict):
+class LoadBalancerInfo(TypedDict, closed=True):
     elb_info_list: NotRequired["aws_sdk_codedeploy.types.elb_info_list.ELBInfoList"]
     """<p>An array that contains information about the load balancers to use for load balancing in a deployment. If you're using Classic Load Balancers, specify those load balancers in this array. </p> <note> <p>You can add up to 10 load balancers to the array.</p> </note> <note> <p>If you're using Application Load Balancers or Network Load Balancers, use the <code>targetGroupInfoList</code> array instead of this one.</p> </note>"""
     target_group_info_list: NotRequired[

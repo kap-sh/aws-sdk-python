@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ColumnClassificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.column_mapping_list
 
 
-class ColumnClassificationDetails(TypedDict):
+class ColumnClassificationDetails(TypedDict, closed=True):
     column_mapping: "aws_sdk_cleanrooms.types.column_mapping_list.ColumnMappingList"
     """<p>A mapping that defines the classification of data columns for synthetic data generation and specifies how each column should be handled during the privacy-preserving data synthesis process.</p>"""
 

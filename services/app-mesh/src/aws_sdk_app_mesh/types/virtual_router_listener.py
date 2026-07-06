@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#VirtualRouterListener``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.port_mapping
 
 
-class VirtualRouterListener(TypedDict):
+class VirtualRouterListener(TypedDict, closed=True):
     port_mapping: "aws_sdk_app_mesh.types.port_mapping.PortMapping"
 
 

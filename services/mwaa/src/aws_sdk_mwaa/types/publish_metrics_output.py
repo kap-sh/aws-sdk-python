@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#PublishMetricsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PublishMetricsOutput(TypedDict):
+class PublishMetricsOutput(TypedDict, closed=True):
     pass
 
 

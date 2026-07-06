@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListSensorStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.next_token
     import aws_sdk_lookoutequipment.types.sensor_statistics_summaries
 
 
-class ListSensorStatisticsResponse(TypedDict):
+class ListSensorStatisticsResponse(TypedDict, closed=True):
     sensor_statistics_summaries: NotRequired[
         "aws_sdk_lookoutequipment.types.sensor_statistics_summaries.SensorStatisticsSummaries"
     ]

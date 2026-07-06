@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaClusterEncryptionInTransitDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.kafka_cluster_encryption_in_transit_type
 
 
-class KafkaClusterEncryptionInTransitDescription(TypedDict):
+class KafkaClusterEncryptionInTransitDescription(TypedDict, closed=True):
     encryption_type: NotRequired[
         "aws_sdk_kafkaconnect.types.kafka_cluster_encryption_in_transit_type.KafkaClusterEncryptionInTransitType"
     ]

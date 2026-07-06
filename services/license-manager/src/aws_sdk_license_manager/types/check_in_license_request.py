@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CheckInLicenseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CheckInLicenseRequest(TypedDict):
+class CheckInLicenseRequest(TypedDict, closed=True):
     license_consumption_token: "aws_sdk_license_manager.types.string.String"
     """<p>License consumption token.</p>"""
     beneficiary: NotRequired["aws_sdk_license_manager.types.string.String"]

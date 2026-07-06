@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#DeleteConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.connector_arn
 
 
-class DeleteConnectorRequest(TypedDict):
+class DeleteConnectorRequest(TypedDict, closed=True):
     connector_arn: "aws_sdk_pca_connector_scep.types.connector_arn.ConnectorArn"
     """<p>The Amazon Resource Name (ARN) of the connector to delete.</p>"""
 

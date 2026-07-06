@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#KeyUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.key_usage_flags
 
 
-class KeyUsage(TypedDict):
+class KeyUsage(TypedDict, closed=True):
     critical: NotRequired["bool"]
     """<p>Sets the key usage extension to critical.</p>"""
     usage_flags: "aws_sdk_pca_connector_ad.types.key_usage_flags.KeyUsageFlags"

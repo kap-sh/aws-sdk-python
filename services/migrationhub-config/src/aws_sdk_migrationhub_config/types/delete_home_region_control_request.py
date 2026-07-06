@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#DeleteHomeRegionControlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhub_config.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.control_id
 
 
-class DeleteHomeRegionControlRequest(TypedDict):
+class DeleteHomeRegionControlRequest(TypedDict, closed=True):
     control_id: "aws_sdk_migrationhub_config.types.control_id.ControlId"
     r"""<p>A unique identifier that's generated for each home region control. It's always a string that begins with \"hrc-\" followed by 12 lowercase letters and numbers.</p>"""
 

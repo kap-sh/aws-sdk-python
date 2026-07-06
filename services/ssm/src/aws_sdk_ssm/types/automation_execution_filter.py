@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AutomationExecutionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_execution_filter_value_list
 
 
-class AutomationExecutionFilter(TypedDict):
+class AutomationExecutionFilter(TypedDict, closed=True):
     key: (
         "aws_sdk_ssm.types.automation_execution_filter_key.AutomationExecutionFilterKey"
     )

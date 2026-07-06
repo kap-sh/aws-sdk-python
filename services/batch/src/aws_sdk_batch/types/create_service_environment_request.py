@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CreateServiceEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.capacity_limits
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class CreateServiceEnvironmentRequest(TypedDict):
+class CreateServiceEnvironmentRequest(TypedDict, closed=True):
     service_environment_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name for the service environment. It can be up to 128 characters long and can contain letters, numbers, hyphens (-), and underscores (_).</p>"""
     service_environment_type: NotRequired[

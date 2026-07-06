@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#CreateExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_data_exports.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.resource_tag_list
 
 
-class CreateExportRequest(TypedDict):
+class CreateExportRequest(TypedDict, closed=True):
     export: "aws_sdk_bcm_data_exports.types.export.Export"
     """<p>The details of the export, including data query, name, description, and destination configuration.</p>"""
     resource_tags: NotRequired[

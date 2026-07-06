@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#RespondToAuthChallengeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_context_data_type
 
 
-class RespondToAuthChallengeRequest(TypedDict):
+class RespondToAuthChallengeRequest(TypedDict, closed=True):
     client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
     """<p>The ID of the app client where the user is signing in.</p>"""
     challenge_name: (

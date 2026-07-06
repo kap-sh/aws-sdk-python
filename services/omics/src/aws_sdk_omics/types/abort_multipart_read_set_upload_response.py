@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#AbortMultipartReadSetUploadResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AbortMultipartReadSetUploadResponse(TypedDict):
+class AbortMultipartReadSetUploadResponse(TypedDict, closed=True):
     pass
 
 

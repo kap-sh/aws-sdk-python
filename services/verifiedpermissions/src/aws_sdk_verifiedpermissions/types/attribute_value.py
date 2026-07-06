@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#AttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -17,45 +19,45 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.string_attribute
 
 
-class _AttributeValue_boolean(TypedDict):
+class _AttributeValue_boolean(TypedDict, closed=True):
     boolean: "aws_sdk_verifiedpermissions.types.boolean_attribute.BooleanAttribute"
 
 
-class _AttributeValue_entityIdentifier(TypedDict):
+class _AttributeValue_entityIdentifier(TypedDict, closed=True):
     entityIdentifier: (
         "aws_sdk_verifiedpermissions.types.entity_identifier.EntityIdentifier"
     )
 
 
-class _AttributeValue_long(TypedDict):
+class _AttributeValue_long(TypedDict, closed=True):
     long: "aws_sdk_verifiedpermissions.types.long_attribute.LongAttribute"
 
 
-class _AttributeValue_string(TypedDict):
+class _AttributeValue_string(TypedDict, closed=True):
     string: "aws_sdk_verifiedpermissions.types.string_attribute.StringAttribute"
 
 
-class _AttributeValue_set(TypedDict):
+class _AttributeValue_set(TypedDict, closed=True):
     set: "aws_sdk_verifiedpermissions.types.set_attribute.SetAttribute"
 
 
-class _AttributeValue_record(TypedDict):
+class _AttributeValue_record(TypedDict, closed=True):
     record: "aws_sdk_verifiedpermissions.types.record_attribute.RecordAttribute"
 
 
-class _AttributeValue_ipaddr(TypedDict):
+class _AttributeValue_ipaddr(TypedDict, closed=True):
     ipaddr: "aws_sdk_verifiedpermissions.types.ip_addr.IpAddr"
 
 
-class _AttributeValue_decimal(TypedDict):
+class _AttributeValue_decimal(TypedDict, closed=True):
     decimal: "aws_sdk_verifiedpermissions.types.decimal.Decimal"
 
 
-class _AttributeValue_datetime(TypedDict):
+class _AttributeValue_datetime(TypedDict, closed=True):
     datetime: "aws_sdk_verifiedpermissions.types.datetime_attribute.DatetimeAttribute"
 
 
-class _AttributeValue_duration(TypedDict):
+class _AttributeValue_duration(TypedDict, closed=True):
     duration: "aws_sdk_verifiedpermissions.types.duration.Duration"
 
 

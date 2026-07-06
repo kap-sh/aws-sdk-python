@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityTypesListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.entity_type_name
 
 
-class EntityTypesListItem(TypedDict):
+class EntityTypesListItem(TypedDict, closed=True):
     type: "aws_sdk_comprehend.types.entity_type_name.EntityTypeName"
     r"""<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p> <p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), and , (comma).</p>"""
 

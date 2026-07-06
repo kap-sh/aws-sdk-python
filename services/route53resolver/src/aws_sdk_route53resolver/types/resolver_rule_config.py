@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ResolverRuleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.target_list
 
 
-class ResolverRuleConfig(TypedDict):
+class ResolverRuleConfig(TypedDict, closed=True):
     name: NotRequired["aws_sdk_route53resolver.types.name.Name"]
     """<p>The new name for the Resolver rule. The name that you specify appears in the Resolver dashboard in the Route 53 console. </p> <p>The name can be up to 64 characters long and can contain letters (a-z, A-Z), numbers (0-9), hyphens (-), underscores (_), and spaces. The name cannot consist of only numbers.</p>"""
     target_ips: NotRequired["aws_sdk_route53resolver.types.target_list.TargetList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TransformJobDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.batch_strategy
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_resources
 
 
-class TransformJobDefinition(TypedDict):
+class TransformJobDefinition(TypedDict, closed=True):
     max_concurrent_transforms: NotRequired[
         "aws_sdk_sagemaker.types.max_concurrent_transforms.MaxConcurrentTransforms"
     ]

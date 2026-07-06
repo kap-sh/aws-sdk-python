@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DeleteBuildBatchOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_ids
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class DeleteBuildBatchOutput(TypedDict):
+class DeleteBuildBatchOutput(TypedDict, closed=True):
     status_code: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The status code.</p>"""
     builds_deleted: NotRequired["aws_sdk_codebuild.types.build_ids.BuildIds"]

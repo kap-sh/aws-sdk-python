@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListPermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ListPermissionsRequest(TypedDict):
+class ListPermissionsRequest(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_ram.types.string.String"]
     """<p>Specifies that you want to list only those permissions that apply to the specified resource type. This parameter is not case sensitive.</p> <p>For example, to list only permissions that apply to Amazon EC2 subnets, specify <code>ec2:subnet</code>. You can use the <a>ListResourceTypes</a> operation to get the specific string required.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

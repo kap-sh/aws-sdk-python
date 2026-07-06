@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DependencyCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.integer
 
 
-class DependencyCounts(TypedDict):
+class DependencyCounts(TypedDict, closed=True):
     dependencies_resolved: "aws_sdk_deadline.types.integer.Integer"
     """<p>The number of resolved dependencies.</p>"""
     dependencies_unresolved: "aws_sdk_deadline.types.integer.Integer"

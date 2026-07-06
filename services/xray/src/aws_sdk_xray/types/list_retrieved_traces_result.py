@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ListRetrievedTracesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.retrieval_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.trace_span_list
 
 
-class ListRetrievedTracesResult(TypedDict):
+class ListRetrievedTracesResult(TypedDict, closed=True):
     retrieval_status: NotRequired["aws_sdk_xray.types.retrieval_status.RetrievalStatus"]
     """<p> Status of the retrieval. </p>"""
     trace_format: NotRequired["aws_sdk_xray.types.trace_format_type.TraceFormatType"]

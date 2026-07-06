@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#IPSetDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.ip_set_descriptor_value
 
 
-class IPSetDescriptor(TypedDict):
+class IPSetDescriptor(TypedDict, closed=True):
     type: "aws_sdk_waf_regional.types.ip_set_descriptor_type.IPSetDescriptorType"
     """<p>Specify <code>IPV4</code> or <code>IPV6</code>.</p>"""
     value: "aws_sdk_waf_regional.types.ip_set_descriptor_value.IPSetDescriptorValue"

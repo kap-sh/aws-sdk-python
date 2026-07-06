@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ValidationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elementalinference.errors import DeserializationError, ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
 
 

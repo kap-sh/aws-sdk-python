@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeMlflowAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mlflow_app_arn
 
 
-class DescribeMlflowAppRequest(TypedDict):
+class DescribeMlflowAppRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_sagemaker.types.mlflow_app_arn.MlflowAppArn"]
     """<p>The ARN of the MLflow App for which to get information.</p>"""
 

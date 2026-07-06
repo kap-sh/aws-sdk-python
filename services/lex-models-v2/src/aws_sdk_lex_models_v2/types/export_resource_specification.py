@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ExportResourceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_export_specification
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_export_specification
 
 
-class ExportResourceSpecification(TypedDict):
+class ExportResourceSpecification(TypedDict, closed=True):
     bot_export_specification: NotRequired[
         "aws_sdk_lex_models_v2.types.bot_export_specification.BotExportSpecification"
     ]

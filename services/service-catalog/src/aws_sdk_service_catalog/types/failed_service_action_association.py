@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#FailedServiceActionAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.service_action_association_error_message
 
 
-class FailedServiceActionAssociation(TypedDict):
+class FailedServiceActionAssociation(TypedDict, closed=True):
     service_action_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>"""
     product_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]

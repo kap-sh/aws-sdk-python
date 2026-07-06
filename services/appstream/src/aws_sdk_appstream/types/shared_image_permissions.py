@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#SharedImagePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.aws_account_id
     import aws_sdk_appstream.types.image_permissions
 
 
-class SharedImagePermissions(TypedDict):
+class SharedImagePermissions(TypedDict, closed=True):
     shared_account_id: NotRequired[
         "aws_sdk_appstream.types.aws_account_id.AwsAccountId"
     ]

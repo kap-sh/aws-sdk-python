@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CreateSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_nova_act.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.workflow_definition_name
 
 
-class CreateSessionRequest(TypedDict):
+class CreateSessionRequest(TypedDict, closed=True):
     workflow_definition_name: (
         "aws_sdk_nova_act.types.workflow_definition_name.WorkflowDefinitionName"
     )

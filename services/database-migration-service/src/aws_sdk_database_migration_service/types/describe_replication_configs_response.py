@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeReplicationConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.replication_config_list
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeReplicationConfigsResponse(TypedDict):
+class DescribeReplicationConfigsResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>"""
     replication_configs: NotRequired[

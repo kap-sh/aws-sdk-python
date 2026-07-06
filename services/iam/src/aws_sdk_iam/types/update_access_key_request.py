@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UpdateAccessKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.status_type
 
 
-class UpdateAccessKeyRequest(TypedDict):
+class UpdateAccessKeyRequest(TypedDict, closed=True):
     user_name: NotRequired[
         "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
     ]

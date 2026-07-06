@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#XksProxyAuthenticationCredentialType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.xks_proxy_authentication_raw_secret_access_key_type
 
 
-class XksProxyAuthenticationCredentialType(TypedDict):
+class XksProxyAuthenticationCredentialType(TypedDict, closed=True):
     access_key_id: "aws_sdk_kms.types.xks_proxy_authentication_access_key_id_type.XksProxyAuthenticationAccessKeyIdType"
     """<p>A unique identifier for the raw secret access key.</p>"""
     raw_secret_access_key: "aws_sdk_kms.types.xks_proxy_authentication_raw_secret_access_key_type.XksProxyAuthenticationRawSecretAccessKeyType"

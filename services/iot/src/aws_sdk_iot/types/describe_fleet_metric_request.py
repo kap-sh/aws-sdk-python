@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeFleetMetricRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.fleet_metric_name
 
 
-class DescribeFleetMetricRequest(TypedDict):
+class DescribeFleetMetricRequest(TypedDict, closed=True):
     metric_name: "aws_sdk_iot.types.fleet_metric_name.FleetMetricName"
     """<p>The name of the fleet metric to describe.</p>"""
 

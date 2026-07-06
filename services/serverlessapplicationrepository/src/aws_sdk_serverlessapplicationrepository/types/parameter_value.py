@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ParameterValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class ParameterValue(TypedDict):
+class ParameterValue(TypedDict, closed=True):
     name: NotRequired["aws_sdk_serverlessapplicationrepository.types.__string.__string"]
     """<p>The key associated with the parameter. If you don't specify a key and value for a particular parameter, AWS CloudFormation uses the default value that is specified in your template.</p>"""
     value: NotRequired[

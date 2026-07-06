@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListComponentsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.next_token
 
 
-class ListComponentsOutput(TypedDict):
+class ListComponentsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next component in the array of components, after the current requested list of components.</p>"""
     components: "aws_sdk_proton.types.component_summary_list.ComponentSummaryList"

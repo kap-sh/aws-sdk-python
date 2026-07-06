@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartAutomationExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.targets
 
 
-class StartAutomationExecutionRequest(TypedDict):
+class StartAutomationExecutionRequest(TypedDict, closed=True):
     document_name: "aws_sdk_ssm.types.document_arn.DocumentARN"
     r"""<p>The name of the SSM document to run. This can be a public document or a custom document. To run a shared document belonging to another account, specify the document ARN. For more information about how to use shared documents, see <a href=\"https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html\">Sharing SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

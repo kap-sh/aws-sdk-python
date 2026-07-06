@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SpellCorrectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
 
 
-class SpellCorrectionConfiguration(TypedDict):
+class SpellCorrectionConfiguration(TypedDict, closed=True):
     include_query_spell_check_suggestions: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to suggest spell corrections for queries.</p>"""
 

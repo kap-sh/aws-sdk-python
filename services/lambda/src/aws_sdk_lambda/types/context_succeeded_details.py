@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ContextSucceededDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.event_result
 
 
-class ContextSucceededDetails(TypedDict):
+class ContextSucceededDetails(TypedDict, closed=True):
     result: "aws_sdk_lambda.types.event_result.EventResult"
     """<p>The JSON response payload from the successful context.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#NodeType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.instance_info
 
 
-class _NodeType_Instance(TypedDict):
+class _NodeType_Instance(TypedDict, closed=True):
     Instance: "aws_sdk_ssm.types.instance_info.InstanceInfo"
 
 

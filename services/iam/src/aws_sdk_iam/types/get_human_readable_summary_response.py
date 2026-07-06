@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetHumanReadableSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.summary_state_type
 
 
-class GetHumanReadableSummaryResponse(TypedDict):
+class GetHumanReadableSummaryResponse(TypedDict, closed=True):
     summary_content: NotRequired[
         "aws_sdk_iam.types.summary_content_type.summaryContentType"
     ]

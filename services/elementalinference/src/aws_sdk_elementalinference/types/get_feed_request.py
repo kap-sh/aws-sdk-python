@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#GetFeedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.feed_id
 
 
-class GetFeedRequest(TypedDict):
+class GetFeedRequest(TypedDict, closed=True):
     id: "aws_sdk_elementalinference.types.feed_id.FeedId"
     """<p>The ID of the feed to query.</p>"""
 

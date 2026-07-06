@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#DescribeMetricsExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class DescribeMetricsExportResponse(TypedDict):
+class DescribeMetricsExportResponse(TypedDict, closed=True):
     metrics_export_id: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>Identifier for the metrics export task.</p>"""
     status: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListSchemaVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.next_token
     import aws_sdk_iot_managed_integrations.types.schema_version_list
 
 
-class ListSchemaVersionsResponse(TypedDict):
+class ListSchemaVersionsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_iot_managed_integrations.types.schema_version_list.SchemaVersionList"
     ]

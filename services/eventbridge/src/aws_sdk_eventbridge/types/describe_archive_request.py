@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#DescribeArchiveRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.archive_name
 
 
-class DescribeArchiveRequest(TypedDict):
+class DescribeArchiveRequest(TypedDict, closed=True):
     archive_name: "aws_sdk_eventbridge.types.archive_name.ArchiveName"
     """<p>The name of the archive to retrieve.</p>"""
 

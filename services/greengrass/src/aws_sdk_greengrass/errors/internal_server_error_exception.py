@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#InternalServerErrorException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrass.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.error_details
 
 
-class InternalServerErrorException_(TypedDict):
+class InternalServerErrorException_(TypedDict, closed=True):
     error_details: NotRequired["aws_sdk_greengrass.types.error_details.ErrorDetails"]
     """Details about the error."""
     message: NotRequired["aws_sdk_greengrass.types.__string.__string"]

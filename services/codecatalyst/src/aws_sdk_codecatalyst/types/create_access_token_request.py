@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#CreateAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.timestamp
 
 
-class CreateAccessTokenRequest(TypedDict):
+class CreateAccessTokenRequest(TypedDict, closed=True):
     name: "aws_sdk_codecatalyst.types.access_token_name.AccessTokenName"
     """<p>The friendly name of the personal access token.</p>"""
     expires_time: NotRequired["aws_sdk_codecatalyst.types.timestamp.Timestamp"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeReplicationConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.replication_configuration_descriptions
     import aws_sdk_efs.types.token
 
 
-class DescribeReplicationConfigurationsResponse(TypedDict):
+class DescribeReplicationConfigurationsResponse(TypedDict, closed=True):
     replications: NotRequired[
         "aws_sdk_efs.types.replication_configuration_descriptions.ReplicationConfigurationDescriptions"
     ]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeUpdateException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DataLakeUpdateException(TypedDict):
+class DataLakeUpdateException(TypedDict, closed=True):
     reason: NotRequired["str"]
     """<p>The reason for the exception of the last <code>UpdateDataLake</code>or <code>DeleteDataLake</code> API request.</p>"""
     code: NotRequired["str"]

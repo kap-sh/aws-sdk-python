@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#ListChangedBlocksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_size
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.volume_size
 
 
-class ListChangedBlocksResponse(TypedDict):
+class ListChangedBlocksResponse(TypedDict, closed=True):
     changed_blocks: NotRequired["aws_sdk_ebs.types.changed_blocks.ChangedBlocks"]
     """<p>An array of objects containing information about the changed blocks.</p>"""
     expiry_time: NotRequired["aws_sdk_ebs.types.time_stamp.TimeStamp"]

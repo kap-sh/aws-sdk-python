@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#StartBulkAssociateWirelessDeviceWithMulticastGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.multicast_group_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tag_list
 
 
-class StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(TypedDict):
+class StartBulkAssociateWirelessDeviceWithMulticastGroupRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.multicast_group_id.MulticastGroupId"
     query_string: NotRequired["aws_sdk_iot_wireless.types.query_string.QueryString"]
     tags: NotRequired["aws_sdk_iot_wireless.types.tag_list.TagList"]

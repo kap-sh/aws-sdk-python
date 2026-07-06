@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#StartImportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.import_task
 
 
-class StartImportResponse(TypedDict):
+class StartImportResponse(TypedDict, closed=True):
     import_task: NotRequired["aws_sdk_mgn.types.import_task.ImportTask"]
     """<p>Start import response import task.</p>"""
 

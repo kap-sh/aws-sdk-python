@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#LoggingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.cloud_watch_config
     import aws_sdk_bedrock.types.s3_config
 
 
-class LoggingConfig(TypedDict):
+class LoggingConfig(TypedDict, closed=True):
     cloud_watch_config: NotRequired[
         "aws_sdk_bedrock.types.cloud_watch_config.CloudWatchConfig"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#DeleteScheduleGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.client_token
     import aws_sdk_scheduler.types.schedule_group_name
 
 
-class DeleteScheduleGroupInput(TypedDict):
+class DeleteScheduleGroupInput(TypedDict, closed=True):
     name: "aws_sdk_scheduler.types.schedule_group_name.ScheduleGroupName"
     """<p>The name of the schedule group to delete.</p>"""
     client_token: NotRequired["aws_sdk_scheduler.types.client_token.ClientToken"]

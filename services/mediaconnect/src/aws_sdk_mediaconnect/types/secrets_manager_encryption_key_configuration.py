@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SecretsManagerEncryptionKeyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.secret_arn
 
 
-class SecretsManagerEncryptionKeyConfiguration(TypedDict):
+class SecretsManagerEncryptionKeyConfiguration(TypedDict, closed=True):
     secret_arn: "aws_sdk_mediaconnect.types.secret_arn.SecretArn"
     """<p>The ARN of the Secrets Manager secret used for transit encryption.</p>"""
     role_arn: "aws_sdk_mediaconnect.types.role_arn.RoleArn"

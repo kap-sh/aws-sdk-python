@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#PurchaseOptionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.purchase_option_filter_value_list
 
 
-class PurchaseOptionFilter(TypedDict):
+class PurchaseOptionFilter(TypedDict, closed=True):
     filter_type: "aws_sdk_marketplace_discovery.types.purchase_option_filter_type.PurchaseOptionFilterType"
     """<p>The type of filter to apply, such as <code>PRODUCT_ID</code>, <code>VISIBILITY_SCOPE</code>, or <code>PURCHASE_OPTION_TYPE</code>.</p>"""
     filter_values: "aws_sdk_marketplace_discovery.types.purchase_option_filter_value_list.PurchaseOptionFilterValueList"

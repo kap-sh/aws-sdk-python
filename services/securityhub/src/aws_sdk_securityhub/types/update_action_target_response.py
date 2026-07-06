@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateActionTargetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateActionTargetResponse(TypedDict):
+class UpdateActionTargetResponse(TypedDict, closed=True):
     pass
 
 

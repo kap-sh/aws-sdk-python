@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#RollbackServiceSoftwareUpdateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.rollback_service_software_options
 
 
-class RollbackServiceSoftwareUpdateResponse(TypedDict):
+class RollbackServiceSoftwareUpdateResponse(TypedDict, closed=True):
     rollback_service_software_options: NotRequired[
         "aws_sdk_opensearch.types.rollback_service_software_options.RollbackServiceSoftwareOptions"
     ]

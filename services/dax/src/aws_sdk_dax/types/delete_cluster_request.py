@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DeleteClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dax.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class DeleteClusterRequest(TypedDict):
+class DeleteClusterRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_dax.types.string.String"
     """<p>The name of the cluster to be deleted.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ConditionalForwarder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.dns_ip_addrs
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.replication_scope
 
 
-class ConditionalForwarder(TypedDict):
+class ConditionalForwarder(TypedDict, closed=True):
     remote_domain_name: NotRequired[
         "aws_sdk_directory_service.types.remote_domain_name.RemoteDomainName"
     ]

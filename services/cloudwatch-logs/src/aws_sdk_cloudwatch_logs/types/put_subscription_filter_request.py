@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutSubscriptionFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.role_arn
 
 
-class PutSubscriptionFilterRequest(TypedDict):
+class PutSubscriptionFilterRequest(TypedDict, closed=True):
     log_group_name: "aws_sdk_cloudwatch_logs.types.log_group_name.LogGroupName"
     """<p>The name of the log group.</p>"""
     filter_name: "aws_sdk_cloudwatch_logs.types.filter_name.FilterName"

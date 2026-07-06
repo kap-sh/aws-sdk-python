@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateStorediSCSIVolumeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.volume_arn
 
 
-class CreateStorediSCSIVolumeOutput(TypedDict):
+class CreateStorediSCSIVolumeOutput(TypedDict, closed=True):
     volume_arn: NotRequired["aws_sdk_storage_gateway.types.volume_arn.VolumeARN"]
     """<p>The Amazon Resource Name (ARN) of the configured volume.</p>"""
     volume_size_in_bytes: "aws_sdk_storage_gateway.types.long.long"

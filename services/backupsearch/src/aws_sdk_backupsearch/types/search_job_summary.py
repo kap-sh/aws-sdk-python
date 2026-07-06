@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#SearchJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.search_scope_summary
 
 
-class SearchJobSummary(TypedDict):
+class SearchJobSummary(TypedDict, closed=True):
     search_job_identifier: NotRequired[
         "aws_sdk_backupsearch.types.generic_id.GenericId"
     ]

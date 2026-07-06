@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BatchGetTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.batch_get_task_items
 
 
-class BatchGetTaskResponse(TypedDict):
+class BatchGetTaskResponse(TypedDict, closed=True):
     tasks: "aws_sdk_deadline.types.batch_get_task_items.BatchGetTaskItems"
     """<p>A list of tasks that were successfully retrieved.</p>"""
     errors: "aws_sdk_deadline.types.batch_get_task_errors.BatchGetTaskErrors"

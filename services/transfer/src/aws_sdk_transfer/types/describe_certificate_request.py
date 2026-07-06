@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.certificate_id
 
 
-class DescribeCertificateRequest(TypedDict):
+class DescribeCertificateRequest(TypedDict, closed=True):
     certificate_id: "aws_sdk_transfer.types.certificate_id.CertificateId"
     """<p>An array of identifiers for the imported certificates. You use this identifier for working with profiles and partner profiles.</p>"""
 

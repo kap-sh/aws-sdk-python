@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DomainInformationContainer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.aws_domain_information
 
 
-class DomainInformationContainer(TypedDict):
+class DomainInformationContainer(TypedDict, closed=True):
     aws_domain_information: NotRequired[
         "aws_sdk_opensearch.types.aws_domain_information.AWSDomainInformation"
     ]

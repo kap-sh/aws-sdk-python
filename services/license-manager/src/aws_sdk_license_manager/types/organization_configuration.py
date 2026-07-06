@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#OrganizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.boolean
 
 
-class OrganizationConfiguration(TypedDict):
+class OrganizationConfiguration(TypedDict, closed=True):
     enable_integration: "aws_sdk_license_manager.types.boolean.Boolean"
     """<p>Enables Organizations integration.</p>"""
 

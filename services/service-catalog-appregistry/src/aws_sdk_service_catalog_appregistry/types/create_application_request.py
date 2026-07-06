@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#CreateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog_appregistry.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.tags
 
 
-class CreateApplicationRequest(TypedDict):
+class CreateApplicationRequest(TypedDict, closed=True):
     name: "aws_sdk_service_catalog_appregistry.types.name.Name"
     """<p>The name of the application. The name must be unique in the region in which you are creating the application.</p>"""
     description: NotRequired[

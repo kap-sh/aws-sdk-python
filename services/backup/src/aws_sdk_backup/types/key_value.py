@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backup#KeyValue``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
 
-class KeyValue(TypedDict):
+class KeyValue(TypedDict, closed=True):
     key: "str"
     r"""<p>The tag key (String). The key can't start with <code>aws:</code>.</p> <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p> <p>Pattern: <code>^(?![aA]{1}[wW]{1}[sS]{1}:)([\p{L}\p{Z}\p{N}_.:/=+\-@]+)$</code> </p>"""
     value: "str"

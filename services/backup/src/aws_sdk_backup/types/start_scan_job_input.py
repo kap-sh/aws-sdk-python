@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#StartScanJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.scan_mode
 
 
-class StartScanJobInput(TypedDict):
+class StartScanJobInput(TypedDict, closed=True):
     backup_vault_name: "str"
     r"""<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p> <p>Pattern: <code>^[a-zA-Z0-9\-\_]{2,50}$</code> </p>"""
     continuous_scan_end_time: NotRequired["datetime.datetime"]

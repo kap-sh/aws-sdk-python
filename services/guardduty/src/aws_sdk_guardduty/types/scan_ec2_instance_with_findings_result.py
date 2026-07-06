@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScanEc2InstanceWithFindingsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ebs_volumes_result
 
 
-class ScanEc2InstanceWithFindingsResult(TypedDict):
+class ScanEc2InstanceWithFindingsResult(TypedDict, closed=True):
     ebs_volumes: NotRequired[
         "aws_sdk_guardduty.types.ebs_volumes_result.EbsVolumesResult"
     ]

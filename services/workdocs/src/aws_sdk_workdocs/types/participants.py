@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#Participants``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.group_metadata_list
     import aws_sdk_workdocs.types.user_metadata_list
 
 
-class Participants(TypedDict):
+class Participants(TypedDict, closed=True):
     users: NotRequired["aws_sdk_workdocs.types.user_metadata_list.UserMetadataList"]
     """<p>The list of users.</p>"""
     groups: NotRequired["aws_sdk_workdocs.types.group_metadata_list.GroupMetadataList"]

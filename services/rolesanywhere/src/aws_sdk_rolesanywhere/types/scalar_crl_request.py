@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ScalarCrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class ScalarCrlRequest(TypedDict):
+class ScalarCrlRequest(TypedDict, closed=True):
     crl_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the certificate revocation list (CRL).</p>"""
 

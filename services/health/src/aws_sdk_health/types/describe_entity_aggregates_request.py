@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEntityAggregatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.event_arns_list
 
 
-class DescribeEntityAggregatesRequest(TypedDict):
+class DescribeEntityAggregatesRequest(TypedDict, closed=True):
     event_arns: NotRequired["aws_sdk_health.types.event_arns_list.EventArnsList"]
     r"""<p>A list of event ARNs (unique identifiers). For example: <code>\"arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-CDE456\", \"arn:aws:health:us-west-1::event/EBS/AWS_EBS_LOST_VOLUME/AWS_EBS_LOST_VOLUME_CHI789_JKL101\"</code> </p>"""
 

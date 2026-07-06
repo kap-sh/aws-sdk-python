@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#PutWhatsAppBusinessAccountEventDestinationsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutWhatsAppBusinessAccountEventDestinationsOutput(TypedDict):
+class PutWhatsAppBusinessAccountEventDestinationsOutput(TypedDict, closed=True):
     pass
 
 

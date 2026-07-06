@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateOauth2CredentialProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.status
 
 
-class UpdateOauth2CredentialProviderResponse(TypedDict):
+class UpdateOauth2CredentialProviderResponse(TypedDict, closed=True):
     client_secret_arn: "aws_sdk_bedrock_agentcore_control.types.secret.Secret"
     """<p>The Amazon Resource Name (ARN) of the client secret in AWS Secrets Manager.</p>"""
     client_secret_json_key: NotRequired[

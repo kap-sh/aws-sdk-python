@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#DisableUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service_data.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.user_name
 
 
-class DisableUserRequest(TypedDict):
+class DisableUserRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service_data.types.directory_id.DirectoryId"
     """<p> The identifier (ID) of the directory that's associated with the user. </p>"""
     sam_account_name: "aws_sdk_directory_service_data.types.user_name.UserName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#AssociateRepositoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.tag_map
 
 
-class AssociateRepositoryRequest(TypedDict):
+class AssociateRepositoryRequest(TypedDict, closed=True):
     repository: "aws_sdk_codeguru_reviewer.types.repository.Repository"
     """<p>The repository to associate.</p>"""
     client_request_token: NotRequired[

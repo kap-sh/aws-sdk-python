@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RejectPredictionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class RejectPredictionsOutput(TypedDict):
+class RejectPredictionsOutput(TypedDict, closed=True):
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain.</p>"""
     asset_id: "aws_sdk_datazone.types.asset_id.AssetId"

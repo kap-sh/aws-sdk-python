@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeRouterConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.router_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface_name
 
 
-class DescribeRouterConfigurationResponse(TypedDict):
+class DescribeRouterConfigurationResponse(TypedDict, closed=True):
     customer_router_config: NotRequired[
         "aws_sdk_direct_connect.types.router_config.RouterConfig"
     ]

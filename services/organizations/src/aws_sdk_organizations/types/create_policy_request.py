@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CreatePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.tags
 
 
-class CreatePolicyRequest(TypedDict):
+class CreatePolicyRequest(TypedDict, closed=True):
     content: "aws_sdk_organizations.types.policy_content.PolicyContent"
     r"""<p>The policy text content to add to the new policy. The text that you supply must adhere to the rules of the policy type you specify in the <code>Type</code> parameter. </p> <p>The maximum size of a policy document depends on the policy's type. For more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values\">Maximum and minimum values</a> in the <i>Organizations User Guide</i>.</p>"""
     description: "aws_sdk_organizations.types.policy_description.PolicyDescription"

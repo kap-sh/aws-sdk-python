@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#UpdateRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.rule_group_updates
 
 
-class UpdateRuleGroupRequest(TypedDict):
+class UpdateRuleGroupRequest(TypedDict, closed=True):
     rule_group_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> that you want to update. <code>RuleGroupId</code> is returned by <a>CreateRuleGroup</a> and by <a>ListRuleGroups</a>.</p>"""
     updates: "aws_sdk_waf.types.rule_group_updates.RuleGroupUpdates"

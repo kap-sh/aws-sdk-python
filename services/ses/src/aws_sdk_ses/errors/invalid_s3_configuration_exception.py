@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#InvalidS3ConfigurationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import ServiceError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.s3_bucket_name
 
 
-class InvalidS3ConfigurationException_(TypedDict):
+class InvalidS3ConfigurationException_(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_ses.types.s3_bucket_name.S3BucketName"]
     """<p>Indicated that the S3 Bucket was not found.</p>"""
     message: NotRequired["aws_sdk_ses.types.error_message.ErrorMessage"]

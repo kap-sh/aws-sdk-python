@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetFleetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_names
     import aws_sdk_codebuild.types.fleets
 
 
-class BatchGetFleetsOutput(TypedDict):
+class BatchGetFleetsOutput(TypedDict, closed=True):
     fleets: NotRequired["aws_sdk_codebuild.types.fleets.Fleets"]
     """<p>Information about the requested compute fleets.</p>"""
     fleets_not_found: NotRequired["aws_sdk_codebuild.types.fleet_names.FleetNames"]

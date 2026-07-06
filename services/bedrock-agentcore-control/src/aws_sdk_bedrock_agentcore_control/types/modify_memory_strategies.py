@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ModifyMemoryStrategies``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.delete_memory_strategies_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.modify_memory_strategies_list
 
 
-class ModifyMemoryStrategies(TypedDict):
+class ModifyMemoryStrategies(TypedDict, closed=True):
     add_memory_strategies: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.memory_strategy_input_list.MemoryStrategyInputList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetS3AccessPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.store_type
 
 
-class GetS3AccessPolicyResponse(TypedDict):
+class GetS3AccessPolicyResponse(TypedDict, closed=True):
     s3_access_point_arn: NotRequired[
         "aws_sdk_omics.types.s3_access_point_arn.S3AccessPointArn"
     ]

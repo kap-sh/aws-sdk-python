@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelPackageGroupsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_package_group_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListModelPackageGroupsOutput(TypedDict):
+class ListModelPackageGroupsOutput(TypedDict, closed=True):
     model_package_group_summary_list: NotRequired[
         "aws_sdk_sagemaker.types.model_package_group_summary_list.ModelPackageGroupSummaryList"
     ]

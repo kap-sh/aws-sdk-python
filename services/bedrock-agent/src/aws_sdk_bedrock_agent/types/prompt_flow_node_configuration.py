@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_flow_node_source_configuration
 
 
-class PromptFlowNodeConfiguration(TypedDict):
+class PromptFlowNodeConfiguration(TypedDict, closed=True):
     source_configuration: "aws_sdk_bedrock_agent.types.prompt_flow_node_source_configuration.PromptFlowNodeSourceConfiguration"
     """<p>Specifies whether the prompt is from Prompt management or defined inline.</p>"""
     guardrail_configuration: NotRequired[

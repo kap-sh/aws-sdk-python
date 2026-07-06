@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#DescribeStepInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
     import aws_sdk_emr.types.step_id
 
 
-class DescribeStepInput(TypedDict):
+class DescribeStepInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The identifier of the cluster with steps to describe.</p>"""
     step_id: NotRequired["aws_sdk_emr.types.step_id.StepId"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#ListHarvestJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__list_of_harvest_job
     import aws_sdk_mediapackage.types.__string
 
 
-class ListHarvestJobsResponse(TypedDict):
+class ListHarvestJobsResponse(TypedDict, closed=True):
     harvest_jobs: NotRequired[
         "aws_sdk_mediapackage.types.__list_of_harvest_job.__listOfHarvestJob"
     ]

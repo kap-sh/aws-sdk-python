@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PivotedLabel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_name
 
 
-class PivotedLabel(TypedDict):
+class PivotedLabel(TypedDict, closed=True):
     label_name: "aws_sdk_quicksight.types.cell_value.CellValue"
     """<p>The label value from the source data to be pivoted.</p>"""
     new_column_name: "aws_sdk_quicksight.types.column_name.ColumnName"

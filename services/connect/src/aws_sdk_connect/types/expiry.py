@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Expiry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.duration_in_seconds
     import aws_sdk_connect.types.timestamp
 
 
-class Expiry(TypedDict):
+class Expiry(TypedDict, closed=True):
     duration_in_seconds: NotRequired[
         "aws_sdk_connect.types.duration_in_seconds.DurationInSeconds"
     ]

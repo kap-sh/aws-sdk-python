@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#GetNetworkInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class GetNetworkInput(TypedDict):
+class GetNetworkInput(TypedDict, closed=True):
     network_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p>The unique identifier of the network to get information about.</p>"""
 

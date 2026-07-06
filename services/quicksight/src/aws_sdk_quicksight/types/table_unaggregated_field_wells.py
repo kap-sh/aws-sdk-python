@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableUnaggregatedFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_unaggregated_field_list
 
 
-class TableUnaggregatedFieldWells(TypedDict):
+class TableUnaggregatedFieldWells(TypedDict, closed=True):
     values: NotRequired[
         "aws_sdk_quicksight.types.table_unaggregated_field_list.TableUnaggregatedFieldList"
     ]

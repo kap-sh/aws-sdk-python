@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#InferRxNormRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.ontology_linking_bounded_length_string
 
 
-class InferRxNormRequest(TypedDict):
+class InferRxNormRequest(TypedDict, closed=True):
     text: "aws_sdk_comprehendmedical.types.ontology_linking_bounded_length_string.OntologyLinkingBoundedLengthString"
     """<p>The input text used for analysis.</p>"""
 

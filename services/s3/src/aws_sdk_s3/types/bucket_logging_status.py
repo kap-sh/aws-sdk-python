@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#BucketLoggingStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.logging_enabled
 
 
-class BucketLoggingStatus(TypedDict):
+class BucketLoggingStatus(TypedDict, closed=True):
     logging_enabled: NotRequired["aws_sdk_s3.types.logging_enabled.LoggingEnabled"]
 
 

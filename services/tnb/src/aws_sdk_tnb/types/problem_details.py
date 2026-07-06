@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ProblemDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
 
-class ProblemDetails(TypedDict):
+class ProblemDetails(TypedDict, closed=True):
     detail: "str"
     """<p>A human-readable explanation specific to this occurrence of the problem.</p>"""
     title: NotRequired["str"]

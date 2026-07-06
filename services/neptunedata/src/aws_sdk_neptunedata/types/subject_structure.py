@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#SubjectStructure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.predicates
 
 
-class SubjectStructure(TypedDict):
+class SubjectStructure(TypedDict, closed=True):
     count: NotRequired["int"]
     """<p>Number of occurrences of this specific structure.</p>"""
     predicates: NotRequired["aws_sdk_neptunedata.types.predicates.Predicates"]

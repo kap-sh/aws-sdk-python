@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AvailabilityZone``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class AvailabilityZone(TypedDict):
+class AvailabilityZone(TypedDict, closed=True):
     zone_name: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The name of the Availability Zone. The format is <code>us-east-2a</code> (case-sensitive).</p>"""
     state: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

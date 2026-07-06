@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#DeletePipelineEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_endpoint_id
 
 
-class DeletePipelineEndpointRequest(TypedDict):
+class DeletePipelineEndpointRequest(TypedDict, closed=True):
     endpoint_id: "aws_sdk_osis.types.pipeline_endpoint_id.PipelineEndpointId"
     """<p>The unique identifier of the pipeline endpoint to delete.</p>"""
 

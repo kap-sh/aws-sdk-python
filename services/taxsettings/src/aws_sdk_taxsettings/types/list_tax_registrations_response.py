@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ListTaxRegistrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.pagination_token_string
 
 
-class ListTaxRegistrationsResponse(TypedDict):
+class ListTaxRegistrationsResponse(TypedDict, closed=True):
     account_details: "aws_sdk_taxsettings.types.account_details_list.AccountDetailsList"
     """<p>The list of account details. This contains account Ids and TRN Information for each of the linked accounts. </p>"""
     next_token: NotRequired[

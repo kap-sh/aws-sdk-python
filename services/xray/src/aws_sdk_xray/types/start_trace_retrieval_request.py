@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#StartTraceRetrievalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.trace_id_list_for_retrieval
 
 
-class StartTraceRetrievalRequest(TypedDict):
+class StartTraceRetrievalRequest(TypedDict, closed=True):
     trace_ids: "aws_sdk_xray.types.trace_id_list_for_retrieval.TraceIdListForRetrieval"
     """<p> Specify the trace IDs of the traces to be retrieved. </p>"""
     start_time: "aws_sdk_xray.types.timestamp.Timestamp"

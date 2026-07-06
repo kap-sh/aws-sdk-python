@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DatasetImportJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class DatasetImportJobSummary(TypedDict):
+class DatasetImportJobSummary(TypedDict, closed=True):
     dataset_import_job_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset import job.</p>"""
     dataset_import_job_name: NotRequired["aws_sdk_forecast.types.name.Name"]

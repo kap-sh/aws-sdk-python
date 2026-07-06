@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#GetQuerySuggestionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.suggestion_types
 
 
-class GetQuerySuggestionsRequest(TypedDict):
+class GetQuerySuggestionsRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     """<p>The identifier of the index you want to get query suggestions from.</p>"""
     query_text: "aws_sdk_kendra.types.suggestion_query_text.SuggestionQueryText"

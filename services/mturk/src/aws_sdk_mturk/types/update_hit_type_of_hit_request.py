@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#UpdateHITTypeOfHITRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.entity_id
 
 
-class UpdateHITTypeOfHITRequest(TypedDict):
+class UpdateHITTypeOfHITRequest(TypedDict, closed=True):
     hit_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p>The HIT to update.</p>"""
     hit_type_id: "aws_sdk_mturk.types.entity_id.EntityId"

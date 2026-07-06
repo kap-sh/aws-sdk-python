@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#DeleteBillEstimateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteBillEstimateResponse(TypedDict):
+class DeleteBillEstimateResponse(TypedDict, closed=True):
     pass
 
 

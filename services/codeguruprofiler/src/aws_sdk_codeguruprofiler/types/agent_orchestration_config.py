@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#AgentOrchestrationConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
 
-class AgentOrchestrationConfig(TypedDict):
+class AgentOrchestrationConfig(TypedDict, closed=True):
     profiling_enabled: "bool"
     """<p> A <code>Boolean</code> that specifies whether the profiling agent collects profiling data or not. Set to <code>true</code> to enable profiling. </p>"""
 

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetManagedViewInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class GetManagedViewInput(TypedDict):
+class GetManagedViewInput(TypedDict, closed=True):
     managed_view_arn: "str"
     """<p>The Amazon resource name (ARN) of the managed view.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#SummaryTotals``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.estimated_monthly_savings
 
 
-class SummaryTotals(TypedDict):
+class SummaryTotals(TypedDict, closed=True):
     automation_event_count: NotRequired["int"]
     """<p>The total number of automation events in this summary group.</p>"""
     estimated_monthly_savings: NotRequired[

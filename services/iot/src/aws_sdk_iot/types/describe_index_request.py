@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeIndexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.index_name
 
 
-class DescribeIndexRequest(TypedDict):
+class DescribeIndexRequest(TypedDict, closed=True):
     index_name: "aws_sdk_iot.types.index_name.IndexName"
     """<p>The index name.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.resource_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     """<p>The ARN of the Amazon FSx resource that will have its tags listed.</p>"""
     max_results: NotRequired["aws_sdk_fsx.types.max_results.MaxResults"]

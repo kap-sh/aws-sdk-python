@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#CustomerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.account_summary
 
 
-class CustomerSummary(TypedDict):
+class CustomerSummary(TypedDict, closed=True):
     account: NotRequired[
         "aws_sdk_partnercentral_selling.types.account_summary.AccountSummary"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListAnnotationImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.id_list
     import aws_sdk_omics.types.list_annotation_import_jobs_filter
 
 
-class ListAnnotationImportJobsRequest(TypedDict):
+class ListAnnotationImportJobsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of jobs to return in one page of results.</p>"""
     ids: NotRequired["aws_sdk_omics.types.id_list.IdList"]

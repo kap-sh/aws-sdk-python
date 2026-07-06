@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MetricsDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class MetricsDataSource(TypedDict):
+class MetricsDataSource(TypedDict, closed=True):
     dimensions: "aws_sdk_sesv2.types.export_dimensions.ExportDimensions"
     """<p>An object that contains a mapping between a <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by. Must contain a least 1 dimension but no more than 3 unique ones.</p>"""
     namespace: "aws_sdk_sesv2.types.metric_namespace.MetricNamespace"

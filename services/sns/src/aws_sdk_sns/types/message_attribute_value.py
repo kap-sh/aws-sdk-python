@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#MessageAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class MessageAttributeValue(TypedDict):
+class MessageAttributeValue(TypedDict, closed=True):
     data_type: "aws_sdk_sns.types.string.String"
     r"""<p>Amazon SNS supports the following logical data types: String, String.Array, Number, and Binary. For more information, see <a href=\"https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes\">Message Attribute Data Types</a>.</p>"""
     string_value: NotRequired["aws_sdk_sns.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateLegalHoldOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class CreateLegalHoldOutput(TypedDict):
+class CreateLegalHoldOutput(TypedDict, closed=True):
     title: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The title of the legal hold.</p>"""
     status: NotRequired["aws_sdk_backup.types.legal_hold_status.LegalHoldStatus"]

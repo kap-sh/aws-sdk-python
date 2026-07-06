@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListTagsForResourceResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.tag_list
 
 
-class ListTagsForResourceResult(TypedDict):
+class ListTagsForResourceResult(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_s3_control.types.tag_list.TagList"]
     """<p> The Amazon Web Services resource tags that are associated with the resource. </p>"""
 

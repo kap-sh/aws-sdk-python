@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIBenchmarkNetworkConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_config
 
 
-class AIBenchmarkNetworkConfig(TypedDict):
+class AIBenchmarkNetworkConfig(TypedDict, closed=True):
     vpc_config: NotRequired["aws_sdk_sagemaker.types.vpc_config.VpcConfig"]
     """<p>The VPC configuration, including security group IDs and subnet IDs.</p>"""
 

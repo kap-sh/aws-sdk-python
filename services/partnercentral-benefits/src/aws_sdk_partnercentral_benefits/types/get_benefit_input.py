@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#GetBenefitInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.catalog_name
 
 
-class GetBenefitInput(TypedDict):
+class GetBenefitInput(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_benefits.types.catalog_name.CatalogName"
     """<p>The catalog identifier that specifies which benefit catalog to query.</p>"""
     identifier: "str"

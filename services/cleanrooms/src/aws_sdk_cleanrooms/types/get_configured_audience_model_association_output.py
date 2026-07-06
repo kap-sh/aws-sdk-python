@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetConfiguredAudienceModelAssociationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_audience_model_association
 
 
-class GetConfiguredAudienceModelAssociationOutput(TypedDict):
+class GetConfiguredAudienceModelAssociationOutput(TypedDict, closed=True):
     configured_audience_model_association: "aws_sdk_cleanrooms.types.configured_audience_model_association.ConfiguredAudienceModelAssociation"
     """<p>Information about the configured audience model association that you requested.</p>"""
 

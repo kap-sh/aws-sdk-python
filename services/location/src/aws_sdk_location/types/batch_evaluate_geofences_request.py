@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchEvaluateGeofencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class BatchEvaluateGeofencesRequest(TypedDict):
+class BatchEvaluateGeofencesRequest(TypedDict, closed=True):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The geofence collection used in evaluating the position of devices against its geofences.</p>"""
     device_position_updates: (

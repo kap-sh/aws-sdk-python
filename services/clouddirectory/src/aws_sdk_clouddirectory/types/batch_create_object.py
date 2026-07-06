@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchCreateObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_facet_list
 
 
-class BatchCreateObject(TypedDict):
+class BatchCreateObject(TypedDict, closed=True):
     schema_facet: "aws_sdk_clouddirectory.types.schema_facet_list.SchemaFacetList"
     """<p>A list of <code>FacetArns</code> that will be associated with the object. For more information, see <a>arns</a>.</p>"""
     object_attribute_list: "aws_sdk_clouddirectory.types.attribute_key_and_value_list.AttributeKeyAndValueList"

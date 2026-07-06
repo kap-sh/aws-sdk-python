@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#Platform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.agent_version
 
 
-class Platform(TypedDict):
+class Platform(TypedDict, closed=True):
     version: NotRequired["aws_sdk_datasync.types.agent_version.AgentVersion"]
     """<p>The version of the DataSync agent.</p>"""
 

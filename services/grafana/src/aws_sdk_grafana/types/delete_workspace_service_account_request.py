@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DeleteWorkspaceServiceAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class DeleteWorkspaceServiceAccountRequest(TypedDict):
+class DeleteWorkspaceServiceAccountRequest(TypedDict, closed=True):
     service_account_id: "str"
     """<p>The ID of the service account to delete.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"

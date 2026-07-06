@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#BatchGetVpcEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.vpc_endpoint_details
     import aws_sdk_opensearchserverless.types.vpc_endpoint_error_details
 
 
-class BatchGetVpcEndpointResponse(TypedDict):
+class BatchGetVpcEndpointResponse(TypedDict, closed=True):
     vpc_endpoint_details: NotRequired[
         "aws_sdk_opensearchserverless.types.vpc_endpoint_details.VpcEndpointDetails"
     ]

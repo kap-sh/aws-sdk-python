@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#MetadataEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.metadata_value
 
 
-class MetadataEntry(TypedDict):
+class MetadataEntry(TypedDict, closed=True):
     name: NotRequired["aws_sdk_s3.types.metadata_key.MetadataKey"]
     """<p>Name of the object.</p>"""
     value: NotRequired["aws_sdk_s3.types.metadata_value.MetadataValue"]

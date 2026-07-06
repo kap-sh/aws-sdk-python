@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#AssociateAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class AssociateAliasRequest(TypedDict):
+class AssociateAliasRequest(TypedDict, closed=True):
     target_distribution_id: "aws_sdk_cloudfront.types.string.string"
     """<p>The ID of the standard distribution that you're associating the alias with.</p>"""
     alias: "aws_sdk_cloudfront.types.string.string"

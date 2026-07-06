@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetFindingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.finding_id_list
     import aws_sdk_securityagent.types.finding_list
 
 
-class BatchGetFindingsOutput(TypedDict):
+class BatchGetFindingsOutput(TypedDict, closed=True):
     findings: NotRequired["aws_sdk_securityagent.types.finding_list.FindingList"]
     """<p>The list of findings that were found.</p>"""
     not_found: NotRequired["aws_sdk_securityagent.types.finding_id_list.FindingIdList"]

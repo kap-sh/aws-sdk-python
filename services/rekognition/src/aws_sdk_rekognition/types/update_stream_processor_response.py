@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UpdateStreamProcessorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateStreamProcessorResponse(TypedDict):
+class UpdateStreamProcessorResponse(TypedDict, closed=True):
     pass
 
 

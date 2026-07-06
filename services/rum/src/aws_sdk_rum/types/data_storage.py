@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#DataStorage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.cw_log
 
 
-class DataStorage(TypedDict):
+class DataStorage(TypedDict, closed=True):
     cw_log: NotRequired["aws_sdk_rum.types.cw_log.CwLog"]
     """<p>A structure that contains the information about whether the app monitor stores copies of the data that RUM collects in CloudWatch Logs. If it does, this structure also contains the name of the log group.</p>"""
 

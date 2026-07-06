@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#S3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string500
 
 
-class S3Location(TypedDict):
+class S3Location(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_resiliencehub.types.string500.String500"]
     """<p>The name of the Amazon S3 bucket.</p>"""
     prefix: NotRequired["aws_sdk_resiliencehub.types.string500.String500"]

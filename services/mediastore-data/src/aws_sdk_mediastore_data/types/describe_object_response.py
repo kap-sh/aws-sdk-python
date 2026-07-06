@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#DescribeObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.content_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.time_stamp
 
 
-class DescribeObjectResponse(TypedDict):
+class DescribeObjectResponse(TypedDict, closed=True):
     e_tag: NotRequired["aws_sdk_mediastore_data.types.e_tag.ETag"]
     """<p>The ETag that represents a unique instance of the object.</p>"""
     content_type: NotRequired["aws_sdk_mediastore_data.types.content_type.ContentType"]

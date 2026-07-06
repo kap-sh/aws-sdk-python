@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseTokensRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.messages
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_configuration
 
 
-class ConverseTokensRequest(TypedDict):
+class ConverseTokensRequest(TypedDict, closed=True):
     messages: NotRequired["aws_sdk_bedrock_runtime.types.messages.Messages"]
     """<p>An array of messages to count tokens for.</p>"""
     system: NotRequired[

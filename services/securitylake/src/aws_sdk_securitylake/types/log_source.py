@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#LogSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region
 
 
-class LogSource(TypedDict):
+class LogSource(TypedDict, closed=True):
     account: NotRequired["aws_sdk_securitylake.types.aws_account_id.AwsAccountId"]
     """<p>Specify the account from which you want to collect logs.</p>"""
     region: NotRequired["aws_sdk_securitylake.types.region.Region"]

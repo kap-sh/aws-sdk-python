@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#SendWorkflowStepActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_step_execution_id
 
 
-class SendWorkflowStepActionResponse(TypedDict):
+class SendWorkflowStepActionResponse(TypedDict, closed=True):
     step_execution_id: NotRequired[
         "aws_sdk_imagebuilder.types.workflow_step_execution_id.WorkflowStepExecutionId"
     ]

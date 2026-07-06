@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#BudgetNotificationsForAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.budget_name
     import aws_sdk_budgets.types.notifications
 
 
-class BudgetNotificationsForAccount(TypedDict):
+class BudgetNotificationsForAccount(TypedDict, closed=True):
     notifications: NotRequired["aws_sdk_budgets.types.notifications.Notifications"]
     budget_name: NotRequired["aws_sdk_budgets.types.budget_name.BudgetName"]
 

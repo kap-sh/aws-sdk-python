@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaSharePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_idle_resource_assignment_strategy
 
 
-class QuotaSharePolicy(TypedDict):
+class QuotaSharePolicy(TypedDict, closed=True):
     idle_resource_assignment_strategy: NotRequired[
         "aws_sdk_batch.types.quota_share_idle_resource_assignment_strategy.QuotaShareIdleResourceAssignmentStrategy"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PersistentChat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
     import aws_sdk_connect.types.rehydration_type
 
 
-class PersistentChat(TypedDict):
+class PersistentChat(TypedDict, closed=True):
     rehydration_type: NotRequired[
         "aws_sdk_connect.types.rehydration_type.RehydrationType"
     ]

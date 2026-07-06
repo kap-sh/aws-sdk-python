@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#BatchDisassociateProjectAssetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.batch_disassociate_project_assets_errors
 
 
-class BatchDisassociateProjectAssetsResponse(TypedDict):
+class BatchDisassociateProjectAssetsResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_iotsitewise.types.batch_disassociate_project_assets_errors.BatchDisassociateProjectAssetsErrors"
     ]

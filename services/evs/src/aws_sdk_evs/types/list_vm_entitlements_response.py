@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ListVmEntitlementsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.pagination_token
     import aws_sdk_evs.types.vm_entitlement_list
 
 
-class ListVmEntitlementsResponse(TypedDict):
+class ListVmEntitlementsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_evs.types.pagination_token.PaginationToken"]
     """<p>A unique pagination token for next page results. Make the call again using this token to retrieve the next page.</p>"""
     entitlements: NotRequired["aws_sdk_evs.types.vm_entitlement_list.VmEntitlementList"]

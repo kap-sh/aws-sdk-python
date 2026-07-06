@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaInsightsPipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline
 
 
-class CreateMediaInsightsPipelineResponse(TypedDict):
+class CreateMediaInsightsPipelineResponse(TypedDict, closed=True):
     media_insights_pipeline: "aws_sdk_chime_sdk_media_pipelines.types.media_insights_pipeline.MediaInsightsPipeline"
     """<p>The media insights pipeline object.</p>"""
 

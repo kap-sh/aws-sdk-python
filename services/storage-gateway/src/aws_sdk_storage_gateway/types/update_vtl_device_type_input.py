@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateVTLDeviceTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.vtl_device_arn
 
 
-class UpdateVTLDeviceTypeInput(TypedDict):
+class UpdateVTLDeviceTypeInput(TypedDict, closed=True):
     vtl_device_arn: "aws_sdk_storage_gateway.types.vtl_device_arn.VTLDeviceARN"
     """<p>The Amazon Resource Name (ARN) of the medium changer you want to select.</p>"""
     device_type: "aws_sdk_storage_gateway.types.device_type.DeviceType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CSVInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.record_delimiter
 
 
-class CSVInput(TypedDict):
+class CSVInput(TypedDict, closed=True):
     file_header_info: NotRequired["aws_sdk_s3.types.file_header_info.FileHeaderInfo"]
     r"""<p>Describes the first line of input. Valid values are:</p> <ul> <li> <p> <code>NONE</code>: First line is not a header.</p> </li> <li> <p> <code>IGNORE</code>: First line is a header, but you can't use the header values to indicate the column in an expression. You can use column position (such as _1, _2, …) to indicate the column (<code>SELECT s._1 FROM OBJECT s</code>).</p> </li> <li> <p> <code>Use</code>: First line is a header, and you can use the header value to identify a column in an expression (<code>SELECT \"name\" FROM OBJECT</code>). </p> </li> </ul>"""
     comments: NotRequired["aws_sdk_s3.types.comments.Comments"]

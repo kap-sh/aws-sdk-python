@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ProviderComponentSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.provider_schema_attributes
     import aws_sdk_entityresolution.types.schemas
 
 
-class ProviderComponentSchema(TypedDict):
+class ProviderComponentSchema(TypedDict, closed=True):
     schemas: NotRequired["aws_sdk_entityresolution.types.schemas.Schemas"]
     """<p>Input schema for the provider service.</p>"""
     provider_schema_attributes: NotRequired[

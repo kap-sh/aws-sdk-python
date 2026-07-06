@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#AddSavingsPlanAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.savings_plan_commitment
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
 
-class AddSavingsPlanAction(TypedDict):
+class AddSavingsPlanAction(TypedDict, closed=True):
     savings_plan_offering_id: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.uuid.Uuid"
     ]

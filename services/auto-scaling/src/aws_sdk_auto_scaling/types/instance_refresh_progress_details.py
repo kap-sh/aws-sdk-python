@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#InstanceRefreshProgressDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.instance_refresh_warm_pool_progress
 
 
-class InstanceRefreshProgressDetails(TypedDict):
+class InstanceRefreshProgressDetails(TypedDict, closed=True):
     live_pool_progress: NotRequired[
         "aws_sdk_auto_scaling.types.instance_refresh_live_pool_progress.InstanceRefreshLivePoolProgress"
     ]

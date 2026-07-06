@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartAssociationsOnceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_id_list
 
 
-class StartAssociationsOnceRequest(TypedDict):
+class StartAssociationsOnceRequest(TypedDict, closed=True):
     association_ids: "aws_sdk_ssm.types.association_id_list.AssociationIdList"
     """<p>The association IDs that you want to run immediately and only one time.</p>"""
 

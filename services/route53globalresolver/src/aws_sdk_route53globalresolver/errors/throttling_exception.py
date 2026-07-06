@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     service_code: NotRequired["str"]
     """<p>The code for the Amazon Web Services service that owns the quota.</p>"""

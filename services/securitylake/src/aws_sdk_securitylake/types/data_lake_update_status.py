@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DataLakeUpdateStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_status
     import aws_sdk_securitylake.types.data_lake_update_exception
 
 
-class DataLakeUpdateStatus(TypedDict):
+class DataLakeUpdateStatus(TypedDict, closed=True):
     request_id: NotRequired["str"]
     """<p>The unique ID for the last <code>UpdateDataLake</code> or <code>DeleteDataLake</code> API request.</p>"""
     status: NotRequired["aws_sdk_securitylake.types.data_lake_status.DataLakeStatus"]

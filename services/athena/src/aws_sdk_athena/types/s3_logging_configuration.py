@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#S3LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.s3_output_location
 
 
-class S3LoggingConfiguration(TypedDict):
+class S3LoggingConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_athena.types.boxed_boolean.BoxedBoolean"
     """<p>Enables S3 log delivery.</p>"""
     kms_key: NotRequired["aws_sdk_athena.types.kms_key.KmsKey"]

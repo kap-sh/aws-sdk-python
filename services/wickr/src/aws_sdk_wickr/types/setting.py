@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#Setting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class Setting(TypedDict):
+class Setting(TypedDict, closed=True):
     option_name: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>The name of the network setting (e.g., 'enableClientMetrics', 'dataRetention').</p>"""
     value: "aws_sdk_wickr.types.generic_string.GenericString"

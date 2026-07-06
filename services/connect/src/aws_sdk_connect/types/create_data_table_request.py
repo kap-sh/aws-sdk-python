@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateDataTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.time_zone
 
 
-class CreateDataTableRequest(TypedDict):
+class CreateDataTableRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The unique identifier for the Amazon Connect instance where the data table will be created.</p>"""
     name: "aws_sdk_connect.types.data_table_name.DataTableName"

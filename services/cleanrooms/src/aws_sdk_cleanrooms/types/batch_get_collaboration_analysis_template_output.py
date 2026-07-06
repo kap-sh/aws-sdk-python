@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BatchGetCollaborationAnalysisTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.collaboration_analysis_template_list
 
 
-class BatchGetCollaborationAnalysisTemplateOutput(TypedDict):
+class BatchGetCollaborationAnalysisTemplateOutput(TypedDict, closed=True):
     collaboration_analysis_templates: "aws_sdk_cleanrooms.types.collaboration_analysis_template_list.CollaborationAnalysisTemplateList"
     """<p>The retrieved list of analysis templates within a collaboration.</p>"""
     errors: "aws_sdk_cleanrooms.types.batch_get_collaboration_analysis_template_error_list.BatchGetCollaborationAnalysisTemplateErrorList"

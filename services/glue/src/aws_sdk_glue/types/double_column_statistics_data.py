@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DoubleColumnStatisticsData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.double
     import aws_sdk_glue.types.non_negative_long
 
 
-class DoubleColumnStatisticsData(TypedDict):
+class DoubleColumnStatisticsData(TypedDict, closed=True):
     minimum_value: "aws_sdk_glue.types.double.Double"
     """<p>The lowest value in the column.</p>"""
     maximum_value: "aws_sdk_glue.types.double.Double"

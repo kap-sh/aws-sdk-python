@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CancelJobResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelJobResult(TypedDict):
+class CancelJobResult(TypedDict, closed=True):
     pass
 
 

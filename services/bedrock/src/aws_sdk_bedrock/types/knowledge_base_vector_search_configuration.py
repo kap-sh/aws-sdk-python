@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#KnowledgeBaseVectorSearchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.implicit_filter_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.vector_search_reranking_configuration
 
 
-class KnowledgeBaseVectorSearchConfiguration(TypedDict):
+class KnowledgeBaseVectorSearchConfiguration(TypedDict, closed=True):
     number_of_results: NotRequired["int"]
     """<p>The number of text chunks to retrieve; the number of results to return.</p>"""
     override_search_type: NotRequired["aws_sdk_bedrock.types.search_type.SearchType"]

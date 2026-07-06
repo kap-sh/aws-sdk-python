@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateTicketV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.ticket_creation_mode
 
 
-class CreateTicketV2Request(TypedDict):
+class CreateTicketV2Request(TypedDict, closed=True):
     connector_id: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

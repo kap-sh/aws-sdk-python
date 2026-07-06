@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DeleteDirectoryConfigResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteDirectoryConfigResult(TypedDict):
+class DeleteDirectoryConfigResult(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#AlternateIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.unique_attribute
 
 
-class _AlternateIdentifier_ExternalId(TypedDict):
+class _AlternateIdentifier_ExternalId(TypedDict, closed=True):
     ExternalId: "aws_sdk_identitystore.types.external_id.ExternalId"
 
 
-class _AlternateIdentifier_UniqueAttribute(TypedDict):
+class _AlternateIdentifier_UniqueAttribute(TypedDict, closed=True):
     UniqueAttribute: "aws_sdk_identitystore.types.unique_attribute.UniqueAttribute"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#IAMConnectionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role_arn
 
 
-class IAMConnectionMetadata(TypedDict):
+class IAMConnectionMetadata(TypedDict, closed=True):
     role_arn: "aws_sdk_quicksight.types.role_arn.RoleArn"
     """<p>The Amazon Resource Name (ARN) of the IAM role to assume for authentication with Amazon Web Services services. This IAM role should be in the same account as Quick Sight.</p>"""
 

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#RecommendationResourcesAggregates``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_trustedadvisor.errors import DeserializationError
 
 
-class RecommendationResourcesAggregates(TypedDict):
+class RecommendationResourcesAggregates(TypedDict, closed=True):
     ok_count: "int"
     """<p>The number of AWS resources that were flagged to be OK according to the Trusted Advisor check</p>"""
     warning_count: "int"

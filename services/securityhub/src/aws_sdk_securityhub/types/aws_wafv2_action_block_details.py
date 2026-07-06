@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2ActionBlockDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_custom_response_details
 
 
-class AwsWafv2ActionBlockDetails(TypedDict):
+class AwsWafv2ActionBlockDetails(TypedDict, closed=True):
     custom_response: NotRequired[
         "aws_sdk_securityhub.types.aws_wafv2_custom_response_details.AwsWafv2CustomResponseDetails"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmrecommendedactions#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_recommended_actions.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_recommended_actions.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: "str"
     reason: "aws_sdk_bcm_recommended_actions.types.validation_exception_reason.ValidationExceptionReason"
     """<p>Provides a single, overarching explanation for the validation failure.</p>"""

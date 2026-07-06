@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#CreateVocabularyFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_filter_name
 
 
-class CreateVocabularyFilterResponse(TypedDict):
+class CreateVocabularyFilterResponse(TypedDict, closed=True):
     vocabulary_filter_name: NotRequired[
         "aws_sdk_transcribe.types.vocabulary_filter_name.VocabularyFilterName"
     ]

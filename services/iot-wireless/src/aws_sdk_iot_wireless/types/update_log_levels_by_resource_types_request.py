@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateLogLevelsByResourceTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.fuota_task_log_option_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_log_option_list
 
 
-class UpdateLogLevelsByResourceTypesRequest(TypedDict):
+class UpdateLogLevelsByResourceTypesRequest(TypedDict, closed=True):
     default_log_level: NotRequired["aws_sdk_iot_wireless.types.log_level.LogLevel"]
     fuota_task_log_options: NotRequired[
         "aws_sdk_iot_wireless.types.fuota_task_log_option_list.FuotaTaskLogOptionList"

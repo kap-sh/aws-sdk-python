@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SearchListingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aggregation_output_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.search_result_items
 
 
-class SearchListingsOutput(TypedDict):
+class SearchListingsOutput(TypedDict, closed=True):
     items: NotRequired["aws_sdk_datazone.types.search_result_items.SearchResultItems"]
     """<p>The results of the <code>SearchListings</code> action.</p>"""
     next_token: NotRequired["aws_sdk_datazone.types.pagination_token.PaginationToken"]

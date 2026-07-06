@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeSolutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.solution
 
 
-class DescribeSolutionResponse(TypedDict):
+class DescribeSolutionResponse(TypedDict, closed=True):
     solution: NotRequired["aws_sdk_personalize.types.solution.Solution"]
     """<p>An object that describes the solution.</p>"""
 

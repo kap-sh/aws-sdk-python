@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#StringChange``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StringChange(TypedDict):
+class StringChange(TypedDict, closed=True):
     old_value: NotRequired["str"]
     """<p>The old value.</p>"""
     new_value: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#FilterDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.attribute_map
 
 
-class FilterDimension(TypedDict):
+class FilterDimension(TypedDict, closed=True):
     attributes: "aws_sdk_customer_profiles.types.attribute_map.AttributeMap"
     """<p>Is the attribute within the FilterDimension map</p>"""
 

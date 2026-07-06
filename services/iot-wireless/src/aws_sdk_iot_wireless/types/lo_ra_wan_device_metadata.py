@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANDeviceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.dev_eui
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.lo_ra_wan_public_gateway_metadata_list
 
 
-class LoRaWANDeviceMetadata(TypedDict):
+class LoRaWANDeviceMetadata(TypedDict, closed=True):
     dev_eui: NotRequired["aws_sdk_iot_wireless.types.dev_eui.DevEui"]
     """<p>The DevEUI value.</p>"""
     f_port: NotRequired["aws_sdk_iot_wireless.types.integer.Integer"]

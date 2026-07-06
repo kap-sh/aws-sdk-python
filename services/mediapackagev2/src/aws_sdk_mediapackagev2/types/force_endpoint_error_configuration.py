@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ForceEndpointErrorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.endpoint_error_conditions
 
 
-class ForceEndpointErrorConfiguration(TypedDict):
+class ForceEndpointErrorConfiguration(TypedDict, closed=True):
     endpoint_error_conditions: NotRequired[
         "aws_sdk_mediapackagev2.types.endpoint_error_conditions.EndpointErrorConditions"
     ]

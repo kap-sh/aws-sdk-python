@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_token_type
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     access_key_id: "aws_sdk_ssm.types.access_key_id_type.AccessKeyIdType"
     """<p>The access key ID that identifies the temporary security credentials.</p>"""
     secret_access_key: "aws_sdk_ssm.types.access_key_secret_type.AccessKeySecretType"

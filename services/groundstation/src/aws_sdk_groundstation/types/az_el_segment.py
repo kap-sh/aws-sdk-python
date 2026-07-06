@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.time_az_el_list
 
 
-class AzElSegment(TypedDict):
+class AzElSegment(TypedDict, closed=True):
     reference_epoch: "datetime.datetime"
     """<p>The reference time for this segment in ISO 8601 format in Coordinated Universal Time (UTC).</p> <p>All time values within the segment's <a>AzElSegment$azElList</a> are specified as offsets in atomic seconds from this reference epoch.</p> <p>Example: <code>2024-01-15T12:00:00.000Z</code> </p>"""
     valid_time_range: "aws_sdk_groundstation.types.iso8601_time_range.ISO8601TimeRange"

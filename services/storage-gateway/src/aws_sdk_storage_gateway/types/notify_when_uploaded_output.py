@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#NotifyWhenUploadedOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.file_share_arn
     import aws_sdk_storage_gateway.types.notification_id
 
 
-class NotifyWhenUploadedOutput(TypedDict):
+class NotifyWhenUploadedOutput(TypedDict, closed=True):
     file_share_arn: NotRequired[
         "aws_sdk_storage_gateway.types.file_share_arn.FileShareARN"
     ]

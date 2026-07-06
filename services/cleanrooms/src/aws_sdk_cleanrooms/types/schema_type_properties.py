@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SchemaTypeProperties``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_mapping_table_schema_type_properties
 
 
-class _SchemaTypeProperties_idMappingTable(TypedDict):
+class _SchemaTypeProperties_idMappingTable(TypedDict, closed=True):
     idMappingTable: "aws_sdk_cleanrooms.types.id_mapping_table_schema_type_properties.IdMappingTableSchemaTypeProperties"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CreateModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.timestamp
 
 
-class CreateModelRequest(TypedDict):
+class CreateModelRequest(TypedDict, closed=True):
     model_name: "aws_sdk_lookoutequipment.types.model_name.ModelName"
     """<p>The name for the machine learning model to be created.</p>"""
     dataset_name: "aws_sdk_lookoutequipment.types.dataset_identifier.DatasetIdentifier"

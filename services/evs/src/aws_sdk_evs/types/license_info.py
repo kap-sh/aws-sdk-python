@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#LicenseInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.v_san_license_key
 
 
-class LicenseInfo(TypedDict):
+class LicenseInfo(TypedDict, closed=True):
     solution_key: "aws_sdk_evs.types.solution_key.SolutionKey"
     """<p> The VCF solution key. This license unlocks VMware VCF product features, including vSphere, NSX, SDDC Manager, and vCenter Server. The VCF solution key must meet the instance-type-specific minimum core requirements.</p>"""
     vsan_key: "aws_sdk_evs.types.v_san_license_key.VSanLicenseKey"

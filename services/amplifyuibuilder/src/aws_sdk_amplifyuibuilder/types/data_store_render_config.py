@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#DataStoreRenderConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DataStoreRenderConfig(TypedDict):
+class DataStoreRenderConfig(TypedDict, closed=True):
     pass
 
 

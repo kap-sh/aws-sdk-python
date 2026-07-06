@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#StartDirectoryListingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.output_file_name
 
 
-class StartDirectoryListingResponse(TypedDict):
+class StartDirectoryListingResponse(TypedDict, closed=True):
     listing_id: "aws_sdk_transfer.types.listing_id.ListingId"
     """<p>Returns a unique identifier for the directory listing call.</p>"""
     output_file_name: "aws_sdk_transfer.types.output_file_name.OutputFileName"

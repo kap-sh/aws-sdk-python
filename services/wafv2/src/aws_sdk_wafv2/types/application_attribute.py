@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ApplicationAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.attribute_name
     import aws_sdk_wafv2.types.attribute_values
 
 
-class ApplicationAttribute(TypedDict):
+class ApplicationAttribute(TypedDict, closed=True):
     name: NotRequired["aws_sdk_wafv2.types.attribute_name.AttributeName"]
     """<p>Specifies the attribute name.</p>"""
     values: NotRequired["aws_sdk_wafv2.types.attribute_values.AttributeValues"]

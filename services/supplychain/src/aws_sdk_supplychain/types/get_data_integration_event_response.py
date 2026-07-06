@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#GetDataIntegrationEventResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_event
 
 
-class GetDataIntegrationEventResponse(TypedDict):
+class GetDataIntegrationEventResponse(TypedDict, closed=True):
     event: "aws_sdk_supplychain.types.data_integration_event.DataIntegrationEvent"
     """<p>The details of the DataIntegrationEvent returned.</p>"""
 

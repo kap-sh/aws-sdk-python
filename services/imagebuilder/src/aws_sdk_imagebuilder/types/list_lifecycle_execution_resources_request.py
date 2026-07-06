@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListLifecycleExecutionResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListLifecycleExecutionResourcesRequest(TypedDict):
+class ListLifecycleExecutionResourcesRequest(TypedDict, closed=True):
     lifecycle_execution_id: (
         "aws_sdk_imagebuilder.types.lifecycle_execution_id.LifecycleExecutionId"
     )

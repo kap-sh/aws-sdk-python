@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#ContentFeatures``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.content_resolution
 
 
-class ContentFeatures(TypedDict):
+class ContentFeatures(TypedDict, closed=True):
     max_resolution: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.content_resolution.ContentResolution"
     ]

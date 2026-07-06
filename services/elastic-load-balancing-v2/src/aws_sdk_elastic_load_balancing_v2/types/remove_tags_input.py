@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#RemoveTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.tag_keys
 
 
-class RemoveTagsInput(TypedDict):
+class RemoveTagsInput(TypedDict, closed=True):
     resource_arns: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.resource_arns.ResourceArns"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateTableReplicaAutoScalingInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class UpdateTableReplicaAutoScalingInput(TypedDict):
+class UpdateTableReplicaAutoScalingInput(TypedDict, closed=True):
     global_secondary_index_updates: NotRequired[
         "aws_sdk_dynamodb.types.global_secondary_index_auto_scaling_update_list.GlobalSecondaryIndexAutoScalingUpdateList"
     ]

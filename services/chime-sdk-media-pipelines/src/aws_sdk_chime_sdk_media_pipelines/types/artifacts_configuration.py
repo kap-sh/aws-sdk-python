@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#ArtifactsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.video_artifacts_configuration
 
 
-class ArtifactsConfiguration(TypedDict):
+class ArtifactsConfiguration(TypedDict, closed=True):
     audio: "aws_sdk_chime_sdk_media_pipelines.types.audio_artifacts_configuration.AudioArtifactsConfiguration"
     """<p>The configuration for the audio artifacts.</p>"""
     video: "aws_sdk_chime_sdk_media_pipelines.types.video_artifacts_configuration.VideoArtifactsConfiguration"

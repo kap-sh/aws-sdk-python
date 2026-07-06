@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#TrainingDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.excluded_dataset_columns
     import aws_sdk_personalize.types.included_dataset_columns
 
 
-class TrainingDataConfig(TypedDict):
+class TrainingDataConfig(TypedDict, closed=True):
     excluded_dataset_columns: NotRequired[
         "aws_sdk_personalize.types.excluded_dataset_columns.ExcludedDatasetColumns"
     ]

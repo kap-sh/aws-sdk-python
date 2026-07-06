@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetChangeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.change_id
 
 
-class GetChangeRequest(TypedDict):
+class GetChangeRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.change_id.ChangeId"
     """<p>The ID of the change batch request. The value that you specify here is the value that <code>ChangeResourceRecordSets</code> returned in the <code>Id</code> element when you submitted the request.</p>"""
 

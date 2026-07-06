@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartAssociationsOnceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartAssociationsOnceResult(TypedDict):
+class StartAssociationsOnceResult(TypedDict, closed=True):
     pass
 
 

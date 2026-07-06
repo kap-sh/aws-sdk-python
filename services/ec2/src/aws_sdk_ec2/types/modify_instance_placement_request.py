@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyInstancePlacementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ModifyInstancePlacementRequest(TypedDict):
+class ModifyInstancePlacementRequest(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_ec2.types.placement_group_name.PlacementGroupName"]
     r"""<p>The name of the placement group in which to place the instance. For spread placement groups, the instance must have a tenancy of <code>default</code>. For cluster and partition placement groups, the instance must have a tenancy of <code>default</code> or <code>dedicated</code>.</p> <p>To remove an instance from a placement group, specify an empty string (\"\").</p>"""
     partition_number: NotRequired["aws_sdk_ec2.types.integer.Integer"]

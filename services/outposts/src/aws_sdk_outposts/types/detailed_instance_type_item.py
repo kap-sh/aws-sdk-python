@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#DetailedInstanceTypeItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.form_factor_config_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.vcpu_count
 
 
-class DetailedInstanceTypeItem(TypedDict):
+class DetailedInstanceTypeItem(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_outposts.types.instance_type.InstanceType"]
     """<p>The instance type.</p>"""
     vcp_us: NotRequired["aws_sdk_outposts.types.vcpu_count.VCPUCount"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SetUserMFAPreferenceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SetUserMFAPreferenceResponse(TypedDict):
+class SetUserMFAPreferenceResponse(TypedDict, closed=True):
     pass
 
 

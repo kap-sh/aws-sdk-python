@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#GetKxDataviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.database_name
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_dataview_name
 
 
-class GetKxDataviewRequest(TypedDict):
+class GetKxDataviewRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.environment_id.EnvironmentId"
     """<p>A unique identifier for the kdb environment, from where you want to retrieve the dataview details.</p>"""
     database_name: "aws_sdk_finspace.types.database_name.DatabaseName"

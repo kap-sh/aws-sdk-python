@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CompositeComponentTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
     import aws_sdk_iottwinmaker.types.component_type_id
 
 
-class CompositeComponentTypeResponse(TypedDict):
+class CompositeComponentTypeResponse(TypedDict, closed=True):
     component_type_id: NotRequired[
         "aws_sdk_iottwinmaker.types.component_type_id.ComponentTypeId"
     ]

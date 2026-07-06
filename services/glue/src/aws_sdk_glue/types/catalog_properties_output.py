@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CatalogPropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_lake_access_properties_output
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.parameters_map
 
 
-class CatalogPropertiesOutput(TypedDict):
+class CatalogPropertiesOutput(TypedDict, closed=True):
     data_lake_access_properties: NotRequired[
         "aws_sdk_glue.types.data_lake_access_properties_output.DataLakeAccessPropertiesOutput"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListAttachPointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.next_token
 
 
-class ListAttachPointsRequest(TypedDict):
+class ListAttachPointsRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_interconnect.types.environment_id.EnvironmentId"
     """<p>The identifier of the <a>Environment</a> for which to list valid Attach Points.</p>"""
     max_results: NotRequired["aws_sdk_interconnect.types.max_results.MaxResults"]

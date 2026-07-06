@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#RemoveListenerCertificatesOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
 
-class RemoveListenerCertificatesOutput(TypedDict):
+class RemoveListenerCertificatesOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GetIdentityContextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code2
 
 
-class GetIdentityContextResponse(TypedDict):
+class GetIdentityContextResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code2.StatusCode2"
     """<p>The HTTP status of the request.</p>"""
     request_id: "str"

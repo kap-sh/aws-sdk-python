@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeProvisioningTemplateVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.template_name
     import aws_sdk_iot.types.template_version_id
 
 
-class DescribeProvisioningTemplateVersionRequest(TypedDict):
+class DescribeProvisioningTemplateVersionRequest(TypedDict, closed=True):
     template_name: "aws_sdk_iot.types.template_name.TemplateName"
     """<p>The template name.</p>"""
     version_id: "aws_sdk_iot.types.template_version_id.TemplateVersionId"

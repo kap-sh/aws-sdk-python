@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DeleteSlackWorkspaceAuthorizationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSlackWorkspaceAuthorizationResult(TypedDict):
+class DeleteSlackWorkspaceAuthorizationResult(TypedDict, closed=True):
     pass
 
 

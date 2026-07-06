@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetJobUnlockCodeResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class GetJobUnlockCodeResult(TypedDict):
+class GetJobUnlockCodeResult(TypedDict, closed=True):
     unlock_code: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The <code>UnlockCode</code> value for the specified job. The <code>UnlockCode</code> value can be accessed for up to 360 days after the job has been created.</p>"""
 

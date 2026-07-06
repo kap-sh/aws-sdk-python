@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetMetadataRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetMetadataRequest(TypedDict):
+class GetMetadataRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app.</p>"""
     environment_name: "str"

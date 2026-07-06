@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerfeaturestoreruntime#BatchGetRecordError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_featurestore_runtime.types.message
     import aws_sdk_sagemaker_featurestore_runtime.types.value_as_string
 
 
-class BatchGetRecordError(TypedDict):
+class BatchGetRecordError(TypedDict, closed=True):
     feature_group_name: NotRequired[
         "aws_sdk_sagemaker_featurestore_runtime.types.value_as_string.ValueAsString"
     ]

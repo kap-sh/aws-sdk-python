@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringJobDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_app_specification
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_arn
 
 
-class MonitoringJobDefinition(TypedDict):
+class MonitoringJobDefinition(TypedDict, closed=True):
     baseline_config: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_baseline_config.MonitoringBaselineConfig"
     ]

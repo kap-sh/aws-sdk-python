@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#CreatePermissionSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.tag_list
 
 
-class CreatePermissionSetRequest(TypedDict):
+class CreatePermissionSetRequest(TypedDict, closed=True):
     name: "aws_sdk_sso_admin.types.permission_set_name.PermissionSetName"
     """<p>The name of the <a>PermissionSet</a>.</p>"""
     description: NotRequired[

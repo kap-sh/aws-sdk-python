@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#UpdateActiveModelVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_version
 
 
-class UpdateActiveModelVersionRequest(TypedDict):
+class UpdateActiveModelVersionRequest(TypedDict, closed=True):
     model_name: "aws_sdk_lookoutequipment.types.model_name.ModelName"
     """<p>The name of the machine learning model for which the active model version is being set.</p>"""
     model_version: "aws_sdk_lookoutequipment.types.model_version.ModelVersion"

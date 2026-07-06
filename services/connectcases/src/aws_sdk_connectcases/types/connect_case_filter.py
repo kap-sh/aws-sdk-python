@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ConnectCaseFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.case_id
 
 
-class ConnectCaseFilter(TypedDict):
+class ConnectCaseFilter(TypedDict, closed=True):
     case_id: NotRequired["aws_sdk_connectcases.types.case_id.CaseId"]
     """<p>A unique identifier of the case.</p>"""
 

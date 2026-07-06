@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSourceParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -40,159 +42,159 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.web_crawler_parameters
 
 
-class _DataSourceParameters_AmazonElasticsearchParameters(TypedDict):
+class _DataSourceParameters_AmazonElasticsearchParameters(TypedDict, closed=True):
     AmazonElasticsearchParameters: "aws_sdk_quicksight.types.amazon_elasticsearch_parameters.AmazonElasticsearchParameters"
 
 
-class _DataSourceParameters_AthenaParameters(TypedDict):
+class _DataSourceParameters_AthenaParameters(TypedDict, closed=True):
     AthenaParameters: "aws_sdk_quicksight.types.athena_parameters.AthenaParameters"
 
 
-class _DataSourceParameters_AuroraParameters(TypedDict):
+class _DataSourceParameters_AuroraParameters(TypedDict, closed=True):
     AuroraParameters: "aws_sdk_quicksight.types.aurora_parameters.AuroraParameters"
 
 
-class _DataSourceParameters_AuroraPostgreSqlParameters(TypedDict):
+class _DataSourceParameters_AuroraPostgreSqlParameters(TypedDict, closed=True):
     AuroraPostgreSqlParameters: "aws_sdk_quicksight.types.aurora_postgre_sql_parameters.AuroraPostgreSqlParameters"
 
 
-class _DataSourceParameters_AwsIotAnalyticsParameters(TypedDict):
+class _DataSourceParameters_AwsIotAnalyticsParameters(TypedDict, closed=True):
     AwsIotAnalyticsParameters: "aws_sdk_quicksight.types.aws_iot_analytics_parameters.AwsIotAnalyticsParameters"
 
 
-class _DataSourceParameters_JiraParameters(TypedDict):
+class _DataSourceParameters_JiraParameters(TypedDict, closed=True):
     JiraParameters: "aws_sdk_quicksight.types.jira_parameters.JiraParameters"
 
 
-class _DataSourceParameters_MariaDbParameters(TypedDict):
+class _DataSourceParameters_MariaDbParameters(TypedDict, closed=True):
     MariaDbParameters: "aws_sdk_quicksight.types.maria_db_parameters.MariaDbParameters"
 
 
-class _DataSourceParameters_MySqlParameters(TypedDict):
+class _DataSourceParameters_MySqlParameters(TypedDict, closed=True):
     MySqlParameters: "aws_sdk_quicksight.types.my_sql_parameters.MySqlParameters"
 
 
-class _DataSourceParameters_OracleParameters(TypedDict):
+class _DataSourceParameters_OracleParameters(TypedDict, closed=True):
     OracleParameters: "aws_sdk_quicksight.types.oracle_parameters.OracleParameters"
 
 
-class _DataSourceParameters_PostgreSqlParameters(TypedDict):
+class _DataSourceParameters_PostgreSqlParameters(TypedDict, closed=True):
     PostgreSqlParameters: (
         "aws_sdk_quicksight.types.postgre_sql_parameters.PostgreSqlParameters"
     )
 
 
-class _DataSourceParameters_PrestoParameters(TypedDict):
+class _DataSourceParameters_PrestoParameters(TypedDict, closed=True):
     PrestoParameters: "aws_sdk_quicksight.types.presto_parameters.PrestoParameters"
 
 
-class _DataSourceParameters_RdsParameters(TypedDict):
+class _DataSourceParameters_RdsParameters(TypedDict, closed=True):
     RdsParameters: "aws_sdk_quicksight.types.rds_parameters.RdsParameters"
 
 
-class _DataSourceParameters_RedshiftParameters(TypedDict):
+class _DataSourceParameters_RedshiftParameters(TypedDict, closed=True):
     RedshiftParameters: (
         "aws_sdk_quicksight.types.redshift_parameters.RedshiftParameters"
     )
 
 
-class _DataSourceParameters_S3Parameters(TypedDict):
+class _DataSourceParameters_S3Parameters(TypedDict, closed=True):
     S3Parameters: "aws_sdk_quicksight.types.s3_parameters.S3Parameters"
 
 
-class _DataSourceParameters_S3TablesParameters(TypedDict):
+class _DataSourceParameters_S3TablesParameters(TypedDict, closed=True):
     S3TablesParameters: (
         "aws_sdk_quicksight.types.s3_tables_parameters.S3TablesParameters"
     )
 
 
-class _DataSourceParameters_S3KnowledgeBaseParameters(TypedDict):
+class _DataSourceParameters_S3KnowledgeBaseParameters(TypedDict, closed=True):
     S3KnowledgeBaseParameters: "aws_sdk_quicksight.types.s3_knowledge_base_parameters.S3KnowledgeBaseParameters"
 
 
-class _DataSourceParameters_ServiceNowParameters(TypedDict):
+class _DataSourceParameters_ServiceNowParameters(TypedDict, closed=True):
     ServiceNowParameters: (
         "aws_sdk_quicksight.types.service_now_parameters.ServiceNowParameters"
     )
 
 
-class _DataSourceParameters_SnowflakeParameters(TypedDict):
+class _DataSourceParameters_SnowflakeParameters(TypedDict, closed=True):
     SnowflakeParameters: (
         "aws_sdk_quicksight.types.snowflake_parameters.SnowflakeParameters"
     )
 
 
-class _DataSourceParameters_SparkParameters(TypedDict):
+class _DataSourceParameters_SparkParameters(TypedDict, closed=True):
     SparkParameters: "aws_sdk_quicksight.types.spark_parameters.SparkParameters"
 
 
-class _DataSourceParameters_SqlServerParameters(TypedDict):
+class _DataSourceParameters_SqlServerParameters(TypedDict, closed=True):
     SqlServerParameters: (
         "aws_sdk_quicksight.types.sql_server_parameters.SqlServerParameters"
     )
 
 
-class _DataSourceParameters_TeradataParameters(TypedDict):
+class _DataSourceParameters_TeradataParameters(TypedDict, closed=True):
     TeradataParameters: (
         "aws_sdk_quicksight.types.teradata_parameters.TeradataParameters"
     )
 
 
-class _DataSourceParameters_TwitterParameters(TypedDict):
+class _DataSourceParameters_TwitterParameters(TypedDict, closed=True):
     TwitterParameters: "aws_sdk_quicksight.types.twitter_parameters.TwitterParameters"
 
 
-class _DataSourceParameters_AmazonOpenSearchParameters(TypedDict):
+class _DataSourceParameters_AmazonOpenSearchParameters(TypedDict, closed=True):
     AmazonOpenSearchParameters: "aws_sdk_quicksight.types.amazon_open_search_parameters.AmazonOpenSearchParameters"
 
 
-class _DataSourceParameters_ExasolParameters(TypedDict):
+class _DataSourceParameters_ExasolParameters(TypedDict, closed=True):
     ExasolParameters: "aws_sdk_quicksight.types.exasol_parameters.ExasolParameters"
 
 
-class _DataSourceParameters_DatabricksParameters(TypedDict):
+class _DataSourceParameters_DatabricksParameters(TypedDict, closed=True):
     DatabricksParameters: (
         "aws_sdk_quicksight.types.databricks_parameters.DatabricksParameters"
     )
 
 
-class _DataSourceParameters_StarburstParameters(TypedDict):
+class _DataSourceParameters_StarburstParameters(TypedDict, closed=True):
     StarburstParameters: (
         "aws_sdk_quicksight.types.starburst_parameters.StarburstParameters"
     )
 
 
-class _DataSourceParameters_TrinoParameters(TypedDict):
+class _DataSourceParameters_TrinoParameters(TypedDict, closed=True):
     TrinoParameters: "aws_sdk_quicksight.types.trino_parameters.TrinoParameters"
 
 
-class _DataSourceParameters_BigQueryParameters(TypedDict):
+class _DataSourceParameters_BigQueryParameters(TypedDict, closed=True):
     BigQueryParameters: (
         "aws_sdk_quicksight.types.big_query_parameters.BigQueryParameters"
     )
 
 
-class _DataSourceParameters_ImpalaParameters(TypedDict):
+class _DataSourceParameters_ImpalaParameters(TypedDict, closed=True):
     ImpalaParameters: "aws_sdk_quicksight.types.impala_parameters.ImpalaParameters"
 
 
-class _DataSourceParameters_CustomConnectionParameters(TypedDict):
+class _DataSourceParameters_CustomConnectionParameters(TypedDict, closed=True):
     CustomConnectionParameters: "aws_sdk_quicksight.types.custom_connection_parameters.CustomConnectionParameters"
 
 
-class _DataSourceParameters_WebCrawlerParameters(TypedDict):
+class _DataSourceParameters_WebCrawlerParameters(TypedDict, closed=True):
     WebCrawlerParameters: (
         "aws_sdk_quicksight.types.web_crawler_parameters.WebCrawlerParameters"
     )
 
 
-class _DataSourceParameters_ConfluenceParameters(TypedDict):
+class _DataSourceParameters_ConfluenceParameters(TypedDict, closed=True):
     ConfluenceParameters: (
         "aws_sdk_quicksight.types.confluence_parameters.ConfluenceParameters"
     )
 
 
-class _DataSourceParameters_QBusinessParameters(TypedDict):
+class _DataSourceParameters_QBusinessParameters(TypedDict, closed=True):
     QBusinessParameters: (
         "aws_sdk_quicksight.types.q_business_parameters.QBusinessParameters"
     )

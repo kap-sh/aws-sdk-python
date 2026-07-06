@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetFindingsTrendsV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.granularity_field
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.trends_metrics
 
 
-class GetFindingsTrendsV2Response(TypedDict):
+class GetFindingsTrendsV2Response(TypedDict, closed=True):
     granularity: NotRequired[
         "aws_sdk_securityhub.types.granularity_field.GranularityField"
     ]

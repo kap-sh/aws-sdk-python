@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreateSipRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.sip_rule
 
 
-class CreateSipRuleResponse(TypedDict):
+class CreateSipRuleResponse(TypedDict, closed=True):
     sip_rule: NotRequired["aws_sdk_chime_sdk_voice.types.sip_rule.SipRule"]
     """<p>The SIP rule information, including the rule ID, triggers, and target applications.</p>"""
 

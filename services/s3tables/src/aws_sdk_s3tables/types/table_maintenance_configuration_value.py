@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableMaintenanceConfigurationValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.maintenance_status
     import aws_sdk_s3tables.types.table_maintenance_settings
 
 
-class TableMaintenanceConfigurationValue(TypedDict):
+class TableMaintenanceConfigurationValue(TypedDict, closed=True):
     status: NotRequired["aws_sdk_s3tables.types.maintenance_status.MaintenanceStatus"]
     """<p>The status of the maintenance configuration.</p>"""
     settings: NotRequired[

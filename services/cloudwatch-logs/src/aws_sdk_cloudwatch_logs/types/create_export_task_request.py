@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateExportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -31,6 +31,7 @@ CreateExportTaskRequest = TypedDict(
             "aws_sdk_cloudwatch_logs.types.export_destination_prefix.ExportDestinationPrefix"
         ],
     },
+    closed=True,
 )
 
 

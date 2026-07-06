@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#EventConfigurationItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.event_notification_item_configurations
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.identifier_type
 
 
-class EventConfigurationItem(TypedDict):
+class EventConfigurationItem(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_iot_wireless.types.identifier.Identifier"]
     """<p>Resource identifier opted in for event messaging.</p>"""
     identifier_type: NotRequired[

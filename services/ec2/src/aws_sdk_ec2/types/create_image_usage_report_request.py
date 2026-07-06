@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateImageUsageReportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateImageUsageReportRequest(TypedDict):
+class CreateImageUsageReportRequest(TypedDict, closed=True):
     image_id: NotRequired["aws_sdk_ec2.types.image_id.ImageId"]
     """<p>The ID of the image to report on.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

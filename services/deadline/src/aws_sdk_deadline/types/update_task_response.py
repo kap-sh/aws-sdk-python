@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdateTaskResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateTaskResponse(TypedDict):
+class UpdateTaskResponse(TypedDict, closed=True):
     pass
 
 

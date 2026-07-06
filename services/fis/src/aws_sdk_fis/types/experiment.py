@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#Experiment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.creation_time
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.target_account_configurations_count
 
 
-class Experiment(TypedDict):
+class Experiment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_fis.types.experiment_id.ExperimentId"]
     """<p>The ID of the experiment.</p>"""
     arn: NotRequired["aws_sdk_fis.types.resource_arn.ResourceArn"]

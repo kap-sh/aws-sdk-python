@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#JiraConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.jira_issue_url
     import aws_sdk_wellarchitected.types.timestamp
 
 
-class JiraConfiguration(TypedDict):
+class JiraConfiguration(TypedDict, closed=True):
     jira_issue_url: NotRequired[
         "aws_sdk_wellarchitected.types.jira_issue_url.JiraIssueUrl"
     ]

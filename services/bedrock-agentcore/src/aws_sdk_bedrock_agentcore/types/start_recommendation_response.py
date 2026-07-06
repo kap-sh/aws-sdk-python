@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StartRecommendationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.recommendation_type
 
 
-class StartRecommendationResponse(TypedDict):
+class StartRecommendationResponse(TypedDict, closed=True):
     recommendation_id: (
         "aws_sdk_bedrock_agentcore.types.recommendation_id.RecommendationId"
     )

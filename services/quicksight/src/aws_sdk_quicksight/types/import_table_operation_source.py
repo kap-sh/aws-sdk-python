@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ImportTableOperationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_entity_resource_id
 
 
-class ImportTableOperationSource(TypedDict):
+class ImportTableOperationSource(TypedDict, closed=True):
     source_table_id: (
         "aws_sdk_quicksight.types.data_set_entity_resource_id.DataSetEntityResourceId"
     )

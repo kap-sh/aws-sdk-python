@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#VideoSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.s3_location
 
 
-class _VideoSource_bytes(TypedDict):
+class _VideoSource_bytes(TypedDict, closed=True):
     bytes: "bytes"
 
 
-class _VideoSource_s3Location(TypedDict):
+class _VideoSource_s3Location(TypedDict, closed=True):
     s3Location: "aws_sdk_bedrock_runtime.types.s3_location.S3Location"
 
 

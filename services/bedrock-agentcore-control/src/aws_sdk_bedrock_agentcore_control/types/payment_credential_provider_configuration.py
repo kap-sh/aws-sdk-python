@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PaymentCredentialProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_arn
 
 
-class PaymentCredentialProviderConfiguration(TypedDict):
+class PaymentCredentialProviderConfiguration(TypedDict, closed=True):
     credential_provider_arn: "aws_sdk_bedrock_agentcore_control.types.payment_credential_provider_arn.PaymentCredentialProviderArn"
     """<p>The Amazon Resource Name (ARN) of the credential provider that stores the authentication credentials for the payment provider.</p>"""
 

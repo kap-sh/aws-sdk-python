@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#PrivateKeyFlagsV2``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.client_compatibility_v2
 
 
-class PrivateKeyFlagsV2(TypedDict):
+class PrivateKeyFlagsV2(TypedDict, closed=True):
     exportable_key: NotRequired["bool"]
     """<p>Allows the private key to be exported.</p>"""
     strong_key_protection_required: NotRequired["bool"]

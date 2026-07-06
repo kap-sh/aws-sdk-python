@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeADAssessmentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment
     import aws_sdk_directory_service.types.assessment_reports
 
 
-class DescribeADAssessmentResult(TypedDict):
+class DescribeADAssessmentResult(TypedDict, closed=True):
     assessment: NotRequired["aws_sdk_directory_service.types.assessment.Assessment"]
     """<p>Detailed information about the self-managed instance settings (IDs and DNS IPs).</p>"""
     assessment_reports: NotRequired[

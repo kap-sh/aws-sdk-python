@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.failed_records_count
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class GetImportJobResponse(TypedDict):
+class GetImportJobResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_sesv2.types.job_id.JobId"]
     """<p>A string that represents the import job ID.</p>"""
     import_destination: NotRequired[

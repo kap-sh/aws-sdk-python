@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateAddonInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.addon_instance_id
 
 
-class CreateAddonInstanceResponse(TypedDict):
+class CreateAddonInstanceResponse(TypedDict, closed=True):
     addon_instance_id: "aws_sdk_mailmanager.types.addon_instance_id.AddonInstanceId"
     """<p>The unique ID of the Add On instance created by this API.</p>"""
 

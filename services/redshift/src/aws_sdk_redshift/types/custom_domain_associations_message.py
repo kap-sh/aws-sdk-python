@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CustomDomainAssociationsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class CustomDomainAssociationsMessage(TypedDict):
+class CustomDomainAssociationsMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The marker for the custom domain association.</p>"""
     associations: NotRequired["aws_sdk_redshift.types.association_list.AssociationList"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ExecutorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.job_worker_executor_configuration
     import aws_sdk_codepipeline.types.lambda_executor_configuration
 
 
-class ExecutorConfiguration(TypedDict):
+class ExecutorConfiguration(TypedDict, closed=True):
     lambda_executor_configuration: NotRequired[
         "aws_sdk_codepipeline.types.lambda_executor_configuration.LambdaExecutorConfiguration"
     ]

@@ -3,9 +3,9 @@
 import warnings
 from collections.abc import AsyncGenerator, AsyncIterator
 from contextlib import asynccontextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_sagemaker_runtime_http2._auth._signers
@@ -37,7 +37,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.request_stream_event
 
 
-class AsyncSageMakerRuntimeHTTP2ClientConfig(TypedDict, total=False):
+class AsyncSageMakerRuntimeHTTP2ClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_dual_stack: bool | None

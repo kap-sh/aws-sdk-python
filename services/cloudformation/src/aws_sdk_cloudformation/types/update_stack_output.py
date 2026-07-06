@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#UpdateStackOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_id
 
 
-class UpdateStackOutput(TypedDict):
+class UpdateStackOutput(TypedDict, closed=True):
     stack_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]
     """<p>Unique identifier of the stack.</p>"""
     operation_id: NotRequired["aws_sdk_cloudformation.types.operation_id.OperationId"]

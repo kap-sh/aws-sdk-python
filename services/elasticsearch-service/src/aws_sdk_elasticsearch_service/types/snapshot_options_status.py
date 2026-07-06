@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#SnapshotOptionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.snapshot_options
 
 
-class SnapshotOptionsStatus(TypedDict):
+class SnapshotOptionsStatus(TypedDict, closed=True):
     options: "aws_sdk_elasticsearch_service.types.snapshot_options.SnapshotOptions"
     """<p>Specifies the daily snapshot options specified for the Elasticsearch domain.</p>"""
     status: "aws_sdk_elasticsearch_service.types.option_status.OptionStatus"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeInstanceTypeLimitsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.limits_by_role
 
 
-class DescribeInstanceTypeLimitsResponse(TypedDict):
+class DescribeInstanceTypeLimitsResponse(TypedDict, closed=True):
     limits_by_role: NotRequired["aws_sdk_opensearch.types.limits_by_role.LimitsByRole"]
     """<p>Map that contains all applicable instance type limits.<code>data</code> refers to data nodes.<code>master</code> refers to dedicated master nodes.</p>"""
 

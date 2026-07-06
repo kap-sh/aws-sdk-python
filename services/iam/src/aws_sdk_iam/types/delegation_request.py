@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DelegationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.state_type
 
 
-class DelegationRequest(TypedDict):
+class DelegationRequest(TypedDict, closed=True):
     delegation_request_id: NotRequired[
         "aws_sdk_iam.types.delegation_request_id_type.delegationRequestIdType"
     ]

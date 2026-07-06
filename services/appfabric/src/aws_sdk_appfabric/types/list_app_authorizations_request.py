@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListAppAuthorizationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.string2048
 
 
-class ListAppAuthorizationsRequest(TypedDict):
+class ListAppAuthorizationsRequest(TypedDict, closed=True):
     app_bundle_identifier: "aws_sdk_appfabric.types.identifier.Identifier"
     """<p>The Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app bundle to use for the request.</p>"""
     max_results: NotRequired["aws_sdk_appfabric.types.max_results.MaxResults"]

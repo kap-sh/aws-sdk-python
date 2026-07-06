@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.validation_exception_field_list
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_pipes.types.error_message.ErrorMessage"]
     field_list: NotRequired[
         "aws_sdk_pipes.types.validation_exception_field_list.ValidationExceptionFieldList"

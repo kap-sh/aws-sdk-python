@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DeleteTagsForDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.tag_key_list
 
 
-class DeleteTagsForDomainRequest(TypedDict):
+class DeleteTagsForDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_route_53_domains.types.domain_name.DomainName"
     """<p>The domain for which you want to delete one or more tags.</p>"""
     tags_to_delete: "aws_sdk_route_53_domains.types.tag_key_list.TagKeyList"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecastquery#DataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecastquery.types.double
     import aws_sdk_forecastquery.types.timestamp
 
 
-class DataPoint(TypedDict):
+class DataPoint(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_forecastquery.types.timestamp.Timestamp"]
     """<p>The timestamp of the specific forecast.</p>"""
     value: NotRequired["aws_sdk_forecastquery.types.double.Double"]

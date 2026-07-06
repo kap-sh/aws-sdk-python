@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#ComputeCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
 
 
-class ComputeCapacity(TypedDict):
+class ComputeCapacity(TypedDict, closed=True):
     desired_instances: NotRequired["aws_sdk_appstream.types.integer.Integer"]
     """<p>The desired number of streaming instances.</p>"""
     desired_sessions: NotRequired["aws_sdk_appstream.types.integer.Integer"]

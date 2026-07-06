@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetImageScalingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_image_scaling_type
 
 
-class SheetImageScalingConfiguration(TypedDict):
+class SheetImageScalingConfiguration(TypedDict, closed=True):
     scaling_type: NotRequired[
         "aws_sdk_quicksight.types.sheet_image_scaling_type.SheetImageScalingType"
     ]

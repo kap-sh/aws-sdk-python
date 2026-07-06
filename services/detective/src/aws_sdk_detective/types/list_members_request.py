@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListMembersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.pagination_token
 
 
-class ListMembersRequest(TypedDict):
+class ListMembersRequest(TypedDict, closed=True):
     graph_arn: "aws_sdk_detective.types.graph_arn.GraphArn"
     """<p>The ARN of the behavior graph for which to retrieve the list of member accounts.</p>"""
     next_token: NotRequired["aws_sdk_detective.types.pagination_token.PaginationToken"]

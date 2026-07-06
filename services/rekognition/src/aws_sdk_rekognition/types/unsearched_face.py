@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#UnsearchedFace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_detail
     import aws_sdk_rekognition.types.unsearched_face_reasons
 
 
-class UnsearchedFace(TypedDict):
+class UnsearchedFace(TypedDict, closed=True):
     face_details: NotRequired["aws_sdk_rekognition.types.face_detail.FaceDetail"]
     reasons: NotRequired[
         "aws_sdk_rekognition.types.unsearched_face_reasons.UnsearchedFaceReasons"

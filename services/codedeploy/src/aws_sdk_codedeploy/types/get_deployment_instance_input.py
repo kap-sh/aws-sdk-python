@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#GetDeploymentInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instance_id
 
 
-class GetDeploymentInstanceInput(TypedDict):
+class GetDeploymentInstanceInput(TypedDict, closed=True):
     deployment_id: "aws_sdk_codedeploy.types.deployment_id.DeploymentId"
     """<p> The unique ID of a deployment. </p>"""
     instance_id: "aws_sdk_codedeploy.types.instance_id.InstanceId"

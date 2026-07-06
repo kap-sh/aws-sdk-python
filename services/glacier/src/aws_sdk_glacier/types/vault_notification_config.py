@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#VaultNotificationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.notification_event_list
     import aws_sdk_glacier.types.string
 
 
-class VaultNotificationConfig(TypedDict):
+class VaultNotificationConfig(TypedDict, closed=True):
     sns_topic: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The Amazon Simple Notification Service (Amazon SNS) topic Amazon Resource Name (ARN).</p>"""
     events: NotRequired[

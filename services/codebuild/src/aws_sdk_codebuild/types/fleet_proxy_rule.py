@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#FleetProxyRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_proxy_rule_type
 
 
-class FleetProxyRule(TypedDict):
+class FleetProxyRule(TypedDict, closed=True):
     type: "aws_sdk_codebuild.types.fleet_proxy_rule_type.FleetProxyRuleType"
     """<p>The type of proxy rule.</p>"""
     effect: (

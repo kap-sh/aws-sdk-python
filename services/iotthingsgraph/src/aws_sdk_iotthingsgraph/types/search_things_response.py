@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#SearchThingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.next_token
     import aws_sdk_iotthingsgraph.types.things
 
 
-class SearchThingsResponse(TypedDict):
+class SearchThingsResponse(TypedDict, closed=True):
     things: NotRequired["aws_sdk_iotthingsgraph.types.things.Things"]
     """<p>An array of things in the result set.</p>"""
     next_token: NotRequired["aws_sdk_iotthingsgraph.types.next_token.NextToken"]

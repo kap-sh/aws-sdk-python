@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetPlaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class GetPlaceRequest(TypedDict):
+class GetPlaceRequest(TypedDict, closed=True):
     index_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the place index resource that you want to use for the search.</p>"""
     place_id: "aws_sdk_location.types.place_id.PlaceId"

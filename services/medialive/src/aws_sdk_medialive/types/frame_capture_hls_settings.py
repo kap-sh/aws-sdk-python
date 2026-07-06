@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FrameCaptureHlsSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class FrameCaptureHlsSettings(TypedDict):
+class FrameCaptureHlsSettings(TypedDict, closed=True):
     pass
 
 

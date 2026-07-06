@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcrRepositoryImageScanningConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsEcrRepositoryImageScanningConfigurationDetails(TypedDict):
+class AwsEcrRepositoryImageScanningConfigurationDetails(TypedDict, closed=True):
     scan_on_push: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether to scan images after they are pushed to a repository.</p>"""
 

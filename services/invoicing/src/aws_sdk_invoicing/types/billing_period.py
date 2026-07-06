@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#BillingPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.year
 
 
-class BillingPeriod(TypedDict):
+class BillingPeriod(TypedDict, closed=True):
     month: "aws_sdk_invoicing.types.month.Month"
     """<p> The billing period month. </p>"""
     year: "aws_sdk_invoicing.types.year.Year"

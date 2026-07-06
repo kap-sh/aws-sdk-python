@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#InsightField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class InsightField(TypedDict):
+class InsightField(TypedDict, closed=True):
     name: "aws_sdk_opensearch.types.string.String"
     """<p>The name of the insight field.</p>"""
     type: "aws_sdk_opensearch.types.insight_field_type.InsightFieldType"

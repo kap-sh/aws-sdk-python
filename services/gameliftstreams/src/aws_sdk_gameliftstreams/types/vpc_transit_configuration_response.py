@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#VpcTransitConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.ipv4_cidr_block_list
     import aws_sdk_gameliftstreams.types.vpc_id
 
 
-class VpcTransitConfigurationResponse(TypedDict):
+class VpcTransitConfigurationResponse(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_gameliftstreams.types.vpc_id.VpcId"]
     """<p>The ID of the Amazon VPC that is connected to the stream group.</p>"""
     ipv4_cidr_blocks: NotRequired[

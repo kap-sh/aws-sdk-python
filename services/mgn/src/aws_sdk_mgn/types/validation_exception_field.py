@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.large_bounded_string
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]
     """<p>Validate exception field name.</p>"""
     message: NotRequired["aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"]

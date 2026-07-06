@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#ListImportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.non_empty_string
 
 
-class ListImportJobsResponse(TypedDict):
+class ListImportJobsResponse(TypedDict, closed=True):
     import_job_summaries: "aws_sdk_wisdom.types.import_job_list.ImportJobList"
     """<p>Summary information about the import jobs.</p>"""
     next_token: NotRequired["aws_sdk_wisdom.types.non_empty_string.NonEmptyString"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CloudWatchDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.cloud_watch_dimension_configurations
 
 
-class CloudWatchDestination(TypedDict):
+class CloudWatchDestination(TypedDict, closed=True):
     dimension_configurations: "aws_sdk_ses.types.cloud_watch_dimension_configurations.CloudWatchDimensionConfigurations"
     """<p>A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.</p>"""
 

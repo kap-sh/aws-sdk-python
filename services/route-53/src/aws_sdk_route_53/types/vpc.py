@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#VPC``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vpc_region
 
 
-class VPC(TypedDict):
+class VPC(TypedDict, closed=True):
     vpc_region: NotRequired["aws_sdk_route_53.types.vpc_region.VPCRegion"]
     """<p>(Private hosted zones only) The region that an Amazon VPC was created in.</p>"""
     vpc_id: NotRequired["aws_sdk_route_53.types.vpc_id.VPCId"]

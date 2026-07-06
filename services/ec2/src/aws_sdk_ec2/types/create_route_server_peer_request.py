@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateRouteServerPeerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateRouteServerPeerRequest(TypedDict):
+class CreateRouteServerPeerRequest(TypedDict, closed=True):
     route_server_endpoint_id: NotRequired[
         "aws_sdk_ec2.types.route_server_endpoint_id.RouteServerEndpointId"
     ]

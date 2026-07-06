@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateDataRepositoryTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.capacity_to_release
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.tags
 
 
-class CreateDataRepositoryTaskRequest(TypedDict):
+class CreateDataRepositoryTaskRequest(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_fsx.types.data_repository_task_type.DataRepositoryTaskType"
     ]

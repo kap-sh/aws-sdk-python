@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#QDataKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.q_data_key_type
     import aws_sdk_quicksight.types.string
 
 
-class QDataKey(TypedDict):
+class QDataKey(TypedDict, closed=True):
     q_data_key_arn: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The ARN of the KMS key that is registered to a Quick Sight account for encryption and decryption use as a <code>QDataKey</code>.</p>"""
     q_data_key_type: NotRequired[

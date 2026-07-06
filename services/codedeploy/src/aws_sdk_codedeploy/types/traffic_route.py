@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#TrafficRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.listener_arn_list
 
 
-class TrafficRoute(TypedDict):
+class TrafficRoute(TypedDict, closed=True):
     listener_arns: NotRequired[
         "aws_sdk_codedeploy.types.listener_arn_list.ListenerArnList"
     ]

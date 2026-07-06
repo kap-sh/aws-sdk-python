@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#GetTopPathStatisticsByTrafficResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.request_count
 
 
-class GetTopPathStatisticsByTrafficResponse(TypedDict):
+class GetTopPathStatisticsByTrafficResponse(TypedDict, closed=True):
     path_statistics: "aws_sdk_wafv2.types.path_statistics_list.PathStatisticsList"
     """<p>The list of path statistics, ordered by request count. Each entry includes the path, request count, percentage of total traffic, and the top bots accessing that path.</p>"""
     total_request_count: "aws_sdk_wafv2.types.request_count.RequestCount"

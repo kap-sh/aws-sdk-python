@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdMappingTableSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class IdMappingTableSummary(TypedDict):
+class IdMappingTableSummary(TypedDict, closed=True):
     collaboration_arn: "aws_sdk_cleanrooms.types.collaboration_arn.CollaborationArn"
     """<p>The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.</p>"""
     collaboration_id: "aws_sdk_cleanrooms.types.uuid.UUID"

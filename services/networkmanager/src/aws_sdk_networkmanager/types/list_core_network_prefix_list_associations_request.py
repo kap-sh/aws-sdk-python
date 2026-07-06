@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListCoreNetworkPrefixListAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.prefix_list_arn
 
 
-class ListCoreNetworkPrefixListAssociationsRequest(TypedDict):
+class ListCoreNetworkPrefixListAssociationsRequest(TypedDict, closed=True):
     core_network_id: "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     """<p>The ID of the core network to list prefix list associations for.</p>"""
     prefix_list_arn: NotRequired[

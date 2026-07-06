@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#IndexingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.connectivity_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.named_shadow_names_filter
 
 
-class IndexingFilter(TypedDict):
+class IndexingFilter(TypedDict, closed=True):
     named_shadow_names: NotRequired[
         "aws_sdk_iot.types.named_shadow_names_filter.NamedShadowNamesFilter"
     ]

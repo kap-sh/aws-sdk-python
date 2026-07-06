@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#UpdateDbClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.port
 
 
-class UpdateDbClusterInput(TypedDict):
+class UpdateDbClusterInput(TypedDict, closed=True):
     db_cluster_id: "aws_sdk_timestream_influxdb.types.db_cluster_id.DbClusterId"
     """<p>Service-generated unique identifier of the DB cluster to update.</p>"""
     log_delivery_configuration: NotRequired[

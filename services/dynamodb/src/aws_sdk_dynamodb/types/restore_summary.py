@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#RestoreSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class RestoreSummary(TypedDict):
+class RestoreSummary(TypedDict, closed=True):
     source_backup_arn: NotRequired["aws_sdk_dynamodb.types.backup_arn.BackupArn"]
     """<p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>"""
     source_table_arn: NotRequired["aws_sdk_dynamodb.types.table_arn.TableArn"]

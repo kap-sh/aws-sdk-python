@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Range``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
 
 
-class Range(TypedDict):
+class Range(TypedDict, closed=True):
     end: NotRequired["aws_sdk_macie2.types.__long.__long"]
     """<p>The number of lines from the beginning of the file to the end of the sensitive data.</p>"""
     start: NotRequired["aws_sdk_macie2.types.__long.__long"]

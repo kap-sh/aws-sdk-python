@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ContainerHealthCheck``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_command_string_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_health_check_timeout
 
 
-class ContainerHealthCheck(TypedDict):
+class ContainerHealthCheck(TypedDict, closed=True):
     command: NotRequired[
         "aws_sdk_gamelift.types.container_command_string_list.ContainerCommandStringList"
     ]

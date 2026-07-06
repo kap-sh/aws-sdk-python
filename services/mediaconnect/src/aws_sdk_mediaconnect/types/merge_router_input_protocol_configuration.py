@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MergeRouterInputProtocolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.rtp_router_input_configuration
 
 
-class _MergeRouterInputProtocolConfiguration_Rtp(TypedDict):
+class _MergeRouterInputProtocolConfiguration_Rtp(TypedDict, closed=True):
     Rtp: "aws_sdk_mediaconnect.types.rtp_router_input_configuration.RtpRouterInputConfiguration"
 
 
-class _MergeRouterInputProtocolConfiguration_Rist(TypedDict):
+class _MergeRouterInputProtocolConfiguration_Rist(TypedDict, closed=True):
     Rist: "aws_sdk_mediaconnect.types.rist_router_input_configuration.RistRouterInputConfiguration"
 
 

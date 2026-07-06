@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#LteLocalId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.earfcn
     import aws_sdk_location.types.pci
 
 
-class LteLocalId(TypedDict):
+class LteLocalId(TypedDict, closed=True):
     earfcn: "aws_sdk_location.types.earfcn.Earfcn"
     """<p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>"""
     pci: "aws_sdk_location.types.pci.Pci"

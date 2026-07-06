@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ContextStartedDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ContextStartedDetails(TypedDict):
+class ContextStartedDetails(TypedDict, closed=True):
     pass
 
 

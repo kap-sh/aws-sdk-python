@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#StartCacheReportOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.cache_report_arn
 
 
-class StartCacheReportOutput(TypedDict):
+class StartCacheReportOutput(TypedDict, closed=True):
     cache_report_arn: NotRequired[
         "aws_sdk_storage_gateway.types.cache_report_arn.CacheReportARN"
     ]

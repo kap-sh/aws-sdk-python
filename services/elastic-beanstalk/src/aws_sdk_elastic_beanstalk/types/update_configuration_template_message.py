@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#UpdateConfigurationTemplateMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.options_specifier_list
 
 
-class UpdateConfigurationTemplateMessage(TypedDict):
+class UpdateConfigurationTemplateMessage(TypedDict, closed=True):
     application_name: "aws_sdk_elastic_beanstalk.types.application_name.ApplicationName"
     """<p>The name of the application associated with the configuration template to update.</p> <p> If no application is found with this name, <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code> error. </p>"""
     template_name: "aws_sdk_elastic_beanstalk.types.configuration_template_name.ConfigurationTemplateName"

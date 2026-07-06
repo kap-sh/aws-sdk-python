@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#GenerateMacEmvPinChangeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.visa_amex_derivation_outputs
 
 
-class GenerateMacEmvPinChangeOutput(TypedDict):
+class GenerateMacEmvPinChangeOutput(TypedDict, closed=True):
     new_pin_pek_arn: "aws_sdk_payment_cryptography_data.types.key_arn.KeyArn"
     """<p>Returns the <code>keyArn</code> of the PEK protecting the incoming new encrypted PIN block.</p>"""
     secure_messaging_integrity_key_arn: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#PaymentInstrument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -15,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.user_id
 
 
-class PaymentInstrument(TypedDict):
+class PaymentInstrument(TypedDict, closed=True):
     payment_instrument_id: (
         "aws_sdk_bedrock_agentcore.types.payment_instrument_id.PaymentInstrumentId"
     )

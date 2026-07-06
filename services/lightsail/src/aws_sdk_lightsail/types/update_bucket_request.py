@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateBucketRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.partner_id_list
 
 
-class UpdateBucketRequest(TypedDict):
+class UpdateBucketRequest(TypedDict, closed=True):
     bucket_name: "aws_sdk_lightsail.types.bucket_name.BucketName"
     """<p>The name of the bucket to update.</p>"""
     access_rules: NotRequired["aws_sdk_lightsail.types.access_rules.AccessRules"]

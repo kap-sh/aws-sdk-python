@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DominantLanguage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.float
     import aws_sdk_comprehend.types.string
 
 
-class DominantLanguage(TypedDict):
+class DominantLanguage(TypedDict, closed=True):
     language_code: NotRequired["aws_sdk_comprehend.types.string.String"]
     r"""<p>The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <a href=\"https://tools.ietf.org/html/rfc5646\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>"""
     score: NotRequired["aws_sdk_comprehend.types.float.Float"]

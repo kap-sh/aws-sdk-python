@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#PackageVersionInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.s3_location
 
 
-class PackageVersionInputConfig(TypedDict):
+class PackageVersionInputConfig(TypedDict, closed=True):
     s3_location: "aws_sdk_panorama.types.s3_location.S3Location"
     """<p>A location in Amazon S3.</p>"""
 

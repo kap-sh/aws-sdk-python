@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.user_role
 
 
-class CreateUserRequest(TypedDict):
+class CreateUserRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The identifier of the organization for which the user is created.</p>"""
     name: "aws_sdk_workmail.types.user_name.UserName"

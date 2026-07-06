@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetDataSourceIntrospectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class GetDataSourceIntrospectionRequest(TypedDict):
+class GetDataSourceIntrospectionRequest(TypedDict, closed=True):
     introspection_id: "aws_sdk_appsync.types.string.String"
     """<p>The introspection ID. Each introspection contains a unique ID that can be used to reference the instrospection record.</p>"""
     include_models_sdl: "aws_sdk_appsync.types.boolean.Boolean"

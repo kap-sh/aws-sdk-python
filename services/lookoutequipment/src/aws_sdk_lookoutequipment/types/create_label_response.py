@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#CreateLabelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.label_id
 
 
-class CreateLabelResponse(TypedDict):
+class CreateLabelResponse(TypedDict, closed=True):
     label_id: NotRequired["aws_sdk_lookoutequipment.types.label_id.LabelId"]
     """<p> The ID of the label that you have created. </p>"""
 

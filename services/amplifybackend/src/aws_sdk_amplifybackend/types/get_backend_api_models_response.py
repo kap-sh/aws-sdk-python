@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#GetBackendAPIModelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.status
 
 
-class GetBackendAPIModelsResponse(TypedDict):
+class GetBackendAPIModelsResponse(TypedDict, closed=True):
     models: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>Stringified JSON of the datastore model.</p>"""
     status: NotRequired["aws_sdk_amplifybackend.types.status.Status"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansSavings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class SavingsPlansSavings(TypedDict):
+class SavingsPlansSavings(TypedDict, closed=True):
     net_savings: NotRequired["aws_sdk_cost_explorer.types.generic_string.GenericString"]
     """<p>The savings amount that you're accumulating for the usage that's covered by a Savings Plans, when compared to the On-Demand equivalent of the same usage.</p>"""
     on_demand_cost_equivalent: NotRequired[

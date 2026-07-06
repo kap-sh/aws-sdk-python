@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ListPublicKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.max_public_key_results
     import aws_sdk_ivs_realtime.types.pagination_token
 
 
-class ListPublicKeysRequest(TypedDict):
+class ListPublicKeysRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_ivs_realtime.types.pagination_token.PaginationToken"
     ]

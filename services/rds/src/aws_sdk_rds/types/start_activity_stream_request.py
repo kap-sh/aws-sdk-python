@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#StartActivityStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class StartActivityStreamRequest(TypedDict):
+class StartActivityStreamRequest(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the DB cluster, for example, <code>arn:aws:rds:us-east-1:12345667890:cluster:das-cluster</code>.</p>"""
     mode: NotRequired["aws_sdk_rds.types.activity_stream_mode.ActivityStreamMode"]

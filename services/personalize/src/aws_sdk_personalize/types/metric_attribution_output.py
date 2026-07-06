@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#MetricAttributionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.s3_data_config
 
 
-class MetricAttributionOutput(TypedDict):
+class MetricAttributionOutput(TypedDict, closed=True):
     s3_data_destination: NotRequired[
         "aws_sdk_personalize.types.s3_data_config.S3DataConfig"
     ]

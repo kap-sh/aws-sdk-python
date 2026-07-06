@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListUsersFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.entity_state
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.user_attribute
 
 
-class ListUsersFilters(TypedDict):
+class ListUsersFilters(TypedDict, closed=True):
     username_prefix: NotRequired["aws_sdk_workmail.types.string.String"]
     """<p>Filters only users with the provided username prefix.</p>"""
     display_name_prefix: NotRequired[

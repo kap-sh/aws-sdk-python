@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#UpdateQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.reservation_plan_settings
 
 
-class UpdateQueueRequest(TypedDict):
+class UpdateQueueRequest(TypedDict, closed=True):
     concurrent_jobs: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, update your reservation plan instead in order to increase your yearly commitment."""
     description: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]

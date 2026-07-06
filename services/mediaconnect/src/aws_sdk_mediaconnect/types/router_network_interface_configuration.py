@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterNetworkInterfaceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.vpc_router_network_interface_configuration
 
 
-class _RouterNetworkInterfaceConfiguration_Public(TypedDict):
+class _RouterNetworkInterfaceConfiguration_Public(TypedDict, closed=True):
     Public: "aws_sdk_mediaconnect.types.public_router_network_interface_configuration.PublicRouterNetworkInterfaceConfiguration"
 
 
-class _RouterNetworkInterfaceConfiguration_Vpc(TypedDict):
+class _RouterNetworkInterfaceConfiguration_Vpc(TypedDict, closed=True):
     Vpc: "aws_sdk_mediaconnect.types.vpc_router_network_interface_configuration.VpcRouterNetworkInterfaceConfiguration"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeStorageVirtualMachinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.storage_virtual_machine_ids
 
 
-class DescribeStorageVirtualMachinesRequest(TypedDict):
+class DescribeStorageVirtualMachinesRequest(TypedDict, closed=True):
     storage_virtual_machine_ids: NotRequired[
         "aws_sdk_fsx.types.storage_virtual_machine_ids.StorageVirtualMachineIds"
     ]

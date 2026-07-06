@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DisassociateResourceTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_type_list
 
 
-class DisassociateResourceTypesRequest(TypedDict):
+class DisassociateResourceTypesRequest(TypedDict, closed=True):
     configuration_recorder_arn: (
         "aws_sdk_config_service.types.amazon_resource_name.AmazonResourceName"
     )

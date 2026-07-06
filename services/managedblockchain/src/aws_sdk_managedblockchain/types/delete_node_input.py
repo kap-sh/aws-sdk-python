@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#DeleteNodeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class DeleteNodeInput(TypedDict):
+class DeleteNodeInput(TypedDict, closed=True):
     network_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p>The unique identifier of the network that the node is on.</p> <p>Ethereum public networks have the following <code>NetworkId</code>s:</p> <ul> <li> <p> <code>n-ethereum-mainnet</code> </p> </li> </ul>"""
     member_id: NotRequired[

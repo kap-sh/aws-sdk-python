@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#QuantumTaskQueueInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.queue_priority
 
 
-class QuantumTaskQueueInfo(TypedDict):
+class QuantumTaskQueueInfo(TypedDict, closed=True):
     queue: "aws_sdk_braket.types.queue_name.QueueName"
     """<p>The name of the queue. </p>"""
     position: "str"

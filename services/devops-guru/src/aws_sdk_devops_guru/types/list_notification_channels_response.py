@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListNotificationChannelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.channels
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListNotificationChannelsResponse(TypedDict):
+class ListNotificationChannelsResponse(TypedDict, closed=True):
     channels: NotRequired["aws_sdk_devops_guru.types.channels.Channels"]
     """<p> An array that contains the requested notification channels. </p>"""
     next_token: NotRequired["aws_sdk_devops_guru.types.uuid_next_token.UuidNextToken"]

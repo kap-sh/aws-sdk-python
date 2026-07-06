@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#JobScopeTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.simple_scope_term
     import aws_sdk_macie2.types.tag_scope_term
 
 
-class JobScopeTerm(TypedDict):
+class JobScopeTerm(TypedDict, closed=True):
     simple_scope_term: NotRequired[
         "aws_sdk_macie2.types.simple_scope_term.SimpleScopeTerm"
     ]

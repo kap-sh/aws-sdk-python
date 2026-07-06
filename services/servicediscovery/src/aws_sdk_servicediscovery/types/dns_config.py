@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DnsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.routing_policy
 
 
-class DnsConfig(TypedDict):
+class DnsConfig(TypedDict, closed=True):
     namespace_id: NotRequired["aws_sdk_servicediscovery.types.resource_id.ResourceId"]
     r"""<p> <i>Use NamespaceId in <a href=\"https://docs.aws.amazon.com/cloud-map/latest/api/API_Service.html\">Service</a> instead.</i> </p> <p>The ID of the namespace to use for DNS configuration.</p>"""
     routing_policy: NotRequired[

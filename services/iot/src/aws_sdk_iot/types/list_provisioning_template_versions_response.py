@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListProvisioningTemplateVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.provisioning_template_version_listing
 
 
-class ListProvisioningTemplateVersionsResponse(TypedDict):
+class ListProvisioningTemplateVersionsResponse(TypedDict, closed=True):
     versions: NotRequired[
         "aws_sdk_iot.types.provisioning_template_version_listing.ProvisioningTemplateVersionListing"
     ]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteSnapshotCopyConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class DeleteSnapshotCopyConfigurationRequest(TypedDict):
+class DeleteSnapshotCopyConfigurationRequest(TypedDict, closed=True):
     snapshot_copy_configuration_id: "str"
     """<p>The ID of the snapshot copy configuration to delete.</p>"""
 

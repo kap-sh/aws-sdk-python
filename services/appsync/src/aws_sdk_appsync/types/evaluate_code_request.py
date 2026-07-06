@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EvaluateCodeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class EvaluateCodeRequest(TypedDict):
+class EvaluateCodeRequest(TypedDict, closed=True):
     runtime: "aws_sdk_appsync.types.app_sync_runtime.AppSyncRuntime"
     """<p>The runtime to be used when evaluating the code. Currently, only the <code>APPSYNC_JS</code> runtime is supported.</p>"""
     code: "aws_sdk_appsync.types.code.Code"

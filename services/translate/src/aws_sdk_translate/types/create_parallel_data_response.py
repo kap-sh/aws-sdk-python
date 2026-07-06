@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#CreateParallelDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.parallel_data_status
     import aws_sdk_translate.types.resource_name
 
 
-class CreateParallelDataResponse(TypedDict):
+class CreateParallelDataResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_translate.types.resource_name.ResourceName"]
     """<p>The custom name that you assigned to the parallel data resource.</p>"""
     status: NotRequired[

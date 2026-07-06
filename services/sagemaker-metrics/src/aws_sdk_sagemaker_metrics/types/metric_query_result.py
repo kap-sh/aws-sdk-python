@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakermetrics#MetricQueryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.message
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.x_axis_values
 
 
-class MetricQueryResult(TypedDict):
+class MetricQueryResult(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_sagemaker_metrics.types.metric_query_result_status.MetricQueryResultStatus"
     ]

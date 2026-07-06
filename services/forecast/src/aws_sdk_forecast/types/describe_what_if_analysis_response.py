@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeWhatIfAnalysisResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class DescribeWhatIfAnalysisResponse(TypedDict):
+class DescribeWhatIfAnalysisResponse(TypedDict, closed=True):
     what_if_analysis_name: NotRequired["aws_sdk_forecast.types.name.Name"]
     """<p>The name of the what-if analysis.</p>"""
     what_if_analysis_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]

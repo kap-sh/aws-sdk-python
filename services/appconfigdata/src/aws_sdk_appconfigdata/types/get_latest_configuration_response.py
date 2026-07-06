@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfigdata#GetLatestConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfigdata.types.token
 
 
-class GetLatestConfigurationResponse(TypedDict):
+class GetLatestConfigurationResponse(TypedDict, closed=True):
     next_poll_configuration_token: NotRequired[
         "aws_sdk_appconfigdata.types.token.Token"
     ]

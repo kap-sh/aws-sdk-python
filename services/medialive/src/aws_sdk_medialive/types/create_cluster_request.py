@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tags
 
 
-class CreateClusterRequest(TypedDict):
+class CreateClusterRequest(TypedDict, closed=True):
     cluster_type: NotRequired["aws_sdk_medialive.types.cluster_type.ClusterType"]
     """Specify a type. All the Nodes that you later add to this Cluster must be this type of hardware. One Cluster instance can't contain different hardware types. You won't be able to change this parameter after you create the Cluster."""
     instance_role_arn: NotRequired["aws_sdk_medialive.types.__string.__string"]

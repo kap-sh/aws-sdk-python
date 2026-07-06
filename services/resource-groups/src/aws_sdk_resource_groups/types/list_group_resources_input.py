@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ListGroupResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_filter_list
 
 
-class ListGroupResourcesInput(TypedDict):
+class ListGroupResourcesInput(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_resource_groups.types.group_name.GroupName"]
     """<important> <p> <i> <b>Deprecated - don't use this parameter. Use the <code>Group</code> request field instead.</b> </i> </p> </important>"""
     group: NotRequired["aws_sdk_resource_groups.types.group_string_v2.GroupStringV2"]

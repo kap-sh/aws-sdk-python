@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetDataAccessResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_prefix
 
 
-class GetDataAccessResult(TypedDict):
+class GetDataAccessResult(TypedDict, closed=True):
     credentials: NotRequired["aws_sdk_s3_control.types.credentials.Credentials"]
     """<p>The temporary credential token that S3 Access Grants vends.</p>"""
     matched_grant_target: NotRequired["aws_sdk_s3_control.types.s3_prefix.S3Prefix"]

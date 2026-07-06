@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#Oauth2Credential``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.string2048
 
 
-class Oauth2Credential(TypedDict):
+class Oauth2Credential(TypedDict, closed=True):
     client_id: "aws_sdk_appfabric.types.string2048.String2048"
     """<p>The client ID of the client application.</p>"""
     client_secret: "aws_sdk_appfabric.types.sensitive_string2048.SensitiveString2048"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnprocessableEntityException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, ServiceError
 
 
-class UnprocessableEntityException_(TypedDict):
+class UnprocessableEntityException_(TypedDict, closed=True):
     message: "str"
 
 

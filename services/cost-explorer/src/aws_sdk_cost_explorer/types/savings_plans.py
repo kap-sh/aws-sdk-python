@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlans``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.term_in_years
 
 
-class SavingsPlans(TypedDict):
+class SavingsPlans(TypedDict, closed=True):
     payment_option: NotRequired[
         "aws_sdk_cost_explorer.types.payment_option.PaymentOption"
     ]

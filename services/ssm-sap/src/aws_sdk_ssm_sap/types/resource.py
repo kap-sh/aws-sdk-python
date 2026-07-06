@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.arn
     import aws_sdk_ssm_sap.types.operation_event_resource_type
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_ssm_sap.types.arn.Arn"]
     r"""<p>The Amazon Resource Name (ARN) of the source resource.</p> <p>Example of <code>ResourceArn</code>: \"<code>arn:aws:ec2:us-east-1:111111111111:instance/i-abcdefgh987654321</code>\"</p>"""
     resource_type: NotRequired[

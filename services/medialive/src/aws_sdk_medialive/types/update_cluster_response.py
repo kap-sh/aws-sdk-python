@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UpdateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.cluster_type
 
 
-class UpdateClusterResponse(TypedDict):
+class UpdateClusterResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """The ARN of the Cluster."""
     channel_ids: NotRequired[

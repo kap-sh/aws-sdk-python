@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#StopProductSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.product_user_summary
 
 
-class StopProductSubscriptionResponse(TypedDict):
+class StopProductSubscriptionResponse(TypedDict, closed=True):
     product_user_summary: "aws_sdk_license_manager_user_subscriptions.types.product_user_summary.ProductUserSummary"
     """<p>Metadata that describes the start product subscription operation.</p>"""
 

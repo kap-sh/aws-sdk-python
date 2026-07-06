@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#TransitGatewayConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.valid_cidr_space
 
 
-class TransitGatewayConfiguration(TypedDict):
+class TransitGatewayConfiguration(TypedDict, closed=True):
     transit_gateway_id: "aws_sdk_finspace.types.transit_gateway_id.TransitGatewayID"
     """<p>The identifier of the transit gateway created by the customer to connect outbound traffics from kdb network to your internal network.</p>"""
     routable_cidr_space: "aws_sdk_finspace.types.valid_cidr_space.ValidCIDRSpace"

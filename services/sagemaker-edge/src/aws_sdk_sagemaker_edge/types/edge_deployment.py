@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakeredge#EdgeDeployment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.definitions
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_edge.types.failure_handling_policy
 
 
-class EdgeDeployment(TypedDict):
+class EdgeDeployment(TypedDict, closed=True):
     deployment_name: NotRequired["aws_sdk_sagemaker_edge.types.entity_name.EntityName"]
     """<p>The name and unique ID of the deployment.</p>"""
     type: NotRequired["aws_sdk_sagemaker_edge.types.deployment_type.DeploymentType"]

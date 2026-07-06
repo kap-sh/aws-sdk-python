@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ApplicationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_serverless.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.string256
 
 
-class ApplicationSummary(TypedDict):
+class ApplicationSummary(TypedDict, closed=True):
     id: "aws_sdk_emr_serverless.types.application_id.ApplicationId"
     """<p>The ID of the application.</p>"""
     name: NotRequired["aws_sdk_emr_serverless.types.application_name.ApplicationName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.string
 
 
-class PackageDependency(TypedDict):
+class PackageDependency(TypedDict, closed=True):
     namespace: NotRequired[
         "aws_sdk_codeartifact.types.package_namespace.PackageNamespace"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListSignalMapsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_signal_map_summary
     import aws_sdk_medialive.types.__string_min1_max2048
 
 
-class ListSignalMapsResponse(TypedDict):
+class ListSignalMapsResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_medialive.types.__string_min1_max2048.__stringMin1Max2048"
     ]

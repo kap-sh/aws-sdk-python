@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CacheNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.t_stamp
 
 
-class CacheNode(TypedDict):
+class CacheNode(TypedDict, closed=True):
     cache_node_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The cache node identifier. A node ID is a numeric identifier (0001, 0002, etc.). The combination of cluster ID and node ID uniquely identifies every cache node used in a customer's Amazon account.</p>"""
     cache_node_status: NotRequired["aws_sdk_elasticache.types.string.String"]

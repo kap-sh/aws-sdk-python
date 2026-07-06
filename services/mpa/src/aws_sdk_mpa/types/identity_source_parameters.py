@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#IdentitySourceParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.iam_identity_center
 
 
-class IdentitySourceParameters(TypedDict):
+class IdentitySourceParameters(TypedDict, closed=True):
     iam_identity_center: NotRequired[
         "aws_sdk_mpa.types.iam_identity_center.IamIdentityCenter"
     ]

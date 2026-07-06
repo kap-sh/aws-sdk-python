@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ManagedQueryResultsEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.kms_key
 
 
-class ManagedQueryResultsEncryptionConfiguration(TypedDict):
+class ManagedQueryResultsEncryptionConfiguration(TypedDict, closed=True):
     kms_key: "aws_sdk_athena.types.kms_key.KmsKey"
     """<p>The ARN of an KMS key for encrypting managed query results.</p>"""
 

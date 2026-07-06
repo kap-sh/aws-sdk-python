@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdatePodIdentityAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
     import aws_sdk_eks.types.string
 
 
-class UpdatePodIdentityAssociationRequest(TypedDict):
+class UpdatePodIdentityAssociationRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of the cluster that you want to update the association in.</p>"""
     association_id: "aws_sdk_eks.types.string.String"

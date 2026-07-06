@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DashboardPublishOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.ad_hoc_filtering_option
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visual_menu_option
 
 
-class DashboardPublishOptions(TypedDict):
+class DashboardPublishOptions(TypedDict, closed=True):
     ad_hoc_filtering_option: NotRequired[
         "aws_sdk_quicksight.types.ad_hoc_filtering_option.AdHocFilteringOption"
     ]

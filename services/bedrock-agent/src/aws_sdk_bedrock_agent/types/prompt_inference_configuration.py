@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptInferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_model_inference_configuration
 
 
-class _PromptInferenceConfiguration_text(TypedDict):
+class _PromptInferenceConfiguration_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agent.types.prompt_model_inference_configuration.PromptModelInferenceConfiguration"
 
 

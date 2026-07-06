@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#Identity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.string
 
 
-class Identity(TypedDict):
+class Identity(TypedDict, closed=True):
     principal_id: NotRequired["aws_sdk_dynamodb_streams.types.string.String"]
     r"""<p>A unique identifier for the entity that made the call. For Time To Live, the principalId is \"dynamodb.amazonaws.com\".</p>"""
     type: NotRequired["aws_sdk_dynamodb_streams.types.string.String"]

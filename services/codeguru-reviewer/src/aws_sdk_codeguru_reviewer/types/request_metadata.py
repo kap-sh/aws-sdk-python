@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#RequestMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.event_info
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.vendor_name
 
 
-class RequestMetadata(TypedDict):
+class RequestMetadata(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_codeguru_reviewer.types.request_id.RequestId"]
     """<p>The ID of the request. This is required for a pull request code review.</p>"""
     requester: NotRequired["aws_sdk_codeguru_reviewer.types.requester.Requester"]

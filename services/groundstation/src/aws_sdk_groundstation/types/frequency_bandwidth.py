@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#FrequencyBandwidth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.bandwidth_units
 
 
-class FrequencyBandwidth(TypedDict):
+class FrequencyBandwidth(TypedDict, closed=True):
     value: "float"
     """<p>Frequency bandwidth value. AWS Ground Station currently has the following bandwidth limitations:</p> <ul> <li> <p>For <code>AntennaDownlinkDemodDecodeconfig</code>, valid values are between 125 kHz to 650 MHz.</p> </li> <li> <p>For <code>AntennaDownlinkconfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> <li> <p>For <code>AntennaUplinkConfig</code>, valid values are between 10 kHz to 54 MHz.</p> </li> </ul>"""
     units: "aws_sdk_groundstation.types.bandwidth_units.BandwidthUnits"

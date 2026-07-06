@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkChangeValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.service_insertion_action_list
 
 
-class CoreNetworkChangeValues(TypedDict):
+class CoreNetworkChangeValues(TypedDict, closed=True):
     segment_name: NotRequired[
         "aws_sdk_networkmanager.types.constrained_string.ConstrainedString"
     ]

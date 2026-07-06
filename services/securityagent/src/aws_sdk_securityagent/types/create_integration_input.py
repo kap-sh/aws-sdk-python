@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CreateIntegrationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.tag_map
 
 
-class CreateIntegrationInput(TypedDict):
+class CreateIntegrationInput(TypedDict, closed=True):
     provider: "aws_sdk_securityagent.types.provider.Provider"
     """<p>The integration provider. Currently, only GITHUB is supported.</p>"""
     input: "aws_sdk_securityagent.types.provider_input.ProviderInput"

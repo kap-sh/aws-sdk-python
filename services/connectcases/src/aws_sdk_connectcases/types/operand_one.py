@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#OperandOne``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_id
 
 
-class _OperandOne_fieldId(TypedDict):
+class _OperandOne_fieldId(TypedDict, closed=True):
     fieldId: "aws_sdk_connectcases.types.field_id.FieldId"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ReportFrequency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.integer
     import aws_sdk_license_manager.types.report_frequency_type
 
 
-class ReportFrequency(TypedDict):
+class ReportFrequency(TypedDict, closed=True):
     value: NotRequired["aws_sdk_license_manager.types.integer.Integer"]
     """<p>Number of times within the frequency period that a report is generated. The only supported value is <code>1</code>.</p>"""
     period: NotRequired[

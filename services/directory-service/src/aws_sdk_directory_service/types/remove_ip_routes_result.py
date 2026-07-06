@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RemoveIpRoutesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveIpRoutesResult(TypedDict):
+class RemoveIpRoutesResult(TypedDict, closed=True):
     pass
 
 

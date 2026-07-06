@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MLUserDataEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class MLUserDataEncryption(TypedDict):
+class MLUserDataEncryption(TypedDict, closed=True):
     ml_user_data_encryption_mode: "aws_sdk_glue.types.ml_user_data_encryption_mode_string.MLUserDataEncryptionModeString"
     """<p>The encryption mode applied to user data. Valid values are:</p> <ul> <li> <p>DISABLED: encryption is disabled</p> </li> <li> <p>SSEKMS: use of server-side encryption with Key Management Service (SSE-KMS) for user data stored in Amazon S3.</p> </li> </ul>"""
     kms_key_id: NotRequired["aws_sdk_glue.types.name_string.NameString"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BatchGetRouterNetworkInterfaceError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
 
 
-class BatchGetRouterNetworkInterfaceError(TypedDict):
+class BatchGetRouterNetworkInterfaceError(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The Amazon Resource Name (ARN) of the router network interface for which the error occurred.</p>"""
     code: "str"

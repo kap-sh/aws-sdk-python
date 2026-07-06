@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DetectorModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.detector_model_configuration
     import aws_sdk_iot_events.types.detector_model_definition
 
 
-class DetectorModel(TypedDict):
+class DetectorModel(TypedDict, closed=True):
     detector_model_definition: NotRequired[
         "aws_sdk_iot_events.types.detector_model_definition.DetectorModelDefinition"
     ]

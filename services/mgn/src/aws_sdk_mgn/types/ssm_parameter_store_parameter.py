@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SsmParameterStoreParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.ssm_parameter_store_parameter_type
 
 
-class SsmParameterStoreParameter(TypedDict):
+class SsmParameterStoreParameter(TypedDict, closed=True):
     parameter_type: "aws_sdk_mgn.types.ssm_parameter_store_parameter_type.SsmParameterStoreParameterType"
     """<p>AWS Systems Manager Parameter Store parameter type.</p>"""
     parameter_name: "aws_sdk_mgn.types.ssm_parameter_store_parameter_name.SsmParameterStoreParameterName"

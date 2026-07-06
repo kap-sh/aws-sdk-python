@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#DataSourceIntrospectionModelIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.data_source_introspection_model_index_fields
     import aws_sdk_appsync.types.string
 
 
-class DataSourceIntrospectionModelIndex(TypedDict):
+class DataSourceIntrospectionModelIndex(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>The name of the index.</p>"""
     fields: NotRequired[

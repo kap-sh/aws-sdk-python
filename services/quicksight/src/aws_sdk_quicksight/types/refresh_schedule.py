@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RefreshSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class RefreshSchedule(TypedDict):
+class RefreshSchedule(TypedDict, closed=True):
     schedule_id: "aws_sdk_quicksight.types.string.String"
     """<p>An identifier for the refresh schedule.</p>"""
     schedule_frequency: "aws_sdk_quicksight.types.refresh_frequency.RefreshFrequency"

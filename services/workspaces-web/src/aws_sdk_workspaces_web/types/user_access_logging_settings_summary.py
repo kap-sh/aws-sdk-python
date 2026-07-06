@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#UserAccessLoggingSettingsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.kinesis_stream_arn
 
 
-class UserAccessLoggingSettingsSummary(TypedDict):
+class UserAccessLoggingSettingsSummary(TypedDict, closed=True):
     user_access_logging_settings_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the user access logging settings.</p>"""
     kinesis_stream_arn: NotRequired[

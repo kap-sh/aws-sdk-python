@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#Region``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.region_name
 
 
-class Region(TypedDict):
+class Region(TypedDict, closed=True):
     name: NotRequired["aws_sdk_controltower.types.region_name.RegionName"]
     """<p>The Amazon Web Services Region name.</p>"""
 

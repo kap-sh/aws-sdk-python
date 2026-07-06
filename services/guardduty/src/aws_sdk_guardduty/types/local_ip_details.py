@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#LocalIpDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.sensitive_string
 
 
-class LocalIpDetails(TypedDict):
+class LocalIpDetails(TypedDict, closed=True):
     ip_address_v4: NotRequired[
         "aws_sdk_guardduty.types.sensitive_string.SensitiveString"
     ]

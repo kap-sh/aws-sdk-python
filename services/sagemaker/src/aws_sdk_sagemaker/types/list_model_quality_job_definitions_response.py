@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelQualityJobDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_job_definition_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListModelQualityJobDefinitionsResponse(TypedDict):
+class ListModelQualityJobDefinitionsResponse(TypedDict, closed=True):
     job_definition_summaries: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_job_definition_summary_list.MonitoringJobDefinitionSummaryList"
     ]

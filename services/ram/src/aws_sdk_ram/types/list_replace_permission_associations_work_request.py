@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListReplacePermissionAssociationsWorkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ListReplacePermissionAssociationsWorkRequest(TypedDict):
+class ListReplacePermissionAssociationsWorkRequest(TypedDict, closed=True):
     work_ids: NotRequired[
         "aws_sdk_ram.types.replace_permission_associations_work_id_list.ReplacePermissionAssociationsWorkIdList"
     ]

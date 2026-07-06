@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#DeleteEventLogConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.log_configuration_id
 
 
-class DeleteEventLogConfigurationRequest(TypedDict):
+class DeleteEventLogConfigurationRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.log_configuration_id.LogConfigurationId"
     """<p>The identifier of the event log configuration.</p>"""
 

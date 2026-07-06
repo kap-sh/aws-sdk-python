@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicationStartingPosition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.replication_starting_position_type
 
 
-class ReplicationStartingPosition(TypedDict):
+class ReplicationStartingPosition(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_kafka.types.replication_starting_position_type.ReplicationStartingPositionType"
     ]

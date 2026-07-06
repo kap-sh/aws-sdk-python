@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#ResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.ebs_volume
 
 
-class _ResourceDetails_ebsVolume(TypedDict):
+class _ResourceDetails_ebsVolume(TypedDict, closed=True):
     ebsVolume: "aws_sdk_compute_optimizer_automation.types.ebs_volume.EbsVolume"
 
 

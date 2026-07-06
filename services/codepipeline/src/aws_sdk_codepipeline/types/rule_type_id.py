@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RuleTypeId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.version
 
 
-class RuleTypeId(TypedDict):
+class RuleTypeId(TypedDict, closed=True):
     category: "aws_sdk_codepipeline.types.rule_category.RuleCategory"
     """<p>A category defines what kind of rule can be run in the stage, and constrains the provider type for the rule. The valid category is <code>Rule</code>. </p>"""
     owner: NotRequired["aws_sdk_codepipeline.types.rule_owner.RuleOwner"]

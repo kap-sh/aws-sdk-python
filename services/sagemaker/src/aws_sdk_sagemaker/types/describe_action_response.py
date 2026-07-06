@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.action_arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.user_context
 
 
-class DescribeActionResponse(TypedDict):
+class DescribeActionResponse(TypedDict, closed=True):
     action_name: NotRequired[
         "aws_sdk_sagemaker.types.experiment_entity_name_or_arn.ExperimentEntityNameOrArn"
     ]

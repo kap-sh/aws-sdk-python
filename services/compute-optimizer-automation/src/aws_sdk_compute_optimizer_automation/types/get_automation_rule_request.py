@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#GetAutomationRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.rule_arn
 
 
-class GetAutomationRuleRequest(TypedDict):
+class GetAutomationRuleRequest(TypedDict, closed=True):
     rule_arn: "aws_sdk_compute_optimizer_automation.types.rule_arn.RuleArn"
     """<p> The ARN of the rule to retrieve. </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#AwsAdditionalDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.identity_context
 
 
-class AwsAdditionalDetails(TypedDict):
+class AwsAdditionalDetails(TypedDict, closed=True):
     identity_context: NotRequired[
         "aws_sdk_sso_oidc.types.identity_context.IdentityContext"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TransformStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aggregate_operation
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unpivot_operation
 
 
-class TransformStep(TypedDict):
+class TransformStep(TypedDict, closed=True):
     import_table_step: NotRequired[
         "aws_sdk_quicksight.types.import_table_operation.ImportTableOperation"
     ]

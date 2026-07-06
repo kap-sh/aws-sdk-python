@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#Expression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billing.types.cost_category_values
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.time_range
 
 
-class Expression(TypedDict):
+class Expression(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_billing.types.dimension_values.DimensionValues"]
     """<p> The specific <code>Dimension</code> to use for <code>Expression</code>. </p>"""
     tags: NotRequired["aws_sdk_billing.types.tag_values.TagValues"]

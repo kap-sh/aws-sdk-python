@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#DescribeServicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.describe_services_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class DescribeServicesRequest(TypedDict):
+class DescribeServicesRequest(TypedDict, closed=True):
     service_code: NotRequired["aws_sdk_pricing.types.string.String"]
     """<p>The code for the service whose information you want to retrieve, such as <code>AmazonEC2</code>. You can use the <code>ServiceCode</code> to filter the results in a <code>GetProducts</code> call. To retrieve a list of all services, leave this blank.</p>"""
     format_version: NotRequired["aws_sdk_pricing.types.format_version.FormatVersion"]

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ExpirationDataRule``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
 
-class ExpirationDataRule(TypedDict):
+class ExpirationDataRule(TypedDict, closed=True):
     days_after_last_access: "int"
     """<p>The number of days after last access before cached data expires from the file system.</p>"""
 

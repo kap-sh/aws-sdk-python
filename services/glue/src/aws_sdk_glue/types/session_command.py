@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SessionCommand``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
     import aws_sdk_glue.types.python_version_string
 
 
-class SessionCommand(TypedDict):
+class SessionCommand(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.</p>"""
     python_version: NotRequired[

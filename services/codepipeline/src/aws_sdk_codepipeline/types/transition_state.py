@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#TransitionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.disabled_reason
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.last_changed_by
 
 
-class TransitionState(TypedDict):
+class TransitionState(TypedDict, closed=True):
     enabled: "aws_sdk_codepipeline.types.enabled.Enabled"
     """<p>Whether the transition between stages is enabled (true) or disabled (false).</p>"""
     last_changed_by: NotRequired[

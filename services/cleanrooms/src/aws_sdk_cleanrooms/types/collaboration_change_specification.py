@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#CollaborationChangeSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.auto_approved_change_type_list
 
 
-class CollaborationChangeSpecification(TypedDict):
+class CollaborationChangeSpecification(TypedDict, closed=True):
     auto_approved_change_types: NotRequired[
         "aws_sdk_cleanrooms.types.auto_approved_change_type_list.AutoApprovedChangeTypeList"
     ]

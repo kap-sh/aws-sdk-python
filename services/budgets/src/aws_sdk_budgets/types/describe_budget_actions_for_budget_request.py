@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeBudgetActionsForBudgetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.max_results
 
 
-class DescribeBudgetActionsForBudgetRequest(TypedDict):
+class DescribeBudgetActionsForBudgetRequest(TypedDict, closed=True):
     account_id: "aws_sdk_budgets.types.account_id.AccountId"
     budget_name: "aws_sdk_budgets.types.budget_name.BudgetName"
     max_results: NotRequired["aws_sdk_budgets.types.max_results.MaxResults"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#McpDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.tools_definition
 
 
-class McpDescriptor(TypedDict):
+class McpDescriptor(TypedDict, closed=True):
     server: "aws_sdk_bedrock_agentcore.types.server_definition.ServerDefinition"
     """<p> The MCP server definition that describes the server configuration.</p>"""
     tools: "aws_sdk_bedrock_agentcore.types.tools_definition.ToolsDefinition"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateCredentialLockerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.tags_map
 
 
-class CreateCredentialLockerRequest(TypedDict):
+class CreateCredentialLockerRequest(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_iot_managed_integrations.types.credential_locker_name.CredentialLockerName"
     ]

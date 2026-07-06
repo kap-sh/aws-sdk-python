@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ContextEnrichmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.context_enrichment_type
 
 
-class ContextEnrichmentConfiguration(TypedDict):
+class ContextEnrichmentConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.context_enrichment_type.ContextEnrichmentType"
     """<p>The method used for context enrichment. It must be Amazon Bedrock foundation models.</p>"""
     bedrock_foundation_model_configuration: NotRequired[

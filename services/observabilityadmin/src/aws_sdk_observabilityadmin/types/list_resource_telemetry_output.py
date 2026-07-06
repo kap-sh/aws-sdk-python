@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListResourceTelemetryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.next_token
     import aws_sdk_observabilityadmin.types.telemetry_configurations
 
 
-class ListResourceTelemetryOutput(TypedDict):
+class ListResourceTelemetryOutput(TypedDict, closed=True):
     telemetry_configurations: NotRequired[
         "aws_sdk_observabilityadmin.types.telemetry_configurations.TelemetryConfigurations"
     ]

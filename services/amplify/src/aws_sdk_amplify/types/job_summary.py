@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#JobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.start_time
 
 
-class JobSummary(TypedDict):
+class JobSummary(TypedDict, closed=True):
     job_arn: "aws_sdk_amplify.types.job_arn.JobArn"
     """<p> The Amazon Resource Name (ARN) for the job. </p>"""
     job_id: "aws_sdk_amplify.types.job_id.JobId"

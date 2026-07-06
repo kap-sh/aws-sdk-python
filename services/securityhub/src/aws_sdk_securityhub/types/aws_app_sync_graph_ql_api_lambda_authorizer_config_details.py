@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails(TypedDict):
+class AwsAppSyncGraphQlApiLambdaAuthorizerConfigDetails(TypedDict, closed=True):
     authorizer_result_ttl_in_seconds: NotRequired[
         "aws_sdk_securityhub.types.integer.Integer"
     ]

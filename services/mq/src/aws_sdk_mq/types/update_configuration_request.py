@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#UpdateConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class UpdateConfigurationRequest(TypedDict):
+class UpdateConfigurationRequest(TypedDict, closed=True):
     configuration_id: "aws_sdk_mq.types.__string.__string"
     """<p>The unique ID that Amazon MQ generates for the configuration.</p>"""
     data: NotRequired["aws_sdk_mq.types.__string.__string"]

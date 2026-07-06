@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.aws_region
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     identifier: "str"
     """<p>The identifier of the resource.</p>"""
     aws_region: NotRequired["aws_sdk_resiliencehubv2.types.aws_region.AwsRegion"]

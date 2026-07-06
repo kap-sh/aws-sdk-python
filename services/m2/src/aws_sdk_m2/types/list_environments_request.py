@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListEnvironmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.engine_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListEnvironmentsRequest(TypedDict):
+class ListEnvironmentsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]
     """<p>A pagination token to control the number of runtime environments displayed in the list.</p>"""
     max_results: NotRequired["aws_sdk_m2.types.max_results.MaxResults"]

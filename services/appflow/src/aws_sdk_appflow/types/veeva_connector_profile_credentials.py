@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#VeevaConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.username
 
 
-class VeevaConnectorProfileCredentials(TypedDict):
+class VeevaConnectorProfileCredentials(TypedDict, closed=True):
     username: "aws_sdk_appflow.types.username.Username"
     """<p> The name of the user. </p>"""
     password: "aws_sdk_appflow.types.password.Password"

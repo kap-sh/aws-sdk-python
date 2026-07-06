@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#CreateGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.tags
 
 
-class CreateGroupOutput(TypedDict):
+class CreateGroupOutput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group.Group"]
     """<p>The description of the resource group.</p>"""
     resource_query: NotRequired[

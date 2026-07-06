@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeAuditFindingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_finding
 
 
-class DescribeAuditFindingResponse(TypedDict):
+class DescribeAuditFindingResponse(TypedDict, closed=True):
     finding: NotRequired["aws_sdk_iot.types.audit_finding.AuditFinding"]
 
 

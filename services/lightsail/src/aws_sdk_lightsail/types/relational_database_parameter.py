@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RelationalDatabaseParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
     import aws_sdk_lightsail.types.string
 
 
-class RelationalDatabaseParameter(TypedDict):
+class RelationalDatabaseParameter(TypedDict, closed=True):
     allowed_values: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>Specifies the valid range of values for the parameter.</p>"""
     apply_method: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#ListComponentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.application_component_list
     import aws_sdk_application_insights.types.pagination_token
 
 
-class ListComponentsResponse(TypedDict):
+class ListComponentsResponse(TypedDict, closed=True):
     application_component_list: NotRequired[
         "aws_sdk_application_insights.types.application_component_list.ApplicationComponentList"
     ]

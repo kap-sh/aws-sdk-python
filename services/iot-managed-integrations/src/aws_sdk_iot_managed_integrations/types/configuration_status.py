@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ConfigurationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.configuration_state
 
 
-class ConfigurationStatus(TypedDict):
+class ConfigurationStatus(TypedDict, closed=True):
     error: NotRequired[
         "aws_sdk_iot_managed_integrations.types.configuration_error.ConfigurationError"
     ]

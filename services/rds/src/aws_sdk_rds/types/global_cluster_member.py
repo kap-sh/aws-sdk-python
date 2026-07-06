@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#GlobalClusterMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.write_forwarding_status
 
 
-class GlobalClusterMember(TypedDict):
+class GlobalClusterMember(TypedDict, closed=True):
     db_cluster_arn: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Resource Name (ARN) for each Aurora DB cluster in the global cluster.</p>"""
     readers: NotRequired["aws_sdk_rds.types.readers_arn_list.ReadersArnList"]

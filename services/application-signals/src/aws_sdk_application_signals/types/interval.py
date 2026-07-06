@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#Interval``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.rolling_interval
 
 
-class _Interval_RollingInterval(TypedDict):
+class _Interval_RollingInterval(TypedDict, closed=True):
     RollingInterval: (
         "aws_sdk_application_signals.types.rolling_interval.RollingInterval"
     )
 
 
-class _Interval_CalendarInterval(TypedDict):
+class _Interval_CalendarInterval(TypedDict, closed=True):
     CalendarInterval: (
         "aws_sdk_application_signals.types.calendar_interval.CalendarInterval"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__map_of__string
     import aws_sdk_mediaconvert.types.__string
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """The Amazon Resource Name (ARN) of the resource that you want to tag. To get the ARN, send a GET request with the resource name."""
     tags: NotRequired["aws_sdk_mediaconvert.types.__map_of__string.__mapOf__string"]

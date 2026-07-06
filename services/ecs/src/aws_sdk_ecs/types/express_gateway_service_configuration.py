@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExpressGatewayServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_container
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class ExpressGatewayServiceConfiguration(TypedDict):
+class ExpressGatewayServiceConfiguration(TypedDict, closed=True):
     service_revision_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the service revision.</p>"""
     execution_role_arn: NotRequired["aws_sdk_ecs.types.string.String"]

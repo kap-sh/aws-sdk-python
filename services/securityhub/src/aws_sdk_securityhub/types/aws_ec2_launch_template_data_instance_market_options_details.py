@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_launch_template_data_instance_market_options_spot_options_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails(TypedDict, closed=True):
     market_type: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

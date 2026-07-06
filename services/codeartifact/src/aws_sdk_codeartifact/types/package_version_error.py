@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#PackageVersionError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.error_message
     import aws_sdk_codeartifact.types.package_version_error_code
 
 
-class PackageVersionError(TypedDict):
+class PackageVersionError(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_codeartifact.types.package_version_error_code.PackageVersionErrorCode"
     ]

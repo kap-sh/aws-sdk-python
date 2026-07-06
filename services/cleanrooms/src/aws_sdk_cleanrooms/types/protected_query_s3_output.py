@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedQueryS3Output``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class ProtectedQueryS3Output(TypedDict):
+class ProtectedQueryS3Output(TypedDict, closed=True):
     location: "str"
     """<p>The S3 location of the result.</p>"""
 

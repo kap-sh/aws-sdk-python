@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#S3DataAccessAsset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_kms_keys_to_grant
 
 
-class S3DataAccessAsset(TypedDict):
+class S3DataAccessAsset(TypedDict, closed=True):
     bucket: "aws_sdk_dataexchange.types.__string.__string"
     """<p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>"""
     key_prefixes: NotRequired[

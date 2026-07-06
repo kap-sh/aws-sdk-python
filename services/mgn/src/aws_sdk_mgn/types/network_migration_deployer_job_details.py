@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationDeployerJobDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.network_migration_job_status
 
 
-class NetworkMigrationDeployerJobDetails(TypedDict):
+class NetworkMigrationDeployerJobDetails(TypedDict, closed=True):
     job_id: NotRequired[
         "aws_sdk_mgn.types.network_migration_job_id.NetworkMigrationJobID"
     ]

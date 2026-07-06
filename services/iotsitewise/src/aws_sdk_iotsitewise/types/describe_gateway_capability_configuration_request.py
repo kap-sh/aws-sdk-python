@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeGatewayCapabilityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.capability_namespace
     import aws_sdk_iotsitewise.types.id
 
 
-class DescribeGatewayCapabilityConfigurationRequest(TypedDict):
+class DescribeGatewayCapabilityConfigurationRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the gateway that defines the capability configuration.</p>"""
     capability_namespace: (

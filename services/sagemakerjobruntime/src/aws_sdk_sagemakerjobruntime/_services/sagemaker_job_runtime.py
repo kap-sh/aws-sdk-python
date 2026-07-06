@@ -3,9 +3,9 @@
 import warnings
 from collections.abc import Generator
 from contextlib import contextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_sagemakerjobruntime._auth._signers
@@ -44,7 +44,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemakerjobruntime.types.update_reward_response
 
 
-class SagemakerJobRuntimeClientConfig(TypedDict, total=False):
+class SagemakerJobRuntimeClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     use_fips: bool | None

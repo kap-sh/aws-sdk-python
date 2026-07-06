@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListOrdersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.max_results1000
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class ListOrdersInput(TypedDict):
+class ListOrdersInput(TypedDict, closed=True):
     outpost_identifier_filter: NotRequired[
         "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     ]

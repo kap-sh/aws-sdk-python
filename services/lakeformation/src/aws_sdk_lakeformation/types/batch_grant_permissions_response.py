@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#BatchGrantPermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.batch_permissions_failure_list
 
 
-class BatchGrantPermissionsResponse(TypedDict):
+class BatchGrantPermissionsResponse(TypedDict, closed=True):
     failures: NotRequired[
         "aws_sdk_lakeformation.types.batch_permissions_failure_list.BatchPermissionsFailureList"
     ]

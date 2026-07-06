@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AdminEnableUserResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AdminEnableUserResponse(TypedDict):
+class AdminEnableUserResponse(TypedDict, closed=True):
     pass
 
 

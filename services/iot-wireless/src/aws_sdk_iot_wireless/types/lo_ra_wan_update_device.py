@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANUpdateDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.device_profile_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.update_f_ports
 
 
-class LoRaWANUpdateDevice(TypedDict):
+class LoRaWANUpdateDevice(TypedDict, closed=True):
     device_profile_id: NotRequired[
         "aws_sdk_iot_wireless.types.device_profile_id.DeviceProfileId"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#BatchPutProfileObjectResponseItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class BatchPutProfileObjectResponseItem(TypedDict):
+class BatchPutProfileObjectResponseItem(TypedDict, closed=True):
     id: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique identifier of the item in the batch request.</p>"""
     profile_object_unique_key: (

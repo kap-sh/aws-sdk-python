@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeploymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.deployment_impairment_strategy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.minimum_healthy_percentage
 
 
-class DeploymentConfiguration(TypedDict):
+class DeploymentConfiguration(TypedDict, closed=True):
     protection_strategy: NotRequired[
         "aws_sdk_gamelift.types.deployment_protection_strategy.DeploymentProtectionStrategy"
     ]

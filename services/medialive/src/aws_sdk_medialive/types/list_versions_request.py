@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListVersionsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListVersionsRequest(TypedDict):
+class ListVersionsRequest(TypedDict, closed=True):
     pass
 
 

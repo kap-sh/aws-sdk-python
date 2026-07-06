@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#TieringConfigurationInputForUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_selections
 
 
-class TieringConfigurationInputForUpdate(TypedDict):
+class TieringConfigurationInputForUpdate(TypedDict, closed=True):
     resource_selection: "aws_sdk_backup.types.resource_selections.ResourceSelections"
     """<p>An array of resource selection objects that specify which resources are included in the tiering configuration and their tiering settings.</p>"""
     backup_vault_name: (

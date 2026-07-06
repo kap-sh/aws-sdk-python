@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SalesforceStandardKnowledgeArticleTypeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_to_index_field_mapping_list
 
 
-class SalesforceStandardKnowledgeArticleTypeConfiguration(TypedDict):
+class SalesforceStandardKnowledgeArticleTypeConfiguration(TypedDict, closed=True):
     document_data_field_name: (
         "aws_sdk_kendra.types.data_source_field_name.DataSourceFieldName"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#PutAccountAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support_app.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support_app.types.aws_account_alias
 
 
-class PutAccountAliasRequest(TypedDict):
+class PutAccountAliasRequest(TypedDict, closed=True):
     account_alias: "aws_sdk_support_app.types.aws_account_alias.awsAccountAlias"
     """<p>An alias or short name for an Amazon Web Services account.</p>"""
 

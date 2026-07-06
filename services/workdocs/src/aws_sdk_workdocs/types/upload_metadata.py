@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#UploadMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.signed_header_map
     import aws_sdk_workdocs.types.url_type
 
 
-class UploadMetadata(TypedDict):
+class UploadMetadata(TypedDict, closed=True):
     upload_url: NotRequired["aws_sdk_workdocs.types.url_type.UrlType"]
     """<p>The URL of the upload.</p>"""
     signed_headers: NotRequired[

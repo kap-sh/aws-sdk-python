@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#OrganizationAggregationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class OrganizationAggregationSource(TypedDict):
+class OrganizationAggregationSource(TypedDict, closed=True):
     role_arn: "aws_sdk_config_service.types.string.String"
     """<p>ARN of the IAM role used to retrieve Amazon Web Services Organization details associated with the aggregator account.</p>"""
     aws_regions: NotRequired[

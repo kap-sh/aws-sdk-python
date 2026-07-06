@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ExportThemesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ExportThemesRequest(TypedDict):
+class ExportThemesRequest(TypedDict, closed=True):
     app_id: "str"
     """<p>The unique ID of the Amplify app to export the themes to.</p>"""
     environment_name: "str"

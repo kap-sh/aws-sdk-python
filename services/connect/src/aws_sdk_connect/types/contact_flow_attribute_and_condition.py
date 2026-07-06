@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactFlowAttributeAndCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_type_condition
     import aws_sdk_connect.types.tag_and_condition_list
 
 
-class ContactFlowAttributeAndCondition(TypedDict):
+class ContactFlowAttributeAndCondition(TypedDict, closed=True):
     tag_conditions: NotRequired[
         "aws_sdk_connect.types.tag_and_condition_list.TagAndConditionList"
     ]

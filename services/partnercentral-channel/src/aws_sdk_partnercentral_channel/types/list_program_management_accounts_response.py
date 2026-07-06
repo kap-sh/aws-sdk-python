@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ListProgramManagementAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.next_token
     import aws_sdk_partnercentral_channel.types.program_management_account_summaries
 
 
-class ListProgramManagementAccountsResponse(TypedDict):
+class ListProgramManagementAccountsResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_partnercentral_channel.types.program_management_account_summaries.ProgramManagementAccountSummaries"
     ]

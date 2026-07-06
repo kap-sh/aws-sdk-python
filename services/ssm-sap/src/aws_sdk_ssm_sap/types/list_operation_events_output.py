@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ListOperationEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.next_token
     import aws_sdk_ssm_sap.types.operation_event_list
 
 
-class ListOperationEventsOutput(TypedDict):
+class ListOperationEventsOutput(TypedDict, closed=True):
     operation_events: NotRequired[
         "aws_sdk_ssm_sap.types.operation_event_list.OperationEventList"
     ]

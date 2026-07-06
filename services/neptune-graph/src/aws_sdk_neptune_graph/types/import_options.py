@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ImportOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.neptune_import_options
 
 
-class _ImportOptions_neptune(TypedDict):
+class _ImportOptions_neptune(TypedDict, closed=True):
     neptune: "aws_sdk_neptune_graph.types.neptune_import_options.NeptuneImportOptions"
 
 

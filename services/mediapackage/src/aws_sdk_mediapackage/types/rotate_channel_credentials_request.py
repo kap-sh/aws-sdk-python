@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#RotateChannelCredentialsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
 
 
-class RotateChannelCredentialsRequest(TypedDict):
+class RotateChannelCredentialsRequest(TypedDict, closed=True):
     id: "aws_sdk_mediapackage.types.__string.__string"
     """The ID of the channel to update."""
 

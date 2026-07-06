@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.tag_map
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     arn: "aws_sdk_inspector2.types.filter_arn.FilterArn"
     """<p>The Amazon Resource Number (ARN) associated with this filter.</p>"""
     owner_id: "aws_sdk_inspector2.types.owner_id.OwnerId"

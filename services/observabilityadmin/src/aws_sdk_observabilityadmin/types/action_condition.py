@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ActionCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.action
 
 
-class ActionCondition(TypedDict):
+class ActionCondition(TypedDict, closed=True):
     action: NotRequired["aws_sdk_observabilityadmin.types.action.Action"]
     """<p> The WAF action to match against (ALLOW, BLOCK, COUNT, CAPTCHA, CHALLENGE, EXCLUDED_AS_COUNT). </p>"""
 

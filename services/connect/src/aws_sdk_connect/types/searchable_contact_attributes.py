@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchableContactAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.searchable_contact_attributes_criteria_list
 
 
-class SearchableContactAttributes(TypedDict):
+class SearchableContactAttributes(TypedDict, closed=True):
     criteria: "aws_sdk_connect.types.searchable_contact_attributes_criteria_list.SearchableContactAttributesCriteriaList"
     """<p>The list of criteria based on user-defined contact attributes that are configured for contact search.</p>"""
     match_type: NotRequired[

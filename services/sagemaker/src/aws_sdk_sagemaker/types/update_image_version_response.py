@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateImageVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.image_version_arn
 
 
-class UpdateImageVersionResponse(TypedDict):
+class UpdateImageVersionResponse(TypedDict, closed=True):
     image_version_arn: NotRequired[
         "aws_sdk_sagemaker.types.image_version_arn.ImageVersionArn"
     ]

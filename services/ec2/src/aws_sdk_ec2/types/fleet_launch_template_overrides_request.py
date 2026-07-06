@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#FleetLaunchTemplateOverridesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.subnet_id
 
 
-class FleetLaunchTemplateOverridesRequest(TypedDict):
+class FleetLaunchTemplateOverridesRequest(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
     """<p>The instance type.</p> <p> <code>mac1.metal</code> is not supported as a launch template override.</p> <note> <p>If you specify <code>InstanceType</code>, you can't specify <code>InstanceRequirements</code>.</p> </note>"""
     max_price: NotRequired["aws_sdk_ec2.types.string.String"]

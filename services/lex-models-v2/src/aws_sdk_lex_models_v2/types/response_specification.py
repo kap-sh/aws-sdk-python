@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ResponseSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.message_groups_list
 
 
-class ResponseSpecification(TypedDict):
+class ResponseSpecification(TypedDict, closed=True):
     message_groups: "aws_sdk_lex_models_v2.types.message_groups_list.MessageGroupsList"
     """<p>A collection of responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime.</p>"""
     allow_interrupt: NotRequired[

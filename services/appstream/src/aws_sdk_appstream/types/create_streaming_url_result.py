@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateStreamingURLResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.timestamp
 
 
-class CreateStreamingURLResult(TypedDict):
+class CreateStreamingURLResult(TypedDict, closed=True):
     streaming_url: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The URL to start the WorkSpaces Applications streaming session.</p>"""
     expires: NotRequired["aws_sdk_appstream.types.timestamp.Timestamp"]

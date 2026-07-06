@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#RegisterTargetWithMaintenanceWindowResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_target_id
 
 
-class RegisterTargetWithMaintenanceWindowResult(TypedDict):
+class RegisterTargetWithMaintenanceWindowResult(TypedDict, closed=True):
     window_target_id: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_target_id.MaintenanceWindowTargetId"
     ]

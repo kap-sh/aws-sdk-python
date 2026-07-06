@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultKendraDocumentLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultKendraDocumentLocation(TypedDict):
+class RetrievalResultKendraDocumentLocation(TypedDict, closed=True):
     uri: NotRequired["str"]
     """<p>The document's uri.</p>"""
 

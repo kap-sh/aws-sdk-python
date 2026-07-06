@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ConversationSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.conversation_id
 
 
-class ConversationSource(TypedDict):
+class ConversationSource(TypedDict, closed=True):
     conversation_id: "aws_sdk_qbusiness.types.conversation_id.ConversationId"
     """<p>The unique identifier of the Amazon Q Business conversation.</p>"""
     attachment_id: "aws_sdk_qbusiness.types.attachment_id.AttachmentId"

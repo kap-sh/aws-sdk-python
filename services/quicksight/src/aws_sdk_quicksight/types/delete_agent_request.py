@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteAgentRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAgentRequest(TypedDict):
+class DeleteAgentRequest(TypedDict, closed=True):
     agent_id: "str"
     """<p>The unique identifier for the agent to delete.</p>"""
     aws_account_id: "str"

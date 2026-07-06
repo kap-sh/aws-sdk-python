@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeSeriesCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.name
 
 
-class TimeSeriesCondition(TypedDict):
+class TimeSeriesCondition(TypedDict, closed=True):
     attribute_name: "aws_sdk_forecast.types.name.Name"
     """<p>The item_id, dimension name, IM name, or timestamp that you are modifying.</p>"""
     attribute_value: "aws_sdk_forecast.types.attribute_value.AttributeValue"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#FileInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_s3_access
 
 
-class FileInformation(TypedDict):
+class FileInformation(TypedDict, closed=True):
     total_parts: NotRequired["int"]
     """<p>The file's total parts.</p>"""
     part_size: NotRequired["int"]

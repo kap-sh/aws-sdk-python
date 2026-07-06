@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListTagsOfResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.next_token_string
     import aws_sdk_dynamodb.types.tag_list
 
 
-class ListTagsOfResourceOutput(TypedDict):
+class ListTagsOfResourceOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_dynamodb.types.tag_list.TagList"]
     """<p>The tags currently associated with the Amazon DynamoDB resource.</p>"""
     next_token: NotRequired["aws_sdk_dynamodb.types.next_token_string.NextTokenString"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ProviderUpdateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityhub.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.service_now_update_configuration
 
 
-class _ProviderUpdateConfiguration_JiraCloud(TypedDict):
+class _ProviderUpdateConfiguration_JiraCloud(TypedDict, closed=True):
     JiraCloud: "aws_sdk_securityhub.types.jira_cloud_update_configuration.JiraCloudUpdateConfiguration"
 
 
-class _ProviderUpdateConfiguration_ServiceNow(TypedDict):
+class _ProviderUpdateConfiguration_ServiceNow(TypedDict, closed=True):
     ServiceNow: "aws_sdk_securityhub.types.service_now_update_configuration.ServiceNowUpdateConfiguration"
 
 

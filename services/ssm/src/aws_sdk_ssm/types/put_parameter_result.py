@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PutParameterResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameter_tier
     import aws_sdk_ssm.types.ps_parameter_version
 
 
-class PutParameterResult(TypedDict):
+class PutParameterResult(TypedDict, closed=True):
     version: "aws_sdk_ssm.types.ps_parameter_version.PSParameterVersion"
     """<p>The new version number of a parameter. If you edit a parameter value, Parameter Store automatically creates a new version and assigns this new version a unique ID. You can reference a parameter version ID in API operations or in Systems Manager documents (SSM documents). By default, if you don't specify a specific version, the system returns the latest parameter value when a parameter is called.</p>"""
     tier: NotRequired["aws_sdk_ssm.types.parameter_tier.ParameterTier"]

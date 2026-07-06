@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchUpdatePartitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class BatchUpdatePartitionRequest(TypedDict):
+class BatchUpdatePartitionRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the catalog in which the partition is to be updated. Currently, this should be the Amazon Web Services account ID.</p>"""
     database_name: "aws_sdk_glue.types.name_string.NameString"

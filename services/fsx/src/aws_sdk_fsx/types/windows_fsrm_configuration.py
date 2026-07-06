@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#WindowsFsrmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.flag
     import aws_sdk_fsx.types.general_arn
 
 
-class WindowsFsrmConfiguration(TypedDict):
+class WindowsFsrmConfiguration(TypedDict, closed=True):
     fsrm_service_enabled: NotRequired["aws_sdk_fsx.types.flag.Flag"]
     """<p>Specifies whether FSRM is enabled or disabled on the file system. When <code>TRUE</code>, the FSRM service is enabled and monitor file operations according to configured policies. When <code>FALSE</code> or omitted, FSRM is disabled. The default value is <code>FALSE</code>. </p>"""
     event_log_destination: NotRequired["aws_sdk_fsx.types.general_arn.GeneralARN"]

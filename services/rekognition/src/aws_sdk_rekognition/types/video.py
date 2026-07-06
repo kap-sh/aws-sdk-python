@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Video``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_object
 
 
-class Video(TypedDict):
+class Video(TypedDict, closed=True):
     s3_object: NotRequired["aws_sdk_rekognition.types.s3_object.S3Object"]
     """<p>The Amazon S3 bucket name and file name for the video.</p>"""
 

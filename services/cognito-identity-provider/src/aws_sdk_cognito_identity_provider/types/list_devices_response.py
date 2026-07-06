@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListDevicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.device_list_type
     import aws_sdk_cognito_identity_provider.types.search_pagination_token_type
 
 
-class ListDevicesResponse(TypedDict):
+class ListDevicesResponse(TypedDict, closed=True):
     devices: NotRequired[
         "aws_sdk_cognito_identity_provider.types.device_list_type.DeviceListType"
     ]

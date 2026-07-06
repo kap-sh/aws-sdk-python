@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AssociateSourceGraphqlApiResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.source_api_association
 
 
-class AssociateSourceGraphqlApiResponse(TypedDict):
+class AssociateSourceGraphqlApiResponse(TypedDict, closed=True):
     source_api_association: NotRequired[
         "aws_sdk_appsync.types.source_api_association.SourceApiAssociation"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#FilterExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.values_map
 
 
-class FilterExpression(TypedDict):
+class FilterExpression(TypedDict, closed=True):
     expression: "aws_sdk_databrew.types.expression.Expression"
     r"""<p>The expression which includes condition names followed by substitution variables, possibly grouped and combined with other conditions. For example, \"(starts_with :prefix1 or starts_with :prefix2) and (ends_with :suffix1 or ends_with :suffix2)\". Substitution variables should start with ':' symbol.</p>"""
     values_map: "aws_sdk_databrew.types.values_map.ValuesMap"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeletePaymentCredentialProviderResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePaymentCredentialProviderResponse(TypedDict):
+class DeletePaymentCredentialProviderResponse(TypedDict, closed=True):
     pass
 
 

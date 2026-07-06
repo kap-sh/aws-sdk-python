@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateNetworkAnalyzerConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateNetworkAnalyzerConfigurationResponse(TypedDict):
+class UpdateNetworkAnalyzerConfigurationResponse(TypedDict, closed=True):
     pass
 
 

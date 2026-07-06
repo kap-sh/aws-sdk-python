@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Ac4Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min_negative1000_max3
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.ac4_stereo_downmix
 
 
-class Ac4Settings(TypedDict):
+class Ac4Settings(TypedDict, closed=True):
     bitrate: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min48000_max768000.__integerMin48000Max768000"
     ]

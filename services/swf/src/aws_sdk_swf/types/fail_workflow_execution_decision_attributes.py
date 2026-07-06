@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#FailWorkflowExecutionDecisionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.data
     import aws_sdk_swf.types.failure_reason
 
 
-class FailWorkflowExecutionDecisionAttributes(TypedDict):
+class FailWorkflowExecutionDecisionAttributes(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_swf.types.failure_reason.FailureReason"]
     """<p>A descriptive reason for the failure that may help in diagnostics.</p>"""
     details: NotRequired["aws_sdk_swf.types.data.Data"]

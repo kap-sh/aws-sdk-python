@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DeleteDomainNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class DeleteDomainNameRequest(TypedDict):
+class DeleteDomainNameRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The domain name.</p>"""
 

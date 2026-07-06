@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#RemoveApplicationInstanceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveApplicationInstanceResponse(TypedDict):
+class RemoveApplicationInstanceResponse(TypedDict, closed=True):
     pass
 
 

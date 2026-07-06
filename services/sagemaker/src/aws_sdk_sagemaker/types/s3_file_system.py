@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#S3FileSystem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_schema_uri
 
 
-class S3FileSystem(TypedDict):
+class S3FileSystem(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_schema_uri.S3SchemaUri"]
     """<p>The Amazon S3 URI that specifies the location in S3 where files are stored, which is mounted within the Studio environment. For example: <code>s3://&lt;bucket-name&gt;/&lt;prefix&gt;/</code>.</p>"""
 

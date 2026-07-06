@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#CountOpenWorkflowExecutionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_type_filter
 
 
-class CountOpenWorkflowExecutionsInput(TypedDict):
+class CountOpenWorkflowExecutionsInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The name of the domain containing the workflow executions to count.</p>"""
     start_time_filter: "aws_sdk_swf.types.execution_time_filter.ExecutionTimeFilter"

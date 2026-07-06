@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Authorizer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.authorizer_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class Authorizer(TypedDict):
+class Authorizer(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier for the authorizer resource.</p>"""
     name: NotRequired["aws_sdk_api_gateway.types.string.String"]

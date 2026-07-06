@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Permission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.access_controls
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.grantee_type
 
 
-class Permission(TypedDict):
+class Permission(TypedDict, closed=True):
     grantee_type: NotRequired[
         "aws_sdk_elastic_transcoder.types.grantee_type.GranteeType"
     ]

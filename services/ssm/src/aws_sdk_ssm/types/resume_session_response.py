@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResumeSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.token_value
 
 
-class ResumeSessionResponse(TypedDict):
+class ResumeSessionResponse(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_ssm.types.session_id.SessionId"]
     """<p>The ID of the session.</p>"""
     token_value: NotRequired["aws_sdk_ssm.types.token_value.TokenValue"]

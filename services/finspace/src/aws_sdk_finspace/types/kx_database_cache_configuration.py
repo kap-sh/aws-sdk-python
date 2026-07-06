@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxDatabaseCacheConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_dataview_name
 
 
-class KxDatabaseCacheConfiguration(TypedDict):
+class KxDatabaseCacheConfiguration(TypedDict, closed=True):
     cache_type: "aws_sdk_finspace.types.kx_cache_storage_type.KxCacheStorageType"
     """<p>The type of disk cache. This parameter is used to map the database path to cache storage. The valid values are:</p> <ul> <li> <p>CACHE_1000 – This type provides at least 1000 MB/s disk access throughput. </p> </li> </ul>"""
     db_paths: "aws_sdk_finspace.types.db_paths.DbPaths"

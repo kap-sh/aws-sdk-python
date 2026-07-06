@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ContinuationEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.eventstream import HeaderValue, Message
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 
-class ContinuationEvent(TypedDict):
+class ContinuationEvent(TypedDict, closed=True):
     pass
 
 

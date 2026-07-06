@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.integer
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["aws_sdk_appfabric.types.integer.Integer"]
     """<p>The period of time after which you should retry your request.</p>"""

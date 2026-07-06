@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyMigrationProjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.migration_project
 
 
-class ModifyMigrationProjectResponse(TypedDict):
+class ModifyMigrationProjectResponse(TypedDict, closed=True):
     migration_project: NotRequired[
         "aws_sdk_database_migration_service.types.migration_project.MigrationProject"
     ]

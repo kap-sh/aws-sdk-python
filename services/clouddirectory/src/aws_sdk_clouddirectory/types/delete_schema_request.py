@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DeleteSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class DeleteSchemaRequest(TypedDict):
+class DeleteSchemaRequest(TypedDict, closed=True):
     schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the development schema. For more information, see <a>arns</a>.</p>"""
 

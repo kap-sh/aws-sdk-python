@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_filters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_token
 
 
-class ListBotsRequest(TypedDict):
+class ListBotsRequest(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_lex_models_v2.types.bot_sort_by.BotSortBy"]
     """<p>Specifies sorting parameters for the list of bots. You can specify that the list be sorted by bot name in ascending or descending order.</p>"""
     filters: NotRequired["aws_sdk_lex_models_v2.types.bot_filters.BotFilters"]

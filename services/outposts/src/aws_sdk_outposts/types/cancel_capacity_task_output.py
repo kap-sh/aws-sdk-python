@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CancelCapacityTaskOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelCapacityTaskOutput(TypedDict):
+class CancelCapacityTaskOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Order``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.iso8601_timestamp
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.payment_term
 
 
-class Order(TypedDict):
+class Order(TypedDict, closed=True):
     outpost_id: NotRequired["aws_sdk_outposts.types.outpost_id_only.OutpostIdOnly"]
     """<p> The ID of the Outpost in the order. </p>"""
     order_id: NotRequired["aws_sdk_outposts.types.order_id.OrderId"]

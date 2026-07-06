@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#CreateHttpNamespaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.tag_list
 
 
-class CreateHttpNamespaceRequest(TypedDict):
+class CreateHttpNamespaceRequest(TypedDict, closed=True):
     name: "aws_sdk_servicediscovery.types.namespace_name_http.NamespaceNameHttp"
     """<p>The name that you want to assign to this namespace.</p>"""
     creator_request_id: NotRequired[

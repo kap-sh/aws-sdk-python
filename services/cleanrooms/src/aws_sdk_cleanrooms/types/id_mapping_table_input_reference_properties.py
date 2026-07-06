@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdMappingTableInputReferenceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_mapping_table_input_source_list
 
 
-class IdMappingTableInputReferenceProperties(TypedDict):
+class IdMappingTableInputReferenceProperties(TypedDict, closed=True):
     id_mapping_table_input_source: "aws_sdk_cleanrooms.types.id_mapping_table_input_source_list.IdMappingTableInputSourceList"
     """<p>The input source of the ID mapping table.</p>"""
 

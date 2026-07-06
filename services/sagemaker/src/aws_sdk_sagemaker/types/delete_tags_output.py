@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteTagsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTagsOutput(TypedDict):
+class DeleteTagsOutput(TypedDict, closed=True):
     pass
 
 

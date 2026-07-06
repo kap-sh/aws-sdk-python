@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListRestoreAccessBackupVaultsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_vault_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ListRestoreAccessBackupVaultsInput(TypedDict):
+class ListRestoreAccessBackupVaultsInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of the backup vault for which to list associated restore access backup vaults.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

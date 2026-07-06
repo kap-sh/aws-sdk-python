@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#VPCDerivedInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string_list
 
 
-class VPCDerivedInfo(TypedDict):
+class VPCDerivedInfo(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_opensearch.types.string.String"]
     """<p>The ID for your VPC. Amazon VPC generates this value when you create a VPC.</p>"""
     subnet_ids: NotRequired["aws_sdk_opensearch.types.string_list.StringList"]

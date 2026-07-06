@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#OpenSearchManagedClusterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.open_search_managed_cluster_index_name
 
 
-class OpenSearchManagedClusterConfiguration(TypedDict):
+class OpenSearchManagedClusterConfiguration(TypedDict, closed=True):
     domain_endpoint: "aws_sdk_bedrock_agent.types.open_search_managed_cluster_domain_endpoint.OpenSearchManagedClusterDomainEndpoint"
     """<p>The endpoint URL the OpenSearch domain.</p>"""
     domain_arn: "aws_sdk_bedrock_agent.types.open_search_managed_cluster_domain_arn.OpenSearchManagedClusterDomainArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#CreateSegmentEstimateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class CreateSegmentEstimateResponse(TypedDict):
+class CreateSegmentEstimateResponse(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>The unique name of the domain.</p>"""
     estimate_id: NotRequired[

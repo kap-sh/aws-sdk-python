@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_events_batch
 
 
-class EventsRequest(TypedDict):
+class EventsRequest(TypedDict, closed=True):
     batch_item: NotRequired[
         "aws_sdk_pinpoint.types.map_of_events_batch.MapOfEventsBatch"
     ]

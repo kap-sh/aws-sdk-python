@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListIdentityProviderConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.list_identity_provider_configs_request_max_results
     import aws_sdk_eks.types.string
 
 
-class ListIdentityProviderConfigsRequest(TypedDict):
+class ListIdentityProviderConfigsRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     max_results: NotRequired[

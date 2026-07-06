@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#DescribeObservationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_insights.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.observation_id
 
 
-class DescribeObservationRequest(TypedDict):
+class DescribeObservationRequest(TypedDict, closed=True):
     observation_id: "aws_sdk_application_insights.types.observation_id.ObservationId"
     """<p>The ID of the observation.</p>"""
     account_id: NotRequired["aws_sdk_application_insights.types.account_id.AccountId"]

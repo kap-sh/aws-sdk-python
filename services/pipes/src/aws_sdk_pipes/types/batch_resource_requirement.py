@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchResourceRequirement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_resource_requirement_type
 
 
-class BatchResourceRequirement(TypedDict):
+class BatchResourceRequirement(TypedDict, closed=True):
     type: "aws_sdk_pipes.types.batch_resource_requirement_type.BatchResourceRequirementType"
     """<p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>"""
     value: "str"

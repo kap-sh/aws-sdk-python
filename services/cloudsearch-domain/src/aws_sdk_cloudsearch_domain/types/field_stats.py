@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#FieldStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.double
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class FieldStats(TypedDict):
+class FieldStats(TypedDict, closed=True):
     min: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     r"""<p>The minimum value found in the specified field in the result set.</p> <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href=\"http://tools.ietf.org/html/rfc3339\">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>"""
     max: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]

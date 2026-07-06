@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#Tool``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.tool_specification
 
 
-class _Tool_toolSpec(TypedDict):
+class _Tool_toolSpec(TypedDict, closed=True):
     toolSpec: "aws_sdk_bedrock_agent.types.tool_specification.ToolSpecification"
 
 
-class _Tool_cachePoint(TypedDict):
+class _Tool_cachePoint(TypedDict, closed=True):
     cachePoint: "aws_sdk_bedrock_agent.types.cache_point_block.CachePointBlock"
 
 

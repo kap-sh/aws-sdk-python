@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#RecordsIngested``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.integer
 
 
-class RecordsIngested(TypedDict):
+class RecordsIngested(TypedDict, closed=True):
     total: "aws_sdk_timestream_write.types.integer.Integer"
     """<p>Total count of successfully ingested records.</p>"""
     memory_store: "aws_sdk_timestream_write.types.integer.Integer"

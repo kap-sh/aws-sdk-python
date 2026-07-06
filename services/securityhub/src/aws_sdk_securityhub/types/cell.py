@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Cell``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.long
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class Cell(TypedDict):
+class Cell(TypedDict, closed=True):
     column: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p>The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.</p>"""
     row: NotRequired["aws_sdk_securityhub.types.long.Long"]

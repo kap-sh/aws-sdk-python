@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#LoggingConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     log_group_name: "str"
     """<p>The name of the CloudWatch log group where workflow execution logs are stored.</p>"""
 

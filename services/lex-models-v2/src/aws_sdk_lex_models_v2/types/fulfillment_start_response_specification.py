@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#FulfillmentStartResponseSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.message_groups_list
 
 
-class FulfillmentStartResponseSpecification(TypedDict):
+class FulfillmentStartResponseSpecification(TypedDict, closed=True):
     delay_in_seconds: "aws_sdk_lex_models_v2.types.fulfillment_start_response_delay.FulfillmentStartResponseDelay"
     """<p>The delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.</p>"""
     message_groups: "aws_sdk_lex_models_v2.types.message_groups_list.MessageGroupsList"

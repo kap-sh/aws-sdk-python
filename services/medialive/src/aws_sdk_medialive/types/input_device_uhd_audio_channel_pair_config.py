@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputDeviceUhdAudioChannelPairConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
     import aws_sdk_medialive.types.input_device_uhd_audio_channel_pair_profile
 
 
-class InputDeviceUhdAudioChannelPairConfig(TypedDict):
+class InputDeviceUhdAudioChannelPairConfig(TypedDict, closed=True):
     id: NotRequired["aws_sdk_medialive.types.__integer.__integer"]
     """The ID for one audio pair configuration, a value from 1 to 8."""
     profile: NotRequired[

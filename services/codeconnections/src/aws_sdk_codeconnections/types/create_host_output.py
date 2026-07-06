@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#CreateHostOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.host_arn
     import aws_sdk_codeconnections.types.tag_list
 
 
-class CreateHostOutput(TypedDict):
+class CreateHostOutput(TypedDict, closed=True):
     host_arn: NotRequired["aws_sdk_codeconnections.types.host_arn.HostArn"]
     """<p>The Amazon Resource Name (ARN) of the host to be created.</p>"""
     tags: NotRequired["aws_sdk_codeconnections.types.tag_list.TagList"]

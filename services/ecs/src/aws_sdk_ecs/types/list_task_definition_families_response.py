@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListTaskDefinitionFamiliesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
     import aws_sdk_ecs.types.string_list
 
 
-class ListTaskDefinitionFamiliesResponse(TypedDict):
+class ListTaskDefinitionFamiliesResponse(TypedDict, closed=True):
     families: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The list of task definition family names that match the <code>ListTaskDefinitionFamilies</code> request.</p>"""
     next_token: NotRequired["aws_sdk_ecs.types.string.String"]

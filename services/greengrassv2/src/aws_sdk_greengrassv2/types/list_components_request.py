@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListComponentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_visibility_scope
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.next_token_string
 
 
-class ListComponentsRequest(TypedDict):
+class ListComponentsRequest(TypedDict, closed=True):
     scope: NotRequired[
         "aws_sdk_greengrassv2.types.component_visibility_scope.ComponentVisibilityScope"
     ]

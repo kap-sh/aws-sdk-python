@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#ResourceConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResourceConfig(TypedDict):
+class ResourceConfig(TypedDict, closed=True):
     pass
 
 

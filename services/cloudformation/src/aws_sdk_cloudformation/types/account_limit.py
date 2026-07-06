@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#AccountLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.limit_value
 
 
-class AccountLimit(TypedDict):
+class AccountLimit(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudformation.types.limit_name.LimitName"]
     """<p>The name of the account limit.</p> <p>Values: <code>ConcurrentResourcesLimit</code> | <code>StackLimit</code> | <code>StackOutputsLimit</code> </p>"""
     value: NotRequired["aws_sdk_cloudformation.types.limit_value.LimitValue"]

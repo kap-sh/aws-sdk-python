@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RejectPredictionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_identifier
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class RejectPredictionsInput(TypedDict):
+class RejectPredictionsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain.</p>"""
     identifier: "aws_sdk_datazone.types.asset_identifier.AssetIdentifier"

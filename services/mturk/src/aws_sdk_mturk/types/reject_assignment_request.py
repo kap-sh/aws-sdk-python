@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#RejectAssignmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class RejectAssignmentRequest(TypedDict):
+class RejectAssignmentRequest(TypedDict, closed=True):
     assignment_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p> The ID of the assignment. The assignment must correspond to a HIT created by the Requester. </p>"""
     requester_feedback: "aws_sdk_mturk.types.string.String"

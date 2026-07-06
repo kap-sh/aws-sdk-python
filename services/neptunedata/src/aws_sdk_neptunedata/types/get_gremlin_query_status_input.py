@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetGremlinQueryStatusInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetGremlinQueryStatusInput(TypedDict):
+class GetGremlinQueryStatusInput(TypedDict, closed=True):
     query_id: "str"
     """<p>The unique identifier that identifies the Gremlin query.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeSubnetGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
     import aws_sdk_memorydb.types.string
 
 
-class DescribeSubnetGroupsRequest(TypedDict):
+class DescribeSubnetGroupsRequest(TypedDict, closed=True):
     subnet_group_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the subnet group to return details for.</p>"""
     max_results: NotRequired["aws_sdk_memorydb.types.integer_optional.IntegerOptional"]

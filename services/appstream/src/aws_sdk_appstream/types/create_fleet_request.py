@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.arn
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.vpc_config
 
 
-class CreateFleetRequest(TypedDict):
+class CreateFleetRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>A unique name for the fleet.</p>"""
     image_name: NotRequired["aws_sdk_appstream.types.name.Name"]

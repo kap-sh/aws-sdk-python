@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#BatchJobIdentifier``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -11,25 +13,25 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.script_batch_job_identifier
 
 
-class _BatchJobIdentifier_fileBatchJobIdentifier(TypedDict):
+class _BatchJobIdentifier_fileBatchJobIdentifier(TypedDict, closed=True):
     fileBatchJobIdentifier: (
         "aws_sdk_m2.types.file_batch_job_identifier.FileBatchJobIdentifier"
     )
 
 
-class _BatchJobIdentifier_scriptBatchJobIdentifier(TypedDict):
+class _BatchJobIdentifier_scriptBatchJobIdentifier(TypedDict, closed=True):
     scriptBatchJobIdentifier: (
         "aws_sdk_m2.types.script_batch_job_identifier.ScriptBatchJobIdentifier"
     )
 
 
-class _BatchJobIdentifier_s3BatchJobIdentifier(TypedDict):
+class _BatchJobIdentifier_s3BatchJobIdentifier(TypedDict, closed=True):
     s3BatchJobIdentifier: (
         "aws_sdk_m2.types.s3_batch_job_identifier.S3BatchJobIdentifier"
     )
 
 
-class _BatchJobIdentifier_restartBatchJobIdentifier(TypedDict):
+class _BatchJobIdentifier_restartBatchJobIdentifier(TypedDict, closed=True):
     restartBatchJobIdentifier: (
         "aws_sdk_m2.types.restart_batch_job_identifier.RestartBatchJobIdentifier"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ServerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.integer
     import aws_sdk_migrationhubstrategy.types.server_os_type
 
 
-class ServerSummary(TypedDict):
+class ServerSummary(TypedDict, closed=True):
     server_os_type: NotRequired[
         "aws_sdk_migrationhubstrategy.types.server_os_type.ServerOsType"
     ]

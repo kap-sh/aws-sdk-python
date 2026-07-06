@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConfluenceSpaceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.confluence_space_list
 
 
-class ConfluenceSpaceConfiguration(TypedDict):
+class ConfluenceSpaceConfiguration(TypedDict, closed=True):
     crawl_personal_spaces: "aws_sdk_kendra.types.boolean.Boolean"
     r"""<p> <code>TRUE</code> to index personal spaces. You can add restrictions to items in personal spaces. If personal spaces are indexed, queries without user context information may return restricted items from a personal space in their results. For more information, see <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html\">Filtering on user context</a>.</p>"""
     crawl_archived_spaces: "aws_sdk_kendra.types.boolean.Boolean"

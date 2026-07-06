@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MediaAnalysisOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_bucket
 
 
-class MediaAnalysisOutputConfig(TypedDict):
+class MediaAnalysisOutputConfig(TypedDict, closed=True):
     s3_bucket: "aws_sdk_rekognition.types.s3_bucket.S3Bucket"
     """<p>Specifies the Amazon S3 bucket to contain the output of the media analysis job.</p>"""
     s3_key_prefix: NotRequired[

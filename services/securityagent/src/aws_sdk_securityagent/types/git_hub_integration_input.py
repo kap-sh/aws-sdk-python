@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#GitHubIntegrationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.csrf_state
 
 
-class GitHubIntegrationInput(TypedDict):
+class GitHubIntegrationInput(TypedDict, closed=True):
     code: "aws_sdk_securityagent.types.auth_code.AuthCode"
     """<p>The OAuth authorization code received from GitHub.</p>"""
     state: "aws_sdk_securityagent.types.csrf_state.CsrfState"

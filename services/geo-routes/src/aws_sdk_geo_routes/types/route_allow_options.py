@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteAllowOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_boolean
 
 
-class RouteAllowOptions(TypedDict):
+class RouteAllowOptions(TypedDict, closed=True):
     hot: NotRequired["aws_sdk_geo_routes.types.sensitive_boolean.SensitiveBoolean"]
     """<p>Allow Hot (High Occupancy Toll) lanes while calculating the route.</p> <p>Default value: <code>false</code> </p>"""
     hov: NotRequired["aws_sdk_geo_routes.types.sensitive_boolean.SensitiveBoolean"]

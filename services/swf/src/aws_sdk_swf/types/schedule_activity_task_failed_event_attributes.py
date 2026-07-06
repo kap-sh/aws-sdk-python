@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ScheduleActivityTaskFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.schedule_activity_task_failed_cause
 
 
-class ScheduleActivityTaskFailedEventAttributes(TypedDict):
+class ScheduleActivityTaskFailedEventAttributes(TypedDict, closed=True):
     activity_type: "aws_sdk_swf.types.activity_type.ActivityType"
     """<p>The activity type provided in the <code>ScheduleActivityTask</code> decision that failed.</p>"""
     activity_id: "aws_sdk_swf.types.activity_id.ActivityId"

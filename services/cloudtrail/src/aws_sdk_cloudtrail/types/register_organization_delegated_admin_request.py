@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#RegisterOrganizationDelegatedAdminRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.account_id
 
 
-class RegisterOrganizationDelegatedAdminRequest(TypedDict):
+class RegisterOrganizationDelegatedAdminRequest(TypedDict, closed=True):
     member_account_id: "aws_sdk_cloudtrail.types.account_id.AccountId"
     """<p>An organization member account ID that you want to designate as a delegated administrator.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#GetDetectorModelAnalysisResultsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.analysis_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.next_token
 
 
-class GetDetectorModelAnalysisResultsRequest(TypedDict):
+class GetDetectorModelAnalysisResultsRequest(TypedDict, closed=True):
     analysis_id: "aws_sdk_iot_events.types.analysis_id.AnalysisId"
     """<p>The ID of the analysis result that you want to retrieve.</p>"""
     next_token: NotRequired["aws_sdk_iot_events.types.next_token.NextToken"]

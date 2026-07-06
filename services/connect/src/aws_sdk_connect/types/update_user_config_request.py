@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateUserConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.after_contact_work_configs
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.voice_enhancement_configs
 
 
-class UpdateUserConfigRequest(TypedDict):
+class UpdateUserConfigRequest(TypedDict, closed=True):
     auto_accept_configs: NotRequired[
         "aws_sdk_connect.types.auto_accept_configs.AutoAcceptConfigs"
     ]

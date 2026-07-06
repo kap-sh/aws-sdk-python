@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#MuteTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.mute_target_alarm_name_list
 
 
-class MuteTargets(TypedDict):
+class MuteTargets(TypedDict, closed=True):
     alarm_names: NotRequired[
         "aws_sdk_cloudwatch.types.mute_target_alarm_name_list.MuteTargetAlarmNameList"
     ]

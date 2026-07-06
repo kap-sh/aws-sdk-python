@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#WebCrawlerLimits``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WebCrawlerLimits(TypedDict):
+class WebCrawlerLimits(TypedDict, closed=True):
     rate_limit: NotRequired["int"]
     """<p>The max rate at which pages are crawled, up to 300 per minute per host.</p>"""
     max_pages: NotRequired["int"]

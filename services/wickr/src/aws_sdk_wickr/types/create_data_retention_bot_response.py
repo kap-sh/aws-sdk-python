@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CreateDataRetentionBotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class CreateDataRetentionBotResponse(TypedDict):
+class CreateDataRetentionBotResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>A message indicating that the data retention bot was successfully provisioned.</p>"""
 

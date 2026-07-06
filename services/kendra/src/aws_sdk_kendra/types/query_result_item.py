@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#QueryResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.additional_result_attribute_list
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class QueryResultItem(TypedDict):
+class QueryResultItem(TypedDict, closed=True):
     id: NotRequired["aws_sdk_kendra.types.result_id.ResultId"]
     """<p>The unique identifier for the query result item id (<code>Id</code>) and the query result item document id (<code>DocumentId</code>) combined. The value of this field changes with every request, even when you have the same documents.</p>"""
     type: NotRequired["aws_sdk_kendra.types.query_result_type.QueryResultType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#RecommenderSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class RecommenderSummary(TypedDict):
+class RecommenderSummary(TypedDict, closed=True):
     recommender_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>The name of the recommender.</p>"""
     recipe_name: NotRequired[

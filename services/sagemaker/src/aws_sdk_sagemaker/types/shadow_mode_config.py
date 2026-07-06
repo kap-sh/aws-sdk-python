@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ShadowModeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_variant_name
     import aws_sdk_sagemaker.types.shadow_model_variant_config_list
 
 
-class ShadowModeConfig(TypedDict):
+class ShadowModeConfig(TypedDict, closed=True):
     source_model_variant_name: NotRequired[
         "aws_sdk_sagemaker.types.model_variant_name.ModelVariantName"
     ]

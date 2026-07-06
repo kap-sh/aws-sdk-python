@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListPolicyTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.max_items_type
 
 
-class ListPolicyTagsRequest(TypedDict):
+class ListPolicyTagsRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The ARN of the IAM customer managed policy whose tags you want to see.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]

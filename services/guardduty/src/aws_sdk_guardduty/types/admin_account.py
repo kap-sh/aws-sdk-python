@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AdminAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.admin_status
     import aws_sdk_guardduty.types.string
 
 
-class AdminAccount(TypedDict):
+class AdminAccount(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Web Services account ID for the account.</p>"""
     admin_status: NotRequired["aws_sdk_guardduty.types.admin_status.AdminStatus"]

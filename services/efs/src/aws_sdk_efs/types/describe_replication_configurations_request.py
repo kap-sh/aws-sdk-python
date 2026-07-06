@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeReplicationConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.token
 
 
-class DescribeReplicationConfigurationsRequest(TypedDict):
+class DescribeReplicationConfigurationsRequest(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_efs.types.file_system_id.FileSystemId"]
     """<p>You can retrieve the replication configuration for a specific file system by providing its file system ID. For cross-account,cross-region replication, an account can only describe the replication configuration for a file system in its own Region.</p>"""
     next_token: NotRequired["aws_sdk_efs.types.token.Token"]

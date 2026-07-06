@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservicedata#Group``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service_data.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service_data.types.sid
 
 
-class Group(TypedDict):
+class Group(TypedDict, closed=True):
     sid: NotRequired["aws_sdk_directory_service_data.types.sid.SID"]
     """<p> The unique security identifier (SID) of the group. </p>"""
     sam_account_name: "aws_sdk_directory_service_data.types.group_name.GroupName"

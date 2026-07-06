@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeCreateCaseOptionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.communication_type_options_list
     import aws_sdk_support.types.validated_language_availability
 
 
-class DescribeCreateCaseOptionsResponse(TypedDict):
+class DescribeCreateCaseOptionsResponse(TypedDict, closed=True):
     language_availability: NotRequired[
         "aws_sdk_support.types.validated_language_availability.ValidatedLanguageAvailability"
     ]

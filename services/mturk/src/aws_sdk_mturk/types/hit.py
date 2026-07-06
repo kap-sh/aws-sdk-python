@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#HIT``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.currency_amount
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.timestamp
 
 
-class HIT(TypedDict):
+class HIT(TypedDict, closed=True):
     hit_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]
     """<p> A unique identifier for the HIT.</p>"""
     hit_type_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]

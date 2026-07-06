@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessTrustProviderCondensed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_trust_provider_type
 
 
-class VerifiedAccessTrustProviderCondensed(TypedDict):
+class VerifiedAccessTrustProviderCondensed(TypedDict, closed=True):
     verified_access_trust_provider_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the trust provider.</p>"""
     description: NotRequired["aws_sdk_ec2.types.string.String"]

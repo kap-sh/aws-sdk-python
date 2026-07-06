@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DebugHookConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.collection_configurations
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class DebugHookConfig(TypedDict):
+class DebugHookConfig(TypedDict, closed=True):
     local_path: NotRequired["aws_sdk_sagemaker.types.directory_path.DirectoryPath"]
     """<p>Path to local storage location for metrics and tensors. Defaults to <code>/opt/ml/output/tensors/</code>.</p>"""
     s3_output_path: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]

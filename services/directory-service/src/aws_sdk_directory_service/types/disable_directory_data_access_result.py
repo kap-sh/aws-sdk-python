@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DisableDirectoryDataAccessResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableDirectoryDataAccessResult(TypedDict):
+class DisableDirectoryDataAccessResult(TypedDict, closed=True):
     pass
 
 

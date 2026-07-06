@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetSamplingTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.sampling_statistics_document_list
 
 
-class GetSamplingTargetsRequest(TypedDict):
+class GetSamplingTargetsRequest(TypedDict, closed=True):
     sampling_statistics_documents: "aws_sdk_xray.types.sampling_statistics_document_list.SamplingStatisticsDocumentList"
     """<p>Information about rules that the service is using to sample requests.</p>"""
     sampling_boost_statistics_documents: NotRequired[

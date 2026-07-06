@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#DiscoveredResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.aws_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_type
 
 
-class DiscoveredResource(TypedDict):
+class DiscoveredResource(TypedDict, closed=True):
     uri: NotRequired["aws_sdk_fms.types.identifier.Identifier"]
     """<p>The universal resource identifier (URI) of the discovered resource.</p>"""
     account_id: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]

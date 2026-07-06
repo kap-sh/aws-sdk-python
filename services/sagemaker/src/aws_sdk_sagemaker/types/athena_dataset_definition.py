@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AthenaDatasetDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.athena_catalog
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class AthenaDatasetDefinition(TypedDict):
+class AthenaDatasetDefinition(TypedDict, closed=True):
     catalog: NotRequired["aws_sdk_sagemaker.types.athena_catalog.AthenaCatalog"]
     database: NotRequired["aws_sdk_sagemaker.types.athena_database.AthenaDatabase"]
     query_string: NotRequired[

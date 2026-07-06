@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.human_evaluation_config
 
 
-class _EvaluationConfig_automated(TypedDict):
+class _EvaluationConfig_automated(TypedDict, closed=True):
     automated: (
         "aws_sdk_bedrock.types.automated_evaluation_config.AutomatedEvaluationConfig"
     )
 
 
-class _EvaluationConfig_human(TypedDict):
+class _EvaluationConfig_human(TypedDict, closed=True):
     human: "aws_sdk_bedrock.types.human_evaluation_config.HumanEvaluationConfig"
 
 

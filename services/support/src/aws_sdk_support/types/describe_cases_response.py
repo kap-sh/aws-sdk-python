@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeCasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.case_list
     import aws_sdk_support.types.next_token
 
 
-class DescribeCasesResponse(TypedDict):
+class DescribeCasesResponse(TypedDict, closed=True):
     cases: NotRequired["aws_sdk_support.types.case_list.CaseList"]
     """<p>The details for the cases that match the request.</p>"""
     next_token: NotRequired["aws_sdk_support.types.next_token.NextToken"]

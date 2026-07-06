@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.description
     import aws_sdk_workspaces.types.workspace_image_error_detail_code
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_workspaces.types.workspace_image_error_detail_code.WorkspaceImageErrorDetailCode"
     ]

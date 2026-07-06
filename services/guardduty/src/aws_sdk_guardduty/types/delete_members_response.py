@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DeleteMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.unprocessed_accounts
 
 
-class DeleteMembersResponse(TypedDict):
+class DeleteMembersResponse(TypedDict, closed=True):
     unprocessed_accounts: NotRequired[
         "aws_sdk_guardduty.types.unprocessed_accounts.UnprocessedAccounts"
     ]

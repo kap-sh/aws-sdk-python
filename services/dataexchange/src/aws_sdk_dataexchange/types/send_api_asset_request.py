@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#SendApiAssetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
     import aws_sdk_dataexchange.types.map_of__string
 
 
-class SendApiAssetRequest(TypedDict):
+class SendApiAssetRequest(TypedDict, closed=True):
     body: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The request body.</p>"""
     query_string_parameters: NotRequired[

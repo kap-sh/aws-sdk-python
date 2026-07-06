@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ListTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.next_token
 
 
-class ListTemplatesRequest(TypedDict):
+class ListTemplatesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ses.types.next_token.NextToken"]
     """<p>A token returned from a previous call to <code>ListTemplates</code> to indicate the position in the list of email templates.</p>"""
     max_items: NotRequired["aws_sdk_ses.types.max_items.MaxItems"]

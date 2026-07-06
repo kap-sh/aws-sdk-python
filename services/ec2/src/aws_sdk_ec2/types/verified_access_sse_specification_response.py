@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessSseSpecificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.kms_key_arn
 
 
-class VerifiedAccessSseSpecificationResponse(TypedDict):
+class VerifiedAccessSseSpecificationResponse(TypedDict, closed=True):
     customer_managed_key_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether customer managed KMS keys are in use for server side encryption.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>"""
     kms_key_arn: NotRequired["aws_sdk_ec2.types.kms_key_arn.KmsKeyArn"]

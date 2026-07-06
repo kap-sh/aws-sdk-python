@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetInvocationStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.invocation_step
 
 
-class GetInvocationStepResponse(TypedDict):
+class GetInvocationStepResponse(TypedDict, closed=True):
     invocation_step: (
         "aws_sdk_bedrock_agent_runtime.types.invocation_step.InvocationStep"
     )

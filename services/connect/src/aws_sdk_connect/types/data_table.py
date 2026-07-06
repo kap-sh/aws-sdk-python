@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DataTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class DataTable(TypedDict):
+class DataTable(TypedDict, closed=True):
     name: "aws_sdk_connect.types.data_table_name.DataTableName"
     """<p>The human-readable name of the data table. Must be unique within the instance and conform to Connect naming standards.</p>"""
     id: "aws_sdk_connect.types.data_table_id.DataTableId"

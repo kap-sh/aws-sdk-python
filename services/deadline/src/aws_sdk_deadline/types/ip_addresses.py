@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#IpAddresses``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.ip_v4_addresses
     import aws_sdk_deadline.types.ip_v6_addresses
 
 
-class IpAddresses(TypedDict):
+class IpAddresses(TypedDict, closed=True):
     ip_v4_addresses: NotRequired["aws_sdk_deadline.types.ip_v4_addresses.IpV4Addresses"]
     """<p>The IpV4 address of the network.</p>"""
     ip_v6_addresses: NotRequired["aws_sdk_deadline.types.ip_v6_addresses.IpV6Addresses"]

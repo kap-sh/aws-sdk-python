@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CancelMulticastGroupSessionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelMulticastGroupSessionResponse(TypedDict):
+class CancelMulticastGroupSessionResponse(TypedDict, closed=True):
     pass
 
 

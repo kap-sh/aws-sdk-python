@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#HttpUrlDestinationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.url
 
 
-class HttpUrlDestinationSummary(TypedDict):
+class HttpUrlDestinationSummary(TypedDict, closed=True):
     confirmation_url: NotRequired["aws_sdk_iot.types.url.Url"]
     """<p>The URL used to confirm ownership of or access to the HTTP topic rule destination URL.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourceScopes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_organization_scope_list
 
 
-class ResourceScopes(TypedDict):
+class ResourceScopes(TypedDict, closed=True):
     aws_organizations: NotRequired[
         "aws_sdk_securityhub.types.aws_organization_scope_list.AwsOrganizationScopeList"
     ]

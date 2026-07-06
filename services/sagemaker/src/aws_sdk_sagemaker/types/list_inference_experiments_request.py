@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListInferenceExperimentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_experiment_status
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListInferenceExperimentsRequest(TypedDict):
+class ListInferenceExperimentsRequest(TypedDict, closed=True):
     name_contains: NotRequired["aws_sdk_sagemaker.types.name_contains.NameContains"]
     """<p>Selects inference experiments whose names contain this name.</p>"""
     type: NotRequired[

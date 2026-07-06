@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Edge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.alias_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class Edge(TypedDict):
+class Edge(TypedDict, closed=True):
     reference_id: NotRequired["aws_sdk_xray.types.nullable_integer.NullableInteger"]
     """<p>Identifier of the edge. Unique within a service map.</p>"""
     start_time: NotRequired["aws_sdk_xray.types.timestamp.Timestamp"]

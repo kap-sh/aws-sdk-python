@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessingStopSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.max_duration_in_seconds_u_long
 
 
-class StreamProcessingStopSelector(TypedDict):
+class StreamProcessingStopSelector(TypedDict, closed=True):
     max_duration_in_seconds: NotRequired[
         "aws_sdk_rekognition.types.max_duration_in_seconds_u_long.MaxDurationInSecondsULong"
     ]

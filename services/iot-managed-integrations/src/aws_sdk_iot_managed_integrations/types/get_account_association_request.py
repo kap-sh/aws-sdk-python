@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetAccountAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.account_association_id
 
 
-class GetAccountAssociationRequest(TypedDict):
+class GetAccountAssociationRequest(TypedDict, closed=True):
     account_association_id: "aws_sdk_iot_managed_integrations.types.account_association_id.AccountAssociationId"
     """<p>The unique identifier of the account association to retrieve.</p>"""
 

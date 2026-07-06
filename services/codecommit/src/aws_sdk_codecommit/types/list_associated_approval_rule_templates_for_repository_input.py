@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListAssociatedApprovalRuleTemplatesForRepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class ListAssociatedApprovalRuleTemplatesForRepositoryInput(TypedDict):
+class ListAssociatedApprovalRuleTemplatesForRepositoryInput(TypedDict, closed=True):
     repository_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"
     """<p>The name of the repository for which you want to list all associated approval rule templates.</p>"""
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]

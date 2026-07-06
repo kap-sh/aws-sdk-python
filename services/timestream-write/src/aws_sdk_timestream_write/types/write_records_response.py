@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#WriteRecordsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.records_ingested
 
 
-class WriteRecordsResponse(TypedDict):
+class WriteRecordsResponse(TypedDict, closed=True):
     records_ingested: NotRequired[
         "aws_sdk_timestream_write.types.records_ingested.RecordsIngested"
     ]

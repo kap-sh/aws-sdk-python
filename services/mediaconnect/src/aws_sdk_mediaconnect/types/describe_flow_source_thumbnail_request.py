@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DescribeFlowSourceThumbnailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.flow_arn
 
 
-class DescribeFlowSourceThumbnailRequest(TypedDict):
+class DescribeFlowSourceThumbnailRequest(TypedDict, closed=True):
     flow_arn: "aws_sdk_mediaconnect.types.flow_arn.FlowArn"
     """<p> The Amazon Resource Name (ARN) of the flow.</p>"""
 

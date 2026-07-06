@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#GetTemplateGroupAccessControlEntryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.access_control_entry
 
 
-class GetTemplateGroupAccessControlEntryResponse(TypedDict):
+class GetTemplateGroupAccessControlEntryResponse(TypedDict, closed=True):
     access_control_entry: NotRequired[
         "aws_sdk_pca_connector_ad.types.access_control_entry.AccessControlEntry"
     ]

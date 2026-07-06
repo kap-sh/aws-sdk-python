@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#CreateConfigurationTemplateMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.tags
 
 
-class CreateConfigurationTemplateMessage(TypedDict):
+class CreateConfigurationTemplateMessage(TypedDict, closed=True):
     application_name: "aws_sdk_elastic_beanstalk.types.application_name.ApplicationName"
     """<p>The name of the Elastic Beanstalk application to associate with this configuration template.</p>"""
     template_name: "aws_sdk_elastic_beanstalk.types.configuration_template_name.ConfigurationTemplateName"

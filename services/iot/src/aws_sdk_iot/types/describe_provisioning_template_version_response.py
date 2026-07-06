@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeProvisioningTemplateVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.date_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.template_version_id
 
 
-class DescribeProvisioningTemplateVersionResponse(TypedDict):
+class DescribeProvisioningTemplateVersionResponse(TypedDict, closed=True):
     version_id: NotRequired["aws_sdk_iot.types.template_version_id.TemplateVersionId"]
     """<p>The provisioning template version ID.</p>"""
     creation_date: NotRequired["aws_sdk_iot.types.date_type.DateType"]

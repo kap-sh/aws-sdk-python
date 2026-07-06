@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CORSRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.max_age_seconds
 
 
-class CORSRule(TypedDict):
+class CORSRule(TypedDict, closed=True):
     id: NotRequired["aws_sdk_s3.types.id.ID"]
     """<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>"""
     allowed_headers: NotRequired["aws_sdk_s3.types.allowed_headers.AllowedHeaders"]

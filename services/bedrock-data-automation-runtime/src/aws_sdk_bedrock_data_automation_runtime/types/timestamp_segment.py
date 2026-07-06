@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#TimestampSegment``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation_runtime.errors import DeserializationError
 
 
-class TimestampSegment(TypedDict):
+class TimestampSegment(TypedDict, closed=True):
     start_time_millis: "int"
     """Start timestamp in milliseconds"""
     end_time_millis: "int"

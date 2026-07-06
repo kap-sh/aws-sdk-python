@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#AuditImage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.bounding_box
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.s3_object
 
 
-class AuditImage(TypedDict):
+class AuditImage(TypedDict, closed=True):
     bytes: NotRequired[
         "aws_sdk_rekognition.types.liveness_image_blob.LivenessImageBlob"
     ]

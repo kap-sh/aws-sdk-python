@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UnprocessedPreparedStatementName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.statement_name
 
 
-class UnprocessedPreparedStatementName(TypedDict):
+class UnprocessedPreparedStatementName(TypedDict, closed=True):
     statement_name: NotRequired["aws_sdk_athena.types.statement_name.StatementName"]
     """<p>The name of a prepared statement that could not be returned due to an error.</p>"""
     error_code: NotRequired["aws_sdk_athena.types.error_code.ErrorCode"]

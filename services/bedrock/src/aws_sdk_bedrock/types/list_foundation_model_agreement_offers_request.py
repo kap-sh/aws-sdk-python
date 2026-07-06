@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListFoundationModelAgreementOffersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.bedrock_model_id
     import aws_sdk_bedrock.types.offer_type
 
 
-class ListFoundationModelAgreementOffersRequest(TypedDict):
+class ListFoundationModelAgreementOffersRequest(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock.types.bedrock_model_id.BedrockModelId"
     """<p>Model Id of the foundation model.</p>"""
     offer_type: NotRequired["aws_sdk_bedrock.types.offer_type.OfferType"]

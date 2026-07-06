@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetTimeSeriesDataPointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.time_series_form_name
 
 
-class GetTimeSeriesDataPointInput(TypedDict):
+class GetTimeSeriesDataPointInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain that houses the asset for which you want to get the data point.</p>"""
     entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier"

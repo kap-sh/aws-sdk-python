@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListActionConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class ListActionConnectorsResponse(TypedDict):
+class ListActionConnectorsResponse(TypedDict, closed=True):
     action_connector_summaries: "aws_sdk_quicksight.types.action_connector_summary_list.ActionConnectorSummaryList"
     """<p>A list of action connector summaries containing basic information about each connector.</p>"""
     next_token: NotRequired["str"]

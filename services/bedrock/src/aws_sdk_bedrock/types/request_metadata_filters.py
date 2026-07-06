@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RequestMetadataFilters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,21 +11,21 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.request_metadata_map
 
 
-class _RequestMetadataFilters_equals(TypedDict):
+class _RequestMetadataFilters_equals(TypedDict, closed=True):
     equals: "aws_sdk_bedrock.types.request_metadata_map.RequestMetadataMap"
 
 
-class _RequestMetadataFilters_notEquals(TypedDict):
+class _RequestMetadataFilters_notEquals(TypedDict, closed=True):
     notEquals: "aws_sdk_bedrock.types.request_metadata_map.RequestMetadataMap"
 
 
-class _RequestMetadataFilters_andAll(TypedDict):
+class _RequestMetadataFilters_andAll(TypedDict, closed=True):
     andAll: (
         "aws_sdk_bedrock.types.request_metadata_filters_list.RequestMetadataFiltersList"
     )
 
 
-class _RequestMetadataFilters_orAll(TypedDict):
+class _RequestMetadataFilters_orAll(TypedDict, closed=True):
     orAll: (
         "aws_sdk_bedrock.types.request_metadata_filters_list.RequestMetadataFiltersList"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedEvaluationCustomMetricSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_metric_definition
 
 
-class _AutomatedEvaluationCustomMetricSource_customMetricDefinition(TypedDict):
+class _AutomatedEvaluationCustomMetricSource_customMetricDefinition(
+    TypedDict, closed=True
+):
     customMetricDefinition: (
         "aws_sdk_bedrock.types.custom_metric_definition.CustomMetricDefinition"
     )

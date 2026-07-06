@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ComponentConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class ComponentConfiguration(TypedDict):
+class ComponentConfiguration(TypedDict, closed=True):
     configuration: "object"
     """<p>The configuration values as a flexible JSON document.</p>"""
 

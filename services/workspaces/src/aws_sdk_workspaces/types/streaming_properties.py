@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StreamingProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.global_accelerator_for_directory
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.user_settings
 
 
-class StreamingProperties(TypedDict):
+class StreamingProperties(TypedDict, closed=True):
     streaming_experience_preferred_protocol: NotRequired[
         "aws_sdk_workspaces.types.streaming_experience_preferred_protocol_enum.StreamingExperiencePreferredProtocolEnum"
     ]

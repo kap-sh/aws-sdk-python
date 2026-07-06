@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListPositionConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_resource_type
 
 
-class ListPositionConfigurationsRequest(TypedDict):
+class ListPositionConfigurationsRequest(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_iot_wireless.types.position_resource_type.PositionResourceType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#CreateConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.tag_list
 
 
-class CreateConnectionRequest(TypedDict):
+class CreateConnectionRequest(TypedDict, closed=True):
     location: "aws_sdk_direct_connect.types.location_code.LocationCode"
     """<p>The location of the connection.</p>"""
     bandwidth: "aws_sdk_direct_connect.types.bandwidth.Bandwidth"

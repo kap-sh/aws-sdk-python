@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#DeleteVpcOriginRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class DeleteVpcOriginRequest(TypedDict):
+class DeleteVpcOriginRequest(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The VPC origin ID.</p>"""
     if_match: "aws_sdk_cloudfront.types.string.string"

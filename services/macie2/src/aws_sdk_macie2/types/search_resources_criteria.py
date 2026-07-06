@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#SearchResourcesCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.search_resources_simple_criterion
     import aws_sdk_macie2.types.search_resources_tag_criterion
 
 
-class SearchResourcesCriteria(TypedDict):
+class SearchResourcesCriteria(TypedDict, closed=True):
     simple_criterion: NotRequired[
         "aws_sdk_macie2.types.search_resources_simple_criterion.SearchResourcesSimpleCriterion"
     ]

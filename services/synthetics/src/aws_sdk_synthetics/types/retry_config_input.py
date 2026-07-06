@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#RetryConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_synthetics.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.max_retries
 
 
-class RetryConfigInput(TypedDict):
+class RetryConfigInput(TypedDict, closed=True):
     max_retries: "aws_sdk_synthetics.types.max_retries.MaxRetries"
     """<p>The maximum number of retries. The value must be less than or equal to 2.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ListSolNetworkOperationsMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.vnf_instance_id
 
 
-class ListSolNetworkOperationsMetadata(TypedDict):
+class ListSolNetworkOperationsMetadata(TypedDict, closed=True):
     nsd_info_id: NotRequired["aws_sdk_tnb.types.nsd_info_id.NsdInfoId"]
     """<p>The network service descriptor id used for the operation.</p> <p>Only present if the updateType is <code>UPDATE_NS</code>.</p>"""
     vnf_instance_id: NotRequired["aws_sdk_tnb.types.vnf_instance_id.VnfInstanceId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UsageStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.usage_account_result_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.usage_top_accounts_result_list
 
 
-class UsageStatistics(TypedDict):
+class UsageStatistics(TypedDict, closed=True):
     sum_by_account: NotRequired[
         "aws_sdk_guardduty.types.usage_account_result_list.UsageAccountResultList"
     ]

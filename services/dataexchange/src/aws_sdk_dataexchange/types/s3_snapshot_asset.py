@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#S3SnapshotAsset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__double_min0
 
 
-class S3SnapshotAsset(TypedDict):
+class S3SnapshotAsset(TypedDict, closed=True):
     size: "aws_sdk_dataexchange.types.__double_min0.__doubleMin0"
     """<p>The size of the Amazon S3 object that is the object.</p>"""
 

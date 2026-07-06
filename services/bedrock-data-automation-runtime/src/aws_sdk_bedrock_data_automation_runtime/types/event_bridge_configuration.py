@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#EventBridgeConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation_runtime.errors import DeserializationError
 
 
-class EventBridgeConfiguration(TypedDict):
+class EventBridgeConfiguration(TypedDict, closed=True):
     event_bridge_enabled: "bool"
     """Event bridge flag."""
 

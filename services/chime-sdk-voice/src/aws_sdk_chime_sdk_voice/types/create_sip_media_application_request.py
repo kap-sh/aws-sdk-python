@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreateSipMediaApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.tag_list
 
 
-class CreateSipMediaApplicationRequest(TypedDict):
+class CreateSipMediaApplicationRequest(TypedDict, closed=True):
     aws_region: "aws_sdk_chime_sdk_voice.types.string.String"
     """<p>The AWS Region assigned to the SIP media application.</p>"""
     name: "aws_sdk_chime_sdk_voice.types.sip_media_application_name.SipMediaApplicationName"

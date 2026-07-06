@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ValidateFlowDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_validations
 
 
-class ValidateFlowDefinitionResponse(TypedDict):
+class ValidateFlowDefinitionResponse(TypedDict, closed=True):
     validations: "aws_sdk_bedrock_agent.types.flow_validations.FlowValidations"
     """<p>Contains an array of objects, each of which contains an error identified by validation.</p>"""
 

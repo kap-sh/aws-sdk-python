@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#KeyUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.key_usage_name
 
 
-class KeyUsage(TypedDict):
+class KeyUsage(TypedDict, closed=True):
     name: NotRequired["aws_sdk_acm.types.key_usage_name.KeyUsageName"]
     """<p>A string value that contains a Key Usage extension name.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#PutBackupVaultLockConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_vault_name
     import aws_sdk_backup.types.long
 
 
-class PutBackupVaultLockConfigurationInput(TypedDict):
+class PutBackupVaultLockConfigurationInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The Backup Vault Lock configuration that specifies the name of the backup vault it protects.</p>"""
     min_retention_days: NotRequired["aws_sdk_backup.types.long.Long"]

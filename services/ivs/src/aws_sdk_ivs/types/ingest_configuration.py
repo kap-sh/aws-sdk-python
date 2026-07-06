@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#IngestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.audio_configuration
     import aws_sdk_ivs.types.video_configuration
 
 
-class IngestConfiguration(TypedDict):
+class IngestConfiguration(TypedDict, closed=True):
     video: NotRequired["aws_sdk_ivs.types.video_configuration.VideoConfiguration"]
     """<p>Encoder settings for video.</p>"""
     audio: NotRequired["aws_sdk_ivs.types.audio_configuration.AudioConfiguration"]

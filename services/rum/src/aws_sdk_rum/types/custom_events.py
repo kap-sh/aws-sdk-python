@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#CustomEvents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.custom_events_status
 
 
-class CustomEvents(TypedDict):
+class CustomEvents(TypedDict, closed=True):
     status: NotRequired["aws_sdk_rum.types.custom_events_status.CustomEventsStatus"]
     """<p>Specifies whether this app monitor allows the web client to define and send custom events. The default is for custom events to be <code>DISABLED</code>.</p>"""
 

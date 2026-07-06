@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#PriorityFifoSchedulingConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PriorityFifoSchedulingConfiguration(TypedDict):
+class PriorityFifoSchedulingConfiguration(TypedDict, closed=True):
     pass
 
 

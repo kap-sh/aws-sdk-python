@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#SourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.kendra_source_detail
 
 
-class SourceDetail(TypedDict):
+class SourceDetail(TypedDict, closed=True):
     kendra: NotRequired[
         "aws_sdk_iotsitewise.types.kendra_source_detail.KendraSourceDetail"
     ]

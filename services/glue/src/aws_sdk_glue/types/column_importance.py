@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnImportance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_bounded_double
     import aws_sdk_glue.types.name_string
 
 
-class ColumnImportance(TypedDict):
+class ColumnImportance(TypedDict, closed=True):
     column_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of a column.</p>"""
     importance: NotRequired[

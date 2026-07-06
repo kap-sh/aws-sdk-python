@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutAccountDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.website_url
 
 
-class PutAccountDetailsRequest(TypedDict):
+class PutAccountDetailsRequest(TypedDict, closed=True):
     mail_type: "aws_sdk_sesv2.types.mail_type.MailType"
     """<p>The type of email your account will send.</p>"""
     website_url: "aws_sdk_sesv2.types.website_url.WebsiteURL"

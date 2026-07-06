@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateGlossaryPolicyGrantDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CreateGlossaryPolicyGrantDetail(TypedDict):
+class CreateGlossaryPolicyGrantDetail(TypedDict, closed=True):
     include_child_domain_units: NotRequired["bool"]
     """<p>Specifies whether the policy grant is applied to child domain units.</p>"""
 

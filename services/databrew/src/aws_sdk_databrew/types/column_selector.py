@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ColumnSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.column_name
 
 
-class ColumnSelector(TypedDict):
+class ColumnSelector(TypedDict, closed=True):
     regex: NotRequired["aws_sdk_databrew.types.column_name.ColumnName"]
     """<p>A regular expression for selecting a column from a dataset.</p>"""
     name: NotRequired["aws_sdk_databrew.types.column_name.ColumnName"]

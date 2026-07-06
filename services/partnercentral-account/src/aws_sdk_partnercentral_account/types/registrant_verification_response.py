@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#RegistrantVerificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.date_time
 
 
-class RegistrantVerificationResponse(TypedDict):
+class RegistrantVerificationResponse(TypedDict, closed=True):
     completion_url: "aws_sdk_partnercentral_account.types.completion_url.CompletionUrl"
     """<p>A secure URL where the registrant can complete additional verification steps, such as document upload or identity confirmation through a third-party verification service.</p>"""
     completion_url_expires_at: "aws_sdk_partnercentral_account.types.date_time.DateTime"

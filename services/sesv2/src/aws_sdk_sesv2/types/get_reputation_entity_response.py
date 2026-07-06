@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#GetReputationEntityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.reputation_entity
 
 
-class GetReputationEntityResponse(TypedDict):
+class GetReputationEntityResponse(TypedDict, closed=True):
     reputation_entity: NotRequired[
         "aws_sdk_sesv2.types.reputation_entity.ReputationEntity"
     ]

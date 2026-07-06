@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#SequenceInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.generated_from
 
 
-class SequenceInformation(TypedDict):
+class SequenceInformation(TypedDict, closed=True):
     total_read_count: NotRequired["int"]
     """<p>The sequence's total read count.</p>"""
     total_base_count: NotRequired["int"]

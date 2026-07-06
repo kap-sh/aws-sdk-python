@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RankingData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.relevance_level
     import aws_sdk_qconnect.types.relevance_score
 
 
-class RankingData(TypedDict):
+class RankingData(TypedDict, closed=True):
     relevance_score: "aws_sdk_qconnect.types.relevance_score.RelevanceScore"
     """<p>The relevance level of the recommendation.</p>"""
     relevance_level: NotRequired[

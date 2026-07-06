@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListOrganizationAdminAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.admin_accounts
     import aws_sdk_guardduty.types.string
 
 
-class ListOrganizationAdminAccountsResponse(TypedDict):
+class ListOrganizationAdminAccountsResponse(TypedDict, closed=True):
     admin_accounts: NotRequired["aws_sdk_guardduty.types.admin_accounts.AdminAccounts"]
     """<p>A list of accounts configured as GuardDuty delegated administrators.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

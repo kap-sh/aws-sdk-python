@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListBatchJobDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListBatchJobDefinitionsResponse(TypedDict):
+class ListBatchJobDefinitionsResponse(TypedDict, closed=True):
     batch_job_definitions: "aws_sdk_m2.types.batch_job_definitions.BatchJobDefinitions"
     """<p>The list of batch job definitions.</p>"""
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]

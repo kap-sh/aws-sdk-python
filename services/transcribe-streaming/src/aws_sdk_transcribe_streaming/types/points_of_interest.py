@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#PointsOfInterest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.timestamp_ranges
 
 
-class PointsOfInterest(TypedDict):
+class PointsOfInterest(TypedDict, closed=True):
     timestamp_ranges: NotRequired[
         "aws_sdk_transcribe_streaming.types.timestamp_ranges.TimestampRanges"
     ]

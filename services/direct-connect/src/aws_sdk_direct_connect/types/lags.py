@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Lags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.lag_list
     import aws_sdk_direct_connect.types.pagination_token
 
 
-class Lags(TypedDict):
+class Lags(TypedDict, closed=True):
     lags: NotRequired["aws_sdk_direct_connect.types.lag_list.LagList"]
     """<p>The LAGs.</p>"""
     next_token: NotRequired[

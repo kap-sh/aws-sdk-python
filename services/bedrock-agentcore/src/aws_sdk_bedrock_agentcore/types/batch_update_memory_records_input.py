@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#BatchUpdateMemoryRecordsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_records_update_input_list
 
 
-class BatchUpdateMemoryRecordsInput(TypedDict):
+class BatchUpdateMemoryRecordsInput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The unique ID of the memory resource where records will be updated.</p>"""
     records: "aws_sdk_bedrock_agentcore.types.memory_records_update_input_list.MemoryRecordsUpdateInputList"

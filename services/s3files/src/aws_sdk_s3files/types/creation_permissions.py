@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreationPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.permissions
 
 
-class CreationPermissions(TypedDict):
+class CreationPermissions(TypedDict, closed=True):
     owner_uid: "aws_sdk_s3files.types.owner_uid.OwnerUid"
     """<p>The POSIX user ID to assign to newly created directories.</p>"""
     owner_gid: "aws_sdk_s3files.types.owner_gid.OwnerGid"

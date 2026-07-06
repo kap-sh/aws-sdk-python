@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AIPromptVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.ai_prompt_summary
     import aws_sdk_qconnect.types.version
 
 
-class AIPromptVersionSummary(TypedDict):
+class AIPromptVersionSummary(TypedDict, closed=True):
     ai_prompt_summary: NotRequired[
         "aws_sdk_qconnect.types.ai_prompt_summary.AIPromptSummary"
     ]

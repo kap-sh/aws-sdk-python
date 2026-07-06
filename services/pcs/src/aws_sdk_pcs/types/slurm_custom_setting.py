@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#SlurmCustomSetting``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
 
-class SlurmCustomSetting(TypedDict):
+class SlurmCustomSetting(TypedDict, closed=True):
     parameter_name: "str"
     r"""<p>PCS supports custom Slurm settings for clusters, compute node groups, and queues. For more information, see <a href=\"https://docs.aws.amazon.com/pcs/latest/userguide/slurm-custom-settings.html\">Configuring custom Slurm settings in PCS</a> in the <i>PCS User Guide</i>.</p>"""
     parameter_value: "str"

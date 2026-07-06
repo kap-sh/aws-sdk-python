@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListAnomaliesForInsightResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.proactive_anomalies
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListAnomaliesForInsightResponse(TypedDict):
+class ListAnomaliesForInsightResponse(TypedDict, closed=True):
     proactive_anomalies: NotRequired[
         "aws_sdk_devops_guru.types.proactive_anomalies.ProactiveAnomalies"
     ]

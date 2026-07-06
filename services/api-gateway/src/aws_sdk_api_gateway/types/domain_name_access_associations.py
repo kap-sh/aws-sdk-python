@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DomainNameAccessAssociations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_domain_name_access_association
     import aws_sdk_api_gateway.types.string
 
 
-class DomainNameAccessAssociations(TypedDict):
+class DomainNameAccessAssociations(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_api_gateway.types.list_of_domain_name_access_association.ListOfDomainNameAccessAssociation"
     ]

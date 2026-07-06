@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
 
-class ProtectedJobError(TypedDict):
+class ProtectedJobError(TypedDict, closed=True):
     message: "str"
     """<p> The message for the protected job error.</p>"""
     code: "str"

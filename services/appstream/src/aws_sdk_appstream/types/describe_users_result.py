@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeUsersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.user_list
 
 
-class DescribeUsersResult(TypedDict):
+class DescribeUsersResult(TypedDict, closed=True):
     users: NotRequired["aws_sdk_appstream.types.user_list.UserList"]
     """<p>Information about users in the user pool.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

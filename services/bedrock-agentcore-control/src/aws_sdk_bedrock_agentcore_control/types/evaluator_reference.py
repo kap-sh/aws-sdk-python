@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EvaluatorReference``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.evaluator_id
 
 
-class _EvaluatorReference_evaluatorId(TypedDict):
+class _EvaluatorReference_evaluatorId(TypedDict, closed=True):
     evaluatorId: "aws_sdk_bedrock_agentcore_control.types.evaluator_id.EvaluatorId"
 
 

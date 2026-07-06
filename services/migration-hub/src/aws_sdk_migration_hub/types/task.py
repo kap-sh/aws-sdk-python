@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#Task``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.status_detail
 
 
-class Task(TypedDict):
+class Task(TypedDict, closed=True):
     status: "aws_sdk_migration_hub.types.status.Status"
     """<p>Status of the task - Not Started, In-Progress, Complete.</p>"""
     status_detail: NotRequired["aws_sdk_migration_hub.types.status_detail.StatusDetail"]

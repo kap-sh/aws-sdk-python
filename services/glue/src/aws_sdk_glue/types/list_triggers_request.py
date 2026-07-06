@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListTriggersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class ListTriggersRequest(TypedDict):
+class ListTriggersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
     """<p>A continuation token, if this is a continuation request.</p>"""
     dependent_job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

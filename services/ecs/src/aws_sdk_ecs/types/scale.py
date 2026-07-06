@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Scale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.double
     import aws_sdk_ecs.types.scale_unit
 
 
-class Scale(TypedDict):
+class Scale(TypedDict, closed=True):
     value: "aws_sdk_ecs.types.double.Double"
     """<p>The value, specified as a percent total of a service's <code>desiredCount</code>, to scale the task set. Accepted values are numbers between 0 and 100.</p>"""
     unit: NotRequired["aws_sdk_ecs.types.scale_unit.ScaleUnit"]

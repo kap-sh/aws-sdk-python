@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetApiKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.nullable_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class GetApiKeysRequest(TypedDict):
+class GetApiKeysRequest(TypedDict, closed=True):
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The current pagination position in the paged result set.</p>"""
     limit: NotRequired["aws_sdk_api_gateway.types.nullable_integer.NullableInteger"]

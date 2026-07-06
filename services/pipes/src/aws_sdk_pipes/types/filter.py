@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.event_pattern
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     pattern: NotRequired["aws_sdk_pipes.types.event_pattern.EventPattern"]
     """<p>The event pattern.</p>"""
 

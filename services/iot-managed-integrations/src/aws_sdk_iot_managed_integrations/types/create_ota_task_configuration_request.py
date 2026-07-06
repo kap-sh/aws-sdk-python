@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CreateOtaTaskConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.push_config
 
 
-class CreateOtaTaskConfigurationRequest(TypedDict):
+class CreateOtaTaskConfigurationRequest(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_iot_managed_integrations.types.ota_description.OtaDescription"
     ]

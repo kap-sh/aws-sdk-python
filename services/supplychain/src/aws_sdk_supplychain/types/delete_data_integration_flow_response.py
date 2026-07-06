@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DeleteDataIntegrationFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class DeleteDataIntegrationFlowResponse(TypedDict):
+class DeleteDataIntegrationFlowResponse(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The Amazon Web Services Supply Chain instance identifier.</p>"""
     name: "aws_sdk_supplychain.types.data_integration_flow_name.DataIntegrationFlowName"

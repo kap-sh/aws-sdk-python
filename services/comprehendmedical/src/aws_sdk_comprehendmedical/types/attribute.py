@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#Attribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.entity_sub_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.trait_list
 
 
-class Attribute(TypedDict):
+class Attribute(TypedDict, closed=True):
     type: NotRequired["aws_sdk_comprehendmedical.types.entity_sub_type.EntitySubType"]
     """<p> The type of attribute. </p>"""
     score: NotRequired["aws_sdk_comprehendmedical.types.float.Float"]

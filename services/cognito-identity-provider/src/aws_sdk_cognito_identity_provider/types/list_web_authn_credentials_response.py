@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListWebAuthnCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.web_authn_credential_description_list_type
 
 
-class ListWebAuthnCredentialsResponse(TypedDict):
+class ListWebAuthnCredentialsResponse(TypedDict, closed=True):
     credentials: "aws_sdk_cognito_identity_provider.types.web_authn_credential_description_list_type.WebAuthnCredentialDescriptionListType"
     """<p>A list of registered passkeys for a user.</p>"""
     next_token: NotRequired[

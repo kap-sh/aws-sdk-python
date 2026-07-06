@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#GetSignalingChannelEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.resource_endpoint_list
 
 
-class GetSignalingChannelEndpointOutput(TypedDict):
+class GetSignalingChannelEndpointOutput(TypedDict, closed=True):
     resource_endpoint_list: NotRequired[
         "aws_sdk_kinesis_video.types.resource_endpoint_list.ResourceEndpointList"
     ]

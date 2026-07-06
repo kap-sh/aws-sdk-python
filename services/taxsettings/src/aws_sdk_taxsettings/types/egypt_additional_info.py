@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#EgyptAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.date_string
     import aws_sdk_taxsettings.types.unique_identification_number
 
 
-class EgyptAdditionalInfo(TypedDict):
+class EgyptAdditionalInfo(TypedDict, closed=True):
     unique_identification_number: NotRequired[
         "aws_sdk_taxsettings.types.unique_identification_number.UniqueIdentificationNumber"
     ]

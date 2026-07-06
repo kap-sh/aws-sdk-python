@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotValueOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_shape
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_values
 
 
-class SlotValueOverride(TypedDict):
+class SlotValueOverride(TypedDict, closed=True):
     shape: NotRequired["aws_sdk_lex_models_v2.types.slot_shape.SlotShape"]
     """<p>When the shape value is <code>List</code>, it indicates that the <code>values</code> field contains a list of slot values. When the value is <code>Scalar</code>, it indicates that the <code>value</code> field contains a single value.</p>"""
     value: NotRequired["aws_sdk_lex_models_v2.types.slot_value.SlotValue"]

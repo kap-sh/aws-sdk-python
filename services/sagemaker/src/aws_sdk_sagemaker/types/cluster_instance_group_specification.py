@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstanceGroupSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_capacity_requirements
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_config
 
 
-class ClusterInstanceGroupSpecification(TypedDict):
+class ClusterInstanceGroupSpecification(TypedDict, closed=True):
     instance_count: NotRequired[
         "aws_sdk_sagemaker.types.cluster_instance_count.ClusterInstanceCount"
     ]

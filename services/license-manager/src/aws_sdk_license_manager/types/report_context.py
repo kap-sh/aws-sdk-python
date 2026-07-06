@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ReportContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.arn_list
     import aws_sdk_license_manager.types.date_time
 
 
-class ReportContext(TypedDict):
+class ReportContext(TypedDict, closed=True):
     license_configuration_arns: "aws_sdk_license_manager.types.arn_list.ArnList"
     """<p>Amazon Resource Name (ARN) of the license configuration that this generator reports on.</p>"""
     license_asset_group_arns: NotRequired[

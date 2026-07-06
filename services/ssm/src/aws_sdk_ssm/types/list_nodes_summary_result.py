@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListNodesSummaryResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.node_summary_list
 
 
-class ListNodesSummaryResult(TypedDict):
+class ListNodesSummaryResult(TypedDict, closed=True):
     summary: NotRequired["aws_sdk_ssm.types.node_summary_list.NodeSummaryList"]
     """<p>A collection of objects reporting information about your managed nodes, such as the count of nodes by operating system.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

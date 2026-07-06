@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CodeGenEdge``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.code_gen_identifier
 
 
-class CodeGenEdge(TypedDict):
+class CodeGenEdge(TypedDict, closed=True):
     source: "aws_sdk_glue.types.code_gen_identifier.CodeGenIdentifier"
     """<p>The ID of the node at which the edge starts.</p>"""
     target: "aws_sdk_glue.types.code_gen_identifier.CodeGenIdentifier"

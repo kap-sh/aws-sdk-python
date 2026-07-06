@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#RemoveApplicationInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.application_instance_id
 
 
-class RemoveApplicationInstanceRequest(TypedDict):
+class RemoveApplicationInstanceRequest(TypedDict, closed=True):
     application_instance_id: (
         "aws_sdk_panorama.types.application_instance_id.ApplicationInstanceId"
     )

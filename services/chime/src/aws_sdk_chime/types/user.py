@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.user_type
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     user_id: "aws_sdk_chime.types.string.String"
     """<p>The user ID.</p>"""
     account_id: NotRequired["aws_sdk_chime.types.string.String"]

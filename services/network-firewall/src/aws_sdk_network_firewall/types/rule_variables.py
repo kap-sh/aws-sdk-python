@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleVariables``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.ip_sets
     import aws_sdk_network_firewall.types.port_sets
 
 
-class RuleVariables(TypedDict):
+class RuleVariables(TypedDict, closed=True):
     ip_sets: NotRequired["aws_sdk_network_firewall.types.ip_sets.IPSets"]
     """<p>A list of IP addresses and address ranges, in CIDR notation. </p>"""
     port_sets: NotRequired["aws_sdk_network_firewall.types.port_sets.PortSets"]

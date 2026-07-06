@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#LaunchTemplateSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.launch_template_specification_override_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.userdata_type
 
 
-class LaunchTemplateSpecification(TypedDict):
+class LaunchTemplateSpecification(TypedDict, closed=True):
     launch_template_id: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The ID of the launch template.</p>"""
     launch_template_name: NotRequired["aws_sdk_batch.types.string.String"]

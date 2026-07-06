@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#CostEstimationTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class CostEstimationTimeRange(TypedDict):
+class CostEstimationTimeRange(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]
     """<p>The start time of the cost estimation.</p>"""
     end_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]

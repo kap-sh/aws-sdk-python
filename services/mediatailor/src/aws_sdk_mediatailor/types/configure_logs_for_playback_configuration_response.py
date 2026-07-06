@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ConfigureLogsForPlaybackConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.manifest_service_interaction_log
 
 
-class ConfigureLogsForPlaybackConfigurationResponse(TypedDict):
+class ConfigureLogsForPlaybackConfigurationResponse(TypedDict, closed=True):
     percent_enabled: "aws_sdk_mediatailor.types.__integer.__integer"
     """<p>The percentage of session logs that MediaTailor sends to your Cloudwatch Logs account.</p>"""
     playback_configuration_name: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#FilePaths``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class FilePaths(TypedDict):
+class FilePaths(TypedDict, closed=True):
     file_path: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Path to the infected or suspicious file on the resource it was detected on. </p> <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>"""
     file_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

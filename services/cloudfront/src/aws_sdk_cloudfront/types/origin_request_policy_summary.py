@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#OriginRequestPolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.origin_request_policy_type
 
 
-class OriginRequestPolicySummary(TypedDict):
+class OriginRequestPolicySummary(TypedDict, closed=True):
     type: "aws_sdk_cloudfront.types.origin_request_policy_type.OriginRequestPolicyType"
     """<p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or <code>custom</code> (created in this Amazon Web Services account).</p>"""
     origin_request_policy: (

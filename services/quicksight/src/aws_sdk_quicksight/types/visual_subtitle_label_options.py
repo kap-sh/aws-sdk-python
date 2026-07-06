@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#VisualSubtitleLabelOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.long_format_text
     import aws_sdk_quicksight.types.visibility
 
 
-class VisualSubtitleLabelOptions(TypedDict):
+class VisualSubtitleLabelOptions(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility of the subtitle label.</p>"""
     format_text: NotRequired["aws_sdk_quicksight.types.long_format_text.LongFormatText"]

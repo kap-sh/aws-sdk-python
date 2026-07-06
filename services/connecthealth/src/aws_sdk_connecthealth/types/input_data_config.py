@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#InputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.fhir_server
     import aws_sdk_connecthealth.types.s3_sources
 
 
-class InputDataConfig(TypedDict):
+class InputDataConfig(TypedDict, closed=True):
     fhir_server: NotRequired["aws_sdk_connecthealth.types.fhir_server.FHIRServer"]
     """<p>FHIR server configuration to retrieve patient data.</p>"""
     s3_sources: NotRequired["aws_sdk_connecthealth.types.s3_sources.S3Sources"]

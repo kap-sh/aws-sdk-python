@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#DeleteTargetResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTargetResult(TypedDict):
+class DeleteTargetResult(TypedDict, closed=True):
     pass
 
 

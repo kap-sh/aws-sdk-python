@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ServerCertificateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.acm_certificate_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.server_certificate_status_detail
 
 
-class ServerCertificateSummary(TypedDict):
+class ServerCertificateSummary(TypedDict, closed=True):
     server_certificate_arn: NotRequired[
         "aws_sdk_iot.types.acm_certificate_arn.AcmCertificateArn"
     ]

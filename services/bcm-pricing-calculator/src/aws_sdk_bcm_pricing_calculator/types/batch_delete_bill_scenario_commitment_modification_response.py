@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchDeleteBillScenarioCommitmentModificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_delete_bill_scenario_commitment_modification_errors
 
 
-class BatchDeleteBillScenarioCommitmentModificationResponse(TypedDict):
+class BatchDeleteBillScenarioCommitmentModificationResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.batch_delete_bill_scenario_commitment_modification_errors.BatchDeleteBillScenarioCommitmentModificationErrors"
     ]

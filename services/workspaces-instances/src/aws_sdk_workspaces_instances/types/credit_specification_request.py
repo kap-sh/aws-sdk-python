@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#CreditSpecificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.cpu_credits_enum
 
 
-class CreditSpecificationRequest(TypedDict):
+class CreditSpecificationRequest(TypedDict, closed=True):
     cpu_credits: NotRequired[
         "aws_sdk_workspaces_instances.types.cpu_credits_enum.CpuCreditsEnum"
     ]

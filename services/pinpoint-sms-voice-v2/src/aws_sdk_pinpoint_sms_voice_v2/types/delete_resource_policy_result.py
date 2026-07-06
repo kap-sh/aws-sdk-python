@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteResourcePolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.resource_policy
 
 
-class DeleteResourcePolicyResult(TypedDict):
+class DeleteResourcePolicyResult(TypedDict, closed=True):
     resource_arn: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.amazon_resource_name.AmazonResourceName"
     ]

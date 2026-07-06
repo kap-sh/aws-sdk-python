@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexGroupSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MultiplexGroupSettings(TypedDict):
+class MultiplexGroupSettings(TypedDict, closed=True):
     pass
 
 

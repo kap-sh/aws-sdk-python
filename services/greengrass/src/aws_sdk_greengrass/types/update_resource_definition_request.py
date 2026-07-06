@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#UpdateResourceDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class UpdateResourceDefinitionRequest(TypedDict):
+class UpdateResourceDefinitionRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The name of the definition."""
     resource_definition_id: "aws_sdk_greengrass.types.__string.__string"

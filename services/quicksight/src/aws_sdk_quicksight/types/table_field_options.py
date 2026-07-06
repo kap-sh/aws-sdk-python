@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_order_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.transposed_table_option_list
 
 
-class TableFieldOptions(TypedDict):
+class TableFieldOptions(TypedDict, closed=True):
     selected_field_options: NotRequired[
         "aws_sdk_quicksight.types.table_field_option_list.TableFieldOptionList"
     ]

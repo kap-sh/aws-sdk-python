@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#DeleteSupplementalTaxRegistrationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSupplementalTaxRegistrationResponse(TypedDict):
+class DeleteSupplementalTaxRegistrationResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     retry_after_seconds: NotRequired["int"]
     """<p>The processing request failed because of an unknown error, exception, or failure.</p>"""
     message: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]

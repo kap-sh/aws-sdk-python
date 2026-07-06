@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#SplitOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.split_constructs
 
 
-class SplitOperation(TypedDict):
+class SplitOperation(TypedDict, closed=True):
     split_constructs: NotRequired["aws_sdk_mgn.types.split_constructs.SplitConstructs"]
     """<p>The list of split targets with their CIDR blocks.</p>"""
 

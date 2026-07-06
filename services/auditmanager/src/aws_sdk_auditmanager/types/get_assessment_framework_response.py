@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#GetAssessmentFrameworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.framework
 
 
-class GetAssessmentFrameworkResponse(TypedDict):
+class GetAssessmentFrameworkResponse(TypedDict, closed=True):
     framework: NotRequired["aws_sdk_auditmanager.types.framework.Framework"]
     """<p> The framework that the <code>GetAssessmentFramework</code> API returned. </p> <note> <p>The <code>Controls</code> object returns a partial response when called through Framework APIs. For a complete <code>Controls</code> object, use <code>GetControl</code>.</p> </note>"""
 

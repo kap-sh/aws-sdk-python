@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#TopicPartitionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer
     import aws_sdk_kafka.types.__list_of__integer
 
 
-class TopicPartitionInfo(TypedDict):
+class TopicPartitionInfo(TypedDict, closed=True):
     partition: NotRequired["aws_sdk_kafka.types.__integer.__integer"]
     """<p>The partition ID.</p>"""
     leader: NotRequired["aws_sdk_kafka.types.__integer.__integer"]

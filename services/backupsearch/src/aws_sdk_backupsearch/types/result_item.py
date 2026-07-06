@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ResultItem``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.s3_result_item
 
 
-class _ResultItem_S3ResultItem(TypedDict):
+class _ResultItem_S3ResultItem(TypedDict, closed=True):
     S3ResultItem: "aws_sdk_backupsearch.types.s3_result_item.S3ResultItem"
 
 
-class _ResultItem_EBSResultItem(TypedDict):
+class _ResultItem_EBSResultItem(TypedDict, closed=True):
     EBSResultItem: "aws_sdk_backupsearch.types.ebs_result_item.EBSResultItem"
 
 

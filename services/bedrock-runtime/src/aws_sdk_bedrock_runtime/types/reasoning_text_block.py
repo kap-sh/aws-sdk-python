@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ReasoningTextBlock``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class ReasoningTextBlock(TypedDict):
+class ReasoningTextBlock(TypedDict, closed=True):
     text: "str"
     """<p>The reasoning that the model used to return the output.</p>"""
     signature: NotRequired["str"]

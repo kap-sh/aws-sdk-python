@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#DescribeRegistriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.max_results
     import aws_sdk_ecr_public.types.next_token
 
 
-class DescribeRegistriesRequest(TypedDict):
+class DescribeRegistriesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_ecr_public.types.next_token.NextToken"]
     """<p>The <code>nextToken</code> value that's returned from a previous paginated <code>DescribeRegistries</code> request where <code>maxResults</code> was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the <code>nextToken</code> value. If there are no more results to return, this value is <code>null</code>.</p> <note> <p>This token should be treated as an opaque identifier that is only used to retrieve the next items in a list and not for other programmatic purposes.</p> </note>"""
     max_results: NotRequired["aws_sdk_ecr_public.types.max_results.MaxResults"]

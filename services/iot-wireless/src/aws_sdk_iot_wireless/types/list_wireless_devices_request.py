@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListWirelessDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.destination_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_type
 
 
-class ListWirelessDevicesRequest(TypedDict):
+class ListWirelessDevicesRequest(TypedDict, closed=True):
     max_results: "aws_sdk_iot_wireless.types.max_results.MaxResults"
     """<p>The maximum number of results to return in this operation.</p>"""
     next_token: NotRequired["aws_sdk_iot_wireless.types.next_token.NextToken"]

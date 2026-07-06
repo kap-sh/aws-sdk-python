@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#FaceSearchSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.collection_id
     import aws_sdk_rekognition.types.percent
 
 
-class FaceSearchSettings(TypedDict):
+class FaceSearchSettings(TypedDict, closed=True):
     collection_id: NotRequired["aws_sdk_rekognition.types.collection_id.CollectionId"]
     """<p>The ID of a collection that contains faces that you want to search for.</p>"""
     face_match_threshold: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

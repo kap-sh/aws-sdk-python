@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AllSheetsFilterScopeConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AllSheetsFilterScopeConfiguration(TypedDict):
+class AllSheetsFilterScopeConfiguration(TypedDict, closed=True):
     pass
 
 

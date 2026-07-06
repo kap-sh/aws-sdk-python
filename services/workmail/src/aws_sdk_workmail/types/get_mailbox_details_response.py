@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#GetMailboxDetailsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.mailbox_quota
     import aws_sdk_workmail.types.mailbox_size
 
 
-class GetMailboxDetailsResponse(TypedDict):
+class GetMailboxDetailsResponse(TypedDict, closed=True):
     mailbox_quota: NotRequired["aws_sdk_workmail.types.mailbox_quota.MailboxQuota"]
     """<p>The maximum allowed mailbox size, in MB, for the specified user.</p>"""
     mailbox_size: "aws_sdk_workmail.types.mailbox_size.MailboxSize"

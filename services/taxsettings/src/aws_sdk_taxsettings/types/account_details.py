@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#AccountDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_registration_with_jurisdiction
 
 
-class AccountDetails(TypedDict):
+class AccountDetails(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_taxsettings.types.account_id.AccountId"]
     """<p>List of unique account identifiers. </p>"""
     tax_registration: NotRequired[

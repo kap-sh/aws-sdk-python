@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ReservedInstanceOffering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.double
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class ReservedInstanceOffering(TypedDict):
+class ReservedInstanceOffering(TypedDict, closed=True):
     reserved_instance_offering_id: NotRequired["aws_sdk_opensearch.types.guid.GUID"]
     """<p>The unique identifier of the Reserved Instance offering.</p>"""
     instance_type: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListScriptsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
     import aws_sdk_gamelift.types.positive_integer
 
 
-class ListScriptsInput(TypedDict):
+class ListScriptsInput(TypedDict, closed=True):
     limit: NotRequired["aws_sdk_gamelift.types.positive_integer.PositiveInteger"]
     """<p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>"""
     next_token: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DistributionConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.date_time
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class DistributionConfigurationSummary(TypedDict):
+class DistributionConfigurationSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_imagebuilder.types.image_builder_arn.ImageBuilderArn"]
     """<p>The Amazon Resource Name (ARN) of the distribution configuration.</p>"""
     name: NotRequired["aws_sdk_imagebuilder.types.resource_name.ResourceName"]

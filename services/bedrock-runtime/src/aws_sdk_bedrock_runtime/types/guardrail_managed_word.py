@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailManagedWord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_word_policy_action
 
 
-class GuardrailManagedWord(TypedDict):
+class GuardrailManagedWord(TypedDict, closed=True):
     match: "str"
     """<p>The match for the managed word.</p>"""
     type: "aws_sdk_bedrock_runtime.types.guardrail_managed_word_type.GuardrailManagedWordType"

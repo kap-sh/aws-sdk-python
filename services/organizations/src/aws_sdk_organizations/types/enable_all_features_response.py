@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#EnableAllFeaturesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake
 
 
-class EnableAllFeaturesResponse(TypedDict):
+class EnableAllFeaturesResponse(TypedDict, closed=True):
     handshake: NotRequired["aws_sdk_organizations.types.handshake.Handshake"]
     """<p>A structure that contains details about the handshake created to support this request to enable all features in the organization.</p>"""
 

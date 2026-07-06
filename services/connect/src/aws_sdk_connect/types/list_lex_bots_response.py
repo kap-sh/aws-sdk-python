@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListLexBotsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.lex_bots_list
     import aws_sdk_connect.types.next_token
 
 
-class ListLexBotsResponse(TypedDict):
+class ListLexBotsResponse(TypedDict, closed=True):
     lex_bots: NotRequired["aws_sdk_connect.types.lex_bots_list.LexBotsList"]
     """<p>The names and Amazon Web Services Regions of the Amazon Lex bots associated with the specified instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

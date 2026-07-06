@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteSequenceStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_id
 
 
-class DeleteSequenceStoreRequest(TypedDict):
+class DeleteSequenceStoreRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"
     """<p>The sequence store's ID.</p>"""
 

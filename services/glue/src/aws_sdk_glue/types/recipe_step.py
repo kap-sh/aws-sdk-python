@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RecipeStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.recipe_action
 
 
-class RecipeStep(TypedDict):
+class RecipeStep(TypedDict, closed=True):
     action: "aws_sdk_glue.types.recipe_action.RecipeAction"
     """<p>The transformation action of the recipe step.</p>"""
     condition_expressions: NotRequired[

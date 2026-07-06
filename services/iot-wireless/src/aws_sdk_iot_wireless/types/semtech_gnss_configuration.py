@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SemtechGnssConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.position_configuration_status
 
 
-class SemtechGnssConfiguration(TypedDict):
+class SemtechGnssConfiguration(TypedDict, closed=True):
     status: "aws_sdk_iot_wireless.types.position_configuration_status.PositionConfigurationStatus"
     """<p>The status indicating whether the solver is enabled.</p>"""
     fec: (

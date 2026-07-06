@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEksClusterLoggingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_eks_cluster_logging_cluster_logging_list
 
 
-class AwsEksClusterLoggingDetails(TypedDict):
+class AwsEksClusterLoggingDetails(TypedDict, closed=True):
     cluster_logging: NotRequired[
         "aws_sdk_securityhub.types.aws_eks_cluster_logging_cluster_logging_list.AwsEksClusterLoggingClusterLoggingList"
     ]

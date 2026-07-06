@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ManagedQueryResultsConfigurationUpdates``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boxed_boolean
     import aws_sdk_athena.types.managed_query_results_encryption_configuration
 
 
-class ManagedQueryResultsConfigurationUpdates(TypedDict):
+class ManagedQueryResultsConfigurationUpdates(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_athena.types.boxed_boolean.BoxedBoolean"]
     """<p>If set to true, specifies that Athena manages query results in Athena owned storage.</p>"""
     encryption_configuration: NotRequired[

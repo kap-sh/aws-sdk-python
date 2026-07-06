@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DisassociateFileSystemAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aliases
 
 
-class DisassociateFileSystemAliasesResponse(TypedDict):
+class DisassociateFileSystemAliasesResponse(TypedDict, closed=True):
     aliases: NotRequired["aws_sdk_fsx.types.aliases.Aliases"]
     """<p>An array of one or more DNS aliases that Amazon FSx is attempting to disassociate from the file system.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#PutRecommendationFeedbackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.recommendation_id
 
 
-class PutRecommendationFeedbackRequest(TypedDict):
+class PutRecommendationFeedbackRequest(TypedDict, closed=True):
     code_review_arn: "aws_sdk_codeguru_reviewer.types.arn.Arn"
     r"""<p>The Amazon Resource Name (ARN) of the <a href=\"https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_CodeReview.html\">CodeReview</a> object. </p>"""
     recommendation_id: (

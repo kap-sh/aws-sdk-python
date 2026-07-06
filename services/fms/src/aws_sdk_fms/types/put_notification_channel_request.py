@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PutNotificationChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_arn
 
 
-class PutNotificationChannelRequest(TypedDict):
+class PutNotificationChannelRequest(TypedDict, closed=True):
     sns_topic_arn: "aws_sdk_fms.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the SNS topic that collects notifications from Firewall Manager.</p>"""
     sns_role_name: "aws_sdk_fms.types.resource_arn.ResourceArn"

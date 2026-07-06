@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ReviewInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.reviewer
 
 
-class ReviewInformation(TypedDict):
+class ReviewInformation(TypedDict, closed=True):
     reviewed_time: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]
     """<p>The time that the reviewer took action on the document review request.</p>"""
     status: NotRequired["aws_sdk_ssm.types.review_status.ReviewStatus"]

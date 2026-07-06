@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Emotion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.emotion_name
     import aws_sdk_rekognition.types.percent
 
 
-class Emotion(TypedDict):
+class Emotion(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.emotion_name.EmotionName"]
     """<p>Type of emotion detected.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

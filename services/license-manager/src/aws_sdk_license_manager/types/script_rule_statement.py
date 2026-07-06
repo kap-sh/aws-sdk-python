@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ScriptRuleStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ScriptRuleStatement(TypedDict):
+class ScriptRuleStatement(TypedDict, closed=True):
     key_to_match: "aws_sdk_license_manager.types.string.String"
     """<p>Key name to match against in the script rule evaluation.</p>"""
     script: "aws_sdk_license_manager.types.string.String"

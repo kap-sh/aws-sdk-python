@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#UpdateDeliveryConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateDeliveryConfigurationResponse(TypedDict):
+class UpdateDeliveryConfigurationResponse(TypedDict, closed=True):
     pass
 
 

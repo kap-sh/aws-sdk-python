@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetReservationCoverageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class GetReservationCoverageResponse(TypedDict):
+class GetReservationCoverageResponse(TypedDict, closed=True):
     coverages_by_time: "aws_sdk_cost_explorer.types.coverages_by_time.CoveragesByTime"
     """<p>The amount of time that your reservations covered.</p>"""
     total: NotRequired["aws_sdk_cost_explorer.types.coverage.Coverage"]

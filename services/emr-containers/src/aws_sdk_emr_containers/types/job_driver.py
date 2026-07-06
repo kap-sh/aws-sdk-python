@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#JobDriver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.spark_sql_job_driver
     import aws_sdk_emr_containers.types.spark_submit_job_driver
 
 
-class JobDriver(TypedDict):
+class JobDriver(TypedDict, closed=True):
     spark_submit_job_driver: NotRequired[
         "aws_sdk_emr_containers.types.spark_submit_job_driver.SparkSubmitJobDriver"
     ]

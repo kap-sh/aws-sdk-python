@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReferenceStoresRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.next_token
     import aws_sdk_omics.types.reference_store_filter
 
 
-class ListReferenceStoresRequest(TypedDict):
+class ListReferenceStoresRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of stores to return in one page of results.</p>"""
     next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]

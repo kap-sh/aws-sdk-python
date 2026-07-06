@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModifyWorkspaceCreationPropertiesResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ModifyWorkspaceCreationPropertiesResult(TypedDict):
+class ModifyWorkspaceCreationPropertiesResult(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#PushMessageTemplateContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.push_adm_message_template_content
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.push_fcm_message_template_content
 
 
-class PushMessageTemplateContent(TypedDict):
+class PushMessageTemplateContent(TypedDict, closed=True):
     adm: NotRequired[
         "aws_sdk_qconnect.types.push_adm_message_template_content.PushADMMessageTemplateContent"
     ]

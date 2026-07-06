@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SetQueueAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SetQueueAttributesRequest(TypedDict):
+class SetQueueAttributesRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of the Amazon SQS queue whose attributes are set.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     attributes: "aws_sdk_sqs.types.queue_attribute_map.QueueAttributeMap"

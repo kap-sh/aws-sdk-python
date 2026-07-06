@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VpcEndpointAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.vpc_endpoint_id
 
 
-class VpcEndpointAssociation(TypedDict):
+class VpcEndpointAssociation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the VPC endpoint association.</p>"""
     vpc_endpoint_id: NotRequired["aws_sdk_ec2.types.vpc_endpoint_id.VpcEndpointId"]

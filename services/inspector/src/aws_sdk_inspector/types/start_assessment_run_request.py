@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#StartAssessmentRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.assessment_run_name
 
 
-class StartAssessmentRunRequest(TypedDict):
+class StartAssessmentRunRequest(TypedDict, closed=True):
     assessment_template_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN of the assessment template of the assessment run that you want to start.</p>"""
     assessment_run_name: NotRequired[

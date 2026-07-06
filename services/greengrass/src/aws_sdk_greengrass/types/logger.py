@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#Logger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.logger_type
 
 
-class Logger(TypedDict):
+class Logger(TypedDict, closed=True):
     component: NotRequired["aws_sdk_greengrass.types.logger_component.LoggerComponent"]
     """The component that will be subject to logging."""
     id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

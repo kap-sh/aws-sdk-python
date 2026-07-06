@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#FilterAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.filter_value
 
 
-class FilterAttribute(TypedDict):
+class FilterAttribute(TypedDict, closed=True):
     key: "aws_sdk_bedrock.types.filter_key.FilterKey"
     """<p>The name of metadata attribute/field, which must match the name in your data source/document metadata.</p>"""
     value: "aws_sdk_bedrock.types.filter_value.FilterValue"

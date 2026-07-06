@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ExplicitDeny``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.policies
 
 
-class ExplicitDeny(TypedDict):
+class ExplicitDeny(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_iot.types.policies.Policies"]
     """<p>The policies that denied the authorization.</p>"""
 

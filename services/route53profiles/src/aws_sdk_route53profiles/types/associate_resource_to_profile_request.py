@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#AssociateResourceToProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53profiles.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.resource_properties
 
 
-class AssociateResourceToProfileRequest(TypedDict):
+class AssociateResourceToProfileRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_route53profiles.types.resource_id.ResourceId"
     """<p> ID of the Profile. </p>"""
     resource_arn: "aws_sdk_route53profiles.types.arn.Arn"

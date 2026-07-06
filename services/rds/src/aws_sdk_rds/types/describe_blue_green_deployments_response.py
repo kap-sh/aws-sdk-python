@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeBlueGreenDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeBlueGreenDeploymentsResponse(TypedDict):
+class DescribeBlueGreenDeploymentsResponse(TypedDict, closed=True):
     blue_green_deployments: NotRequired[
         "aws_sdk_rds.types.blue_green_deployment_list.BlueGreenDeploymentList"
     ]

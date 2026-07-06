@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#InvalidLexiconException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_polly.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.error_message
 
 
-class InvalidLexiconException_(TypedDict):
+class InvalidLexiconException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_polly.types.error_message.ErrorMessage"]
 
 

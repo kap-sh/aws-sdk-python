@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BatchGetOnPremisesInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instance_name_list
 
 
-class BatchGetOnPremisesInstancesInput(TypedDict):
+class BatchGetOnPremisesInstancesInput(TypedDict, closed=True):
     instance_names: "aws_sdk_codedeploy.types.instance_name_list.InstanceNameList"
     """<p>The names of the on-premises instances about which to get information. The maximum number of instance names you can specify is 25.</p>"""
 

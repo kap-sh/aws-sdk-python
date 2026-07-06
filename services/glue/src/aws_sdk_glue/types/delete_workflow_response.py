@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.name_string
 
 
-class DeleteWorkflowResponse(TypedDict):
+class DeleteWorkflowResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>Name of the workflow specified in input.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ElasticLoadBalancing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
 
 
-class ElasticLoadBalancing(TypedDict):
+class ElasticLoadBalancing(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]
     """<p>Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.</p>"""
 

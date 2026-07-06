@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#WebRTCConnection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.attendee
     import aws_sdk_connectparticipant.types.web_rtc_meeting
 
 
-class WebRTCConnection(TypedDict):
+class WebRTCConnection(TypedDict, closed=True):
     attendee: NotRequired["aws_sdk_connectparticipant.types.attendee.Attendee"]
     meeting: NotRequired[
         "aws_sdk_connectparticipant.types.web_rtc_meeting.WebRTCMeeting"

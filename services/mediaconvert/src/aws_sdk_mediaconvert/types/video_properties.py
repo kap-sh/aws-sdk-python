@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.transfer_characteristics
 
 
-class VideoProperties(TypedDict):
+class VideoProperties(TypedDict, closed=True):
     bit_depth: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """The number of bits used per color component such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR)."""
     bit_rate: NotRequired["aws_sdk_mediaconvert.types.__long.__long"]

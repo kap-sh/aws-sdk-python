@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#ImageFrameInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.image_frame_id
 
 
-class ImageFrameInformation(TypedDict):
+class ImageFrameInformation(TypedDict, closed=True):
     image_frame_id: "aws_sdk_medical_imaging.types.image_frame_id.ImageFrameId"
     """<p>The image frame (pixel data) identifier.</p>"""
 

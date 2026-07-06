@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectClientAlias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ServiceConnectClientAlias(TypedDict):
+class ServiceConnectClientAlias(TypedDict, closed=True):
     port: "aws_sdk_ecs.types.port_number.PortNumber"
     r"""<p>The listening port number for the Service Connect proxy. This port is available inside of all of the tasks within the same namespace.</p> <p>To avoid changing your applications in client Amazon ECS services, set this to the same port that the client application uses by default. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html\">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"""
     dns_name: NotRequired["aws_sdk_ecs.types.string.String"]

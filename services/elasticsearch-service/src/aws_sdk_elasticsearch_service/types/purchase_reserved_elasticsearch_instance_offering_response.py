@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#PurchaseReservedElasticsearchInstanceOfferingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.guid
     import aws_sdk_elasticsearch_service.types.reservation_token
 
 
-class PurchaseReservedElasticsearchInstanceOfferingResponse(TypedDict):
+class PurchaseReservedElasticsearchInstanceOfferingResponse(TypedDict, closed=True):
     reserved_elasticsearch_instance_id: NotRequired[
         "aws_sdk_elasticsearch_service.types.guid.GUID"
     ]

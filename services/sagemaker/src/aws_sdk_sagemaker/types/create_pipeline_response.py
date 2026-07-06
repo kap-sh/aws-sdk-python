@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePipelineResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.pipeline_arn
 
 
-class CreatePipelineResponse(TypedDict):
+class CreatePipelineResponse(TypedDict, closed=True):
     pipeline_arn: NotRequired["aws_sdk_sagemaker.types.pipeline_arn.PipelineArn"]
     """<p>The Amazon Resource Name (ARN) of the created pipeline.</p>"""
 

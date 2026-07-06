@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetTransitGatewayConnectPeerAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
     import aws_sdk_networkmanager.types.transit_gateway_connect_peer_association_list
 
 
-class GetTransitGatewayConnectPeerAssociationsResponse(TypedDict):
+class GetTransitGatewayConnectPeerAssociationsResponse(TypedDict, closed=True):
     transit_gateway_connect_peer_associations: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_connect_peer_association_list.TransitGatewayConnectPeerAssociationList"
     ]

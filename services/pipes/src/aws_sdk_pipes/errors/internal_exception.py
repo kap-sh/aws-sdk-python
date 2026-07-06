@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#InternalException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError, ServiceError
 
 
-class InternalException_(TypedDict):
+class InternalException_(TypedDict, closed=True):
     message: "str"
     retry_after_seconds: NotRequired["int"]
     """<p>The number of seconds to wait before retrying the action that caused the exception.</p>"""

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#EmailMfaConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.email_mfa_message_type
     import aws_sdk_cognito_identity_provider.types.email_mfa_subject_type
 
 
-class EmailMfaConfigType(TypedDict):
+class EmailMfaConfigType(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_cognito_identity_provider.types.email_mfa_message_type.EmailMfaMessageType"
     ]

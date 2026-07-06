@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FailStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string3072
 
 
-class FailStepMetadata(TypedDict):
+class FailStepMetadata(TypedDict, closed=True):
     error_message: NotRequired["aws_sdk_sagemaker.types.string3072.String3072"]
     """<p>A message that you define and then is processed and rendered by the Fail step when the error occurs.</p>"""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.polly#DeleteLexiconInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.lexicon_name
 
 
-class DeleteLexiconInput(TypedDict):
+class DeleteLexiconInput(TypedDict, closed=True):
     name: "aws_sdk_polly.types.lexicon_name.LexiconName"
     """<p>The name of the lexicon to delete. Must be an existing lexicon in the region.</p>"""
 

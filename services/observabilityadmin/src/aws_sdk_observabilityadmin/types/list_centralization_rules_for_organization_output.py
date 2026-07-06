@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListCentralizationRulesForOrganizationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.centralization_rule_summaries
     import aws_sdk_observabilityadmin.types.next_token
 
 
-class ListCentralizationRulesForOrganizationOutput(TypedDict):
+class ListCentralizationRulesForOrganizationOutput(TypedDict, closed=True):
     centralization_rule_summaries: NotRequired[
         "aws_sdk_observabilityadmin.types.centralization_rule_summaries.CentralizationRuleSummaries"
     ]

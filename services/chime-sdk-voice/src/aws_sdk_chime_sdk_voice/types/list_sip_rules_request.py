@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListSipRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.next_token_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.result_max
 
 
-class ListSipRulesRequest(TypedDict):
+class ListSipRulesRequest(TypedDict, closed=True):
     sip_media_application_id: NotRequired[
         "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     ]

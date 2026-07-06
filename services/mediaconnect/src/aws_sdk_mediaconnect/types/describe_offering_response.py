@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#DescribeOfferingResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.offering
 
 
-class DescribeOfferingResponse(TypedDict):
+class DescribeOfferingResponse(TypedDict, closed=True):
     offering: NotRequired["aws_sdk_mediaconnect.types.offering.Offering"]
     """<p>The offering that you requested a description of. </p>"""
 

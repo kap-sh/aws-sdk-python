@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#UpdateRepositoryCreationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.tag_list
 
 
-class UpdateRepositoryCreationTemplateRequest(TypedDict):
+class UpdateRepositoryCreationTemplateRequest(TypedDict, closed=True):
     prefix: "aws_sdk_ecr.types.prefix.Prefix"
     """<p>The repository namespace prefix that matches an existing repository creation template in the registry. All repositories created using this namespace prefix will have the settings defined in this template applied. For example, a prefix of <code>prod</code> would apply to all repositories beginning with <code>prod/</code>. This includes a repository named <code>prod/team1</code> as well as a repository named <code>prod/repository1</code>.</p> <p>To apply a template to all repositories in your registry that don't have an associated creation template, you can use <code>ROOT</code> as the prefix.</p>"""
     description: NotRequired[

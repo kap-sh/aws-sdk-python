@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#DescribeInstancesHealthResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.refreshed_at
 
 
-class DescribeInstancesHealthResult(TypedDict):
+class DescribeInstancesHealthResult(TypedDict, closed=True):
     instance_health_list: NotRequired[
         "aws_sdk_elastic_beanstalk.types.instance_health_list.InstanceHealthList"
     ]

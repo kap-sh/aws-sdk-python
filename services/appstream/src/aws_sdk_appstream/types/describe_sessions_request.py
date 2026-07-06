@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.authentication_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.user_id
 
 
-class DescribeSessionsRequest(TypedDict):
+class DescribeSessionsRequest(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the stack. This value is case-sensitive.</p>"""
     fleet_name: NotRequired["aws_sdk_appstream.types.name.Name"]

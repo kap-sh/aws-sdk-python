@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListInferenceSchedulersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.inference_scheduler_summaries
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListInferenceSchedulersResponse(TypedDict):
+class ListInferenceSchedulersResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_lookoutequipment.types.next_token.NextToken"]
     """<p> An opaque pagination token indicating where to continue the listing of inference schedulers. </p>"""
     inference_scheduler_summaries: NotRequired[

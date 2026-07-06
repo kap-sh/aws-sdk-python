@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UpdateFlowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.flow_status
 
 
-class UpdateFlowResponse(TypedDict):
+class UpdateFlowResponse(TypedDict, closed=True):
     flow_status: NotRequired["aws_sdk_appflow.types.flow_status.FlowStatus"]
     """<p>Indicates the current status of the flow. </p>"""
 

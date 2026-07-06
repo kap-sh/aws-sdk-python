@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisLogarithmicScale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
 
 
-class AxisLogarithmicScale(TypedDict):
+class AxisLogarithmicScale(TypedDict, closed=True):
     base: NotRequired["aws_sdk_quicksight.types.double.Double"]
     """<p>The base setup of a logarithmic axis scale.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListIdentityPropagationConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.authorized_targets_by_services
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListIdentityPropagationConfigsResponse(TypedDict):
+class ListIdentityPropagationConfigsResponse(TypedDict, closed=True):
     services: NotRequired[
         "aws_sdk_quicksight.types.authorized_targets_by_services.AuthorizedTargetsByServices"
     ]

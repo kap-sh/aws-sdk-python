@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#EngineVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.name_string
 
 
-class EngineVersion(TypedDict):
+class EngineVersion(TypedDict, closed=True):
     selected_engine_version: NotRequired["aws_sdk_athena.types.name_string.NameString"]
     """<p>The engine version requested by the user. Possible values are determined by the output of <code>ListEngineVersions</code>, including AUTO. The default is AUTO.</p>"""
     effective_engine_version: NotRequired["aws_sdk_athena.types.name_string.NameString"]

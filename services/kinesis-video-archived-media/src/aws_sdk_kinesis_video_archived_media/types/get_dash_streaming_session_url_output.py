@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#GetDASHStreamingSessionURLOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.dash_streaming_session_url
 
 
-class GetDASHStreamingSessionURLOutput(TypedDict):
+class GetDASHStreamingSessionURLOutput(TypedDict, closed=True):
     dash_streaming_session_url: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.dash_streaming_session_url.DASHStreamingSessionURL"
     ]

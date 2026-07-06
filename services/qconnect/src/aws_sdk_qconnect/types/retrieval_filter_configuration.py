@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RetrievalFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,19 +11,19 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.retrieval_filter_list
 
 
-class _RetrievalFilterConfiguration_andAll(TypedDict):
+class _RetrievalFilterConfiguration_andAll(TypedDict, closed=True):
     andAll: "aws_sdk_qconnect.types.retrieval_filter_list.RetrievalFilterList"
 
 
-class _RetrievalFilterConfiguration_equals(TypedDict):
+class _RetrievalFilterConfiguration_equals(TypedDict, closed=True):
     equals: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_greaterThan(TypedDict):
+class _RetrievalFilterConfiguration_greaterThan(TypedDict, closed=True):
     greaterThan: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_greaterThanOrEquals(TypedDict):
+class _RetrievalFilterConfiguration_greaterThanOrEquals(TypedDict, closed=True):
     greaterThanOrEquals: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
@@ -30,38 +32,39 @@ _RetrievalFilterConfiguration_in = TypedDict(
     {
         "in": "aws_sdk_qconnect.types.filter_attribute.FilterAttribute",
     },
+    closed=True,
 )
 
 
-class _RetrievalFilterConfiguration_lessThan(TypedDict):
+class _RetrievalFilterConfiguration_lessThan(TypedDict, closed=True):
     lessThan: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_lessThanOrEquals(TypedDict):
+class _RetrievalFilterConfiguration_lessThanOrEquals(TypedDict, closed=True):
     lessThanOrEquals: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_listContains(TypedDict):
+class _RetrievalFilterConfiguration_listContains(TypedDict, closed=True):
     listContains: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_notEquals(TypedDict):
+class _RetrievalFilterConfiguration_notEquals(TypedDict, closed=True):
     notEquals: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_notIn(TypedDict):
+class _RetrievalFilterConfiguration_notIn(TypedDict, closed=True):
     notIn: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_orAll(TypedDict):
+class _RetrievalFilterConfiguration_orAll(TypedDict, closed=True):
     orAll: "aws_sdk_qconnect.types.retrieval_filter_list.RetrievalFilterList"
 
 
-class _RetrievalFilterConfiguration_startsWith(TypedDict):
+class _RetrievalFilterConfiguration_startsWith(TypedDict, closed=True):
     startsWith: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilterConfiguration_stringContains(TypedDict):
+class _RetrievalFilterConfiguration_stringContains(TypedDict, closed=True):
     stringContains: "aws_sdk_qconnect.types.filter_attribute.FilterAttribute"
 
 

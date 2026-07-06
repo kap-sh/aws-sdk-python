@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#CreateWorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.tag_map
 
 
-class CreateWorkspaceRequest(TypedDict):
+class CreateWorkspaceRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the workspace.</p>"""
     description: NotRequired["aws_sdk_iottwinmaker.types.description.Description"]

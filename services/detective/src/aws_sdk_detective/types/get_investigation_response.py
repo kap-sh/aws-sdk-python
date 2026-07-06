@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#GetInvestigationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.entity_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.timestamp
 
 
-class GetInvestigationResponse(TypedDict):
+class GetInvestigationResponse(TypedDict, closed=True):
     graph_arn: NotRequired["aws_sdk_detective.types.graph_arn.GraphArn"]
     """<p>The Amazon Resource Name (ARN) of the behavior graph.</p>"""
     investigation_id: NotRequired[

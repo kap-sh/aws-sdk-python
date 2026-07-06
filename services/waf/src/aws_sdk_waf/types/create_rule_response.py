@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#CreateRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.change_token
     import aws_sdk_waf.types.rule
 
 
-class CreateRuleResponse(TypedDict):
+class CreateRuleResponse(TypedDict, closed=True):
     rule: NotRequired["aws_sdk_waf.types.rule.Rule"]
     """<p>The <a>Rule</a> returned in the <code>CreateRule</code> response.</p>"""
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]

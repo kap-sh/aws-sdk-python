@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3BucketDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_data_export_encryption
 
 
-class S3BucketDestination(TypedDict):
+class S3BucketDestination(TypedDict, closed=True):
     format: "aws_sdk_s3_control.types.format.Format"
     """<p></p>"""
     output_schema_version: (

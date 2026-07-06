@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#TaskError``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TaskError(TypedDict):
+class TaskError(TypedDict, closed=True):
     error_code: NotRequired["str"]
     """<p>The code of the error.</p>"""
     error_message: NotRequired["str"]

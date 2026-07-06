@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CreateGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class CreateGatewayResponse(TypedDict):
+class CreateGatewayResponse(TypedDict, closed=True):
     gateway_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the gateway device. You can use this ID when you call other IoT SiteWise API operations.</p>"""
     gateway_arn: "aws_sdk_iotsitewise.types.arn.ARN"

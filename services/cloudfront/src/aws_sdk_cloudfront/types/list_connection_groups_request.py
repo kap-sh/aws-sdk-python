@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListConnectionGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ListConnectionGroupsRequest(TypedDict):
+class ListConnectionGroupsRequest(TypedDict, closed=True):
     association_filter: NotRequired[
         "aws_sdk_cloudfront.types.connection_group_association_filter.ConnectionGroupAssociationFilter"
     ]

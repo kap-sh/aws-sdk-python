@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AccountPoolSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.updated_by
 
 
-class AccountPoolSummary(TypedDict):
+class AccountPoolSummary(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_datazone.types.domain_id.DomainId"]
     """<p>The ID of the domain.</p>"""
     id: NotRequired["aws_sdk_datazone.types.account_pool_id.AccountPoolId"]

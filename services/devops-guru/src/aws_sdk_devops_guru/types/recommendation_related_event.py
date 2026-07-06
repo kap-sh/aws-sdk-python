@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#RecommendationRelatedEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.recommendation_related_event_name
     import aws_sdk_devops_guru.types.recommendation_related_event_resources
 
 
-class RecommendationRelatedEvent(TypedDict):
+class RecommendationRelatedEvent(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_devops_guru.types.recommendation_related_event_name.RecommendationRelatedEventName"
     ]

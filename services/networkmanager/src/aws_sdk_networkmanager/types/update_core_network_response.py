@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#UpdateCoreNetworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network
 
 
-class UpdateCoreNetworkResponse(TypedDict):
+class UpdateCoreNetworkResponse(TypedDict, closed=True):
     core_network: NotRequired["aws_sdk_networkmanager.types.core_network.CoreNetwork"]
     """<p>Returns information about a core network update.</p>"""
 

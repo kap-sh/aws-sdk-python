@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#SendWhatsAppMessageOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SendWhatsAppMessageOutput(TypedDict):
+class SendWhatsAppMessageOutput(TypedDict, closed=True):
     message_id: NotRequired["str"]
     """<p>The unique identifier of the message.</p>"""
 

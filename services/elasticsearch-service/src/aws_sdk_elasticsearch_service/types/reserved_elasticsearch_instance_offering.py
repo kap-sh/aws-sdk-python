@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ReservedElasticsearchInstanceOffering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.double
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.string
 
 
-class ReservedElasticsearchInstanceOffering(TypedDict):
+class ReservedElasticsearchInstanceOffering(TypedDict, closed=True):
     reserved_elasticsearch_instance_offering_id: NotRequired[
         "aws_sdk_elasticsearch_service.types.guid.GUID"
     ]

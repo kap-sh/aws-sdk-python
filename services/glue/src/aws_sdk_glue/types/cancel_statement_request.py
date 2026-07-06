@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CancelStatementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_name_string
 
 
-class CancelStatementRequest(TypedDict):
+class CancelStatementRequest(TypedDict, closed=True):
     session_id: "aws_sdk_glue.types.name_string.NameString"
     """<p>The Session ID of the statement to be cancelled.</p>"""
     id: "aws_sdk_glue.types.integer_value.IntegerValue"

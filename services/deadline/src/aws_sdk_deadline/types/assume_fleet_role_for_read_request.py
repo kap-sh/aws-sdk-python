@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AssumeFleetRoleForReadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.farm_id
     import aws_sdk_deadline.types.fleet_id
 
 
-class AssumeFleetRoleForReadRequest(TypedDict):
+class AssumeFleetRoleForReadRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID for the fleet's farm.</p>"""
     fleet_id: "aws_sdk_deadline.types.fleet_id.FleetId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#TargetInstances``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.auto_scaling_group_name_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.ec2_tag_set
 
 
-class TargetInstances(TypedDict):
+class TargetInstances(TypedDict, closed=True):
     tag_filters: NotRequired[
         "aws_sdk_codedeploy.types.ec2_tag_filter_list.EC2TagFilterList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PurchaseReservedInstanceOfferingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.reservation_token
 
 
-class PurchaseReservedInstanceOfferingRequest(TypedDict):
+class PurchaseReservedInstanceOfferingRequest(TypedDict, closed=True):
     reserved_instance_offering_id: "aws_sdk_opensearch.types.guid.GUID"
     """<p>The ID of the Reserved Instance offering to purchase.</p>"""
     reservation_name: "aws_sdk_opensearch.types.reservation_token.ReservationToken"

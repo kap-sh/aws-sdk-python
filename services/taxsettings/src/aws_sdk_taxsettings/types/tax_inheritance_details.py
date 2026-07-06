@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#TaxInheritanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_id
     import aws_sdk_taxsettings.types.inheritance_obtained_reason
 
 
-class TaxInheritanceDetails(TypedDict):
+class TaxInheritanceDetails(TypedDict, closed=True):
     parent_entity_id: NotRequired["aws_sdk_taxsettings.types.account_id.AccountId"]
     """<p> Tax inheritance parent account information associated with the account. </p>"""
     inheritance_obtained_reason: NotRequired[

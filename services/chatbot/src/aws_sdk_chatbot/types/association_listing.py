@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#AssociationListing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.arn
 
 
-class AssociationListing(TypedDict):
+class AssociationListing(TypedDict, closed=True):
     resource: "aws_sdk_chatbot.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource (for example, a custom action).</p>"""
 

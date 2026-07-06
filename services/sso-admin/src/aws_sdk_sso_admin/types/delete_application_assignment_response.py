@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DeleteApplicationAssignmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteApplicationAssignmentResponse(TypedDict):
+class DeleteApplicationAssignmentResponse(TypedDict, closed=True):
     pass
 
 

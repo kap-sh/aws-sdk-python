@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#LogPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.log_pattern_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.log_pattern_set_name
 
 
-class LogPattern(TypedDict):
+class LogPattern(TypedDict, closed=True):
     pattern_set_name: NotRequired[
         "aws_sdk_application_insights.types.log_pattern_set_name.LogPatternSetName"
     ]

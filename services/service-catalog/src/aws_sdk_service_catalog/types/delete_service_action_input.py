@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DeleteServiceActionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.idempotency_token
 
 
-class DeleteServiceActionInput(TypedDict):
+class DeleteServiceActionInput(TypedDict, closed=True):
     id: "aws_sdk_service_catalog.types.id.Id"
     """<p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>"""
     accept_language: NotRequired[

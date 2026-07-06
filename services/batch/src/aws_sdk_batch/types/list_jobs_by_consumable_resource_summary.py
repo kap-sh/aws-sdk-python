@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ListJobsByConsumableResourceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.consumable_resource_properties
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class ListJobsByConsumableResourceSummary(TypedDict):
+class ListJobsByConsumableResourceSummary(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the job.</p>"""
     job_queue_arn: NotRequired["aws_sdk_batch.types.string.String"]

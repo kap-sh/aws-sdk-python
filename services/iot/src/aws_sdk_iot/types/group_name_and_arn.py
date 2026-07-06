@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GroupNameAndArn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_arn
     import aws_sdk_iot.types.thing_group_name
 
 
-class GroupNameAndArn(TypedDict):
+class GroupNameAndArn(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_iot.types.thing_group_name.ThingGroupName"]
     """<p>The group name.</p>"""
     group_arn: NotRequired["aws_sdk_iot.types.thing_group_arn.ThingGroupArn"]

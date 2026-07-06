@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetContactAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
     import aws_sdk_connect.types.instance_id
 
 
-class GetContactAttributesRequest(TypedDict):
+class GetContactAttributesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The identifier of the Connect Customer instance.</p>"""
     initial_contact_id: "aws_sdk_connect.types.contact_id.ContactId"

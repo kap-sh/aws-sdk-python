@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.billed_job_resource_utilization
 
 
-class ProtectedJobStatistics(TypedDict):
+class ProtectedJobStatistics(TypedDict, closed=True):
     total_duration_in_millis: NotRequired["int"]
     """<p>The duration of the protected job, from creation until job completion, in milliseconds.</p>"""
     billed_resource_utilization: NotRequired[

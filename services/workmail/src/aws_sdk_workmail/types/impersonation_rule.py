@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ImpersonationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.target_users
 
 
-class ImpersonationRule(TypedDict):
+class ImpersonationRule(TypedDict, closed=True):
     impersonation_rule_id: (
         "aws_sdk_workmail.types.impersonation_rule_id.ImpersonationRuleId"
     )

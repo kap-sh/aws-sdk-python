@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#FleetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestamp
 
 
-class FleetSummary(TypedDict):
+class FleetSummary(TypedDict, closed=True):
     id: "aws_sdk_iotfleetwise.types.fleet_id.fleetId"
     """<p>The unique ID of the fleet.</p>"""
     arn: "aws_sdk_iotfleetwise.types.arn.arn"

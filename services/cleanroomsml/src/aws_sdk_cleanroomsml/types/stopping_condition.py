@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#StoppingCondition``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StoppingCondition(TypedDict):
+class StoppingCondition(TypedDict, closed=True):
     max_runtime_in_seconds: "int"
     """<p>The maximum amount of time, in seconds, that model training can run before it is terminated.</p>"""
 

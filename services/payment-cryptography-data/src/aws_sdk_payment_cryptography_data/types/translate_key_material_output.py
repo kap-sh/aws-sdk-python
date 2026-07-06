@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#TranslateKeyMaterialOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.wrapped_working_key
 
 
-class TranslateKeyMaterialOutput(TypedDict):
+class TranslateKeyMaterialOutput(TypedDict, closed=True):
     wrapped_key: (
         "aws_sdk_payment_cryptography_data.types.wrapped_working_key.WrappedWorkingKey"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MailFromAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.mail_from_domain_status
 
 
-class MailFromAttributes(TypedDict):
+class MailFromAttributes(TypedDict, closed=True):
     mail_from_domain: "aws_sdk_sesv2.types.mail_from_domain_name.MailFromDomainName"
     """<p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>"""
     mail_from_domain_status: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteSnapshotReturnCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.snapshot_return_codes
 
 
-class DeleteSnapshotReturnCode(TypedDict):
+class DeleteSnapshotReturnCode(TypedDict, closed=True):
     snapshot_id: NotRequired["aws_sdk_ec2.types.snapshot_id.SnapshotId"]
     """<p>The ID of the snapshot.</p>"""
     return_code: NotRequired[

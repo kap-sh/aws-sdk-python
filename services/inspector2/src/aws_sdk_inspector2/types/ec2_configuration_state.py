@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2ConfigurationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ec2_scan_mode_state
     import aws_sdk_inspector2.types.vm_scanner_state
 
 
-class Ec2ConfigurationState(TypedDict):
+class Ec2ConfigurationState(TypedDict, closed=True):
     scan_mode_state: NotRequired[
         "aws_sdk_inspector2.types.ec2_scan_mode_state.Ec2ScanModeState"
     ]

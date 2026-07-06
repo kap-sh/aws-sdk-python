@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#TestIdentityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.url
 
 
-class TestIdentityProviderResponse(TypedDict):
+class TestIdentityProviderResponse(TypedDict, closed=True):
     response: NotRequired["aws_sdk_transfer.types.response.Response"]
     """<p>The response that is returned from your API Gateway or your Lambda function.</p>"""
     status_code: "aws_sdk_transfer.types.status_code.StatusCode"

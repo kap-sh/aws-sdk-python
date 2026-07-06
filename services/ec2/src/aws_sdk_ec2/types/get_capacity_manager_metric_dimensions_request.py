@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetCapacityManagerMetricDimensionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.next_token
 
 
-class GetCapacityManagerMetricDimensionsRequest(TypedDict):
+class GetCapacityManagerMetricDimensionsRequest(TypedDict, closed=True):
     group_by: NotRequired["aws_sdk_ec2.types.group_by_set.GroupBySet"]
     """<p> The dimensions to group by when retrieving available dimension values. This determines which dimension combinations are returned. Required parameter. </p>"""
     filter_by: NotRequired[

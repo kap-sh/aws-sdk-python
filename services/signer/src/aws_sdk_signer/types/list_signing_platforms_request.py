@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#ListSigningPlatformsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.max_results
     import aws_sdk_signer.types.string
 
 
-class ListSigningPlatformsRequest(TypedDict):
+class ListSigningPlatformsRequest(TypedDict, closed=True):
     category: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>The category type of a signing platform.</p>"""
     partner: NotRequired["aws_sdk_signer.types.string.String"]

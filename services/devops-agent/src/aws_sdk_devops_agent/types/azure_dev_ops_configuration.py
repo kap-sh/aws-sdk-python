@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AzureDevOpsConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class AzureDevOpsConfiguration(TypedDict):
+class AzureDevOpsConfiguration(TypedDict, closed=True):
     organization_name: "str"
     """<p>Azure DevOps organization name.</p>"""
     project_id: "str"

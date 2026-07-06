@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#VectorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.dimension
 
 
-class VectorConfig(TypedDict):
+class VectorConfig(TypedDict, closed=True):
     dimension: NotRequired["aws_sdk_sagemaker.types.dimension.Dimension"]
     """<p>The number of elements in your vector.</p>"""
 

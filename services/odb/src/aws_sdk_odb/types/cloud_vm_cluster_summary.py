@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CloudVmClusterSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class CloudVmClusterSummary(TypedDict):
+class CloudVmClusterSummary(TypedDict, closed=True):
     cloud_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId"
     """<p>The unique identifier of the VM cluster.</p>"""
     display_name: NotRequired["str"]

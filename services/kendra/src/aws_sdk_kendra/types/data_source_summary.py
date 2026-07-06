@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DataSourceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class DataSourceSummary(TypedDict):
+class DataSourceSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_kendra.types.data_source_name.DataSourceName"]
     """<p>The name of the data source.</p>"""
     id: NotRequired["aws_sdk_kendra.types.data_source_id.DataSourceId"]

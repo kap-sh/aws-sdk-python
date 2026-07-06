@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#Status``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.error_details
     import aws_sdk_iottwinmaker.types.state
 
 
-class Status(TypedDict):
+class Status(TypedDict, closed=True):
     state: NotRequired["aws_sdk_iottwinmaker.types.state.State"]
     """<p>The current state of the entity, component, component type, or workspace.</p>"""
     error: NotRequired["aws_sdk_iottwinmaker.types.error_details.ErrorDetails"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#SlotMigration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.double
 
 
-class SlotMigration(TypedDict):
+class SlotMigration(TypedDict, closed=True):
     progress_percentage: "aws_sdk_memorydb.types.double.Double"
     """<p>The percentage of the slot migration that is complete.</p>"""
 

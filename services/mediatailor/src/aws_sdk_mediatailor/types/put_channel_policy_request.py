@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#PutChannelPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class PutChannelPolicyRequest(TypedDict):
+class PutChannelPolicyRequest(TypedDict, closed=True):
     channel_name: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The channel name associated with this Channel Policy.</p>"""
     policy: "aws_sdk_mediatailor.types.__string.__string"

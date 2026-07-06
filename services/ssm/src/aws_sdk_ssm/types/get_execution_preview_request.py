@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetExecutionPreviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.execution_preview_id
 
 
-class GetExecutionPreviewRequest(TypedDict):
+class GetExecutionPreviewRequest(TypedDict, closed=True):
     execution_preview_id: "aws_sdk_ssm.types.execution_preview_id.ExecutionPreviewId"
     """<p>The ID of the existing execution preview.</p>"""
 

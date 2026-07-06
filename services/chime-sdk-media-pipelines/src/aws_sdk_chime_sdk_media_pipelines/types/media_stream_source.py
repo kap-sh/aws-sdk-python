@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#MediaStreamSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.media_pipeline_source_type
 
 
-class MediaStreamSource(TypedDict):
+class MediaStreamSource(TypedDict, closed=True):
     source_type: "aws_sdk_chime_sdk_media_pipelines.types.media_pipeline_source_type.MediaPipelineSourceType"
     """<p>The type of media stream source.</p>"""
     source_arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"

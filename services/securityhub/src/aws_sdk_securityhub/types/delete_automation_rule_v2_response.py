@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DeleteAutomationRuleV2Response``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAutomationRuleV2Response(TypedDict):
+class DeleteAutomationRuleV2Response(TypedDict, closed=True):
     pass
 
 

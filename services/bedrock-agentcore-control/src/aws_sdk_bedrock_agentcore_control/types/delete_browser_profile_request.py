@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteBrowserProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.browser_profile_id
     import aws_sdk_bedrock_agentcore_control.types.client_token
 
 
-class DeleteBrowserProfileRequest(TypedDict):
+class DeleteBrowserProfileRequest(TypedDict, closed=True):
     profile_id: (
         "aws_sdk_bedrock_agentcore_control.types.browser_profile_id.BrowserProfileId"
     )

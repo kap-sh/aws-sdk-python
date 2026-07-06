@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_interconnect.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_interconnect.types.environment_list
 
 
-class ListEnvironmentsResponse(TypedDict):
+class ListEnvironmentsResponse(TypedDict, closed=True):
     environments: "aws_sdk_interconnect.types.environment_list.EnvironmentList"
     """<p>The list of matching <a>Environment</a> objects.</p>"""
     next_token: NotRequired["str"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ManagedConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.managed_storage_type
 
 
-class ManagedConfiguration(TypedDict):
+class ManagedConfiguration(TypedDict, closed=True):
     managed_storage_type: NotRequired[
         "aws_sdk_sagemaker.types.managed_storage_type.ManagedStorageType"
     ]

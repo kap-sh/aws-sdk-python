@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#DataValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.string
 
 
-class DataValue(TypedDict):
+class DataValue(TypedDict, closed=True):
     boolean_value: NotRequired["aws_sdk_iottwinmaker.types.boolean.Boolean"]
     """<p>A Boolean value.</p>"""
     double_value: NotRequired["aws_sdk_iottwinmaker.types.double.Double"]

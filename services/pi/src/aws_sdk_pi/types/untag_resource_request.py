@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     service_type: "aws_sdk_pi.types.service_type.ServiceType"
     """<p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>"""
     resource_arn: "aws_sdk_pi.types.amazon_resource_name.AmazonResourceName"

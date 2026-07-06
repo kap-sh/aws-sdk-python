@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#S3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.prefix
     import aws_sdk_iot.types.s3_bucket
 
 
-class S3Destination(TypedDict):
+class S3Destination(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_iot.types.s3_bucket.S3Bucket"]
     """<p>The S3 bucket that contains the updated firmware.</p>"""
     prefix: NotRequired["aws_sdk_iot.types.prefix.Prefix"]

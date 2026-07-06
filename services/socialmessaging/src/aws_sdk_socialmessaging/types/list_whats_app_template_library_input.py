@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#ListWhatsAppTemplateLibraryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.filter
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.next_token
 
 
-class ListWhatsAppTemplateLibraryInput(TypedDict):
+class ListWhatsAppTemplateLibraryInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_socialmessaging.types.next_token.NextToken"]
     """<p>The token for the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_socialmessaging.types.max_results.MaxResults"]

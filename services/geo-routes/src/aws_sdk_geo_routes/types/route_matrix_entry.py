@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_matrix_error_code
 
 
-class RouteMatrixEntry(TypedDict):
+class RouteMatrixEntry(TypedDict, closed=True):
     distance: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"
     """<p>The total distance of travel for the route.</p>"""
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"

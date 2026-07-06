@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_field_priority_dedupe_field_list
 
 
-class DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration(TypedDict):
+class DataIntegrationFlowFieldPriorityDedupeStrategyConfiguration(
+    TypedDict, closed=True
+):
     fields: "aws_sdk_supplychain.types.data_integration_flow_field_priority_dedupe_field_list.DataIntegrationFlowFieldPriorityDedupeFieldList"
     """<p>The list of field names and their sort order for deduplication, arranged in descending priority from highest to lowest.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateHostedZoneRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vpc
 
 
-class CreateHostedZoneRequest(TypedDict):
+class CreateHostedZoneRequest(TypedDict, closed=True):
     name: "aws_sdk_route_53.types.dns_name.DNSName"
     """<p>The name of the domain. Specify a fully qualified domain name, for example, <i>www.example.com</i>. The trailing dot is optional; Amazon Route 53 assumes that the domain name is fully qualified. This means that Route 53 treats <i>www.example.com</i> (without a trailing dot) and <i>www.example.com.</i> (with a trailing dot) as identical.</p> <p>If you're creating a public hosted zone, this is the name you have registered with your DNS registrar. If your domain name is registered with a registrar other than Route 53, change the name servers for your domain to the set of <code>NameServers</code> that <code>CreateHostedZone</code> returns in <code>DelegationSet</code>.</p>"""
     vpc: NotRequired["aws_sdk_route_53.types.vpc.VPC"]

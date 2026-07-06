@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ControlMappingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.common_control_arn_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.mapping_type_filter_list
 
 
-class ControlMappingFilter(TypedDict):
+class ControlMappingFilter(TypedDict, closed=True):
     control_arns: NotRequired[
         "aws_sdk_controlcatalog.types.control_arn_filter_list.ControlArnFilterList"
     ]

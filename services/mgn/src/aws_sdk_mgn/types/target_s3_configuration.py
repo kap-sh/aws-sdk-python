@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#TargetS3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.s3_bucket_name
 
 
-class TargetS3Configuration(TypedDict):
+class TargetS3Configuration(TypedDict, closed=True):
     s3_bucket: "aws_sdk_mgn.types.s3_bucket_name.S3BucketName"
     """<p>The name of the S3 bucket for target artifacts.</p>"""
     s3_bucket_owner: "aws_sdk_mgn.types.account_id.AccountID"

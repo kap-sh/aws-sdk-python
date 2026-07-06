@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#GetResolverConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_config
 
 
-class GetResolverConfigResponse(TypedDict):
+class GetResolverConfigResponse(TypedDict, closed=True):
     resolver_config: NotRequired[
         "aws_sdk_route53resolver.types.resolver_config.ResolverConfig"
     ]

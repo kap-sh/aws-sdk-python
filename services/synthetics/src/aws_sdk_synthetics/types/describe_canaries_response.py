@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DescribeCanariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.canaries
     import aws_sdk_synthetics.types.token
 
 
-class DescribeCanariesResponse(TypedDict):
+class DescribeCanariesResponse(TypedDict, closed=True):
     canaries: NotRequired["aws_sdk_synthetics.types.canaries.Canaries"]
     """<p>Returns an array. Each item in the array contains the full information about one canary.</p>"""
     next_token: NotRequired["aws_sdk_synthetics.types.token.Token"]

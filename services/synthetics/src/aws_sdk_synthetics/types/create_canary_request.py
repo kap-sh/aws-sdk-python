@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CreateCanaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_synthetics.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.vpc_config_input
 
 
-class CreateCanaryRequest(TypedDict):
+class CreateCanaryRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
     r"""<p>The name for this canary. Be sure to give it a descriptive name that distinguishes it from other canaries in your account.</p> <p>Do not include secrets or proprietary information in your canary names. The canary name makes up part of the canary ARN, and the ARN is included in outbound calls over the internet. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html\">Security Considerations for Synthetics Canaries</a>.</p>"""
     code: "aws_sdk_synthetics.types.canary_code_input.CanaryCodeInput"

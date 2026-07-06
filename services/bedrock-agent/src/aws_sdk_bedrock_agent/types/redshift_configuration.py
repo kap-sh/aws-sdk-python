@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedshiftConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.redshift_query_engine_storage_configurations
 
 
-class RedshiftConfiguration(TypedDict):
+class RedshiftConfiguration(TypedDict, closed=True):
     storage_configurations: "aws_sdk_bedrock_agent.types.redshift_query_engine_storage_configurations.RedshiftQueryEngineStorageConfigurations"
     """<p>Specifies configurations for Amazon Redshift database storage.</p>"""
     query_engine_configuration: "aws_sdk_bedrock_agent.types.redshift_query_engine_configuration.RedshiftQueryEngineConfiguration"

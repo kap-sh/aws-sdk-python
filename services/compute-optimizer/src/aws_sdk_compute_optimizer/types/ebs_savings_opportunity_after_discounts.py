@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#EBSSavingsOpportunityAfterDiscounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.ebs_estimated_monthly_savings
     import aws_sdk_compute_optimizer.types.savings_opportunity_percentage
 
 
-class EBSSavingsOpportunityAfterDiscounts(TypedDict):
+class EBSSavingsOpportunityAfterDiscounts(TypedDict, closed=True):
     savings_opportunity_percentage: "aws_sdk_compute_optimizer.types.savings_opportunity_percentage.SavingsOpportunityPercentage"
     """<p> The estimated monthly savings possible as a percentage of monthly cost after applying the specific discounts. This saving can be achieved by adopting Compute Optimizer’s Amazon EBS volume recommendations. </p>"""
     estimated_monthly_savings: NotRequired[

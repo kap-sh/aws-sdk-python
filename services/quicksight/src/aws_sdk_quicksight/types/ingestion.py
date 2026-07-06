@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Ingestion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class Ingestion(TypedDict):
+class Ingestion(TypedDict, closed=True):
     arn: "aws_sdk_quicksight.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     ingestion_id: NotRequired["aws_sdk_quicksight.types.ingestion_id.IngestionId"]

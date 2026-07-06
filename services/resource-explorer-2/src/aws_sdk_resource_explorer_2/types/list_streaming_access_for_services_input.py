@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListStreamingAccessForServicesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListStreamingAccessForServicesInput(TypedDict):
+class ListStreamingAccessForServicesInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of streaming access entries to return in the response. If there are more results available, the response includes a NextToken value that you can use in a subsequent call to get the next set of results. The value must be between 1 and 50. If you don't specify a value, the default is 50.</p>"""
     next_token: NotRequired["str"]

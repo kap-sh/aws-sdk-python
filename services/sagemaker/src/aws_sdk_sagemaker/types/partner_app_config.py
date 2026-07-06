@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PartnerAppConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.assigned_group_patterns_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_group_assignments_list
 
 
-class PartnerAppConfig(TypedDict):
+class PartnerAppConfig(TypedDict, closed=True):
     admin_users: NotRequired[
         "aws_sdk_sagemaker.types.partner_app_admin_user_list.PartnerAppAdminUserList"
     ]

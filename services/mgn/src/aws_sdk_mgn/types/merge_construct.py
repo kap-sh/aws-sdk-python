@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#MergeConstruct``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.construct_id
     import aws_sdk_mgn.types.segment_id
 
 
-class MergeConstruct(TypedDict):
+class MergeConstruct(TypedDict, closed=True):
     segment_id: NotRequired["aws_sdk_mgn.types.segment_id.SegmentID"]
     """<p>The segment ID of the construct to merge.</p>"""
     construct_id: NotRequired["aws_sdk_mgn.types.construct_id.ConstructID"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#CreateConfigurationManagerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.tags_map
 
 
-class CreateConfigurationManagerInput(TypedDict):
+class CreateConfigurationManagerInput(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>A name for the configuration manager.</p>"""
     description: NotRequired["str"]

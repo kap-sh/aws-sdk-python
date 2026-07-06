@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEksMetadataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.aws_eks_workload_info_list
 
 
-class AwsEksMetadataDetails(TypedDict):
+class AwsEksMetadataDetails(TypedDict, closed=True):
     namespace: NotRequired["str"]
     """<p>The namespace for an Amazon EKS cluster.</p>"""
     workload_info_list: NotRequired[

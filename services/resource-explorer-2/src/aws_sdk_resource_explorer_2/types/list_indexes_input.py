@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#ListIndexesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.index_type
     import aws_sdk_resource_explorer_2.types.region_list
 
 
-class ListIndexesInput(TypedDict):
+class ListIndexesInput(TypedDict, closed=True):
     type: NotRequired["aws_sdk_resource_explorer_2.types.index_type.IndexType"]
     """<p>If specified, limits the output to only indexes of the specified Type, either <code>LOCAL</code> or <code>AGGREGATOR</code>.</p> <p>Use this option to discover the aggregator index for your account.</p>"""
     regions: NotRequired["aws_sdk_resource_explorer_2.types.region_list.RegionList"]

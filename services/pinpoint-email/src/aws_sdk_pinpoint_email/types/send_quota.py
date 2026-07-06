@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#SendQuota``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.max24_hour_send
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.sent_last24_hours
 
 
-class SendQuota(TypedDict):
+class SendQuota(TypedDict, closed=True):
     max24_hour_send: "aws_sdk_pinpoint_email.types.max24_hour_send.Max24HourSend"
     """<p>The maximum number of emails that you can send in the current AWS Region over a 24-hour period. This value is also called your <i>sending quota</i>.</p>"""
     max_send_rate: "aws_sdk_pinpoint_email.types.max_send_rate.MaxSendRate"

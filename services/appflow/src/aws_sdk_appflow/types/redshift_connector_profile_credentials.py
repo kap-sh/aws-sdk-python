@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RedshiftConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.password
     import aws_sdk_appflow.types.string
 
 
-class RedshiftConnectorProfileCredentials(TypedDict):
+class RedshiftConnectorProfileCredentials(TypedDict, closed=True):
     username: NotRequired["aws_sdk_appflow.types.string.String"]
     """<p> The name of the user. </p>"""
     password: NotRequired["aws_sdk_appflow.types.password.Password"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_codec
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_resolution
 
 
-class InputSpecification(TypedDict):
+class InputSpecification(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_medialive.types.input_codec.InputCodec"]
     """Input codec"""
     maximum_bitrate: NotRequired[

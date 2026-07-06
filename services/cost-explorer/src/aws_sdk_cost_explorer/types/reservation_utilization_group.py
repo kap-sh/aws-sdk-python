@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservationUtilizationGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.attributes
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.reservation_group_value
 
 
-class ReservationUtilizationGroup(TypedDict):
+class ReservationUtilizationGroup(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_cost_explorer.types.reservation_group_key.ReservationGroupKey"
     ]

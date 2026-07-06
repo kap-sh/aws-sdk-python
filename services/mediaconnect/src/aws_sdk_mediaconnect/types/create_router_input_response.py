@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#CreateRouterInputResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input
 
 
-class CreateRouterInputResponse(TypedDict):
+class CreateRouterInputResponse(TypedDict, closed=True):
     router_input: "aws_sdk_mediaconnect.types.router_input.RouterInput"
     """<p>The newly-created router input.</p>"""
 

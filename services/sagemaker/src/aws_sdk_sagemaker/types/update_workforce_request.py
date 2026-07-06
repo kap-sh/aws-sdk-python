@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateWorkforceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.oidc_config
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_vpc_config_request
 
 
-class UpdateWorkforceRequest(TypedDict):
+class UpdateWorkforceRequest(TypedDict, closed=True):
     workforce_name: NotRequired["aws_sdk_sagemaker.types.workforce_name.WorkforceName"]
     r"""<p>The name of the private workforce that you want to update. You can find your workforce name by using the <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListWorkforces.html\">ListWorkforces</a> operation.</p>"""
     source_ip_config: NotRequired[

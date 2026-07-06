@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetBatchPredictionJobsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.batch_prediction_list
     import aws_sdk_frauddetector.types.string
 
 
-class GetBatchPredictionJobsResult(TypedDict):
+class GetBatchPredictionJobsResult(TypedDict, closed=True):
     batch_predictions: NotRequired[
         "aws_sdk_frauddetector.types.batch_prediction_list.BatchPredictionList"
     ]

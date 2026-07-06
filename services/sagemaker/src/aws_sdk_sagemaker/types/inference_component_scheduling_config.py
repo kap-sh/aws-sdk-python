@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentSchedulingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_component_availability_zone_balance
     import aws_sdk_sagemaker.types.inference_component_placement_strategy
 
 
-class InferenceComponentSchedulingConfig(TypedDict):
+class InferenceComponentSchedulingConfig(TypedDict, closed=True):
     placement_strategy: NotRequired[
         "aws_sdk_sagemaker.types.inference_component_placement_strategy.InferenceComponentPlacementStrategy"
     ]

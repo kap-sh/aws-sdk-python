@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#PackageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.creation_date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version_name
 
 
-class PackageSummary(TypedDict):
+class PackageSummary(TypedDict, closed=True):
     package_name: NotRequired["aws_sdk_iot.types.package_name.PackageName"]
     """<p>The name for the target software package.</p>"""
     default_version_name: NotRequired["aws_sdk_iot.types.version_name.VersionName"]

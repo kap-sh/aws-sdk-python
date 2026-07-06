@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DisassociateConfigurationItemsFromApplicationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateConfigurationItemsFromApplicationResponse(TypedDict):
+class DisassociateConfigurationItemsFromApplicationResponse(TypedDict, closed=True):
     pass
 
 

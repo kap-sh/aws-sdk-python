@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateFailoverConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.failover_mode
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.state
 
 
-class UpdateFailoverConfig(TypedDict):
+class UpdateFailoverConfig(TypedDict, closed=True):
     failover_mode: NotRequired["aws_sdk_mediaconnect.types.failover_mode.FailoverMode"]
     """<p> The type of failover you choose for this flow. MERGE combines the source streams into a single stream, allowing graceful recovery from any single-source loss. FAILOVER allows switching between different streams.</p>"""
     recovery_window: NotRequired["int"]

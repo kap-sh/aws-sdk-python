@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TableExcerpt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.integer
     import aws_sdk_kendra.types.table_row_list
 
 
-class TableExcerpt(TypedDict):
+class TableExcerpt(TypedDict, closed=True):
     rows: NotRequired["aws_sdk_kendra.types.table_row_list.TableRowList"]
     """<p>A list of rows in the table excerpt.</p>"""
     total_number_of_rows: NotRequired["aws_sdk_kendra.types.integer.Integer"]

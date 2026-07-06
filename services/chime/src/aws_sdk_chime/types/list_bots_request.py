@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ListBotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.non_empty_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class ListBotsRequest(TypedDict):
+class ListBotsRequest(TypedDict, closed=True):
     account_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The Amazon Chime account ID.</p>"""
     max_results: NotRequired["aws_sdk_chime.types.result_max.ResultMax"]

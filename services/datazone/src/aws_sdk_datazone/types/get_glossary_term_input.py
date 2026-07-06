@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetGlossaryTermInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.glossary_term_id
 
 
-class GetGlossaryTermInput(TypedDict):
+class GetGlossaryTermInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which this business glossary term exists.</p>"""
     identifier: "aws_sdk_datazone.types.glossary_term_id.GlossaryTermId"

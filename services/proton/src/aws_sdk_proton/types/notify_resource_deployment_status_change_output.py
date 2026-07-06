@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.proton#NotifyResourceDeploymentStatusChangeOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NotifyResourceDeploymentStatusChangeOutput(TypedDict):
+class NotifyResourceDeploymentStatusChangeOutput(TypedDict, closed=True):
     pass
 
 

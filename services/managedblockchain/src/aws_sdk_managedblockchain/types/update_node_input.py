@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#UpdateNodeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.node_log_publishing_configuration
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class UpdateNodeInput(TypedDict):
+class UpdateNodeInput(TypedDict, closed=True):
     network_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p>The unique identifier of the network that the node is on.</p>"""
     member_id: NotRequired[

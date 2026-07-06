@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RuleDetail``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.metadata_form_enforcement_detail
 
 
-class _RuleDetail_metadataFormEnforcementDetail(TypedDict):
+class _RuleDetail_metadataFormEnforcementDetail(TypedDict, closed=True):
     metadataFormEnforcementDetail: "aws_sdk_datazone.types.metadata_form_enforcement_detail.MetadataFormEnforcementDetail"
 
 
-class _RuleDetail_glossaryTermEnforcementDetail(TypedDict):
+class _RuleDetail_glossaryTermEnforcementDetail(TypedDict, closed=True):
     glossaryTermEnforcementDetail: "aws_sdk_datazone.types.glossary_term_enforcement_detail.GlossaryTermEnforcementDetail"
 
 

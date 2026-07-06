@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#DeleteIdentitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.unprocessed_identity_id_list
 
 
-class DeleteIdentitiesResponse(TypedDict):
+class DeleteIdentitiesResponse(TypedDict, closed=True):
     unprocessed_identity_ids: NotRequired[
         "aws_sdk_cognito_identity.types.unprocessed_identity_id_list.UnprocessedIdentityIdList"
     ]

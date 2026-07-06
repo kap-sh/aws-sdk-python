@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#MembershipSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.uuid
 
 
-class MembershipSummary(TypedDict):
+class MembershipSummary(TypedDict, closed=True):
     id: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique ID for the membership's collaboration.</p>"""
     arn: "aws_sdk_cleanrooms.types.membership_arn.MembershipArn"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#SelectParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.output_serialization
 
 
-class SelectParameters(TypedDict):
+class SelectParameters(TypedDict, closed=True):
     input_serialization: "aws_sdk_s3.types.input_serialization.InputSerialization"
     """<p>Describes the serialization format of the object.</p>"""
     expression_type: "aws_sdk_s3.types.expression_type.ExpressionType"

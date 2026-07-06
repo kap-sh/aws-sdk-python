@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#DeleteEventRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.event_rule_arn
 
 
-class DeleteEventRuleRequest(TypedDict):
+class DeleteEventRuleRequest(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.event_rule_arn.EventRuleArn"
     """<p>The Amazon Resource Name (ARN) of the <code>EventRule</code> to delete.</p>"""
 

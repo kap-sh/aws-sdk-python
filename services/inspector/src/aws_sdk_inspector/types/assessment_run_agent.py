@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentRunAgent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.telemetry_metadata_list
 
 
-class AssessmentRunAgent(TypedDict):
+class AssessmentRunAgent(TypedDict, closed=True):
     agent_id: "aws_sdk_inspector.types.agent_id.AgentId"
     """<p>The AWS account of the EC2 instance where the agent is installed.</p>"""
     assessment_run_arn: "aws_sdk_inspector.types.arn.Arn"

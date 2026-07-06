@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeBudgetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.nullable_boolean
 
 
-class DescribeBudgetsRequest(TypedDict):
+class DescribeBudgetsRequest(TypedDict, closed=True):
     account_id: "aws_sdk_budgets.types.account_id.AccountId"
     """<p>The <code>accountId</code> that is associated with the budgets that you want to describe.</p>"""
     max_results: NotRequired[

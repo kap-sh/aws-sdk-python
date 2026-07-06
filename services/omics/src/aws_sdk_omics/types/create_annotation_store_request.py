@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateAnnotationStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.version_name
 
 
-class CreateAnnotationStoreRequest(TypedDict):
+class CreateAnnotationStoreRequest(TypedDict, closed=True):
     reference: NotRequired["aws_sdk_omics.types.reference_item.ReferenceItem"]
     """<p>The genome reference for the store's annotations.</p>"""
     name: NotRequired["aws_sdk_omics.types.store_name.StoreName"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableBucketReplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.version_token
 
 
-class GetTableBucketReplicationResponse(TypedDict):
+class GetTableBucketReplicationResponse(TypedDict, closed=True):
     version_token: "aws_sdk_s3tables.types.version_token.VersionToken"
     """<p>A version token that represents the current state of the replication configuration. Use this token when updating the configuration to ensure consistency.</p>"""
     configuration: "aws_sdk_s3tables.types.table_bucket_replication_configuration.TableBucketReplicationConfiguration"

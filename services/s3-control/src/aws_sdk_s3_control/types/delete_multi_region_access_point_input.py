@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#DeleteMultiRegionAccessPointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.multi_region_access_point_name
 
 
-class DeleteMultiRegionAccessPointInput(TypedDict):
+class DeleteMultiRegionAccessPointInput(TypedDict, closed=True):
     name: "aws_sdk_s3_control.types.multi_region_access_point_name.MultiRegionAccessPointName"
     """<p>The name of the Multi-Region Access Point associated with this request.</p>"""
 

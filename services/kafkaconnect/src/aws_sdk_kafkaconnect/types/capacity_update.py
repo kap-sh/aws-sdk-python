@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CapacityUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.auto_scaling_update
     import aws_sdk_kafkaconnect.types.provisioned_capacity_update
 
 
-class CapacityUpdate(TypedDict):
+class CapacityUpdate(TypedDict, closed=True):
     auto_scaling: NotRequired[
         "aws_sdk_kafkaconnect.types.auto_scaling_update.AutoScalingUpdate"
     ]

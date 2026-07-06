@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ToolOverrideInputValueConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tool_override_constant_input_value
 
 
-class _ToolOverrideInputValueConfiguration_constant(TypedDict):
+class _ToolOverrideInputValueConfiguration_constant(TypedDict, closed=True):
     constant: "aws_sdk_qconnect.types.tool_override_constant_input_value.ToolOverrideConstantInputValue"
 
 

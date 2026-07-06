@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#WhatIfForecastSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class WhatIfForecastSummary(TypedDict):
+class WhatIfForecastSummary(TypedDict, closed=True):
     what_if_forecast_arn: NotRequired["aws_sdk_forecast.types.long_arn.LongArn"]
     """<p>The Amazon Resource Name (ARN) of the what-if forecast.</p>"""
     what_if_forecast_name: NotRequired["aws_sdk_forecast.types.name.Name"]

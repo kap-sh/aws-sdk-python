@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterEventSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ClusterEventSummary(TypedDict):
+class ClusterEventSummary(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_sagemaker.types.event_id.EventId"]
     """<p>The unique identifier (UUID) of the event.</p>"""
     cluster_arn: NotRequired["aws_sdk_sagemaker.types.cluster_arn.ClusterArn"]

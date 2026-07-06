@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AnalyticsUtteranceAttributeResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class AnalyticsUtteranceAttributeResult(TypedDict):
+class AnalyticsUtteranceAttributeResult(TypedDict, closed=True):
     last_used_intent: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]
     """<p>The intent that the bot mapped the utterance to.</p>"""
 

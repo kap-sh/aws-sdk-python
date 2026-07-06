@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#InvalidSignalDecoder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.fully_qualified_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.signal_decoder_failure_reason
 
 
-class InvalidSignalDecoder(TypedDict):
+class InvalidSignalDecoder(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_iotfleetwise.types.fully_qualified_name.FullyQualifiedName"
     ]

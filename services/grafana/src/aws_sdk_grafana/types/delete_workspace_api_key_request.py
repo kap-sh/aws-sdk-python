@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DeleteWorkspaceApiKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.api_key_name
     import aws_sdk_grafana.types.workspace_id
 
 
-class DeleteWorkspaceApiKeyRequest(TypedDict):
+class DeleteWorkspaceApiKeyRequest(TypedDict, closed=True):
     key_name: "aws_sdk_grafana.types.api_key_name.ApiKeyName"
     """<p>The name of the API key to delete.</p>"""
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"

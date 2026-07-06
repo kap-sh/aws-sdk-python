@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#Ami``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_state
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class Ami(TypedDict):
+class Ami(TypedDict, closed=True):
     region: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]
     """<p>The Amazon Web Services Region of the Amazon EC2 AMI.</p>"""
     image: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.next_token
     import aws_sdk_bedrock_agentcore.types.recommendation_status
 
 
-class ListRecommendationsRequest(TypedDict):
+class ListRecommendationsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agentcore.types.next_token.NextToken"]

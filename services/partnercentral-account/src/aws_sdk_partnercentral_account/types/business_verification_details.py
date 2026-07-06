@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#BusinessVerificationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.registration_id
 
 
-class BusinessVerificationDetails(TypedDict):
+class BusinessVerificationDetails(TypedDict, closed=True):
     legal_name: "aws_sdk_partnercentral_account.types.legal_name.LegalName"
     """<p>The official legal name of the business as registered with the appropriate government authorities.</p>"""
     registration_id: (

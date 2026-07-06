@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ColumnToUnpivot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.cell_value
     import aws_sdk_quicksight.types.column_name
 
 
-class ColumnToUnpivot(TypedDict):
+class ColumnToUnpivot(TypedDict, closed=True):
     column_name: NotRequired["aws_sdk_quicksight.types.column_name.ColumnName"]
     """<p>The name of the column to unpivot from the source data.</p>"""
     new_value: NotRequired["aws_sdk_quicksight.types.cell_value.CellValue"]

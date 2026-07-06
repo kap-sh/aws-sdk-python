@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#GetRecommendationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError
 
 
-class GetRecommendationRequest(TypedDict):
+class GetRecommendationRequest(TypedDict, closed=True):
     recommendation_id: "str"
     """<p>The ID for the recommendation.</p>"""
 

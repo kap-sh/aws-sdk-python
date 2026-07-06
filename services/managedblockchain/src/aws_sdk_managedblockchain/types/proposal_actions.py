@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ProposalActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.invite_action_list
     import aws_sdk_managedblockchain.types.remove_action_list
 
 
-class ProposalActions(TypedDict):
+class ProposalActions(TypedDict, closed=True):
     invitations: NotRequired[
         "aws_sdk_managedblockchain.types.invite_action_list.InviteActionList"
     ]

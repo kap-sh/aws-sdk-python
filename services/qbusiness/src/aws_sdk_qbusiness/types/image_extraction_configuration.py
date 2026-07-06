@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ImageExtractionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.image_extraction_status
 
 
-class ImageExtractionConfiguration(TypedDict):
+class ImageExtractionConfiguration(TypedDict, closed=True):
     image_extraction_status: (
         "aws_sdk_qbusiness.types.image_extraction_status.ImageExtractionStatus"
     )

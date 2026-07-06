@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DefaultCategoricalHyperParameterRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.categorical_values
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.tunable
 
 
-class DefaultCategoricalHyperParameterRange(TypedDict):
+class DefaultCategoricalHyperParameterRange(TypedDict, closed=True):
     name: NotRequired["aws_sdk_personalize.types.parameter_name.ParameterName"]
     """<p>The name of the hyperparameter.</p>"""
     values: NotRequired[

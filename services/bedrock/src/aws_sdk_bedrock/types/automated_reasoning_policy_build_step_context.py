@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildStepContext``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_planning
 
 
-class _AutomatedReasoningPolicyBuildStepContext_planning(TypedDict):
+class _AutomatedReasoningPolicyBuildStepContext_planning(TypedDict, closed=True):
     planning: "aws_sdk_bedrock.types.automated_reasoning_policy_planning.AutomatedReasoningPolicyPlanning"
 
 
-class _AutomatedReasoningPolicyBuildStepContext_mutation(TypedDict):
+class _AutomatedReasoningPolicyBuildStepContext_mutation(TypedDict, closed=True):
     mutation: "aws_sdk_bedrock.types.automated_reasoning_policy_mutation.AutomatedReasoningPolicyMutation"
 
 

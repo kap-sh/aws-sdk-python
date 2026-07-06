@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#DeleteAnomalyDetectorInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.single_metric_anomaly_detector
 
 
-class DeleteAnomalyDetectorInput(TypedDict):
+class DeleteAnomalyDetectorInput(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_cloudwatch.types.namespace.Namespace"]
     """<p>The namespace associated with the anomaly detection model to delete.</p>"""
     metric_name: NotRequired["aws_sdk_cloudwatch.types.metric_name.MetricName"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#DestinationMetricsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.metrics_backup_configuration
 
 
-class DestinationMetricsConfiguration(TypedDict):
+class DestinationMetricsConfiguration(TypedDict, closed=True):
     backup_configuration: NotRequired[
         "aws_sdk_observabilityadmin.types.metrics_backup_configuration.MetricsBackupConfiguration"
     ]

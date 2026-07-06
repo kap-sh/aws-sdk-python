@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListCapacityTasksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.capacity_task_status_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class ListCapacityTasksInput(TypedDict):
+class ListCapacityTasksInput(TypedDict, closed=True):
     outpost_identifier_filter: NotRequired[
         "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     ]

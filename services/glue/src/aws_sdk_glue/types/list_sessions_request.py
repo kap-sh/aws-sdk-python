@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_name_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class ListSessionsRequest(TypedDict):
+class ListSessionsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.orchestration_token.OrchestrationToken"]
     """<p>The token for the next set of results, or null if there are no more result. </p>"""
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]

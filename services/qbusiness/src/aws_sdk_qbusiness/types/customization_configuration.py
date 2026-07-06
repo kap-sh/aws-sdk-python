@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CustomizationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.custom_css_url
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.logo_url
 
 
-class CustomizationConfiguration(TypedDict):
+class CustomizationConfiguration(TypedDict, closed=True):
     custom_css_url: NotRequired["aws_sdk_qbusiness.types.custom_css_url.CustomCSSUrl"]
     """<p>Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.</p>"""
     logo_url: NotRequired["aws_sdk_qbusiness.types.logo_url.LogoUrl"]

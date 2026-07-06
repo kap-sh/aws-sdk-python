@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#DescribeSecurityHubV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class DescribeSecurityHubV2Response(TypedDict):
+class DescribeSecurityHubV2Response(TypedDict, closed=True):
     hub_v2_arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The ARN of the service resource.</p>"""
     subscribed_at: NotRequired[

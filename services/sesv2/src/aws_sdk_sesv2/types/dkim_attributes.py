@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DkimAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.dkim_signing_attributes_origin
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class DkimAttributes(TypedDict):
+class DkimAttributes(TypedDict, closed=True):
     signing_enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>If the value is <code>true</code>, then the messages that you send from the identity are signed using DKIM. If the value is <code>false</code>, then the messages that you send from the identity aren't DKIM-signed.</p>"""
     status: NotRequired["aws_sdk_sesv2.types.dkim_status.DkimStatus"]

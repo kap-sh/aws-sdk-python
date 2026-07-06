@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#CommentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.comment_id_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.user
 
 
-class CommentMetadata(TypedDict):
+class CommentMetadata(TypedDict, closed=True):
     comment_id: NotRequired["aws_sdk_workdocs.types.comment_id_type.CommentIdType"]
     """<p>The ID of the comment.</p>"""
     contributor: NotRequired["aws_sdk_workdocs.types.user.User"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MatchPrincipalEntry``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.iam_principal
 
 
-class _MatchPrincipalEntry_iamPrincipal(TypedDict):
+class _MatchPrincipalEntry_iamPrincipal(TypedDict, closed=True):
     iamPrincipal: "aws_sdk_bedrock_agentcore_control.types.iam_principal.IamPrincipal"
 
 

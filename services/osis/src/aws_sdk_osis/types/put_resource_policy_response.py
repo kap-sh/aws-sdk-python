@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#PutResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_arn
     import aws_sdk_osis.types.resource_policy
 
 
-class PutResourcePolicyResponse(TypedDict):
+class PutResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_osis.types.pipeline_arn.PipelineArn"]
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     policy: NotRequired["aws_sdk_osis.types.resource_policy.ResourcePolicy"]

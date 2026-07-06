@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#Connector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.state_details
 
 
-class Connector(TypedDict):
+class Connector(TypedDict, closed=True):
     environment_id: NotRequired["aws_sdk_evs.types.environment_id.EnvironmentId"]
     """<p>The unique ID of the environment that the connector belongs to.</p>"""
     connector_id: NotRequired["aws_sdk_evs.types.connector_id.ConnectorId"]

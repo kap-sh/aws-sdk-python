@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeMountTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.access_point_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.mount_target_id
 
 
-class DescribeMountTargetsRequest(TypedDict):
+class DescribeMountTargetsRequest(TypedDict, closed=True):
     max_items: NotRequired["aws_sdk_efs.types.max_items.MaxItems"]
     """<p>(Optional) Maximum number of mount targets to return in the response. Currently, this number is automatically set to 10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.</p>"""
     marker: NotRequired["aws_sdk_efs.types.marker.Marker"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreateRepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.tags_map
 
 
-class CreateRepositoryInput(TypedDict):
+class CreateRepositoryInput(TypedDict, closed=True):
     repository_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"
     r"""<p>The name of the new repository to be created.</p> <note> <p>The repository name must be unique across the calling Amazon Web Services account. Repository names are limited to 100 alphanumeric, dash, and underscore characters, and cannot include certain characters. For more information about the limits on repository names, see <a href=\"https://docs.aws.amazon.com/codecommit/latest/userguide/limits.html\">Quotas</a> in the <i>CodeCommit User Guide</i>. The suffix .git is prohibited.</p> </note>"""
     repository_description: NotRequired[

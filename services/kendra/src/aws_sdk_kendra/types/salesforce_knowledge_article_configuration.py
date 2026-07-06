@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SalesforceKnowledgeArticleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.salesforce_standard_knowledge_article_type_configuration
 
 
-class SalesforceKnowledgeArticleConfiguration(TypedDict):
+class SalesforceKnowledgeArticleConfiguration(TypedDict, closed=True):
     included_states: "aws_sdk_kendra.types.salesforce_knowledge_article_state_list.SalesforceKnowledgeArticleStateList"
     """<p>Specifies the document states that should be included when Amazon Kendra indexes knowledge articles. You must specify at least one state.</p>"""
     standard_knowledge_article_type_configuration: NotRequired[

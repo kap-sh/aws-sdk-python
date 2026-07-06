@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DestinationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.kinesis_firehose_destination_details
 
 
-class DestinationDetails(TypedDict):
+class DestinationDetails(TypedDict, closed=True):
     cloud_watch_logs_details: NotRequired[
         "aws_sdk_elasticache.types.cloud_watch_logs_destination_details.CloudWatchLogsDestinationDetails"
     ]

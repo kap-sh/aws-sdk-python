@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationEventDatasetLoadExecutionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_event_dataset_load_status
 
 
-class DataIntegrationEventDatasetLoadExecutionDetails(TypedDict):
+class DataIntegrationEventDatasetLoadExecutionDetails(TypedDict, closed=True):
     status: "aws_sdk_supplychain.types.data_integration_event_dataset_load_status.DataIntegrationEventDatasetLoadStatus"
     """<p>The event load execution status to target dataset.</p>"""
     message: NotRequired["str"]

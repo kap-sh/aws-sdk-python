@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ServiceFailureException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_messaging.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.string
 
 
-class ServiceFailureException_(TypedDict):
+class ServiceFailureException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime_sdk_messaging.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_chime_sdk_messaging.types.string.String"]
 

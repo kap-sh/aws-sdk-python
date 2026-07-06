@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#DeleteImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.uuid
     import aws_sdk_wisdom.types.uuid_or_arn
 
 
-class DeleteImportJobRequest(TypedDict):
+class DeleteImportJobRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_wisdom.types.uuid_or_arn.UuidOrArn"
     """<p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it.</p>"""
     import_job_id: "aws_sdk_wisdom.types.uuid.Uuid"

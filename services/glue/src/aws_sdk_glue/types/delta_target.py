@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeltaTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.path_list
 
 
-class DeltaTarget(TypedDict):
+class DeltaTarget(TypedDict, closed=True):
     delta_tables: NotRequired["aws_sdk_glue.types.path_list.PathList"]
     """<p>A list of the Amazon S3 paths to the Delta tables.</p>"""
     connection_name: NotRequired["aws_sdk_glue.types.connection_name.ConnectionName"]

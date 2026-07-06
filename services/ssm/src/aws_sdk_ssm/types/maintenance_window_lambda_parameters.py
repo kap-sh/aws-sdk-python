@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MaintenanceWindowLambdaParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_lambda_client_context
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.maintenance_window_lambda_qualifier
 
 
-class MaintenanceWindowLambdaParameters(TypedDict):
+class MaintenanceWindowLambdaParameters(TypedDict, closed=True):
     client_context: NotRequired[
         "aws_sdk_ssm.types.maintenance_window_lambda_client_context.MaintenanceWindowLambdaClientContext"
     ]

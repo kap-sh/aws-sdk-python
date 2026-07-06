@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListGatewayRoutesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.gateway_route_list
 
 
-class ListGatewayRoutesOutput(TypedDict):
+class ListGatewayRoutesOutput(TypedDict, closed=True):
     gateway_routes: "aws_sdk_app_mesh.types.gateway_route_list.GatewayRouteList"
     """<p>The list of existing gateway routes for the specified service mesh and virtual gateway.</p>"""
     next_token: NotRequired["str"]

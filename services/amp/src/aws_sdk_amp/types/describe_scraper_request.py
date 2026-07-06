@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amp#DescribeScraperRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_id
 
 
-class DescribeScraperRequest(TypedDict):
+class DescribeScraperRequest(TypedDict, closed=True):
     scraper_id: "aws_sdk_amp.types.scraper_id.ScraperId"
     """<p>The ID of the scraper to describe.</p>"""
 

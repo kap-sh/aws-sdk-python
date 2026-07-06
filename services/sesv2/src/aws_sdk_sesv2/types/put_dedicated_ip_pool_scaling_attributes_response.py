@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutDedicatedIpPoolScalingAttributesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutDedicatedIpPoolScalingAttributesResponse(TypedDict):
+class PutDedicatedIpPoolScalingAttributesResponse(TypedDict, closed=True):
     pass
 
 

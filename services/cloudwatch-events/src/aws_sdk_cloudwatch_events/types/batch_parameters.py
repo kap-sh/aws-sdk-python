@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#BatchParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class BatchParameters(TypedDict):
+class BatchParameters(TypedDict, closed=True):
     job_definition: "aws_sdk_cloudwatch_events.types.string.String"
     """<p>The ARN or name of the job definition to use if the event target is an Batch job. This job definition must already exist.</p>"""
     job_name: "aws_sdk_cloudwatch_events.types.string.String"

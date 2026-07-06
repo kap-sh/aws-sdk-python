@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#EnrollmentFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.enrollment_filter_name
     import aws_sdk_compute_optimizer.types.filter_values
 
 
-class EnrollmentFilter(TypedDict):
+class EnrollmentFilter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_compute_optimizer.types.enrollment_filter_name.EnrollmentFilterName"
     ]

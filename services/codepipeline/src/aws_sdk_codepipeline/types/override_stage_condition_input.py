@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#OverrideStageConditionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.stage_name
 
 
-class OverrideStageConditionInput(TypedDict):
+class OverrideStageConditionInput(TypedDict, closed=True):
     pipeline_name: "aws_sdk_codepipeline.types.pipeline_name.PipelineName"
     """<p>The name of the pipeline with the stage that will override the condition.</p>"""
     stage_name: "aws_sdk_codepipeline.types.stage_name.StageName"

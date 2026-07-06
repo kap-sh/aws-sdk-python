@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConsolidationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.custom_consolidation_configuration
 
 
-class _ConsolidationConfiguration_customConsolidationConfiguration(TypedDict):
+class _ConsolidationConfiguration_customConsolidationConfiguration(
+    TypedDict, closed=True
+):
     customConsolidationConfiguration: "aws_sdk_bedrock_agentcore_control.types.custom_consolidation_configuration.CustomConsolidationConfiguration"
 
 

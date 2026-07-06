@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DescribeInboundCrossClusterSearchConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connections
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class DescribeInboundCrossClusterSearchConnectionsResponse(TypedDict):
+class DescribeInboundCrossClusterSearchConnectionsResponse(TypedDict, closed=True):
     cross_cluster_search_connections: NotRequired[
         "aws_sdk_elasticsearch_service.types.inbound_cross_cluster_search_connections.InboundCrossClusterSearchConnections"
     ]

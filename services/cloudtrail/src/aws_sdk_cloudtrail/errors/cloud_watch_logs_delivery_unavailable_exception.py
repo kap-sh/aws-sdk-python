@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.error_message
 
 
-class CloudWatchLogsDeliveryUnavailableException_(TypedDict):
+class CloudWatchLogsDeliveryUnavailableException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_cloudtrail.types.error_message.ErrorMessage"]
     """<p>Brief description of the exception returned by the request.</p>"""
 

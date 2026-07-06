@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#UpdateComponentData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_binding_properties
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.uuid
 
 
-class UpdateComponentData(TypedDict):
+class UpdateComponentData(TypedDict, closed=True):
     id: NotRequired["aws_sdk_amplifyuibuilder.types.uuid.Uuid"]
     """<p>The unique ID of the component to update.</p>"""
     name: NotRequired["aws_sdk_amplifyuibuilder.types.component_name.ComponentName"]

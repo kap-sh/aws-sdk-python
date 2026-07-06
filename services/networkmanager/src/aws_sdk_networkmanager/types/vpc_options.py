@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#VpcOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.boolean
 
 
-class VpcOptions(TypedDict):
+class VpcOptions(TypedDict, closed=True):
     ipv6_support: "aws_sdk_networkmanager.types.boolean.Boolean"
     """<p>Indicates whether IPv6 is supported.</p>"""
     appliance_mode_support: "aws_sdk_networkmanager.types.boolean.Boolean"

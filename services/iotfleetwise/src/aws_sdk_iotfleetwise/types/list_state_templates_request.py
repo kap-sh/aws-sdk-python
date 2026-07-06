@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListStateTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.list_response_scope
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListStateTemplatesRequest(TypedDict):
+class ListStateTemplatesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]
     """<p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>"""
     max_results: NotRequired["aws_sdk_iotfleetwise.types.max_results.maxResults"]

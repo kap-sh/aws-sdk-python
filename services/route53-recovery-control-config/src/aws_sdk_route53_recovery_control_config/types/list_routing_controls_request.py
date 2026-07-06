@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoverycontrolconfig#ListRoutingControlsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_control_config.types.__string
     import aws_sdk_route53_recovery_control_config.types.max_results
 
 
-class ListRoutingControlsRequest(TypedDict):
+class ListRoutingControlsRequest(TypedDict, closed=True):
     control_panel_arn: "aws_sdk_route53_recovery_control_config.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the control panel.</p>"""
     max_results: NotRequired[

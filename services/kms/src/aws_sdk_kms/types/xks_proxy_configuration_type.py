@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#XksProxyConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.account_id_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.xks_proxy_vpc_endpoint_service_name_type
 
 
-class XksProxyConfigurationType(TypedDict):
+class XksProxyConfigurationType(TypedDict, closed=True):
     connectivity: NotRequired[
         "aws_sdk_kms.types.xks_proxy_connectivity_type.XksProxyConnectivityType"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateSvmActiveDirectoryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.net_bios_alias
     import aws_sdk_fsx.types.self_managed_active_directory_configuration_updates
 
 
-class UpdateSvmActiveDirectoryConfiguration(TypedDict):
+class UpdateSvmActiveDirectoryConfiguration(TypedDict, closed=True):
     self_managed_active_directory_configuration: NotRequired[
         "aws_sdk_fsx.types.self_managed_active_directory_configuration_updates.SelfManagedActiveDirectoryConfigurationUpdates"
     ]

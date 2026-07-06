@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateFlowMediaStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.flow_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.media_stream_type
 
 
-class UpdateFlowMediaStreamRequest(TypedDict):
+class UpdateFlowMediaStreamRequest(TypedDict, closed=True):
     attributes: NotRequired[
         "aws_sdk_mediaconnect.types.media_stream_attributes_request.MediaStreamAttributesRequest"
     ]

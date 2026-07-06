@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#RemoveTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string_list
 
 
-class RemoveTagsInput(TypedDict):
+class RemoveTagsInput(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_emr.types.resource_id.ResourceId"]
     """<p>The Amazon EMR resource identifier from which tags will be removed. For example, a cluster identifier or an Amazon EMR Studio ID.</p>"""
     tag_keys: NotRequired["aws_sdk_emr.types.string_list.StringList"]

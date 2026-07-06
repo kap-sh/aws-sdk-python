@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteRoleAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.role_alias
 
 
-class DeleteRoleAliasRequest(TypedDict):
+class DeleteRoleAliasRequest(TypedDict, closed=True):
     role_alias: "aws_sdk_iot.types.role_alias.RoleAlias"
     """<p>The role alias to delete.</p>"""
 

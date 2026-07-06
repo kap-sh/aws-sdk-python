@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionTypeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.url
     import aws_sdk_codepipeline.types.url_template
 
 
-class ActionTypeSettings(TypedDict):
+class ActionTypeSettings(TypedDict, closed=True):
     third_party_configuration_url: NotRequired["aws_sdk_codepipeline.types.url.Url"]
     """<p>The URL of a sign-up page where users can sign up for an external service and perform initial configuration of the action provided by that service.</p>"""
     entity_url_template: NotRequired[

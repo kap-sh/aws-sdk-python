@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PromptRouterSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class PromptRouterSummary(TypedDict):
+class PromptRouterSummary(TypedDict, closed=True):
     prompt_router_name: "aws_sdk_bedrock.types.prompt_router_name.PromptRouterName"
     """<p>The router's name.</p>"""
     routing_criteria: "aws_sdk_bedrock.types.routing_criteria.RoutingCriteria"

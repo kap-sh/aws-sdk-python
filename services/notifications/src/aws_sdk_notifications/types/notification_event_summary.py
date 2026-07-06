@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#NotificationEventSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.source_event_metadata_summary
 
 
-class NotificationEventSummary(TypedDict):
+class NotificationEventSummary(TypedDict, closed=True):
     schema_version: "aws_sdk_notifications.types.schema_version.SchemaVersion"
     """<p>The schema version of the Notification Event.</p>"""
     source_event_metadata: "aws_sdk_notifications.types.source_event_metadata_summary.SourceEventMetadataSummary"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#ResolveCustomerResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.customer_aws_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.product_code
 
 
-class ResolveCustomerResult(TypedDict):
+class ResolveCustomerResult(TypedDict, closed=True):
     customer_identifier: NotRequired[
         "aws_sdk_marketplace_metering.types.customer_identifier.CustomerIdentifier"
     ]

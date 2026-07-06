@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#StartFleetResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartFleetResult(TypedDict):
+class StartFleetResult(TypedDict, closed=True):
     pass
 
 

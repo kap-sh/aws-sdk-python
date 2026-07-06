@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetPersonTrackingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.person_tracking_sort_by
 
 
-class GetPersonTrackingRequest(TypedDict):
+class GetPersonTrackingRequest(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.job_id.JobId"
     """<p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>. </p>"""
     max_results: NotRequired["aws_sdk_rekognition.types.max_results.MaxResults"]

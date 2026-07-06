@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#RegistrationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.execution_status
     import aws_sdk_appflow.types.string
 
 
-class RegistrationOutput(TypedDict):
+class RegistrationOutput(TypedDict, closed=True):
     message: NotRequired["aws_sdk_appflow.types.string.String"]
     """<p>Explains the status of the registration attempt from Amazon AppFlow. If the attempt fails, the message explains why.</p>"""
     result: NotRequired["aws_sdk_appflow.types.string.String"]

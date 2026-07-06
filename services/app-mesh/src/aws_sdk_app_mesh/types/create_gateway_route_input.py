@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#CreateGatewayRouteInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tag_list
 
 
-class CreateGatewayRouteInput(TypedDict):
+class CreateGatewayRouteInput(TypedDict, closed=True):
     gateway_route_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The name to use for the gateway route.</p>"""
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"

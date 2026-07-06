@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.vpc_lattice_configurations
 
 
-class ServiceRevision(TypedDict):
+class ServiceRevision(TypedDict, closed=True):
     service_revision_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the service revision.</p>"""
     service_arn: NotRequired["aws_sdk_ecs.types.string.String"]

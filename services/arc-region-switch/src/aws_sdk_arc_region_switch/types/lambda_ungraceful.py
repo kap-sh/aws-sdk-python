@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#LambdaUngraceful``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.lambda_ungraceful_behavior
 
 
-class LambdaUngraceful(TypedDict):
+class LambdaUngraceful(TypedDict, closed=True):
     behavior: "aws_sdk_arc_region_switch.types.lambda_ungraceful_behavior.LambdaUngracefulBehavior"
     """<p>The ungraceful behavior for a Lambda function, which must be set to <code>skip</code>.</p>"""
 

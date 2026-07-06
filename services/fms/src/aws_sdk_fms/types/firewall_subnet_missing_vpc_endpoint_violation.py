@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#FirewallSubnetMissingVPCEndpointViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
     import aws_sdk_fms.types.resource_id
 
 
-class FirewallSubnetMissingVPCEndpointViolation(TypedDict):
+class FirewallSubnetMissingVPCEndpointViolation(TypedDict, closed=True):
     firewall_subnet_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]
     """<p>The ID of the firewall that this VPC endpoint is associated with.</p>"""
     vpc_id: NotRequired["aws_sdk_fms.types.resource_id.ResourceId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#Assets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.actor_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.source_code_repository_list
 
 
-class Assets(TypedDict):
+class Assets(TypedDict, closed=True):
     endpoints: NotRequired["aws_sdk_securityagent.types.endpoint_list.EndpointList"]
     """<p>The list of endpoints to test during the pentest.</p>"""
     actors: NotRequired["aws_sdk_securityagent.types.actor_list.ActorList"]

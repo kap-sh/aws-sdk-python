@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#UpdateAssessmentStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment
 
 
-class UpdateAssessmentStatusResponse(TypedDict):
+class UpdateAssessmentStatusResponse(TypedDict, closed=True):
     assessment: NotRequired["aws_sdk_auditmanager.types.assessment.Assessment"]
     """<p> The name of the updated assessment that the <code>UpdateAssessmentStatus</code> API returned. </p>"""
 

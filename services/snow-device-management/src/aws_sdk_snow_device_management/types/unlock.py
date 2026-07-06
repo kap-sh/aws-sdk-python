@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#Unlock``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Unlock(TypedDict):
+class Unlock(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#CreateStreamSessionConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.signal_response
 
 
-class CreateStreamSessionConnectionOutput(TypedDict):
+class CreateStreamSessionConnectionOutput(TypedDict, closed=True):
     signal_response: NotRequired[
         "aws_sdk_gameliftstreams.types.signal_response.SignalResponse"
     ]

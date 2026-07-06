@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#PointInTimeRecoveryDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.recovery_period_in_days
 
 
-class PointInTimeRecoveryDescription(TypedDict):
+class PointInTimeRecoveryDescription(TypedDict, closed=True):
     point_in_time_recovery_status: NotRequired[
         "aws_sdk_dynamodb.types.point_in_time_recovery_status.PointInTimeRecoveryStatus"
     ]

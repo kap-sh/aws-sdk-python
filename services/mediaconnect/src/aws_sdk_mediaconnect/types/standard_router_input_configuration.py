@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#StandardRouterInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
 
 
-class StandardRouterInputConfiguration(TypedDict):
+class StandardRouterInputConfiguration(TypedDict, closed=True):
     network_interface_arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The Amazon Resource Name (ARN) of the network interface associated with the standard router input.</p>"""
     protocol_configuration: "aws_sdk_mediaconnect.types.router_input_protocol_configuration.RouterInputProtocolConfiguration"

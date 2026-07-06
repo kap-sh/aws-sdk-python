@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PromptTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.text_prompt_template
 
 
-class PromptTemplate(TypedDict):
+class PromptTemplate(TypedDict, closed=True):
     text_prompt_template: NotRequired[
         "aws_sdk_bedrock.types.text_prompt_template.TextPromptTemplate"
     ]

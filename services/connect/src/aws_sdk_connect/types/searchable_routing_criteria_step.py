@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchableRoutingCriteriaStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.searchable_agent_criteria_step
 
 
-class SearchableRoutingCriteriaStep(TypedDict):
+class SearchableRoutingCriteriaStep(TypedDict, closed=True):
     agent_criteria: NotRequired[
         "aws_sdk_connect.types.searchable_agent_criteria_step.SearchableAgentCriteriaStep"
     ]

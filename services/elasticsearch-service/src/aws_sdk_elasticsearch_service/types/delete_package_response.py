@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DeletePackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.package_details
 
 
-class DeletePackageResponse(TypedDict):
+class DeletePackageResponse(TypedDict, closed=True):
     package_details: NotRequired[
         "aws_sdk_elasticsearch_service.types.package_details.PackageDetails"
     ]

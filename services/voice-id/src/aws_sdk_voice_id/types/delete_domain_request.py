@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#DeleteDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.domain_id
 
 
-class DeleteDomainRequest(TypedDict):
+class DeleteDomainRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_voice_id.types.domain_id.DomainId"
     """<p>The identifier of the domain you want to delete.</p>"""
 

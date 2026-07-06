@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CmafEncryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max9999
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.static_key_provider
 
 
-class CmafEncryptionSettings(TypedDict):
+class CmafEncryptionSettings(TypedDict, closed=True):
     clear_lead_segments: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max9999.__integerMin1Max9999"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateAccountAuditConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_configurations
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class UpdateAccountAuditConfigurationRequest(TypedDict):
+class UpdateAccountAuditConfigurationRequest(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_iot.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the role that grants permission to IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p>"""
     audit_notification_target_configurations: NotRequired[

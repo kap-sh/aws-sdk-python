@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#PostTextResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.active_contexts_list
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.text
 
 
-class PostTextResponse(TypedDict):
+class PostTextResponse(TypedDict, closed=True):
     intent_name: NotRequired["aws_sdk_lex_runtime_service.types.intent_name.IntentName"]
     """<p>The current user intent that Amazon Lex is aware of.</p>"""
     nlu_intent_confidence: NotRequired[

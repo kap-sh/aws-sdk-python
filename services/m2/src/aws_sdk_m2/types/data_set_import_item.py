@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSetImportItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.external_location
 
 
-class DataSetImportItem(TypedDict):
+class DataSetImportItem(TypedDict, closed=True):
     data_set: "aws_sdk_m2.types.data_set.DataSet"
     """<p>The data set.</p>"""
     external_location: "aws_sdk_m2.types.external_location.ExternalLocation"

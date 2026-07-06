@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#UpdateVirtualServiceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.virtual_service_spec
 
 
-class UpdateVirtualServiceInput(TypedDict):
+class UpdateVirtualServiceInput(TypedDict, closed=True):
     virtual_service_name: "aws_sdk_app_mesh.types.service_name.ServiceName"
     """<p>The name of the virtual service to update.</p>"""
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"

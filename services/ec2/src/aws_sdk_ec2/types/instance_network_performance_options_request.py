@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceNetworkPerformanceOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_bandwidth_weighting
 
 
-class InstanceNetworkPerformanceOptionsRequest(TypedDict):
+class InstanceNetworkPerformanceOptionsRequest(TypedDict, closed=True):
     bandwidth_weighting: NotRequired[
         "aws_sdk_ec2.types.instance_bandwidth_weighting.InstanceBandwidthWeighting"
     ]

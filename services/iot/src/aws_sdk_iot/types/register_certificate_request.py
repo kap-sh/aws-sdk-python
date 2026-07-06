@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RegisterCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.set_as_active_flag
 
 
-class RegisterCertificateRequest(TypedDict):
+class RegisterCertificateRequest(TypedDict, closed=True):
     certificate_pem: "aws_sdk_iot.types.certificate_pem.CertificatePem"
     """<p>The certificate data, in PEM format.</p>"""
     ca_certificate_pem: NotRequired["aws_sdk_iot.types.certificate_pem.CertificatePem"]

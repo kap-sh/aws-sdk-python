@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ConditionExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.condition_execution_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class ConditionExecution(TypedDict):
+class ConditionExecution(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_codepipeline.types.condition_execution_status.ConditionExecutionStatus"
     ]

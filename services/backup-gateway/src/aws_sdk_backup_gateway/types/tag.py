@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_backup_gateway.types.tag_key.TagKey"
     """<p>The key part of a tag's key-value pair. The key can't start with <code>aws:</code>.</p>"""
     value: "aws_sdk_backup_gateway.types.tag_value.TagValue"

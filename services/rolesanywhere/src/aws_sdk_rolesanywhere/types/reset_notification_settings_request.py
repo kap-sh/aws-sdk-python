@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ResetNotificationSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class ResetNotificationSettingsRequest(TypedDict):
+class ResetNotificationSettingsRequest(TypedDict, closed=True):
     trust_anchor_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the trust anchor.</p>"""
     notification_setting_keys: (

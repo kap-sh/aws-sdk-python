@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PrincipalGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.read_access_type
 
 
-class PrincipalGroup(TypedDict):
+class PrincipalGroup(TypedDict, closed=True):
     name: NotRequired["aws_sdk_qbusiness.types.group_name.GroupName"]
     """<p>The name of the group.</p>"""
     access: "aws_sdk_qbusiness.types.read_access_type.ReadAccessType"

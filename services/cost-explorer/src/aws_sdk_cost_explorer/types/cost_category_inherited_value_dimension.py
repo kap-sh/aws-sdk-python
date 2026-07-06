@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostCategoryInheritedValueDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_category_inherited_value_dimension_name
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class CostCategoryInheritedValueDimension(TypedDict):
+class CostCategoryInheritedValueDimension(TypedDict, closed=True):
     dimension_name: NotRequired[
         "aws_sdk_cost_explorer.types.cost_category_inherited_value_dimension_name.CostCategoryInheritedValueDimensionName"
     ]

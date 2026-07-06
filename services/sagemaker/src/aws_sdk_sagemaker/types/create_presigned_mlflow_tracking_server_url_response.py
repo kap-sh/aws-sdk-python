@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePresignedMlflowTrackingServerUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tracking_server_url
 
 
-class CreatePresignedMlflowTrackingServerUrlResponse(TypedDict):
+class CreatePresignedMlflowTrackingServerUrlResponse(TypedDict, closed=True):
     authorized_url: NotRequired[
         "aws_sdk_sagemaker.types.tracking_server_url.TrackingServerUrl"
     ]

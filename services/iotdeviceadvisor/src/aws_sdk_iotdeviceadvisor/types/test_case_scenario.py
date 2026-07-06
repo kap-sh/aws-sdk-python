@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#TestCaseScenario``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.failure
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.test_case_scenario_type
 
 
-class TestCaseScenario(TypedDict):
+class TestCaseScenario(TypedDict, closed=True):
     test_case_scenario_id: NotRequired[
         "aws_sdk_iotdeviceadvisor.types.test_case_scenario_id.TestCaseScenarioId"
     ]

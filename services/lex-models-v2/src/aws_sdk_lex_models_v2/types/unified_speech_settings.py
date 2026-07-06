@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UnifiedSpeechSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.speech_foundation_model
 
 
-class UnifiedSpeechSettings(TypedDict):
+class UnifiedSpeechSettings(TypedDict, closed=True):
     speech_foundation_model: (
         "aws_sdk_lex_models_v2.types.speech_foundation_model.SpeechFoundationModel"
     )

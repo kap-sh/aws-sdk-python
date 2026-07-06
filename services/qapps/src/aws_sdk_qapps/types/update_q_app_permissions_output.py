@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#UpdateQAppPermissionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.permissions_output_list
 
 
-class UpdateQAppPermissionsOutput(TypedDict):
+class UpdateQAppPermissionsOutput(TypedDict, closed=True):
     resource_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions were updated.</p>"""
     app_id: NotRequired["str"]

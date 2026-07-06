@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#GetResourcePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.generic_string
 
 
-class GetResourcePolicyResponse(TypedDict):
+class GetResourcePolicyResponse(TypedDict, closed=True):
     resource_arn: "aws_sdk_bcm_dashboards.types.dashboard_arn.DashboardArn"
     """<p>The ARN of the dashboard for which the resource-based policy was retrieved.</p>"""
     policy_document: "aws_sdk_bcm_dashboards.types.generic_string.GenericString"

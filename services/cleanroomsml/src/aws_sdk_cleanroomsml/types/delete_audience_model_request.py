@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#DeleteAudienceModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.audience_model_arn
 
 
-class DeleteAudienceModelRequest(TypedDict):
+class DeleteAudienceModelRequest(TypedDict, closed=True):
     audience_model_arn: "aws_sdk_cleanroomsml.types.audience_model_arn.AudienceModelArn"
     """<p>The Amazon Resource Name (ARN) of the audience model that you want to delete.</p>"""
 

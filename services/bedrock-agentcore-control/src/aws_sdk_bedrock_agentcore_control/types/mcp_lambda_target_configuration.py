@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#McpLambdaTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.tool_schema
 
 
-class McpLambdaTargetConfiguration(TypedDict):
+class McpLambdaTargetConfiguration(TypedDict, closed=True):
     lambda_arn: (
         "aws_sdk_bedrock_agentcore_control.types.lambda_function_arn.LambdaFunctionArn"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CreateKxDataviewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.availability_zone_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class CreateKxDataviewResponse(TypedDict):
+class CreateKxDataviewResponse(TypedDict, closed=True):
     dataview_name: NotRequired["aws_sdk_finspace.types.kx_dataview_name.KxDataviewName"]
     """<p>A unique identifier for the dataview.</p>"""
     database_name: NotRequired["aws_sdk_finspace.types.database_name.DatabaseName"]

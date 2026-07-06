@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#InputClippingSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_timecode_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.stop_timecode
 
 
-class InputClippingSettings(TypedDict):
+class InputClippingSettings(TypedDict, closed=True):
     input_timecode_source: NotRequired[
         "aws_sdk_medialive.types.input_timecode_source.InputTimecodeSource"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateNotebookInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.additional_code_repository_names_or_urls
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateNotebookInstanceInput(TypedDict):
+class CreateNotebookInstanceInput(TypedDict, closed=True):
     notebook_instance_name: NotRequired[
         "aws_sdk_sagemaker.types.notebook_instance_name.NotebookInstanceName"
     ]

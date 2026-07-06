@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#AwsCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class AwsCredentials(TypedDict):
+class AwsCredentials(TypedDict, closed=True):
     access_key_id: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
     """<p>The access key ID that identifies the temporary security credentials. </p>"""
     secret_access_key: NotRequired[

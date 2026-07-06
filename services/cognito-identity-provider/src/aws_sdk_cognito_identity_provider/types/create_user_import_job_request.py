@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#CreateUserImportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.user_pool_id_type
 
 
-class CreateUserImportJobRequest(TypedDict):
+class CreateUserImportJobRequest(TypedDict, closed=True):
     job_name: "aws_sdk_cognito_identity_provider.types.user_import_job_name_type.UserImportJobNameType"
     """<p>A friendly name for the user import job.</p>"""
     user_pool_id: (

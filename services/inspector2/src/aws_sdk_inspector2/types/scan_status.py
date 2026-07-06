@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ScanStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.scan_status_reason
 
 
-class ScanStatus(TypedDict):
+class ScanStatus(TypedDict, closed=True):
     status_code: "aws_sdk_inspector2.types.scan_status_code.ScanStatusCode"
     """<p>The status code of the scan.</p>"""
     reason: "aws_sdk_inspector2.types.scan_status_reason.ScanStatusReason"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#SubscriberResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.uuid
 
 
-class SubscriberResource(TypedDict):
+class SubscriberResource(TypedDict, closed=True):
     subscriber_id: "aws_sdk_securitylake.types.uuid.UUID"
     """<p>The subscriber ID of the Amazon Security Lake subscriber account.</p>"""
     subscriber_arn: "aws_sdk_securitylake.types.amazon_resource_name.AmazonResourceName"

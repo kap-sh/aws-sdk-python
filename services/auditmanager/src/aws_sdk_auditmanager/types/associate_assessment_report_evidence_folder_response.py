@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#AssociateAssessmentReportEvidenceFolderResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateAssessmentReportEvidenceFolderResponse(TypedDict):
+class AssociateAssessmentReportEvidenceFolderResponse(TypedDict, closed=True):
     pass
 
 

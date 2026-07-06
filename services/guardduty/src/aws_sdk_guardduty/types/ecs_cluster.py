@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#EcsCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ec2_instance_uids
     import aws_sdk_guardduty.types.ecs_cluster_status
 
 
-class EcsCluster(TypedDict):
+class EcsCluster(TypedDict, closed=True):
     status: NotRequired["aws_sdk_guardduty.types.ecs_cluster_status.EcsClusterStatus"]
     """<p>The current status of the Amazon ECS cluster.</p>"""
     ec2_instance_uids: NotRequired[

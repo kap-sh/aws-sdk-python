@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetImageRecipePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_recipe_arn
 
 
-class GetImageRecipePolicyRequest(TypedDict):
+class GetImageRecipePolicyRequest(TypedDict, closed=True):
     image_recipe_arn: "aws_sdk_imagebuilder.types.image_recipe_arn.ImageRecipeArn"
     """<p>The Amazon Resource Name (ARN) of the image recipe whose policy you want to retrieve.</p>"""
 

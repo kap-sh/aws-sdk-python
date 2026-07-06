@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#UpdateBucketMetadataJournalTableConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.journal_table_configuration_updates
 
 
-class UpdateBucketMetadataJournalTableConfigurationRequest(TypedDict):
+class UpdateBucketMetadataJournalTableConfigurationRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p> The general purpose bucket that corresponds to the metadata configuration that you want to enable or disable journal table record expiration for. </p>"""
     content_md5: NotRequired["aws_sdk_s3.types.content_md5.ContentMD5"]

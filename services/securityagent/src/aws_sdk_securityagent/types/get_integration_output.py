@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#GetIntegrationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider_type
 
 
-class GetIntegrationOutput(TypedDict):
+class GetIntegrationOutput(TypedDict, closed=True):
     integration_id: "aws_sdk_securityagent.types.integration_id.IntegrationId"
     """<p>The unique identifier of the integration.</p>"""
     installation_id: "str"

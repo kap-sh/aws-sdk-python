@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineVariableDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_variable_value
 
 
-class PipelineVariableDeclaration(TypedDict):
+class PipelineVariableDeclaration(TypedDict, closed=True):
     name: "aws_sdk_codepipeline.types.pipeline_variable_name.PipelineVariableName"
     """<p>The name of a pipeline-level variable.</p>"""
     default_value: NotRequired[

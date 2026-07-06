@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RenameObjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.rename_source_if_unmodified_since
 
 
-class RenameObjectRequest(TypedDict):
+class RenameObjectRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     r"""<p>The bucket name of the directory bucket containing the object.</p> <p> You must use virtual-hosted-style requests in the format <code>Bucket-name.s3express-zone-id.region-code.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>bucket-base-name--zone-id--x-s3 </code> (for example, <code>amzn-s3-demo-bucket--usw2-az1--x-s3</code>). For information about bucket naming restrictions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html\">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>"""
     key: "aws_sdk_s3.types.object_key.ObjectKey"

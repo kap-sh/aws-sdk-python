@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#PutConfiguredAudienceModelPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.resource_policy
 
 
-class PutConfiguredAudienceModelPolicyResponse(TypedDict):
+class PutConfiguredAudienceModelPolicyResponse(TypedDict, closed=True):
     configured_audience_model_policy: (
         "aws_sdk_cleanroomsml.types.resource_policy.ResourcePolicy"
     )

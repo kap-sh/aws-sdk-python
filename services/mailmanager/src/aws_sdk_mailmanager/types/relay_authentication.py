@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RelayAuthentication``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.secret_arn
 
 
-class _RelayAuthentication_SecretArn(TypedDict):
+class _RelayAuthentication_SecretArn(TypedDict, closed=True):
     SecretArn: "aws_sdk_mailmanager.types.secret_arn.SecretArn"
 
 
-class _RelayAuthentication_NoAuthentication(TypedDict):
+class _RelayAuthentication_NoAuthentication(TypedDict, closed=True):
     NoAuthentication: "aws_sdk_mailmanager.types.no_authentication.NoAuthentication"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#Dataset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.dataset_type
 
 
-class Dataset(TypedDict):
+class Dataset(TypedDict, closed=True):
     type: "aws_sdk_cleanroomsml.types.dataset_type.DatasetType"
     """<p>What type of information is found in the dataset.</p>"""
     input_config: "aws_sdk_cleanroomsml.types.dataset_input_config.DatasetInputConfig"

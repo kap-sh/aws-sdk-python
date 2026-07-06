@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#InstanceIdDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class InstanceIdDetail(TypedDict):
+class InstanceIdDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The ID of a corresponding EC2 instance.</p>"""
 

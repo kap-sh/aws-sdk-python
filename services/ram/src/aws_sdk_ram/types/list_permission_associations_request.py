@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListPermissionAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class ListPermissionAssociationsRequest(TypedDict):
+class ListPermissionAssociationsRequest(TypedDict, closed=True):
     permission_arn: NotRequired["aws_sdk_ram.types.string.String"]
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the managed permission.</p>"""
     permission_version: NotRequired["aws_sdk_ram.types.integer.Integer"]

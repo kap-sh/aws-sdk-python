@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ExportTaskSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
 
 
-class ExportTaskSummary(TypedDict):
+class ExportTaskSummary(TypedDict, closed=True):
     servers_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>Export task summary servers count.</p>"""
     applications_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"

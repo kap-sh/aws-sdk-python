@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#Locale``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.country_parameters
 
 
-class Locale(TypedDict):
+class Locale(TypedDict, closed=True):
     country: "aws_sdk_mturk.types.country_parameters.CountryParameters"
     """<p> The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America. </p>"""
     subdivision: NotRequired["aws_sdk_mturk.types.country_parameters.CountryParameters"]

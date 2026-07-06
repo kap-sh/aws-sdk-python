@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#PreviewAgentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.preview_agents_max_results
 
 
-class PreviewAgentsRequest(TypedDict):
+class PreviewAgentsRequest(TypedDict, closed=True):
     preview_agents_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN of the assessment target whose agents you want to preview.</p>"""
     next_token: NotRequired["aws_sdk_inspector.types.pagination_token.PaginationToken"]

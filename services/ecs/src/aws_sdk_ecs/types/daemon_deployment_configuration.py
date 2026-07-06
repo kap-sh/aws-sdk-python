@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DaemonDeploymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.daemon_alarm_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.integer
 
 
-class DaemonDeploymentConfiguration(TypedDict):
+class DaemonDeploymentConfiguration(TypedDict, closed=True):
     drain_percent: NotRequired[
         "aws_sdk_ecs.types.daemon_drain_percent.DaemonDrainPercent"
     ]

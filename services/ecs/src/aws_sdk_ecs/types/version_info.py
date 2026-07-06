@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#VersionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class VersionInfo(TypedDict):
+class VersionInfo(TypedDict, closed=True):
     agent_version: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The version number of the Amazon ECS container agent.</p>"""
     agent_hash: NotRequired["aws_sdk_ecs.types.string.String"]

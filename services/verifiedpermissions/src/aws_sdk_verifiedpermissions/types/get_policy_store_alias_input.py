@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#GetPolicyStoreAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.alias
 
 
-class GetPolicyStoreAliasInput(TypedDict):
+class GetPolicyStoreAliasInput(TypedDict, closed=True):
     alias_name: "aws_sdk_verifiedpermissions.types.alias.Alias"
     """<p>Specifies the name of the policy store alias that you want information about.</p> <note> <p>The alias name must always be prefixed with <code>policy-store-alias/</code>.</p> </note>"""
 

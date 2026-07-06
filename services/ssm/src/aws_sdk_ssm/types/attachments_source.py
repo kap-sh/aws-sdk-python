@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AttachmentsSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.attachment_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.attachments_source_values
 
 
-class AttachmentsSource(TypedDict):
+class AttachmentsSource(TypedDict, closed=True):
     key: NotRequired["aws_sdk_ssm.types.attachments_source_key.AttachmentsSourceKey"]
     """<p>The key of a key-value pair that identifies the location of an attachment to a document.</p>"""
     values: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputStreamDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.standard_router_input_stream_details
 
 
-class _RouterInputStreamDetails_Standard(TypedDict):
+class _RouterInputStreamDetails_Standard(TypedDict, closed=True):
     Standard: "aws_sdk_mediaconnect.types.standard_router_input_stream_details.StandardRouterInputStreamDetails"
 
 
-class _RouterInputStreamDetails_MediaLiveChannel(TypedDict):
+class _RouterInputStreamDetails_MediaLiveChannel(TypedDict, closed=True):
     MediaLiveChannel: "aws_sdk_mediaconnect.types.media_live_channel_router_input_stream_details.MediaLiveChannelRouterInputStreamDetails"
 
 
-class _RouterInputStreamDetails_Failover(TypedDict):
+class _RouterInputStreamDetails_Failover(TypedDict, closed=True):
     Failover: "aws_sdk_mediaconnect.types.failover_router_input_stream_details.FailoverRouterInputStreamDetails"
 
 
-class _RouterInputStreamDetails_MediaConnectFlow(TypedDict):
+class _RouterInputStreamDetails_MediaConnectFlow(TypedDict, closed=True):
     MediaConnectFlow: "aws_sdk_mediaconnect.types.media_connect_flow_router_input_stream_details.MediaConnectFlowRouterInputStreamDetails"
 
 
-class _RouterInputStreamDetails_Merge(TypedDict):
+class _RouterInputStreamDetails_Merge(TypedDict, closed=True):
     Merge: "aws_sdk_mediaconnect.types.merge_router_input_stream_details.MergeRouterInputStreamDetails"
 
 

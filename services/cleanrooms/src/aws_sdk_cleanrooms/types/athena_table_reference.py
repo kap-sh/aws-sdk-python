@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#AthenaTableReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.commercial_region
 
 
-class AthenaTableReference(TypedDict):
+class AthenaTableReference(TypedDict, closed=True):
     region: NotRequired["aws_sdk_cleanrooms.types.commercial_region.CommercialRegion"]
     """<p>The Amazon Web Services Region where the Athena table is located. This parameter is required to uniquely identify and access tables across different Regions.</p>"""
     work_group: "aws_sdk_cleanrooms.types.athena_work_group.AthenaWorkGroup"

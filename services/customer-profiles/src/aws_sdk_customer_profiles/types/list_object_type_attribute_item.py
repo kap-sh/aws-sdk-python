@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListObjectTypeAttributeItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class ListObjectTypeAttributeItem(TypedDict):
+class ListObjectTypeAttributeItem(TypedDict, closed=True):
     attribute_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>Name of the attribute.</p>"""
     last_updated_at: "aws_sdk_customer_profiles.types.timestamp.timestamp"

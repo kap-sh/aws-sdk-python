@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotTypeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sample_value
     import aws_sdk_lex_models_v2.types.synonym_list
 
 
-class SlotTypeValue(TypedDict):
+class SlotTypeValue(TypedDict, closed=True):
     sample_value: NotRequired["aws_sdk_lex_models_v2.types.sample_value.SampleValue"]
     """<p>The value of the slot type entry.</p>"""
     synonyms: NotRequired["aws_sdk_lex_models_v2.types.synonym_list.SynonymList"]

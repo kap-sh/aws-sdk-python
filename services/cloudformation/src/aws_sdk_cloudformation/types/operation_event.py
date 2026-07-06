@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#OperationEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -33,7 +33,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.validation_status_reason
 
 
-class OperationEvent(TypedDict):
+class OperationEvent(TypedDict, closed=True):
     event_id: NotRequired["aws_sdk_cloudformation.types.event_id.EventId"]
     """<p>A unique identifier for this event.</p>"""
     stack_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]

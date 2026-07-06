@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ConfiguredTableSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.selected_analysis_methods
 
 
-class ConfiguredTableSummary(TypedDict):
+class ConfiguredTableSummary(TypedDict, closed=True):
     id: "aws_sdk_cleanrooms.types.configured_table_identifier.ConfiguredTableIdentifier"
     """<p>The unique ID of the configured table.</p>"""
     arn: "aws_sdk_cleanrooms.types.configured_table_arn.ConfiguredTableArn"

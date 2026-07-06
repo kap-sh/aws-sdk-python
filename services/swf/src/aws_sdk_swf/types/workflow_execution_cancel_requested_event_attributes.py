@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#WorkflowExecutionCancelRequestedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.event_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution_cancel_requested_cause
 
 
-class WorkflowExecutionCancelRequestedEventAttributes(TypedDict):
+class WorkflowExecutionCancelRequestedEventAttributes(TypedDict, closed=True):
     external_workflow_execution: NotRequired[
         "aws_sdk_swf.types.workflow_execution.WorkflowExecution"
     ]

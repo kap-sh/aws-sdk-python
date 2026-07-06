@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#UpdateResponderGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.trust_store_configuration
 
 
-class UpdateResponderGatewayRequest(TypedDict):
+class UpdateResponderGatewayRequest(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_rtbfabric.types.domain_name.DomainName"]
     """<p>The domain name for the responder gateway.</p>"""
     port: "int"

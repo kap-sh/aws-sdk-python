@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceConnectEndpointPublicDnsNames``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_connect_endpoint_dns_names
 
 
-class InstanceConnectEndpointPublicDnsNames(TypedDict):
+class InstanceConnectEndpointPublicDnsNames(TypedDict, closed=True):
     ipv4: NotRequired[
         "aws_sdk_ec2.types.instance_connect_endpoint_dns_names.InstanceConnectEndpointDnsNames"
     ]

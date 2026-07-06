@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#GetAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectparticipant.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.url_expiry_in_seconds
 
 
-class GetAttachmentRequest(TypedDict):
+class GetAttachmentRequest(TypedDict, closed=True):
     attachment_id: "aws_sdk_connectparticipant.types.artifact_id.ArtifactId"
     """<p>A unique identifier for the attachment.</p>"""
     connection_token: (

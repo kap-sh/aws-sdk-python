@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#WorkloadEstimateUsageQuantity``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WorkloadEstimateUsageQuantity(TypedDict):
+class WorkloadEstimateUsageQuantity(TypedDict, closed=True):
     unit: NotRequired["str"]
     """<p> The unit of measurement for the usage quantity. </p>"""
     amount: NotRequired["float"]

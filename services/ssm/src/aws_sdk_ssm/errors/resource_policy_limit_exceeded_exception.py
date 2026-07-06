@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourcePolicyLimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ResourcePolicyLimitExceededException_(TypedDict):
+class ResourcePolicyLimitExceededException_(TypedDict, closed=True):
     limit: "aws_sdk_ssm.types.integer.Integer"
     limit_type: NotRequired["aws_sdk_ssm.types.string.String"]
     message: NotRequired["aws_sdk_ssm.types.string.String"]

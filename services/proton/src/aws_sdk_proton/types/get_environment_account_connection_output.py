@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetEnvironmentAccountConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.environment_account_connection
 
 
-class GetEnvironmentAccountConnectionOutput(TypedDict):
+class GetEnvironmentAccountConnectionOutput(TypedDict, closed=True):
     environment_account_connection: "aws_sdk_proton.types.environment_account_connection.EnvironmentAccountConnection"
     """<p>The detailed data of the requested environment account connection.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#Datapoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auto_scaling_plans.types.metric_scale
     import aws_sdk_auto_scaling_plans.types.timestamp_type
 
 
-class Datapoint(TypedDict):
+class Datapoint(TypedDict, closed=True):
     timestamp: NotRequired[
         "aws_sdk_auto_scaling_plans.types.timestamp_type.TimestampType"
     ]

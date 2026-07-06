@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#DeleteLayoutResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteLayoutResponse(TypedDict):
+class DeleteLayoutResponse(TypedDict, closed=True):
     pass
 
 

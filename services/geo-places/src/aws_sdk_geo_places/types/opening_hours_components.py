@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#OpeningHoursComponents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class OpeningHoursComponents(TypedDict):
+class OpeningHoursComponents(TypedDict, closed=True):
     open_time: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     r"""<p>String which represents the opening hours, such as <code>\"T070000\"</code>.</p>"""
     open_duration: NotRequired[

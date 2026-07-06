@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AuthorizationCodeProperties``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AuthorizationCodeProperties(TypedDict):
+class AuthorizationCodeProperties(TypedDict, closed=True):
     authorization_code: NotRequired["str"]
     """<p>The authorization code of a connection.</p>"""
     redirect_uri: NotRequired["str"]

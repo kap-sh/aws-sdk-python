@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#RegisterNotificationHubResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.region
 
 
-class RegisterNotificationHubResponse(TypedDict):
+class RegisterNotificationHubResponse(TypedDict, closed=True):
     notification_hub_region: "aws_sdk_notifications.types.region.Region"
     """<p>The Region of the <code>NotificationHub</code>.</p>"""
     status_summary: "aws_sdk_notifications.types.notification_hub_status_summary.NotificationHubStatusSummary"

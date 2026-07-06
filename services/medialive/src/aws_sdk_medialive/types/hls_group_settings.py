@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#HlsGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.output_location_ref
 
 
-class HlsGroupSettings(TypedDict):
+class HlsGroupSettings(TypedDict, closed=True):
     ad_markers: NotRequired[
         "aws_sdk_medialive.types.__list_of_hls_ad_markers.__listOfHlsAdMarkers"
     ]

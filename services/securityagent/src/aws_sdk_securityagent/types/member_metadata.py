@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#MemberMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.user_metadata
 
 
-class _MemberMetadata_user(TypedDict):
+class _MemberMetadata_user(TypedDict, closed=True):
     user: "aws_sdk_securityagent.types.user_metadata.UserMetadata"
 
 

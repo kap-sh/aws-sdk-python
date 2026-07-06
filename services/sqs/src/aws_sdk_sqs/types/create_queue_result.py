@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#CreateQueueResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class CreateQueueResult(TypedDict):
+class CreateQueueResult(TypedDict, closed=True):
     queue_url: NotRequired["aws_sdk_sqs.types.string.String"]
     """<p>The URL of the created Amazon SQS queue.</p>"""
 

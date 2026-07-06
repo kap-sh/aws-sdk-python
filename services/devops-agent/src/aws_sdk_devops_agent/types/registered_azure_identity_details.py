@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredAzureIdentityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.web_identity_token_audience_list
 
 
-class RegisteredAzureIdentityDetails(TypedDict):
+class RegisteredAzureIdentityDetails(TypedDict, closed=True):
     tenant_id: "aws_sdk_devops_agent.types.guid.Guid"
     """<p>The Azure Active Directory tenant ID for the identity.</p>"""
     client_id: "aws_sdk_devops_agent.types.guid.Guid"

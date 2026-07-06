@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ManagedRuleSetVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.capacity_unit
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.timestamp
 
 
-class ManagedRuleSetVersion(TypedDict):
+class ManagedRuleSetVersion(TypedDict, closed=True):
     associated_rule_group_arn: NotRequired[
         "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     ]

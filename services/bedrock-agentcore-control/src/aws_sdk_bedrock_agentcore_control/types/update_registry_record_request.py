@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdateRegistryRecordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.descriptor_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_synchronization_type
 
 
-class UpdateRegistryRecordRequest(TypedDict):
+class UpdateRegistryRecordRequest(TypedDict, closed=True):
     registry_id: (
         "aws_sdk_bedrock_agentcore_control.types.registry_identifier.RegistryIdentifier"
     )

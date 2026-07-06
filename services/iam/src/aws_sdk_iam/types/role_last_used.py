@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#RoleLastUsed``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.string_type
 
 
-class RoleLastUsed(TypedDict):
+class RoleLastUsed(TypedDict, closed=True):
     last_used_date: NotRequired["aws_sdk_iam.types.date_type.dateType"]
     r"""<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time format</a> that the role was last used.</p> <p>This field is null if the role has not been used within the IAM tracking period. For more information about the tracking period, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period\">Regions where data is tracked</a> in the <i>IAM User Guide</i>. </p>"""
     region: NotRequired["aws_sdk_iam.types.string_type.stringType"]

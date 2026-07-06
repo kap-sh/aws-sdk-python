@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#RejectInvitationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.graph_arn
 
 
-class RejectInvitationRequest(TypedDict):
+class RejectInvitationRequest(TypedDict, closed=True):
     graph_arn: "aws_sdk_detective.types.graph_arn.GraphArn"
     """<p>The ARN of the behavior graph to reject the invitation to.</p> <p>The member account's current member status in the behavior graph must be <code>INVITED</code>.</p>"""
 

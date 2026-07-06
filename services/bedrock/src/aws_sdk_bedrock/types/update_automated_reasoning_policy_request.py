@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#UpdateAutomatedReasoningPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_name
 
 
-class UpdateAutomatedReasoningPolicyRequest(TypedDict):
+class UpdateAutomatedReasoningPolicyRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_bedrock.types.automated_reasoning_policy_arn.AutomatedReasoningPolicyArn"
     """<p>The Amazon Resource Name (ARN) of the Automated Reasoning policy to update. This must be the ARN of a draft policy.</p>"""
     policy_definition: "aws_sdk_bedrock.types.automated_reasoning_policy_definition.AutomatedReasoningPolicyDefinition"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TransferData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.date_type
     import aws_sdk_iot.types.message
 
 
-class TransferData(TypedDict):
+class TransferData(TypedDict, closed=True):
     transfer_message: NotRequired["aws_sdk_iot.types.message.Message"]
     """<p>The transfer message.</p>"""
     reject_reason: NotRequired["aws_sdk_iot.types.message.Message"]

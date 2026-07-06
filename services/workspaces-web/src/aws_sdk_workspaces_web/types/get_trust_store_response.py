@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#GetTrustStoreResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.trust_store
 
 
-class GetTrustStoreResponse(TypedDict):
+class GetTrustStoreResponse(TypedDict, closed=True):
     trust_store: NotRequired["aws_sdk_workspaces_web.types.trust_store.TrustStore"]
     """<p>The trust store.</p>"""
 

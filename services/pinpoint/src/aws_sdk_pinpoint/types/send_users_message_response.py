@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SendUsersMessageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.map_of_map_of_endpoint_message_result
 
 
-class SendUsersMessageResponse(TypedDict):
+class SendUsersMessageResponse(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The unique identifier for the application that was used to send the message.</p>"""
     request_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

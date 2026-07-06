@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListServiceTopologyEdgesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.next_token
 
 
-class ListServiceTopologyEdgesRequest(TypedDict):
+class ListServiceTopologyEdgesRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     max_results: "aws_sdk_resiliencehubv2.types.max_results.MaxResults"
     next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]

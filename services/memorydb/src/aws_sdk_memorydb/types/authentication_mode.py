@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#AuthenticationMode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.input_authentication_type
     import aws_sdk_memorydb.types.password_list_input
 
 
-class AuthenticationMode(TypedDict):
+class AuthenticationMode(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_memorydb.types.input_authentication_type.InputAuthenticationType"
     ]

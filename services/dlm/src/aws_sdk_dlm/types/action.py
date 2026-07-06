@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#Action``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.action_name
     import aws_sdk_dlm.types.cross_region_copy_action_list
 
 
-class Action(TypedDict):
+class Action(TypedDict, closed=True):
     name: NotRequired["aws_sdk_dlm.types.action_name.ActionName"]
     """<p>A descriptive name for the action.</p>"""
     cross_region_copy: NotRequired[

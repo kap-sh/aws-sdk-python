@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#CreateTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.tag_list
 
 
-class CreateTableRequest(TypedDict):
+class CreateTableRequest(TypedDict, closed=True):
     database_name: (
         "aws_sdk_timestream_write.types.resource_create_api_name.ResourceCreateAPIName"
     )

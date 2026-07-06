@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxVolumeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.client_token_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_volume_name
 
 
-class UpdateKxVolumeRequest(TypedDict):
+class UpdateKxVolumeRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     """<p>A unique identifier for the kdb environment where you created the storage volume. </p>"""
     volume_name: "aws_sdk_finspace.types.kx_volume_name.KxVolumeName"

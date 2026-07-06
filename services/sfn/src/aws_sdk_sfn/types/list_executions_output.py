@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListExecutionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.list_executions_page_token
 
 
-class ListExecutionsOutput(TypedDict):
+class ListExecutionsOutput(TypedDict, closed=True):
     executions: "aws_sdk_sfn.types.execution_list.ExecutionList"
     """<p>The list of matching executions.</p>"""
     next_token: NotRequired[

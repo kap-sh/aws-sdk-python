@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tag_filter_values
 
 
-class TagFilter(TypedDict):
+class TagFilter(TypedDict, closed=True):
     key: "aws_sdk_cloudwatch_logs.types.tag_filter_key.TagFilterKey"
     """<p>The tag key to filter on.</p>"""
     values: NotRequired[

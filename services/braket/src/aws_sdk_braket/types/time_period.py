@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#TimePeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class TimePeriod(TypedDict):
+class TimePeriod(TypedDict, closed=True):
     start_at: "datetime.datetime"
     """<p>The start date and time for the spending limit period, in epoch seconds.</p>"""
     end_at: "datetime.datetime"

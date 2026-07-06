@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#StartTraceRetrievalResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.retrieval_token
 
 
-class StartTraceRetrievalResult(TypedDict):
+class StartTraceRetrievalResult(TypedDict, closed=True):
     retrieval_token: NotRequired["aws_sdk_xray.types.retrieval_token.RetrievalToken"]
     """<p> Retrieval token. </p>"""
 

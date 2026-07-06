@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetSizeConstraintSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.size_constraint_set
 
 
-class GetSizeConstraintSetResponse(TypedDict):
+class GetSizeConstraintSetResponse(TypedDict, closed=True):
     size_constraint_set: NotRequired[
         "aws_sdk_waf.types.size_constraint_set.SizeConstraintSet"
     ]

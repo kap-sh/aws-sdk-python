@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UserProfileDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.sso_user_profile_details
 
 
-class _UserProfileDetails_iam(TypedDict):
+class _UserProfileDetails_iam(TypedDict, closed=True):
     iam: "aws_sdk_datazone.types.iam_user_profile_details.IamUserProfileDetails"
 
 
-class _UserProfileDetails_sso(TypedDict):
+class _UserProfileDetails_sso(TypedDict, closed=True):
     sso: "aws_sdk_datazone.types.sso_user_profile_details.SsoUserProfileDetails"
 
 

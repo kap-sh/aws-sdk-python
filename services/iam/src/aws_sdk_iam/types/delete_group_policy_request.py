@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeleteGroupPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_name_type
 
 
-class DeleteGroupPolicyRequest(TypedDict):
+class DeleteGroupPolicyRequest(TypedDict, closed=True):
     group_name: "aws_sdk_iam.types.group_name_type.groupNameType"
     r"""<p>The name (friendly name, not ARN) identifying the group that the policy is embedded in.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     policy_name: "aws_sdk_iam.types.policy_name_type.policyNameType"

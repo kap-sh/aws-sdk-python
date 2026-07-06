@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListWorkforcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.list_workforces_sort_by_options
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_name
 
 
-class ListWorkforcesRequest(TypedDict):
+class ListWorkforcesRequest(TypedDict, closed=True):
     sort_by: NotRequired[
         "aws_sdk_sagemaker.types.list_workforces_sort_by_options.ListWorkforcesSortByOptions"
     ]

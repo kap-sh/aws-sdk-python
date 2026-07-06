@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListDiscoveredDevicesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.device_discovery_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.next_token
 
 
-class ListDiscoveredDevicesRequest(TypedDict):
+class ListDiscoveredDevicesRequest(TypedDict, closed=True):
     identifier: (
         "aws_sdk_iot_managed_integrations.types.device_discovery_id.DeviceDiscoveryId"
     )

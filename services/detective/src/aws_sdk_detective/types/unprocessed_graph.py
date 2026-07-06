@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#UnprocessedGraph``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.graph_arn
     import aws_sdk_detective.types.unprocessed_reason
 
 
-class UnprocessedGraph(TypedDict):
+class UnprocessedGraph(TypedDict, closed=True):
     graph_arn: NotRequired["aws_sdk_detective.types.graph_arn.GraphArn"]
     """<p>The ARN of the organization behavior graph.</p>"""
     reason: NotRequired["aws_sdk_detective.types.unprocessed_reason.UnprocessedReason"]

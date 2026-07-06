@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateWorkloadEstimateUsageEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.usage_type
 
 
-class BatchCreateWorkloadEstimateUsageEntry(TypedDict):
+class BatchCreateWorkloadEstimateUsageEntry(TypedDict, closed=True):
     service_code: "aws_sdk_bcm_pricing_calculator.types.service_code.ServiceCode"
     """<p> The Amazon Web Services service code for this usage estimate. </p>"""
     usage_type: "aws_sdk_bcm_pricing_calculator.types.usage_type.UsageType"

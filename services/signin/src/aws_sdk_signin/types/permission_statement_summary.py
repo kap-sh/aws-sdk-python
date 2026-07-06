@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#PermissionStatementSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.statement_id
 
 
-class PermissionStatementSummary(TypedDict):
+class PermissionStatementSummary(TypedDict, closed=True):
     sid: "aws_sdk_signin.types.statement_id.StatementId"
     """Unique identifier for the permission statement"""
     condition: NotRequired["aws_sdk_signin.types.condition_block.ConditionBlock"]

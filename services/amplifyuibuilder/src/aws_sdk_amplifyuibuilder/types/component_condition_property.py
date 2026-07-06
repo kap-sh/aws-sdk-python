@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ComponentConditionProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_property
@@ -22,6 +22,7 @@ ComponentConditionProperty = TypedDict(
         ],
         "operand_type": NotRequired["str"],
     },
+    closed=True,
 )
 
 

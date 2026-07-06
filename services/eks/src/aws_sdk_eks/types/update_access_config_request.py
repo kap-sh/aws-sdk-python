@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateAccessConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.authentication_mode
 
 
-class UpdateAccessConfigRequest(TypedDict):
+class UpdateAccessConfigRequest(TypedDict, closed=True):
     authentication_mode: NotRequired[
         "aws_sdk_eks.types.authentication_mode.AuthenticationMode"
     ]

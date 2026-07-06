@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CastColumnTypeOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.type_cast_format
 
 
-class CastColumnTypeOperation(TypedDict):
+class CastColumnTypeOperation(TypedDict, closed=True):
     column_name: "aws_sdk_quicksight.types.column_name.ColumnName"
     """<p>Column name.</p>"""
     new_column_type: "aws_sdk_quicksight.types.column_data_type.ColumnDataType"

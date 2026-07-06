@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOutpostBillingInformationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.max_results1000
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class GetOutpostBillingInformationInput(TypedDict):
+class GetOutpostBillingInformationInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_outposts.types.token.Token"]
     max_results: NotRequired["aws_sdk_outposts.types.max_results1000.MaxResults1000"]
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"

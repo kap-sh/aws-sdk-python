@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#TemplateRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_id
 
 
-class TemplateRule(TypedDict):
+class TemplateRule(TypedDict, closed=True):
     case_rule_id: "aws_sdk_connectcases.types.case_rule_id.CaseRuleId"
     """<p>Unique identifier of a case rule.</p>"""
     field_id: "aws_sdk_connectcases.types.field_id.FieldId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Ec2InstanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.instance_configuration
 
 
-class Ec2InstanceConfiguration(TypedDict):
+class Ec2InstanceConfiguration(TypedDict, closed=True):
     instance: NotRequired[
         "aws_sdk_cost_optimization_hub.types.instance_configuration.InstanceConfiguration"
     ]

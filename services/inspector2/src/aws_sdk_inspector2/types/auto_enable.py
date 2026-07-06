@@ -1,8 +1,6 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AutoEnable``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -15,6 +13,7 @@ AutoEnable = TypedDict(
         "lambda_code": NotRequired["bool"],
         "code_repository": NotRequired["bool"],
     },
+    closed=True,
 )
 
 

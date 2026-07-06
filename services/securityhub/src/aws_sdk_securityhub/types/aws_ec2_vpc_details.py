@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.cidr_block_association_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2VpcDetails(TypedDict):
+class AwsEc2VpcDetails(TypedDict, closed=True):
     cidr_block_association_set: NotRequired[
         "aws_sdk_securityhub.types.cidr_block_association_list.CidrBlockAssociationList"
     ]

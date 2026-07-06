@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Image``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.image_source
     import aws_sdk_quicksight.types.string
 
 
-class Image(TypedDict):
+class Image(TypedDict, closed=True):
     source: NotRequired["aws_sdk_quicksight.types.image_source.ImageSource"]
     """<p>The source of the logo image.</p>"""
     generated_image_url: NotRequired["aws_sdk_quicksight.types.string.String"]

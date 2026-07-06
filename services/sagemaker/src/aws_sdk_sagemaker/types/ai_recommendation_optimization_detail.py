@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationOptimizationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_optimization_config_map
     import aws_sdk_sagemaker.types.ai_recommendation_optimization_type
 
 
-class AIRecommendationOptimizationDetail(TypedDict):
+class AIRecommendationOptimizationDetail(TypedDict, closed=True):
     optimization_type: NotRequired[
         "aws_sdk_sagemaker.types.ai_recommendation_optimization_type.AIRecommendationOptimizationType"
     ]

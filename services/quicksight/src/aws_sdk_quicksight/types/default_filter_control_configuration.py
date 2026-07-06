@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultFilterControlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_title
 
 
-class DefaultFilterControlConfiguration(TypedDict):
+class DefaultFilterControlConfiguration(TypedDict, closed=True):
     title: "aws_sdk_quicksight.types.sheet_control_title.SheetControlTitle"
     """<p>The title of the <code>DefaultFilterControlConfiguration</code>. This title is shared by all controls that are tied to this filter.</p>"""
     control_options: "aws_sdk_quicksight.types.default_filter_control_options.DefaultFilterControlOptions"

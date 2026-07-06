@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#DeleteQueueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.sb_client_token
 
 
-class DeleteQueueRequest(TypedDict):
+class DeleteQueueRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster of the queue.</p>"""
     queue_identifier: "aws_sdk_pcs.types.queue_identifier.QueueIdentifier"

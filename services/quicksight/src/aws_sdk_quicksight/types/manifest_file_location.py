@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ManifestFileLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.s3_key
 
 
-class ManifestFileLocation(TypedDict):
+class ManifestFileLocation(TypedDict, closed=True):
     bucket: "aws_sdk_quicksight.types.s3_bucket.S3Bucket"
     """<p>Amazon S3 bucket.</p>"""
     key: "aws_sdk_quicksight.types.s3_key.S3Key"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#EvaluationInferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rag_configs
 
 
-class _EvaluationInferenceConfig_models(TypedDict):
+class _EvaluationInferenceConfig_models(TypedDict, closed=True):
     models: "aws_sdk_bedrock.types.evaluation_model_configs.EvaluationModelConfigs"
 
 
-class _EvaluationInferenceConfig_ragConfigs(TypedDict):
+class _EvaluationInferenceConfig_ragConfigs(TypedDict, closed=True):
     ragConfigs: "aws_sdk_bedrock.types.rag_configs.RagConfigs"
 
 

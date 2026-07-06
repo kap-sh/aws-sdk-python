@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#StorageLensTableDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.storage_lens_data_export_encryption
 
 
-class StorageLensTableDestination(TypedDict):
+class StorageLensTableDestination(TypedDict, closed=True):
     is_enabled: "aws_sdk_s3_control.types.is_enabled.IsEnabled"
     """<p>A container that indicates whether the export to read-only S3 table buckets is enabled for your S3 Storage Lens configuration. When set to true, Storage Lens reports are automatically exported to tables in addition to other configured destinations.</p>"""
     encryption: NotRequired[

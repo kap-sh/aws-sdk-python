@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DescribeExportTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.export_filters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.next_token
 
 
-class DescribeExportTasksRequest(TypedDict):
+class DescribeExportTasksRequest(TypedDict, closed=True):
     export_ids: NotRequired[
         "aws_sdk_application_discovery_service.types.export_ids.ExportIds"
     ]

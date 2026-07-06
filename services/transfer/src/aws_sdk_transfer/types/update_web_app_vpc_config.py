@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateWebAppVpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.subnet_ids
     import aws_sdk_transfer.types.web_app_vpc_endpoint_ip_address_type
 
 
-class UpdateWebAppVpcConfig(TypedDict):
+class UpdateWebAppVpcConfig(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_transfer.types.subnet_ids.SubnetIds"]
     """<p>The list of subnet IDs within the VPC where the web app endpoint should be deployed during the update operation.</p>"""
     ip_address_type: NotRequired[

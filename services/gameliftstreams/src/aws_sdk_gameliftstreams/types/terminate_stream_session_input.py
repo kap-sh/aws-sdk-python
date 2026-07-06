@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#TerminateStreamSessionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.identifier
 
 
-class TerminateStreamSessionInput(TypedDict):
+class TerminateStreamSessionInput(TypedDict, closed=True):
     identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"
     r"""<p> <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p>The stream group that runs this stream session.</p>"""
     stream_session_identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"

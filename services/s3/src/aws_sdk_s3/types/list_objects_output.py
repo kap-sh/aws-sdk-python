@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListObjectsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.request_charged
 
 
-class ListObjectsOutput(TypedDict):
+class ListObjectsOutput(TypedDict, closed=True):
     is_truncated: NotRequired["aws_sdk_s3.types.is_truncated.IsTruncated"]
     """<p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria.</p>"""
     marker: NotRequired["aws_sdk_s3.types.marker.Marker"]

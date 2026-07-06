@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CvssScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.non_empty_string
 
 
-class CvssScore(TypedDict):
+class CvssScore(TypedDict, closed=True):
     base_score: "float"
     """<p>The base CVSS score used for the finding.</p>"""
     scoring_vector: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"

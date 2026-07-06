@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListTypedLinkFacetAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_link_name
 
 
-class ListTypedLinkFacetAttributesRequest(TypedDict):
+class ListTypedLinkFacetAttributesRequest(TypedDict, closed=True):
     schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that is associated with the schema. For more information, see <a>arns</a>.</p>"""
     name: "aws_sdk_clouddirectory.types.typed_link_name.TypedLinkName"

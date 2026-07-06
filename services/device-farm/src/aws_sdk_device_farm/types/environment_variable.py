@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#EnvironmentVariable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.environment_variable_value
 
 
-class EnvironmentVariable(TypedDict):
+class EnvironmentVariable(TypedDict, closed=True):
     name: "aws_sdk_device_farm.types.environment_variable_name.EnvironmentVariableName"
     """<p>The name of the environment variable.</p>"""
     value: (

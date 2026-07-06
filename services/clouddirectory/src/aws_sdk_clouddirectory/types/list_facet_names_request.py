@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#ListFacetNamesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.number_results
 
 
-class ListFacetNamesRequest(TypedDict):
+class ListFacetNamesRequest(TypedDict, closed=True):
     schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) to retrieve facet names from.</p>"""
     next_token: NotRequired["aws_sdk_clouddirectory.types.next_token.NextToken"]

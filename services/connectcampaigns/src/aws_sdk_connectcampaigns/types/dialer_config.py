@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#DialerConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.progressive_dialer_config
 
 
-class _DialerConfig_progressiveDialerConfig(TypedDict):
+class _DialerConfig_progressiveDialerConfig(TypedDict, closed=True):
     progressiveDialerConfig: "aws_sdk_connectcampaigns.types.progressive_dialer_config.ProgressiveDialerConfig"
 
 
-class _DialerConfig_predictiveDialerConfig(TypedDict):
+class _DialerConfig_predictiveDialerConfig(TypedDict, closed=True):
     predictiveDialerConfig: (
         "aws_sdk_connectcampaigns.types.predictive_dialer_config.PredictiveDialerConfig"
     )
 
 
-class _DialerConfig_agentlessDialerConfig(TypedDict):
+class _DialerConfig_agentlessDialerConfig(TypedDict, closed=True):
     agentlessDialerConfig: (
         "aws_sdk_connectcampaigns.types.agentless_dialer_config.AgentlessDialerConfig"
     )

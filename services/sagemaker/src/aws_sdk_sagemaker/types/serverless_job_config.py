@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ServerlessJobConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.serverless_job_type
 
 
-class ServerlessJobConfig(TypedDict):
+class ServerlessJobConfig(TypedDict, closed=True):
     base_model_arn: "aws_sdk_sagemaker.types.serverless_job_base_model_arn.ServerlessJobBaseModelArn"
     r"""<p> The base model Amazon Resource Name (ARN) in <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-use.html\">SageMaker Public Hub</a>. SageMaker always selects the latest version of the provided model. </p>"""
     accept_eula: NotRequired["aws_sdk_sagemaker.types.accept_eula.AcceptEula"]

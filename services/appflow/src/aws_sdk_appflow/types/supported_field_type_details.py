@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SupportedFieldTypeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.field_type_details
 
 
-class SupportedFieldTypeDetails(TypedDict):
+class SupportedFieldTypeDetails(TypedDict, closed=True):
     v1: "aws_sdk_appflow.types.field_type_details.FieldTypeDetails"
     """<p> The initial supported version for <code>fieldType</code>. If this is later changed to a different version, v2 will be introduced. </p>"""
 

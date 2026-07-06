@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIRecommendationDeploymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_recommendation_copy_count_per_instance
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class AIRecommendationDeploymentConfiguration(TypedDict):
+class AIRecommendationDeploymentConfiguration(TypedDict, closed=True):
     s3: NotRequired[
         "aws_sdk_sagemaker.types.ai_recommendation_deployment_s3_channel_list.AIRecommendationDeploymentS3ChannelList"
     ]

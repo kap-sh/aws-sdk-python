@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#VisualReferenceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.base_screenshots
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.string
 
 
-class VisualReferenceOutput(TypedDict):
+class VisualReferenceOutput(TypedDict, closed=True):
     base_screenshots: NotRequired[
         "aws_sdk_synthetics.types.base_screenshots.BaseScreenshots"
     ]

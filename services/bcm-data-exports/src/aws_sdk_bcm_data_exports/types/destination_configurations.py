@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#DestinationConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_data_exports.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.s3_destination
 
 
-class DestinationConfigurations(TypedDict):
+class DestinationConfigurations(TypedDict, closed=True):
     s3_destination: "aws_sdk_bcm_data_exports.types.s3_destination.S3Destination"
     """<p>An object that describes the destination of the data exports file.</p>"""
 

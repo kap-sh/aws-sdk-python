@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectCustomLabelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.custom_labels
 
 
-class DetectCustomLabelsResponse(TypedDict):
+class DetectCustomLabelsResponse(TypedDict, closed=True):
     custom_labels: NotRequired["aws_sdk_rekognition.types.custom_labels.CustomLabels"]
     """<p>An array of custom labels detected in the input image.</p>"""
 

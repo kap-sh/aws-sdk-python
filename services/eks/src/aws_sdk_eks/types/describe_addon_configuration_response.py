@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeAddonConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.addon_pod_identity_configuration_list
     import aws_sdk_eks.types.string
 
 
-class DescribeAddonConfigurationResponse(TypedDict):
+class DescribeAddonConfigurationResponse(TypedDict, closed=True):
     addon_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the add-on.</p>"""
     addon_version: NotRequired["aws_sdk_eks.types.string.String"]

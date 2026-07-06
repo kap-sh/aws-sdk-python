@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CopyJobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class CopyJobSummary(TypedDict):
+class CopyJobSummary(TypedDict, closed=True):
     region: NotRequired["aws_sdk_backup.types.region.Region"]
     """<p>The Amazon Web Services Regions within the job summary.</p>"""
     account_id: NotRequired["aws_sdk_backup.types.account_id.AccountId"]

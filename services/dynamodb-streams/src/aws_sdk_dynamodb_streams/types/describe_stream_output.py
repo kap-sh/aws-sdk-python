@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodbstreams#DescribeStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb_streams.types.stream_description
 
 
-class DescribeStreamOutput(TypedDict):
+class DescribeStreamOutput(TypedDict, closed=True):
     stream_description: NotRequired[
         "aws_sdk_dynamodb_streams.types.stream_description.StreamDescription"
     ]

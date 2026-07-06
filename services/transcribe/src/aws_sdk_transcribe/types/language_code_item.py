@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#LanguageCodeItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.duration_in_seconds
     import aws_sdk_transcribe.types.language_code
 
 
-class LanguageCodeItem(TypedDict):
+class LanguageCodeItem(TypedDict, closed=True):
     language_code: NotRequired["aws_sdk_transcribe.types.language_code.LanguageCode"]
     """<p>Provides the language code for each language identified in your media.</p>"""
     duration_in_seconds: NotRequired[

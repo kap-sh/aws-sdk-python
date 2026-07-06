@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#CreateChannelGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.tag_map
 
 
-class CreateChannelGroupRequest(TypedDict):
+class CreateChannelGroupRequest(TypedDict, closed=True):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region. You can't use spaces in the name. You can't change the name after you create the channel group.</p>"""
     client_token: NotRequired[

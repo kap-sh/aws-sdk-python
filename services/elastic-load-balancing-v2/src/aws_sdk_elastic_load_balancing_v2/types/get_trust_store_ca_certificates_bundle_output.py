@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#GetTrustStoreCaCertificatesBundleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.location
 
 
-class GetTrustStoreCaCertificatesBundleOutput(TypedDict):
+class GetTrustStoreCaCertificatesBundleOutput(TypedDict, closed=True):
     location: NotRequired["aws_sdk_elastic_load_balancing_v2.types.location.Location"]
     """<p>The ca certificate bundles Amazon S3 URI.</p>"""
 

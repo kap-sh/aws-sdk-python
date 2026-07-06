@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DescribeNodeFromTemplateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.job_id
 
 
-class DescribeNodeFromTemplateJobRequest(TypedDict):
+class DescribeNodeFromTemplateJobRequest(TypedDict, closed=True):
     job_id: "aws_sdk_panorama.types.job_id.JobId"
     """<p>The job's ID.</p>"""
 

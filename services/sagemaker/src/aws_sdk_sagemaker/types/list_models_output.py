@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_summary_list
     import aws_sdk_sagemaker.types.pagination_token
 
 
-class ListModelsOutput(TypedDict):
+class ListModelsOutput(TypedDict, closed=True):
     models: NotRequired["aws_sdk_sagemaker.types.model_summary_list.ModelSummaryList"]
     """<p>An array of <code>ModelSummary</code> objects, each of which lists a model.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.pagination_token.PaginationToken"]

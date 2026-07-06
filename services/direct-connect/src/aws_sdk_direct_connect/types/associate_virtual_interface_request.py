@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#AssociateVirtualInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface_id
 
 
-class AssociateVirtualInterfaceRequest(TypedDict):
+class AssociateVirtualInterfaceRequest(TypedDict, closed=True):
     virtual_interface_id: (
         "aws_sdk_direct_connect.types.virtual_interface_id.VirtualInterfaceId"
     )

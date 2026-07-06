@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ArtifactStore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.encryption_key
 
 
-class ArtifactStore(TypedDict):
+class ArtifactStore(TypedDict, closed=True):
     type: "aws_sdk_codepipeline.types.artifact_store_type.ArtifactStoreType"
     """<p>The type of the artifact store, such as S3.</p>"""
     location: "aws_sdk_codepipeline.types.artifact_store_location.ArtifactStoreLocation"

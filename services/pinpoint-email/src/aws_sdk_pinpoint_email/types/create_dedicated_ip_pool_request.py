@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CreateDedicatedIpPoolRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tag_list
 
 
-class CreateDedicatedIpPoolRequest(TypedDict):
+class CreateDedicatedIpPoolRequest(TypedDict, closed=True):
     pool_name: "aws_sdk_pinpoint_email.types.pool_name.PoolName"
     """<p>The name of the dedicated IP pool.</p>"""
     tags: NotRequired["aws_sdk_pinpoint_email.types.tag_list.TagList"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#DeleteOtaTaskConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.ota_task_configuration_id
 
 
-class DeleteOtaTaskConfigurationRequest(TypedDict):
+class DeleteOtaTaskConfigurationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_managed_integrations.types.ota_task_configuration_id.OtaTaskConfigurationId"
     """<p>The identifier of the over-the-air (OTA) task configuration.</p>"""
 

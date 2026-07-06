@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.settings
 
 
-class RuleOption(TypedDict):
+class RuleOption(TypedDict, closed=True):
     keyword: "aws_sdk_network_firewall.types.keyword.Keyword"
     r"""<p>The keyword for the Suricata compatible rule option. You must include a <code>sid</code> (signature ID), and can optionally include other keywords. For information about Suricata compatible keywords, see <a href=\"https://suricata.readthedocs.io/en/suricata-7.0.3/rules/intro.html#rule-options\">Rule options</a> in the Suricata documentation.</p>"""
     settings: NotRequired["aws_sdk_network_firewall.types.settings.Settings"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListProfilesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_owner_type
 
 
-class ListProfilesInput(TypedDict):
+class ListProfilesInput(TypedDict, closed=True):
     profile_name_prefix: NotRequired[
         "aws_sdk_wellarchitected.types.profile_name_prefix.ProfileNamePrefix"
     ]

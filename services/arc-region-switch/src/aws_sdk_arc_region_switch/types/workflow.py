@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Workflow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.workflow_target_action
 
 
-class Workflow(TypedDict):
+class Workflow(TypedDict, closed=True):
     steps: NotRequired["aws_sdk_arc_region_switch.types.steps.Steps"]
     """<p>The steps that make up the workflow.</p>"""
     workflow_target_action: (

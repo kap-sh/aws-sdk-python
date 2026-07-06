@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SrtListenerRouterOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.srt_encryption_configuration
 
 
-class SrtListenerRouterOutputConfiguration(TypedDict):
+class SrtListenerRouterOutputConfiguration(TypedDict, closed=True):
     port: "int"
     """<p>The port number for the SRT protocol in listener mode.</p>"""
     minimum_latency_milliseconds: "int"

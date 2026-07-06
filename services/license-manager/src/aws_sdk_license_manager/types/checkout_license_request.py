@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#CheckoutLicenseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class CheckoutLicenseRequest(TypedDict):
+class CheckoutLicenseRequest(TypedDict, closed=True):
     product_sku: "aws_sdk_license_manager.types.string.String"
     """<p>Product SKU.</p>"""
     checkout_type: "aws_sdk_license_manager.types.checkout_type.CheckoutType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ReplicaAutoScalingDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.auto_scaling_settings_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.replica_status
 
 
-class ReplicaAutoScalingDescription(TypedDict):
+class ReplicaAutoScalingDescription(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_dynamodb.types.region_name.RegionName"]
     """<p>The Region where the replica exists.</p>"""
     global_secondary_indexes: NotRequired[

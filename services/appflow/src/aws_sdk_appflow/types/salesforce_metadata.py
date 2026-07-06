@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SalesforceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_grant_type_supported_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.salesforce_data_transfer_api_list
 
 
-class SalesforceMetadata(TypedDict):
+class SalesforceMetadata(TypedDict, closed=True):
     o_auth_scopes: NotRequired["aws_sdk_appflow.types.o_auth_scope_list.OAuthScopeList"]
     """<p> The desired authorization scope for the Salesforce account. </p>"""
     data_transfer_apis: NotRequired[

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RecommendationContent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class RecommendationContent(TypedDict):
+class RecommendationContent(TypedDict, closed=True):
     summary: "str"
     """<p>A brief summary of the recommendation.</p>"""
     spec: NotRequired["str"]

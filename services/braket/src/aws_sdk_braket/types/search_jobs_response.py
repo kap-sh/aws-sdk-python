@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#SearchJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.job_summary_list
 
 
-class SearchJobsResponse(TypedDict):
+class SearchJobsResponse(TypedDict, closed=True):
     jobs: "aws_sdk_braket.types.job_summary_list.JobSummaryList"
     """<p>An array of <code>JobSummary</code> objects for devices that match the specified filter values.</p>"""
     next_token: NotRequired["str"]

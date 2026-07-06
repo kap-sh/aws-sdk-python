@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentClassificationTestResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list
 
 
-class IntentClassificationTestResults(TypedDict):
+class IntentClassificationTestResults(TypedDict, closed=True):
     items: "aws_sdk_lex_models_v2.types.intent_classification_test_result_item_list.IntentClassificationTestResultItemList"
     """<p>A list of the results for the intent classification test.</p>"""
 

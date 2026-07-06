@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#RackPhysicalProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.fiber_optic_cable_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.uplink_gbps
 
 
-class RackPhysicalProperties(TypedDict):
+class RackPhysicalProperties(TypedDict, closed=True):
     power_draw_kva: NotRequired["aws_sdk_outposts.types.power_draw_kva.PowerDrawKva"]
     """<p>The power draw available at the hardware placement position for the rack. </p>"""
     power_phase: NotRequired["aws_sdk_outposts.types.power_phase.PowerPhase"]

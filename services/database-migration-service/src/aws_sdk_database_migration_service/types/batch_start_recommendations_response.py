@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#BatchStartRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.batch_start_recommendations_error_entry_list
 
 
-class BatchStartRecommendationsResponse(TypedDict):
+class BatchStartRecommendationsResponse(TypedDict, closed=True):
     error_entries: NotRequired[
         "aws_sdk_database_migration_service.types.batch_start_recommendations_error_entry_list.BatchStartRecommendationsErrorEntryList"
     ]

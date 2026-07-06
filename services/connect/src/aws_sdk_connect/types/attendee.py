@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Attendee``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attendee_id
     import aws_sdk_connect.types.join_token
 
 
-class Attendee(TypedDict):
+class Attendee(TypedDict, closed=True):
     attendee_id: NotRequired["aws_sdk_connect.types.attendee_id.AttendeeId"]
     """<p>The Amazon Chime SDK attendee ID.</p>"""
     join_token: NotRequired["aws_sdk_connect.types.join_token.JoinToken"]

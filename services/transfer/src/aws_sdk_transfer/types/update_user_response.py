@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_name
 
 
-class UpdateUserResponse(TypedDict):
+class UpdateUserResponse(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>A system-assigned unique identifier for a Transfer Family server instance that the account is assigned to.</p>"""
     user_name: "aws_sdk_transfer.types.user_name.UserName"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListPublicKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.date
     import aws_sdk_cloudtrail.types.string
 
 
-class ListPublicKeysRequest(TypedDict):
+class ListPublicKeysRequest(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_cloudtrail.types.date.Date"]
     """<p>Optionally specifies, in UTC, the start of the time range to look up public keys for CloudTrail digest files. If not specified, the current time is used, and the current public key is returned.</p>"""
     end_time: NotRequired["aws_sdk_cloudtrail.types.date.Date"]

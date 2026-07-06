@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#PartitionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.non_empty_string_without_whitespace
 
 
-class PartitionField(TypedDict):
+class PartitionField(TypedDict, closed=True):
     source_name: "aws_sdk_firehose.types.non_empty_string_without_whitespace.NonEmptyStringWithoutWhitespace"
     """<p> The column name to be configured in partition spec. </p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
 

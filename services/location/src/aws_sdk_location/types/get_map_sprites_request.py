@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapSpritesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.api_key
     import aws_sdk_location.types.resource_name
 
 
-class GetMapSpritesRequest(TypedDict):
+class GetMapSpritesRequest(TypedDict, closed=True):
     map_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The map resource associated with the sprite ﬁle.</p>"""
     file_name: "str"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#CreateQueueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.queue
 
 
-class CreateQueueResponse(TypedDict):
+class CreateQueueResponse(TypedDict, closed=True):
     queue: NotRequired["aws_sdk_pcs.types.queue.Queue"]
 
 

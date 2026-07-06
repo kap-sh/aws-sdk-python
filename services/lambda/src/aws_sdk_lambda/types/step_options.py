@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#StepOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.duration_seconds
 
 
-class StepOptions(TypedDict):
+class StepOptions(TypedDict, closed=True):
     next_attempt_delay_seconds: NotRequired[
         "aws_sdk_lambda.types.duration_seconds.DurationSeconds"
     ]

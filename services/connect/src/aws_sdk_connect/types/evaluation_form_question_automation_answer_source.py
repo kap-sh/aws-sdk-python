@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormQuestionAutomationAnswerSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_question_automation_answer_source_type
 
 
-class EvaluationFormQuestionAutomationAnswerSource(TypedDict):
+class EvaluationFormQuestionAutomationAnswerSource(TypedDict, closed=True):
     source_type: "aws_sdk_connect.types.evaluation_form_question_automation_answer_source_type.EvaluationFormQuestionAutomationAnswerSourceType"
     """<p>The automation answer source type.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ResourceDownloadOwnerSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.permission
 
 
-class ResourceDownloadOwnerSetting(TypedDict):
+class ResourceDownloadOwnerSetting(TypedDict, closed=True):
     group_owner: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process."""
     group_permission: NotRequired["aws_sdk_greengrass.types.permission.Permission"]

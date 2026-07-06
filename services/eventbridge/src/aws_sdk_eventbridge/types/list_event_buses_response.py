@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListEventBusesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.event_bus_list
     import aws_sdk_eventbridge.types.next_token
 
 
-class ListEventBusesResponse(TypedDict):
+class ListEventBusesResponse(TypedDict, closed=True):
     event_buses: NotRequired["aws_sdk_eventbridge.types.event_bus_list.EventBusList"]
     """<p>This list of event buses.</p>"""
     next_token: NotRequired["aws_sdk_eventbridge.types.next_token.NextToken"]

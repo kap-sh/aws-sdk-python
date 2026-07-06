@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TranslateTextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.translation_settings
 
 
-class TranslateTextRequest(TypedDict):
+class TranslateTextRequest(TypedDict, closed=True):
     text: "aws_sdk_translate.types.bounded_length_string.BoundedLengthString"
     """<p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on your character set, this may be fewer than 10,000 characters.</p>"""
     terminology_names: NotRequired[

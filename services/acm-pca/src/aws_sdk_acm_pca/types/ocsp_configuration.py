@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#OcspConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.cname_string
 
 
-class OcspConfiguration(TypedDict):
+class OcspConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_acm_pca.types.boolean.Boolean"
     """<p>Flag enabling use of the Online Certificate Status Protocol (OCSP) for validating certificate revocation status.</p>"""
     ocsp_custom_cname: NotRequired["aws_sdk_acm_pca.types.cname_string.CnameString"]

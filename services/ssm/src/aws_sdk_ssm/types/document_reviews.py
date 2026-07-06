@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentReviews``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_review_comment_list
 
 
-class DocumentReviews(TypedDict):
+class DocumentReviews(TypedDict, closed=True):
     action: "aws_sdk_ssm.types.document_review_action.DocumentReviewAction"
     """<p>The action to take on a document approval review request.</p>"""
     comment: NotRequired[

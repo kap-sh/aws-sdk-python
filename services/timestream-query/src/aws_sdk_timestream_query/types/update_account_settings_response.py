@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#UpdateAccountSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.max_query_capacity
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_pricing_model
 
 
-class UpdateAccountSettingsResponse(TypedDict):
+class UpdateAccountSettingsResponse(TypedDict, closed=True):
     max_query_tcu: NotRequired[
         "aws_sdk_timestream_query.types.max_query_capacity.MaxQueryCapacity"
     ]

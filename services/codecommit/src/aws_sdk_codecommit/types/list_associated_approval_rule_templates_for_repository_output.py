@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ListAssociatedApprovalRuleTemplatesForRepositoryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rule_template_name_list
     import aws_sdk_codecommit.types.next_token
 
 
-class ListAssociatedApprovalRuleTemplatesForRepositoryOutput(TypedDict):
+class ListAssociatedApprovalRuleTemplatesForRepositoryOutput(TypedDict, closed=True):
     approval_rule_template_names: NotRequired[
         "aws_sdk_codecommit.types.approval_rule_template_name_list.ApprovalRuleTemplateNameList"
     ]

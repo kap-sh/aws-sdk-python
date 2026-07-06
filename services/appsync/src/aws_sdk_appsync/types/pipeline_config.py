@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#PipelineConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.functions_ids
 
 
-class PipelineConfig(TypedDict):
+class PipelineConfig(TypedDict, closed=True):
     functions: NotRequired["aws_sdk_appsync.types.functions_ids.FunctionsIds"]
     """<p>A list of <code>Function</code> objects.</p>"""
 

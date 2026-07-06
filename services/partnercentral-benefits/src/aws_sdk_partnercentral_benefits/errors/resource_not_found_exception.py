@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the resource not found error.</p>"""
 

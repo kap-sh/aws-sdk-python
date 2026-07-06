@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Hlg2020Settings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Hlg2020Settings(TypedDict):
+class Hlg2020Settings(TypedDict, closed=True):
     pass
 
 

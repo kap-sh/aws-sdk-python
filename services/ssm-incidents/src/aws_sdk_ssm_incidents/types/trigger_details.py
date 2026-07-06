@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#TriggerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.raw_data
 
 
-class TriggerDetails(TypedDict):
+class TriggerDetails(TypedDict, closed=True):
     source: "aws_sdk_ssm_incidents.types.incident_source.IncidentSource"
     r"""<p>Identifies the service that sourced the event. All events sourced from within Amazon Web Services begin with \"<code>aws.</code>\" Customer-generated events can have any value here, as long as it doesn't begin with \"<code>aws.</code>\" We recommend the use of Java package-name style reverse domain-name strings. </p>"""
     trigger_arn: NotRequired["aws_sdk_ssm_incidents.types.arn.Arn"]

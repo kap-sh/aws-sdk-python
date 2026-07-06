@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LogTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.log_target_type
 
 
-class LogTarget(TypedDict):
+class LogTarget(TypedDict, closed=True):
     target_type: "aws_sdk_iot.types.log_target_type.LogTargetType"
     """<p>The target type.</p>"""
     target_name: NotRequired["aws_sdk_iot.types.log_target_name.LogTargetName"]

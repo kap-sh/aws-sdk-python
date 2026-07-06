@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#GetResourceSyncStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.revision
 
 
-class GetResourceSyncStatusOutput(TypedDict):
+class GetResourceSyncStatusOutput(TypedDict, closed=True):
     desired_state: NotRequired["aws_sdk_codeconnections.types.revision.Revision"]
     """<p>The desired state of the Amazon Web Services resource for the sync status with the Git repository.</p>"""
     latest_successful_sync: NotRequired[

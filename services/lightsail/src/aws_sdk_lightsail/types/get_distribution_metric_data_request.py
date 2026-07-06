@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDistributionMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.timestamp
 
 
-class GetDistributionMetricDataRequest(TypedDict):
+class GetDistributionMetricDataRequest(TypedDict, closed=True):
     distribution_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the distribution for which to get metric data.</p> <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you can specify.</p>"""
     metric_name: (

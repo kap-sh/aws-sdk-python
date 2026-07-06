@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationTarget``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.trace_ids
 
 
-class _EvaluationTarget_spanIds(TypedDict):
+class _EvaluationTarget_spanIds(TypedDict, closed=True):
     spanIds: "aws_sdk_bedrock_agentcore.types.span_ids.SpanIds"
 
 
-class _EvaluationTarget_traceIds(TypedDict):
+class _EvaluationTarget_traceIds(TypedDict, closed=True):
     traceIds: "aws_sdk_bedrock_agentcore.types.trace_ids.TraceIds"
 
 

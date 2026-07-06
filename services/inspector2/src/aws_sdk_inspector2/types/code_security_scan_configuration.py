@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeSecurityScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.rule_set_categories
 
 
-class CodeSecurityScanConfiguration(TypedDict):
+class CodeSecurityScanConfiguration(TypedDict, closed=True):
     periodic_scan_configuration: NotRequired[
         "aws_sdk_inspector2.types.periodic_scan_configuration.PeriodicScanConfiguration"
     ]

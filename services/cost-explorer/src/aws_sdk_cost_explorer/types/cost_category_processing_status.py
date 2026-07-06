@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostCategoryProcessingStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_category_status
     import aws_sdk_cost_explorer.types.cost_category_status_component
 
 
-class CostCategoryProcessingStatus(TypedDict):
+class CostCategoryProcessingStatus(TypedDict, closed=True):
     component: NotRequired[
         "aws_sdk_cost_explorer.types.cost_category_status_component.CostCategoryStatusComponent"
     ]

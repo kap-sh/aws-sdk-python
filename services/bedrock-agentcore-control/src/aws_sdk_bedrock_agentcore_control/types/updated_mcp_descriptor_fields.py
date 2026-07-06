@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#UpdatedMcpDescriptorFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.updated_server_definition
     import aws_sdk_bedrock_agentcore_control.types.updated_tools_definition
 
 
-class UpdatedMcpDescriptorFields(TypedDict):
+class UpdatedMcpDescriptorFields(TypedDict, closed=True):
     server: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.updated_server_definition.UpdatedServerDefinition"
     ]

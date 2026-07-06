@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#Alias``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.alias_lifecycle
     import aws_sdk_fsx.types.alternate_dns_name
 
 
-class Alias(TypedDict):
+class Alias(TypedDict, closed=True):
     name: NotRequired["aws_sdk_fsx.types.alternate_dns_name.AlternateDNSName"]
     """<p>The name of the DNS alias. The alias name has to meet the following requirements:</p> <ul> <li> <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p> </li> <li> <p>Can contain alphanumeric characters, the underscore (_), and the hyphen (-).</p> </li> <li> <p>Cannot start or end with a hyphen.</p> </li> <li> <p>Can start with a numeric.</p> </li> </ul> <p>For DNS names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them: as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>"""
     lifecycle: NotRequired["aws_sdk_fsx.types.alias_lifecycle.AliasLifecycle"]

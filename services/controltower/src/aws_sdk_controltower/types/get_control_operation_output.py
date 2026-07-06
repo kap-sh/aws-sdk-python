@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#GetControlOperationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.control_operation
 
 
-class GetControlOperationOutput(TypedDict):
+class GetControlOperationOutput(TypedDict, closed=True):
     control_operation: "aws_sdk_controltower.types.control_operation.ControlOperation"
     """<p>An operation performed by the control.</p>"""
 

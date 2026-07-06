@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeliverConfigSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class DeliverConfigSnapshotResponse(TypedDict):
+class DeliverConfigSnapshotResponse(TypedDict, closed=True):
     config_snapshot_id: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>The ID of the snapshot that is being created.</p>"""
 

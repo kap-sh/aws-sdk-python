@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#GoneException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_apigatewaymanagementapi.errors import ServiceError
 
 
-class GoneException_(TypedDict):
+class GoneException_(TypedDict, closed=True):
     pass
 
 

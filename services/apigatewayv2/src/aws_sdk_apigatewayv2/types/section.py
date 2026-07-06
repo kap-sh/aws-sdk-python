@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#Section``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of__string_min20_max2048
     import aws_sdk_apigatewayv2.types.__string
 
 
-class Section(TypedDict):
+class Section(TypedDict, closed=True):
     product_rest_endpoint_page_arns: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of__string_min20_max2048.__listOf__stringMin20Max2048"
     ]

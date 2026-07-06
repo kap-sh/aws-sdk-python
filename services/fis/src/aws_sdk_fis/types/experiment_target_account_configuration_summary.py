@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTargetAccountConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.target_account_id
 
 
-class ExperimentTargetAccountConfigurationSummary(TypedDict):
+class ExperimentTargetAccountConfigurationSummary(TypedDict, closed=True):
     role_arn: NotRequired["aws_sdk_fis.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>"""
     account_id: NotRequired["aws_sdk_fis.types.target_account_id.TargetAccountId"]

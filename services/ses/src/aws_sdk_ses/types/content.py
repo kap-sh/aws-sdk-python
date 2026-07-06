@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#Content``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.message_data
 
 
-class Content(TypedDict):
+class Content(TypedDict, closed=True):
     data: "aws_sdk_ses.types.message_data.MessageData"
     """<p>The textual data of the content.</p>"""
     charset: NotRequired["aws_sdk_ses.types.charset.Charset"]

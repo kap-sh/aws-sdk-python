@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OciDnsForwardingConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OciDnsForwardingConfig(TypedDict):
+class OciDnsForwardingConfig(TypedDict, closed=True):
     domain_name: NotRequired["str"]
     """<p>Domain name to which DNS resolver forwards to.</p>"""
     oci_dns_listener_ip: NotRequired["str"]

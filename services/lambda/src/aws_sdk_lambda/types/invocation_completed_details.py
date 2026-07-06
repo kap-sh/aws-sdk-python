@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvocationCompletedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class InvocationCompletedDetails(TypedDict):
+class InvocationCompletedDetails(TypedDict, closed=True):
     start_timestamp: "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
     r"""<p>The date and time when the invocation started, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>"""
     end_timestamp: "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"

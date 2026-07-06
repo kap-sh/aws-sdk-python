@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#DescribeExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.task_id
 
 
-class DescribeExecutionOutput(TypedDict):
+class DescribeExecutionOutput(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_snow_device_management.types.task_id.TaskId"]
     """<p>The ID of the task being executed on the device.</p>"""
     execution_id: NotRequired[

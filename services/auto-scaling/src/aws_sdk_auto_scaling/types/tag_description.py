@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#TagDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string
 
 
-class TagDescription(TypedDict):
+class TagDescription(TypedDict, closed=True):
     resource_id: NotRequired["aws_sdk_auto_scaling.types.xml_string.XmlString"]
     """<p>The name of the group.</p>"""
     resource_type: NotRequired["aws_sdk_auto_scaling.types.xml_string.XmlString"]

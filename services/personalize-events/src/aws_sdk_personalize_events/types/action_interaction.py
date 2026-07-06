@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeevents#ActionInteraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize_events.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_events.types.user_id
 
 
-class ActionInteraction(TypedDict):
+class ActionInteraction(TypedDict, closed=True):
     action_id: "aws_sdk_personalize_events.types.action_id.ActionId"
     """<p>The ID of the action the user interacted with. This corresponds to the <code>ACTION_ID</code> field of the Action interaction schema.</p>"""
     user_id: NotRequired["aws_sdk_personalize_events.types.user_id.UserId"]

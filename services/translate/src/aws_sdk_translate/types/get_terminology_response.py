@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#GetTerminologyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.terminology_data_location
     import aws_sdk_translate.types.terminology_properties
 
 
-class GetTerminologyResponse(TypedDict):
+class GetTerminologyResponse(TypedDict, closed=True):
     terminology_properties: NotRequired[
         "aws_sdk_translate.types.terminology_properties.TerminologyProperties"
     ]

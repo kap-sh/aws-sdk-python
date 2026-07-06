@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#Photo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_identitystore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_identitystore.types.sensitive_string_type
 
 
-class Photo(TypedDict):
+class Photo(TypedDict, closed=True):
     value: "aws_sdk_identitystore.types.sensitive_string_type.SensitiveStringType"
     """<p>The photo data or URL. Supported formats include jpg, jpeg, png, and gif. This field is required for all photo entries.</p>"""
     type: NotRequired[

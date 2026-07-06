@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ProtectionGroupPatternTypeLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_group_arbitrary_pattern_limits
 
 
-class ProtectionGroupPatternTypeLimits(TypedDict):
+class ProtectionGroupPatternTypeLimits(TypedDict, closed=True):
     arbitrary_pattern_limits: "aws_sdk_shield.types.protection_group_arbitrary_pattern_limits.ProtectionGroupArbitraryPatternLimits"
     """<p>Limits settings on protection groups with arbitrary pattern type. </p>"""
 

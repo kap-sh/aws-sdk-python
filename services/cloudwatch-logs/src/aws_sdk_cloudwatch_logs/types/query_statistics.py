@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#QueryStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.stats_value
 
 
-class QueryStatistics(TypedDict):
+class QueryStatistics(TypedDict, closed=True):
     records_matched: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"
     """<p>The number of log events that matched the query string.</p>"""
     records_scanned: "aws_sdk_cloudwatch_logs.types.stats_value.StatsValue"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#SSMLMessageType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.non_empty_string
     import aws_sdk_pinpoint_sms_voice.types.string
 
 
-class SSMLMessageType(TypedDict):
+class SSMLMessageType(TypedDict, closed=True):
     language_code: NotRequired["aws_sdk_pinpoint_sms_voice.types.string.String"]
     """The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide."""
     text: NotRequired[

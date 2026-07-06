@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskScheduleDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.schedule_disabled_by
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.time
 
 
-class TaskScheduleDetails(TypedDict):
+class TaskScheduleDetails(TypedDict, closed=True):
     status_update_time: NotRequired["aws_sdk_datasync.types.time.Time"]
     """<p>Indicates the last time the status of your task schedule changed. For example, if DataSync automatically disables your schedule because of a repeated error, you can see when the schedule was disabled.</p>"""
     disabled_reason: NotRequired[

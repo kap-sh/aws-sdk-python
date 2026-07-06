@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetEffectiveHoursOfOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.effective_hours_of_operation_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.time_zone
 
 
-class GetEffectiveHoursOfOperationsResponse(TypedDict):
+class GetEffectiveHoursOfOperationsResponse(TypedDict, closed=True):
     effective_hours_of_operation_list: NotRequired[
         "aws_sdk_connect.types.effective_hours_of_operation_list.EffectiveHoursOfOperationList"
     ]

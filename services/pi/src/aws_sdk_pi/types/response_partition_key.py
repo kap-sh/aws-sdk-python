@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#ResponsePartitionKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.dimension_map
 
 
-class ResponsePartitionKey(TypedDict):
+class ResponsePartitionKey(TypedDict, closed=True):
     dimensions: "aws_sdk_pi.types.dimension_map.DimensionMap"
     """<p>A dimension map that contains the dimensions for this partition.</p>"""
 

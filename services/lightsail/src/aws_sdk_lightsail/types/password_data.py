@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#PasswordData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
     import aws_sdk_lightsail.types.string
 
 
-class PasswordData(TypedDict):
+class PasswordData(TypedDict, closed=True):
     ciphertext: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.</p> <note> <p>If you use the default key pair (<code>LightsailDefaultKeyPair</code>), the decrypted password will be available in the password field.</p> <p>If you are using a custom key pair, you need to use your own means of decryption.</p> <p>If you change the Administrator password on the instance, Lightsail will continue to return the original ciphertext value. When accessing the instance using RDP, you need to manually enter the Administrator password after changing it from the default.</p> </note>"""
     key_pair_name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]

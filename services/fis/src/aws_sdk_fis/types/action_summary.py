@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ActionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.action_description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.tag_map
 
 
-class ActionSummary(TypedDict):
+class ActionSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_fis.types.action_id.ActionId"]
     """<p>The ID of the action.</p>"""
     arn: NotRequired["aws_sdk_fis.types.resource_arn.ResourceArn"]

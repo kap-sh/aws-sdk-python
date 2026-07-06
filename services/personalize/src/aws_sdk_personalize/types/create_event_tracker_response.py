@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateEventTrackerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
     import aws_sdk_personalize.types.tracking_id
 
 
-class CreateEventTrackerResponse(TypedDict):
+class CreateEventTrackerResponse(TypedDict, closed=True):
     event_tracker_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The ARN of the event tracker.</p>"""
     tracking_id: NotRequired["aws_sdk_personalize.types.tracking_id.TrackingId"]

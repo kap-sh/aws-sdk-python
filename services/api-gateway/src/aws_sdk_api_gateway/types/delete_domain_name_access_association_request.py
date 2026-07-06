@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DeleteDomainNameAccessAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class DeleteDomainNameAccessAssociationRequest(TypedDict):
+class DeleteDomainNameAccessAssociationRequest(TypedDict, closed=True):
     domain_name_access_association_arn: "aws_sdk_api_gateway.types.string.String"
     """<p> The ARN of the domain name access association resource.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotResolutionImprovementSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bedrock_model_specification
     import aws_sdk_lex_models_v2.types.enabled
 
 
-class SlotResolutionImprovementSpecification(TypedDict):
+class SlotResolutionImprovementSpecification(TypedDict, closed=True):
     enabled: "aws_sdk_lex_models_v2.types.enabled.Enabled"
     """<p>Specifies whether assisted slot resolution is turned on or off.</p>"""
     bedrock_model_specification: NotRequired[

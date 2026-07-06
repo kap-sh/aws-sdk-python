@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ListProposalVotesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.pagination_token
     import aws_sdk_managedblockchain.types.proposal_vote_list
 
 
-class ListProposalVotesOutput(TypedDict):
+class ListProposalVotesOutput(TypedDict, closed=True):
     proposal_votes: NotRequired[
         "aws_sdk_managedblockchain.types.proposal_vote_list.ProposalVoteList"
     ]

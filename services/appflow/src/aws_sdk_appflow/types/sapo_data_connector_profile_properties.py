@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.private_link_service_name
 
 
-class SAPODataConnectorProfileProperties(TypedDict):
+class SAPODataConnectorProfileProperties(TypedDict, closed=True):
     application_host_url: (
         "aws_sdk_appflow.types.application_host_url.ApplicationHostUrl"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#UpdateJobShipmentStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.shipment_state
 
 
-class UpdateJobShipmentStateRequest(TypedDict):
+class UpdateJobShipmentStateRequest(TypedDict, closed=True):
     job_id: "aws_sdk_snowball.types.job_id.JobId"
     """<p>The job ID of the job whose shipment date you want to update, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
     shipment_state: "aws_sdk_snowball.types.shipment_state.ShipmentState"

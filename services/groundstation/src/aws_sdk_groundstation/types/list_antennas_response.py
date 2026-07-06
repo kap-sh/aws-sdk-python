@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ListAntennasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.pagination_token
 
 
-class ListAntennasResponse(TypedDict):
+class ListAntennasResponse(TypedDict, closed=True):
     antenna_list: "aws_sdk_groundstation.types.antenna_list.AntennaList"
     """<p>List of antennas.</p>"""
     next_token: NotRequired[

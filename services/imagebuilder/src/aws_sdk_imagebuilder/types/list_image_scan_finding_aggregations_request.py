@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListImageScanFindingAggregationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.filter
     import aws_sdk_imagebuilder.types.pagination_token
 
 
-class ListImageScanFindingAggregationsRequest(TypedDict):
+class ListImageScanFindingAggregationsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_imagebuilder.types.filter.Filter"]
     next_token: NotRequired[
         "aws_sdk_imagebuilder.types.pagination_token.PaginationToken"

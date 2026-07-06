@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CmfcSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.cmfc_timed_metadata_box_version
 
 
-class CmfcSettings(TypedDict):
+class CmfcSettings(TypedDict, closed=True):
     audio_duration: NotRequired[
         "aws_sdk_mediaconvert.types.cmfc_audio_duration.CmfcAudioDuration"
     ]

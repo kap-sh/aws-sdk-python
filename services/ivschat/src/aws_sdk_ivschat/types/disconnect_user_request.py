@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivschat#DisconnectUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivschat.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivschat.types.user_id
 
 
-class DisconnectUserRequest(TypedDict):
+class DisconnectUserRequest(TypedDict, closed=True):
     room_identifier: "aws_sdk_ivschat.types.room_identifier.RoomIdentifier"
     """<p>Identifier of the room from which the user's clients should be disconnected. Currently this must be an ARN.</p>"""
     user_id: "aws_sdk_ivschat.types.user_id.UserID"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#PutCorsPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutCorsPolicyOutput(TypedDict):
+class PutCorsPolicyOutput(TypedDict, closed=True):
     pass
 
 

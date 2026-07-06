@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListComponentVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.next_token_string
 
 
-class ListComponentVersionsRequest(TypedDict):
+class ListComponentVersionsRequest(TypedDict, closed=True):
     arn: "aws_sdk_greengrassv2.types.component_arn.ComponentARN"
     r"""<p>The <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">ARN</a> of the component.</p>"""
     max_results: NotRequired[

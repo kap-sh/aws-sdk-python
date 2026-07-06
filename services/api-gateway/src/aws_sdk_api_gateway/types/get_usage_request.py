@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#GetUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.nullable_integer
     import aws_sdk_api_gateway.types.string
 
 
-class GetUsageRequest(TypedDict):
+class GetUsageRequest(TypedDict, closed=True):
     usage_plan_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The Id of the usage plan associated with the usage data.</p>"""
     key_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

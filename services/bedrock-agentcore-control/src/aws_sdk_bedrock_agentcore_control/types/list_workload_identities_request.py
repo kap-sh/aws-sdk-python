@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListWorkloadIdentitiesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListWorkloadIdentitiesRequest(TypedDict):
+class ListWorkloadIdentitiesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>Pagination token.</p>"""
     max_results: "int"

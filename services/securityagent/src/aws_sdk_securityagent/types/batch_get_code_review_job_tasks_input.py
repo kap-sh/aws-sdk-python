@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetCodeReviewJobTasksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.task_id_list
 
 
-class BatchGetCodeReviewJobTasksInput(TypedDict):
+class BatchGetCodeReviewJobTasksInput(TypedDict, closed=True):
     agent_space_id: "str"
     """<p>The unique identifier of the agent space that contains the tasks.</p>"""
     code_review_job_task_ids: "aws_sdk_securityagent.types.task_id_list.TaskIdList"

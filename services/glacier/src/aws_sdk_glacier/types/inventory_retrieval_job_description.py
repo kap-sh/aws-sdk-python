@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#InventoryRetrievalJobDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.date_time
     import aws_sdk_glacier.types.string
 
 
-class InventoryRetrievalJobDescription(TypedDict):
+class InventoryRetrievalJobDescription(TypedDict, closed=True):
     format: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>"""
     start_date: NotRequired["aws_sdk_glacier.types.date_time.DateTime"]

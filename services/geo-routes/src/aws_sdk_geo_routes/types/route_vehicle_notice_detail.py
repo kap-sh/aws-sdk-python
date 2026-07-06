@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleNoticeDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_violated_constraints
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteVehicleNoticeDetail(TypedDict):
+class RouteVehicleNoticeDetail(TypedDict, closed=True):
     title: NotRequired["aws_sdk_geo_routes.types.sensitive_string.SensitiveString"]
     """<p>The notice title.</p>"""
     violated_constraints: NotRequired[

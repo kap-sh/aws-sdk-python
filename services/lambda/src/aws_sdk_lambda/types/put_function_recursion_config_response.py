@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PutFunctionRecursionConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.recursive_loop
 
 
-class PutFunctionRecursionConfigResponse(TypedDict):
+class PutFunctionRecursionConfigResponse(TypedDict, closed=True):
     recursive_loop: NotRequired["aws_sdk_lambda.types.recursive_loop.RecursiveLoop"]
     """<p>The status of your function's recursive loop detection configuration.</p> <p>When this value is set to <code>Allow</code>and Lambda detects your function being invoked as part of a recursive loop, it doesn't take any action.</p> <p>When this value is set to <code>Terminate</code> and Lambda detects your function being invoked as part of a recursive loop, it stops your function being invoked and notifies you. </p>"""
 

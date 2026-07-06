@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#CopyProductOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
 
 
-class CopyProductOutput(TypedDict):
+class CopyProductOutput(TypedDict, closed=True):
     copy_product_token: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The token to use to track the progress of the operation.</p>"""
 

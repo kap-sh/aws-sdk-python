@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#OpenHoursRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class OpenHoursRule(TypedDict):
+class OpenHoursRule(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The start of the scheduled time, in ISO 8601 format, when the channel can send messages.</p>"""
     end_time: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

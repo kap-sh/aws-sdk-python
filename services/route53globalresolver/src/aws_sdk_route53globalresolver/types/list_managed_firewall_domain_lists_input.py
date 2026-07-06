@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ListManagedFirewallDomainListsInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListManagedFirewallDomainListsInput(TypedDict):
+class ListManagedFirewallDomainListsInput(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of results to retrieve in a single call.</p>"""
     next_token: NotRequired["str"]

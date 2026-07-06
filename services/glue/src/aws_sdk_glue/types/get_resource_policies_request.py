@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetResourcePoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.page_size
     import aws_sdk_glue.types.token
 
 
-class GetResourcePoliciesRequest(TypedDict):
+class GetResourcePoliciesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]
     """<p>A continuation token, if this is a continuation request.</p>"""
     max_results: NotRequired["aws_sdk_glue.types.page_size.PageSize"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.lambda_output
 
 
-class Output(TypedDict):
+class Output(TypedDict, closed=True):
     name: "aws_sdk_kinesis_analytics.types.in_app_stream_name.InAppStreamName"
     """<p>Name of the in-application stream.</p>"""
     kinesis_streams_output: NotRequired[

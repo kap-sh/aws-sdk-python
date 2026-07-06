@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DeleteAlarmModelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAlarmModelResponse(TypedDict):
+class DeleteAlarmModelResponse(TypedDict, closed=True):
     pass
 
 

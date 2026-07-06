@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#UpdateTerminationProtectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_id
 
 
-class UpdateTerminationProtectionOutput(TypedDict):
+class UpdateTerminationProtectionOutput(TypedDict, closed=True):
     stack_id: NotRequired["aws_sdk_cloudformation.types.stack_id.StackId"]
     """<p>The unique ID of the stack.</p>"""
 

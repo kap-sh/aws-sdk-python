@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListApplicationProvidersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.max_results
     import aws_sdk_sso_admin.types.token
 
 
-class ListApplicationProvidersRequest(TypedDict):
+class ListApplicationProvidersRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_sso_admin.types.max_results.MaxResults"]
     """<p>Specifies the total number of results that you want included in each response. If additional items exist beyond the number you specify, the <code>NextToken</code> response element is returned with a value (not null). Include the specified value as the <code>NextToken</code> request parameter in the next call to the operation to get the next set of results. Note that the service might return fewer results than the maximum even when there are more results available. You should check <code>NextToken</code> after every operation to ensure that you receive all of the results.</p>"""
     next_token: NotRequired["aws_sdk_sso_admin.types.token.Token"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#BatchListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.batch_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_id
 
 
-class BatchListItem(TypedDict):
+class BatchListItem(TypedDict, closed=True):
     id: NotRequired["aws_sdk_omics.types.batch_id.BatchId"]
     """<p>The batch identifier.</p>"""
     name: NotRequired["aws_sdk_omics.types.batch_name.BatchName"]

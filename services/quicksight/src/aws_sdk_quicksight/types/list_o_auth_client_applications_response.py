@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListOAuthClientApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.o_auth_client_application_summary_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListOAuthClientApplicationsResponse(TypedDict):
+class ListOAuthClientApplicationsResponse(TypedDict, closed=True):
     o_auth_client_applications: NotRequired[
         "aws_sdk_quicksight.types.o_auth_client_application_summary_list.OAuthClientApplicationSummaryList"
     ]

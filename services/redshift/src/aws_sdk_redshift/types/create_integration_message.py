@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateIntegrationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.target_arn
 
 
-class CreateIntegrationMessage(TypedDict):
+class CreateIntegrationMessage(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_redshift.types.source_arn.SourceArn"]
     """<p>The Amazon Resource Name (ARN) of the database to use as the source for replication.</p>"""
     target_arn: NotRequired["aws_sdk_redshift.types.target_arn.TargetArn"]

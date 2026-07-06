@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateBotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.tag_map
 
 
-class CreateBotRequest(TypedDict):
+class CreateBotRequest(TypedDict, closed=True):
     bot_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the bot. The bot name must be unique in the account that creates the bot.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

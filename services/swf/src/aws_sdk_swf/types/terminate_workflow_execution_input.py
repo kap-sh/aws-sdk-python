@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#TerminateWorkflowExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_run_id_optional
 
 
-class TerminateWorkflowExecutionInput(TypedDict):
+class TerminateWorkflowExecutionInput(TypedDict, closed=True):
     domain: "aws_sdk_swf.types.domain_name.DomainName"
     """<p>The domain of the workflow execution to terminate.</p>"""
     workflow_id: "aws_sdk_swf.types.workflow_id.WorkflowId"

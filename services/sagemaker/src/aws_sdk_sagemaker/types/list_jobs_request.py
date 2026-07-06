@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.job_category
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListJobsRequest(TypedDict):
+class ListJobsRequest(TypedDict, closed=True):
     job_category: NotRequired["aws_sdk_sagemaker.types.job_category.JobCategory"]
     """<p>The category of jobs to list.</p>"""
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]

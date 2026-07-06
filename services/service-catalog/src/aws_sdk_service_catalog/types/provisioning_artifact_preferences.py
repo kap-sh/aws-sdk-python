@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningArtifactPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.stack_set_accounts
     import aws_sdk_service_catalog.types.stack_set_regions
 
 
-class ProvisioningArtifactPreferences(TypedDict):
+class ProvisioningArtifactPreferences(TypedDict, closed=True):
     stack_set_accounts: NotRequired[
         "aws_sdk_service_catalog.types.stack_set_accounts.StackSetAccounts"
     ]

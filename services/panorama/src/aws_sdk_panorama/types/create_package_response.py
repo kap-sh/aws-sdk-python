@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#CreatePackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.storage_location
 
 
-class CreatePackageResponse(TypedDict):
+class CreatePackageResponse(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_panorama.types.node_package_id.NodePackageId"]
     """<p>The package's ID.</p>"""
     arn: NotRequired["aws_sdk_panorama.types.node_package_arn.NodePackageArn"]

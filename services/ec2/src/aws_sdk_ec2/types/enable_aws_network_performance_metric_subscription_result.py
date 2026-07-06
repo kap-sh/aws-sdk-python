@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EnableAwsNetworkPerformanceMetricSubscriptionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.boolean
 
 
-class EnableAwsNetworkPerformanceMetricSubscriptionResult(TypedDict):
+class EnableAwsNetworkPerformanceMetricSubscriptionResult(TypedDict, closed=True):
     output: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the subscribe action was successful.</p>"""
 

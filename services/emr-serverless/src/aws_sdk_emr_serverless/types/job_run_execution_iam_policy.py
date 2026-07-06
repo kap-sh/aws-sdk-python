@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#JobRunExecutionIamPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.policy_arn_list
     import aws_sdk_emr_serverless.types.policy_document
 
 
-class JobRunExecutionIamPolicy(TypedDict):
+class JobRunExecutionIamPolicy(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_emr_serverless.types.policy_document.PolicyDocument"]
     """<p>An IAM inline policy to use as an execution IAM policy.</p>"""
     policy_arns: NotRequired[

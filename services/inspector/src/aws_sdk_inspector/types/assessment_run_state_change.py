@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AssessmentRunStateChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.timestamp
 
 
-class AssessmentRunStateChange(TypedDict):
+class AssessmentRunStateChange(TypedDict, closed=True):
     state_changed_at: "aws_sdk_inspector.types.timestamp.Timestamp"
     """<p>The last time the assessment run state changed.</p>"""
     state: "aws_sdk_inspector.types.assessment_run_state.AssessmentRunState"

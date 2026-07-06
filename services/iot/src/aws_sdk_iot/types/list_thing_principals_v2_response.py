@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListThingPrincipalsV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.thing_principal_objects
 
 
-class ListThingPrincipalsV2Response(TypedDict):
+class ListThingPrincipalsV2Response(TypedDict, closed=True):
     thing_principal_objects: NotRequired[
         "aws_sdk_iot.types.thing_principal_objects.ThingPrincipalObjects"
     ]

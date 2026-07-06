@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HumanLoopRequestSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.aws_managed_human_loop_request_source
 
 
-class HumanLoopRequestSource(TypedDict):
+class HumanLoopRequestSource(TypedDict, closed=True):
     aws_managed_human_loop_request_source: NotRequired[
         "aws_sdk_sagemaker.types.aws_managed_human_loop_request_source.AwsManagedHumanLoopRequestSource"
     ]

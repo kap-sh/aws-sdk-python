@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ContactContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.contact_arn
 
 
-class ContactContent(TypedDict):
+class ContactContent(TypedDict, closed=True):
     contact_arn: "aws_sdk_connectcases.types.contact_arn.ContactArn"
     """<p>A unique identifier of a contact in Amazon Connect.</p>"""
     channel: "aws_sdk_connectcases.types.channel.Channel"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchGetDocumentStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.batch_get_document_status_response_errors
     import aws_sdk_kendra.types.document_status_list
 
 
-class BatchGetDocumentStatusResponse(TypedDict):
+class BatchGetDocumentStatusResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_kendra.types.batch_get_document_status_response_errors.BatchGetDocumentStatusResponseErrors"
     ]

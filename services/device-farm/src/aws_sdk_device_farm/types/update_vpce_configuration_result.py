@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#UpdateVPCEConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.vpce_configuration
 
 
-class UpdateVPCEConfigurationResult(TypedDict):
+class UpdateVPCEConfigurationResult(TypedDict, closed=True):
     vpce_configuration: NotRequired[
         "aws_sdk_device_farm.types.vpce_configuration.VPCEConfiguration"
     ]

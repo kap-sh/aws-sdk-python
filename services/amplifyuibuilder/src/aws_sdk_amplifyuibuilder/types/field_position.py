@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FieldPosition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError, SerializationError
 
@@ -8,15 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.fixed_position
 
 
-class _FieldPosition_fixed(TypedDict):
+class _FieldPosition_fixed(TypedDict, closed=True):
     fixed: "aws_sdk_amplifyuibuilder.types.fixed_position.FixedPosition"
 
 
-class _FieldPosition_rightOf(TypedDict):
+class _FieldPosition_rightOf(TypedDict, closed=True):
     rightOf: "str"
 
 
-class _FieldPosition_below(TypedDict):
+class _FieldPosition_below(TypedDict, closed=True):
     below: "str"
 
 

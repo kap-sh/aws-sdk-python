@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#AssociateFileSystemInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tags
 
 
-class AssociateFileSystemInput(TypedDict):
+class AssociateFileSystemInput(TypedDict, closed=True):
     user_name: "aws_sdk_storage_gateway.types.domain_user_name.DomainUserName"
     """<p>The user name of the user credential that has permission to access the root share D$ of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.</p>"""
     password: "aws_sdk_storage_gateway.types.domain_user_password.DomainUserPassword"

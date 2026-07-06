@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateClusterSoftwareInstanceGroupSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_instance_group_name
 
 
-class UpdateClusterSoftwareInstanceGroupSpecification(TypedDict):
+class UpdateClusterSoftwareInstanceGroupSpecification(TypedDict, closed=True):
     instance_group_name: NotRequired[
         "aws_sdk_sagemaker.types.cluster_instance_group_name.ClusterInstanceGroupName"
     ]

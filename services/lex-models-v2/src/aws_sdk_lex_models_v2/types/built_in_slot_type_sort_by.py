@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BuiltInSlotTypeSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sort_order
 
 
-class BuiltInSlotTypeSortBy(TypedDict):
+class BuiltInSlotTypeSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.built_in_slot_type_sort_attribute.BuiltInSlotTypeSortAttribute"
     """<p>The attribute to use to sort the list of built-in intents.</p>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

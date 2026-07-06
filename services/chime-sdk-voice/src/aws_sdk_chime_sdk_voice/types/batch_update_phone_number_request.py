@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#BatchUpdatePhoneNumberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.update_phone_number_request_item_list
 
 
-class BatchUpdatePhoneNumberRequest(TypedDict):
+class BatchUpdatePhoneNumberRequest(TypedDict, closed=True):
     update_phone_number_request_items: "aws_sdk_chime_sdk_voice.types.update_phone_number_request_item_list.UpdatePhoneNumberRequestItemList"
     """<p>Lists the phone numbers in the update request.</p>"""
 

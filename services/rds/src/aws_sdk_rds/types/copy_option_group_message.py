@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CopyOptionGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CopyOptionGroupMessage(TypedDict):
+class CopyOptionGroupMessage(TypedDict, closed=True):
     source_option_group_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier for the source option group.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid option group.</p> </li> </ul>"""
     target_option_group_identifier: NotRequired["aws_sdk_rds.types.string.String"]

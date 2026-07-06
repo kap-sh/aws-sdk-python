@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListConnectorsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.connector_i_ds_filter
 
 
-class ListConnectorsRequestFilters(TypedDict):
+class ListConnectorsRequestFilters(TypedDict, closed=True):
     connector_i_ds: NotRequired[
         "aws_sdk_mgn.types.connector_i_ds_filter.ConnectorIDsFilter"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormTextQuestionAutomation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_form_question_automation_answer_source
 
 
-class EvaluationFormTextQuestionAutomation(TypedDict):
+class EvaluationFormTextQuestionAutomation(TypedDict, closed=True):
     answer_source: NotRequired[
         "aws_sdk_connect.types.evaluation_form_question_automation_answer_source.EvaluationFormQuestionAutomationAnswerSource"
     ]

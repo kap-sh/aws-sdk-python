@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ConsolidatedReportMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_metrics
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name
 
 
-class ConsolidatedReportMetric(TypedDict):
+class ConsolidatedReportMetric(TypedDict, closed=True):
     metric_type: NotRequired["aws_sdk_wellarchitected.types.metric_type.MetricType"]
     """<p>The metric type of a metric in the consolidated report. Currently only WORKLOAD metric types are supported.</p>"""
     risk_counts: NotRequired["aws_sdk_wellarchitected.types.risk_counts.RiskCounts"]

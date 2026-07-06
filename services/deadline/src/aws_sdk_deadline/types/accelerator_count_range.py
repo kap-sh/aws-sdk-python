@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AcceleratorCountRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.min_zero_max_integer
 
 
-class AcceleratorCountRange(TypedDict):
+class AcceleratorCountRange(TypedDict, closed=True):
     min: "aws_sdk_deadline.types.min_zero_max_integer.MinZeroMaxInteger"
     """<p>The minimum number of GPU accelerators in the worker host.</p>"""
     max: NotRequired["aws_sdk_deadline.types.min_zero_max_integer.MinZeroMaxInteger"]

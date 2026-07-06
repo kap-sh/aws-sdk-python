@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#HeaderMatchPattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.all
     import aws_sdk_wafv2.types.header_names
 
 
-class HeaderMatchPattern(TypedDict):
+class HeaderMatchPattern(TypedDict, closed=True):
     all: NotRequired["aws_sdk_wafv2.types.all.All"]
     """<p>Inspect all headers. </p>"""
     included_headers: NotRequired["aws_sdk_wafv2.types.header_names.HeaderNames"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2instanceconnect#SendSSHPublicKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2_instance_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2_instance_connect.types.ssh_public_key
 
 
-class SendSSHPublicKeyRequest(TypedDict):
+class SendSSHPublicKeyRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ec2_instance_connect.types.instance_id.InstanceId"
     """<p>The ID of the EC2 instance.</p>"""
     instance_os_user: (

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RunStatisticsForAssets``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RunStatisticsForAssets(TypedDict):
+class RunStatisticsForAssets(TypedDict, closed=True):
     added: NotRequired["int"]
     """<p>The <code>added</code> statistic for the data source run.</p>"""
     updated: NotRequired["int"]

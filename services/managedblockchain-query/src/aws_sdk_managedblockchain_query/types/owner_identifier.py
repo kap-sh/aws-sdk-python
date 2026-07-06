@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#OwnerIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.chain_address
 
 
-class OwnerIdentifier(TypedDict):
+class OwnerIdentifier(TypedDict, closed=True):
     address: "aws_sdk_managedblockchain_query.types.chain_address.ChainAddress"
     """<p>The contract or wallet address for the owner.</p>"""
 

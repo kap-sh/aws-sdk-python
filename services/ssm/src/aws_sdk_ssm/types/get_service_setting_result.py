@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetServiceSettingResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.service_setting
 
 
-class GetServiceSettingResult(TypedDict):
+class GetServiceSettingResult(TypedDict, closed=True):
     service_setting: NotRequired["aws_sdk_ssm.types.service_setting.ServiceSetting"]
     """<p>The query result of the current service setting.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListSubscriptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.next_token
 
 
-class ListSubscriptionsInput(TypedDict):
+class ListSubscriptionsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sns.types.next_token.nextToken"]
     """<p>Token returned by the previous <code>ListSubscriptions</code> request.</p>"""
 

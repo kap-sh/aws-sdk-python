@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#AutoSnapshotDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.attached_disk_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class AutoSnapshotDetails(TypedDict):
+class AutoSnapshotDetails(TypedDict, closed=True):
     date: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The date of the automatic snapshot in <code>YYYY-MM-DD</code> format.</p>"""
     created_at: NotRequired["aws_sdk_lightsail.types.iso_date.IsoDate"]

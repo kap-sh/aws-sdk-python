@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#OptimizeWaypointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_time_breakdown
 
 
-class OptimizeWaypointsResponse(TypedDict):
+class OptimizeWaypointsResponse(TypedDict, closed=True):
     connections: "aws_sdk_geo_routes.types.waypoint_optimization_connection_list.WaypointOptimizationConnectionList"
     """<p>Details about the connection from one waypoint to the next, within the optimized sequence.</p>"""
     distance: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"

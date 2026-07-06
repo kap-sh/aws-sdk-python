@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TestingDataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.testing_data
     import aws_sdk_rekognition.types.validation_data
 
 
-class TestingDataResult(TypedDict):
+class TestingDataResult(TypedDict, closed=True):
     input: NotRequired["aws_sdk_rekognition.types.testing_data.TestingData"]
     """<p>The testing dataset that was supplied for training.</p>"""
     output: NotRequired["aws_sdk_rekognition.types.testing_data.TestingData"]

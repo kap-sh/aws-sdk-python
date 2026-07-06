@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#ListWhatsAppFlowsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.linked_whats_app_business_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.next_token
 
 
-class ListWhatsAppFlowsInput(TypedDict):
+class ListWhatsAppFlowsInput(TypedDict, closed=True):
     id: "aws_sdk_socialmessaging.types.linked_whats_app_business_account_id.LinkedWhatsAppBusinessAccountId"
     """<p>The ID of the WhatsApp Business Account to list Flows for.</p>"""
     next_token: NotRequired["aws_sdk_socialmessaging.types.next_token.NextToken"]

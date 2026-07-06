@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#HostInfoForCreate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.placement_group_id
 
 
-class HostInfoForCreate(TypedDict):
+class HostInfoForCreate(TypedDict, closed=True):
     host_name: "aws_sdk_evs.types.host_name.HostName"
     """<p>The DNS hostname of the host. DNS hostnames for hosts must be unique across Amazon EVS environments and within VCF.</p>"""
     key_name: "aws_sdk_evs.types.key_name.KeyName"

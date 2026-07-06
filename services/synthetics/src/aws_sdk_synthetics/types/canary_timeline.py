@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CanaryTimeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.timestamp
 
 
-class CanaryTimeline(TypedDict):
+class CanaryTimeline(TypedDict, closed=True):
     created: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]
     """<p>The date and time the canary was created.</p>"""
     last_modified: NotRequired["aws_sdk_synthetics.types.timestamp.Timestamp"]

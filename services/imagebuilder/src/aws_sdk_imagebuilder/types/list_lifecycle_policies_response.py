@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListLifecyclePoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.lifecycle_policy_summary_list
     import aws_sdk_imagebuilder.types.pagination_token
 
 
-class ListLifecyclePoliciesResponse(TypedDict):
+class ListLifecyclePoliciesResponse(TypedDict, closed=True):
     lifecycle_policy_summary_list: NotRequired[
         "aws_sdk_imagebuilder.types.lifecycle_policy_summary_list.LifecyclePolicySummaryList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListRealtimeLogConfigsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ListRealtimeLogConfigsRequest(TypedDict):
+class ListRealtimeLogConfigsRequest(TypedDict, closed=True):
     max_items: NotRequired["aws_sdk_cloudfront.types.integer.integer"]
     """<p>The maximum number of real-time log configurations that you want in the response.</p>"""
     marker: NotRequired["aws_sdk_cloudfront.types.string.string"]

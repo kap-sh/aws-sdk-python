@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SelfManagedEventSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.endpoints
 
 
-class SelfManagedEventSource(TypedDict):
+class SelfManagedEventSource(TypedDict, closed=True):
     endpoints: NotRequired["aws_sdk_lambda.types.endpoints.Endpoints"]
     r"""<p>The list of bootstrap servers for your Kafka brokers in the following format: <code>\"KAFKA_BOOTSTRAP_SERVERS\": [\"abc.xyz.com:xxxx\",\"abc2.xyz.com:xxxx\"]</code>.</p>"""
 

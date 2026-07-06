@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectorOAuth2Properties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.jwt_bearer_properties
 
 
-class ConnectorOAuth2Properties(TypedDict):
+class ConnectorOAuth2Properties(TypedDict, closed=True):
     o_auth2_grant_type: (
         "aws_sdk_glue.types.connector_o_auth2_grant_type.ConnectorOAuth2GrantType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetAttachedFileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.tag_map
 
 
-class GetAttachedFileResponse(TypedDict):
+class GetAttachedFileResponse(TypedDict, closed=True):
     file_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The unique identifier of the attached file resource (ARN).</p>"""
     file_id: NotRequired["aws_sdk_connect.types.file_id.FileId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#JwtAuth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.jwt_key
 
 
-class JwtAuth(TypedDict):
+class JwtAuth(TypedDict, closed=True):
     jwt_key: NotRequired["aws_sdk_pcs.types.jwt_key.JwtKey"]
     """<p>The JWT key for Slurm REST API authentication.</p>"""
 

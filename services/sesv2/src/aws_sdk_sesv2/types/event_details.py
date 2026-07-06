@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.bounce
     import aws_sdk_sesv2.types.complaint
 
 
-class EventDetails(TypedDict):
+class EventDetails(TypedDict, closed=True):
     bounce: NotRequired["aws_sdk_sesv2.types.bounce.Bounce"]
     """<p>Information about a <code>Bounce</code> event.</p>"""
     complaint: NotRequired["aws_sdk_sesv2.types.complaint.Complaint"]

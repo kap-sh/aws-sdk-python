@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#DeleteBatchEvaluationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.batch_evaluation_status
 
 
-class DeleteBatchEvaluationResponse(TypedDict):
+class DeleteBatchEvaluationResponse(TypedDict, closed=True):
     batch_evaluation_id: (
         "aws_sdk_bedrock_agentcore.types.batch_evaluation_id.BatchEvaluationId"
     )

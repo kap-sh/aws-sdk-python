@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#Filter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: "str"
     """<p>The name of the filter.</p>"""
     type: "str"

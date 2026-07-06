@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#RejectResourceShareInvitationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_share_invitation
     import aws_sdk_ram.types.string
 
 
-class RejectResourceShareInvitationResponse(TypedDict):
+class RejectResourceShareInvitationResponse(TypedDict, closed=True):
     resource_share_invitation: NotRequired[
         "aws_sdk_ram.types.resource_share_invitation.ResourceShareInvitation"
     ]

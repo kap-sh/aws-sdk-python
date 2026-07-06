@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#VpcOutputSettingsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string
 
 
-class VpcOutputSettingsDescription(TypedDict):
+class VpcOutputSettingsDescription(TypedDict, closed=True):
     availability_zones: NotRequired[
         "aws_sdk_medialive.types.__list_of__string.__listOf__string"
     ]

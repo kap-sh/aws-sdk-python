@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ActivityTaskStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.canceled
 
 
-class ActivityTaskStatus(TypedDict):
+class ActivityTaskStatus(TypedDict, closed=True):
     cancel_requested: "aws_sdk_swf.types.canceled.Canceled"
     """<p>Set to <code>true</code> if cancellation of the task is requested.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emr#RemoveAutoTerminationPolicyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveAutoTerminationPolicyOutput(TypedDict):
+class RemoveAutoTerminationPolicyOutput(TypedDict, closed=True):
     pass
 
 

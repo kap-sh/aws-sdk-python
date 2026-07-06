@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomExtractionConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -13,15 +15,21 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.user_preference_override_extraction_configuration_input
 
 
-class _CustomExtractionConfigurationInput_semanticExtractionOverride(TypedDict):
+class _CustomExtractionConfigurationInput_semanticExtractionOverride(
+    TypedDict, closed=True
+):
     semanticExtractionOverride: "aws_sdk_bedrock_agentcore_control.types.semantic_override_extraction_configuration_input.SemanticOverrideExtractionConfigurationInput"
 
 
-class _CustomExtractionConfigurationInput_userPreferenceExtractionOverride(TypedDict):
+class _CustomExtractionConfigurationInput_userPreferenceExtractionOverride(
+    TypedDict, closed=True
+):
     userPreferenceExtractionOverride: "aws_sdk_bedrock_agentcore_control.types.user_preference_override_extraction_configuration_input.UserPreferenceOverrideExtractionConfigurationInput"
 
 
-class _CustomExtractionConfigurationInput_episodicExtractionOverride(TypedDict):
+class _CustomExtractionConfigurationInput_episodicExtractionOverride(
+    TypedDict, closed=True
+):
     episodicExtractionOverride: "aws_sdk_bedrock_agentcore_control.types.episodic_override_extraction_configuration_input.EpisodicOverrideExtractionConfigurationInput"
 
 

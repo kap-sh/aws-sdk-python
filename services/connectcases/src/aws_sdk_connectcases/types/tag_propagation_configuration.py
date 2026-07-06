@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#TagPropagationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.tag_propagation_resource_type
 
 
-class TagPropagationConfiguration(TypedDict):
+class TagPropagationConfiguration(TypedDict, closed=True):
     resource_type: "aws_sdk_connectcases.types.tag_propagation_resource_type.TagPropagationResourceType"
     """<p>Supported resource types for tag propagation. Determines which resources will receive automatically propagated tags.</p>"""
     tag_map: "aws_sdk_connectcases.types.mutable_tags.MutableTags"

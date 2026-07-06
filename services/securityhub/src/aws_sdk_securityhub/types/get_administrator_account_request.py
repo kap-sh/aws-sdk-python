@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetAdministratorAccountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAdministratorAccountRequest(TypedDict):
+class GetAdministratorAccountRequest(TypedDict, closed=True):
     pass
 
 

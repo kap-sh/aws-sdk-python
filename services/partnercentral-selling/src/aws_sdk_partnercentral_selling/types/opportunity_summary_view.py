@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#OpportunitySummaryView``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.customer
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.related_entity_identifiers
 
 
-class OpportunitySummaryView(TypedDict):
+class OpportunitySummaryView(TypedDict, closed=True):
     opportunity_type: NotRequired[
         "aws_sdk_partnercentral_selling.types.opportunity_type.OpportunityType"
     ]

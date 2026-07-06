@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GetItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.attribute_map
     import aws_sdk_dynamodb.types.consumed_capacity
 
 
-class GetItemOutput(TypedDict):
+class GetItemOutput(TypedDict, closed=True):
     item: NotRequired["aws_sdk_dynamodb.types.attribute_map.AttributeMap"]
     """<p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>"""
     consumed_capacity: NotRequired[

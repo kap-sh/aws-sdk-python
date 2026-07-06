@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateDataRepositoryAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.s3_data_repository_configuration
 
 
-class UpdateDataRepositoryAssociationRequest(TypedDict):
+class UpdateDataRepositoryAssociationRequest(TypedDict, closed=True):
     association_id: NotRequired[
         "aws_sdk_fsx.types.data_repository_association_id.DataRepositoryAssociationId"
     ]

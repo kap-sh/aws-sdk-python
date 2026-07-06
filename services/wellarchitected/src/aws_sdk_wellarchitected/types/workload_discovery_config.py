@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#WorkloadDiscoveryConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.trusted_advisor_integration_status
     import aws_sdk_wellarchitected.types.workload_resource_definition
 
 
-class WorkloadDiscoveryConfig(TypedDict):
+class WorkloadDiscoveryConfig(TypedDict, closed=True):
     trusted_advisor_integration_status: NotRequired[
         "aws_sdk_wellarchitected.types.trusted_advisor_integration_status.TrustedAdvisorIntegrationStatus"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#FargateProfileSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.fargate_profile_label
     import aws_sdk_eks.types.string
 
 
-class FargateProfileSelector(TypedDict):
+class FargateProfileSelector(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Kubernetes <code>namespace</code> that the selector should match.</p>"""
     labels: NotRequired["aws_sdk_eks.types.fargate_profile_label.FargateProfileLabel"]

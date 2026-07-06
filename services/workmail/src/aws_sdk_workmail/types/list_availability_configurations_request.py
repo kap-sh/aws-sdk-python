@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListAvailabilityConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class ListAvailabilityConfigurationsRequest(TypedDict):
+class ListAvailabilityConfigurationsRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization for which the <code>AvailabilityConfiguration</code>'s will be listed.</p>"""
     max_results: NotRequired["aws_sdk_workmail.types.max_results.MaxResults"]

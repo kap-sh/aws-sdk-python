@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#StatisticSet``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StatisticSet(TypedDict):
+class StatisticSet(TypedDict, closed=True):
     sample_count: NotRequired["int"]
     """<p> <b>Internal only</b>. The number of samples used for the statistic set.</p>"""
     sum: NotRequired["float"]

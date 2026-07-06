@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#PartitionSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.partition_fields
 
 
-class PartitionSpec(TypedDict):
+class PartitionSpec(TypedDict, closed=True):
     identity: NotRequired["aws_sdk_firehose.types.partition_fields.PartitionFields"]
     r"""<p> List of identity <a href=\"https://iceberg.apache.org/spec/#partition-transforms\">transforms</a> that performs an identity transformation. The transform takes the source value, and does not modify it. Result type is the source type.</p> <p>Amazon Data Firehose is in preview release and is subject to change.</p>"""
 

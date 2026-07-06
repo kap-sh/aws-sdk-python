@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#AcceptAgreementRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resource_id
 
 
-class AcceptAgreementRequestOutput(TypedDict):
+class AcceptAgreementRequestOutput(TypedDict, closed=True):
     agreement_id: NotRequired[
         "aws_sdk_marketplace_agreement.types.resource_id.ResourceId"
     ]

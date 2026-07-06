@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DonutOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arc_options
     import aws_sdk_quicksight.types.donut_center_options
 
 
-class DonutOptions(TypedDict):
+class DonutOptions(TypedDict, closed=True):
     arc_options: NotRequired["aws_sdk_quicksight.types.arc_options.ArcOptions"]
     """<p>The option for define the arc of the chart shape. Valid values are as follows:</p> <ul> <li> <p> <code>WHOLE</code> - A pie chart</p> </li> <li> <p> <code>SMALL</code>- A small-sized donut chart</p> </li> <li> <p> <code>MEDIUM</code>- A medium-sized donut chart</p> </li> <li> <p> <code>LARGE</code>- A large-sized donut chart</p> </li> </ul>"""
     donut_center_options: NotRequired[

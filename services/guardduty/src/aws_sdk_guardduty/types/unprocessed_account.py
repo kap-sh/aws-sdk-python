@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#UnprocessedAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_id
     import aws_sdk_guardduty.types.string
 
 
-class UnprocessedAccount(TypedDict):
+class UnprocessedAccount(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_guardduty.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID.</p>"""
     result: NotRequired["aws_sdk_guardduty.types.string.String"]

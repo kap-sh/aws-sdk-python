@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LastModifiedDate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.date_time
 
 
-class LastModifiedDate(TypedDict):
+class LastModifiedDate(TypedDict, closed=True):
     after_last_modified_date: NotRequired[
         "aws_sdk_partnercentral_selling.types.date_time.DateTime"
     ]

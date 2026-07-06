@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#Evaluation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rules_not_satisfied_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.overridden
 
 
-class Evaluation(TypedDict):
+class Evaluation(TypedDict, closed=True):
     approved: "aws_sdk_codecommit.types.approved.Approved"
     """<p>Whether the state of the pull request is approved.</p>"""
     overridden: "aws_sdk_codecommit.types.overridden.Overridden"

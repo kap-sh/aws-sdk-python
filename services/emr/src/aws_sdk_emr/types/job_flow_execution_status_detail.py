@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#JobFlowExecutionStatusDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class JobFlowExecutionStatusDetail(TypedDict):
+class JobFlowExecutionStatusDetail(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_emr.types.job_flow_execution_state.JobFlowExecutionState"
     ]

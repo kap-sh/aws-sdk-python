@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetBucketBundlesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
 
 
-class GetBucketBundlesRequest(TypedDict):
+class GetBucketBundlesRequest(TypedDict, closed=True):
     include_inactive: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>A Boolean value that indicates whether to include inactive (unavailable) bundles in the response of your request.</p>"""
 

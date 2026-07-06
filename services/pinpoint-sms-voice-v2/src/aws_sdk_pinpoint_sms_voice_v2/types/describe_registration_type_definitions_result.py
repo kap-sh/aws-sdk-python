@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeRegistrationTypeDefinitionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.registration_type_definition_list
 
 
-class DescribeRegistrationTypeDefinitionsResult(TypedDict):
+class DescribeRegistrationTypeDefinitionsResult(TypedDict, closed=True):
     registration_type_definitions: "aws_sdk_pinpoint_sms_voice_v2.types.registration_type_definition_list.RegistrationTypeDefinitionList"
     """<p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>"""
     next_token: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.next_token.NextToken"]

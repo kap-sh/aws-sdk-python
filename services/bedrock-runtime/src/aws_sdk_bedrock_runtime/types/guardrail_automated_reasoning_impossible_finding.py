@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailAutomatedReasoningImpossibleFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_logic_warning
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_translation
 
 
-class GuardrailAutomatedReasoningImpossibleFinding(TypedDict):
+class GuardrailAutomatedReasoningImpossibleFinding(TypedDict, closed=True):
     translation: NotRequired[
         "aws_sdk_bedrock_runtime.types.guardrail_automated_reasoning_translation.GuardrailAutomatedReasoningTranslation"
     ]

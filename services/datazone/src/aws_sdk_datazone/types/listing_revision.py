@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListingRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class ListingRevision(TypedDict):
+class ListingRevision(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.listing_id.ListingId"
     """<p>An identifier of a revision of an asset published in a Amazon DataZone catalog.</p>"""
     revision: "aws_sdk_datazone.types.revision.Revision"

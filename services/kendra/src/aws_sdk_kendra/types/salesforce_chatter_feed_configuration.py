@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SalesforceChatterFeedConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.salesforce_chatter_feed_include_filter_types
 
 
-class SalesforceChatterFeedConfiguration(TypedDict):
+class SalesforceChatterFeedConfiguration(TypedDict, closed=True):
     document_data_field_name: (
         "aws_sdk_kendra.types.data_source_field_name.DataSourceFieldName"
     )

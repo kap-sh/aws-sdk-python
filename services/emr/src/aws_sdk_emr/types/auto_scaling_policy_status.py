@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#AutoScalingPolicyStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.auto_scaling_policy_state
     import aws_sdk_emr.types.auto_scaling_policy_state_change_reason
 
 
-class AutoScalingPolicyStatus(TypedDict):
+class AutoScalingPolicyStatus(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_emr.types.auto_scaling_policy_state.AutoScalingPolicyState"
     ]

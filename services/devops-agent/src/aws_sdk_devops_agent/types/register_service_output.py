@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisterServiceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.additional_service_registration_step
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.tags
 
 
-class RegisterServiceOutput(TypedDict):
+class RegisterServiceOutput(TypedDict, closed=True):
     service_id: NotRequired["aws_sdk_devops_agent.types.service_id.ServiceId"]
     """<p>Service ID - present when registration is complete, absent when additional steps are required</p>"""
     additional_step: NotRequired[

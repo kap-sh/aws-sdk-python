@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CustomAccountPoolHandler``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.lambda_function_arn
 
 
-class CustomAccountPoolHandler(TypedDict):
+class CustomAccountPoolHandler(TypedDict, closed=True):
     lambda_function_arn: "aws_sdk_datazone.types.lambda_function_arn.LambdaFunctionArn"
     """<p>The ARN of the Amazon Web Services Lambda function for the custom Amazon Web Services Lambda handler.</p>"""
     lambda_execution_role_arn: NotRequired[

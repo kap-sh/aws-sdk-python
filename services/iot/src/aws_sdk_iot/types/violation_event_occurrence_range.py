@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ViolationEventOccurrenceRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class ViolationEventOccurrenceRange(TypedDict):
+class ViolationEventOccurrenceRange(TypedDict, closed=True):
     start_time: "aws_sdk_iot.types.timestamp.Timestamp"
     """<p> The start date and time of a time period in which violation events occurred. </p>"""
     end_time: "aws_sdk_iot.types.timestamp.Timestamp"

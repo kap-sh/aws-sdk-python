@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#UpdateSoftwareSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateSoftwareSetResponse(TypedDict):
+class UpdateSoftwareSetResponse(TypedDict, closed=True):
     pass
 
 

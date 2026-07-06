@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExpressGatewayContainer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class ExpressGatewayContainer(TypedDict):
+class ExpressGatewayContainer(TypedDict, closed=True):
     image: "aws_sdk_ecs.types.string.String"
     """<p>The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>.</p> <p>For Express services, the image typically contains a web application that listens on the specified container port. The image can be stored in Amazon ECR, Docker Hub, or any other container registry accessible to your execution role.</p>"""
     container_port: NotRequired["aws_sdk_ecs.types.boxed_integer.BoxedInteger"]

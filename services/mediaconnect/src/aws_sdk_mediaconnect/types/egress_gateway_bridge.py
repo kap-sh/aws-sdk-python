@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#EgressGatewayBridge``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EgressGatewayBridge(TypedDict):
+class EgressGatewayBridge(TypedDict, closed=True):
     instance_id: NotRequired["str"]
     """<p> The ID of the instance running this bridge.</p>"""
     max_bitrate: NotRequired["int"]

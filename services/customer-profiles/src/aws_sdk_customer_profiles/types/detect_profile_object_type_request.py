@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DetectProfileObjectTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.objects
 
 
-class DetectProfileObjectTypeRequest(TypedDict):
+class DetectProfileObjectTypeRequest(TypedDict, closed=True):
     objects: "aws_sdk_customer_profiles.types.objects.Objects"
     """<p>A string that is serialized from a JSON object.</p>"""
     domain_name: "aws_sdk_customer_profiles.types.name.name"

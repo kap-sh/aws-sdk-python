@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CustomDNSServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.valid_ip_address
 
 
-class CustomDNSServer(TypedDict):
+class CustomDNSServer(TypedDict, closed=True):
     custom_dns_server_name: "aws_sdk_finspace.types.valid_hostname.ValidHostname"
     """<p>The name of the DNS server.</p>"""
     custom_dns_server_ip: "aws_sdk_finspace.types.valid_ip_address.ValidIPAddress"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#BlueInstanceTerminationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.duration
     import aws_sdk_codedeploy.types.instance_action
 
 
-class BlueInstanceTerminationOption(TypedDict):
+class BlueInstanceTerminationOption(TypedDict, closed=True):
     action: NotRequired["aws_sdk_codedeploy.types.instance_action.InstanceAction"]
     """<p>The action to take on instances in the original environment after a successful blue/green deployment.</p> <ul> <li> <p> <code>TERMINATE</code>: Instances are terminated after a specified wait time.</p> </li> <li> <p> <code>KEEP_ALIVE</code>: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.</p> </li> </ul>"""
     termination_wait_time_in_minutes: "aws_sdk_codedeploy.types.duration.Duration"

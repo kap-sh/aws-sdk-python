@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DescribeSlotTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class DescribeSlotTypeResponse(TypedDict):
+class DescribeSlotTypeResponse(TypedDict, closed=True):
     slot_type_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier for the slot type.</p>"""
     slot_type_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]

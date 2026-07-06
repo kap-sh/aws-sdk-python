@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchGetCommitsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class BatchGetCommitsInput(TypedDict):
+class BatchGetCommitsInput(TypedDict, closed=True):
     commit_ids: "aws_sdk_codecommit.types.commit_ids_input_list.CommitIdsInputList"
     """<p>The full commit IDs of the commits to get information about.</p> <note> <p>You must supply the full SHA IDs of each commit. You cannot use shortened SHA IDs.</p> </note>"""
     repository_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"

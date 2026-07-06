@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#KinesisDataStreamData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.role_arn
 
 
-class KinesisDataStreamData(TypedDict):
+class KinesisDataStreamData(TypedDict, closed=True):
     kinesis_role_arn: "aws_sdk_groundstation.types.role_arn.RoleArn"
     """<p>ARN of the IAM Role used by AWS Ground Station to deliver telemetry.</p>"""
     kinesis_data_stream_arn: (

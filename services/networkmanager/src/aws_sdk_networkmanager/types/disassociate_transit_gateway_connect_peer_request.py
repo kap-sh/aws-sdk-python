@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DisassociateTransitGatewayConnectPeerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.global_network_id
     import aws_sdk_networkmanager.types.transit_gateway_connect_peer_arn
 
 
-class DisassociateTransitGatewayConnectPeerRequest(TypedDict):
+class DisassociateTransitGatewayConnectPeerRequest(TypedDict, closed=True):
     global_network_id: "aws_sdk_networkmanager.types.global_network_id.GlobalNetworkId"
     """<p>The ID of the global network.</p>"""
     transit_gateway_connect_peer_arn: "aws_sdk_networkmanager.types.transit_gateway_connect_peer_arn.TransitGatewayConnectPeerArn"

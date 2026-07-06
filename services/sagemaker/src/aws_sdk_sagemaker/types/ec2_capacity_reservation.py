@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Ec2CapacityReservation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ec2_capacity_reservation_id
     import aws_sdk_sagemaker.types.task_count
 
 
-class Ec2CapacityReservation(TypedDict):
+class Ec2CapacityReservation(TypedDict, closed=True):
     ec2_capacity_reservation_id: NotRequired[
         "aws_sdk_sagemaker.types.ec2_capacity_reservation_id.Ec2CapacityReservationId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#NodeAggregator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.node_type_name
 
 
-class NodeAggregator(TypedDict):
+class NodeAggregator(TypedDict, closed=True):
     aggregator_type: "aws_sdk_ssm.types.node_aggregator_type.NodeAggregatorType"
     """<p>The aggregator type for limiting a node summary. Currently, only <code>Count</code> is supported.</p>"""
     type_name: "aws_sdk_ssm.types.node_type_name.NodeTypeName"

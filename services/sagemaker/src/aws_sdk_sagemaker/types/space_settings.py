@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SpaceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.app_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.space_storage_settings
 
 
-class SpaceSettings(TypedDict):
+class SpaceSettings(TypedDict, closed=True):
     jupyter_server_app_settings: NotRequired[
         "aws_sdk_sagemaker.types.jupyter_server_app_settings.JupyterServerAppSettings"
     ]

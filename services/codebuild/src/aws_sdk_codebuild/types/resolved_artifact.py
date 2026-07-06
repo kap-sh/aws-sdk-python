@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ResolvedArtifact``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.artifacts_type
     import aws_sdk_codebuild.types.string
 
 
-class ResolvedArtifact(TypedDict):
+class ResolvedArtifact(TypedDict, closed=True):
     type: NotRequired["aws_sdk_codebuild.types.artifacts_type.ArtifactsType"]
     """<p>Specifies the type of artifact.</p>"""
     location: NotRequired["aws_sdk_codebuild.types.string.String"]

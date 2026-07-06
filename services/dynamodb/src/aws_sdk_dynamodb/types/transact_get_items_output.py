@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TransactGetItemsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity_multiple
     import aws_sdk_dynamodb.types.item_response_list
 
 
-class TransactGetItemsOutput(TypedDict):
+class TransactGetItemsOutput(TypedDict, closed=True):
     consumed_capacity: NotRequired[
         "aws_sdk_dynamodb.types.consumed_capacity_multiple.ConsumedCapacityMultiple"
     ]

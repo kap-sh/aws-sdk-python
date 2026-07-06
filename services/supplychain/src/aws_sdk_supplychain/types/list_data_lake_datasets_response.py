@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#ListDataLakeDatasetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_lake_dataset_next_token
 
 
-class ListDataLakeDatasetsResponse(TypedDict):
+class ListDataLakeDatasetsResponse(TypedDict, closed=True):
     datasets: "aws_sdk_supplychain.types.data_lake_dataset_list.DataLakeDatasetList"
     """<p>The list of fetched dataset details.</p>"""
     next_token: NotRequired[

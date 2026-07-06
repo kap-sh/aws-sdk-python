@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SuppressedDestinationAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.feedback_id
     import aws_sdk_sesv2.types.outbound_message_id
 
 
-class SuppressedDestinationAttributes(TypedDict):
+class SuppressedDestinationAttributes(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_sesv2.types.outbound_message_id.OutboundMessageId"]
     """<p>The unique identifier of the email message that caused the email address to be added to the suppression list for your account or for a specific tenant.</p>"""
     feedback_id: NotRequired["aws_sdk_sesv2.types.feedback_id.FeedbackId"]

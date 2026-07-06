@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DescribeLimitsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeLimitsInput(TypedDict):
+class DescribeLimitsInput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchTestCasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.test_case_search_filter
 
 
-class SearchTestCasesRequest(TypedDict):
+class SearchTestCasesRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id_or_arn.InstanceIdOrArn"
     """<p>The identifier of the Amazon Connect instance. You can find the instance ID in the Amazon Resource Name (ARN) of the instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]

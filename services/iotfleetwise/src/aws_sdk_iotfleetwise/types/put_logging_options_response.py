@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#PutLoggingOptionsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutLoggingOptionsResponse(TypedDict):
+class PutLoggingOptionsResponse(TypedDict, closed=True):
     pass
 
 

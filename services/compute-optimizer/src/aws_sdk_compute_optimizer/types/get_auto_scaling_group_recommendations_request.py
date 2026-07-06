@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetAutoScalingGroupRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_ids
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommendation_preferences
 
 
-class GetAutoScalingGroupRecommendationsRequest(TypedDict):
+class GetAutoScalingGroupRecommendationsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_compute_optimizer.types.account_ids.AccountIds"]
     """<p>The ID of the Amazon Web Services account for which to return Auto Scaling group recommendations.</p> <p>If your account is the management account of an organization, use this parameter to specify the member account for which you want to return Auto Scaling group recommendations.</p> <p>Only one account ID can be specified per request.</p>"""
     auto_scaling_group_arns: NotRequired[

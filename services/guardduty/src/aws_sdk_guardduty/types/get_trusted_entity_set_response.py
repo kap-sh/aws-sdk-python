@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetTrustedEntitySetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.expected_bucket_owner
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.trusted_entity_set_status
 
 
-class GetTrustedEntitySetResponse(TypedDict):
+class GetTrustedEntitySetResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.name.Name"]
     """<p>The name of the threat entity set associated with the specified <code>trustedEntitySetId</code>.</p>"""
     format: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#CreateResourceExplorerSetupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.region_list
 
 
-class CreateResourceExplorerSetupInput(TypedDict):
+class CreateResourceExplorerSetupInput(TypedDict, closed=True):
     region_list: "aws_sdk_resource_explorer_2.types.region_list.RegionList"
     """<p>A list of Amazon Web Services Regions where Resource Explorer should be configured. Each Region in the list will have a user-owned index created.</p>"""
     aggregator_regions: NotRequired[

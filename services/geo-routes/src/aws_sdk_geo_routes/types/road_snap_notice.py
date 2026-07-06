@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RoadSnapNotice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RoadSnapNotice(TypedDict):
+class RoadSnapNotice(TypedDict, closed=True):
     code: "aws_sdk_geo_routes.types.road_snap_notice_code.RoadSnapNoticeCode"
     """<p>Code corresponding to the issue.</p>"""
     title: "aws_sdk_geo_routes.types.sensitive_string.SensitiveString"

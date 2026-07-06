@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#RejectClientVpcConnectionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RejectClientVpcConnectionResponse(TypedDict):
+class RejectClientVpcConnectionResponse(TypedDict, closed=True):
     pass
 
 

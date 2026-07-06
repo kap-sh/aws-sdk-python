@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleIsInAddressList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_address_list_email_attribute
 
 
-class RuleIsInAddressList(TypedDict):
+class RuleIsInAddressList(TypedDict, closed=True):
     attribute: "aws_sdk_mailmanager.types.rule_address_list_email_attribute.RuleAddressListEmailAttribute"
     """<p>The email attribute that needs to be evaluated against the address list.</p>"""
     address_lists: (

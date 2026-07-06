@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#DatabaseUnavailableException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import ServiceError
 
 
-class DatabaseUnavailableException_(TypedDict):
+class DatabaseUnavailableException_(TypedDict, closed=True):
     pass
 
 

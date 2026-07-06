@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDashboardUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_name_string
 
 
-class GetDashboardUrlRequest(TypedDict):
+class GetDashboardUrlRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_glue.types.name_string.NameString"
     """<p>The unique identifier of the resource for which to retrieve the dashboard URL.</p>"""
     resource_type: "aws_sdk_glue.types.glue_resource_type.GlueResourceType"

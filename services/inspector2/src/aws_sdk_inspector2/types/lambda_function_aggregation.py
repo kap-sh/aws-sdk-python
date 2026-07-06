@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#LambdaFunctionAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.lambda_function_sort_by
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class LambdaFunctionAggregation(TypedDict):
+class LambdaFunctionAggregation(TypedDict, closed=True):
     resource_ids: NotRequired[
         "aws_sdk_inspector2.types.string_filter_list.StringFilterList"
     ]

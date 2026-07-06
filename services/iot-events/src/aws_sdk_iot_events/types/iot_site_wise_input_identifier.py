@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#IotSiteWiseInputIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.iot_site_wise_asset_model_property_identifier
 
 
-class IotSiteWiseInputIdentifier(TypedDict):
+class IotSiteWiseInputIdentifier(TypedDict, closed=True):
     iot_site_wise_asset_model_property_identifier: NotRequired[
         "aws_sdk_iot_events.types.iot_site_wise_asset_model_property_identifier.IotSiteWiseAssetModelPropertyIdentifier"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#TranscriptFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.transcript_filter_type
 
 
-class TranscriptFilter(TypedDict):
+class TranscriptFilter(TypedDict, closed=True):
     transcript_filter_type: (
         "aws_sdk_transcribe.types.transcript_filter_type.TranscriptFilterType"
     )

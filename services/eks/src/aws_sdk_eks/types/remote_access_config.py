@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#RemoteAccessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.string_list
 
 
-class RemoteAccessConfig(TypedDict):
+class RemoteAccessConfig(TypedDict, closed=True):
     ec2_ssh_key: NotRequired["aws_sdk_eks.types.string.String"]
     r"""<p>The Amazon EC2 SSH key name that provides access for SSH communication with the nodes in the managed node group. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>. For Windows, an Amazon EC2 SSH key is used to obtain the RDP password. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-key-pairs.html\">Amazon EC2 key pairs and Windows instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Windows Instances</i>.</p>"""
     source_security_groups: NotRequired["aws_sdk_eks.types.string_list.StringList"]

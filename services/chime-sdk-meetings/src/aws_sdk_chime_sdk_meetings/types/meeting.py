@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#Meeting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.amazon_resource_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.tenant_id_list
 
 
-class Meeting(TypedDict):
+class Meeting(TypedDict, closed=True):
     meeting_id: NotRequired["aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"]
     """<p>The Amazon Chime SDK meeting ID.</p>"""
     meeting_host_id: NotRequired[

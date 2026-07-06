@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeInputDeviceThumbnailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.accept_header
 
 
-class DescribeInputDeviceThumbnailRequest(TypedDict):
+class DescribeInputDeviceThumbnailRequest(TypedDict, closed=True):
     input_device_id: "aws_sdk_medialive.types.__string.__string"
     """The unique ID of this input device. For example, hd-123456789abcdef."""
     accept: NotRequired["aws_sdk_medialive.types.accept_header.AcceptHeader"]

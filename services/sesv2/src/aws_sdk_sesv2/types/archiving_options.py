@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ArchivingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.archive_arn
 
 
-class ArchivingOptions(TypedDict):
+class ArchivingOptions(TypedDict, closed=True):
     archive_arn: NotRequired["aws_sdk_sesv2.types.archive_arn.ArchiveArn"]
     """<p>The Amazon Resource Name (ARN) of the MailManager archive where the Amazon SES API v2 will archive sent emails.</p>"""
 

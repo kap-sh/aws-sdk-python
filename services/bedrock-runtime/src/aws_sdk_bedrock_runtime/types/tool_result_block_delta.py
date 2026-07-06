@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolResultBlockDelta``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
 
-class _ToolResultBlockDelta_text(TypedDict):
+class _ToolResultBlockDelta_text(TypedDict, closed=True):
     text: "str"
 
 
-class _ToolResultBlockDelta_json(TypedDict):
+class _ToolResultBlockDelta_json(TypedDict, closed=True):
     json: "object"
 
 

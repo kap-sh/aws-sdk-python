@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RecommendationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.float
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.utilization_metric
 
 
-class RecommendationMetrics(TypedDict):
+class RecommendationMetrics(TypedDict, closed=True):
     cost_per_hour: NotRequired["aws_sdk_sagemaker.types.float.Float"]
     """<p>Defines the cost per hour for the instance. </p>"""
     cost_per_inference: NotRequired["aws_sdk_sagemaker.types.float.Float"]

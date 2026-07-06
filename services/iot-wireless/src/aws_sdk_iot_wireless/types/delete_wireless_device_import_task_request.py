@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DeleteWirelessDeviceImportTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.import_task_id
 
 
-class DeleteWirelessDeviceImportTaskRequest(TypedDict):
+class DeleteWirelessDeviceImportTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.import_task_id.ImportTaskId"
     """<p>The unique identifier of the import task to be deleted.</p>"""
 

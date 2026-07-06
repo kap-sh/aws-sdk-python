@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ImageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.image_input_source
 
 
-class ImageInput(TypedDict):
+class ImageInput(TypedDict, closed=True):
     format: "aws_sdk_bedrock_agent_runtime.types.image_input_format.ImageInputFormat"
     """<p>The type of image in the result.</p>"""
     source: "aws_sdk_bedrock_agent_runtime.types.image_input_source.ImageInputSource"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationDeployedStackDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.segment_id
 
 
-class NetworkMigrationDeployedStackDetails(TypedDict):
+class NetworkMigrationDeployedStackDetails(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_mgn.types.network_migration_deployed_stack_status.NetworkMigrationDeployedStackStatus"
     ]

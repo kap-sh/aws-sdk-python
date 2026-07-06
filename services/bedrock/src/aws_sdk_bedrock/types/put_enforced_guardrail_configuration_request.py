@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PutEnforcedGuardrailConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.account_enforced_guardrail_inference_input_configuration
 
 
-class PutEnforcedGuardrailConfigurationRequest(TypedDict):
+class PutEnforcedGuardrailConfigurationRequest(TypedDict, closed=True):
     config_id: NotRequired[
         "aws_sdk_bedrock.types.account_enforced_guardrail_configuration_id.AccountEnforcedGuardrailConfigurationId"
     ]

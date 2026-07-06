@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProjectFileSystemLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.file_system_type
     import aws_sdk_codebuild.types.string
 
 
-class ProjectFileSystemLocation(TypedDict):
+class ProjectFileSystemLocation(TypedDict, closed=True):
     type: NotRequired["aws_sdk_codebuild.types.file_system_type.FileSystemType"]
     """<p> The type of the file system. The one supported type is <code>EFS</code>. </p>"""
     location: NotRequired["aws_sdk_codebuild.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#AgeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class AgeRange(TypedDict):
+class AgeRange(TypedDict, closed=True):
     low: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]
     """<p>The lowest estimated age.</p>"""
     high: NotRequired["aws_sdk_rekognition.types.u_integer.UInteger"]

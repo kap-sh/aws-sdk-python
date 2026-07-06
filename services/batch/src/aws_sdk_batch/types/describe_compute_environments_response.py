@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DescribeComputeEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.compute_environment_detail_list
     import aws_sdk_batch.types.string
 
 
-class DescribeComputeEnvironmentsResponse(TypedDict):
+class DescribeComputeEnvironmentsResponse(TypedDict, closed=True):
     compute_environments: NotRequired[
         "aws_sdk_batch.types.compute_environment_detail_list.ComputeEnvironmentDetailList"
     ]

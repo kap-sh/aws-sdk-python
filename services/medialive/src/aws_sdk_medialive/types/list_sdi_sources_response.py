@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListSdiSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_sdi_source_summary
     import aws_sdk_medialive.types.__string
 
 
-class ListSdiSourcesResponse(TypedDict):
+class ListSdiSourcesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_medialive.types.__string.__string"]
     sdi_sources: NotRequired[
         "aws_sdk_medialive.types.__list_of_sdi_source_summary.__listOfSdiSourceSummary"

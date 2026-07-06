@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#CreateStreamKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_key
 
 
-class CreateStreamKeyResponse(TypedDict):
+class CreateStreamKeyResponse(TypedDict, closed=True):
     stream_key: NotRequired["aws_sdk_ivs.types.stream_key.StreamKey"]
     """<p>Stream key used to authenticate an RTMPS stream for ingestion.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RedshiftIAMParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role_arn
 
 
-class RedshiftIAMParameters(TypedDict):
+class RedshiftIAMParameters(TypedDict, closed=True):
     role_arn: "aws_sdk_quicksight.types.role_arn.RoleArn"
     """<p>Use the <code>RoleArn</code> structure to allow Quick Sight to call <code>redshift:GetClusterCredentials</code> on your cluster. The calling principal must have <code>iam:PassRole</code> access to pass the role to Quick Sight. The role's trust policy must allow the Quick Sight service principal to assume the role.</p>"""
     database_user: NotRequired["aws_sdk_quicksight.types.database_user.DatabaseUser"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationOriginOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_id
 
 
-class WaypointOptimizationOriginOptions(TypedDict):
+class WaypointOptimizationOriginOptions(TypedDict, closed=True):
     id: NotRequired["aws_sdk_geo_routes.types.waypoint_id.WaypointId"]
     """<p>The Origin Id.</p>"""
 

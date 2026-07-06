@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CategoryFilterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_filter_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filter_list_configuration
 
 
-class CategoryFilterConfiguration(TypedDict):
+class CategoryFilterConfiguration(TypedDict, closed=True):
     filter_list_configuration: NotRequired[
         "aws_sdk_quicksight.types.filter_list_configuration.FilterListConfiguration"
     ]

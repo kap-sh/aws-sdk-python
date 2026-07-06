@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#ListNotificationHubsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.notification_hubs
 
 
-class ListNotificationHubsResponse(TypedDict):
+class ListNotificationHubsResponse(TypedDict, closed=True):
     notification_hubs: "aws_sdk_notifications.types.notification_hubs.NotificationHubs"
     """<p>The <code>NotificationHubs</code> in the account.</p>"""
     next_token: NotRequired["aws_sdk_notifications.types.next_token.NextToken"]

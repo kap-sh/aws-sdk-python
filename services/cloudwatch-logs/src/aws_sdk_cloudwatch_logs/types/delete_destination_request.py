@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.destination_name
 
 
-class DeleteDestinationRequest(TypedDict):
+class DeleteDestinationRequest(TypedDict, closed=True):
     destination_name: "aws_sdk_cloudwatch_logs.types.destination_name.DestinationName"
     """<p>The name of the destination.</p>"""
 

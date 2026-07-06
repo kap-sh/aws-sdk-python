@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANFuotaTaskGetInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.rf_region
     import aws_sdk_iot_wireless.types.start_time
 
 
-class LoRaWANFuotaTaskGetInfo(TypedDict):
+class LoRaWANFuotaTaskGetInfo(TypedDict, closed=True):
     rf_region: NotRequired["aws_sdk_iot_wireless.types.rf_region.RfRegion"]
     start_time: NotRequired["aws_sdk_iot_wireless.types.start_time.StartTime"]
 

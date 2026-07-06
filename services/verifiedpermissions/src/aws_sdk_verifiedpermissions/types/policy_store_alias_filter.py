@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#PolicyStoreAliasFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.policy_store_id
 
 
-class PolicyStoreAliasFilter(TypedDict):
+class PolicyStoreAliasFilter(TypedDict, closed=True):
     policy_store_id: NotRequired[
         "aws_sdk_verifiedpermissions.types.policy_store_id.PolicyStoreId"
     ]

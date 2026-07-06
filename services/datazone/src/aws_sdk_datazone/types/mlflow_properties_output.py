@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#MlflowPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MlflowPropertiesOutput(TypedDict):
+class MlflowPropertiesOutput(TypedDict, closed=True):
     tracking_server_arn: NotRequired["str"]
     """<p>The tracking server ARN as part of the MLflow properties of a connection.</p>"""
 

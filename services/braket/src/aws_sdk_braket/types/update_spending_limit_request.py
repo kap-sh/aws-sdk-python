@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#UpdateSpendingLimitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.time_period
 
 
-class UpdateSpendingLimitRequest(TypedDict):
+class UpdateSpendingLimitRequest(TypedDict, closed=True):
     spending_limit_arn: "aws_sdk_braket.types.spending_limit_arn.SpendingLimitArn"
     """<p>The Amazon Resource Name (ARN) of the spending limit to update.</p>"""
     client_token: "aws_sdk_braket.types.string64.String64"

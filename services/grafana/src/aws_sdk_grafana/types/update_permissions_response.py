@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdatePermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.update_error_list
 
 
-class UpdatePermissionsResponse(TypedDict):
+class UpdatePermissionsResponse(TypedDict, closed=True):
     errors: "aws_sdk_grafana.types.update_error_list.UpdateErrorList"
     """<p>An array of structures that contain the errors from the operation, if any.</p>"""
 

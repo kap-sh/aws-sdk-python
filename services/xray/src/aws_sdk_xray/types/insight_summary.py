@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#InsightSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.anomalous_service_list
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class InsightSummary(TypedDict):
+class InsightSummary(TypedDict, closed=True):
     insight_id: NotRequired["aws_sdk_xray.types.insight_id.InsightId"]
     """<p>The insights unique identifier. </p>"""
     group_arn: NotRequired["aws_sdk_xray.types.group_arn.GroupARN"]

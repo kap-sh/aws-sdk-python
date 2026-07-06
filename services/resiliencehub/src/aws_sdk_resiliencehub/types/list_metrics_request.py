@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListMetricsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.condition_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class ListMetricsRequest(TypedDict):
+class ListMetricsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_resiliencehub.types.next_token.NextToken"]
     """<p>Null, or the token from a previous call to get the next set of results.</p>"""
     max_results: NotRequired["aws_sdk_resiliencehub.types.max_results.MaxResults"]

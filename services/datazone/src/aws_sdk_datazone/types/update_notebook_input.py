@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateNotebookInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.cell_order
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.parameters
 
 
-class UpdateNotebookInput(TypedDict):
+class UpdateNotebookInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook exists.</p>"""
     identifier: "aws_sdk_datazone.types.notebook_id.NotebookId"

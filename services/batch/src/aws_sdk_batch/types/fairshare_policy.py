@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FairsharePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.share_attributes_list
 
 
-class FairsharePolicy(TypedDict):
+class FairsharePolicy(TypedDict, closed=True):
     share_decay_seconds: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The amount of time (in seconds) to use to calculate a fair-share percentage for each share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).</p> <p>The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn't meet your needs.</p>"""
     compute_reservation: NotRequired["aws_sdk_batch.types.integer.Integer"]

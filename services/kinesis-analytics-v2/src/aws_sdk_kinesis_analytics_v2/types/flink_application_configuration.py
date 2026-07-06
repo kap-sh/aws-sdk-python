@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#FlinkApplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.checkpoint_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.parallelism_configuration
 
 
-class FlinkApplicationConfiguration(TypedDict):
+class FlinkApplicationConfiguration(TypedDict, closed=True):
     checkpoint_configuration: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.checkpoint_configuration.CheckpointConfiguration"
     ]

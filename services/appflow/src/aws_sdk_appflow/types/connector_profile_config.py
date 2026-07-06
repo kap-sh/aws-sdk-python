@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorProfileConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_profile_properties
 
 
-class ConnectorProfileConfig(TypedDict):
+class ConnectorProfileConfig(TypedDict, closed=True):
     connector_profile_properties: (
         "aws_sdk_appflow.types.connector_profile_properties.ConnectorProfileProperties"
     )

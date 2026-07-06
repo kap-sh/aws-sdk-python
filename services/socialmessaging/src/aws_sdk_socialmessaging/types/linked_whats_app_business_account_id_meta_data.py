@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#LinkedWhatsAppBusinessAccountIdMetaData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.linked_whats_app_business_account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_phone_number_detail_list
 
 
-class LinkedWhatsAppBusinessAccountIdMetaData(TypedDict):
+class LinkedWhatsAppBusinessAccountIdMetaData(TypedDict, closed=True):
     account_name: NotRequired[
         "aws_sdk_socialmessaging.types.whats_app_business_account_name.WhatsAppBusinessAccountName"
     ]

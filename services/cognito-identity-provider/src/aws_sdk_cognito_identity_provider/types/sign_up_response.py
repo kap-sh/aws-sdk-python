@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#SignUpResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_type
 
 
-class SignUpResponse(TypedDict):
+class SignUpResponse(TypedDict, closed=True):
     user_confirmed: "aws_sdk_cognito_identity_provider.types.boolean_type.BooleanType"
     r"""<p>Indicates whether the user was automatically confirmed. You can auto-confirm users with a <a href=\"https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html\">pre sign-up Lambda trigger</a>.</p>"""
     code_delivery_details: NotRequired[

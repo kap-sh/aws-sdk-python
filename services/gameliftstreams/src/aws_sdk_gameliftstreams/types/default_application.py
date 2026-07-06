@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#DefaultApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.arn
     import aws_sdk_gameliftstreams.types.id
 
 
-class DefaultApplication(TypedDict):
+class DefaultApplication(TypedDict, closed=True):
     id: NotRequired["aws_sdk_gameliftstreams.types.id.Id"]
     """<p>An ID that uniquely identifies the application resource. Example ID: <code>a-9ZY8X7Wv6</code>. </p>"""
     arn: NotRequired["aws_sdk_gameliftstreams.types.arn.Arn"]

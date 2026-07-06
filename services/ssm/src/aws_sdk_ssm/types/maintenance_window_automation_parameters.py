@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#MaintenanceWindowAutomationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_parameter_map
     import aws_sdk_ssm.types.document_version
 
 
-class MaintenanceWindowAutomationParameters(TypedDict):
+class MaintenanceWindowAutomationParameters(TypedDict, closed=True):
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]
     """<p>The version of an Automation runbook to use during task execution.</p>"""
     parameters: NotRequired[

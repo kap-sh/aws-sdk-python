@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateProjectFromProjectProfilePolicyGrantDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_profile_list
 
 
-class CreateProjectFromProjectProfilePolicyGrantDetail(TypedDict):
+class CreateProjectFromProjectProfilePolicyGrantDetail(TypedDict, closed=True):
     include_child_domain_units: NotRequired["bool"]
     """<p>Specifies whether to include child domain units when creating a project from project profile policy grant details</p>"""
     project_profiles: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ClaimDeviceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ClaimDeviceResponse(TypedDict):
+class ClaimDeviceResponse(TypedDict, closed=True):
     pass
 
 

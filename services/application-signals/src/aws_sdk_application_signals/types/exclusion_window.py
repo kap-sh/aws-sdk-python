@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ExclusionWindow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.window
 
 
-class ExclusionWindow(TypedDict):
+class ExclusionWindow(TypedDict, closed=True):
     window: "aws_sdk_application_signals.types.window.Window"
     """<p>The SLO time window exclusion .</p>"""
     start_time: NotRequired["datetime.datetime"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningCheckScenario``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_logic_statement_list
 
 
-class AutomatedReasoningCheckScenario(TypedDict):
+class AutomatedReasoningCheckScenario(TypedDict, closed=True):
     statements: NotRequired[
         "aws_sdk_bedrock.types.automated_reasoning_logic_statement_list.AutomatedReasoningLogicStatementList"
     ]

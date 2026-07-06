@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeCacheSubnetGroupsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DescribeCacheSubnetGroupsMessage(TypedDict):
+class DescribeCacheSubnetGroupsMessage(TypedDict, closed=True):
     cache_subnet_group_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the cache subnet group to return details for.</p>"""
     max_records: NotRequired[

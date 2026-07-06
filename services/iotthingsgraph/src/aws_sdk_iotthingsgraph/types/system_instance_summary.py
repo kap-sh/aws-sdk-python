@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#SystemInstanceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.urn
 
 
-class SystemInstanceSummary(TypedDict):
+class SystemInstanceSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iotthingsgraph.types.urn.Urn"]
     """<p>The ID of the system instance.</p>"""
     arn: NotRequired["aws_sdk_iotthingsgraph.types.arn.Arn"]

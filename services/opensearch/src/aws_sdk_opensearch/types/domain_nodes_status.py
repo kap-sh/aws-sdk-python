@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DomainNodesStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.availability_zone
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.volume_type
 
 
-class DomainNodesStatus(TypedDict):
+class DomainNodesStatus(TypedDict, closed=True):
     node_id: NotRequired["aws_sdk_opensearch.types.node_id.NodeId"]
     """<p>The ID of the node.</p>"""
     node_type: NotRequired["aws_sdk_opensearch.types.node_type.NodeType"]

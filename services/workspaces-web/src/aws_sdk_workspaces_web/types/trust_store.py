@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#TrustStore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn_list
 
 
-class TrustStore(TypedDict):
+class TrustStore(TypedDict, closed=True):
     associated_portal_arns: NotRequired["aws_sdk_workspaces_web.types.arn_list.ArnList"]
     """<p>A list of web portal ARNs that this trust store is associated with.</p>"""
     trust_store_arn: "aws_sdk_workspaces_web.types.arn.ARN"

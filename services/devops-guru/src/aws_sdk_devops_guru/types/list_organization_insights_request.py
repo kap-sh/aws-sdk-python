@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ListOrganizationInsightsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class ListOrganizationInsightsRequest(TypedDict):
+class ListOrganizationInsightsRequest(TypedDict, closed=True):
     status_filter: (
         "aws_sdk_devops_guru.types.list_insights_status_filter.ListInsightsStatusFilter"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ContentAssociationContents``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.amazon_connect_guide_association_data
 
 
-class _ContentAssociationContents_amazonConnectGuideAssociation(TypedDict):
+class _ContentAssociationContents_amazonConnectGuideAssociation(TypedDict, closed=True):
     amazonConnectGuideAssociation: "aws_sdk_qconnect.types.amazon_connect_guide_association_data.AmazonConnectGuideAssociationData"
 
 

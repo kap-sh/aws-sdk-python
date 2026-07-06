@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details
 
 
-class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails(TypedDict):
+class AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails(
+    TypedDict, closed=True
+):
     cloud_watch_logs_log_group: NotRequired[
         "aws_sdk_securityhub.types.aws_step_function_state_machine_logging_configuration_destinations_cloud_watch_logs_log_group_details.AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails"
     ]

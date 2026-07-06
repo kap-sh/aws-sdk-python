@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#DeleteUserAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.token_model_type
 
 
-class DeleteUserAttributesRequest(TypedDict):
+class DeleteUserAttributesRequest(TypedDict, closed=True):
     user_attribute_names: "aws_sdk_cognito_identity_provider.types.attribute_name_list_type.AttributeNameListType"
     """<p>An array of strings representing the user attribute names you want to delete.</p> <p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name, for example <code>custom:department</code>.</p>"""
     access_token: (

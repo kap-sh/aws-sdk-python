@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeAssociationExecutionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.association_executions_list
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeAssociationExecutionsResult(TypedDict):
+class DescribeAssociationExecutionsResult(TypedDict, closed=True):
     association_executions: NotRequired[
         "aws_sdk_ssm.types.association_executions_list.AssociationExecutionsList"
     ]

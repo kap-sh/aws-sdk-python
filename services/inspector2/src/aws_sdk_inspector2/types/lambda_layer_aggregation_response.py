@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#LambdaLayerAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity_counts
 
 
-class LambdaLayerAggregationResponse(TypedDict):
+class LambdaLayerAggregationResponse(TypedDict, closed=True):
     function_name: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"
     """<p>The names of the Amazon Web Services Lambda functions associated with the layers.</p>"""
     resource_id: "aws_sdk_inspector2.types.non_empty_string.NonEmptyString"

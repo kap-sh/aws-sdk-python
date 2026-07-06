@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ScraperComponent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_component_type
 
 
-class ScraperComponent(TypedDict):
+class ScraperComponent(TypedDict, closed=True):
     type: "aws_sdk_amp.types.scraper_component_type.ScraperComponentType"
     """<p>The type of the scraper component.</p>"""
     config: NotRequired["aws_sdk_amp.types.component_config.ComponentConfig"]

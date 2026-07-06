@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codestarnotifications#ListTargetsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codestar_notifications.types.next_token
     import aws_sdk_codestar_notifications.types.targets_batch
 
 
-class ListTargetsResult(TypedDict):
+class ListTargetsResult(TypedDict, closed=True):
     targets: NotRequired[
         "aws_sdk_codestar_notifications.types.targets_batch.TargetsBatch"
     ]

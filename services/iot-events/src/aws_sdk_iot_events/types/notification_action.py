@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#NotificationAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.sms_configurations
 
 
-class NotificationAction(TypedDict):
+class NotificationAction(TypedDict, closed=True):
     action: (
         "aws_sdk_iot_events.types.notification_target_actions.NotificationTargetActions"
     )

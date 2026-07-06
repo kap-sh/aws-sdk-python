@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#GetOperationDetailRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_id
 
 
-class GetOperationDetailRequest(TypedDict):
+class GetOperationDetailRequest(TypedDict, closed=True):
     operation_id: "aws_sdk_route_53_domains.types.operation_id.OperationId"
     """<p>The identifier for the operation for which you want to get the status. Route 53 returned the identifier in the response to the original request.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#DescribeImageTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.image_tag_detail_list
     import aws_sdk_ecr_public.types.next_token
 
 
-class DescribeImageTagsResponse(TypedDict):
+class DescribeImageTagsResponse(TypedDict, closed=True):
     image_tag_details: NotRequired[
         "aws_sdk_ecr_public.types.image_tag_detail_list.ImageTagDetailList"
     ]

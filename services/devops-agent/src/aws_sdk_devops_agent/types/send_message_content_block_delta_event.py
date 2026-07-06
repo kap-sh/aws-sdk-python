@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageContentBlockDeltaEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.send_message_content_block_delta
 
 
-class SendMessageContentBlockDeltaEvent(TypedDict):
+class SendMessageContentBlockDeltaEvent(TypedDict, closed=True):
     index: NotRequired["int"]
     """<p>Zero-based index of the content block</p>"""
     delta: NotRequired[

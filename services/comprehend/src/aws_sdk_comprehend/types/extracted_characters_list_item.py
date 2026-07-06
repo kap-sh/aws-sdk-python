@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ExtractedCharactersListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
 
 
-class ExtractedCharactersListItem(TypedDict):
+class ExtractedCharactersListItem(TypedDict, closed=True):
     page: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>Page number.</p>"""
     count: NotRequired["aws_sdk_comprehend.types.integer.Integer"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetV2LoggingOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.verbose_flag
 
 
-class GetV2LoggingOptionsRequest(TypedDict):
+class GetV2LoggingOptionsRequest(TypedDict, closed=True):
     verbose: "aws_sdk_iot.types.verbose_flag.VerboseFlag"
     """<p> The flag is used to get all the event types and their respective configuration that event-based logging supports. </p>"""
 

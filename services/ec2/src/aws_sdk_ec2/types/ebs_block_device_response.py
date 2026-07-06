@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#EbsBlockDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.volume_type
 
 
-class EbsBlockDeviceResponse(TypedDict):
+class EbsBlockDeviceResponse(TypedDict, closed=True):
     encrypted: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the volume is encrypted.</p>"""
     delete_on_termination: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

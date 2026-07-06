@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#PositionalAccuracy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_double
 
 
-class PositionalAccuracy(TypedDict):
+class PositionalAccuracy(TypedDict, closed=True):
     horizontal: "aws_sdk_location.types.sensitive_double.SensitiveDouble"
     """<p>Estimated maximum distance, in meters, between the measured position and the true position of a device, along the Earth's surface.</p>"""
 

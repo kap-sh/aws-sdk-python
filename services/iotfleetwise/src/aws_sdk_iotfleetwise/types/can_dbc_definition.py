@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#CanDbcDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.network_files_list
 
 
-class CanDbcDefinition(TypedDict):
+class CanDbcDefinition(TypedDict, closed=True):
     network_interface: "aws_sdk_iotfleetwise.types.interface_id.InterfaceId"
     """<p>Contains information about a network interface.</p>"""
     can_dbc_files: "aws_sdk_iotfleetwise.types.network_files_list.NetworkFilesList"

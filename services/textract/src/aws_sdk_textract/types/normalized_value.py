@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#NormalizedValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.string
     import aws_sdk_textract.types.value_type
 
 
-class NormalizedValue(TypedDict):
+class NormalizedValue(TypedDict, closed=True):
     value: NotRequired["aws_sdk_textract.types.string.String"]
     """<p>The value of the date, written as Year-Month-DayTHour:Minute:Second.</p>"""
     value_type: NotRequired["aws_sdk_textract.types.value_type.ValueType"]

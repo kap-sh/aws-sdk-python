@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#Interface``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Interface(TypedDict):
+class Interface(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p> The name of the VPC interface.</p>"""
 

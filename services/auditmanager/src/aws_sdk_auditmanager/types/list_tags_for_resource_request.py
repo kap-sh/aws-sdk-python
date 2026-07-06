@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.audit_manager_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_auditmanager.types.audit_manager_arn.AuditManagerArn"
     """<p> The Amazon Resource Name (ARN) of the resource. </p>"""
 

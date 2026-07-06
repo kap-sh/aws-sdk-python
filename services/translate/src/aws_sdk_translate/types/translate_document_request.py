@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TranslateDocumentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.translation_settings
 
 
-class TranslateDocumentRequest(TypedDict):
+class TranslateDocumentRequest(TypedDict, closed=True):
     document: "aws_sdk_translate.types.document.Document"
     """<p>The content and content type for the document to be translated. The document size must not exceed 100 KB.</p>"""
     terminology_names: NotRequired[

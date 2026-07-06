@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateDomainUnitOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_unit_owners
 
 
-class CreateDomainUnitOutput(TypedDict):
+class CreateDomainUnitOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
     """<p>The ID of the domain unit.</p>"""
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"

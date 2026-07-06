@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeAccountConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeAccountConfigurationRequest(TypedDict):
+class DescribeAccountConfigurationRequest(TypedDict, closed=True):
     pass
 
 

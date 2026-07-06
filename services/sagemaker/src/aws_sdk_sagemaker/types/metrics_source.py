@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MetricsSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.content_digest
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class MetricsSource(TypedDict):
+class MetricsSource(TypedDict, closed=True):
     content_type: NotRequired["aws_sdk_sagemaker.types.content_type.ContentType"]
     """<p>The metric source content type.</p>"""
     content_digest: NotRequired["aws_sdk_sagemaker.types.content_digest.ContentDigest"]

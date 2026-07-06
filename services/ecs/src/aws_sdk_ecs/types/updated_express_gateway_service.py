@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UpdatedExpressGatewayService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_service_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class UpdatedExpressGatewayService(TypedDict):
+class UpdatedExpressGatewayService(TypedDict, closed=True):
     service_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The ARN of the Express service that is being updated.</p>"""
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]

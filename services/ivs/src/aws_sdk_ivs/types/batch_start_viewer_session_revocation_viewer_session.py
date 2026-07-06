@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#BatchStartViewerSessionRevocationViewerSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.viewer_session_version
 
 
-class BatchStartViewerSessionRevocationViewerSession(TypedDict):
+class BatchStartViewerSessionRevocationViewerSession(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>The ARN of the channel associated with the viewer session to revoke.</p>"""
     viewer_id: "aws_sdk_ivs.types.viewer_id.ViewerId"

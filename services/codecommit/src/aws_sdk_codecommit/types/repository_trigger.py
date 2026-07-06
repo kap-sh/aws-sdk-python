@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#RepositoryTrigger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_trigger_name
 
 
-class RepositoryTrigger(TypedDict):
+class RepositoryTrigger(TypedDict, closed=True):
     name: "aws_sdk_codecommit.types.repository_trigger_name.RepositoryTriggerName"
     """<p>The name of the trigger.</p>"""
     destination_arn: "aws_sdk_codecommit.types.arn.Arn"

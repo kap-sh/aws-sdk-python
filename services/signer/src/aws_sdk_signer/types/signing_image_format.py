@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SigningImageFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.image_formats
 
 
-class SigningImageFormat(TypedDict):
+class SigningImageFormat(TypedDict, closed=True):
     supported_formats: "aws_sdk_signer.types.image_formats.ImageFormats"
     """<p>The supported formats of a signing image.</p>"""
     default_format: "aws_sdk_signer.types.image_format.ImageFormat"

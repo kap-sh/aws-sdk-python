@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#CreateContainerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.tag_list
 
 
-class CreateContainerInput(TypedDict):
+class CreateContainerInput(TypedDict, closed=True):
     container_name: "aws_sdk_mediastore.types.container_name.ContainerName"
     """<p>The name for the container. The name must be from 1 to 255 characters. Container names must be unique to your AWS account within a specific region. As an example, you could create a container named <code>movies</code> in every region, as long as you don’t have an existing container with that name.</p>"""
     tags: NotRequired["aws_sdk_mediastore.types.tag_list.TagList"]

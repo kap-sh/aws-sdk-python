@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetTestGridProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.device_farm_arn
 
 
-class GetTestGridProjectRequest(TypedDict):
+class GetTestGridProjectRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"
     """<p>The ARN of the Selenium testing project, from either <a>CreateTestGridProject</a> or <a>ListTestGridProjects</a>.</p>"""
 

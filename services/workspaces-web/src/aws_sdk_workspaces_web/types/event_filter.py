@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#EventFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.events
 
 
-class _EventFilter_all(TypedDict):
+class _EventFilter_all(TypedDict, closed=True):
     all: "None"
 
 
-class _EventFilter_include(TypedDict):
+class _EventFilter_include(TypedDict, closed=True):
     include: "aws_sdk_workspaces_web.types.events.Events"
 
 

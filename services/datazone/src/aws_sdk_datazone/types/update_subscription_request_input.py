@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateSubscriptionRequestInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscription_request_id
 
 
-class UpdateSubscriptionRequestInput(TypedDict):
+class UpdateSubscriptionRequestInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain in which a subscription request is to be updated.</p>"""
     identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId"

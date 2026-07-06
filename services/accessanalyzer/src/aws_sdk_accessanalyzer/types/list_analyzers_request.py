@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListAnalyzersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.token
     import aws_sdk_accessanalyzer.types.type
 
 
-class ListAnalyzersRequest(TypedDict):
+class ListAnalyzersRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_accessanalyzer.types.token.Token"]
     """<p>A token used for pagination of results returned.</p>"""
     max_results: NotRequired["int"]

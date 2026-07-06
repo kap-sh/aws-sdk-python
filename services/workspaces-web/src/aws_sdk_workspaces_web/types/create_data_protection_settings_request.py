@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateDataProtectionSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.client_token
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.tag_list
 
 
-class CreateDataProtectionSettingsRequest(TypedDict):
+class CreateDataProtectionSettingsRequest(TypedDict, closed=True):
     display_name: NotRequired[
         "aws_sdk_workspaces_web.types.display_name_safe.DisplayNameSafe"
     ]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#Recommendation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p>The recommended course of action to remediate the finding.</p>"""
     url: NotRequired["str"]

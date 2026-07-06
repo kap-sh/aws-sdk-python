@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.vpc_config_response
 
 
-class RunConfigurationsResponse(TypedDict):
+class RunConfigurationsResponse(TypedDict, closed=True):
     vpc_config: NotRequired["aws_sdk_omics.types.vpc_config_response.VpcConfigResponse"]
     """<p>VPC configuration for workflow runs with computed VPC ID.</p>"""
 

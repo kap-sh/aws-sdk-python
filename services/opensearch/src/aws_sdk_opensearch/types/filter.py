@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.non_empty_string
     import aws_sdk_opensearch.types.value_string_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_opensearch.types.non_empty_string.NonEmptyString"]
     """<p>The name of the filter.</p>"""
     values: NotRequired["aws_sdk_opensearch.types.value_string_list.ValueStringList"]

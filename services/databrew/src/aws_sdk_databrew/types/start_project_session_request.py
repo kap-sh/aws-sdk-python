@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StartProjectSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.assume_control
     import aws_sdk_databrew.types.project_name
 
 
-class StartProjectSessionRequest(TypedDict):
+class StartProjectSessionRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.project_name.ProjectName"
     """<p>The name of the project to act upon.</p>"""
     assume_control: "aws_sdk_databrew.types.assume_control.AssumeControl"

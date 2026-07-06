@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.timestamp
 
 
-class TimeRange(TypedDict):
+class TimeRange(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_kendra.types.timestamp.Timestamp"]
     """<p>The Unix timestamp for the beginning of the time range.</p>"""
     end_time: NotRequired["aws_sdk_kendra.types.timestamp.Timestamp"]

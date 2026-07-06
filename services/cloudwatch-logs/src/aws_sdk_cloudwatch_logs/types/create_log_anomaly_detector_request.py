@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateLogAnomalyDetectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.tags
 
 
-class CreateLogAnomalyDetectorRequest(TypedDict):
+class CreateLogAnomalyDetectorRequest(TypedDict, closed=True):
     log_group_arn_list: (
         "aws_sdk_cloudwatch_logs.types.log_group_arn_list.LogGroupArnList"
     )

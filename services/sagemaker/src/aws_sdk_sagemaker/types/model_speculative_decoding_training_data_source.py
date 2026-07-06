@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelSpeculativeDecodingTrainingDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_speculative_decoding_s3_data_type
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class ModelSpeculativeDecodingTrainingDataSource(TypedDict):
+class ModelSpeculativeDecodingTrainingDataSource(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>The Amazon S3 URI that points to the training data for speculative decoding.</p>"""
     s3_data_type: NotRequired[

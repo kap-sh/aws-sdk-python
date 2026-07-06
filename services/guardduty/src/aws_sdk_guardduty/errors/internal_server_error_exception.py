@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#InternalServerErrorException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_guardduty.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class InternalServerErrorException_(TypedDict):
+class InternalServerErrorException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The error message.</p>"""
     type: NotRequired["aws_sdk_guardduty.types.string.String"]

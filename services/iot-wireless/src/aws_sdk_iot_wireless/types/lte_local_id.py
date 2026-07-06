@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LteLocalId``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.pci
 
 
-class LteLocalId(TypedDict):
+class LteLocalId(TypedDict, closed=True):
     pci: "aws_sdk_iot_wireless.types.pci.PCI"
     """<p>Physical cell ID.</p>"""
     earfcn: "aws_sdk_iot_wireless.types.earfcn.EARFCN"

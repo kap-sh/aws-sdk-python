@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#PredictedItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.item_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.score
 
 
-class PredictedItem(TypedDict):
+class PredictedItem(TypedDict, closed=True):
     item_id: NotRequired["aws_sdk_personalize_runtime.types.item_id.ItemID"]
     """<p>The recommended item ID.</p>"""
     score: NotRequired["aws_sdk_personalize_runtime.types.score.Score"]

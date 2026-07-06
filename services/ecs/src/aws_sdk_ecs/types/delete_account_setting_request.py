@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeleteAccountSettingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class DeleteAccountSettingRequest(TypedDict):
+class DeleteAccountSettingRequest(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.setting_name.SettingName"
     """<p>The resource name to disable the account setting for. If <code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is affected. If <code>taskLongArnFormat</code> is specified, the ARN and resource ID for your Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code> is specified, the ARN and resource ID for your Amazon ECS container instances is affected. If <code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container instances is affected.</p>"""
     principal_arn: NotRequired["aws_sdk_ecs.types.string.String"]

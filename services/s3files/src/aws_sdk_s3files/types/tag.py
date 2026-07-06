@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_s3files.types.tag_key.TagKey"
     """<p>The tag key. The key can't start with <code>aws:</code>.</p>"""
     value: "aws_sdk_s3files.types.tag_value.TagValue"

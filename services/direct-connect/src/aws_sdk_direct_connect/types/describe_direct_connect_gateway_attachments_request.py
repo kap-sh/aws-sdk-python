@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeDirectConnectGatewayAttachmentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.direct_connect_gateway_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface_id
 
 
-class DescribeDirectConnectGatewayAttachmentsRequest(TypedDict):
+class DescribeDirectConnectGatewayAttachmentsRequest(TypedDict, closed=True):
     direct_connect_gateway_id: NotRequired[
         "aws_sdk_direct_connect.types.direct_connect_gateway_id.DirectConnectGatewayId"
     ]

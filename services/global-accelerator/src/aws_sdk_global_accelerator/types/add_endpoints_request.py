@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#AddEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class AddEndpointsRequest(TypedDict):
+class AddEndpointsRequest(TypedDict, closed=True):
     endpoint_configurations: "aws_sdk_global_accelerator.types.endpoint_configurations.EndpointConfigurations"
     """<p>The list of endpoint objects.</p>"""
     endpoint_group_arn: "aws_sdk_global_accelerator.types.generic_string.GenericString"

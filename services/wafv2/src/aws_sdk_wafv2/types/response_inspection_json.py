@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ResponseInspectionJson``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection_json_success_values
 
 
-class ResponseInspectionJson(TypedDict):
+class ResponseInspectionJson(TypedDict, closed=True):
     identifier: "aws_sdk_wafv2.types.field_identifier.FieldIdentifier"
     r"""<p>The identifier for the value to match against in the JSON. The identifier must be an exact match, including case.</p> <p>JSON examples: <code>\"Identifier\": [ \"/login/success\" ]</code> and <code>\"Identifier\": [ \"/sign-up/success\" ]</code> </p>"""
     success_values: "aws_sdk_wafv2.types.response_inspection_json_success_values.ResponseInspectionJsonSuccessValues"

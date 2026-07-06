@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIWorkloadDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_workload_s3_data_source
 
 
-class AIWorkloadDataSource(TypedDict):
+class AIWorkloadDataSource(TypedDict, closed=True):
     s3_data_source: NotRequired[
         "aws_sdk_sagemaker.types.ai_workload_s3_data_source.AIWorkloadS3DataSource"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBuiltinIntentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.builtin_intent_metadata_list
     import aws_sdk_lex_model_building_service.types.next_token
 
 
-class GetBuiltinIntentsResponse(TypedDict):
+class GetBuiltinIntentsResponse(TypedDict, closed=True):
     intents: NotRequired[
         "aws_sdk_lex_model_building_service.types.builtin_intent_metadata_list.BuiltinIntentMetadataList"
     ]

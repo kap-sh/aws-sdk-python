@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetAdminAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.account_role_status
     import aws_sdk_fms.types.aws_account_id
 
 
-class GetAdminAccountResponse(TypedDict):
+class GetAdminAccountResponse(TypedDict, closed=True):
     admin_account: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]
     """<p>The account that is set as the Firewall Manager default administrator.</p>"""
     role_status: NotRequired["aws_sdk_fms.types.account_role_status.AccountRoleStatus"]

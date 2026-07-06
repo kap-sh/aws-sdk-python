@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetReservedInstancesExchangeQuoteResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.target_reservation_value_set
 
 
-class GetReservedInstancesExchangeQuoteResult(TypedDict):
+class GetReservedInstancesExchangeQuoteResult(TypedDict, closed=True):
     currency_code: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The currency of the transaction.</p>"""
     is_valid_exchange: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

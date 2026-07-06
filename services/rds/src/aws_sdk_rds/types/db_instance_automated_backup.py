@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBInstanceAutomatedBackup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class DBInstanceAutomatedBackup(TypedDict):
+class DBInstanceAutomatedBackup(TypedDict, closed=True):
     db_instance_arn: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The Amazon Resource Name (ARN) for the automated backups.</p>"""
     dbi_resource_id: NotRequired["aws_sdk_rds.types.string.String"]

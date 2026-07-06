@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#CreateLicenseServerEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.tags
 
 
-class CreateLicenseServerEndpointRequest(TypedDict):
+class CreateLicenseServerEndpointRequest(TypedDict, closed=True):
     identity_provider_arn: "aws_sdk_license_manager_user_subscriptions.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the <code>IdentityProvider</code> resource that contains details about a registered identity provider. In the case of Active Directory, that can be a self-managed Active Directory or an Amazon Web Services Managed Active Directory that contains user identity details.</p>"""
     license_server_settings: "aws_sdk_license_manager_user_subscriptions.types.license_server_settings.LicenseServerSettings"

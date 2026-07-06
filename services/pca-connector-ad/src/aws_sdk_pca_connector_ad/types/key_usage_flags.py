@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#KeyUsageFlags``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class KeyUsageFlags(TypedDict):
+class KeyUsageFlags(TypedDict, closed=True):
     digital_signature: NotRequired["bool"]
     """<p>The digitalSignature is asserted when the subject public key is used for verifying digital signatures.</p>"""
     non_repudiation: NotRequired["bool"]

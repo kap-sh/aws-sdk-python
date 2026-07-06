@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRedshiftClusterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_redshift_cluster_cluster_nodes
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsRedshiftClusterDetails(TypedDict):
+class AwsRedshiftClusterDetails(TypedDict, closed=True):
     allow_version_upgrade: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether major version upgrades are applied automatically to the cluster during the maintenance window.</p>"""
     automated_snapshot_retention_period: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateMatchmakingConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.matchmaking_configuration
 
 
-class UpdateMatchmakingConfigurationOutput(TypedDict):
+class UpdateMatchmakingConfigurationOutput(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_configuration.MatchmakingConfiguration"
     ]

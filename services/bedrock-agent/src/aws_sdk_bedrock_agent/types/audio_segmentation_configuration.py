@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AudioSegmentationConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
 
-class AudioSegmentationConfiguration(TypedDict):
+class AudioSegmentationConfiguration(TypedDict, closed=True):
     fixed_length_duration: "int"
     """<p>The duration in seconds for each audio segment. Audio files will be divided into chunks of this length for processing.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetRestoreJobMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.metadata
     import aws_sdk_backup.types.restore_job_id
 
 
-class GetRestoreJobMetadataOutput(TypedDict):
+class GetRestoreJobMetadataOutput(TypedDict, closed=True):
     restore_job_id: NotRequired["aws_sdk_backup.types.restore_job_id.RestoreJobId"]
     """<p>This is a unique identifier of a restore job within Backup.</p>"""
     metadata: NotRequired["aws_sdk_backup.types.metadata.Metadata"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SendQuota``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.max24_hour_send
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.sent_last24_hours
 
 
-class SendQuota(TypedDict):
+class SendQuota(TypedDict, closed=True):
     max24_hour_send: "aws_sdk_sesv2.types.max24_hour_send.Max24HourSend"
     """<p>The maximum number of emails that you can send in the current Amazon Web Services Region over a 24-hour period. A value of -1 signifies an unlimited quota. (This value is also referred to as your <i>sending quota</i>.)</p>"""
     max_send_rate: "aws_sdk_sesv2.types.max_send_rate.MaxSendRate"

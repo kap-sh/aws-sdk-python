@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#JobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.captions
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.thumbnail_pattern
 
 
-class JobOutput(TypedDict):
+class JobOutput(TypedDict, closed=True):
     id: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]
     """<p>A sequential counter, starting with 1, that identifies an output among the outputs from the current job. In the Output syntax, this value is always 1.</p>"""
     key: NotRequired["aws_sdk_elastic_transcoder.types.key.Key"]

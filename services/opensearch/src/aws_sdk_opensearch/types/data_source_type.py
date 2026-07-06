@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DataSourceType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.s3_glue_data_catalog
 
 
-class _DataSourceType_S3GlueDataCatalog(TypedDict):
+class _DataSourceType_S3GlueDataCatalog(TypedDict, closed=True):
     S3GlueDataCatalog: "aws_sdk_opensearch.types.s3_glue_data_catalog.S3GlueDataCatalog"
 
 

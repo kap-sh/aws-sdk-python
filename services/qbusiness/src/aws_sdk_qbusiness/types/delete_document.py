@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.document_id
 
 
-class DeleteDocument(TypedDict):
+class DeleteDocument(TypedDict, closed=True):
     document_id: "aws_sdk_qbusiness.types.document_id.DocumentId"
     """<p>The identifier of the deleted document.</p>"""
 

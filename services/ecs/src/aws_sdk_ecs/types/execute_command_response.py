@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExecuteCommandResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ExecuteCommandResponse(TypedDict):
+class ExecuteCommandResponse(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the cluster.</p>"""
     container_arn: NotRequired["aws_sdk_ecs.types.string.String"]

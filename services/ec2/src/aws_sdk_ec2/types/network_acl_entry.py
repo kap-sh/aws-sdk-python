@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#NetworkAclEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class NetworkAclEntry(TypedDict):
+class NetworkAclEntry(TypedDict, closed=True):
     cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv4 network range to allow or deny, in CIDR notation.</p>"""
     egress: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DescribeExpressGatewayServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class DescribeExpressGatewayServiceRequest(TypedDict):
+class DescribeExpressGatewayServiceRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_ecs.types.string.String"
     """<p>The Amazon Resource Name (ARN) of the Express service to describe. The ARN uniquely identifies the service within your Amazon Web Services account and region.</p>"""
     include: NotRequired[

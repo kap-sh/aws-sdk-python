@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListV2LoggingLevelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.log_target_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.skyfall_max_results
 
 
-class ListV2LoggingLevelsRequest(TypedDict):
+class ListV2LoggingLevelsRequest(TypedDict, closed=True):
     target_type: NotRequired["aws_sdk_iot.types.log_target_type.LogTargetType"]
     """<p>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

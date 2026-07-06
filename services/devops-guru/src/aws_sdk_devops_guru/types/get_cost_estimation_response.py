@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#GetCostEstimationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cost
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class GetCostEstimationResponse(TypedDict):
+class GetCostEstimationResponse(TypedDict, closed=True):
     resource_collection: NotRequired[
         "aws_sdk_devops_guru.types.cost_estimation_resource_collection_filter.CostEstimationResourceCollectionFilter"
     ]

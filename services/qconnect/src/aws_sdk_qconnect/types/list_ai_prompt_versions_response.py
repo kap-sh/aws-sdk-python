@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ListAIPromptVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.next_token
 
 
-class ListAIPromptVersionsResponse(TypedDict):
+class ListAIPromptVersionsResponse(TypedDict, closed=True):
     ai_prompt_version_summaries: "aws_sdk_qconnect.types.ai_prompt_version_summaries_list.AIPromptVersionSummariesList"
     """<p>The summaries of the AI Prompt versions.</p>"""
     next_token: NotRequired["aws_sdk_qconnect.types.next_token.NextToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#SignatureDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.geometry
     import aws_sdk_textract.types.percent
 
 
-class SignatureDetection(TypedDict):
+class SignatureDetection(TypedDict, closed=True):
     confidence: NotRequired["aws_sdk_textract.types.percent.Percent"]
     """<p>The confidence, from 0 to 100, in the predicted values for a detected signature.</p>"""
     geometry: NotRequired["aws_sdk_textract.types.geometry.Geometry"]

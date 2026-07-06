@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ListTracksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.pagination_token
     import aws_sdk_redshift_serverless.types.track_list
 
 
-class ListTracksResponse(TypedDict):
+class ListTracksResponse(TypedDict, closed=True):
     tracks: NotRequired["aws_sdk_redshift_serverless.types.track_list.TrackList"]
     """<p>The returned tracks.</p>"""
     next_token: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#Retriever``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.application_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.retriever_type
 
 
-class Retriever(TypedDict):
+class Retriever(TypedDict, closed=True):
     application_id: NotRequired["aws_sdk_qbusiness.types.application_id.ApplicationId"]
     """<p>The identifier of the Amazon Q Business application using the retriever.</p>"""
     retriever_id: NotRequired["aws_sdk_qbusiness.types.retriever_id.RetrieverId"]

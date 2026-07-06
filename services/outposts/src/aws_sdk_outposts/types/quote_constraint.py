@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#QuoteConstraint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.constraint_value
     import aws_sdk_outposts.types.quote_constraint_type
 
 
-class QuoteConstraint(TypedDict):
+class QuoteConstraint(TypedDict, closed=True):
     quote_constraint_type: NotRequired[
         "aws_sdk_outposts.types.quote_constraint_type.QuoteConstraintType"
     ]

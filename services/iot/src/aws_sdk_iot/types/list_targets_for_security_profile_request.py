@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListTargetsForSecurityProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.security_profile_name
 
 
-class ListTargetsForSecurityProfileRequest(TypedDict):
+class ListTargetsForSecurityProfileRequest(TypedDict, closed=True):
     security_profile_name: "aws_sdk_iot.types.security_profile_name.SecurityProfileName"
     """<p>The security profile.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

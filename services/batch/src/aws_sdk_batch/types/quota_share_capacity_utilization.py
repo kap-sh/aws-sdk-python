@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#QuotaShareCapacityUtilization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_capacity_usage_list
     import aws_sdk_batch.types.string
 
 
-class QuotaShareCapacityUtilization(TypedDict):
+class QuotaShareCapacityUtilization(TypedDict, closed=True):
     quota_share_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the quota share.</p>"""
     capacity_usage: NotRequired[

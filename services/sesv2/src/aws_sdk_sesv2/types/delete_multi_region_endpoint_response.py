@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteMultiRegionEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.status
 
 
-class DeleteMultiRegionEndpointResponse(TypedDict):
+class DeleteMultiRegionEndpointResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sesv2.types.status.Status"]
     """<p>A status of the multi-region endpoint (global-endpoint) right after the delete request.</p> <ul> <li> <p> <code>CREATING</code> – The resource is being provisioned.</p> </li> <li> <p> <code>READY</code> – The resource is ready to use.</p> </li> <li> <p> <code>FAILED</code> – The resource failed to be provisioned.</p> </li> <li> <p> <code>DELETING</code> – The resource is being deleted as requested.</p> </li> </ul>"""
 

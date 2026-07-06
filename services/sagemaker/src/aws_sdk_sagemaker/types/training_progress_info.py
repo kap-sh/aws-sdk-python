@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TrainingProgressInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.total_step_count_per_epoch
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.training_step_index
 
 
-class TrainingProgressInfo(TypedDict):
+class TrainingProgressInfo(TypedDict, closed=True):
     total_step_count_per_epoch: NotRequired[
         "aws_sdk_sagemaker.types.total_step_count_per_epoch.TotalStepCountPerEpoch"
     ]

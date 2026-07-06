@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SendDurableExecutionCallbackHeartbeatRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.callback_id
 
 
-class SendDurableExecutionCallbackHeartbeatRequest(TypedDict):
+class SendDurableExecutionCallbackHeartbeatRequest(TypedDict, closed=True):
     callback_id: "aws_sdk_lambda.types.callback_id.CallbackId"
     """<p>The unique identifier for the callback operation.</p>"""
 

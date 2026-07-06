@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CredentialProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -13,15 +15,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.o_auth_credential_provider
 
 
-class _CredentialProvider_oauthCredentialProvider(TypedDict):
+class _CredentialProvider_oauthCredentialProvider(TypedDict, closed=True):
     oauthCredentialProvider: "aws_sdk_bedrock_agentcore_control.types.o_auth_credential_provider.OAuthCredentialProvider"
 
 
-class _CredentialProvider_apiKeyCredentialProvider(TypedDict):
+class _CredentialProvider_apiKeyCredentialProvider(TypedDict, closed=True):
     apiKeyCredentialProvider: "aws_sdk_bedrock_agentcore_control.types.gateway_api_key_credential_provider.GatewayApiKeyCredentialProvider"
 
 
-class _CredentialProvider_iamCredentialProvider(TypedDict):
+class _CredentialProvider_iamCredentialProvider(TypedDict, closed=True):
     iamCredentialProvider: "aws_sdk_bedrock_agentcore_control.types.iam_credential_provider.IamCredentialProvider"
 
 

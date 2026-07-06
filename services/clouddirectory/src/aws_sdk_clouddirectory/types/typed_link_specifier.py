@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#TypedLinkSpecifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_link_schema_and_facet_name
 
 
-class TypedLinkSpecifier(TypedDict):
+class TypedLinkSpecifier(TypedDict, closed=True):
     typed_link_facet: "aws_sdk_clouddirectory.types.typed_link_schema_and_facet_name.TypedLinkSchemaAndFacetName"
     """<p>Identifies the typed link facet that is associated with the typed link.</p>"""
     source_object_reference: (

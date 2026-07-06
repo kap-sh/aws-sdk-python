@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#BurninDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max10
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.remove_ruby_reserve_attributes
 
 
-class BurninDestinationSettings(TypedDict):
+class BurninDestinationSettings(TypedDict, closed=True):
     alignment: NotRequired[
         "aws_sdk_mediaconvert.types.burnin_subtitle_alignment.BurninSubtitleAlignment"
     ]

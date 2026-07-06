@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#APISchema``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.s3
 
 
-class _APISchema_payload(TypedDict):
+class _APISchema_payload(TypedDict, closed=True):
     payload: "aws_sdk_qbusiness.types.payload.Payload"
 
 
-class _APISchema_s3(TypedDict):
+class _APISchema_s3(TypedDict, closed=True):
     s3: "aws_sdk_qbusiness.types.s3.S3"
 
 

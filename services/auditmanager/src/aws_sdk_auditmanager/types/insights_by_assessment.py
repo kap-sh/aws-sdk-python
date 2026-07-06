@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#InsightsByAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.nullable_integer
     import aws_sdk_auditmanager.types.timestamp
 
 
-class InsightsByAssessment(TypedDict):
+class InsightsByAssessment(TypedDict, closed=True):
     noncompliant_evidence_count: NotRequired[
         "aws_sdk_auditmanager.types.nullable_integer.NullableInteger"
     ]

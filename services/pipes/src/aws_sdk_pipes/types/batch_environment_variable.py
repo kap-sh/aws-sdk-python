@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchEnvironmentVariable``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class BatchEnvironmentVariable(TypedDict):
+class BatchEnvironmentVariable(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the key-value pair. For environment variables, this is the name of the environment variable.</p>"""
     value: NotRequired["str"]

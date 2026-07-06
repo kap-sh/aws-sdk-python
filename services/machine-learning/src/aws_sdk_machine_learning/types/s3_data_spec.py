@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#S3DataSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.s3_url
 
 
-class S3DataSpec(TypedDict):
+class S3DataSpec(TypedDict, closed=True):
     data_location_s3: "aws_sdk_machine_learning.types.s3_url.S3Url"
     """<p>The location of the data file(s) used by a <code>DataSource</code>. The URI specifies a data file or an Amazon Simple Storage Service (Amazon S3) directory or bucket containing data files.</p>"""
     data_rearrangement: NotRequired[

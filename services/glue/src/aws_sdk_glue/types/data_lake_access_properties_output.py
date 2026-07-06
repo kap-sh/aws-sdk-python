@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataLakeAccessPropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.resource_arn_string
 
 
-class DataLakeAccessPropertiesOutput(TypedDict):
+class DataLakeAccessPropertiesOutput(TypedDict, closed=True):
     data_lake_access: "aws_sdk_glue.types.boolean.Boolean"
     """<p>Turns on or off data lake access for Apache Spark applications that access Amazon Redshift databases in the Data Catalog.</p>"""
     data_transfer_role: NotRequired["aws_sdk_glue.types.iam_role_arn.IAMRoleArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#Eirp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.eirp_units
 
 
-class Eirp(TypedDict):
+class Eirp(TypedDict, closed=True):
     value: "float"
     """<p>Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.</p>"""
     units: "aws_sdk_groundstation.types.eirp_units.EirpUnits"

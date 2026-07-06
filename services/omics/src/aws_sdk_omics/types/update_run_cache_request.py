@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#UpdateRunCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.cache_behavior
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.user_custom_name
 
 
-class UpdateRunCacheRequest(TypedDict):
+class UpdateRunCacheRequest(TypedDict, closed=True):
     cache_behavior: NotRequired["aws_sdk_omics.types.cache_behavior.CacheBehavior"]
     """<p>Update the default run cache behavior.</p>"""
     description: NotRequired[

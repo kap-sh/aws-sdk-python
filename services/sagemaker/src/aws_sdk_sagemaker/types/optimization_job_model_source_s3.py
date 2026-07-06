@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OptimizationJobModelSourceS3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.optimization_model_access_config
     import aws_sdk_sagemaker.types.s3_uri
 
 
-class OptimizationJobModelSourceS3(TypedDict):
+class OptimizationJobModelSourceS3(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>An Amazon S3 URI that locates a source model to optimize with an optimization job.</p>"""
     model_access_config: NotRequired[

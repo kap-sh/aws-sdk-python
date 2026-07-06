@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeleteIntegrationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIntegrationResponse(TypedDict):
+class DeleteIntegrationResponse(TypedDict, closed=True):
     pass
 
 

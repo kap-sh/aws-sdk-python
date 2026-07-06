@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuditMitigationActionsTaskTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_to_reason_code_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.finding_ids
 
 
-class AuditMitigationActionsTaskTarget(TypedDict):
+class AuditMitigationActionsTaskTarget(TypedDict, closed=True):
     audit_task_id: NotRequired["aws_sdk_iot.types.audit_task_id.AuditTaskId"]
     """<p>If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.</p>"""
     finding_ids: NotRequired["aws_sdk_iot.types.finding_ids.FindingIds"]

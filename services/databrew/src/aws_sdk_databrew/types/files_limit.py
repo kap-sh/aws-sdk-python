@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#FilesLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.ordered_by
 
 
-class FilesLimit(TypedDict):
+class FilesLimit(TypedDict, closed=True):
     max_files: "aws_sdk_databrew.types.max_files.MaxFiles"
     """<p>The number of Amazon S3 files to select.</p>"""
     ordered_by: NotRequired["aws_sdk_databrew.types.ordered_by.OrderedBy"]

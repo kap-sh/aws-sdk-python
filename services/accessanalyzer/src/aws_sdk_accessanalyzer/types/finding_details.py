@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -13,35 +15,35 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.unused_permission_details
 
 
-class _FindingDetails_internalAccessDetails(TypedDict):
+class _FindingDetails_internalAccessDetails(TypedDict, closed=True):
     internalAccessDetails: (
         "aws_sdk_accessanalyzer.types.internal_access_details.InternalAccessDetails"
     )
 
 
-class _FindingDetails_externalAccessDetails(TypedDict):
+class _FindingDetails_externalAccessDetails(TypedDict, closed=True):
     externalAccessDetails: (
         "aws_sdk_accessanalyzer.types.external_access_details.ExternalAccessDetails"
     )
 
 
-class _FindingDetails_unusedPermissionDetails(TypedDict):
+class _FindingDetails_unusedPermissionDetails(TypedDict, closed=True):
     unusedPermissionDetails: (
         "aws_sdk_accessanalyzer.types.unused_permission_details.UnusedPermissionDetails"
     )
 
 
-class _FindingDetails_unusedIamUserAccessKeyDetails(TypedDict):
+class _FindingDetails_unusedIamUserAccessKeyDetails(TypedDict, closed=True):
     unusedIamUserAccessKeyDetails: "aws_sdk_accessanalyzer.types.unused_iam_user_access_key_details.UnusedIamUserAccessKeyDetails"
 
 
-class _FindingDetails_unusedIamRoleDetails(TypedDict):
+class _FindingDetails_unusedIamRoleDetails(TypedDict, closed=True):
     unusedIamRoleDetails: (
         "aws_sdk_accessanalyzer.types.unused_iam_role_details.UnusedIamRoleDetails"
     )
 
 
-class _FindingDetails_unusedIamUserPasswordDetails(TypedDict):
+class _FindingDetails_unusedIamUserPasswordDetails(TypedDict, closed=True):
     unusedIamUserPasswordDetails: "aws_sdk_accessanalyzer.types.unused_iam_user_password_details.UnusedIamUserPasswordDetails"
 
 

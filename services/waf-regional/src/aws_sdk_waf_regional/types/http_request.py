@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#HTTPRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.country
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.uri_string
 
 
-class HTTPRequest(TypedDict):
+class HTTPRequest(TypedDict, closed=True):
     client_ip: NotRequired["aws_sdk_waf_regional.types.ip_string.IPString"]
     """<p>The IP address that the request originated from. If the <code>WebACL</code> is associated with a CloudFront distribution, this is the value of one of the following fields in CloudFront access logs:</p> <ul> <li> <p> <code>c-ip</code>, if the viewer did not use an HTTP proxy or a load balancer to send the request</p> </li> <li> <p> <code>x-forwarded-for</code>, if the viewer did use an HTTP proxy or a load balancer to send the request</p> </li> </ul>"""
     country: NotRequired["aws_sdk_waf_regional.types.country.Country"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ServiceLimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError, ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.limit_name
 
 
-class ServiceLimitExceededException_(TypedDict):
+class ServiceLimitExceededException_(TypedDict, closed=True):
     limit_name: NotRequired["aws_sdk_dataexchange.types.limit_name.LimitName"]
     """<p>The name of the limit that was reached.</p>"""
     limit_value: "aws_sdk_dataexchange.types.__double.__double"

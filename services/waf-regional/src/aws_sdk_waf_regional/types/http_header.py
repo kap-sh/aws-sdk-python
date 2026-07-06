@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#HTTPHeader``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.header_name
     import aws_sdk_waf_regional.types.header_value
 
 
-class HTTPHeader(TypedDict):
+class HTTPHeader(TypedDict, closed=True):
     name: NotRequired["aws_sdk_waf_regional.types.header_name.HeaderName"]
     """<p>The name of one of the headers in the sampled web request.</p>"""
     value: NotRequired["aws_sdk_waf_regional.types.header_value.HeaderValue"]

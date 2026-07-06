@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SuggestModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.suggestions
 
 
-class SuggestModel(TypedDict):
+class SuggestModel(TypedDict, closed=True):
     query: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The query string specified in the suggest request.</p>"""
     found: "aws_sdk_cloudsearch_domain.types.long.Long"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ListDeploymentsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.next_token
 
 
-class ListDeploymentsInput(TypedDict):
+class ListDeploymentsInput(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_launch_wizard.types.deployment_filter_list.DeploymentFilterList"
     ]

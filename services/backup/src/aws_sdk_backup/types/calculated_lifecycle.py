@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CalculatedLifecycle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class CalculatedLifecycle(TypedDict):
+class CalculatedLifecycle(TypedDict, closed=True):
     move_to_cold_storage_at: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]
     """<p>A timestamp that specifies when to transition a recovery point to cold storage.</p>"""
     delete_at: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]

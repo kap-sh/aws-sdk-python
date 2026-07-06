@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#FederationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.attribute_map
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.urn
 
 
-class FederationParameters(TypedDict):
+class FederationParameters(TypedDict, closed=True):
     saml_metadata_document: NotRequired[
         "aws_sdk_finspace.types.saml_metadata_document.SamlMetadataDocument"
     ]

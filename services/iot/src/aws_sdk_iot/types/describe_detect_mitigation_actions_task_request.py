@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeDetectMitigationActionsTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.mitigation_actions_task_id
 
 
-class DescribeDetectMitigationActionsTaskRequest(TypedDict):
+class DescribeDetectMitigationActionsTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.mitigation_actions_task_id.MitigationActionsTaskId"
     """<p> The unique identifier of the task. </p>"""
 

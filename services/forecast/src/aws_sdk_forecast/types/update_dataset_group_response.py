@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#UpdateDatasetGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateDatasetGroupResponse(TypedDict):
+class UpdateDatasetGroupResponse(TypedDict, closed=True):
     pass
 
 

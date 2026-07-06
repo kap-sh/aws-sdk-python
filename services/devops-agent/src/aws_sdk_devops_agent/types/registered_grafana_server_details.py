@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredGrafanaServerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.mcp_server_endpoint
 
 
-class RegisteredGrafanaServerDetails(TypedDict):
+class RegisteredGrafanaServerDetails(TypedDict, closed=True):
     endpoint: "aws_sdk_devops_agent.types.mcp_server_endpoint.MCPServerEndpoint"
     """<p>Grafana instance URL (e.g., https://your-instance.grafana.net)</p>"""
     authorization_method: "aws_sdk_devops_agent.types.mcp_server_authorization_method.MCPServerAuthorizationMethod"

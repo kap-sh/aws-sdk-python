@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CloseCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_status
 
 
-class CloseCaseResponse(TypedDict):
+class CloseCaseResponse(TypedDict, closed=True):
     case_status: NotRequired["aws_sdk_security_ir.types.case_status.CaseStatus"]
     """<p>A response element providing responses for requests to CloseCase. This element responds <code>Closed </code> if successful. </p>"""
     closed_date: NotRequired["datetime.datetime"]

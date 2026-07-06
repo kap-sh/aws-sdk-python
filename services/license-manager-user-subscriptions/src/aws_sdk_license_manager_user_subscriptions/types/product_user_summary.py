@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#ProductUserSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.identity_provider
 
 
-class ProductUserSummary(TypedDict):
+class ProductUserSummary(TypedDict, closed=True):
     username: "str"
     """<p>The user name from the identity provider for this product user.</p>"""
     product: "str"

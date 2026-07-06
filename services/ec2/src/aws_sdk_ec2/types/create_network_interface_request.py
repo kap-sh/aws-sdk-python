@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateNetworkInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class CreateNetworkInterfaceRequest(TypedDict):
+class CreateNetworkInterfaceRequest(TypedDict, closed=True):
     ipv4_prefixes: NotRequired["aws_sdk_ec2.types.ipv4_prefix_list.Ipv4PrefixList"]
     """<p>The IPv4 prefixes assigned to the network interface.</p> <p>You can't specify IPv4 prefixes if you've specified one of the following: a count of IPv4 prefixes, specific private IPv4 addresses, or a count of private IPv4 addresses.</p>"""
     ipv4_prefix_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]

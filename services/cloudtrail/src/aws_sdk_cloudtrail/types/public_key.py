@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#PublicKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.byte_buffer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class PublicKey(TypedDict):
+class PublicKey(TypedDict, closed=True):
     value: NotRequired["aws_sdk_cloudtrail.types.byte_buffer.ByteBuffer"]
     """<p>The DER encoded public key value in PKCS#1 format.</p>"""
     validity_start_time: NotRequired["aws_sdk_cloudtrail.types.date.Date"]

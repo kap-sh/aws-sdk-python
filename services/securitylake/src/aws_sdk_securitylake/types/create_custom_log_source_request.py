@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#CreateCustomLogSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.ocsf_event_class_list
 
 
-class CreateCustomLogSourceRequest(TypedDict):
+class CreateCustomLogSourceRequest(TypedDict, closed=True):
     source_name: "aws_sdk_securitylake.types.custom_log_source_name.CustomLogSourceName"
     """<p>Specify the name for a third-party custom source. This must be a Regionally unique value. The <code>sourceName</code> you enter here, is used in the <code>LogProviderRole</code> name which follows the convention <code>AmazonSecurityLake-Provider-{name of the custom source}-{region}</code>. You must use a <code>CustomLogSource</code> name that is shorter than or equal to 20 characters. This ensures that the <code>LogProviderRole</code> name is below the 64 character limit.</p>"""
     source_version: NotRequired[

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#SummaryMetricsResult``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SummaryMetricsResult(TypedDict):
+class SummaryMetricsResult(TypedDict, closed=True):
     savings_percentage: NotRequired["str"]
     """<p>The savings percentage based on your Amazon Web Services spend over the past 30 days.</p> <note> <p>Savings percentage is only supported when filtering by Region, account ID, or tags.</p> </note>"""
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#CloudWatchEventsExecutionDataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.included_details
 
 
-class CloudWatchEventsExecutionDataDetails(TypedDict):
+class CloudWatchEventsExecutionDataDetails(TypedDict, closed=True):
     included: "aws_sdk_sfn.types.included_details.includedDetails"
     """<p>Indicates whether input or output was included in the response. Always <code>true</code> for API calls. </p>"""
 

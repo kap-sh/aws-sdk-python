@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#StorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.fsx_storage_configuration
 
 
-class _StorageConfiguration_efs(TypedDict):
+class _StorageConfiguration_efs(TypedDict, closed=True):
     efs: "aws_sdk_m2.types.efs_storage_configuration.EfsStorageConfiguration"
 
 
-class _StorageConfiguration_fsx(TypedDict):
+class _StorageConfiguration_fsx(TypedDict, closed=True):
     fsx: "aws_sdk_m2.types.fsx_storage_configuration.FsxStorageConfiguration"
 
 

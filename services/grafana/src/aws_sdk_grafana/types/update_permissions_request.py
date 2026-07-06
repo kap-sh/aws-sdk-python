@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#UpdatePermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class UpdatePermissionsRequest(TypedDict):
+class UpdatePermissionsRequest(TypedDict, closed=True):
     update_instruction_batch: (
         "aws_sdk_grafana.types.update_instruction_batch.UpdateInstructionBatch"
     )

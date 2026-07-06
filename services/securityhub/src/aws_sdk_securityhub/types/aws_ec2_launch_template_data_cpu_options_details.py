@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataCpuOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
 
 
-class AwsEc2LaunchTemplateDataCpuOptionsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataCpuOptionsDetails(TypedDict, closed=True):
     core_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p> The number of CPU cores for the instance. </p>"""
     threads_per_core: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

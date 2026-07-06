@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#CreateAccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.tags
 
 
-class CreateAccessPointRequest(TypedDict):
+class CreateAccessPointRequest(TypedDict, closed=True):
     client_token: "aws_sdk_efs.types.client_token.ClientToken"
     """<p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>"""
     tags: NotRequired["aws_sdk_efs.types.tags.Tags"]

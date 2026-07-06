@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#TypedLinkFacetAttributeUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.update_action_type
 
 
-class TypedLinkFacetAttributeUpdate(TypedDict):
+class TypedLinkFacetAttributeUpdate(TypedDict, closed=True):
     attribute: "aws_sdk_clouddirectory.types.typed_link_attribute_definition.TypedLinkAttributeDefinition"
     """<p>The attribute to update.</p>"""
     action: "aws_sdk_clouddirectory.types.update_action_type.UpdateActionType"

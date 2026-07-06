@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AddonNamespaceConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.namespace
 
 
-class AddonNamespaceConfigResponse(TypedDict):
+class AddonNamespaceConfigResponse(TypedDict, closed=True):
     namespace: NotRequired["aws_sdk_eks.types.namespace.namespace"]
     """<p>The name of the Kubernetes namespace where the addon is installed.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetOdbPeeringConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.odb_peering_connection
 
 
-class GetOdbPeeringConnectionOutput(TypedDict):
+class GetOdbPeeringConnectionOutput(TypedDict, closed=True):
     odb_peering_connection: NotRequired[
         "aws_sdk_odb.types.odb_peering_connection.OdbPeeringConnection"
     ]

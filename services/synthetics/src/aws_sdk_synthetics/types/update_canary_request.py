@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#UpdateCanaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.artifact_config_input
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.vpc_config_input
 
 
-class UpdateCanaryRequest(TypedDict):
+class UpdateCanaryRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.canary_name.CanaryName"
     r"""<p>The name of the canary that you want to update. To find the names of your canaries, use <a href=\"https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_DescribeCanaries.html\">DescribeCanaries</a>.</p> <p>You cannot change the name of a canary that has already been created.</p>"""
     code: NotRequired["aws_sdk_synthetics.types.canary_code_input.CanaryCodeInput"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ZonalShiftConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
 
 
-class ZonalShiftConfigRequest(TypedDict):
+class ZonalShiftConfigRequest(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]
     """<p>If zonal shift is enabled, Amazon Web Services configures zonal autoshift for the cluster.</p>"""
 

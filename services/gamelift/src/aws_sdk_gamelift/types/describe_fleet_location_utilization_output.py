@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeFleetLocationUtilizationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_utilization
 
 
-class DescribeFleetLocationUtilizationOutput(TypedDict):
+class DescribeFleetLocationUtilizationOutput(TypedDict, closed=True):
     fleet_utilization: NotRequired[
         "aws_sdk_gamelift.types.fleet_utilization.FleetUtilization"
     ]

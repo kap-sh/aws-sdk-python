@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ExtensionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.extension_field_value
 
 
-class ExtensionField(TypedDict):
+class ExtensionField(TypedDict, closed=True):
     name: "aws_sdk_ses.types.extension_field_name.ExtensionFieldName"
     """<p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>"""
     value: "aws_sdk_ses.types.extension_field_value.ExtensionFieldValue"

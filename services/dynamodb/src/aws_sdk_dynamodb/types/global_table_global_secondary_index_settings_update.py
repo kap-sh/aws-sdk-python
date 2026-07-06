@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GlobalTableGlobalSecondaryIndexSettingsUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_long_object
 
 
-class GlobalTableGlobalSecondaryIndexSettingsUpdate(TypedDict):
+class GlobalTableGlobalSecondaryIndexSettingsUpdate(TypedDict, closed=True):
     index_name: "aws_sdk_dynamodb.types.index_name.IndexName"
     """<p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>"""
     provisioned_write_capacity_units: NotRequired[

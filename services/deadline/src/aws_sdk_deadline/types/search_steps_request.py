@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SearchStepsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.search_sort_expressions
 
 
-class SearchStepsRequest(TypedDict):
+class SearchStepsRequest(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID to use for the step search.</p>"""
     filter_expressions: NotRequired[

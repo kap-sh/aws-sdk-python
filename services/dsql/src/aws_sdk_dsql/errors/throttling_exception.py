@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     """<p>The message that the request was denied due to request throttling.</p>"""
     service_code: NotRequired["str"]

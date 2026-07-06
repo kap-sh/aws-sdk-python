@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CreateCertificateAuthorityAuditReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.audit_report_id
     import aws_sdk_acm_pca.types.s3_key
 
 
-class CreateCertificateAuthorityAuditReportResponse(TypedDict):
+class CreateCertificateAuthorityAuditReportResponse(TypedDict, closed=True):
     audit_report_id: NotRequired["aws_sdk_acm_pca.types.audit_report_id.AuditReportId"]
     """<p>An alphanumeric string that contains a report identifier.</p>"""
     s3_key: NotRequired["aws_sdk_acm_pca.types.s3_key.S3Key"]

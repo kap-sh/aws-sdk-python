@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ListRepositoriesInDomainResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.pagination_token
     import aws_sdk_codeartifact.types.repository_summary_list
 
 
-class ListRepositoriesInDomainResult(TypedDict):
+class ListRepositoriesInDomainResult(TypedDict, closed=True):
     repositories: NotRequired[
         "aws_sdk_codeartifact.types.repository_summary_list.RepositorySummaryList"
     ]

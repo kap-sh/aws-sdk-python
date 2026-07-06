@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspaceBundlesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.bundle_list
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeWorkspaceBundlesResult(TypedDict):
+class DescribeWorkspaceBundlesResult(TypedDict, closed=True):
     bundles: NotRequired["aws_sdk_workspaces.types.bundle_list.BundleList"]
     """<p>Information about the bundles.</p>"""
     next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]

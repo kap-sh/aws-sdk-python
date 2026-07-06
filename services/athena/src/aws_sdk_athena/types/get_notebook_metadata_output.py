@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetNotebookMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.notebook_metadata
 
 
-class GetNotebookMetadataOutput(TypedDict):
+class GetNotebookMetadataOutput(TypedDict, closed=True):
     notebook_metadata: NotRequired[
         "aws_sdk_athena.types.notebook_metadata.NotebookMetadata"
     ]

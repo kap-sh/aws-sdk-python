@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#KmsGrantConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.kms_constraints_map
 
 
-class KmsGrantConstraints(TypedDict):
+class KmsGrantConstraints(TypedDict, closed=True):
     encryption_context_equals: NotRequired[
         "aws_sdk_accessanalyzer.types.kms_constraints_map.KmsConstraintsMap"
     ]

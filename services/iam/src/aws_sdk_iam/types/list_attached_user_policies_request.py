@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListAttachedUserPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class ListAttachedUserPoliciesRequest(TypedDict):
+class ListAttachedUserPoliciesRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     r"""<p>The name (friendly name, not ARN) of the user to list attached policies for.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     path_prefix: NotRequired["aws_sdk_iam.types.policy_path_type.policyPathType"]

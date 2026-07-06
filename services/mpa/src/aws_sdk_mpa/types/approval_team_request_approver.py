@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ApprovalTeamRequestApprover``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class ApprovalTeamRequestApprover(TypedDict):
+class ApprovalTeamRequestApprover(TypedDict, closed=True):
     primary_identity_id: "aws_sdk_mpa.types.identity_id.IdentityId"
     """<p>ID for the user.</p>"""
     primary_identity_source_arn: "aws_sdk_mpa.types.string.String"

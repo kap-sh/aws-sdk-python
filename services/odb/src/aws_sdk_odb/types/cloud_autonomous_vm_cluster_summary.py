@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CloudAutonomousVmClusterSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class CloudAutonomousVmClusterSummary(TypedDict):
+class CloudAutonomousVmClusterSummary(TypedDict, closed=True):
     cloud_autonomous_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId"
     """<p>The unique identifier of the Autonomous VM cluster.</p>"""
     cloud_autonomous_vm_cluster_arn: NotRequired["str"]

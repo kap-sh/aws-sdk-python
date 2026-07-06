@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#BatchDeleteImportDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.to_delete_identifier_list
 
 
-class BatchDeleteImportDataRequest(TypedDict):
+class BatchDeleteImportDataRequest(TypedDict, closed=True):
     import_task_ids: "aws_sdk_application_discovery_service.types.to_delete_identifier_list.ToDeleteIdentifierList"
     """<p>The IDs for the import tasks that you want to delete.</p>"""
     delete_history: "aws_sdk_application_discovery_service.types.boolean.Boolean"

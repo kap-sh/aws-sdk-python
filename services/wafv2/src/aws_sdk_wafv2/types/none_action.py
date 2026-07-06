@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#NoneAction``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class NoneAction(TypedDict):
+class NoneAction(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#ListSourceViewsForBillingViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.page_token
 
 
-class ListSourceViewsForBillingViewResponse(TypedDict):
+class ListSourceViewsForBillingViewResponse(TypedDict, closed=True):
     source_views: "aws_sdk_billing.types.billing_view_source_views_list.BillingViewSourceViewsList"
     """<p>A list of billing views used as the data source for the custom billing view. </p>"""
     next_token: NotRequired["aws_sdk_billing.types.page_token.PageToken"]

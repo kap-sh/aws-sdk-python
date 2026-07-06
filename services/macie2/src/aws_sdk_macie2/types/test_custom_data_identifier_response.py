@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#TestCustomDataIdentifierResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__integer
 
 
-class TestCustomDataIdentifierResponse(TypedDict):
+class TestCustomDataIdentifierResponse(TypedDict, closed=True):
     match_count: NotRequired["aws_sdk_macie2.types.__integer.__integer"]
     """<p>The number of occurrences of sample text that matched the criteria specified by the custom data identifier.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#QuoteOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.capacity_summary
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.quote_specification_list
 
 
-class QuoteOption(TypedDict):
+class QuoteOption(TypedDict, closed=True):
     quote_option_identifier: NotRequired[
         "aws_sdk_outposts.types.quote_option_identifier.QuoteOptionIdentifier"
     ]

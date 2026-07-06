@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CreateAssetModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.tag_map
 
 
-class CreateAssetModelRequest(TypedDict):
+class CreateAssetModelRequest(TypedDict, closed=True):
     asset_model_name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>A unique name for the asset model.</p>"""
     asset_model_type: NotRequired[

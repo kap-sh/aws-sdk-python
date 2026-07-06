@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsApiGatewayMethodSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsApiGatewayMethodSettings(TypedDict):
+class AwsApiGatewayMethodSettings(TypedDict, closed=True):
     metrics_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether CloudWatch metrics are enabled for the method. </p>"""
     logging_level: NotRequired[

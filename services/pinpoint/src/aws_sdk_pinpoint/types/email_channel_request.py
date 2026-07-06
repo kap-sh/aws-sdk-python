@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EmailChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
     import aws_sdk_pinpoint.types.__string
 
 
-class EmailChannelRequest(TypedDict):
+class EmailChannelRequest(TypedDict, closed=True):
     configuration_set: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     r"""<p>The <a href=\"https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html\">Amazon SES configuration set</a> that you want to apply to messages that you send through the channel.</p>"""
     enabled: NotRequired["aws_sdk_pinpoint.types.__boolean.__boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GetRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.recommendation_trigger_list
 
 
-class GetRecommendationsResponse(TypedDict):
+class GetRecommendationsResponse(TypedDict, closed=True):
     recommendations: "aws_sdk_qconnect.types.recommendation_list.RecommendationList"
     """<p>The recommendations.</p>"""
     triggers: NotRequired[

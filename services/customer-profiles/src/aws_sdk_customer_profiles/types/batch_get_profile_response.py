@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#BatchGetProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.batch_get_profile_error_list
     import aws_sdk_customer_profiles.types.profile_list
 
 
-class BatchGetProfileResponse(TypedDict):
+class BatchGetProfileResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_customer_profiles.types.batch_get_profile_error_list.BatchGetProfileErrorList"
     ]

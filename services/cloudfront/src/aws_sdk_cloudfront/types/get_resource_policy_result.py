@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#GetResourcePolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class GetResourcePolicyResult(TypedDict):
+class GetResourcePolicyResult(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>The Amazon Resource Name (ARN) of the CloudFront resource that is associated with the resource policy.</p>"""
     policy_document: NotRequired["aws_sdk_cloudfront.types.string.string"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ListRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListRequest(TypedDict):
+class ListRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>"""
     page_size: NotRequired["int"]

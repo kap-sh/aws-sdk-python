@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#StartArchiveExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.export_id
 
 
-class StartArchiveExportResponse(TypedDict):
+class StartArchiveExportResponse(TypedDict, closed=True):
     export_id: NotRequired["aws_sdk_mailmanager.types.export_id.ExportId"]
     """<p>The unique identifier for the initiated export job.</p>"""
 

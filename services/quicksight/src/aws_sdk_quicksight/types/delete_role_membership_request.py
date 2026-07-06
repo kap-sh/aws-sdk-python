@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteRoleMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role
 
 
-class DeleteRoleMembershipRequest(TypedDict):
+class DeleteRoleMembershipRequest(TypedDict, closed=True):
     member_name: "aws_sdk_quicksight.types.group_name.GroupName"
     """<p>The name of the group.</p>"""
     role: "aws_sdk_quicksight.types.role.Role"

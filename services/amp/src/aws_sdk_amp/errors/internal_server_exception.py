@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.amp#InternalServerException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
     """<p>Description of the error.</p>"""
     retry_after_seconds: NotRequired["int"]

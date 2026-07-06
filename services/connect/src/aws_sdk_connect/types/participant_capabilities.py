@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ParticipantCapabilities``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.screen_share_capability
     import aws_sdk_connect.types.video_capability
 
 
-class ParticipantCapabilities(TypedDict):
+class ParticipantCapabilities(TypedDict, closed=True):
     video: NotRequired["aws_sdk_connect.types.video_capability.VideoCapability"]
     """<p>The configuration having the video and screen sharing capabilities for participants over the call.</p>"""
     screen_share: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListReportGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.page_size
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ListReportGroupsInput(TypedDict):
+class ListReportGroupsInput(TypedDict, closed=True):
     sort_order: NotRequired["aws_sdk_codebuild.types.sort_order_type.SortOrderType"]
     """<p> Used to specify the order to sort the list of returned report groups. Valid values are <code>ASCENDING</code> and <code>DESCENDING</code>. </p>"""
     sort_by: NotRequired[

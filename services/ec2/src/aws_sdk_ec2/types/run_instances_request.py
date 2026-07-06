@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RunInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class RunInstancesRequest(TypedDict):
+class RunInstancesRequest(TypedDict, closed=True):
     block_device_mappings: NotRequired[
         "aws_sdk_ec2.types.block_device_mapping_request_list.BlockDeviceMappingRequestList"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DeleteSshPublicKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_name
 
 
-class DeleteSshPublicKeyRequest(TypedDict):
+class DeleteSshPublicKeyRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>A system-assigned unique identifier for a file transfer protocol-enabled server instance that has the user assigned to it.</p>"""
     ssh_public_key_id: "aws_sdk_transfer.types.ssh_public_key_id.SshPublicKeyId"

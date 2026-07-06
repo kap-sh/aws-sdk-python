@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any
+from typing import Any, cast
 
 import zapros
 from typing_extensions import Never
@@ -144,7 +144,7 @@ def build_request(
         headers["x-amz-content-sha256"] = str(input_["asset_sha256"])
     body = input_["asset_content"]
     if isinstance(body, aws_sdk_codeartifact._iter.StaticAnyIterator):
-        body = body.content
+        body = cast(bytes, body.content)
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

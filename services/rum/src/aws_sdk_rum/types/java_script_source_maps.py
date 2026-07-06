@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#JavaScriptSourceMaps``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.deobfuscation_status
 
 
-class JavaScriptSourceMaps(TypedDict):
+class JavaScriptSourceMaps(TypedDict, closed=True):
     status: "aws_sdk_rum.types.deobfuscation_status.DeobfuscationStatus"
     """<p> Specifies whether JavaScript error stack traces should be unminified for this app monitor. The default is for JavaScript error stack trace unminification to be <code>DISABLED</code>. </p>"""
     s3_uri: NotRequired["aws_sdk_rum.types.deobfuscation_s3_uri.DeobfuscationS3Uri"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentAttributeBoostingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,25 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string_list_attribute_boosting_configuration
 
 
-class _DocumentAttributeBoostingConfiguration_numberConfiguration(TypedDict):
+class _DocumentAttributeBoostingConfiguration_numberConfiguration(
+    TypedDict, closed=True
+):
     numberConfiguration: "aws_sdk_qbusiness.types.number_attribute_boosting_configuration.NumberAttributeBoostingConfiguration"
 
 
-class _DocumentAttributeBoostingConfiguration_stringConfiguration(TypedDict):
+class _DocumentAttributeBoostingConfiguration_stringConfiguration(
+    TypedDict, closed=True
+):
     stringConfiguration: "aws_sdk_qbusiness.types.string_attribute_boosting_configuration.StringAttributeBoostingConfiguration"
 
 
-class _DocumentAttributeBoostingConfiguration_dateConfiguration(TypedDict):
+class _DocumentAttributeBoostingConfiguration_dateConfiguration(TypedDict, closed=True):
     dateConfiguration: "aws_sdk_qbusiness.types.date_attribute_boosting_configuration.DateAttributeBoostingConfiguration"
 
 
-class _DocumentAttributeBoostingConfiguration_stringListConfiguration(TypedDict):
+class _DocumentAttributeBoostingConfiguration_stringListConfiguration(
+    TypedDict, closed=True
+):
     stringListConfiguration: "aws_sdk_qbusiness.types.string_list_attribute_boosting_configuration.StringListAttributeBoostingConfiguration"
 
 

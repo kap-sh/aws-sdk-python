@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RevokeSubscriptionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.subscription_id
 
 
-class RevokeSubscriptionInput(TypedDict):
+class RevokeSubscriptionInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>"""
     identifier: "aws_sdk_datazone.types.subscription_id.SubscriptionId"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelExplainabilityJobDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListModelExplainabilityJobDefinitionsRequest(TypedDict):
+class ListModelExplainabilityJobDefinitionsRequest(TypedDict, closed=True):
     endpoint_name: NotRequired["aws_sdk_sagemaker.types.endpoint_name.EndpointName"]
     """<p>Name of the endpoint to monitor for model explainability.</p>"""
     sort_by: NotRequired[

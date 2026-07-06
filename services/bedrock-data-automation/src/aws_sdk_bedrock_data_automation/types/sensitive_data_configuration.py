@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#SensitiveDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.sensitive_data_detection_scope
 
 
-class SensitiveDataConfiguration(TypedDict):
+class SensitiveDataConfiguration(TypedDict, closed=True):
     detection_mode: "aws_sdk_bedrock_data_automation.types.sensitive_data_detection_mode.SensitiveDataDetectionMode"
     """Mode for sensitive data detection"""
     detection_scope: NotRequired[

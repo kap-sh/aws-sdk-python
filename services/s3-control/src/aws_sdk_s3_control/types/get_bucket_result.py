@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#GetBucketResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.public_access_block_enabled
 
 
-class GetBucketResult(TypedDict):
+class GetBucketResult(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_s3_control.types.bucket_name.BucketName"]
     """<p>The Outposts bucket requested.</p>"""
     public_access_block_enabled: (

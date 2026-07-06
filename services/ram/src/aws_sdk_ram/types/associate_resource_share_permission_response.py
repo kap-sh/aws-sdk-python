@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#AssociateResourceSharePermissionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.boolean
     import aws_sdk_ram.types.string
 
 
-class AssociateResourceSharePermissionResponse(TypedDict):
+class AssociateResourceSharePermissionResponse(TypedDict, closed=True):
     return_value: NotRequired["aws_sdk_ram.types.boolean.Boolean"]
     """<p>A return value of <code>true</code> indicates that the request succeeded. A value of <code>false</code> indicates that the request failed.</p>"""
     client_token: NotRequired["aws_sdk_ram.types.string.String"]

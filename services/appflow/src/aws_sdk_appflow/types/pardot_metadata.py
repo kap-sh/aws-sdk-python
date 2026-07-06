@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#PardotMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PardotMetadata(TypedDict):
+class PardotMetadata(TypedDict, closed=True):
     pass
 
 

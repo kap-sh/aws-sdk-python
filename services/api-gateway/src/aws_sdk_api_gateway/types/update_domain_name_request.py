@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#UpdateDomainNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_patch_operation
     import aws_sdk_api_gateway.types.string
 
 
-class UpdateDomainNameRequest(TypedDict):
+class UpdateDomainNameRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_api_gateway.types.string.String"
     """<p>The name of the DomainName resource to be changed.</p>"""
     domain_name_id: NotRequired["aws_sdk_api_gateway.types.string.String"]

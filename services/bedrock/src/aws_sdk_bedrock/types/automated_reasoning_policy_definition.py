@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_rule_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_format_version
 
 
-class AutomatedReasoningPolicyDefinition(TypedDict):
+class AutomatedReasoningPolicyDefinition(TypedDict, closed=True):
     version: "aws_sdk_bedrock.types.automated_reasoning_policy_format_version.AutomatedReasoningPolicyFormatVersion"
     """<p>The version of the policy definition format.</p>"""
     types: NotRequired[

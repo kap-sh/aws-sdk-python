@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListComponentOutputsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
 
 
-class ListComponentOutputsInput(TypedDict):
+class ListComponentOutputsInput(TypedDict, closed=True):
     component_name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the component whose outputs you want.</p>"""
     next_token: NotRequired["aws_sdk_proton.types.empty_next_token.EmptyNextToken"]

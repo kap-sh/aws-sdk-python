@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ActivateGatewayInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_drive_type
 
 
-class ActivateGatewayInput(TypedDict):
+class ActivateGatewayInput(TypedDict, closed=True):
     activation_key: "aws_sdk_storage_gateway.types.activation_key.ActivationKey"
     r"""<p>Your gateway activation key. You can obtain the activation key by sending an HTTP GET request with redirects enabled to the gateway IP address (port 80). The redirect URL returned in the response provides you the activation key for your gateway in the query string parameter <code>activationKey</code>. It may also include other activation-related parameters, however, these are merely defaults -- the arguments you pass to the <code>ActivateGateway</code> API call determine the actual configuration of your gateway.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html\">Getting activation key</a> in the <i>Storage Gateway User Guide</i>.</p>"""
     gateway_name: "aws_sdk_storage_gateway.types.gateway_name.GatewayName"

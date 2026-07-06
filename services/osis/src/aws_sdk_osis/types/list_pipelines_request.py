@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.osis#ListPipelinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.max_results
     import aws_sdk_osis.types.next_token
 
 
-class ListPipelinesRequest(TypedDict):
+class ListPipelinesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_osis.types.max_results.MaxResults"]
     """<p>An optional parameter that specifies the maximum number of results to return. You can use <code>nextToken</code> to get the next page of results.</p>"""
     next_token: NotRequired["aws_sdk_osis.types.next_token.NextToken"]

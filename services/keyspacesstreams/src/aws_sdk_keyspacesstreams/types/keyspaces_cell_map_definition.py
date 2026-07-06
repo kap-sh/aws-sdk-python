@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#KeyspacesCellMapDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.keyspaces_cell_value
     import aws_sdk_keyspacesstreams.types.keyspaces_metadata
 
 
-class KeyspacesCellMapDefinition(TypedDict):
+class KeyspacesCellMapDefinition(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_keyspacesstreams.types.keyspaces_cell_value.KeyspacesCellValue"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ApplicationAssociationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
     import aws_sdk_appintegrations.types.client_id
 
 
-class ApplicationAssociationSummary(TypedDict):
+class ApplicationAssociationSummary(TypedDict, closed=True):
     application_association_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Application Association.</p>"""
     application_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]

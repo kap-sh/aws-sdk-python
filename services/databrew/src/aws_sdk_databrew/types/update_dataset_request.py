@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#UpdateDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.path_options
 
 
-class UpdateDatasetRequest(TypedDict):
+class UpdateDatasetRequest(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.dataset_name.DatasetName"
     """<p>The name of the dataset to be updated.</p>"""
     format: NotRequired["aws_sdk_databrew.types.input_format.InputFormat"]

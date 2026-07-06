@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListPluginTypeMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.list_plugin_type_metadata_summaries
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListPluginTypeMetadataResponse(TypedDict):
+class ListPluginTypeMetadataResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]
     """<p>If the response is truncated, Amazon Q Business returns this token, which you can use in a later request to list the next set of plugin metadata.</p>"""
     items: NotRequired[

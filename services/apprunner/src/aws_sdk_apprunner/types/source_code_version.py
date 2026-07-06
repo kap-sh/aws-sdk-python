@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#SourceCodeVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.string
 
 
-class SourceCodeVersion(TypedDict):
+class SourceCodeVersion(TypedDict, closed=True):
     type: "aws_sdk_apprunner.types.source_code_version_type.SourceCodeVersionType"
     """<p>The type of version identifier.</p> <p>For a git-based repository, branches represent versions.</p>"""
     value: "aws_sdk_apprunner.types.string.String"

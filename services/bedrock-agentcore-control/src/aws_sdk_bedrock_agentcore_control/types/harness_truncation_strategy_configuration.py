@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessTruncationStrategyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.harness_summarization_configuration
 
 
-class _HarnessTruncationStrategyConfiguration_slidingWindow(TypedDict):
+class _HarnessTruncationStrategyConfiguration_slidingWindow(TypedDict, closed=True):
     slidingWindow: "aws_sdk_bedrock_agentcore_control.types.harness_sliding_window_configuration.HarnessSlidingWindowConfiguration"
 
 
-class _HarnessTruncationStrategyConfiguration_summarization(TypedDict):
+class _HarnessTruncationStrategyConfiguration_summarization(TypedDict, closed=True):
     summarization: "aws_sdk_bedrock_agentcore_control.types.harness_summarization_configuration.HarnessSummarizationConfiguration"
 
 

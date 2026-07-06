@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#LandingZoneDriftStatusSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.landing_zone_drift_status
 
 
-class LandingZoneDriftStatusSummary(TypedDict):
+class LandingZoneDriftStatusSummary(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_controltower.types.landing_zone_drift_status.LandingZoneDriftStatus"
     ]

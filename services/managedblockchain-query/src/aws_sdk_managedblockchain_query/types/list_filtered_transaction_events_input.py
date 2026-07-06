@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ListFilteredTransactionEventsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.vout_filter
 
 
-class ListFilteredTransactionEventsInput(TypedDict):
+class ListFilteredTransactionEventsInput(TypedDict, closed=True):
     network: "str"
     """<p>The blockchain network where the transaction occurred.</p> <p>Valid Values: <code>BITCOIN_MAINNET</code> | <code>BITCOIN_TESTNET</code> </p>"""
     address_identifier_filter: "aws_sdk_managedblockchain_query.types.address_identifier_filter.AddressIdentifierFilter"

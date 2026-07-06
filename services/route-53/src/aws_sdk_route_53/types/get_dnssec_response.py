@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GetDNSSECResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.key_signing_keys
 
 
-class GetDNSSECResponse(TypedDict):
+class GetDNSSECResponse(TypedDict, closed=True):
     status: "aws_sdk_route_53.types.dnssec_status.DNSSECStatus"
     """<p>A string representing the status of DNSSEC.</p>"""
     key_signing_keys: "aws_sdk_route_53.types.key_signing_keys.KeySigningKeys"

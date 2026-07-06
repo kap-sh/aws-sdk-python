@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageContentBlockDelta``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.send_message_text_delta
 
 
-class _SendMessageContentBlockDelta_textDelta(TypedDict):
+class _SendMessageContentBlockDelta_textDelta(TypedDict, closed=True):
     textDelta: "aws_sdk_devops_agent.types.send_message_text_delta.SendMessageTextDelta"
 
 
-class _SendMessageContentBlockDelta_jsonDelta(TypedDict):
+class _SendMessageContentBlockDelta_jsonDelta(TypedDict, closed=True):
     jsonDelta: "aws_sdk_devops_agent.types.send_message_json_delta.SendMessageJsonDelta"
 
 

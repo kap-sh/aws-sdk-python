@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#OutlierDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.outlier_detection_max_server_errors
 
 
-class OutlierDetection(TypedDict):
+class OutlierDetection(TypedDict, closed=True):
     max_server_errors: "aws_sdk_app_mesh.types.outlier_detection_max_server_errors.OutlierDetectionMaxServerErrors"
     """<p>Number of consecutive <code>5xx</code> errors required for ejection. </p>"""
     interval: "aws_sdk_app_mesh.types.duration.Duration"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetRunCacheResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.aws_account_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.user_custom_name
 
 
-class GetRunCacheResponse(TypedDict):
+class GetRunCacheResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.run_cache_arn.RunCacheArn"]
     """<p>Unique resource identifier for the run cache.</p>"""
     cache_behavior: NotRequired["aws_sdk_omics.types.cache_behavior.CacheBehavior"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ListJobsByConsumableResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.list_jobs_by_consumable_resource_summary_list
     import aws_sdk_batch.types.string
 
 
-class ListJobsByConsumableResourceResponse(TypedDict):
+class ListJobsByConsumableResourceResponse(TypedDict, closed=True):
     jobs: NotRequired[
         "aws_sdk_batch.types.list_jobs_by_consumable_resource_summary_list.ListJobsByConsumableResourceSummaryList"
     ]

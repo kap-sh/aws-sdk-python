@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2InstanceMonitoringDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2InstanceMonitoringDetails(TypedDict):
+class AwsEc2InstanceMonitoringDetails(TypedDict, closed=True):
     state: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> Indicates whether detailed monitoring is turned on. Otherwise, basic monitoring is turned on. </p>"""
 

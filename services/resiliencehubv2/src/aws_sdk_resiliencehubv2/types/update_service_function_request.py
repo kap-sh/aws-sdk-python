@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#UpdateServiceFunctionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_function_criticality
 
 
-class UpdateServiceFunctionRequest(TypedDict):
+class UpdateServiceFunctionRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     service_function_id: "aws_sdk_resiliencehubv2.types.entity_id.EntityId"
     """<p>The identifier of the service function to update.</p>"""

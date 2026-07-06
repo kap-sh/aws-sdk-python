@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#UpdateResolverRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.app_sync_runtime
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.sync_config
 
 
-class UpdateResolverRequest(TypedDict):
+class UpdateResolverRequest(TypedDict, closed=True):
     api_id: "aws_sdk_appsync.types.string.String"
     """<p>The API ID.</p>"""
     type_name: "aws_sdk_appsync.types.resource_name.ResourceName"

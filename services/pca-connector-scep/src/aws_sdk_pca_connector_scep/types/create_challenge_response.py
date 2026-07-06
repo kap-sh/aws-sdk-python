@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#CreateChallengeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.challenge
 
 
-class CreateChallengeResponse(TypedDict):
+class CreateChallengeResponse(TypedDict, closed=True):
     challenge: NotRequired["aws_sdk_pca_connector_scep.types.challenge.Challenge"]
     """<p>Returns the challenge details for the specified connector.</p>"""
 

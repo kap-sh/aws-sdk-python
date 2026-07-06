@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BrandDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.name
 
 
-class BrandDefinition(TypedDict):
+class BrandDefinition(TypedDict, closed=True):
     brand_name: "aws_sdk_quicksight.types.name.Name"
     """<p>The name of the brand.</p>"""
     description: NotRequired["aws_sdk_quicksight.types.description.Description"]

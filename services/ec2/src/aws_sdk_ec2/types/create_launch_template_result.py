@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreateLaunchTemplateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.validation_warning
 
 
-class CreateLaunchTemplateResult(TypedDict):
+class CreateLaunchTemplateResult(TypedDict, closed=True):
     launch_template: NotRequired["aws_sdk_ec2.types.launch_template.LaunchTemplate"]
     """<p>Information about the launch template.</p>"""
     warning: NotRequired["aws_sdk_ec2.types.validation_warning.ValidationWarning"]

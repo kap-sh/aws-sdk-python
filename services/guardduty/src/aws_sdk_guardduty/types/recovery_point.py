@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RecoveryPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.continuous_scan_details
     import aws_sdk_guardduty.types.string
 
 
-class RecoveryPoint(TypedDict):
+class RecoveryPoint(TypedDict, closed=True):
     backup_vault_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The name of the Amazon Web Services Backup vault that contains the name of the recovery point to be scanned.</p>"""
     continuous_scan_details: NotRequired[

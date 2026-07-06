@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#PutEventsConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.events_configuration
 
 
-class PutEventsConfigurationResponse(TypedDict):
+class PutEventsConfigurationResponse(TypedDict, closed=True):
     events_configuration: NotRequired[
         "aws_sdk_chime.types.events_configuration.EventsConfiguration"
     ]

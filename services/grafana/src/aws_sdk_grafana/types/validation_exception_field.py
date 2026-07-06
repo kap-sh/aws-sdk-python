@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field that caused the validation error.</p>"""
     message: "str"

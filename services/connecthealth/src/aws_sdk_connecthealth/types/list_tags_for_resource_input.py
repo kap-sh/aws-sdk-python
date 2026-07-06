@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ListTagsForResourceInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The ARN of the resource to list tags for</p>"""
 

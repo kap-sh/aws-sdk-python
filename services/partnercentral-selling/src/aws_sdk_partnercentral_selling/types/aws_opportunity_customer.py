@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#AwsOpportunityCustomer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.customer_contacts_list
 
 
-class AwsOpportunityCustomer(TypedDict):
+class AwsOpportunityCustomer(TypedDict, closed=True):
     contacts: NotRequired[
         "aws_sdk_partnercentral_selling.types.customer_contacts_list.CustomerContactsList"
     ]

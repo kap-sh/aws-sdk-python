@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RistRouterOutputConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
 
-class RistRouterOutputConfiguration(TypedDict):
+class RistRouterOutputConfiguration(TypedDict, closed=True):
     destination_address: "str"
     """<p>The destination IP address for the RIST protocol in the router output configuration.</p>"""
     destination_port: "int"

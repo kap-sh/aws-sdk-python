@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListTemplateSharesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.list_template_shares_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.template_arn
 
 
-class ListTemplateSharesInput(TypedDict):
+class ListTemplateSharesInput(TypedDict, closed=True):
     template_arn: "aws_sdk_wellarchitected.types.template_arn.TemplateArn"
     """<p>The review template ARN.</p>"""
     shared_with_prefix: NotRequired[

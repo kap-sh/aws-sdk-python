@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSnsTopicSubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsSnsTopicSubscription(TypedDict):
+class AwsSnsTopicSubscription(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The subscription's endpoint (format depends on the protocol).</p>"""
     protocol: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

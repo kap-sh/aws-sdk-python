@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListFiltersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.next_token
 
 
-class ListFiltersResponse(TypedDict):
+class ListFiltersResponse(TypedDict, closed=True):
     filters: "aws_sdk_inspector2.types.filter_list.FilterList"
     """<p>Contains details on the filters associated with your account.</p>"""
     next_token: NotRequired["aws_sdk_inspector2.types.next_token.NextToken"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TcpTimeout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.duration
 
 
-class TcpTimeout(TypedDict):
+class TcpTimeout(TypedDict, closed=True):
     idle: NotRequired["aws_sdk_app_mesh.types.duration.Duration"]
     """<p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>"""
 

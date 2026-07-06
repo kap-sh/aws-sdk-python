@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetCommitOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.commit
 
 
-class GetCommitOutput(TypedDict):
+class GetCommitOutput(TypedDict, closed=True):
     commit: "aws_sdk_codecommit.types.commit.Commit"
     """<p>A commit data type object that contains information about the specified commit.</p>"""
 

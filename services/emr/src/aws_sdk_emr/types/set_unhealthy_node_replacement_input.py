@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SetUnhealthyNodeReplacementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean_object
     import aws_sdk_emr.types.xml_string_list
 
 
-class SetUnhealthyNodeReplacementInput(TypedDict):
+class SetUnhealthyNodeReplacementInput(TypedDict, closed=True):
     job_flow_ids: NotRequired["aws_sdk_emr.types.xml_string_list.XmlStringList"]
     """<p>The list of strings that uniquely identify the clusters for which to turn on unhealthy node replacement. You can get these identifiers by running the <a>RunJobFlow</a> or the <a>DescribeJobFlows</a> operations.</p>"""
     unhealthy_node_replacement: NotRequired[

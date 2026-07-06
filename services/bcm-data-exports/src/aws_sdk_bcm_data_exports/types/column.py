@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#Column``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.generic_string
 
 
-class Column(TypedDict):
+class Column(TypedDict, closed=True):
     name: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]
     """<p>The column name.</p>"""
     type: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]

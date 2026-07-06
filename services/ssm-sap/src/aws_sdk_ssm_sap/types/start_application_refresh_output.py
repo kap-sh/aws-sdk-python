@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#StartApplicationRefreshOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.operation_id
 
 
-class StartApplicationRefreshOutput(TypedDict):
+class StartApplicationRefreshOutput(TypedDict, closed=True):
     operation_id: NotRequired["aws_sdk_ssm_sap.types.operation_id.OperationId"]
     """<p>The ID of the operation.</p>"""
 

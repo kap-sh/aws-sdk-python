@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#OrchestrationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.query_transformation_configuration
 
 
-class OrchestrationConfiguration(TypedDict):
+class OrchestrationConfiguration(TypedDict, closed=True):
     query_transformation_configuration: "aws_sdk_bedrock.types.query_transformation_configuration.QueryTransformationConfiguration"
     """<p>Contains configuration details for transforming the prompt.</p>"""
 

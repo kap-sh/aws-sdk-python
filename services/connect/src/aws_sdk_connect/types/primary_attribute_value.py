@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PrimaryAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.access_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.primary_value_list
 
 
-class PrimaryAttributeValue(TypedDict):
+class PrimaryAttributeValue(TypedDict, closed=True):
     access_type: NotRequired["aws_sdk_connect.types.access_type.AccessType"]
     """<p>The value's access type.</p>"""
     attribute_name: NotRequired[

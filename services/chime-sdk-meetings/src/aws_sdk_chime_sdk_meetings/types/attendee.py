@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#Attendee``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.attendee_capabilities
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.join_token_string
 
 
-class Attendee(TypedDict):
+class Attendee(TypedDict, closed=True):
     external_user_id: NotRequired[
         "aws_sdk_chime_sdk_meetings.types.external_user_id.ExternalUserId"
     ]

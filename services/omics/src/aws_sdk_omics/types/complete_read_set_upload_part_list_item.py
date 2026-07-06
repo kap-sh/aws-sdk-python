@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CompleteReadSetUploadPartListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.read_set_part_source
 
 
-class CompleteReadSetUploadPartListItem(TypedDict):
+class CompleteReadSetUploadPartListItem(TypedDict, closed=True):
     part_number: "int"
     """<p> A number identifying the part in a read set upload. </p>"""
     part_source: "aws_sdk_omics.types.read_set_part_source.ReadSetPartSource"

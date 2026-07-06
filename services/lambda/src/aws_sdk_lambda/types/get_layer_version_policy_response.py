@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetLayerVersionPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class GetLayerVersionPolicyResponse(TypedDict):
+class GetLayerVersionPolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The policy document.</p>"""
     revision_id: NotRequired["aws_sdk_lambda.types.string.String"]

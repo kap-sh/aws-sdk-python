@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ListMobileSdkReleasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.platform
 
 
-class ListMobileSdkReleasesRequest(TypedDict):
+class ListMobileSdkReleasesRequest(TypedDict, closed=True):
     platform: "aws_sdk_wafv2.types.platform.Platform"
     """<p>The device platform to retrieve the list for.</p>"""
     next_marker: NotRequired["aws_sdk_wafv2.types.next_marker.NextMarker"]

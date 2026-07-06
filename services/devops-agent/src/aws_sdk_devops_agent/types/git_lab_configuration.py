@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GitLabConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class GitLabConfiguration(TypedDict):
+class GitLabConfiguration(TypedDict, closed=True):
     project_id: "str"
     """<p>GitLab numeric project ID.</p>"""
     project_path: "str"

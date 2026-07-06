@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecommerceanalytics#StartSupportDataExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_commerce_analytics.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_commerce_analytics.types.support_data_set_type
 
 
-class StartSupportDataExportRequest(TypedDict):
+class StartSupportDataExportRequest(TypedDict, closed=True):
     data_set_type: "aws_sdk_marketplace_commerce_analytics.types.support_data_set_type.SupportDataSetType"
     """<p> <i>This target has been deprecated.</i> Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid, Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title, Country Code, ZIP Code, Operation Type, and Operation Time. </p> <p> <ul> <li><i>customer_support_contacts_data</i> Customer support contact data. The data set will contain all changes (Creates, Updates, and Deletes) to customer support contact data from the date specified in the from_date parameter.</li> <li><i>test_customer_support_contacts_data</i> An example data set containing static test data in the same format as customer_support_contacts_data</li> </ul> </p>"""
     from_date: "aws_sdk_marketplace_commerce_analytics.types.from_date.FromDate"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#GetProtectConfigurationCountryRuleSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_id_or_arn
 
 
-class GetProtectConfigurationCountryRuleSetRequest(TypedDict):
+class GetProtectConfigurationCountryRuleSetRequest(TypedDict, closed=True):
     protect_configuration_id: "aws_sdk_pinpoint_sms_voice_v2.types.protect_configuration_id_or_arn.ProtectConfigurationIdOrArn"
     """<p>The unique identifier for the protect configuration.</p>"""
     number_capability: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModificationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.modification_resource_enum
     import aws_sdk_workspaces.types.modification_state_enum
 
 
-class ModificationState(TypedDict):
+class ModificationState(TypedDict, closed=True):
     resource: NotRequired[
         "aws_sdk_workspaces.types.modification_resource_enum.ModificationResourceEnum"
     ]

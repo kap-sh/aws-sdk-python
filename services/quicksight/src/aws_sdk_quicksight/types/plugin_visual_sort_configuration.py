@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PluginVisualSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.plugin_visual_table_query_sort
 
 
-class PluginVisualSortConfiguration(TypedDict):
+class PluginVisualSortConfiguration(TypedDict, closed=True):
     plugin_visual_table_query_sort: NotRequired[
         "aws_sdk_quicksight.types.plugin_visual_table_query_sort.PluginVisualTableQuerySort"
     ]

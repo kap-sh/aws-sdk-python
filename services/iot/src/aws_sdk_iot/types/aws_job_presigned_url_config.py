@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AwsJobPresignedUrlConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.expires_in_seconds
 
 
-class AwsJobPresignedUrlConfig(TypedDict):
+class AwsJobPresignedUrlConfig(TypedDict, closed=True):
     expires_in_sec: NotRequired["aws_sdk_iot.types.expires_in_seconds.ExpiresInSeconds"]
     """<p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 1800 seconds. Pre-signed URLs are generated when a request for the job document is received.</p>"""
 

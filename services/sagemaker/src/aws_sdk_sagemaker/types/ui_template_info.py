@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UiTemplateInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.template_content_sha256
     import aws_sdk_sagemaker.types.template_url
 
 
-class UiTemplateInfo(TypedDict):
+class UiTemplateInfo(TypedDict, closed=True):
     url: NotRequired["aws_sdk_sagemaker.types.template_url.TemplateUrl"]
     """<p>The URL for the user interface template.</p>"""
     content_sha256: NotRequired[

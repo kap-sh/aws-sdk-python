@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Mp2Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
     import aws_sdk_medialive.types.mp2_coding_mode
 
 
-class Mp2Settings(TypedDict):
+class Mp2Settings(TypedDict, closed=True):
     bitrate: NotRequired["aws_sdk_medialive.types.__double.__double"]
     """Average bitrate in bits/second."""
     coding_mode: NotRequired["aws_sdk_medialive.types.mp2_coding_mode.Mp2CodingMode"]

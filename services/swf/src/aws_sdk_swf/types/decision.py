@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#Decision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.start_timer_decision_attributes
 
 
-class Decision(TypedDict):
+class Decision(TypedDict, closed=True):
     decision_type: "aws_sdk_swf.types.decision_type.DecisionType"
     """<p>Specifies the type of the decision.</p>"""
     schedule_activity_task_decision_attributes: NotRequired[

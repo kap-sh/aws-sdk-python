@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#MappedResourceConfigurationListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.resource_arn
     import aws_sdk_kinesis_video.types.type
 
 
-class MappedResourceConfigurationListItem(TypedDict):
+class MappedResourceConfigurationListItem(TypedDict, closed=True):
     type: NotRequired["aws_sdk_kinesis_video.types.type.Type"]
     """<p>The type of the associated resource for the kinesis video stream.</p>"""
     arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]

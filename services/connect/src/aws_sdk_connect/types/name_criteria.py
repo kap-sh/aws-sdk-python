@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NameCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.search_text_list
 
 
-class NameCriteria(TypedDict):
+class NameCriteria(TypedDict, closed=True):
     search_text: "aws_sdk_connect.types.search_text_list.SearchTextList"
     """<p>The words or phrases used to match the contact name.</p>"""
     match_type: (

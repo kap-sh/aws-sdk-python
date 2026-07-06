@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ReplicateKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.key_metadata
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.tag_list
 
 
-class ReplicateKeyResponse(TypedDict):
+class ReplicateKeyResponse(TypedDict, closed=True):
     replica_key_metadata: NotRequired["aws_sdk_kms.types.key_metadata.KeyMetadata"]
     r"""<p>Displays details about the new replica key, including its Amazon Resource Name (<a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN\">key ARN</a>) and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html\">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>"""
     replica_policy: NotRequired["aws_sdk_kms.types.policy_type.PolicyType"]

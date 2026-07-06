@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#ImageStandardExtraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.image_extraction_category
 
 
-class ImageStandardExtraction(TypedDict):
+class ImageStandardExtraction(TypedDict, closed=True):
     category: "aws_sdk_bedrock_data_automation.types.image_extraction_category.ImageExtractionCategory"
     bounding_box: (
         "aws_sdk_bedrock_data_automation.types.image_bounding_box.ImageBoundingBox"

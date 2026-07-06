@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateBrowserSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.browser_policy
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.web_content_filtering_policy
 
 
-class CreateBrowserSettingsRequest(TypedDict):
+class CreateBrowserSettingsRequest(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_workspaces_web.types.tag_list.TagList"]
     """<p>The tags to add to the browser settings resource. A tag is a key-value pair.</p>"""
     customer_managed_key: NotRequired["aws_sdk_workspaces_web.types.key_arn.keyArn"]

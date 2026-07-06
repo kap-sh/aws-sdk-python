@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#LayerFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.batched_operation_layer_digest
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.layer_failure_reason
 
 
-class LayerFailure(TypedDict):
+class LayerFailure(TypedDict, closed=True):
     layer_digest: NotRequired[
         "aws_sdk_ecr_public.types.batched_operation_layer_digest.BatchedOperationLayerDigest"
     ]

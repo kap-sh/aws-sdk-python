@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeImageAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.image_id
 
 
-class DescribeImageAttributeRequest(TypedDict):
+class DescribeImageAttributeRequest(TypedDict, closed=True):
     attribute: NotRequired["aws_sdk_ec2.types.image_attribute_name.ImageAttributeName"]
     """<p>The AMI attribute.</p> <p> <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated. Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about the block device mappings for an AMI, describe the image instead.</p>"""
     image_id: NotRequired["aws_sdk_ec2.types.image_id.ImageId"]

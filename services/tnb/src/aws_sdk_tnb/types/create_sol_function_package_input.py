@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#CreateSolFunctionPackageInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.tag_map
 
 
-class CreateSolFunctionPackageInput(TypedDict):
+class CreateSolFunctionPackageInput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_tnb.types.tag_map.TagMap"]
     """<p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>"""
 

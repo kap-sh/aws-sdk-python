@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListActorsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.pagination_token
 
 
-class ListActorsInput(TypedDict):
+class ListActorsInput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The identifier of the AgentCore Memory resource for which to list actors.</p>"""
     max_results: "aws_sdk_bedrock_agentcore.types.max_results.MaxResults"

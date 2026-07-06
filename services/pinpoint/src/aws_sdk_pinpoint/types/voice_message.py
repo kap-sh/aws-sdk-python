@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#VoiceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class VoiceMessage(TypedDict):
+class VoiceMessage(TypedDict, closed=True):
     body: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The text of the script to use for the voice message.</p>"""
     language_code: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

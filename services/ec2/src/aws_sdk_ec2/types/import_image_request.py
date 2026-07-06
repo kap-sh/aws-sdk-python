@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ImportImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class ImportImageRequest(TypedDict):
+class ImportImageRequest(TypedDict, closed=True):
     architecture: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The architecture of the virtual machine.</p> <p>Valid values: <code>i386</code> | <code>x86_64</code> </p>"""
     client_data: NotRequired["aws_sdk_ec2.types.client_data.ClientData"]

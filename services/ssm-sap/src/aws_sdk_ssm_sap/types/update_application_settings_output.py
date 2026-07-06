@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#UpdateApplicationSettingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.operation_id_list
 
 
-class UpdateApplicationSettingsOutput(TypedDict):
+class UpdateApplicationSettingsOutput(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The update message.</p>"""
     operation_ids: NotRequired[

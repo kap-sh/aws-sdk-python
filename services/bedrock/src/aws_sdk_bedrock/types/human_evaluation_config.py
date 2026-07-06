@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#HumanEvaluationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.human_workflow_config
 
 
-class HumanEvaluationConfig(TypedDict):
+class HumanEvaluationConfig(TypedDict, closed=True):
     human_workflow_config: NotRequired[
         "aws_sdk_bedrock.types.human_workflow_config.HumanWorkflowConfig"
     ]

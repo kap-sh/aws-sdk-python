@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#Cvss``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.adjustment_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class Cvss(TypedDict):
+class Cvss(TypedDict, closed=True):
     version: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The version of CVSS for the CVSS score.</p>"""
     base_score: NotRequired["aws_sdk_securityhub.types.double.Double"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#TemporaryCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.access_key_id_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.session_token_string
 
 
-class TemporaryCredentials(TypedDict):
+class TemporaryCredentials(TypedDict, closed=True):
     access_key_id: NotRequired[
         "aws_sdk_lakeformation.types.access_key_id_string.AccessKeyIdString"
     ]

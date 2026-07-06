@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#CreateDbClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.cluster_status
     import aws_sdk_timestream_influxdb.types.db_cluster_id
 
 
-class CreateDbClusterOutput(TypedDict):
+class CreateDbClusterOutput(TypedDict, closed=True):
     db_cluster_id: NotRequired[
         "aws_sdk_timestream_influxdb.types.db_cluster_id.DbClusterId"
     ]

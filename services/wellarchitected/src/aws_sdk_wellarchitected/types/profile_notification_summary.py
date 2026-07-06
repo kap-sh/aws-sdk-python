@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ProfileNotificationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.profile_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name
 
 
-class ProfileNotificationSummary(TypedDict):
+class ProfileNotificationSummary(TypedDict, closed=True):
     current_profile_version: NotRequired[
         "aws_sdk_wellarchitected.types.profile_version.ProfileVersion"
     ]

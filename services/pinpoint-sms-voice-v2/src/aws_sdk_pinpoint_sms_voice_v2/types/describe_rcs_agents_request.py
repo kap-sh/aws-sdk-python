@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeRcsAgentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.rcs_agent_id_list
 
 
-class DescribeRcsAgentsRequest(TypedDict):
+class DescribeRcsAgentsRequest(TypedDict, closed=True):
     rcs_agent_ids: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.rcs_agent_id_list.RcsAgentIdList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ListDevicesJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.device_job_list
     import aws_sdk_panorama.types.next_token
 
 
-class ListDevicesJobsResponse(TypedDict):
+class ListDevicesJobsResponse(TypedDict, closed=True):
     device_jobs: NotRequired["aws_sdk_panorama.types.device_job_list.DeviceJobList"]
     """<p>A list of jobs.</p>"""
     next_token: NotRequired["aws_sdk_panorama.types.next_token.NextToken"]

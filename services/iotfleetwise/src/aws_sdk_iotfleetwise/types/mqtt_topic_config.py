@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#MqttTopicConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.mqtt_topic_arn
 
 
-class MqttTopicConfig(TypedDict):
+class MqttTopicConfig(TypedDict, closed=True):
     mqtt_topic_arn: "aws_sdk_iotfleetwise.types.mqtt_topic_arn.MqttTopicArn"
     """<p>The ARN of the MQTT topic.</p>"""
     execution_role_arn: "aws_sdk_iotfleetwise.types.iam_role_arn.IAMRoleArn"

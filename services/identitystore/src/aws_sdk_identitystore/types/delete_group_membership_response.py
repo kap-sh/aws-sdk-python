@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.identitystore#DeleteGroupMembershipResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGroupMembershipResponse(TypedDict):
+class DeleteGroupMembershipResponse(TypedDict, closed=True):
     pass
 
 

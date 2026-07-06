@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeFileSystemsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_descriptions
     import aws_sdk_efs.types.marker
 
 
-class DescribeFileSystemsResponse(TypedDict):
+class DescribeFileSystemsResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_efs.types.marker.Marker"]
     """<p>Present if provided by caller in the request (String).</p>"""
     file_systems: NotRequired[

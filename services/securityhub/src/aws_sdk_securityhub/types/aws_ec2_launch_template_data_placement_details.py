@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataPlacementDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataPlacementDetails(TypedDict):
+class AwsEc2LaunchTemplateDataPlacementDetails(TypedDict, closed=True):
     affinity: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The affinity setting for an instance on an EC2 Dedicated Host. </p>"""
     availability_zone: NotRequired[

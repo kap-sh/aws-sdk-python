@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsLambdaFunctionVpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsLambdaFunctionVpcConfig(TypedDict):
+class AwsLambdaFunctionVpcConfig(TypedDict, closed=True):
     security_group_ids: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#ResourcePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.policy_revision
 
 
-class ResourcePolicy(TypedDict):
+class ResourcePolicy(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_codeartifact.types.arn.Arn"]
     """<p> The ARN of the resource associated with the resource policy </p>"""
     revision: NotRequired["aws_sdk_codeartifact.types.policy_revision.PolicyRevision"]

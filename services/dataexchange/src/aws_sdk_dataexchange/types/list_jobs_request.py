@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ListJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
     import aws_sdk_dataexchange.types.max_results
 
 
-class ListJobsRequest(TypedDict):
+class ListJobsRequest(TypedDict, closed=True):
     data_set_id: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The unique identifier for a data set.</p>"""
     max_results: "aws_sdk_dataexchange.types.max_results.MaxResults"

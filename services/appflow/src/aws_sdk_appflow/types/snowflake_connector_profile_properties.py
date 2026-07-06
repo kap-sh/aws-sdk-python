@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SnowflakeConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.warehouse
 
 
-class SnowflakeConnectorProfileProperties(TypedDict):
+class SnowflakeConnectorProfileProperties(TypedDict, closed=True):
     warehouse: "aws_sdk_appflow.types.warehouse.Warehouse"
     """<p> The name of the Snowflake warehouse. </p>"""
     stage: "aws_sdk_appflow.types.stage.Stage"

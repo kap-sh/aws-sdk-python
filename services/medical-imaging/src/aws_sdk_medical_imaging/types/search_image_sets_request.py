@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#SearchImageSetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.search_criteria
 
 
-class SearchImageSetsRequest(TypedDict):
+class SearchImageSetsRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The identifier of the data store where the image sets reside.</p>"""
     search_criteria: NotRequired[

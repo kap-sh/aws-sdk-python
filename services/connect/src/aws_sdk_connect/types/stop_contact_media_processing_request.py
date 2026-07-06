@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StopContactMediaProcessingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
     import aws_sdk_connect.types.instance_id
 
 
-class StopContactMediaProcessingRequest(TypedDict):
+class StopContactMediaProcessingRequest(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
     r"""<p> The identifier of the Connect Customer instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance. </p>"""
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]

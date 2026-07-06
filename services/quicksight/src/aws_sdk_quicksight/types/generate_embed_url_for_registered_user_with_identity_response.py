@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GenerateEmbedUrlForRegisteredUserWithIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class GenerateEmbedUrlForRegisteredUserWithIdentityResponse(TypedDict):
+class GenerateEmbedUrlForRegisteredUserWithIdentityResponse(TypedDict, closed=True):
     embed_url: "aws_sdk_quicksight.types.embedding_url.EmbeddingUrl"
     """<p>The generated embed URL for the registered user.</p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

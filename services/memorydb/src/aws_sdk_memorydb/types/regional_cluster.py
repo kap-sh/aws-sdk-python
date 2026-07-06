@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#RegionalCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class RegionalCluster(TypedDict):
+class RegionalCluster(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the Regional cluster</p>"""
     region: NotRequired["aws_sdk_memorydb.types.string.String"]

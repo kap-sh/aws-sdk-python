@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#Snapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.t_stamp
 
 
-class Snapshot(TypedDict):
+class Snapshot(TypedDict, closed=True):
     snapshot_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of a snapshot. For an automatic snapshot, the name is system-generated. For a manual snapshot, this is the user-provided name.</p>"""
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]

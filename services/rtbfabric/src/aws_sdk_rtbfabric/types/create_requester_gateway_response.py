@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#CreateRequesterGatewayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.requester_gateway_status
 
 
-class CreateRequesterGatewayResponse(TypedDict):
+class CreateRequesterGatewayResponse(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
     domain_name: "aws_sdk_rtbfabric.types.domain_name.DomainName"

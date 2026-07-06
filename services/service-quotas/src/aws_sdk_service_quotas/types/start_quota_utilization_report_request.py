@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#StartQuotaUtilizationReportRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartQuotaUtilizationReportRequest(TypedDict):
+class StartQuotaUtilizationReportRequest(TypedDict, closed=True):
     pass
 
 

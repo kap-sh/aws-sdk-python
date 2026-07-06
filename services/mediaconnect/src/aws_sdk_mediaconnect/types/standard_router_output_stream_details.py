@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#StandardRouterOutputStreamDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StandardRouterOutputStreamDetails(TypedDict):
+class StandardRouterOutputStreamDetails(TypedDict, closed=True):
     destination_ip_address: NotRequired["str"]
     """<p>The IP address where the output stream will be sent. This is the destination address that will receive the routed media content.</p>"""
 

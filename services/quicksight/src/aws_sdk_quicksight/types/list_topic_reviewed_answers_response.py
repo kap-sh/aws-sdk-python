@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListTopicReviewedAnswersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_reviewed_answers
 
 
-class ListTopicReviewedAnswersResponse(TypedDict):
+class ListTopicReviewedAnswersResponse(TypedDict, closed=True):
     topic_id: NotRequired["aws_sdk_quicksight.types.topic_id.TopicId"]
     """<p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>"""
     topic_arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#GetReportDefinitionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_applicationcostprofiler.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.timestamp
 
 
-class GetReportDefinitionResult(TypedDict):
+class GetReportDefinitionResult(TypedDict, closed=True):
     report_id: "aws_sdk_applicationcostprofiler.types.report_id.ReportId"
     """<p>ID of the report retrieved.</p>"""
     report_description: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotFileSheetSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_file_sheet_selection_visual_id_list
 
 
-class SnapshotFileSheetSelection(TypedDict):
+class SnapshotFileSheetSelection(TypedDict, closed=True):
     sheet_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV, Excel, and PDF format types.</p>"""
     selection_scope: "aws_sdk_quicksight.types.snapshot_file_sheet_selection_scope.SnapshotFileSheetSelectionScope"

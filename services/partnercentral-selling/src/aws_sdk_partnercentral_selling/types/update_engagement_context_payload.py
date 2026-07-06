@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#UpdateEngagementContextPayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.update_lead_context
 
 
-class _UpdateEngagementContextPayload_Lead(TypedDict):
+class _UpdateEngagementContextPayload_Lead(TypedDict, closed=True):
     Lead: "aws_sdk_partnercentral_selling.types.update_lead_context.UpdateLeadContext"
 
 
-class _UpdateEngagementContextPayload_CustomerProject(TypedDict):
+class _UpdateEngagementContextPayload_CustomerProject(TypedDict, closed=True):
     CustomerProject: "aws_sdk_partnercentral_selling.types.customer_projects_context.CustomerProjectsContext"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#ServiceJobPreemptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
 
 
-class ServiceJobPreemptionConfiguration(TypedDict):
+class ServiceJobPreemptionConfiguration(TypedDict, closed=True):
     preemption_retries_before_termination: NotRequired[
         "aws_sdk_batch.types.integer.Integer"
     ]

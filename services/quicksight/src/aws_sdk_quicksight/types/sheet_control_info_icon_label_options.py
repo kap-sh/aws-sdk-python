@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetControlInfoIconLabelOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_info_icon_text
     import aws_sdk_quicksight.types.visibility
 
 
-class SheetControlInfoIconLabelOptions(TypedDict):
+class SheetControlInfoIconLabelOptions(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The visibility configuration of info icon label options.</p>"""
     info_icon_text: NotRequired[

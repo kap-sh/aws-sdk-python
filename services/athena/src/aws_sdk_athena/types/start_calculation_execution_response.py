@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#StartCalculationExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.calculation_execution_id
     import aws_sdk_athena.types.calculation_execution_state
 
 
-class StartCalculationExecutionResponse(TypedDict):
+class StartCalculationExecutionResponse(TypedDict, closed=True):
     calculation_execution_id: NotRequired[
         "aws_sdk_athena.types.calculation_execution_id.CalculationExecutionId"
     ]

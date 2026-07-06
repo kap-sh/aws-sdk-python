@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListDatasetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.datasets
     import aws_sdk_personalize.types.next_token
 
 
-class ListDatasetsResponse(TypedDict):
+class ListDatasetsResponse(TypedDict, closed=True):
     datasets: NotRequired["aws_sdk_personalize.types.datasets.Datasets"]
     """<p>An array of <code>Dataset</code> objects. Each object provides metadata information.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

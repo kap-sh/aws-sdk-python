@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateCloudFormationStackRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.instance_entry_list
 
 
-class CreateCloudFormationStackRequest(TypedDict):
+class CreateCloudFormationStackRequest(TypedDict, closed=True):
     instances: "aws_sdk_lightsail.types.instance_entry_list.InstanceEntryList"
     """<p>An array of parameters that will be used to create the new Amazon EC2 instance. You can only pass one instance entry at a time in this array. You will get an invalid parameter error if you pass more than one instance entry in this array.</p>"""
 

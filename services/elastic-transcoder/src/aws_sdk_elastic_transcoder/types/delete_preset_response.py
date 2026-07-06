@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#DeletePresetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePresetResponse(TypedDict):
+class DeletePresetResponse(TypedDict, closed=True):
     pass
 
 

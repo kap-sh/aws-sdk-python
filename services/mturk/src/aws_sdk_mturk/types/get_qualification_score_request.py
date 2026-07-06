@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#GetQualificationScoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.entity_id
 
 
-class GetQualificationScoreRequest(TypedDict):
+class GetQualificationScoreRequest(TypedDict, closed=True):
     qualification_type_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p>The ID of the QualificationType.</p>"""
     worker_id: "aws_sdk_mturk.types.customer_id.CustomerId"

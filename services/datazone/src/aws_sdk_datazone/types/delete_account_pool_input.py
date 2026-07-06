@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteAccountPoolInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.account_pool_id
     import aws_sdk_datazone.types.domain_id
 
 
-class DeleteAccountPoolInput(TypedDict):
+class DeleteAccountPoolInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where the account pool is deleted.</p>"""
     identifier: "aws_sdk_datazone.types.account_pool_id.AccountPoolId"

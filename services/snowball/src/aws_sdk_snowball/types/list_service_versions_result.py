@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListServiceVersionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class ListServiceVersionsResult(TypedDict):
+class ListServiceVersionsResult(TypedDict, closed=True):
     service_versions: "aws_sdk_snowball.types.service_version_list.ServiceVersionList"
     """<p>A list of supported versions.</p>"""
     service_name: "aws_sdk_snowball.types.service_name.ServiceName"

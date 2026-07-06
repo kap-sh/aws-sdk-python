@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateLocationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.custom_input_location_string_model
     import aws_sdk_gamelift.types.tag_list
 
 
-class CreateLocationInput(TypedDict):
+class CreateLocationInput(TypedDict, closed=True):
     location_name: NotRequired[
         "aws_sdk_gamelift.types.custom_input_location_string_model.CustomInputLocationStringModel"
     ]

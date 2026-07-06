@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseStreamMetrics``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class ConverseStreamMetrics(TypedDict):
+class ConverseStreamMetrics(TypedDict, closed=True):
     latency_ms: "int"
     """<p>The latency for the streaming request, in milliseconds.</p>"""
 

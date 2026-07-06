@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_panorama.types.string.String"
     resource_id: "aws_sdk_panorama.types.string.String"
     """<p>The resource's ID.</p>"""

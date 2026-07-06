@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#GetQuotaUtilizationReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.date_time
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.total_count
 
 
-class GetQuotaUtilizationReportResponse(TypedDict):
+class GetQuotaUtilizationReportResponse(TypedDict, closed=True):
     report_id: NotRequired["aws_sdk_service_quotas.types.report_id.ReportId"]
     """<p>The unique identifier for the quota utilization report.</p>"""
     status: NotRequired["aws_sdk_service_quotas.types.report_status.ReportStatus"]

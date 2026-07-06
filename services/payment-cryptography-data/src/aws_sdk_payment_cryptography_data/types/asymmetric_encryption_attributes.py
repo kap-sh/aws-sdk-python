@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#AsymmetricEncryptionAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.padding_type
 
 
-class AsymmetricEncryptionAttributes(TypedDict):
+class AsymmetricEncryptionAttributes(TypedDict, closed=True):
     padding_type: NotRequired[
         "aws_sdk_payment_cryptography_data.types.padding_type.PaddingType"
     ]

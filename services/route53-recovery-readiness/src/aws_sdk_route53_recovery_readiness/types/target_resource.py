@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#TargetResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.nlb_resource
     import aws_sdk_route53_recovery_readiness.types.r53_resource_record
 
 
-class TargetResource(TypedDict):
+class TargetResource(TypedDict, closed=True):
     nlb_resource: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.nlb_resource.NLBResource"
     ]

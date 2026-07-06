@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#RelationshipsListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.relationship_type
     import aws_sdk_comprehend.types.string_list
 
 
-class RelationshipsListItem(TypedDict):
+class RelationshipsListItem(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_comprehend.types.string_list.StringList"]
     """<p>Identifers of the child blocks.</p>"""
     type: NotRequired["aws_sdk_comprehend.types.relationship_type.RelationshipType"]

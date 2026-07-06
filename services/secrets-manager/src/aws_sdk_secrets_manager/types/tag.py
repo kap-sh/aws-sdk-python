@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.tag_key_type
     import aws_sdk_secrets_manager.types.tag_value_type
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_secrets_manager.types.tag_key_type.TagKeyType"]
     """<p>The key identifier, or name, of the tag.</p>"""
     value: NotRequired["aws_sdk_secrets_manager.types.tag_value_type.TagValueType"]

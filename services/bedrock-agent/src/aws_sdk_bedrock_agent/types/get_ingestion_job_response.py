@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#GetIngestionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.ingestion_job
 
 
-class GetIngestionJobResponse(TypedDict):
+class GetIngestionJobResponse(TypedDict, closed=True):
     ingestion_job: "aws_sdk_bedrock_agent.types.ingestion_job.IngestionJob"
     """<p>Contains details about the data ingestion job.</p>"""
 

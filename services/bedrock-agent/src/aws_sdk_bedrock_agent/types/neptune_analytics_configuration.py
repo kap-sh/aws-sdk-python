@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#NeptuneAnalyticsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.neptune_analytics_field_mapping
 
 
-class NeptuneAnalyticsConfiguration(TypedDict):
+class NeptuneAnalyticsConfiguration(TypedDict, closed=True):
     graph_arn: "aws_sdk_bedrock_agent.types.graph_arn.GraphArn"
     """<p>The Amazon Resource Name (ARN) of the Neptune Analytics vector store.</p>"""
     field_mapping: "aws_sdk_bedrock_agent.types.neptune_analytics_field_mapping.NeptuneAnalyticsFieldMapping"

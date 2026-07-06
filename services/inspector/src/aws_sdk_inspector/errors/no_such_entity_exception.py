@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#NoSuchEntityException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.no_such_entity_error_code
 
 
-class NoSuchEntityException_(TypedDict):
+class NoSuchEntityException_(TypedDict, closed=True):
     message: "aws_sdk_inspector.types.error_message.ErrorMessage"
     """<p>Details of the exception error.</p>"""
     error_code: (

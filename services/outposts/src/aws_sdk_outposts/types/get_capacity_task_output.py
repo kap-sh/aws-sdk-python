@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetCapacityTaskOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.asset_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.task_action_on_blocking_instances
 
 
-class GetCapacityTaskOutput(TypedDict):
+class GetCapacityTaskOutput(TypedDict, closed=True):
     capacity_task_id: NotRequired[
         "aws_sdk_outposts.types.capacity_task_id.CapacityTaskId"
     ]

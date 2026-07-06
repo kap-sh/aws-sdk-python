@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#ExecutionReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_data_exports.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.generic_string
 
 
-class ExecutionReference(TypedDict):
+class ExecutionReference(TypedDict, closed=True):
     execution_id: "aws_sdk_bcm_data_exports.types.generic_string.GenericString"
     """<p>The ID for this specific execution.</p>"""
     execution_status: "aws_sdk_bcm_data_exports.types.execution_status.ExecutionStatus"

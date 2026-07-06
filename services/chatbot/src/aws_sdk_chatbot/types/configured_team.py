@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#ConfiguredTeam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chatbot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.uuid
 
 
-class ConfiguredTeam(TypedDict):
+class ConfiguredTeam(TypedDict, closed=True):
     tenant_id: "aws_sdk_chatbot.types.uuid.UUID"
     """<p>The ID of the Microsoft Teams tenant.</p>"""
     team_id: "aws_sdk_chatbot.types.uuid.UUID"

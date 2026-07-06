@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#AddTagsToOnPremisesInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codedeploy.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.tag_list
 
 
-class AddTagsToOnPremisesInstancesInput(TypedDict):
+class AddTagsToOnPremisesInstancesInput(TypedDict, closed=True):
     tags: "aws_sdk_codedeploy.types.tag_list.TagList"
     """<p>The tag key-value pairs to add to the on-premises instances.</p> <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only tags are not allowed.</p>"""
     instance_names: "aws_sdk_codedeploy.types.instance_name_list.InstanceNameList"

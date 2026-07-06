@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#LiveTailSessionUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.live_tail_session_results
 
 
-class LiveTailSessionUpdate(TypedDict):
+class LiveTailSessionUpdate(TypedDict, closed=True):
     session_metadata: NotRequired[
         "aws_sdk_cloudwatch_logs.types.live_tail_session_metadata.LiveTailSessionMetadata"
     ]

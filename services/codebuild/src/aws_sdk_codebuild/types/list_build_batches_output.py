@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListBuildBatchesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_batch_ids
     import aws_sdk_codebuild.types.string
 
 
-class ListBuildBatchesOutput(TypedDict):
+class ListBuildBatchesOutput(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_codebuild.types.build_batch_ids.BuildBatchIds"]
     """<p>An array of strings that contains the batch build identifiers.</p>"""
     next_token: NotRequired["aws_sdk_codebuild.types.string.String"]

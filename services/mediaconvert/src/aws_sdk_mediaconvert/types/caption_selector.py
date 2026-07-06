@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CaptionSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min3_max3_pattern_a_za_z3
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.language_code
 
 
-class CaptionSelector(TypedDict):
+class CaptionSelector(TypedDict, closed=True):
     custom_language_code: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min3_max3_pattern_a_za_z3.__stringMin3Max3PatternAZaZ3"
     ]

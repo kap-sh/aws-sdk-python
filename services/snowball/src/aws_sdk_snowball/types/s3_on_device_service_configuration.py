@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#S3OnDeviceServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.node_fault_tolerance
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.storage_unit
 
 
-class S3OnDeviceServiceConfiguration(TypedDict):
+class S3OnDeviceServiceConfiguration(TypedDict, closed=True):
     storage_limit: NotRequired["aws_sdk_snowball.types.s3_storage_limit.S3StorageLimit"]
     """<p>If the specified storage limit value matches storage limit of one of the defined configurations, that configuration will be used. If the specified storage limit value does not match any defined configuration, the request will fail. If more than one configuration has the same storage limit as specified, the other input need to be provided.</p>"""
     storage_unit: NotRequired["aws_sdk_snowball.types.storage_unit.StorageUnit"]

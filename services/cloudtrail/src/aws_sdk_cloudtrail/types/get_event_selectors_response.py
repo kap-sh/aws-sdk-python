@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#GetEventSelectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.advanced_event_selectors
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class GetEventSelectorsResponse(TypedDict):
+class GetEventSelectorsResponse(TypedDict, closed=True):
     trail_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The specified trail ARN that has the event selectors.</p>"""
     event_selectors: NotRequired[

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessStreamMetrics``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class HarnessStreamMetrics(TypedDict):
+class HarnessStreamMetrics(TypedDict, closed=True):
     latency_ms: "int"
     """<p>The end-to-end latency of the invocation in milliseconds.</p>"""
 

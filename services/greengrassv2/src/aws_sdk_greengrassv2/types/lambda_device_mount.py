@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#LambdaDeviceMount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.optional_boolean
 
 
-class LambdaDeviceMount(TypedDict):
+class LambdaDeviceMount(TypedDict, closed=True):
     path: "aws_sdk_greengrassv2.types.file_system_path.FileSystemPath"
     """<p>The mount path for the device in the file system.</p>"""
     permission: NotRequired[

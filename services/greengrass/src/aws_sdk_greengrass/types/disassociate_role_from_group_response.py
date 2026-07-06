@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#DisassociateRoleFromGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class DisassociateRoleFromGroupResponse(TypedDict):
+class DisassociateRoleFromGroupResponse(TypedDict, closed=True):
     disassociated_at: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The time, in milliseconds since the epoch, when the role was disassociated from the group."""
 

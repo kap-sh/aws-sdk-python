@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#PublishResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class PublishResponse(TypedDict):
+class PublishResponse(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_sns.types.message_id.messageId"]
     """<p>Unique identifier assigned to the published message.</p> <p>Length Constraint: Maximum 100 characters</p>"""
     sequence_number: NotRequired["aws_sdk_sns.types.string.String"]

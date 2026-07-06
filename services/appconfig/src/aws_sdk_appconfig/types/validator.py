@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Validator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appconfig.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.validator_type
 
 
-class Validator(TypedDict):
+class Validator(TypedDict, closed=True):
     type: "aws_sdk_appconfig.types.validator_type.ValidatorType"
     """<p>AppConfig supports validators of type <code>JSON_SCHEMA</code> and <code>LAMBDA</code> </p>"""
     content: "aws_sdk_appconfig.types.string_with_length_between0_and32768.StringWithLengthBetween0And32768"

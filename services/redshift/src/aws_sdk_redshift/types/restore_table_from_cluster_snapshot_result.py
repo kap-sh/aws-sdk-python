@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#RestoreTableFromClusterSnapshotResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.table_restore_status
 
 
-class RestoreTableFromClusterSnapshotResult(TypedDict):
+class RestoreTableFromClusterSnapshotResult(TypedDict, closed=True):
     table_restore_status: NotRequired[
         "aws_sdk_redshift.types.table_restore_status.TableRestoreStatus"
     ]

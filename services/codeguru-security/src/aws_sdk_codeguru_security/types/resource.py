@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#Resource``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>The <code>scanName</code> of the scan that was run on the resource.</p>"""
     sub_resource_id: NotRequired["str"]

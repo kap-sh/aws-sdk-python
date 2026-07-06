@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PutVoiceConnectorStreamingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.streaming_configuration
 
 
-class PutVoiceConnectorStreamingConfigurationResponse(TypedDict):
+class PutVoiceConnectorStreamingConfigurationResponse(TypedDict, closed=True):
     streaming_configuration: NotRequired[
         "aws_sdk_chime_sdk_voice.types.streaming_configuration.StreamingConfiguration"
     ]

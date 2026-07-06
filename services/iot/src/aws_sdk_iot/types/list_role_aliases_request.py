@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListRoleAliasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.page_size
 
 
-class ListRoleAliasesRequest(TypedDict):
+class ListRoleAliasesRequest(TypedDict, closed=True):
     page_size: NotRequired["aws_sdk_iot.types.page_size.PageSize"]
     """<p>The maximum number of results to return at one time.</p>"""
     marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

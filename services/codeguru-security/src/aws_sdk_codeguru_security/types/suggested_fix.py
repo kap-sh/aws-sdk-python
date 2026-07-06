@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#SuggestedFix``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SuggestedFix(TypedDict):
+class SuggestedFix(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>A description of the suggested code fix and why it is being suggested. </p>"""
     code: NotRequired["str"]

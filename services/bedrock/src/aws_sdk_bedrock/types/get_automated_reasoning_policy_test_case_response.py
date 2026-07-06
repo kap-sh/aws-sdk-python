@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetAutomatedReasoningPolicyTestCaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_test_case
 
 
-class GetAutomatedReasoningPolicyTestCaseResponse(TypedDict):
+class GetAutomatedReasoningPolicyTestCaseResponse(TypedDict, closed=True):
     policy_arn: "aws_sdk_bedrock.types.automated_reasoning_policy_arn.AutomatedReasoningPolicyArn"
     """<p>The Amazon Resource Name (ARN) of the policy that contains the test.</p>"""
     test_case: "aws_sdk_bedrock.types.automated_reasoning_policy_test_case.AutomatedReasoningPolicyTestCase"

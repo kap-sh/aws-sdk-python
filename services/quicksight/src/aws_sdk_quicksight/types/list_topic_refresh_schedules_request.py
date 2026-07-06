@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListTopicRefreshSchedulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.topic_id
 
 
-class ListTopicRefreshSchedulesRequest(TypedDict):
+class ListTopicRefreshSchedulesRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule you want described.</p>"""
     topic_id: "aws_sdk_quicksight.types.topic_id.TopicId"

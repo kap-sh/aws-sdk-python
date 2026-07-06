@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and256
 
 
-class GetModelResponse(TypedDict):
+class GetModelResponse(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_apigatewayv2.types.string_with_length_between1_and256.StringWithLengthBetween1And256"
     ]

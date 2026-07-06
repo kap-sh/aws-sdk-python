@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateEc2DeepInspectionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.path_list
 
 
-class UpdateEc2DeepInspectionConfigurationRequest(TypedDict):
+class UpdateEc2DeepInspectionConfigurationRequest(TypedDict, closed=True):
     activate_deep_inspection: NotRequired["bool"]
     r"""<p>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account, or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate deep inspection, instead the delegated administrator for the organization can deactivate a member account using <a href=\"https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html\">BatchUpdateMemberEc2DeepInspectionStatus</a>.</p>"""
     package_paths: NotRequired["aws_sdk_inspector2.types.path_list.PathList"]

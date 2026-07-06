@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RecordPrimaryValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class RecordPrimaryValue(TypedDict):
+class RecordPrimaryValue(TypedDict, closed=True):
     record_id: NotRequired["aws_sdk_connect.types.data_table_id.DataTableId"]
     """<p>The value's record ID.</p>"""
     primary_values: NotRequired[

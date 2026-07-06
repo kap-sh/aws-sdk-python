@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DNSSECStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.signing_key_status_message
 
 
-class DNSSECStatus(TypedDict):
+class DNSSECStatus(TypedDict, closed=True):
     serve_signature: NotRequired[
         "aws_sdk_route_53.types.serve_signature.ServeSignature"
     ]

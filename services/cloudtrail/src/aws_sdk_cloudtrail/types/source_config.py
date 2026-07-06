@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#SourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.advanced_event_selectors
     import aws_sdk_cloudtrail.types.boolean
 
 
-class SourceConfig(TypedDict):
+class SourceConfig(TypedDict, closed=True):
     apply_to_all_regions: NotRequired["aws_sdk_cloudtrail.types.boolean.Boolean"]
     """<p> Specifies whether the channel applies to a single Region or to all Regions.</p>"""
     advanced_event_selectors: NotRequired[

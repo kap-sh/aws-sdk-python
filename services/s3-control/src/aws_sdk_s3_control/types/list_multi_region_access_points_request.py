@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListMultiRegionAccessPointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.non_empty_max_length1024_string
 
 
-class ListMultiRegionAccessPointsRequest(TypedDict):
+class ListMultiRegionAccessPointsRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>"""
     next_token: NotRequired[

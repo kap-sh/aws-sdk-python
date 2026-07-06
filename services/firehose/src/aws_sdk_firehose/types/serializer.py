@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#Serializer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.orc_ser_de
     import aws_sdk_firehose.types.parquet_ser_de
 
 
-class Serializer(TypedDict):
+class Serializer(TypedDict, closed=True):
     parquet_ser_de: NotRequired["aws_sdk_firehose.types.parquet_ser_de.ParquetSerDe"]
     r"""<p>A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <a href=\"https://parquet.apache.org/docs/contribution-guidelines/\">Apache Parquet</a>.</p>"""
     orc_ser_de: NotRequired["aws_sdk_firehose.types.orc_ser_de.OrcSerDe"]

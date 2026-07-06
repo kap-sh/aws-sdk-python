@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#PrincipalPermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.data_lake_principal
     import aws_sdk_lakeformation.types.permission_list
 
 
-class PrincipalPermissions(TypedDict):
+class PrincipalPermissions(TypedDict, closed=True):
     principal: NotRequired[
         "aws_sdk_lakeformation.types.data_lake_principal.DataLakePrincipal"
     ]

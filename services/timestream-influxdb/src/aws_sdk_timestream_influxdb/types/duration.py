@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#Duration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.duration_type
 
 
-class Duration(TypedDict):
+class Duration(TypedDict, closed=True):
     duration_type: "aws_sdk_timestream_influxdb.types.duration_type.DurationType"
     """<p>The type of duration for InfluxDB parameters.</p>"""
     value: "int"

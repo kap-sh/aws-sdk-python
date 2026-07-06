@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListProvisionedConcurrencyConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.provisioned_concurrency_config_list
     import aws_sdk_lambda.types.string
 
 
-class ListProvisionedConcurrencyConfigsResponse(TypedDict):
+class ListProvisionedConcurrencyConfigsResponse(TypedDict, closed=True):
     provisioned_concurrency_configs: NotRequired[
         "aws_sdk_lambda.types.provisioned_concurrency_config_list.ProvisionedConcurrencyConfigList"
     ]

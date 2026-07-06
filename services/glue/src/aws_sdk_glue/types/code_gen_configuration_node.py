@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CodeGenConfigurationNode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.aggregate
@@ -86,7 +86,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.union
 
 
-class CodeGenConfigurationNode(TypedDict):
+class CodeGenConfigurationNode(TypedDict, closed=True):
     athena_connector_source: NotRequired[
         "aws_sdk_glue.types.athena_connector_source.AthenaConnectorSource"
     ]

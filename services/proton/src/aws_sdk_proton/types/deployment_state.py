@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#DeploymentState``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_pipeline_state
 
 
-class _DeploymentState_serviceInstance(TypedDict):
+class _DeploymentState_serviceInstance(TypedDict, closed=True):
     serviceInstance: "aws_sdk_proton.types.service_instance_state.ServiceInstanceState"
 
 
-class _DeploymentState_environment(TypedDict):
+class _DeploymentState_environment(TypedDict, closed=True):
     environment: "aws_sdk_proton.types.environment_state.EnvironmentState"
 
 
-class _DeploymentState_servicePipeline(TypedDict):
+class _DeploymentState_servicePipeline(TypedDict, closed=True):
     servicePipeline: "aws_sdk_proton.types.service_pipeline_state.ServicePipelineState"
 
 
-class _DeploymentState_component(TypedDict):
+class _DeploymentState_component(TypedDict, closed=True):
     component: "aws_sdk_proton.types.component_state.ComponentState"
 
 

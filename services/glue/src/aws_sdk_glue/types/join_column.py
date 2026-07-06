@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#JoinColumn``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,6 +16,7 @@ JoinColumn = TypedDict(
         "from": "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty",
         "keys": "aws_sdk_glue.types.glue_studio_path_list.GlueStudioPathList",
     },
+    closed=True,
 )
 
 

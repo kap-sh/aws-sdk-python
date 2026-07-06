@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BatchGetCaseRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.domain_id
 
 
-class BatchGetCaseRuleRequest(TypedDict):
+class BatchGetCaseRuleRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>Unique identifier of a Cases domain.</p>"""
     case_rules: (

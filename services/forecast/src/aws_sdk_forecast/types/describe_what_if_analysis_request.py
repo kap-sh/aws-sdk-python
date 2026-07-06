@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeWhatIfAnalysisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
 
 
-class DescribeWhatIfAnalysisRequest(TypedDict):
+class DescribeWhatIfAnalysisRequest(TypedDict, closed=True):
     what_if_analysis_arn: "aws_sdk_forecast.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the what-if analysis that you are interested in.</p>"""
 

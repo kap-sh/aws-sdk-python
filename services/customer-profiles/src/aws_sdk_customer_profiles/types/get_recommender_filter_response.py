@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetRecommenderFilterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class GetRecommenderFilterResponse(TypedDict):
+class GetRecommenderFilterResponse(TypedDict, closed=True):
     recommender_filter_name: (
         "aws_sdk_customer_profiles.types.recommender_filter_name.RecommenderFilterName"
     )

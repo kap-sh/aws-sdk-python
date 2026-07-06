@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#ListSchemaVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__list_of_schema_version_summary
     import aws_sdk_schemas.types.__string
 
 
-class ListSchemaVersionsResponse(TypedDict):
+class ListSchemaVersionsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The token that specifies the next page of results to return. To request the first page, leave NextToken empty. The token will expire in 24 hours, and cannot be shared with other accounts.</p>"""
     schema_versions: NotRequired[

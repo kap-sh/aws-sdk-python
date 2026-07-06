@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AgentAccessConfigForUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.agent_access_setting_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.screen_resolution
 
 
-class AgentAccessConfigForUpdate(TypedDict):
+class AgentAccessConfigForUpdate(TypedDict, closed=True):
     settings: NotRequired[
         "aws_sdk_appstream.types.agent_access_setting_list.AgentAccessSettingList"
     ]

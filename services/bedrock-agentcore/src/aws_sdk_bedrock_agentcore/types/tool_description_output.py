@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ToolDescriptionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.tool_description_text
 
 
-class ToolDescriptionOutput(TypedDict):
+class ToolDescriptionOutput(TypedDict, closed=True):
     tool_name: "aws_sdk_bedrock_agentcore.types.recommendation_tool_name.RecommendationToolName"
     """<p>The name of the tool.</p>"""
     recommended_tool_description: NotRequired[

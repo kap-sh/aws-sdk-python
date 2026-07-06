@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GenerateRandomResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.ciphertext_type
     import aws_sdk_kms.types.plaintext_type
 
 
-class GenerateRandomResponse(TypedDict):
+class GenerateRandomResponse(TypedDict, closed=True):
     plaintext: NotRequired["aws_sdk_kms.types.plaintext_type.PlaintextType"]
     """<p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p> <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>Plaintext</code> field is null or empty.</p>"""
     ciphertext_for_recipient: NotRequired[

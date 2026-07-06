@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#BatchDisassociateAssessmentReportEvidenceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_report_evidence_errors
     import aws_sdk_auditmanager.types.evidence_ids
 
 
-class BatchDisassociateAssessmentReportEvidenceResponse(TypedDict):
+class BatchDisassociateAssessmentReportEvidenceResponse(TypedDict, closed=True):
     evidence_ids: NotRequired["aws_sdk_auditmanager.types.evidence_ids.EvidenceIds"]
     """<p> The identifier for the evidence. </p>"""
     errors: NotRequired[

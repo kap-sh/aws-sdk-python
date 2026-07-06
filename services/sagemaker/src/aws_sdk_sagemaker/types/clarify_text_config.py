@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClarifyTextConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_text_granularity
     import aws_sdk_sagemaker.types.clarify_text_language
 
 
-class ClarifyTextConfig(TypedDict):
+class ClarifyTextConfig(TypedDict, closed=True):
     language: NotRequired[
         "aws_sdk_sagemaker.types.clarify_text_language.ClarifyTextLanguage"
     ]

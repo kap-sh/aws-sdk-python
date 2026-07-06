@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeevents#PutUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_personalize_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize_events.types.user_list
 
 
-class PutUsersRequest(TypedDict):
+class PutUsersRequest(TypedDict, closed=True):
     dataset_arn: "aws_sdk_personalize_events.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the Users dataset you are adding the user or users to.</p>"""
     users: "aws_sdk_personalize_events.types.user_list.UserList"

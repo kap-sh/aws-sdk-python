@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PluginAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -11,23 +13,25 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.o_auth2_client_credential_configuration
 
 
-class _PluginAuthConfiguration_basicAuthConfiguration(TypedDict):
+class _PluginAuthConfiguration_basicAuthConfiguration(TypedDict, closed=True):
     basicAuthConfiguration: (
         "aws_sdk_qbusiness.types.basic_auth_configuration.BasicAuthConfiguration"
     )
 
 
-class _PluginAuthConfiguration_oAuth2ClientCredentialConfiguration(TypedDict):
+class _PluginAuthConfiguration_oAuth2ClientCredentialConfiguration(
+    TypedDict, closed=True
+):
     oAuth2ClientCredentialConfiguration: "aws_sdk_qbusiness.types.o_auth2_client_credential_configuration.OAuth2ClientCredentialConfiguration"
 
 
-class _PluginAuthConfiguration_noAuthConfiguration(TypedDict):
+class _PluginAuthConfiguration_noAuthConfiguration(TypedDict, closed=True):
     noAuthConfiguration: (
         "aws_sdk_qbusiness.types.no_auth_configuration.NoAuthConfiguration"
     )
 
 
-class _PluginAuthConfiguration_idcAuthConfiguration(TypedDict):
+class _PluginAuthConfiguration_idcAuthConfiguration(TypedDict, closed=True):
     idcAuthConfiguration: (
         "aws_sdk_qbusiness.types.idc_auth_configuration.IdcAuthConfiguration"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#IdFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class IdFormat(TypedDict):
+class IdFormat(TypedDict, closed=True):
     deadline: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]
     """<p>The date in UTC at which you are permanently switched over to using longer IDs. If a deadline is not yet available for this resource type, this field is not returned.</p>"""
     resource: NotRequired["aws_sdk_ec2.types.string.String"]

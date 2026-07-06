@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HttpEndpointDestinationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.cloud_watch_logging_options
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.secrets_manager_configuration
 
 
-class HttpEndpointDestinationUpdate(TypedDict):
+class HttpEndpointDestinationUpdate(TypedDict, closed=True):
     endpoint_configuration: NotRequired[
         "aws_sdk_firehose.types.http_endpoint_configuration.HttpEndpointConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SearchIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_document_list
 
 
-class SearchIndexResponse(TypedDict):
+class SearchIndexResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]
     """<p>The token used to get the next set of results, or <code>null</code> if there are no additional results.</p>"""
     things: NotRequired["aws_sdk_iot.types.thing_document_list.ThingDocumentList"]

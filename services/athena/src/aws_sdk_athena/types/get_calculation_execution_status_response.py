@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetCalculationExecutionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.calculation_statistics
     import aws_sdk_athena.types.calculation_status
 
 
-class GetCalculationExecutionStatusResponse(TypedDict):
+class GetCalculationExecutionStatusResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_athena.types.calculation_status.CalculationStatus"]
     """<p>Contains information about the calculation execution status.</p>"""
     statistics: NotRequired[

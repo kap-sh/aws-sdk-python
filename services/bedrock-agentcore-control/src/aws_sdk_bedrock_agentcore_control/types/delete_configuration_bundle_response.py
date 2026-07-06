@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteConfigurationBundleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.configuration_bundle_status
 
 
-class DeleteConfigurationBundleResponse(TypedDict):
+class DeleteConfigurationBundleResponse(TypedDict, closed=True):
     bundle_id: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_id.ConfigurationBundleId"
     """<p>The unique identifier of the deleted configuration bundle.</p>"""
     status: "aws_sdk_bedrock_agentcore_control.types.configuration_bundle_status.ConfigurationBundleStatus"

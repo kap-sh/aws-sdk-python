@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.attribute_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.trait_list
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     id: NotRequired["aws_sdk_comprehendmedical.types.integer.Integer"]
     """<p> The numeric identifier for the entity. This is a monotonically increasing id unique within this response rather than a global unique identifier. </p>"""
     begin_offset: NotRequired["aws_sdk_comprehendmedical.types.integer.Integer"]

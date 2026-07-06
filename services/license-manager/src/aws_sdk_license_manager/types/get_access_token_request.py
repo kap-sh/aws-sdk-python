@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#GetAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.token_string
 
 
-class GetAccessTokenRequest(TypedDict):
+class GetAccessTokenRequest(TypedDict, closed=True):
     token: "aws_sdk_license_manager.types.token_string.TokenString"
     """<p>Refresh token, encoded as a JWT token.</p>"""
     token_properties: NotRequired[

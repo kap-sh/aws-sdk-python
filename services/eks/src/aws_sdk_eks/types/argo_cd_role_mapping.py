@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ArgoCdRoleMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.sso_identity_list
 
 
-class ArgoCdRoleMapping(TypedDict):
+class ArgoCdRoleMapping(TypedDict, closed=True):
     role: "aws_sdk_eks.types.argo_cd_role.ArgoCdRole"
     """<p>The Argo CD role to assign. Valid values are:</p> <ul> <li> <p> <code>ADMIN</code> – Full administrative access to Argo CD.</p> </li> <li> <p> <code>EDITOR</code> – Edit access to Argo CD resources.</p> </li> <li> <p> <code>VIEWER</code> – Read-only access to Argo CD resources.</p> </li> </ul>"""
     identities: "aws_sdk_eks.types.sso_identity_list.SsoIdentityList"

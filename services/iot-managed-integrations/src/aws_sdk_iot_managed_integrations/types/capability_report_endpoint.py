@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CapabilityReportEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.endpoint_id
 
 
-class CapabilityReportEndpoint(TypedDict):
+class CapabilityReportEndpoint(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.endpoint_id.EndpointId"
     """<p>The id of the endpoint used in the capability report.</p>"""
     device_types: "aws_sdk_iot_managed_integrations.types.device_types.DeviceTypes"

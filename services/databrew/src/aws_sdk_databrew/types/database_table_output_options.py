@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#DatabaseTableOutputOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.s3_location
 
 
-class DatabaseTableOutputOptions(TypedDict):
+class DatabaseTableOutputOptions(TypedDict, closed=True):
     temp_directory: NotRequired["aws_sdk_databrew.types.s3_location.S3Location"]
     """<p>Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.</p>"""
     table_name: "aws_sdk_databrew.types.database_table_name.DatabaseTableName"

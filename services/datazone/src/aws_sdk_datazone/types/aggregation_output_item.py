@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AggregationOutputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.aggregation_attribute_display_value
     import aws_sdk_datazone.types.aggregation_attribute_value
 
 
-class AggregationOutputItem(TypedDict):
+class AggregationOutputItem(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_datazone.types.aggregation_attribute_value.AggregationAttributeValue"
     ]

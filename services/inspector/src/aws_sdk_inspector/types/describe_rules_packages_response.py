@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DescribeRulesPackagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.rules_package_list
 
 
-class DescribeRulesPackagesResponse(TypedDict):
+class DescribeRulesPackagesResponse(TypedDict, closed=True):
     rules_packages: "aws_sdk_inspector.types.rules_package_list.RulesPackageList"
     """<p>Information about the rules package.</p>"""
     failed_items: "aws_sdk_inspector.types.failed_items.FailedItems"

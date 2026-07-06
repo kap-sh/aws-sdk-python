@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateWorkspacePageResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateWorkspacePageResponse(TypedDict):
+class CreateWorkspacePageResponse(TypedDict, closed=True):
     pass
 
 

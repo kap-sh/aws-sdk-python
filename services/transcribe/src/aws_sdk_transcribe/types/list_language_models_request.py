@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ListLanguageModelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.next_token
 
 
-class ListLanguageModelsRequest(TypedDict):
+class ListLanguageModelsRequest(TypedDict, closed=True):
     status_equals: NotRequired["aws_sdk_transcribe.types.model_status.ModelStatus"]
     """<p>Returns only custom language models with the specified status. Language models are ordered by creation date, with the newest model first. If you do not include <code>StatusEquals</code>, all custom language models are returned.</p>"""
     name_contains: NotRequired["aws_sdk_transcribe.types.model_name.ModelName"]

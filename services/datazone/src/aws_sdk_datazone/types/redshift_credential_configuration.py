@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RedshiftCredentialConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class RedshiftCredentialConfiguration(TypedDict):
+class RedshiftCredentialConfiguration(TypedDict, closed=True):
     secret_manager_arn: "str"
     """<p>The ARN of a secret manager for an Amazon Redshift cluster.</p>"""
 

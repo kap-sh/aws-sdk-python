@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmValidationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.algorithm_validation_profiles
     import aws_sdk_sagemaker.types.role_arn
 
 
-class AlgorithmValidationSpecification(TypedDict):
+class AlgorithmValidationSpecification(TypedDict, closed=True):
     validation_role: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The IAM roles that SageMaker uses to run the training jobs.</p>"""
     validation_profiles: NotRequired[

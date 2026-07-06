@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AddThingsToThingGroupParams``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_names
 
 
-class AddThingsToThingGroupParams(TypedDict):
+class AddThingsToThingGroupParams(TypedDict, closed=True):
     thing_group_names: "aws_sdk_iot.types.thing_group_names.ThingGroupNames"
     """<p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.</p>"""
     override_dynamic_groups: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteSpanSpeedLimitDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_boolean
     import aws_sdk_geo_routes.types.speed_kilometers_per_hour
 
 
-class RouteSpanSpeedLimitDetails(TypedDict):
+class RouteSpanSpeedLimitDetails(TypedDict, closed=True):
     max_speed: (
         "aws_sdk_geo_routes.types.speed_kilometers_per_hour.SpeedKilometersPerHour"
     )

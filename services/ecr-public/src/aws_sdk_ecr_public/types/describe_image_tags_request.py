@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#DescribeImageTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.repository_name
 
 
-class DescribeImageTagsRequest(TypedDict):
+class DescribeImageTagsRequest(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr_public.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID that's associated with the public registry that contains the repository where images are described. If you do not specify a registry, the default public registry is assumed.</p>"""
     repository_name: "aws_sdk_ecr_public.types.repository_name.RepositoryName"

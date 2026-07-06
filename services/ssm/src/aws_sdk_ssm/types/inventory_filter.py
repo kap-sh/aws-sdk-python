@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_query_operator_type
 
 
-class InventoryFilter(TypedDict):
+class InventoryFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.inventory_filter_key.InventoryFilterKey"
     """<p>The name of the filter key.</p>"""
     values: "aws_sdk_ssm.types.inventory_filter_value_list.InventoryFilterValueList"

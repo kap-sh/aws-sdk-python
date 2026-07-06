@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#StopJobRunResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.job_run_id
 
 
-class StopJobRunResponse(TypedDict):
+class StopJobRunResponse(TypedDict, closed=True):
     run_id: "aws_sdk_databrew.types.job_run_id.JobRunId"
     """<p>The ID of the job run that you stopped.</p>"""
 

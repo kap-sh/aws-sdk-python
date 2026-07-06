@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#InputSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.input_source_arn
 
 
-class InputSource(TypedDict):
+class InputSource(TypedDict, closed=True):
     input_source_arn: "aws_sdk_entityresolution.types.input_source_arn.InputSourceARN"
     """<p>An Glue table Amazon Resource Name (ARN) for the input source table.</p>"""
     schema_name: "aws_sdk_entityresolution.types.entity_name.EntityName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ContainerProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_emr_containers.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.container_provider_type
 
 
-class ContainerProvider(TypedDict):
+class ContainerProvider(TypedDict, closed=True):
     type: "aws_sdk_emr_containers.types.container_provider_type.ContainerProviderType"
     """<p>The type of the container provider. Amazon EKS is the only supported type as of now.</p>"""
     id: "aws_sdk_emr_containers.types.cluster_id.ClusterId"

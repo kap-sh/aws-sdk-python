@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListSourcesForS3TableIntegrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
     import aws_sdk_cloudwatch_logs.types.s3_table_integration_sources
 
 
-class ListSourcesForS3TableIntegrationResponse(TypedDict):
+class ListSourcesForS3TableIntegrationResponse(TypedDict, closed=True):
     sources: NotRequired[
         "aws_sdk_cloudwatch_logs.types.s3_table_integration_sources.S3TableIntegrationSources"
     ]

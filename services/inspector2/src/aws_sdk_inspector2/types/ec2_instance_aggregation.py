@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2InstanceAggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ec2_instance_sort_by
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.string_filter_list
 
 
-class Ec2InstanceAggregation(TypedDict):
+class Ec2InstanceAggregation(TypedDict, closed=True):
     amis: NotRequired["aws_sdk_inspector2.types.string_filter_list.StringFilterList"]
     """<p>The AMI IDs associated with the Amazon EC2 instances to aggregate findings for.</p>"""
     operating_systems: NotRequired[

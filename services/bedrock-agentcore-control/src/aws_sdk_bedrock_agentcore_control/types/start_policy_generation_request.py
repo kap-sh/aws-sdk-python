@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StartPolicyGenerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.resource_id
 
 
-class StartPolicyGenerationRequest(TypedDict):
+class StartPolicyGenerationRequest(TypedDict, closed=True):
     policy_engine_id: "aws_sdk_bedrock_agentcore_control.types.resource_id.ResourceId"
     """<p>The identifier of the policy engine that provides the context for policy generation. This engine's schema and tool context are used to ensure generated policies are valid and applicable.</p>"""
     resource: "aws_sdk_bedrock_agentcore_control.types.resource.Resource"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#GetAccountSettingsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountSettingsRequest(TypedDict):
+class GetAccountSettingsRequest(TypedDict, closed=True):
     pass
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewaymanagementapi#ApiGatewayManagementApi``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_apigatewaymanagementapi._auth._signers
@@ -35,7 +35,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewaymanagementapi.types.post_to_connection_request
 
 
-class AsyncApiGatewayManagementApiClientConfig(TypedDict, total=False):
+class AsyncApiGatewayManagementApiClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

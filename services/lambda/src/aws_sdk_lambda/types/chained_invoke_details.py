@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ChainedInvokeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.error_object
     import aws_sdk_lambda.types.operation_payload
 
 
-class ChainedInvokeDetails(TypedDict):
+class ChainedInvokeDetails(TypedDict, closed=True):
     result: NotRequired["aws_sdk_lambda.types.operation_payload.OperationPayload"]
     """<p>The response payload from the chained invocation.</p>"""
     error: NotRequired["aws_sdk_lambda.types.error_object.ErrorObject"]

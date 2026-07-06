@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ServerlessCache``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.t_stamp
 
 
-class ServerlessCache(TypedDict):
+class ServerlessCache(TypedDict, closed=True):
     serverless_cache_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The unique identifier of the serverless cache.</p>"""
     description: NotRequired["aws_sdk_elasticache.types.string.String"]

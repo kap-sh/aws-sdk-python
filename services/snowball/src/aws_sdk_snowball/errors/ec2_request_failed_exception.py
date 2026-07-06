@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#Ec2RequestFailedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class Ec2RequestFailedException_(TypedDict):
+class Ec2RequestFailedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_snowball.types.string.String"]
 
 

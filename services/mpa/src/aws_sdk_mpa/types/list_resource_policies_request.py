@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ListResourcePoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.token
 
 
-class ListResourcePoliciesRequest(TypedDict):
+class ListResourcePoliciesRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mpa.types.string.String"
     """<p>Amazon Resource Name (ARN) for the resource.</p>"""
     max_results: "aws_sdk_mpa.types.max_results.MaxResults"

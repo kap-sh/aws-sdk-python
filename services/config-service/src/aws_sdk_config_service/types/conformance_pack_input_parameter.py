@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ConformancePackInputParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.parameter_value
 
 
-class ConformancePackInputParameter(TypedDict):
+class ConformancePackInputParameter(TypedDict, closed=True):
     parameter_name: "aws_sdk_config_service.types.parameter_name.ParameterName"
     """<p>One part of a key-value pair.</p>"""
     parameter_value: "aws_sdk_config_service.types.parameter_value.ParameterValue"

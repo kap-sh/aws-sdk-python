@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RecommendationPreferencesDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.effective_preferred_resources
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.utilization_preferences
 
 
-class RecommendationPreferencesDetail(TypedDict):
+class RecommendationPreferencesDetail(TypedDict, closed=True):
     scope: NotRequired["aws_sdk_compute_optimizer.types.scope.Scope"]
     r"""<p>An object that describes the scope of the recommendation preference.</p> <p>Recommendation preferences can be created at the organization level (for management accounts of an organization only), account level, and resource level. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Activating enhanced infrastructure metrics</a> in the <i>Compute Optimizer User Guide</i>.</p>"""
     resource_type: NotRequired[

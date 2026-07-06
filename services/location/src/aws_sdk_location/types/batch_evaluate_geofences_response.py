@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchEvaluateGeofencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.batch_evaluate_geofences_error_list
 
 
-class BatchEvaluateGeofencesResponse(TypedDict):
+class BatchEvaluateGeofencesResponse(TypedDict, closed=True):
     errors: "aws_sdk_location.types.batch_evaluate_geofences_error_list.BatchEvaluateGeofencesErrorList"
     """<p>Contains error details for each device that failed to evaluate its position against the given geofence collection.</p>"""
 

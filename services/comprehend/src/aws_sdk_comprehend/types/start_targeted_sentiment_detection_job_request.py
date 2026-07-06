@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StartTargetedSentimentDetectionJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.vpc_config
 
 
-class StartTargetedSentimentDetectionJobRequest(TypedDict):
+class StartTargetedSentimentDetectionJobRequest(TypedDict, closed=True):
     input_data_config: "aws_sdk_comprehend.types.input_data_config.InputDataConfig"
     output_data_config: "aws_sdk_comprehend.types.output_data_config.OutputDataConfig"
     """<p>Specifies where to send the output files. </p>"""

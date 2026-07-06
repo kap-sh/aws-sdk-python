@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#ProviderIdNameSpaceConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ProviderIdNameSpaceConfiguration(TypedDict):
+class ProviderIdNameSpaceConfiguration(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>The description of the ID namespace.</p>"""
     provider_target_configuration_definition: NotRequired["object"]

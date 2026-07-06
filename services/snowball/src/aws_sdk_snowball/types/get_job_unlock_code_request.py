@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#GetJobUnlockCodeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.job_id
 
 
-class GetJobUnlockCodeRequest(TypedDict):
+class GetJobUnlockCodeRequest(TypedDict, closed=True):
     job_id: "aws_sdk_snowball.types.job_id.JobId"
     """<p>The ID for the job that you want to get the <code>UnlockCode</code> value for, for example <code>JID123e4567-e89b-12d3-a456-426655440000</code>.</p>"""
 

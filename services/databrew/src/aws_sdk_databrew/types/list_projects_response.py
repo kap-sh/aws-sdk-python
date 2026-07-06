@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ListProjectsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.project_list
 
 
-class ListProjectsResponse(TypedDict):
+class ListProjectsResponse(TypedDict, closed=True):
     projects: "aws_sdk_databrew.types.project_list.ProjectList"
     """<p>A list of projects that are defined .</p>"""
     next_token: NotRequired["aws_sdk_databrew.types.next_token.NextToken"]

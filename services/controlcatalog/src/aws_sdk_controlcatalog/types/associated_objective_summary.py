@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#AssociatedObjectiveSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.objective_arn
 
 
-class AssociatedObjectiveSummary(TypedDict):
+class AssociatedObjectiveSummary(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_controlcatalog.types.objective_arn.ObjectiveArn"]
     """<p>The Amazon Resource Name (ARN) of the related objective.</p>"""
     name: NotRequired["str"]

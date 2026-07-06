@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#InvalidCampaignStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.x_amazon_error_type
 
 
-class InvalidCampaignStateException_(TypedDict):
+class InvalidCampaignStateException_(TypedDict, closed=True):
     state: "aws_sdk_connectcampaignsv2.types.campaign_state.CampaignState"
     message: "str"
     x_amz_error_type: NotRequired[

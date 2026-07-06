@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetAdminScopeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.admin_scope
     import aws_sdk_fms.types.organization_status
 
 
-class GetAdminScopeResponse(TypedDict):
+class GetAdminScopeResponse(TypedDict, closed=True):
     admin_scope: NotRequired["aws_sdk_fms.types.admin_scope.AdminScope"]
     """<p>Contains details about the administrative scope of the requested account.</p>"""
     status: NotRequired["aws_sdk_fms.types.organization_status.OrganizationStatus"]

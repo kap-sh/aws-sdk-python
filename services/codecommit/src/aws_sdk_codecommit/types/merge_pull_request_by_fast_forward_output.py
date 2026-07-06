@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#MergePullRequestByFastForwardOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.pull_request
 
 
-class MergePullRequestByFastForwardOutput(TypedDict):
+class MergePullRequestByFastForwardOutput(TypedDict, closed=True):
     pull_request: NotRequired["aws_sdk_codecommit.types.pull_request.PullRequest"]
     """<p>Information about the specified pull request, including the merge.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RuleVerdictExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_verdict_value_list
 
 
-class RuleVerdictExpression(TypedDict):
+class RuleVerdictExpression(TypedDict, closed=True):
     evaluate: "aws_sdk_mailmanager.types.rule_verdict_to_evaluate.RuleVerdictToEvaluate"
     """<p>The verdict to evaluate in a verdict condition expression.</p>"""
     operator: "aws_sdk_mailmanager.types.rule_verdict_operator.RuleVerdictOperator"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#CancelHandshakeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake
 
 
-class CancelHandshakeResponse(TypedDict):
+class CancelHandshakeResponse(TypedDict, closed=True):
     handshake: NotRequired["aws_sdk_organizations.types.handshake.Handshake"]
     """<p>A <code>Handshake</code> object. Contains for the handshake that you canceled.</p>"""
 

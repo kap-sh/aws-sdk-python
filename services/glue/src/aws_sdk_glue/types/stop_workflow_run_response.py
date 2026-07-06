@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopWorkflowRunResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopWorkflowRunResponse(TypedDict):
+class StopWorkflowRunResponse(TypedDict, closed=True):
     pass
 
 

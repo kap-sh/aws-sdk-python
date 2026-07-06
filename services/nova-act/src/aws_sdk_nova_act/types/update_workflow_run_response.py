@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#UpdateWorkflowRunResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateWorkflowRunResponse(TypedDict):
+class UpdateWorkflowRunResponse(TypedDict, closed=True):
     pass
 
 

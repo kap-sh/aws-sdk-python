@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#LimitsPerLabelSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.limits_per_label_set_entry
 
 
-class LimitsPerLabelSet(TypedDict):
+class LimitsPerLabelSet(TypedDict, closed=True):
     limits: "aws_sdk_amp.types.limits_per_label_set_entry.LimitsPerLabelSetEntry"
     """<p>This structure contains the information about the limits that apply to time series that match this label set.</p>"""
     label_set: "aws_sdk_amp.types.label_set.LabelSet"

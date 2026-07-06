@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeConnectionAliasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.connection_alias_id_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeConnectionAliasesRequest(TypedDict):
+class DescribeConnectionAliasesRequest(TypedDict, closed=True):
     alias_ids: NotRequired[
         "aws_sdk_workspaces.types.connection_alias_id_list.ConnectionAliasIdList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.task_summaries
 
 
-class ListTasksResponse(TypedDict):
+class ListTasksResponse(TypedDict, closed=True):
     tasks: "aws_sdk_deadline.types.task_summaries.TaskSummaries"
     """<p>Tasks for the job.</p>"""
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]

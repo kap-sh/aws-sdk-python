@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#GetDataLakePrincipalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.identity_string
 
 
-class GetDataLakePrincipalResponse(TypedDict):
+class GetDataLakePrincipalResponse(TypedDict, closed=True):
     identity: NotRequired["aws_sdk_lakeformation.types.identity_string.IdentityString"]
     """<p>A unique identifier of the invoking principal.</p>"""
 

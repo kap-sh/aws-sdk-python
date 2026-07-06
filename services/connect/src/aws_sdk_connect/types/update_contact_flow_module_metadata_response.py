@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateContactFlowModuleMetadataResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateContactFlowModuleMetadataResponse(TypedDict):
+class UpdateContactFlowModuleMetadataResponse(TypedDict, closed=True):
     pass
 
 

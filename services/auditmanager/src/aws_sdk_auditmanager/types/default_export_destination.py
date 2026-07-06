@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DefaultExportDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.export_destination_type
     import aws_sdk_auditmanager.types.s3_url
 
 
-class DefaultExportDestination(TypedDict):
+class DefaultExportDestination(TypedDict, closed=True):
     destination_type: NotRequired[
         "aws_sdk_auditmanager.types.export_destination_type.ExportDestinationType"
     ]

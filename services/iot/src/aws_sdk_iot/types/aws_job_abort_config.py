@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AwsJobAbortConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.aws_job_abort_criteria_list
 
 
-class AwsJobAbortConfig(TypedDict):
+class AwsJobAbortConfig(TypedDict, closed=True):
     abort_criteria_list: (
         "aws_sdk_iot.types.aws_job_abort_criteria_list.AwsJobAbortCriteriaList"
     )

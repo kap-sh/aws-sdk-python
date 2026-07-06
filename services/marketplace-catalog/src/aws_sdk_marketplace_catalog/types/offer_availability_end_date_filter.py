@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#OfferAvailabilityEndDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.offer_availability_end_date_filter_date_range
 
 
-class OfferAvailabilityEndDateFilter(TypedDict):
+class OfferAvailabilityEndDateFilter(TypedDict, closed=True):
     date_range: NotRequired[
         "aws_sdk_marketplace_catalog.types.offer_availability_end_date_filter_date_range.OfferAvailabilityEndDateFilterDateRange"
     ]

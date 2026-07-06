@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.conditions
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.filter_requirement
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     behavior: NotRequired[
         "aws_sdk_observabilityadmin.types.filter_behavior.FilterBehavior"
     ]

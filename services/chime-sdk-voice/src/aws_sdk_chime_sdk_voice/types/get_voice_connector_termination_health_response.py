@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#GetVoiceConnectorTerminationHealthResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.termination_health
 
 
-class GetVoiceConnectorTerminationHealthResponse(TypedDict):
+class GetVoiceConnectorTerminationHealthResponse(TypedDict, closed=True):
     termination_health: NotRequired[
         "aws_sdk_chime_sdk_voice.types.termination_health.TerminationHealth"
     ]

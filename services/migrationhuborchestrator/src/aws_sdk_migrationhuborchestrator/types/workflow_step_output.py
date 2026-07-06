@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#WorkflowStepOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.data_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.workflow_step_output_union
 
 
-class WorkflowStepOutput(TypedDict):
+class WorkflowStepOutput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.workflow_step_output_name.WorkflowStepOutputName"
     ]

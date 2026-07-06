@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#QuotaInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.quota_code
     import aws_sdk_service_quotas.types.quota_name
 
 
-class QuotaInfo(TypedDict):
+class QuotaInfo(TypedDict, closed=True):
     quota_code: NotRequired["aws_sdk_service_quotas.types.quota_code.QuotaCode"]
     """<p>The Service Quotas code for the Amazon Web Services service monitored with Automatic Management.</p>"""
     quota_name: NotRequired["aws_sdk_service_quotas.types.quota_name.QuotaName"]

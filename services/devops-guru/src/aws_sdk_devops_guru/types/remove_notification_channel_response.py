@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#RemoveNotificationChannelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveNotificationChannelResponse(TypedDict):
+class RemoveNotificationChannelResponse(TypedDict, closed=True):
     pass
 
 

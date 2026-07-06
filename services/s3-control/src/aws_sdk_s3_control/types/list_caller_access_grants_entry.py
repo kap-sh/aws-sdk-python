@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#ListCallerAccessGrantsEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_prefix
 
 
-class ListCallerAccessGrantsEntry(TypedDict):
+class ListCallerAccessGrantsEntry(TypedDict, closed=True):
     permission: NotRequired["aws_sdk_s3_control.types.permission.Permission"]
     """<p>The type of permission granted, which can be one of the following values:</p> <ul> <li> <p> <code>READ</code> - Grants read-only access to the S3 data.</p> </li> <li> <p> <code>WRITE</code> - Grants write-only access to the S3 data.</p> </li> <li> <p> <code>READWRITE</code> - Grants both read and write access to the S3 data.</p> </li> </ul>"""
     grant_scope: NotRequired["aws_sdk_s3_control.types.s3_prefix.S3Prefix"]

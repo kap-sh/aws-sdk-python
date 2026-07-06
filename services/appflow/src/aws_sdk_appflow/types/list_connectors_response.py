@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ListConnectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_list
     import aws_sdk_appflow.types.next_token
 
 
-class ListConnectorsResponse(TypedDict):
+class ListConnectorsResponse(TypedDict, closed=True):
     connectors: NotRequired["aws_sdk_appflow.types.connector_list.ConnectorList"]
     """<p>Contains information about the connectors supported by Amazon AppFlow.</p>"""
     next_token: NotRequired["aws_sdk_appflow.types.next_token.NextToken"]

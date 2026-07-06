@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CapacityProviderStrategyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.capacity_provider_strategy_item_weight
 
 
-class CapacityProviderStrategyItem(TypedDict):
+class CapacityProviderStrategyItem(TypedDict, closed=True):
     capacity_provider: (
         "aws_sdk_cloudwatch_events.types.capacity_provider.CapacityProvider"
     )

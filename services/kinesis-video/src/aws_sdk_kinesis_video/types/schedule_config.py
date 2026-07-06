@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ScheduleConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.schedule_expression
 
 
-class ScheduleConfig(TypedDict):
+class ScheduleConfig(TypedDict, closed=True):
     schedule_expression: (
         "aws_sdk_kinesis_video.types.schedule_expression.ScheduleExpression"
     )

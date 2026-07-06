@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#UpdateVehicleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.vehicle_name
 
 
-class UpdateVehicleRequest(TypedDict):
+class UpdateVehicleRequest(TypedDict, closed=True):
     vehicle_name: "aws_sdk_iotfleetwise.types.vehicle_name.vehicleName"
     """<p>The unique ID of the vehicle to update.</p>"""
     model_manifest_arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]

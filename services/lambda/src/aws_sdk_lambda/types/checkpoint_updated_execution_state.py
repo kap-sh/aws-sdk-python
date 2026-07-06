@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CheckpointUpdatedExecutionState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.operations
     import aws_sdk_lambda.types.string
 
 
-class CheckpointUpdatedExecutionState(TypedDict):
+class CheckpointUpdatedExecutionState(TypedDict, closed=True):
     operations: NotRequired["aws_sdk_lambda.types.operations.Operations"]
     """<p>A list of operations that have been updated since the last checkpoint.</p>"""
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]

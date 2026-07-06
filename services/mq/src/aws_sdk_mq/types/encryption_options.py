@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#EncryptionOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__boolean
     import aws_sdk_mq.types.__string
 
 
-class EncryptionOptions(TypedDict):
+class EncryptionOptions(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>The customer master key (CMK) to use for the A KMS (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.</p>"""
     use_aws_owned_key: NotRequired["aws_sdk_mq.types.__boolean.__boolean"]

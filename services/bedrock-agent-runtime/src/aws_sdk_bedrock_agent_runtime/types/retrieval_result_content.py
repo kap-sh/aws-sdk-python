@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.audio_segment
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.video_segment
 
 
-class RetrievalResultContent(TypedDict):
+class RetrievalResultContent(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.retrieval_result_content_type.RetrievalResultContentType"
     ]

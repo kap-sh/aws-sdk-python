@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectorAuthenticationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.custom_authentication_properties
 
 
-class ConnectorAuthenticationConfiguration(TypedDict):
+class ConnectorAuthenticationConfiguration(TypedDict, closed=True):
     authentication_types: "aws_sdk_glue.types.authentication_types.AuthenticationTypes"
     """<p>A list of authentication types supported by this connection type, such as Basic, OAuth2, or Custom authentication methods.</p>"""
     o_auth2_properties: NotRequired[

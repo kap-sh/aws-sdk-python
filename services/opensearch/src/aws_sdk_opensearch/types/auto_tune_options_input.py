@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AutoTuneOptionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.auto_tune_desired_state
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
 
 
-class AutoTuneOptionsInput(TypedDict):
+class AutoTuneOptionsInput(TypedDict, closed=True):
     desired_state: NotRequired[
         "aws_sdk_opensearch.types.auto_tune_desired_state.AutoTuneDesiredState"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#UpdateRescoreExecutionPlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.capacity_units_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.rescore_execution_plan_name
 
 
-class UpdateRescoreExecutionPlanRequest(TypedDict):
+class UpdateRescoreExecutionPlanRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra_ranking.types.rescore_execution_plan_id.RescoreExecutionPlanId"
     """<p>The identifier of the rescore execution plan that you want to update.</p>"""
     name: NotRequired[

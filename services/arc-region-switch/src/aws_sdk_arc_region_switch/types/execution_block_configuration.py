@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ExecutionBlockConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError, SerializationError
 
@@ -24,71 +26,79 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.route53_health_check_configuration
 
 
-class _ExecutionBlockConfiguration_customActionLambdaConfig(TypedDict):
+class _ExecutionBlockConfiguration_customActionLambdaConfig(TypedDict, closed=True):
     customActionLambdaConfig: "aws_sdk_arc_region_switch.types.custom_action_lambda_configuration.CustomActionLambdaConfiguration"
 
 
-class _ExecutionBlockConfiguration_ec2AsgCapacityIncreaseConfig(TypedDict):
+class _ExecutionBlockConfiguration_ec2AsgCapacityIncreaseConfig(TypedDict, closed=True):
     ec2AsgCapacityIncreaseConfig: "aws_sdk_arc_region_switch.types.ec2_asg_capacity_increase_configuration.Ec2AsgCapacityIncreaseConfiguration"
 
 
-class _ExecutionBlockConfiguration_executionApprovalConfig(TypedDict):
+class _ExecutionBlockConfiguration_executionApprovalConfig(TypedDict, closed=True):
     executionApprovalConfig: "aws_sdk_arc_region_switch.types.execution_approval_configuration.ExecutionApprovalConfiguration"
 
 
-class _ExecutionBlockConfiguration_arcRoutingControlConfig(TypedDict):
+class _ExecutionBlockConfiguration_arcRoutingControlConfig(TypedDict, closed=True):
     arcRoutingControlConfig: "aws_sdk_arc_region_switch.types.arc_routing_control_configuration.ArcRoutingControlConfiguration"
 
 
-class _ExecutionBlockConfiguration_globalAuroraConfig(TypedDict):
+class _ExecutionBlockConfiguration_globalAuroraConfig(TypedDict, closed=True):
     globalAuroraConfig: "aws_sdk_arc_region_switch.types.global_aurora_configuration.GlobalAuroraConfiguration"
 
 
-class _ExecutionBlockConfiguration_parallelConfig(TypedDict):
+class _ExecutionBlockConfiguration_parallelConfig(TypedDict, closed=True):
     parallelConfig: "aws_sdk_arc_region_switch.types.parallel_execution_block_configuration.ParallelExecutionBlockConfiguration"
 
 
-class _ExecutionBlockConfiguration_regionSwitchPlanConfig(TypedDict):
+class _ExecutionBlockConfiguration_regionSwitchPlanConfig(TypedDict, closed=True):
     regionSwitchPlanConfig: "aws_sdk_arc_region_switch.types.region_switch_plan_configuration.RegionSwitchPlanConfiguration"
 
 
-class _ExecutionBlockConfiguration_ecsCapacityIncreaseConfig(TypedDict):
+class _ExecutionBlockConfiguration_ecsCapacityIncreaseConfig(TypedDict, closed=True):
     ecsCapacityIncreaseConfig: "aws_sdk_arc_region_switch.types.ecs_capacity_increase_configuration.EcsCapacityIncreaseConfiguration"
 
 
-class _ExecutionBlockConfiguration_eksResourceScalingConfig(TypedDict):
+class _ExecutionBlockConfiguration_eksResourceScalingConfig(TypedDict, closed=True):
     eksResourceScalingConfig: "aws_sdk_arc_region_switch.types.eks_resource_scaling_configuration.EksResourceScalingConfiguration"
 
 
-class _ExecutionBlockConfiguration_route53HealthCheckConfig(TypedDict):
+class _ExecutionBlockConfiguration_route53HealthCheckConfig(TypedDict, closed=True):
     route53HealthCheckConfig: "aws_sdk_arc_region_switch.types.route53_health_check_configuration.Route53HealthCheckConfiguration"
 
 
-class _ExecutionBlockConfiguration_documentDbConfig(TypedDict):
+class _ExecutionBlockConfiguration_documentDbConfig(TypedDict, closed=True):
     documentDbConfig: "aws_sdk_arc_region_switch.types.document_db_configuration.DocumentDbConfiguration"
 
 
-class _ExecutionBlockConfiguration_rdsPromoteReadReplicaConfig(TypedDict):
+class _ExecutionBlockConfiguration_rdsPromoteReadReplicaConfig(TypedDict, closed=True):
     rdsPromoteReadReplicaConfig: "aws_sdk_arc_region_switch.types.rds_promote_read_replica_configuration.RdsPromoteReadReplicaConfiguration"
 
 
-class _ExecutionBlockConfiguration_rdsCreateCrossRegionReadReplicaConfig(TypedDict):
+class _ExecutionBlockConfiguration_rdsCreateCrossRegionReadReplicaConfig(
+    TypedDict, closed=True
+):
     rdsCreateCrossRegionReadReplicaConfig: "aws_sdk_arc_region_switch.types.rds_create_cross_region_replica_configuration.RdsCreateCrossRegionReplicaConfiguration"
 
 
-class _ExecutionBlockConfiguration_lambdaEventSourceMappingConfig(TypedDict):
+class _ExecutionBlockConfiguration_lambdaEventSourceMappingConfig(
+    TypedDict, closed=True
+):
     lambdaEventSourceMappingConfig: "aws_sdk_arc_region_switch.types.lambda_event_source_mapping_configuration.LambdaEventSourceMappingConfiguration"
 
 
-class _ExecutionBlockConfiguration_auroraServerlessScalingConfig(TypedDict):
+class _ExecutionBlockConfiguration_auroraServerlessScalingConfig(
+    TypedDict, closed=True
+):
     auroraServerlessScalingConfig: "aws_sdk_arc_region_switch.types.aurora_serverless_scaling_configuration.AuroraServerlessScalingConfiguration"
 
 
-class _ExecutionBlockConfiguration_auroraProvisionedScalingConfig(TypedDict):
+class _ExecutionBlockConfiguration_auroraProvisionedScalingConfig(
+    TypedDict, closed=True
+):
     auroraProvisionedScalingConfig: "aws_sdk_arc_region_switch.types.aurora_provisioned_scaling_configuration.AuroraProvisionedScalingConfiguration"
 
 
-class _ExecutionBlockConfiguration_neptuneGlobalDatabaseConfig(TypedDict):
+class _ExecutionBlockConfiguration_neptuneGlobalDatabaseConfig(TypedDict, closed=True):
     neptuneGlobalDatabaseConfig: "aws_sdk_arc_region_switch.types.neptune_global_database_configuration.NeptuneGlobalDatabaseConfiguration"
 
 

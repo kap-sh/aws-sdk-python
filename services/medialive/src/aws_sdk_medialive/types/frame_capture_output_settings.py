@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#FrameCaptureOutputSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class FrameCaptureOutputSettings(TypedDict):
+class FrameCaptureOutputSettings(TypedDict, closed=True):
     name_modifier: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Required if the output group contains more than one output. This modifier forms part of the output file name."""
 

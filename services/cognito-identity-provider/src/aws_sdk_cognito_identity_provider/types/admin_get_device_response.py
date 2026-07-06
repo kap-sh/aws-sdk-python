@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AdminGetDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.device_type
 
 
-class AdminGetDeviceResponse(TypedDict):
+class AdminGetDeviceResponse(TypedDict, closed=True):
     device: "aws_sdk_cognito_identity_provider.types.device_type.DeviceType"
     """<p>Details of the requested device. Includes device information, last-accessed and created dates, and the device key.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#UpdateGoalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.agent_space_id
     import aws_sdk_devops_agent.types.goal_schedule_input
 
 
-class UpdateGoalRequest(TypedDict):
+class UpdateGoalRequest(TypedDict, closed=True):
     agent_space_id: "aws_sdk_devops_agent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier for the agent space containing the goal</p>"""
     goal_id: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBProxyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.user_auth_config_list
 
 
-class CreateDBProxyRequest(TypedDict):
+class CreateDBProxyRequest(TypedDict, closed=True):
     db_proxy_name: NotRequired["aws_sdk_rds.types.db_proxy_name.DBProxyName"]
     """<p>The identifier for the proxy. This name must be unique for all proxies owned by your Amazon Web Services account in the specified Amazon Web Services Region. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.</p>"""
     engine_family: NotRequired["aws_sdk_rds.types.engine_family.EngineFamily"]

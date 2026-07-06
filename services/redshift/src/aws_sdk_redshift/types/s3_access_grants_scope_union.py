@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#S3AccessGrantsScopeUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 from aws_sdk_redshift.errors import DeserializationError, SerializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.read_write_access
 
 
-class _S3AccessGrantsScopeUnion_ReadWriteAccess(TypedDict):
+class _S3AccessGrantsScopeUnion_ReadWriteAccess(TypedDict, closed=True):
     ReadWriteAccess: "aws_sdk_redshift.types.read_write_access.ReadWriteAccess"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.node_output_name
 
 
-class FlowInput(TypedDict):
+class FlowInput(TypedDict, closed=True):
     node_name: "aws_sdk_bedrock_agent_runtime.types.node_name.NodeName"
     """<p>The name of the flow input node that begins the prompt flow.</p>"""
     node_output_name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#BenefitApplicationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.arns
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.timestamp
 
 
-class BenefitApplicationSummary(TypedDict):
+class BenefitApplicationSummary(TypedDict, closed=True):
     catalog: NotRequired[
         "aws_sdk_partnercentral_benefits.types.catalog_name.CatalogName"
     ]

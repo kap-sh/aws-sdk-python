@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#CreateNotificationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateNotificationResponse(TypedDict):
+class CreateNotificationResponse(TypedDict, closed=True):
     pass
 
 

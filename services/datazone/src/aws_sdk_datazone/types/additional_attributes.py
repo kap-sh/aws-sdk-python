@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AdditionalAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.form_name_list
 
 
-class AdditionalAttributes(TypedDict):
+class AdditionalAttributes(TypedDict, closed=True):
     form_names: NotRequired["aws_sdk_datazone.types.form_name_list.FormNameList"]
     """<p>Names of forms on the query entity that can be requested in the response.</p>"""
 

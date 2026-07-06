@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchStatementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
 
 
-class BatchStatementRequest(TypedDict):
+class BatchStatementRequest(TypedDict, closed=True):
     statement: "aws_sdk_dynamodb.types.parti_ql_statement.PartiQLStatement"
     """<p> A valid PartiQL statement. </p>"""
     parameters: NotRequired[

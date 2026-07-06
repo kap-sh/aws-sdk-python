@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#VideoStandardExtraction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.video_extraction_category
 
 
-class VideoStandardExtraction(TypedDict):
+class VideoStandardExtraction(TypedDict, closed=True):
     category: "aws_sdk_bedrock_data_automation.types.video_extraction_category.VideoExtractionCategory"
     bounding_box: (
         "aws_sdk_bedrock_data_automation.types.video_bounding_box.VideoBoundingBox"

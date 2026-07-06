@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#StreamDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.timestamp
 
 
-class StreamDescription(TypedDict):
+class StreamDescription(TypedDict, closed=True):
     stream_name: "aws_sdk_kinesis.types.stream_name.StreamName"
     """<p>The name of the stream being described.</p>"""
     stream_arn: "aws_sdk_kinesis.types.stream_arn.StreamARN"

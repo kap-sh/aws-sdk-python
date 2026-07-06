@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#Filters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.account_id_list
     import aws_sdk_invoicing.types.invoice_unit_names
 
 
-class Filters(TypedDict):
+class Filters(TypedDict, closed=True):
     names: NotRequired["aws_sdk_invoicing.types.invoice_unit_names.InvoiceUnitNames"]
     """<p> An optional input to the list API. You can specify a list of invoice unit names inside filters to return invoice units that match only the specified invoice unit names. If multiple names are provided, the result is an <code>OR</code> condition (match any) of the specified invoice unit names. </p>"""
     invoice_receivers: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetMemberEc2DeepInspectionStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id_set
 
 
-class BatchGetMemberEc2DeepInspectionStatusRequest(TypedDict):
+class BatchGetMemberEc2DeepInspectionStatusRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_inspector2.types.account_id_set.AccountIdSet"]
     """<p>The unique identifiers for the Amazon Web Services accounts to retrieve Amazon Inspector deep inspection activation status for. </p>"""
 

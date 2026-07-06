@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowConnectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_data_connection_configuration
 
 
-class _FlowConnectionConfiguration_data(TypedDict):
+class _FlowConnectionConfiguration_data(TypedDict, closed=True):
     data: "aws_sdk_bedrock_agent.types.flow_data_connection_configuration.FlowDataConnectionConfiguration"
 
 
-class _FlowConnectionConfiguration_conditional(TypedDict):
+class _FlowConnectionConfiguration_conditional(TypedDict, closed=True):
     conditional: "aws_sdk_bedrock_agent.types.flow_conditional_connection_configuration.FlowConditionalConnectionConfiguration"
 
 

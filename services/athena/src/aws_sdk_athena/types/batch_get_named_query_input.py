@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#BatchGetNamedQueryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.named_query_id_list
 
 
-class BatchGetNamedQueryInput(TypedDict):
+class BatchGetNamedQueryInput(TypedDict, closed=True):
     named_query_ids: "aws_sdk_athena.types.named_query_id_list.NamedQueryIdList"
     """<p>An array of query IDs.</p>"""
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#GetWorkflowRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.id_string
     import aws_sdk_mwaa_serverless.types.workflow_arn
 
 
-class GetWorkflowRunRequest(TypedDict):
+class GetWorkflowRunRequest(TypedDict, closed=True):
     workflow_arn: "aws_sdk_mwaa_serverless.types.workflow_arn.WorkflowArn"
     """<p>The Amazon Resource Name (ARN) of the workflow that contains the run.</p>"""
     run_id: "aws_sdk_mwaa_serverless.types.id_string.IdString"

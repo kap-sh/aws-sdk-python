@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#HPOResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.hpo_resource
 
 
-class HPOResourceConfig(TypedDict):
+class HPOResourceConfig(TypedDict, closed=True):
     max_number_of_training_jobs: NotRequired[
         "aws_sdk_personalize.types.hpo_resource.HPOResource"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#EphemerisMetaData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class EphemerisMetaData(TypedDict):
+class EphemerisMetaData(TypedDict, closed=True):
     source: "aws_sdk_groundstation.types.ephemeris_source.EphemerisSource"
     """<p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>"""
     ephemeris_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]

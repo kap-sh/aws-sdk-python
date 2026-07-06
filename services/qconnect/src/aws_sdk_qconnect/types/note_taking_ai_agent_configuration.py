@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#NoteTakingAIAgentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
     import aws_sdk_qconnect.types.uuid_with_qualifier
 
 
-class NoteTakingAIAgentConfiguration(TypedDict):
+class NoteTakingAIAgentConfiguration(TypedDict, closed=True):
     note_taking_ai_prompt_id: NotRequired[
         "aws_sdk_qconnect.types.uuid_with_qualifier.UuidWithQualifier"
     ]

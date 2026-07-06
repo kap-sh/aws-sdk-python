@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agent_id
     import aws_sdk_quicksight.types.aws_account_id
 
 
-class DescribeAgentRequest(TypedDict):
+class DescribeAgentRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_quicksight.types.agent_id.AgentId"
     """<p>The unique identifier for the agent.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

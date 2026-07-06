@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MessageDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MessageDetail(TypedDict):
+class MessageDetail(TypedDict, closed=True):
     code: NotRequired["str"]
     """<p> The error code.</p>"""
     message: NotRequired["str"]

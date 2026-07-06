@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#VpcEndpointAssociationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.firewall_status_value
 
 
-class VpcEndpointAssociationStatus(TypedDict):
+class VpcEndpointAssociationStatus(TypedDict, closed=True):
     status: "aws_sdk_network_firewall.types.firewall_status_value.FirewallStatusValue"
     """<p>The readiness of the configured firewall endpoint to handle network traffic. </p>"""
     association_sync_state: NotRequired[

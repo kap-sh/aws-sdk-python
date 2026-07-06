@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#DescribeDBClusterSnapshotAttributesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class DescribeDBClusterSnapshotAttributesMessage(TypedDict):
+class DescribeDBClusterSnapshotAttributesMessage(TypedDict, closed=True):
     db_cluster_snapshot_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The identifier for the DB cluster snapshot to describe the attributes for.</p>"""
 

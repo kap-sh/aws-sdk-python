@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListModelManifestsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.model_manifest_summaries
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListModelManifestsResponse(TypedDict):
+class ListModelManifestsResponse(TypedDict, closed=True):
     summaries: NotRequired[
         "aws_sdk_iotfleetwise.types.model_manifest_summaries.modelManifestSummaries"
     ]

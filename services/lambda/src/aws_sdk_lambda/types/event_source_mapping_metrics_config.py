@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#EventSourceMappingMetricsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.event_source_mapping_metric_list
 
 
-class EventSourceMappingMetricsConfig(TypedDict):
+class EventSourceMappingMetricsConfig(TypedDict, closed=True):
     metrics: NotRequired[
         "aws_sdk_lambda.types.event_source_mapping_metric_list.EventSourceMappingMetricList"
     ]

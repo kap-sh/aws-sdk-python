@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#LaunchTemplateElasticInferenceAcceleratorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class LaunchTemplateElasticInferenceAcceleratorResponse(TypedDict):
+class LaunchTemplateElasticInferenceAcceleratorResponse(TypedDict, closed=True):
     type: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge. </p>"""
     count: NotRequired["aws_sdk_ec2.types.integer.Integer"]

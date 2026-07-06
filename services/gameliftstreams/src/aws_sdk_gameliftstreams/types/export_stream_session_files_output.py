@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#ExportStreamSessionFilesOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ExportStreamSessionFilesOutput(TypedDict):
+class ExportStreamSessionFilesOutput(TypedDict, closed=True):
     pass
 
 

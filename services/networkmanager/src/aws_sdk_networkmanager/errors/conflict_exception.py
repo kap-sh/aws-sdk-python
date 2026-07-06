@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_networkmanager.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.server_side_string
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_networkmanager.types.server_side_string.ServerSideString"
     resource_id: "aws_sdk_networkmanager.types.server_side_string.ServerSideString"
     """<p>The ID of the resource.</p>"""

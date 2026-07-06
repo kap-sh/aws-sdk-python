@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CustomDomain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.nullable_boolean
 
 
-class CustomDomain(TypedDict):
+class CustomDomain(TypedDict, closed=True):
     domain_name: "aws_sdk_apprunner.types.domain_name.DomainName"
     """<p>An associated custom domain endpoint. It can be a root domain (for example, <code>example.com</code>), a subdomain (for example, <code>login.example.com</code> or <code>admin.login.example.com</code>), or a wildcard (for example, <code>*.example.com</code>).</p>"""
     enable_www_subdomain: "aws_sdk_apprunner.types.nullable_boolean.NullableBoolean"

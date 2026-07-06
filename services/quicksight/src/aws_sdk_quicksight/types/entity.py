@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.non_empty_string
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     path: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]
     """<p>The hierarchical path of the entity within the analysis, template, or dashboard definition tree.</p>"""
 

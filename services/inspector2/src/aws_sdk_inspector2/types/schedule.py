@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Schedule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.weekly_schedule
 
 
-class _Schedule_oneTime(TypedDict):
+class _Schedule_oneTime(TypedDict, closed=True):
     oneTime: "aws_sdk_inspector2.types.one_time_schedule.OneTimeSchedule"
 
 
-class _Schedule_daily(TypedDict):
+class _Schedule_daily(TypedDict, closed=True):
     daily: "aws_sdk_inspector2.types.daily_schedule.DailySchedule"
 
 
-class _Schedule_weekly(TypedDict):
+class _Schedule_weekly(TypedDict, closed=True):
     weekly: "aws_sdk_inspector2.types.weekly_schedule.WeeklySchedule"
 
 
-class _Schedule_monthly(TypedDict):
+class _Schedule_monthly(TypedDict, closed=True):
     monthly: "aws_sdk_inspector2.types.monthly_schedule.MonthlySchedule"
 
 

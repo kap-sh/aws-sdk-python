@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#DeleteAccessTokenResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAccessTokenResponse(TypedDict):
+class DeleteAccessTokenResponse(TypedDict, closed=True):
     pass
 
 

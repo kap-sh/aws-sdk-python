@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CreateAutomationRuleV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.automation_rules_action_list_v2
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.tag_map
 
 
-class CreateAutomationRuleV2Request(TypedDict):
+class CreateAutomationRuleV2Request(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the V2 automation rule.</p>"""
     rule_status: NotRequired["aws_sdk_securityhub.types.rule_status_v2.RuleStatusV2"]

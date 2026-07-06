@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#RelatedEntityIdentifiers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.aws_marketplace_offer_identifiers
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.solution_identifiers
 
 
-class RelatedEntityIdentifiers(TypedDict):
+class RelatedEntityIdentifiers(TypedDict, closed=True):
     aws_marketplace_offers: NotRequired[
         "aws_sdk_partnercentral_selling.types.aws_marketplace_offer_identifiers.AwsMarketplaceOfferIdentifiers"
     ]

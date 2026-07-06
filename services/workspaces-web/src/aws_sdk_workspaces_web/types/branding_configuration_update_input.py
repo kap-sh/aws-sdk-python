@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#BrandingConfigurationUpdateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.color_theme
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.wallpaper_image_input
 
 
-class BrandingConfigurationUpdateInput(TypedDict):
+class BrandingConfigurationUpdateInput(TypedDict, closed=True):
     logo: NotRequired["aws_sdk_workspaces_web.types.icon_image_input.IconImageInput"]
     """<p>The logo image for the portal. Provide either a binary image file or an S3 URI pointing to the image file. Maximum 100 KB in JPEG, PNG, or ICO format.</p>"""
     wallpaper: NotRequired[

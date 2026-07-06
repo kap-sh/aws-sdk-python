@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#AnomalyDetectorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.random_cut_forest_configuration
 
 
-class _AnomalyDetectorConfiguration_randomCutForest(TypedDict):
+class _AnomalyDetectorConfiguration_randomCutForest(TypedDict, closed=True):
     randomCutForest: (
         "aws_sdk_amp.types.random_cut_forest_configuration.RandomCutForestConfiguration"
     )

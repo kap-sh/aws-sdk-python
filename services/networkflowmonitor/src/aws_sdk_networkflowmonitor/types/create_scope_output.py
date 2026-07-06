@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#CreateScopeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.tag_map
 
 
-class CreateScopeOutput(TypedDict):
+class CreateScopeOutput(TypedDict, closed=True):
     scope_id: "aws_sdk_networkflowmonitor.types.scope_id.ScopeId"
     """<p>The identifier for the scope that includes the resources you want to get metrics for. A scope ID is an internally-generated identifier that includes all the resources for a specific root account.</p>"""
     status: "aws_sdk_networkflowmonitor.types.scope_status.ScopeStatus"

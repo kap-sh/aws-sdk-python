@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#LambdaEffectiveRecommendationPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.lambda_savings_estimation_mode
 
 
-class LambdaEffectiveRecommendationPreferences(TypedDict):
+class LambdaEffectiveRecommendationPreferences(TypedDict, closed=True):
     savings_estimation_mode: NotRequired[
         "aws_sdk_compute_optimizer.types.lambda_savings_estimation_mode.LambdaSavingsEstimationMode"
     ]

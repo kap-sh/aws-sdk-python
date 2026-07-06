@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspectorscan#ScanSbomRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector_scan.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector_scan.types.sbom
 
 
-class ScanSbomRequest(TypedDict):
+class ScanSbomRequest(TypedDict, closed=True):
     sbom: "aws_sdk_inspector_scan.types.sbom.Sbom"
     """<p>The JSON file for the SBOM you want to scan. The SBOM must be in CycloneDX 1.5 format. This format limits you to passing 2000 components before throwing a <code>ValidException</code> error.</p>"""
     output_format: NotRequired[

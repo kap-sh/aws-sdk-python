@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#OperandTwo``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,19 +10,19 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.empty_operand_value
 
 
-class _OperandTwo_stringValue(TypedDict):
+class _OperandTwo_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 
-class _OperandTwo_booleanValue(TypedDict):
+class _OperandTwo_booleanValue(TypedDict, closed=True):
     booleanValue: "bool"
 
 
-class _OperandTwo_doubleValue(TypedDict):
+class _OperandTwo_doubleValue(TypedDict, closed=True):
     doubleValue: "float"
 
 
-class _OperandTwo_emptyValue(TypedDict):
+class _OperandTwo_emptyValue(TypedDict, closed=True):
     emptyValue: "aws_sdk_connectcases.types.empty_operand_value.EmptyOperandValue"
 
 

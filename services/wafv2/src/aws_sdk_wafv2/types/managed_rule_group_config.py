@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#ManagedRuleGroupConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.aws_managed_rules_acfp_rule_set
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.username_field
 
 
-class ManagedRuleGroupConfig(TypedDict):
+class ManagedRuleGroupConfig(TypedDict, closed=True):
     login_path: NotRequired["aws_sdk_wafv2.types.login_path_string.LoginPathString"]
     """<note> <p>Instead of this setting, provide your configuration under <code>AWSManagedRulesATPRuleSet</code>. </p> </note>"""
     payload_type: NotRequired["aws_sdk_wafv2.types.payload_type.PayloadType"]

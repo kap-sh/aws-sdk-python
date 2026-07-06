@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListRecommenderRecipesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.list_recommender_recipes_request_max_results_integer
     import aws_sdk_customer_profiles.types.token
 
 
-class ListRecommenderRecipesRequest(TypedDict):
+class ListRecommenderRecipesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_customer_profiles.types.list_recommender_recipes_request_max_results_integer.ListRecommenderRecipesRequestMaxResultsInteger"
     ]

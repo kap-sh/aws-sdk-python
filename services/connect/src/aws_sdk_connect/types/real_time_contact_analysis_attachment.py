@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.content_type
 
 
-class RealTimeContactAnalysisAttachment(TypedDict):
+class RealTimeContactAnalysisAttachment(TypedDict, closed=True):
     attachment_name: "aws_sdk_connect.types.attachment_name.AttachmentName"
     """<p>A case-sensitive name of the attachment being uploaded. Can be redacted.</p>"""
     content_type: NotRequired["aws_sdk_connect.types.content_type.ContentType"]

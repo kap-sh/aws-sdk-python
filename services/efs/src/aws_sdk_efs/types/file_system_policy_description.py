@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#FileSystemPolicyDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
     import aws_sdk_efs.types.policy
 
 
-class FileSystemPolicyDescription(TypedDict):
+class FileSystemPolicyDescription(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_efs.types.file_system_id.FileSystemId"]
     """<p>Specifies the EFS file system to which the <code>FileSystemPolicy</code> applies.</p>"""
     policy: NotRequired["aws_sdk_efs.types.policy.Policy"]

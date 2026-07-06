@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.encryption_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The ID of the KMS key used for encryption, if applicable.</p>"""
     status: NotRequired["aws_sdk_xray.types.encryption_status.EncryptionStatus"]

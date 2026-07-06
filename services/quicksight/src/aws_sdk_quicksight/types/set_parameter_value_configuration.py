@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SetParameterValueConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.parameter_name
 
 
-class SetParameterValueConfiguration(TypedDict):
+class SetParameterValueConfiguration(TypedDict, closed=True):
     destination_parameter_name: "aws_sdk_quicksight.types.parameter_name.ParameterName"
     """<p>The destination parameter name of the <code>SetParameterValueConfiguration</code>.</p>"""
     value: "aws_sdk_quicksight.types.destination_parameter_value_configuration.DestinationParameterValueConfiguration"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#EventResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.event_resource_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.event_resource_type
 
 
-class EventResource(TypedDict):
+class EventResource(TypedDict, closed=True):
     type: NotRequired["aws_sdk_devops_guru.types.event_resource_type.EventResourceType"]
     """<p> The type of resource that emitted an event. </p>"""
     name: NotRequired["aws_sdk_devops_guru.types.event_resource_name.EventResourceName"]

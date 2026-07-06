@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#Entity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.confidence
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.string
 
 
-class Entity(TypedDict):
+class Entity(TypedDict, closed=True):
     start_time: "aws_sdk_transcribe_streaming.types.double.Double"
     """<p>The start time of the utterance that was identified as PII in seconds, with millisecond precision (e.g., 1.056)</p>"""
     end_time: "aws_sdk_transcribe_streaming.types.double.Double"

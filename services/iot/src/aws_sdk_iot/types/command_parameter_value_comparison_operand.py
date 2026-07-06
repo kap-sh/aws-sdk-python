@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CommandParameterValueComparisonOperand``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_parameter_value_number_range
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string_parameter_value
 
 
-class CommandParameterValueComparisonOperand(TypedDict):
+class CommandParameterValueComparisonOperand(TypedDict, closed=True):
     number: NotRequired["aws_sdk_iot.types.string_parameter_value.StringParameterValue"]
     """<p>An operand of number value type, defined as a string.</p>"""
     numbers: NotRequired[

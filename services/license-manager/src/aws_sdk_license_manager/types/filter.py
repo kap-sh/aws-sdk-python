@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.filter_name
     import aws_sdk_license_manager.types.filter_values
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_license_manager.types.filter_name.FilterName"]
     """<p>Name of the filter. Filter names are case-sensitive.</p>"""
     values: NotRequired["aws_sdk_license_manager.types.filter_values.FilterValues"]

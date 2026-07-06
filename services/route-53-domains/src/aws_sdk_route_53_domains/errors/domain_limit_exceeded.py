@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DomainLimitExceeded``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53_domains.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.error_message
 
 
-class DomainLimitExceeded_(TypedDict):
+class DomainLimitExceeded_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_route_53_domains.types.error_message.ErrorMessage"]
     """<p>The number of domains has exceeded the allowed threshold for the account.</p>"""
 

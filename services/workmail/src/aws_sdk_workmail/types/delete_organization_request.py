@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeleteOrganizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class DeleteOrganizationRequest(TypedDict):
+class DeleteOrganizationRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_workmail.types.idempotency_client_token.IdempotencyClientToken"
     ]

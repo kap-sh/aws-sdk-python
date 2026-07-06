@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#GeoProximityLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.local_zone_group
 
 
-class GeoProximityLocation(TypedDict):
+class GeoProximityLocation(TypedDict, closed=True):
     aws_region: NotRequired["aws_sdk_route_53.types.aws_region.AWSRegion"]
     """<p> The Amazon Web Services Region the resource you are directing DNS traffic to, is in. </p>"""
     local_zone_group: NotRequired[

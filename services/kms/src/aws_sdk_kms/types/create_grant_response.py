@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#CreateGrantResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.grant_id_type
     import aws_sdk_kms.types.grant_token_type
 
 
-class CreateGrantResponse(TypedDict):
+class CreateGrantResponse(TypedDict, closed=True):
     grant_token: NotRequired["aws_sdk_kms.types.grant_token_type.GrantTokenType"]
     r"""<p>The grant token.</p> <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token\">Grant token</a> and <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html\">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>"""
     grant_id: NotRequired["aws_sdk_kms.types.grant_id_type.GrantIdType"]

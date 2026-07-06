@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#HealthEventsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.local_health_events_config
     import aws_sdk_internetmonitor.types.percentage
 
 
-class HealthEventsConfig(TypedDict):
+class HealthEventsConfig(TypedDict, closed=True):
     availability_score_threshold: "aws_sdk_internetmonitor.types.percentage.Percentage"
     """<p>The health event threshold percentage set for availability scores.</p>"""
     performance_score_threshold: "aws_sdk_internetmonitor.types.percentage.Percentage"

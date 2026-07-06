@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Search``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
 
 
-class Search(TypedDict):
+class Search(TypedDict, closed=True):
     facetable: "aws_sdk_kendra.types.boolean.Boolean"
     """<p>Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is <code>false</code> .</p>"""
     searchable: "aws_sdk_kendra.types.boolean.Boolean"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateScriptResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.python_script
     import aws_sdk_glue.types.scala_code
 
 
-class CreateScriptResponse(TypedDict):
+class CreateScriptResponse(TypedDict, closed=True):
     python_script: NotRequired["aws_sdk_glue.types.python_script.PythonScript"]
     """<p>The Python script generated from the DAG.</p>"""
     scala_code: NotRequired["aws_sdk_glue.types.scala_code.ScalaCode"]

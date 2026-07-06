@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#HiveJsonSerDe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.list_of_non_empty_strings
 
 
-class HiveJsonSerDe(TypedDict):
+class HiveJsonSerDe(TypedDict, closed=True):
     timestamp_formats: NotRequired[
         "aws_sdk_firehose.types.list_of_non_empty_strings.ListOfNonEmptyStrings"
     ]

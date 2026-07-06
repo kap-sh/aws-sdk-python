@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#EventVariableSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.sensitive_string
 
 
-class EventVariableSummary(TypedDict):
+class EventVariableSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.sensitive_string.sensitiveString"]
     """<p> The event variable name. </p>"""
     value: NotRequired["aws_sdk_frauddetector.types.sensitive_string.sensitiveString"]

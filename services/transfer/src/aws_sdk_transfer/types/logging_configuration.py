@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#LoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.log_group_name
     import aws_sdk_transfer.types.role
 
 
-class LoggingConfiguration(TypedDict):
+class LoggingConfiguration(TypedDict, closed=True):
     logging_role: NotRequired["aws_sdk_transfer.types.role.Role"]
     """<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When set, you can view user activity in your CloudWatch logs.</p>"""
     log_group_name: NotRequired["aws_sdk_transfer.types.log_group_name.LogGroupName"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#TokenUsage``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TokenUsage(TypedDict):
+class TokenUsage(TypedDict, closed=True):
     input_tokens: NotRequired["int"]
     """<p> The number of tokens consumed for input processing during the evaluation. Includes tokens from the evaluation prompt, agent traces, and any additional context provided to the evaluator model. </p>"""
     output_tokens: NotRequired["int"]

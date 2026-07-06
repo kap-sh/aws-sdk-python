@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EffectiveHoursOfOperations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hours_of_operation_override_year_month_day_date_format
     import aws_sdk_connect.types.operational_hours
 
 
-class EffectiveHoursOfOperations(TypedDict):
+class EffectiveHoursOfOperations(TypedDict, closed=True):
     date: NotRequired[
         "aws_sdk_connect.types.hours_of_operation_override_year_month_day_date_format.HoursOfOperationOverrideYearMonthDayDateFormat"
     ]

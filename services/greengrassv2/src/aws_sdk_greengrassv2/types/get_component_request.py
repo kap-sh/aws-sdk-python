@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#GetComponentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.component_version_arn
     import aws_sdk_greengrassv2.types.recipe_output_format
 
 
-class GetComponentRequest(TypedDict):
+class GetComponentRequest(TypedDict, closed=True):
     recipe_output_format: NotRequired[
         "aws_sdk_greengrassv2.types.recipe_output_format.RecipeOutputFormat"
     ]

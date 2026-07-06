@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TimeRangeDrillDownFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.timestamp
 
 
-class TimeRangeDrillDownFilter(TypedDict):
+class TimeRangeDrillDownFilter(TypedDict, closed=True):
     column: "aws_sdk_quicksight.types.column_identifier.ColumnIdentifier"
     """<p>The column that the filter is applied to.</p>"""
     range_minimum: "aws_sdk_quicksight.types.timestamp.Timestamp"

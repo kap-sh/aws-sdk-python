@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signer#Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.s3_source
 
 
-class Source(TypedDict):
+class Source(TypedDict, closed=True):
     s3: NotRequired["aws_sdk_signer.types.s3_source.S3Source"]
     """<p>The <code>S3Source</code> object.</p>"""
 

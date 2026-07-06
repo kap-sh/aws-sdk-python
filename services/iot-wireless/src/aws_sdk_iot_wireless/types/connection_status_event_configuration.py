@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ConnectionStatusEventConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.event_notification_topic_status
     import aws_sdk_iot_wireless.types.lo_ra_wan_connection_status_event_notification_configurations
 
 
-class ConnectionStatusEventConfiguration(TypedDict):
+class ConnectionStatusEventConfiguration(TypedDict, closed=True):
     lo_ra_wan: NotRequired[
         "aws_sdk_iot_wireless.types.lo_ra_wan_connection_status_event_notification_configurations.LoRaWANConnectionStatusEventNotificationConfigurations"
     ]

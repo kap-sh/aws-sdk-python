@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ListResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.filter_condition_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.token
 
 
-class ListResourcesRequest(TypedDict):
+class ListResourcesRequest(TypedDict, closed=True):
     filter_condition_list: NotRequired[
         "aws_sdk_lakeformation.types.filter_condition_list.FilterConditionList"
     ]

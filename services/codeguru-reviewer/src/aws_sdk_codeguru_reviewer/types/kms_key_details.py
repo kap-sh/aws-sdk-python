@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#KMSKeyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.encryption_option
     import aws_sdk_codeguru_reviewer.types.kms_key_id
 
 
-class KMSKeyDetails(TypedDict):
+class KMSKeyDetails(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_codeguru_reviewer.types.kms_key_id.KMSKeyId"]
     """<p>The ID of the Amazon Web Services KMS key that is associated with a repository association.</p>"""
     encryption_option: NotRequired[

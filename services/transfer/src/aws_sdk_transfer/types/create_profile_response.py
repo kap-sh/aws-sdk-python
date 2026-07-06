@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CreateProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.profile_id
 
 
-class CreateProfileResponse(TypedDict):
+class CreateProfileResponse(TypedDict, closed=True):
     profile_id: "aws_sdk_transfer.types.profile_id.ProfileId"
     """<p>The unique identifier for the AS2 profile, returned after the API call succeeds.</p>"""
 

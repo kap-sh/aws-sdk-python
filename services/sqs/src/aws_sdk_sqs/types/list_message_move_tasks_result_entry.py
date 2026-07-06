@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListMessageMoveTasksResultEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.long
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class ListMessageMoveTasksResultEntry(TypedDict):
+class ListMessageMoveTasksResultEntry(TypedDict, closed=True):
     task_handle: NotRequired["aws_sdk_sqs.types.string.String"]
     """<p>An identifier associated with a message movement task. When this field is returned in the response of the <code>ListMessageMoveTasks</code> action, it is only populated for tasks that are in RUNNING status.</p>"""
     status: NotRequired["aws_sdk_sqs.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sso#GetRoleCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso.types.role_credentials
 
 
-class GetRoleCredentialsResponse(TypedDict):
+class GetRoleCredentialsResponse(TypedDict, closed=True):
     role_credentials: NotRequired["aws_sdk_sso.types.role_credentials.RoleCredentials"]
     """<p>The credentials for the role that is assigned to the user.</p>"""
 

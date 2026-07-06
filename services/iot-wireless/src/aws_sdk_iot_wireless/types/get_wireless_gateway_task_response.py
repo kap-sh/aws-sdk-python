@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetWirelessGatewayTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.iso_date_time_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_task_status
 
 
-class GetWirelessGatewayTaskResponse(TypedDict):
+class GetWirelessGatewayTaskResponse(TypedDict, closed=True):
     wireless_gateway_id: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_gateway_id.WirelessGatewayId"
     ]

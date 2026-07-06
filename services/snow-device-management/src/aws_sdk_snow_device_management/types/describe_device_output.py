@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#DescribeDeviceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.unlock_state
 
 
-class DescribeDeviceOutput(TypedDict):
+class DescribeDeviceOutput(TypedDict, closed=True):
     last_reached_out_at: NotRequired["datetime.datetime"]
     """<p>When the device last contacted the Amazon Web Services Cloud. Indicates that the device is online.</p>"""
     last_updated_at: NotRequired["datetime.datetime"]

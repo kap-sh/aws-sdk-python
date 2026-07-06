@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#NotifyRecommendationsReceivedError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.notify_recommendations_received_error_message
 
 
-class NotifyRecommendationsReceivedError(TypedDict):
+class NotifyRecommendationsReceivedError(TypedDict, closed=True):
     recommendation_id: NotRequired["str"]
     """<p>The identifier of the recommendation that is in error.</p>"""
     message: NotRequired[

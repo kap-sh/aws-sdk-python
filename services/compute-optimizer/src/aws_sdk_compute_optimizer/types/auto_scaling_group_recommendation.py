@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#AutoScalingGroupRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.account_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.utilization_metrics
 
 
-class AutoScalingGroupRecommendation(TypedDict):
+class AutoScalingGroupRecommendation(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_compute_optimizer.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID of the Auto Scaling group.</p>"""
     auto_scaling_group_arn: NotRequired[

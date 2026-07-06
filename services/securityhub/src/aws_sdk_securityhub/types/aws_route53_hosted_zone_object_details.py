@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsRoute53HostedZoneObjectDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_route53_hosted_zone_config_details
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsRoute53HostedZoneObjectDetails(TypedDict):
+class AwsRoute53HostedZoneObjectDetails(TypedDict, closed=True):
     id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The ID that Route 53 assigns to the hosted zone when you create it. </p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

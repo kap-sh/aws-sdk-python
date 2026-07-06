@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetColumnStatisticsTaskRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_statistics_task_runs_list
     import aws_sdk_glue.types.token
 
 
-class GetColumnStatisticsTaskRunsResponse(TypedDict):
+class GetColumnStatisticsTaskRunsResponse(TypedDict, closed=True):
     column_statistics_task_runs: NotRequired[
         "aws_sdk_glue.types.column_statistics_task_runs_list.ColumnStatisticsTaskRunsList"
     ]

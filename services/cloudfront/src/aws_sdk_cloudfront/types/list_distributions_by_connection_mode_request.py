@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListDistributionsByConnectionModeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ListDistributionsByConnectionModeRequest(TypedDict):
+class ListDistributionsByConnectionModeRequest(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p> The marker for the next set of distributions to retrieve.</p>"""
     max_items: NotRequired["aws_sdk_cloudfront.types.integer.integer"]

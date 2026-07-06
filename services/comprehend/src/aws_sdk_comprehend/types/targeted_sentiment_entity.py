@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#TargetedSentimentEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_descriptive_mention_indices
     import aws_sdk_comprehend.types.list_of_mentions
 
 
-class TargetedSentimentEntity(TypedDict):
+class TargetedSentimentEntity(TypedDict, closed=True):
     descriptive_mention_index: NotRequired[
         "aws_sdk_comprehend.types.list_of_descriptive_mention_indices.ListOfDescriptiveMentionIndices"
     ]

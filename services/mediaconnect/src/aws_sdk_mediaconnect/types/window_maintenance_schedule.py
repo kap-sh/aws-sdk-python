@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#WindowMaintenanceSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class WindowMaintenanceSchedule(TypedDict):
+class WindowMaintenanceSchedule(TypedDict, closed=True):
     start: "datetime.datetime"
     """<p>The start time of the maintenance window.</p>"""
     end: "datetime.datetime"

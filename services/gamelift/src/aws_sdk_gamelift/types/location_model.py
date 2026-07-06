@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#LocationModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.location_arn_model
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.ping_beacon
 
 
-class LocationModel(TypedDict):
+class LocationModel(TypedDict, closed=True):
     location_name: NotRequired[
         "aws_sdk_gamelift.types.location_string_model.LocationStringModel"
     ]

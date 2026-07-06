@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#CreateContainerRecipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.wildcard_version_number
 
 
-class CreateContainerRecipeRequest(TypedDict):
+class CreateContainerRecipeRequest(TypedDict, closed=True):
     container_type: "aws_sdk_imagebuilder.types.container_type.ContainerType"
     """<p>The type of container to create.</p>"""
     name: "aws_sdk_imagebuilder.types.resource_name.ResourceName"

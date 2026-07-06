@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#PostProcessingModelInvocationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.metadata
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.trace_id
 
 
-class PostProcessingModelInvocationOutput(TypedDict):
+class PostProcessingModelInvocationOutput(TypedDict, closed=True):
     trace_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.trace_id.TraceId"]
     """<p>The unique identifier of the trace.</p>"""
     parsed_response: NotRequired[

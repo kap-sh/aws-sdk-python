@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetUpgradeStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.upgrade_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.upgrade_step
 
 
-class GetUpgradeStatusResponse(TypedDict):
+class GetUpgradeStatusResponse(TypedDict, closed=True):
     upgrade_step: NotRequired["aws_sdk_opensearch.types.upgrade_step.UpgradeStep"]
     """<p>One of three steps that an upgrade or upgrade eligibility check goes through.</p>"""
     step_status: NotRequired["aws_sdk_opensearch.types.upgrade_status.UpgradeStatus"]

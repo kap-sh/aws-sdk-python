@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StatusDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.table
     import aws_sdk_glue.types.view_validation_list
 
 
-class StatusDetails(TypedDict):
+class StatusDetails(TypedDict, closed=True):
     requested_change: NotRequired["aws_sdk_glue.types.table.Table"]
     """<p>A <code>Table</code> object representing the requested changes.</p>"""
     view_validations: NotRequired[

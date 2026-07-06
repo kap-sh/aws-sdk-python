@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeReservedInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.reserved_instance_list
     import aws_sdk_opensearch.types.string
 
 
-class DescribeReservedInstancesResponse(TypedDict):
+class DescribeReservedInstancesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_opensearch.types.string.String"]
     """<p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Send the request again using the returned token to retrieve the next page.</p>"""
     reserved_instances: NotRequired[

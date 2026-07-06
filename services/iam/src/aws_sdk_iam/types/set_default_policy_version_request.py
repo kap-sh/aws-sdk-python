@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#SetDefaultPolicyVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy_version_id_type
 
 
-class SetDefaultPolicyVersionRequest(TypedDict):
+class SetDefaultPolicyVersionRequest(TypedDict, closed=True):
     policy_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>"""
     version_id: "aws_sdk_iam.types.policy_version_id_type.policyVersionIdType"

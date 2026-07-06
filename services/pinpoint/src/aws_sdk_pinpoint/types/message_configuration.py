@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#MessageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.campaign_custom_message
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.message
 
 
-class MessageConfiguration(TypedDict):
+class MessageConfiguration(TypedDict, closed=True):
     adm_message: NotRequired["aws_sdk_pinpoint.types.message.Message"]
     """<p>The message that the campaign sends through the ADM (Amazon Device Messaging) channel. If specified, this message overrides the default message.</p>"""
     apns_message: NotRequired["aws_sdk_pinpoint.types.message.Message"]

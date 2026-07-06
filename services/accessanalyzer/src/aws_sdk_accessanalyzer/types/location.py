@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.span
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     path: "aws_sdk_accessanalyzer.types.path_element_list.PathElementList"
     """<p>A path in a policy, represented as a sequence of path elements.</p>"""
     span: "aws_sdk_accessanalyzer.types.span.Span"

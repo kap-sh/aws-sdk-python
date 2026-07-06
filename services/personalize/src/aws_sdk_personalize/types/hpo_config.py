@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#HPOConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.hpo_objective
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.hyper_parameter_ranges
 
 
-class HPOConfig(TypedDict):
+class HPOConfig(TypedDict, closed=True):
     hpo_objective: NotRequired["aws_sdk_personalize.types.hpo_objective.HPOObjective"]
     """<p>The metric to optimize during HPO.</p> <note> <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code> at this time.</p> </note>"""
     hpo_resource_config: NotRequired[

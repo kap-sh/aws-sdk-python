@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#DeleteQueuedSavingsPlanResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteQueuedSavingsPlanResponse(TypedDict):
+class DeleteQueuedSavingsPlanResponse(TypedDict, closed=True):
     pass
 
 

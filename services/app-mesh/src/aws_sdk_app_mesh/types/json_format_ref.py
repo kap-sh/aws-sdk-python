@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#JsonFormatRef``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.json_value
 
 
-class JsonFormatRef(TypedDict):
+class JsonFormatRef(TypedDict, closed=True):
     key: "aws_sdk_app_mesh.types.json_key.JsonKey"
     """<p>The specified key for the JSON.</p>"""
     value: "aws_sdk_app_mesh.types.json_value.JsonValue"

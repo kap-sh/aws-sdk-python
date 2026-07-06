@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchUpdateBillScenarioUsageModificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_update_bill_scenario_usage_modification_errors
     import aws_sdk_bcm_pricing_calculator.types.bill_scenario_usage_modification_items
 
 
-class BatchUpdateBillScenarioUsageModificationResponse(TypedDict):
+class BatchUpdateBillScenarioUsageModificationResponse(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_bcm_pricing_calculator.types.bill_scenario_usage_modification_items.BillScenarioUsageModificationItems"
     ]

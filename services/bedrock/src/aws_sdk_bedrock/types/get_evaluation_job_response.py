@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetEvaluationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class GetEvaluationJobResponse(TypedDict):
+class GetEvaluationJobResponse(TypedDict, closed=True):
     job_name: "aws_sdk_bedrock.types.evaluation_job_name.EvaluationJobName"
     """<p>The name for the evaluation job.</p>"""
     status: "aws_sdk_bedrock.types.evaluation_job_status.EvaluationJobStatus"

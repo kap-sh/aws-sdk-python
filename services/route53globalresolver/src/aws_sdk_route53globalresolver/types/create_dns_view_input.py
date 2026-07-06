@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#CreateDNSViewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.tags
 
 
-class CreateDNSViewInput(TypedDict):
+class CreateDNSViewInput(TypedDict, closed=True):
     global_resolver_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The ID of the Route 53 Global Resolver to associate with this DNS view.</p>"""
     client_token: NotRequired[

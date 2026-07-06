@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DescribeAccountLimitsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.max_results
     import aws_sdk_pinpoint_sms_voice_v2.types.next_token
 
 
-class DescribeAccountLimitsRequest(TypedDict):
+class DescribeAccountLimitsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_pinpoint_sms_voice_v2.types.next_token.NextToken"]
     """<p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>"""
     max_results: NotRequired[

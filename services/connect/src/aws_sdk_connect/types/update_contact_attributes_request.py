@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateContactAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class UpdateContactAttributesRequest(TypedDict):
+class UpdateContactAttributesRequest(TypedDict, closed=True):
     initial_contact_id: "aws_sdk_connect.types.contact_id.ContactId"
     """<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>"""
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"

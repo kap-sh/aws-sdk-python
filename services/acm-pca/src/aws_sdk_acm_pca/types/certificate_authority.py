@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CertificateAuthority``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.t_stamp
 
 
-class CertificateAuthority(TypedDict):
+class CertificateAuthority(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_acm_pca.types.arn.Arn"]
     """<p>Amazon Resource Name (ARN) for your private certificate authority (CA). The format is <code> <i>12345678-1234-1234-1234-123456789012</i> </code>.</p>"""
     owner_account: NotRequired["aws_sdk_acm_pca.types.account_id.AccountId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeDashboardResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dashboard
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeDashboardResponse(TypedDict):
+class DescribeDashboardResponse(TypedDict, closed=True):
     dashboard: NotRequired["aws_sdk_quicksight.types.dashboard.Dashboard"]
     """<p>Information about the dashboard.</p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

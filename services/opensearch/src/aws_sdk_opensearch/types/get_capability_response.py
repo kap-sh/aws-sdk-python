@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetCapabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.application_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.capability_status
 
 
-class GetCapabilityResponse(TypedDict):
+class GetCapabilityResponse(TypedDict, closed=True):
     capability_name: NotRequired[
         "aws_sdk_opensearch.types.capability_name.CapabilityName"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#CustomerAgentInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.integer
 
 
-class CustomerAgentInfo(TypedDict):
+class CustomerAgentInfo(TypedDict, closed=True):
     active_agents: "aws_sdk_application_discovery_service.types.integer.Integer"
     """<p>Number of active discovery agents.</p>"""
     healthy_agents: "aws_sdk_application_discovery_service.types.integer.Integer"

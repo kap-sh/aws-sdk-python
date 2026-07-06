@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DeleteAwsLogSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.aws_log_source_configuration_list
 
 
-class DeleteAwsLogSourceRequest(TypedDict):
+class DeleteAwsLogSourceRequest(TypedDict, closed=True):
     sources: "aws_sdk_securitylake.types.aws_log_source_configuration_list.AwsLogSourceConfigurationList"
     """<p>Specify the natively-supported Amazon Web Services service to remove as a source in Security Lake.</p>"""
 

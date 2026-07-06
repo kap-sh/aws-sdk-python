@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateBucketAccessKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.bucket_name
 
 
-class CreateBucketAccessKeyRequest(TypedDict):
+class CreateBucketAccessKeyRequest(TypedDict, closed=True):
     bucket_name: "aws_sdk_lightsail.types.bucket_name.BucketName"
     """<p>The name of the bucket that the new access key will belong to, and grant access to.</p>"""
 

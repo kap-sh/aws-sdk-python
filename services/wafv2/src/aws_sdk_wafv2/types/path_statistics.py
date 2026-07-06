@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#PathStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.request_count
 
 
-class PathStatistics(TypedDict):
+class PathStatistics(TypedDict, closed=True):
     source: NotRequired["aws_sdk_wafv2.types.filter_source.FilterSource"]
     """<p>Information about the bot filter that was applied to generate these statistics. This field is only populated when you filter by bot category, organization, or name.</p>"""
     path: "aws_sdk_wafv2.types.path_string.PathString"

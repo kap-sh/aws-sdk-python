@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergSortField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_sort_direction
 
 
-class IcebergSortField(TypedDict):
+class IcebergSortField(TypedDict, closed=True):
     source_id: "int"
     """<p>The ID of the source schema field to sort by. This must reference a valid field ID from the table schema.</p>"""
     transform: "str"

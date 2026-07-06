@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#UpdateSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.subscription_arn
     import aws_sdk_qbusiness.types.subscription_details
 
 
-class UpdateSubscriptionResponse(TypedDict):
+class UpdateSubscriptionResponse(TypedDict, closed=True):
     subscription_arn: NotRequired[
         "aws_sdk_qbusiness.types.subscription_arn.SubscriptionArn"
     ]

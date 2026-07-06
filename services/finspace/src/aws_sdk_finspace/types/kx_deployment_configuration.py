@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#KxDeploymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_finspace.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_deployment_strategy
 
 
-class KxDeploymentConfiguration(TypedDict):
+class KxDeploymentConfiguration(TypedDict, closed=True):
     deployment_strategy: (
         "aws_sdk_finspace.types.kx_deployment_strategy.KxDeploymentStrategy"
     )

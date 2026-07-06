@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ContinuousDeploymentSingleWeightConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.session_stickiness_config
 
 
-class ContinuousDeploymentSingleWeightConfig(TypedDict):
+class ContinuousDeploymentSingleWeightConfig(TypedDict, closed=True):
     weight: "aws_sdk_cloudfront.types.float.float"
     """<p>The percentage of traffic to send to a staging distribution, expressed as a decimal number between 0 and 0.15. For example, a value of 0.10 means 10% of traffic is sent to the staging distribution.</p>"""
     session_stickiness_config: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#RejectAssignmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RejectAssignmentResponse(TypedDict):
+class RejectAssignmentResponse(TypedDict, closed=True):
     pass
 
 

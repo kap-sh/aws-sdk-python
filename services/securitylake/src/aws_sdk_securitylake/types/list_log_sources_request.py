@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#ListLogSourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.account_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
 
 
-class ListLogSourcesRequest(TypedDict):
+class ListLogSourcesRequest(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_securitylake.types.account_list.AccountList"]
     """<p>The list of Amazon Web Services accounts for which log sources are displayed.</p>"""
     regions: NotRequired["aws_sdk_securitylake.types.region_list.RegionList"]

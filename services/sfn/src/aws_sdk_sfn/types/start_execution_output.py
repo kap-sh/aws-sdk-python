@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#StartExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class StartExecutionOutput(TypedDict):
+class StartExecutionOutput(TypedDict, closed=True):
     execution_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the execution.</p>"""
     start_date: "aws_sdk_sfn.types.timestamp.Timestamp"

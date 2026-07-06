@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ListParallelDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.next_token
     import aws_sdk_translate.types.parallel_data_properties_list
 
 
-class ListParallelDataResponse(TypedDict):
+class ListParallelDataResponse(TypedDict, closed=True):
     parallel_data_properties_list: NotRequired[
         "aws_sdk_translate.types.parallel_data_properties_list.ParallelDataPropertiesList"
     ]

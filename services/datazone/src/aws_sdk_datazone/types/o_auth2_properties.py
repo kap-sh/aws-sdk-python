@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OAuth2Properties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.authorization_code_properties
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.token_url_parameters_map
 
 
-class OAuth2Properties(TypedDict):
+class OAuth2Properties(TypedDict, closed=True):
     o_auth2_grant_type: NotRequired[
         "aws_sdk_datazone.types.o_auth2_grant_type.OAuth2GrantType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#RecoveryPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_name
 
 
-class RecoveryPoint(TypedDict):
+class RecoveryPoint(TypedDict, closed=True):
     recovery_point_id: NotRequired["str"]
     """<p>The unique identifier of the recovery point.</p>"""
     recovery_point_create_time: NotRequired["datetime.datetime"]

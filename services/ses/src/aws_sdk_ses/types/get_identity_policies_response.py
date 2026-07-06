@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#GetIdentityPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.policy_map
 
 
-class GetIdentityPoliciesResponse(TypedDict):
+class GetIdentityPoliciesResponse(TypedDict, closed=True):
     policies: "aws_sdk_ses.types.policy_map.PolicyMap"
     """<p>A map of policy names to policies.</p>"""
 

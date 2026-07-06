@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DeleteCidrCollectionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
 
-class DeleteCidrCollectionResponse(TypedDict):
+class DeleteCidrCollectionResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#TestRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.uuid
 
 
-class TestRecommendation(TypedDict):
+class TestRecommendation(TypedDict, closed=True):
     recommendation_id: NotRequired["aws_sdk_resiliencehub.types.uuid.Uuid"]
     """<p>Identifier for the test recommendation.</p>"""
     reference_id: "aws_sdk_resiliencehub.types.spec_reference_id.SpecReferenceId"

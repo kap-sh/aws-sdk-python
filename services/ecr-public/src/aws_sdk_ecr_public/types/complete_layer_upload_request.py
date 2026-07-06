@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#CompleteLayerUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.upload_id
 
 
-class CompleteLayerUploadRequest(TypedDict):
+class CompleteLayerUploadRequest(TypedDict, closed=True):
     registry_id: NotRequired[
         "aws_sdk_ecr_public.types.registry_id_or_alias.RegistryIdOrAlias"
     ]

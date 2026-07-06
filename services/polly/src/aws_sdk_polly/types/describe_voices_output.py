@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.polly#DescribeVoicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.next_token
     import aws_sdk_polly.types.voice_list
 
 
-class DescribeVoicesOutput(TypedDict):
+class DescribeVoicesOutput(TypedDict, closed=True):
     voices: NotRequired["aws_sdk_polly.types.voice_list.VoiceList"]
     """<p>A list of voices with their properties.</p>"""
     next_token: NotRequired["aws_sdk_polly.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CapacityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.auto_scaling_group_provider
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class CapacityProvider(TypedDict):
+class CapacityProvider(TypedDict, closed=True):
     capacity_provider_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) that identifies the capacity provider.</p>"""
     name: NotRequired["aws_sdk_ecs.types.string.String"]

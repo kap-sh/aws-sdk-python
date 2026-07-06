@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Warning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.string
 
 
-class Warning(TypedDict):
+class Warning(TypedDict, closed=True):
     code: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]
     """<p>The code of the cross-regional warning.</p>"""
     message: NotRequired["aws_sdk_elastic_transcoder.types.string.String"]

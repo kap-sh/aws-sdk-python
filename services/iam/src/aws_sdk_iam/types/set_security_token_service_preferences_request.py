@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#SetSecurityTokenServicePreferencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.global_endpoint_token_version
 
 
-class SetSecurityTokenServicePreferencesRequest(TypedDict):
+class SetSecurityTokenServicePreferencesRequest(TypedDict, closed=True):
     global_endpoint_token_version: (
         "aws_sdk_iam.types.global_endpoint_token_version.globalEndpointTokenVersion"
     )

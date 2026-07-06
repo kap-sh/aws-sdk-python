@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ListSensitivityInspectionTemplatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_sensitivity_inspection_templates_entry
     import aws_sdk_macie2.types.__string
 
 
-class ListSensitivityInspectionTemplatesResponse(TypedDict):
+class ListSensitivityInspectionTemplatesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>"""
     sensitivity_inspection_templates: NotRequired[

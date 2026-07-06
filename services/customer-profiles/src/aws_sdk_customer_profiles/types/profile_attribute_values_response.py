@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ProfileAttributeValuesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.attribute_value_item_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class ProfileAttributeValuesResponse(TypedDict):
+class ProfileAttributeValuesResponse(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_customer_profiles.types.name.name"]
     """<p>The name of the domain.</p>"""
     attribute_name: NotRequired[

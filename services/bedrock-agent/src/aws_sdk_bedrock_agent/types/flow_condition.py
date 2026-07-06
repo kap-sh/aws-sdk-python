@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#FlowCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_condition_name
 
 
-class FlowCondition(TypedDict):
+class FlowCondition(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agent.types.flow_condition_name.FlowConditionName"
     """<p>A name for the condition that you can reference.</p>"""
     expression: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#DeleteAppAuthorizationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAppAuthorizationResponse(TypedDict):
+class DeleteAppAuthorizationResponse(TypedDict, closed=True):
     pass
 
 

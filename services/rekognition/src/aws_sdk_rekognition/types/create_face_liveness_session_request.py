@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateFaceLivenessSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.client_request_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.kms_key_id
 
 
-class CreateFaceLivenessSessionRequest(TypedDict):
+class CreateFaceLivenessSessionRequest(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_rekognition.types.kms_key_id.KmsKeyId"]
     """<p> The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt audit images and reference images.</p>"""
     settings: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListIngestionJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.next_token
 
 
-class ListIngestionJobsRequest(TypedDict):
+class ListIngestionJobsRequest(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the knowledge base for the list of data ingestion jobs.</p>"""
     data_source_id: "aws_sdk_bedrock_agent.types.id.Id"

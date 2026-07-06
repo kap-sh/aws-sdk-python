@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#ListJobsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.next_token
 
 
-class ListJobsResult(TypedDict):
+class ListJobsResult(TypedDict, closed=True):
     job_summaries: "aws_sdk_amplify.types.job_summaries.JobSummaries"
     """<p>The result structure for the list job result request. </p>"""
     next_token: NotRequired["aws_sdk_amplify.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PineconeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.secret_arn
 
 
-class PineconeConfiguration(TypedDict):
+class PineconeConfiguration(TypedDict, closed=True):
     connection_string: "aws_sdk_bedrock_agent.types.pinecone_connection_string.PineconeConnectionString"
     """<p>The endpoint URL for your index management page.</p>"""
     credentials_secret_arn: "aws_sdk_bedrock_agent.types.secret_arn.SecretArn"

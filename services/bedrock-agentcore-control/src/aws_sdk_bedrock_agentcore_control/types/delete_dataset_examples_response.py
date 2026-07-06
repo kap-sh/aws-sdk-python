@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#DeleteDatasetExamplesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.dataset_status
 
 
-class DeleteDatasetExamplesResponse(TypedDict):
+class DeleteDatasetExamplesResponse(TypedDict, closed=True):
     dataset_arn: "aws_sdk_bedrock_agentcore_control.types.dataset_arn.DatasetArn"
     """<p> The Amazon Resource Name (ARN) of the dataset. </p>"""
     dataset_id: "aws_sdk_bedrock_agentcore_control.types.dataset_id.DatasetId"

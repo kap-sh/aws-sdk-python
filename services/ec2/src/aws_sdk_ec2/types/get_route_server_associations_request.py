@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetRouteServerAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.route_server_id
 
 
-class GetRouteServerAssociationsRequest(TypedDict):
+class GetRouteServerAssociationsRequest(TypedDict, closed=True):
     route_server_id: NotRequired["aws_sdk_ec2.types.route_server_id.RouteServerId"]
     """<p>The ID of the route server for which to get association information.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

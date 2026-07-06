@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ChannelDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.encoder_configuration_arn
 
 
-class ChannelDestinationConfiguration(TypedDict):
+class ChannelDestinationConfiguration(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs_realtime.types.channel_arn.ChannelArn"
     """<p>ARN of the channel to use for broadcasting. The channel and stage resources must be in the same AWS account and region. The channel must be offline (not broadcasting).</p>"""
     encoder_configuration_arn: NotRequired[

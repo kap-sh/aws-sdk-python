@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mwaa_serverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa_serverless.types.error_message
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the field that failed validation.</p>"""
     message: "aws_sdk_mwaa_serverless.types.error_message.ErrorMessage"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityTypesEvaluationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.double
 
 
-class EntityTypesEvaluationMetrics(TypedDict):
+class EntityTypesEvaluationMetrics(TypedDict, closed=True):
     precision: NotRequired["aws_sdk_comprehend.types.double.Double"]
     """<p>A measure of the usefulness of the recognizer results for a specific entity type in the test data. High precision means that the recognizer returned substantially more relevant results than irrelevant ones. </p>"""
     recall: NotRequired["aws_sdk_comprehend.types.double.Double"]

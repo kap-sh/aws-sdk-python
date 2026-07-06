@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateIcebergInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.update_iceberg_table_input
 
 
-class UpdateIcebergInput(TypedDict):
+class UpdateIcebergInput(TypedDict, closed=True):
     update_iceberg_table_input: (
         "aws_sdk_glue.types.update_iceberg_table_input.UpdateIcebergTableInput"
     )

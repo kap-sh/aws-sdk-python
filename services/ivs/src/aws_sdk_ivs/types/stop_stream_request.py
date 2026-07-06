@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#StopStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel_arn
 
 
-class StopStreamRequest(TypedDict):
+class StopStreamRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel for which the stream is to be stopped.</p>"""
 

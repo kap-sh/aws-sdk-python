@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#SrtDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.srt_style_passthrough
 
 
-class SrtDestinationSettings(TypedDict):
+class SrtDestinationSettings(TypedDict, closed=True):
     style_passthrough: NotRequired[
         "aws_sdk_mediaconvert.types.srt_style_passthrough.SrtStylePassthrough"
     ]

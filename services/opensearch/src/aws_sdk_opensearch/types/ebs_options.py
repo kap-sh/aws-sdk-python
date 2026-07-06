@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#EBSOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.volume_type
 
 
-class EBSOptions(TypedDict):
+class EBSOptions(TypedDict, closed=True):
     ebs_enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Indicates whether EBS volumes are attached to data nodes in an OpenSearch Service domain.</p>"""
     volume_type: NotRequired["aws_sdk_opensearch.types.volume_type.VolumeType"]

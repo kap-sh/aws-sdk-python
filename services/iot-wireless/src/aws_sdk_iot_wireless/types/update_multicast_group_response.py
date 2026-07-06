@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateMulticastGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateMulticastGroupResponse(TypedDict):
+class UpdateMulticastGroupResponse(TypedDict, closed=True):
     pass
 
 

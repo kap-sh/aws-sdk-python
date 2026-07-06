@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#UpdateConnectionAuthRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.connection_http_parameters
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.update_connection_o_auth_request_parameters
 
 
-class UpdateConnectionAuthRequestParameters(TypedDict):
+class UpdateConnectionAuthRequestParameters(TypedDict, closed=True):
     basic_auth_parameters: NotRequired[
         "aws_sdk_cloudwatch_events.types.update_connection_basic_auth_request_parameters.UpdateConnectionBasicAuthRequestParameters"
     ]

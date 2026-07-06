@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CentralizationRuleDestination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.region
 
 
-class CentralizationRuleDestination(TypedDict):
+class CentralizationRuleDestination(TypedDict, closed=True):
     region: "aws_sdk_observabilityadmin.types.region.Region"
     """<p>The primary destination region to which telemetry data should be centralized.</p>"""
     account: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#MetadataUpdates``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.image_set_external_version_id
 
 
-class _MetadataUpdates_DICOMUpdates(TypedDict):
+class _MetadataUpdates_DICOMUpdates(TypedDict, closed=True):
     DICOMUpdates: "aws_sdk_medical_imaging.types.dicom_updates.DICOMUpdates"
 
 
-class _MetadataUpdates_revertToVersionId(TypedDict):
+class _MetadataUpdates_revertToVersionId(TypedDict, closed=True):
     revertToVersionId: "aws_sdk_medical_imaging.types.image_set_external_version_id.ImageSetExternalVersionId"
 
 

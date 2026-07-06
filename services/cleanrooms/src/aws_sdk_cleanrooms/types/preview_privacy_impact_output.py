@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#PreviewPrivacyImpactOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.privacy_impact
 
 
-class PreviewPrivacyImpactOutput(TypedDict):
+class PreviewPrivacyImpactOutput(TypedDict, closed=True):
     privacy_impact: "aws_sdk_cleanrooms.types.privacy_impact.PrivacyImpact"
     """<p>An estimate of the number of aggregation functions that the member who can query can run given the epsilon and noise parameters. This does not change the privacy budget.</p>"""
 

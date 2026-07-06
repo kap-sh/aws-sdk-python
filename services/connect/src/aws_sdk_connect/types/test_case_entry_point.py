@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TestCaseEntryPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.chat_entry_point_parameters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.voice_call_entry_point_parameters
 
 
-class TestCaseEntryPoint(TypedDict):
+class TestCaseEntryPoint(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_connect.types.test_case_entry_point_type.TestCaseEntryPointType"
     ]

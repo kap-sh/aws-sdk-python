@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataLakeDatasetPartitionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_lake_dataset_schema_field_name
 
 
-class DataLakeDatasetPartitionField(TypedDict):
+class DataLakeDatasetPartitionField(TypedDict, closed=True):
     name: "aws_sdk_supplychain.types.data_lake_dataset_schema_field_name.DataLakeDatasetSchemaFieldName"
     """<p>The name of the partition field.</p>"""
     transform: "aws_sdk_supplychain.types.data_lake_dataset_partition_field_transform.DataLakeDatasetPartitionFieldTransform"

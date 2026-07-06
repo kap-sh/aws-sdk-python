@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#RoutingInformationNextHop``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.ip_address
 
 
-class RoutingInformationNextHop(TypedDict):
+class RoutingInformationNextHop(TypedDict, closed=True):
     ip_address: NotRequired["aws_sdk_networkmanager.types.ip_address.IPAddress"]
     """<p>The IP address of the next hop.</p>"""
     core_network_attachment_id: NotRequired[

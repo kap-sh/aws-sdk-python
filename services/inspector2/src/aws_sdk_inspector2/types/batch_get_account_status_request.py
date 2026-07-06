@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#BatchGetAccountStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.account_id_set
 
 
-class BatchGetAccountStatusRequest(TypedDict):
+class BatchGetAccountStatusRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_inspector2.types.account_id_set.AccountIdSet"]
     """<p>The 12-digit Amazon Web Services account IDs of the accounts to retrieve Amazon Inspector status for.</p>"""
 

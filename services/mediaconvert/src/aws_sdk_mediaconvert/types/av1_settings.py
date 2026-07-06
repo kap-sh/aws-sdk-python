@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Av1Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.av1_spatial_adaptive_quantization
 
 
-class Av1Settings(TypedDict):
+class Av1Settings(TypedDict, closed=True):
     adaptive_quantization: NotRequired[
         "aws_sdk_mediaconvert.types.av1_adaptive_quantization.Av1AdaptiveQuantization"
     ]

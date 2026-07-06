@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ServerlessVectorAcceleration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
 
 
-class ServerlessVectorAcceleration(TypedDict):
+class ServerlessVectorAcceleration(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Specifies whether serverless vector acceleration is enabled for the domain.</p>"""
 

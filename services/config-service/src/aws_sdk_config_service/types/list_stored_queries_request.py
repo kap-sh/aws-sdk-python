@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ListStoredQueriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.limit
     import aws_sdk_config_service.types.string
 
 
-class ListStoredQueriesRequest(TypedDict):
+class ListStoredQueriesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>"""
     max_results: NotRequired["aws_sdk_config_service.types.limit.Limit"]

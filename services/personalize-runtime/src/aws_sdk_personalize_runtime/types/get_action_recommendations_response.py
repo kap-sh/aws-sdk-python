@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalizeruntime#GetActionRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize_runtime.types.action_list
     import aws_sdk_personalize_runtime.types.recommendation_id
 
 
-class GetActionRecommendationsResponse(TypedDict):
+class GetActionRecommendationsResponse(TypedDict, closed=True):
     action_list: NotRequired["aws_sdk_personalize_runtime.types.action_list.ActionList"]
     r"""<p>A list of action recommendations sorted in descending order by prediction score. There can be a maximum of 100 actions in the list. For information about action scores, see <a href=\"https://docs.aws.amazon.com/personalize/latest/dg/how-action-recommendation-scoring-works.html\">How action recommendation scoring works</a>.</p>"""
     recommendation_id: NotRequired[

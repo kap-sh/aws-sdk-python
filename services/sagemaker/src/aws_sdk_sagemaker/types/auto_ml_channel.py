@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_channel_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.target_attribute_name
 
 
-class AutoMLChannel(TypedDict):
+class AutoMLChannel(TypedDict, closed=True):
     data_source: NotRequired[
         "aws_sdk_sagemaker.types.auto_ml_data_source.AutoMLDataSource"
     ]

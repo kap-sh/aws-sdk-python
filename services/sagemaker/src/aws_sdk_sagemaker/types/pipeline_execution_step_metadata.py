@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PipelineExecutionStepMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.auto_ml_job_step_metadata
@@ -98,6 +98,7 @@ PipelineExecutionStepMetadata = TypedDict(
         ],
         "job": NotRequired["aws_sdk_sagemaker.types.job_step_metadata.JobStepMetadata"],
     },
+    closed=True,
 )
 
 

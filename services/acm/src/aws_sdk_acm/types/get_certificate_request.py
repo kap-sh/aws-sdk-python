@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#GetCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.arn
 
 
-class GetCertificateRequest(TypedDict):
+class GetCertificateRequest(TypedDict, closed=True):
     certificate_arn: "aws_sdk_acm.types.arn.Arn"
     r"""<p>String that contains a certificate ARN in the following format:</p> <p> <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code> </p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a>.</p>"""
 

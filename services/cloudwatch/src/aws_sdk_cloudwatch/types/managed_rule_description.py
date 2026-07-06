@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#ManagedRuleDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.template_name
 
 
-class ManagedRuleDescription(TypedDict):
+class ManagedRuleDescription(TypedDict, closed=True):
     template_name: NotRequired["aws_sdk_cloudwatch.types.template_name.TemplateName"]
     """<p> The template name for the managed rule. Used to enable managed rules using <code>PutManagedInsightRules</code>. </p>"""
     resource_arn: NotRequired[

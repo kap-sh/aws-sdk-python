@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#FaultRootCause``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.fault_root_cause_services
     import aws_sdk_xray.types.nullable_boolean
 
 
-class FaultRootCause(TypedDict):
+class FaultRootCause(TypedDict, closed=True):
     services: NotRequired[
         "aws_sdk_xray.types.fault_root_cause_services.FaultRootCauseServices"
     ]

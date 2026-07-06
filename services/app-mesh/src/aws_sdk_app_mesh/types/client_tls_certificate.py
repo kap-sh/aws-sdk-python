@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ClientTlsCertificate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.listener_tls_sds_certificate
 
 
-class _ClientTlsCertificate_file(TypedDict):
+class _ClientTlsCertificate_file(TypedDict, closed=True):
     file: "aws_sdk_app_mesh.types.listener_tls_file_certificate.ListenerTlsFileCertificate"
 
 
-class _ClientTlsCertificate_sds(TypedDict):
+class _ClientTlsCertificate_sds(TypedDict, closed=True):
     sds: "aws_sdk_app_mesh.types.listener_tls_sds_certificate.ListenerTlsSdsCertificate"
 
 

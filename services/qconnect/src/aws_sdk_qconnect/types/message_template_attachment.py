@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageTemplateAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class MessageTemplateAttachment(TypedDict):
+class MessageTemplateAttachment(TypedDict, closed=True):
     content_disposition: "aws_sdk_qconnect.types.content_disposition.ContentDisposition"
     """<p>The presentation information for the attachment file.</p>"""
     name: "aws_sdk_qconnect.types.attachment_file_name.AttachmentFileName"

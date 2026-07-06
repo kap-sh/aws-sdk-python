@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ActivateEventSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.event_source_name
 
 
-class ActivateEventSourceRequest(TypedDict):
+class ActivateEventSourceRequest(TypedDict, closed=True):
     name: "aws_sdk_eventbridge.types.event_source_name.EventSourceName"
     """<p>The name of the partner event source to activate.</p>"""
 

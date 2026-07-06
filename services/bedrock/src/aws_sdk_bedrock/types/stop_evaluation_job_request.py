@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#StopEvaluationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_job_identifier
 
 
-class StopEvaluationJobRequest(TypedDict):
+class StopEvaluationJobRequest(TypedDict, closed=True):
     job_identifier: (
         "aws_sdk_bedrock.types.evaluation_job_identifier.EvaluationJobIdentifier"
     )

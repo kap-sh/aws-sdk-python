@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetCustomEntityTypesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.custom_entity_type_names
     import aws_sdk_glue.types.custom_entity_types
 
 
-class BatchGetCustomEntityTypesResponse(TypedDict):
+class BatchGetCustomEntityTypesResponse(TypedDict, closed=True):
     custom_entity_types: NotRequired[
         "aws_sdk_glue.types.custom_entity_types.CustomEntityTypes"
     ]

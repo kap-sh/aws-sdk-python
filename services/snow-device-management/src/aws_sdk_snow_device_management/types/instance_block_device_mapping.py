@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#InstanceBlockDeviceMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.ebs_instance_block_device
 
 
-class InstanceBlockDeviceMapping(TypedDict):
+class InstanceBlockDeviceMapping(TypedDict, closed=True):
     device_name: NotRequired["str"]
     """<p>The block device name.</p>"""
     ebs: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#InputOrigin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class InputOrigin(TypedDict):
+class InputOrigin(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the origin resource.</p>"""
     region_name: NotRequired["aws_sdk_lightsail.types.region_name.RegionName"]

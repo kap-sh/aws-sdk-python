@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#RUM``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_rum._auth._signers
@@ -46,7 +46,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.user_details
 
 
-class AsyncRUMClientConfig(TypedDict, total=False):
+class AsyncRUMClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

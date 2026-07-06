@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#RestoreAccessBackupVaultListMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.vault_state
 
 
-class RestoreAccessBackupVaultListMember(TypedDict):
+class RestoreAccessBackupVaultListMember(TypedDict, closed=True):
     restore_access_backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>The ARN of the restore access backup vault.</p>"""
     creation_date: NotRequired["aws_sdk_backup.types.timestamp.timestamp"]

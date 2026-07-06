@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.endpoint_properties_list
     import aws_sdk_comprehend.types.string
 
 
-class ListEndpointsResponse(TypedDict):
+class ListEndpointsResponse(TypedDict, closed=True):
     endpoint_properties_list: NotRequired[
         "aws_sdk_comprehend.types.endpoint_properties_list.EndpointPropertiesList"
     ]

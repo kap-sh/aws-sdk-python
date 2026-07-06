@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateServerlessCacheSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.tag_list
 
 
-class CreateServerlessCacheSnapshotRequest(TypedDict):
+class CreateServerlessCacheSnapshotRequest(TypedDict, closed=True):
     serverless_cache_snapshot_name: NotRequired[
         "aws_sdk_elasticache.types.string.String"
     ]

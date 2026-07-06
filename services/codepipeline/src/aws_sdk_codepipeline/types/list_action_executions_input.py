@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListActionExecutionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_name
 
 
-class ListActionExecutionsInput(TypedDict):
+class ListActionExecutionsInput(TypedDict, closed=True):
     pipeline_name: "aws_sdk_codepipeline.types.pipeline_name.PipelineName"
     """<p> The name of the pipeline for which you want to list action execution history.</p>"""
     filter: NotRequired[

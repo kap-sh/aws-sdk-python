@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#GetDbInstanceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.db_instance_identifier
 
 
-class GetDbInstanceInput(TypedDict):
+class GetDbInstanceInput(TypedDict, closed=True):
     identifier: (
         "aws_sdk_timestream_influxdb.types.db_instance_identifier.DbInstanceIdentifier"
     )

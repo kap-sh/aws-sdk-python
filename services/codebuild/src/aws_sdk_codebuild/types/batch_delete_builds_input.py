@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchDeleteBuildsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_ids
 
 
-class BatchDeleteBuildsInput(TypedDict):
+class BatchDeleteBuildsInput(TypedDict, closed=True):
     ids: "aws_sdk_codebuild.types.build_ids.BuildIds"
     """<p>The IDs of the builds to delete.</p>"""
 

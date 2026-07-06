@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AgentFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.agent_health_list
 
 
-class AgentFilter(TypedDict):
+class AgentFilter(TypedDict, closed=True):
     agent_healths: "aws_sdk_inspector.types.agent_health_list.AgentHealthList"
     """<p>The current health state of the agent. Values can be set to <b>HEALTHY</b> or <b>UNHEALTHY</b>.</p>"""
     agent_health_codes: (

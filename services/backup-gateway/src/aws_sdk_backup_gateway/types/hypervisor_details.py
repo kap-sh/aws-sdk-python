@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#HypervisorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.host
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.time
 
 
-class HypervisorDetails(TypedDict):
+class HypervisorDetails(TypedDict, closed=True):
     host: NotRequired["aws_sdk_backup_gateway.types.host.Host"]
     """<p>The server host of the hypervisor. This can be either an IP address or a fully-qualified domain name (FQDN).</p>"""
     hypervisor_arn: NotRequired["aws_sdk_backup_gateway.types.server_arn.ServerArn"]

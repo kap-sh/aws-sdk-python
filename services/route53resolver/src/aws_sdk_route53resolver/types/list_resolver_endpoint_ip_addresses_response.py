@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListResolverEndpointIpAddressesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.ip_addresses_response
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.next_token
 
 
-class ListResolverEndpointIpAddressesResponse(TypedDict):
+class ListResolverEndpointIpAddressesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]
     """<p>If the specified endpoint has more than <code>MaxResults</code> IP addresses, you can submit another <code>ListResolverEndpointIpAddresses</code> request to get the next group of IP addresses. In the next request, specify the value of <code>NextToken</code> from the previous response. </p>"""
     max_results: NotRequired["aws_sdk_route53resolver.types.max_results.MaxResults"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#ListMonitorsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_internetmonitor.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.monitor_list
 
 
-class ListMonitorsOutput(TypedDict):
+class ListMonitorsOutput(TypedDict, closed=True):
     monitors: "aws_sdk_internetmonitor.types.monitor_list.MonitorList"
     """<p>A list of monitors.</p>"""
     next_token: NotRequired["str"]

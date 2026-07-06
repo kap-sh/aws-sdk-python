@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DeleteClusterPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class DeleteClusterPolicyRequest(TypedDict):
+class DeleteClusterPolicyRequest(TypedDict, closed=True):
     cluster_arn: "aws_sdk_kafka.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) of the cluster.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CreateKnowledgeBaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.knowledge_base
 
 
-class CreateKnowledgeBaseResponse(TypedDict):
+class CreateKnowledgeBaseResponse(TypedDict, closed=True):
     knowledge_base: "aws_sdk_bedrock_agent.types.knowledge_base.KnowledgeBase"
     """<p>Contains details about the knowledge base.</p>"""
 

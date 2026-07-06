@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MetadataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.allowed_query_parameters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.allowed_response_headers
 
 
-class MetadataConfiguration(TypedDict):
+class MetadataConfiguration(TypedDict, closed=True):
     allowed_request_headers: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.allowed_request_headers.AllowedRequestHeaders"
     ]

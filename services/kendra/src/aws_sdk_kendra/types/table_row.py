@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#TableRow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.table_cell_list
 
 
-class TableRow(TypedDict):
+class TableRow(TypedDict, closed=True):
     cells: NotRequired["aws_sdk_kendra.types.table_cell_list.TableCellList"]
     """<p>A list of table cells in a row.</p>"""
 

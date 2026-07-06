@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#AutomationExecutionPreview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.integer
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.target_preview_list
 
 
-class AutomationExecutionPreview(TypedDict):
+class AutomationExecutionPreview(TypedDict, closed=True):
     step_previews: NotRequired["aws_sdk_ssm.types.step_preview_map.StepPreviewMap"]
     """<p>Information about the type of impact a runbook step would have on a resource.</p> <ul> <li> <p> <code>Mutating</code>: The runbook step would make changes to the targets through actions that create, modify, or delete resources.</p> </li> <li> <p> <code>Non_Mutating</code>: The runbook step would retrieve data about resources but not make changes to them. This category generally includes <code>Describe*</code>, <code>List*</code>, <code>Get*</code>, and similar read-only API actions.</p> </li> <li> <p> <code>Undetermined</code>: An undetermined step invokes executions performed by another orchestration service like Lambda, Step Functions, or Amazon Web Services Systems Manager Run Command. An undetermined step might also call a third-party API. Systems Manager Automation doesn't know the outcome of the orchestration processes or third-party API executions, so the results of the steps are undetermined.</p> </li> </ul>"""
     regions: NotRequired["aws_sdk_ssm.types.region_list.RegionList"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdatePublicSharingSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.boolean
 
 
-class UpdatePublicSharingSettingsRequest(TypedDict):
+class UpdatePublicSharingSettingsRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The Amazon Web Services account ID associated with your Amazon Quick Sight subscription.</p>"""
     public_sharing_enabled: "aws_sdk_quicksight.types.boolean.Boolean"

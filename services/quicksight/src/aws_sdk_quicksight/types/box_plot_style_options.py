@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BoxPlotStyleOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.box_plot_fill_style
 
 
-class BoxPlotStyleOptions(TypedDict):
+class BoxPlotStyleOptions(TypedDict, closed=True):
     fill_style: NotRequired[
         "aws_sdk_quicksight.types.box_plot_fill_style.BoxPlotFillStyle"
     ]

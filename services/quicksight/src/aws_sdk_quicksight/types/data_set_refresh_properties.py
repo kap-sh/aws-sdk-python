@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetRefreshProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.refresh_configuration
     import aws_sdk_quicksight.types.refresh_failure_configuration
 
 
-class DataSetRefreshProperties(TypedDict):
+class DataSetRefreshProperties(TypedDict, closed=True):
     refresh_configuration: NotRequired[
         "aws_sdk_quicksight.types.refresh_configuration.RefreshConfiguration"
     ]

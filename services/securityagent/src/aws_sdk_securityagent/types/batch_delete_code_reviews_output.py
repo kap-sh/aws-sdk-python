@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchDeleteCodeReviewsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.code_review_id_list
     import aws_sdk_securityagent.types.delete_code_review_failure_list
 
 
-class BatchDeleteCodeReviewsOutput(TypedDict):
+class BatchDeleteCodeReviewsOutput(TypedDict, closed=True):
     deleted: NotRequired[
         "aws_sdk_securityagent.types.code_review_id_list.CodeReviewIdList"
     ]

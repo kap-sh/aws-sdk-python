@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#UpdateCaseCommentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.comment_id
 
 
-class UpdateCaseCommentRequest(TypedDict):
+class UpdateCaseCommentRequest(TypedDict, closed=True):
     case_id: "aws_sdk_security_ir.types.case_id.CaseId"
     """<p>Required element for UpdateCaseComment to identify the case ID containing the comment to be updated. </p>"""
     comment_id: "aws_sdk_security_ir.types.comment_id.CommentId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetCelebrityInfoRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.rekognition_unique_id
 
 
-class GetCelebrityInfoRequest(TypedDict):
+class GetCelebrityInfoRequest(TypedDict, closed=True):
     id: "aws_sdk_rekognition.types.rekognition_unique_id.RekognitionUniqueId"
     """<p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation, which recognizes celebrities in an image. </p>"""
 

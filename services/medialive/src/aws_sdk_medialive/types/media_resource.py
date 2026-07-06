@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MediaResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_media_resource_neighbor
     import aws_sdk_medialive.types.__string_min1_max256
 
 
-class MediaResource(TypedDict):
+class MediaResource(TypedDict, closed=True):
     destinations: NotRequired[
         "aws_sdk_medialive.types.__list_of_media_resource_neighbor.__listOfMediaResourceNeighbor"
     ]

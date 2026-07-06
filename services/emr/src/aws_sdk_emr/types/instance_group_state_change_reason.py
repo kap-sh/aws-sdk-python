@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceGroupStateChangeReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_group_state_change_reason_code
     import aws_sdk_emr.types.string
 
 
-class InstanceGroupStateChangeReason(TypedDict):
+class InstanceGroupStateChangeReason(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_emr.types.instance_group_state_change_reason_code.InstanceGroupStateChangeReasonCode"
     ]

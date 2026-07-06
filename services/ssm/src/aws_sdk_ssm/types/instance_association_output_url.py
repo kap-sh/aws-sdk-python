@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InstanceAssociationOutputUrl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.s3_output_url
 
 
-class InstanceAssociationOutputUrl(TypedDict):
+class InstanceAssociationOutputUrl(TypedDict, closed=True):
     s3_output_url: NotRequired["aws_sdk_ssm.types.s3_output_url.S3OutputUrl"]
     """<p>The URL of S3 bucket where you want to store the results of this request.</p>"""
 

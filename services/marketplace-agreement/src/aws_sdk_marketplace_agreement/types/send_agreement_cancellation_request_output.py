@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#SendAgreementCancellationRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_cancellation_request_description
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.timestamp
 
 
-class SendAgreementCancellationRequestOutput(TypedDict):
+class SendAgreementCancellationRequestOutput(TypedDict, closed=True):
     agreement_id: NotRequired[
         "aws_sdk_marketplace_agreement.types.agreement_id.AgreementId"
     ]

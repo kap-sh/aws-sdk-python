@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SelfGrantStatusDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.self_grant_status
 
 
-class SelfGrantStatusDetail(TypedDict):
+class SelfGrantStatusDetail(TypedDict, closed=True):
     database_name: "str"
     """<p>The name of the database used for the data source.</p>"""
     schema_name: NotRequired["str"]

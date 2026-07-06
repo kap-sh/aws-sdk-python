@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#GetCodegenJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_job
 
 
-class GetCodegenJobResponse(TypedDict):
+class GetCodegenJobResponse(TypedDict, closed=True):
     job: NotRequired["aws_sdk_amplifyuibuilder.types.codegen_job.CodegenJob"]
     """<p>The configuration settings for the code generation job.</p>"""
 

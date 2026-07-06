@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RequestMetadataBaseFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.request_metadata_map
 
 
-class RequestMetadataBaseFilters(TypedDict):
+class RequestMetadataBaseFilters(TypedDict, closed=True):
     equals: NotRequired["aws_sdk_bedrock.types.request_metadata_map.RequestMetadataMap"]
     """<p>Include results where the key equals the value.</p>"""
     not_equals: NotRequired[

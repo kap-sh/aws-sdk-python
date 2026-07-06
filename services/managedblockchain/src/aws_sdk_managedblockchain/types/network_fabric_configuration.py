@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NetworkFabricConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.edition
 
 
-class NetworkFabricConfiguration(TypedDict):
+class NetworkFabricConfiguration(TypedDict, closed=True):
     edition: "aws_sdk_managedblockchain.types.edition.Edition"
     r"""<p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href=\"http://aws.amazon.com/managed-blockchain/pricing/\">Amazon Managed Blockchain Pricing</a>.</p>"""
 

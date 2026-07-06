@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateCustomMetricResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.custom_metric_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class UpdateCustomMetricResponse(TypedDict):
+class UpdateCustomMetricResponse(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_iot.types.metric_name.MetricName"]
     """<p> The name of the custom metric. </p>"""
     metric_arn: NotRequired["aws_sdk_iot.types.custom_metric_arn.CustomMetricArn"]

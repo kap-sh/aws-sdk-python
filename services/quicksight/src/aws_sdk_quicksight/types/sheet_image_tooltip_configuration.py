@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SheetImageTooltipConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_image_tooltip_text
     import aws_sdk_quicksight.types.visibility
 
 
-class SheetImageTooltipConfiguration(TypedDict):
+class SheetImageTooltipConfiguration(TypedDict, closed=True):
     tooltip_text: NotRequired[
         "aws_sdk_quicksight.types.sheet_image_tooltip_text.SheetImageTooltipText"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#LoggingEnabled``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.target_prefix
 
 
-class LoggingEnabled(TypedDict):
+class LoggingEnabled(TypedDict, closed=True):
     target_bucket: "aws_sdk_s3.types.target_bucket.TargetBucket"
     """<p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case, you should choose a different <code>TargetPrefix</code> for each source bucket so that the delivered log files can be distinguished by key.</p>"""
     target_grants: NotRequired["aws_sdk_s3.types.target_grants.TargetGrants"]

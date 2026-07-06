@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateHostedZoneResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.vpc
 
 
-class CreateHostedZoneResponse(TypedDict):
+class CreateHostedZoneResponse(TypedDict, closed=True):
     hosted_zone: "aws_sdk_route_53.types.hosted_zone.HostedZone"
     """<p>A complex type that contains general information about the hosted zone.</p>"""
     change_info: "aws_sdk_route_53.types.change_info.ChangeInfo"

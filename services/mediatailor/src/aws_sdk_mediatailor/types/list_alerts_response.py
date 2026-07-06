@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListAlertsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_alert
     import aws_sdk_mediatailor.types.__string
 
 
-class ListAlertsResponse(TypedDict):
+class ListAlertsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mediatailor.types.__list_of_alert.__listOfAlert"]
     """<p>A list of alerts that are associated with this resource.</p>"""
     next_token: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

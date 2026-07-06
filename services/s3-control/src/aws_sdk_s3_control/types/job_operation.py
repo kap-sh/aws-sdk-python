@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#JobOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_update_object_encryption_operation
 
 
-class JobOperation(TypedDict):
+class JobOperation(TypedDict, closed=True):
     lambda_invoke: NotRequired[
         "aws_sdk_s3_control.types.lambda_invoke_operation.LambdaInvokeOperation"
     ]

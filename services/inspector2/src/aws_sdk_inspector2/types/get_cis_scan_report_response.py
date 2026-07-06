@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#GetCisScanReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_report_status
 
 
-class GetCisScanReportResponse(TypedDict):
+class GetCisScanReportResponse(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p> The URL where a PDF or CSV of the CIS scan report can be downloaded. </p>"""
     status: NotRequired["aws_sdk_inspector2.types.cis_report_status.CisReportStatus"]

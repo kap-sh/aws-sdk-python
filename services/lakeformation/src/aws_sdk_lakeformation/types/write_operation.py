@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#WriteOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.add_object_input
     import aws_sdk_lakeformation.types.delete_object_input
 
 
-class WriteOperation(TypedDict):
+class WriteOperation(TypedDict, closed=True):
     add_object: NotRequired[
         "aws_sdk_lakeformation.types.add_object_input.AddObjectInput"
     ]

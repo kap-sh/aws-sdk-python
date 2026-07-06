@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribePredefinedAttributeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.predefined_attribute
 
 
-class DescribePredefinedAttributeResponse(TypedDict):
+class DescribePredefinedAttributeResponse(TypedDict, closed=True):
     predefined_attribute: NotRequired[
         "aws_sdk_connect.types.predefined_attribute.PredefinedAttribute"
     ]

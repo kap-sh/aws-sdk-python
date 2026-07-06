@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#GetAssignmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.assignment
     import aws_sdk_mturk.types.hit
 
 
-class GetAssignmentResponse(TypedDict):
+class GetAssignmentResponse(TypedDict, closed=True):
     assignment: NotRequired["aws_sdk_mturk.types.assignment.Assignment"]
     """<p> The assignment. The response includes one Assignment element. </p>"""
     hit: NotRequired["aws_sdk_mturk.types.hit.HIT"]

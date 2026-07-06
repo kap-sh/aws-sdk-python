@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DocumentationVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
     import aws_sdk_api_gateway.types.timestamp
 
 
-class DocumentationVersion(TypedDict):
+class DocumentationVersion(TypedDict, closed=True):
     version: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The version identifier of the API documentation snapshot.</p>"""
     created_date: NotRequired["aws_sdk_api_gateway.types.timestamp.Timestamp"]

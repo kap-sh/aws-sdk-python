@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#CloudWatchLogsLogGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.arn
 
 
-class CloudWatchLogsLogGroup(TypedDict):
+class CloudWatchLogsLogGroup(TypedDict, closed=True):
     log_group_arn: NotRequired["aws_sdk_sfn.types.arn.Arn"]
     """<p>The ARN of the the CloudWatch log group to which you want your logs emitted to. The ARN must end with <code>:*</code> </p>"""
 

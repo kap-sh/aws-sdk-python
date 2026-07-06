@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#DeleteGroupingConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteGroupingConfigurationOutput(TypedDict):
+class DeleteGroupingConfigurationOutput(TypedDict, closed=True):
     pass
 
 

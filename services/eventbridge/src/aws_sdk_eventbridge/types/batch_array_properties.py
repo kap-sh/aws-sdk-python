@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#BatchArrayProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.integer
 
 
-class BatchArrayProperties(TypedDict):
+class BatchArrayProperties(TypedDict, closed=True):
     size: "aws_sdk_eventbridge.types.integer.Integer"
     """<p>The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#AnomalySourceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.anomaly_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.resource_type
 
 
-class AnomalySourceMetadata(TypedDict):
+class AnomalySourceMetadata(TypedDict, closed=True):
     source: NotRequired["aws_sdk_devops_guru.types.anomaly_source.AnomalySource"]
     """<p>The source of the anomaly.</p>"""
     source_resource_name: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#Association``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.braket_resource_arn
 
 
-class Association(TypedDict):
+class Association(TypedDict, closed=True):
     arn: "aws_sdk_braket.types.braket_resource_arn.BraketResourceArn"
     """<p>The Amazon Braket resource arn.</p>"""
     type: "aws_sdk_braket.types.association_type.AssociationType"

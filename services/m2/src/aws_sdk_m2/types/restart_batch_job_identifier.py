@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#RestartBatchJobIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.job_step_restart_marker
 
 
-class RestartBatchJobIdentifier(TypedDict):
+class RestartBatchJobIdentifier(TypedDict, closed=True):
     execution_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The <code>executionId</code> from the <code>StartBatchJob</code> response when the job ran for the first time.</p>"""
     job_step_restart_marker: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#CreateNetworkAclAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.action_target
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
 
 
-class CreateNetworkAclAction(TypedDict):
+class CreateNetworkAclAction(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_fms.types.length_bounded_string.LengthBoundedString"
     ]

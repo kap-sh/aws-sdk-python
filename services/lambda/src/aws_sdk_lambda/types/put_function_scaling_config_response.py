@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#PutFunctionScalingConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.state
 
 
-class PutFunctionScalingConfigResponse(TypedDict):
+class PutFunctionScalingConfigResponse(TypedDict, closed=True):
     function_state: NotRequired["aws_sdk_lambda.types.state.State"]
     """<p>The current state of the function after applying the scaling configuration.</p>"""
 

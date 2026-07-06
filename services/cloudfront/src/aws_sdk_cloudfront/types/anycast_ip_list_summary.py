@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#AnycastIpListSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.timestamp
 
 
-class AnycastIpListSummary(TypedDict):
+class AnycastIpListSummary(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The ID of the Anycast static IP list.</p>"""
     name: "aws_sdk_cloudfront.types.anycast_ip_list_name.AnycastIpListName"

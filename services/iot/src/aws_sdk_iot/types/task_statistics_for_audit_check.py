@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TaskStatisticsForAuditCheck``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.canceled_findings_count
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.total_findings_count
 
 
-class TaskStatisticsForAuditCheck(TypedDict):
+class TaskStatisticsForAuditCheck(TypedDict, closed=True):
     total_findings_count: NotRequired[
         "aws_sdk_iot.types.total_findings_count.TotalFindingsCount"
     ]

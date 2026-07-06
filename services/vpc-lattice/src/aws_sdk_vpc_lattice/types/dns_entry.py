@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DnsEntry``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DnsEntry(TypedDict):
+class DnsEntry(TypedDict, closed=True):
     domain_name: NotRequired["str"]
     """<p>The domain name of the service.</p>"""
     hosted_zone_id: NotRequired["str"]

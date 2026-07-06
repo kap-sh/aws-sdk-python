@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANMulticastGet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.dl_class
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.supported_rf_region
 
 
-class LoRaWANMulticastGet(TypedDict):
+class LoRaWANMulticastGet(TypedDict, closed=True):
     rf_region: NotRequired[
         "aws_sdk_iot_wireless.types.supported_rf_region.SupportedRfRegion"
     ]

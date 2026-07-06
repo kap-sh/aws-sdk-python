@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DatabaseTool``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DatabaseTool(TypedDict):
+class DatabaseTool(TypedDict, closed=True):
     is_enabled: NotRequired["bool"]
     """<p>Indicates whether the database management tool is enabled.</p>"""
     name: NotRequired["str"]

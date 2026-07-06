@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#IdcAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.role_arn
 
 
-class IdcAuthConfiguration(TypedDict):
+class IdcAuthConfiguration(TypedDict, closed=True):
     idc_application_arn: "aws_sdk_qbusiness.types.idc_application_arn.IdcApplicationArn"
     """<p>The Amazon Resource Name (ARN) of the IAM Identity Center Application used to configure authentication.</p>"""
     role_arn: "aws_sdk_qbusiness.types.role_arn.RoleArn"

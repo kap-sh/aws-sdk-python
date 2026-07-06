@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#RuleGroupSourceStatelessRuleDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
     import aws_sdk_securityhub.types.rule_group_source_stateless_rule_match_attributes
 
 
-class RuleGroupSourceStatelessRuleDefinition(TypedDict):
+class RuleGroupSourceStatelessRuleDefinition(TypedDict, closed=True):
     actions: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string_list.NonEmptyStringList"
     ]

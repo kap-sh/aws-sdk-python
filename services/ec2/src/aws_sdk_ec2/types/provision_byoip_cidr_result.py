@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ProvisionByoipCidrResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.byoip_cidr
 
 
-class ProvisionByoipCidrResult(TypedDict):
+class ProvisionByoipCidrResult(TypedDict, closed=True):
     byoip_cidr: NotRequired["aws_sdk_ec2.types.byoip_cidr.ByoipCidr"]
     """<p>Information about the address range.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#CreateResourceConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.tag_map
 
 
-class CreateResourceConfigurationRequest(TypedDict):
+class CreateResourceConfigurationRequest(TypedDict, closed=True):
     name: "aws_sdk_vpc_lattice.types.resource_configuration_name.ResourceConfigurationName"
     """<p>The name of the resource configuration. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.</p>"""
     type: "aws_sdk_vpc_lattice.types.resource_configuration_type.ResourceConfigurationType"

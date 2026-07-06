@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#CancelQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_id
 
 
-class CancelQueryRequest(TypedDict):
+class CancelQueryRequest(TypedDict, closed=True):
     query_id: "aws_sdk_timestream_query.types.query_id.QueryId"
     """<p> The ID of the query that needs to be cancelled. <code>QueryID</code> is returned as part of the query result. </p>"""
 

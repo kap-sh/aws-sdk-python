@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#Recommender``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class Recommender(TypedDict):
+class Recommender(TypedDict, closed=True):
     recommender_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the recommender.</p>"""
     dataset_group_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]

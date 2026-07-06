@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Anchor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.anchor_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.time_granularity
 
 
-class Anchor(TypedDict):
+class Anchor(TypedDict, closed=True):
     anchor_type: NotRequired["aws_sdk_quicksight.types.anchor_type.AnchorType"]
     """<p>The <code>AnchorType</code> for the Anchor.</p>"""
     time_granularity: NotRequired[

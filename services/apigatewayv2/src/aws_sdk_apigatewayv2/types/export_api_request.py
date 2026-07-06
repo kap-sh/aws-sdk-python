@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#ExportApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
     import aws_sdk_apigatewayv2.types.__string
 
 
-class ExportApiRequest(TypedDict):
+class ExportApiRequest(TypedDict, closed=True):
     api_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API identifier.</p>"""
     export_version: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SendOutboundEmailResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendOutboundEmailResponse(TypedDict):
+class SendOutboundEmailResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#BucketPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.boolean
 
 
-class BucketPolicy(TypedDict):
+class BucketPolicy(TypedDict, closed=True):
     allows_public_read_access: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]
     """<p>A value that indicates whether public read access for the bucket is enabled through a bucket policy.</p>"""
     allows_public_write_access: NotRequired["aws_sdk_guardduty.types.boolean.Boolean"]

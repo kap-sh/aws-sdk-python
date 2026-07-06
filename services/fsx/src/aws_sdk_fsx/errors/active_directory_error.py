@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#ActiveDirectoryError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class ActiveDirectoryError_(TypedDict):
+class ActiveDirectoryError_(TypedDict, closed=True):
     active_directory_id: NotRequired["aws_sdk_fsx.types.directory_id.DirectoryId"]
     """<p>The directory ID of the directory that an error pertains to.</p>"""
     type: NotRequired[

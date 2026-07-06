@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeUsageReportSubscriptionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
     import aws_sdk_appstream.types.usage_report_subscription_list
 
 
-class DescribeUsageReportSubscriptionsResult(TypedDict):
+class DescribeUsageReportSubscriptionsResult(TypedDict, closed=True):
     usage_report_subscriptions: NotRequired[
         "aws_sdk_appstream.types.usage_report_subscription_list.UsageReportSubscriptionList"
     ]

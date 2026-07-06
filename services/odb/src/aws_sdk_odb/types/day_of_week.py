@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DayOfWeek``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.day_of_week_name
 
 
-class DayOfWeek(TypedDict):
+class DayOfWeek(TypedDict, closed=True):
     name: NotRequired["aws_sdk_odb.types.day_of_week_name.DayOfWeekName"]
     """<p>The name of the day of the week.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#LensUpgradeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_alias
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name
 
 
-class LensUpgradeSummary(TypedDict):
+class LensUpgradeSummary(TypedDict, closed=True):
     workload_id: NotRequired["aws_sdk_wellarchitected.types.workload_id.WorkloadId"]
     workload_name: NotRequired[
         "aws_sdk_wellarchitected.types.workload_name.WorkloadName"

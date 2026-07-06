@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#Predicate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.operand_type
@@ -24,6 +24,7 @@ Predicate = TypedDict(
             "aws_sdk_amplifyuibuilder.types.operand_type.OperandType"
         ],
     },
+    closed=True,
 )
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#UpdateHostOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateHostOutput(TypedDict):
+class UpdateHostOutput(TypedDict, closed=True):
     pass
 
 

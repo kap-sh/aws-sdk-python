@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>A message describing the conflict.</p>"""
     resource_id: "str"

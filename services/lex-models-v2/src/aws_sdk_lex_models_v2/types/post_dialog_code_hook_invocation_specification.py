@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#PostDialogCodeHookInvocationSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.conditional_specification
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.response_specification
 
 
-class PostDialogCodeHookInvocationSpecification(TypedDict):
+class PostDialogCodeHookInvocationSpecification(TypedDict, closed=True):
     success_response: NotRequired[
         "aws_sdk_lex_models_v2.types.response_specification.ResponseSpecification"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AttributePayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.attributes
     import aws_sdk_iot.types.flag
 
 
-class AttributePayload(TypedDict):
+class AttributePayload(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_iot.types.attributes.Attributes"]
     r"""<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\\"attributes\\":{\\"string1\\":\\"string2\\"}}</code> </p>"""
     merge: "aws_sdk_iot.types.flag.Flag"

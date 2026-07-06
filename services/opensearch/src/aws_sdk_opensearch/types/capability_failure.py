@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CapabilityFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.capability_failure_details
     import aws_sdk_opensearch.types.capability_failure_reason
 
 
-class CapabilityFailure(TypedDict):
+class CapabilityFailure(TypedDict, closed=True):
     reason: NotRequired[
         "aws_sdk_opensearch.types.capability_failure_reason.CapabilityFailureReason"
     ]

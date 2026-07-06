@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#DeleteMonitorOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteMonitorOutput(TypedDict):
+class DeleteMonitorOutput(TypedDict, closed=True):
     pass
 
 

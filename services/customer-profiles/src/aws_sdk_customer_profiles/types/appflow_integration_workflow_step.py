@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AppflowIntegrationWorkflowStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class AppflowIntegrationWorkflowStep(TypedDict):
+class AppflowIntegrationWorkflowStep(TypedDict, closed=True):
     flow_name: "aws_sdk_customer_profiles.types.flow_name.FlowName"
     """<p>Name of the flow created during execution of workflow step. <code>APPFLOW_INTEGRATION</code> workflow type creates an appflow flow during workflow step execution on the customers behalf.</p>"""
     status: "aws_sdk_customer_profiles.types.status.Status"

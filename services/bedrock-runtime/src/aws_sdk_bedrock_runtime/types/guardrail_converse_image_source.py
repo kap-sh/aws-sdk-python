@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailConverseImageSource``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
 
-class _GuardrailConverseImageSource_bytes(TypedDict):
+class _GuardrailConverseImageSource_bytes(TypedDict, closed=True):
     bytes: "bytes"
 
 

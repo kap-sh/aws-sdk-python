@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateTrustStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.tag_list
 
 
-class CreateTrustStoreRequest(TypedDict):
+class CreateTrustStoreRequest(TypedDict, closed=True):
     certificate_list: "aws_sdk_workspaces_web.types.certificate_list.CertificateList"
     """<p>A list of CA certificates to be added to the trust store.</p>"""
     tags: NotRequired["aws_sdk_workspaces_web.types.tag_list.TagList"]

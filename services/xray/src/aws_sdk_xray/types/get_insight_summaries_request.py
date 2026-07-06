@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetInsightSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.token
 
 
-class GetInsightSummariesRequest(TypedDict):
+class GetInsightSummariesRequest(TypedDict, closed=True):
     states: NotRequired["aws_sdk_xray.types.insight_state_list.InsightStateList"]
     """<p>The list of insight states. </p>"""
     group_arn: NotRequired["aws_sdk_xray.types.group_arn.GroupARN"]

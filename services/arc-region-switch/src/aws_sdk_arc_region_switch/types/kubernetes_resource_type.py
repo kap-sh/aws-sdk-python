@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#KubernetesResourceType``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
 
-class KubernetesResourceType(TypedDict):
+class KubernetesResourceType(TypedDict, closed=True):
     api_version: "str"
     """<p>The API version type for the Kubernetes resource.</p>"""
     kind: "str"

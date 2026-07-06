@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#LeadCustomer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.market_segment
 
 
-class LeadCustomer(TypedDict):
+class LeadCustomer(TypedDict, closed=True):
     industry: NotRequired["aws_sdk_partnercentral_selling.types.industry.Industry"]
     """<p>Specifies the industry sector to which the lead customer's company belongs. This categorization helps in understanding the customer's business context and tailoring appropriate solutions.</p>"""
     company_name: "aws_sdk_partnercentral_selling.types.company_name.CompanyName"

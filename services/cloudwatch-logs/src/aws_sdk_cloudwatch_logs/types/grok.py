@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#Grok``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.source
 
 
-class Grok(TypedDict):
+class Grok(TypedDict, closed=True):
     source: NotRequired["aws_sdk_cloudwatch_logs.types.source.Source"]
     """<p>The path to the field in the log event that you want to parse. If you omit this value, the whole log message is parsed.</p>"""
     match: "aws_sdk_cloudwatch_logs.types.grok_match.GrokMatch"

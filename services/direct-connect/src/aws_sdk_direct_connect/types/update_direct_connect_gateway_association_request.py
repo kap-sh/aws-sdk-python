@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#UpdateDirectConnectGatewayAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.direct_connect_gateway_association_id
     import aws_sdk_direct_connect.types.route_filter_prefix_list
 
 
-class UpdateDirectConnectGatewayAssociationRequest(TypedDict):
+class UpdateDirectConnectGatewayAssociationRequest(TypedDict, closed=True):
     association_id: NotRequired[
         "aws_sdk_direct_connect.types.direct_connect_gateway_association_id.DirectConnectGatewayAssociationId"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetNetworkResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.network_resource_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class GetNetworkResourcesResponse(TypedDict):
+class GetNetworkResourcesResponse(TypedDict, closed=True):
     network_resources: NotRequired[
         "aws_sdk_networkmanager.types.network_resource_list.NetworkResourceList"
     ]

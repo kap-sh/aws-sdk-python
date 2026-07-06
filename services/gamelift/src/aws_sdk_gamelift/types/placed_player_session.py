@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlacedPlayerSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.player_id
     import aws_sdk_gamelift.types.player_session_id
 
 
-class PlacedPlayerSession(TypedDict):
+class PlacedPlayerSession(TypedDict, closed=True):
     player_id: NotRequired["aws_sdk_gamelift.types.player_id.PlayerId"]
     """<p>A unique identifier for a player that is associated with this player session.</p>"""
     player_session_id: NotRequired[

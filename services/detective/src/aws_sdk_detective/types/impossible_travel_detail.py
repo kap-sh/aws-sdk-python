@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ImpossibleTravelDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.hourly_time_delta
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.location
 
 
-class ImpossibleTravelDetail(TypedDict):
+class ImpossibleTravelDetail(TypedDict, closed=True):
     starting_ip_address: NotRequired["aws_sdk_detective.types.ip_address.IpAddress"]
     """<p>IP address where the resource was first used in the impossible travel.</p>"""
     ending_ip_address: NotRequired["aws_sdk_detective.types.ip_address.IpAddress"]

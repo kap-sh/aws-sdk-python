@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.invisible_task_template_fields
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.required_task_template_fields
 
 
-class TaskTemplateConstraints(TypedDict):
+class TaskTemplateConstraints(TypedDict, closed=True):
     required_fields: NotRequired[
         "aws_sdk_connect.types.required_task_template_fields.RequiredTaskTemplateFields"
     ]

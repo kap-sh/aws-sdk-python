@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#EntityTypeSort``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_catalog.errors import DeserializationError, SerializationError
 
@@ -15,41 +17,41 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.saa_s_product_sort
 
 
-class _EntityTypeSort_DataProductSort(TypedDict):
+class _EntityTypeSort_DataProductSort(TypedDict, closed=True):
     DataProductSort: (
         "aws_sdk_marketplace_catalog.types.data_product_sort.DataProductSort"
     )
 
 
-class _EntityTypeSort_SaaSProductSort(TypedDict):
+class _EntityTypeSort_SaaSProductSort(TypedDict, closed=True):
     SaaSProductSort: (
         "aws_sdk_marketplace_catalog.types.saa_s_product_sort.SaaSProductSort"
     )
 
 
-class _EntityTypeSort_AmiProductSort(TypedDict):
+class _EntityTypeSort_AmiProductSort(TypedDict, closed=True):
     AmiProductSort: "aws_sdk_marketplace_catalog.types.ami_product_sort.AmiProductSort"
 
 
-class _EntityTypeSort_OfferSort(TypedDict):
+class _EntityTypeSort_OfferSort(TypedDict, closed=True):
     OfferSort: "aws_sdk_marketplace_catalog.types.offer_sort.OfferSort"
 
 
-class _EntityTypeSort_ContainerProductSort(TypedDict):
+class _EntityTypeSort_ContainerProductSort(TypedDict, closed=True):
     ContainerProductSort: (
         "aws_sdk_marketplace_catalog.types.container_product_sort.ContainerProductSort"
     )
 
 
-class _EntityTypeSort_ResaleAuthorizationSort(TypedDict):
+class _EntityTypeSort_ResaleAuthorizationSort(TypedDict, closed=True):
     ResaleAuthorizationSort: "aws_sdk_marketplace_catalog.types.resale_authorization_sort.ResaleAuthorizationSort"
 
 
-class _EntityTypeSort_MachineLearningProductSort(TypedDict):
+class _EntityTypeSort_MachineLearningProductSort(TypedDict, closed=True):
     MachineLearningProductSort: "aws_sdk_marketplace_catalog.types.machine_learning_product_sort.MachineLearningProductSort"
 
 
-class _EntityTypeSort_OfferSetSort(TypedDict):
+class _EntityTypeSort_OfferSetSort(TypedDict, closed=True):
     OfferSetSort: "aws_sdk_marketplace_catalog.types.offer_set_sort.OfferSetSort"
 
 

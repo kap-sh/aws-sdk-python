@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateScriptInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_zero_and_max_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.zip_blob
 
 
-class UpdateScriptInput(TypedDict):
+class UpdateScriptInput(TypedDict, closed=True):
     script_id: NotRequired["aws_sdk_gamelift.types.script_id_or_arn.ScriptIdOrArn"]
     """<p>A unique identifier for the Realtime script to update. You can use either the script ID or ARN value.</p>"""
     name: NotRequired[

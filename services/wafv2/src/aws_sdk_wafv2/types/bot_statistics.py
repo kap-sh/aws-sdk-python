@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#BotStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.request_count
 
 
-class BotStatistics(TypedDict):
+class BotStatistics(TypedDict, closed=True):
     bot_name: "aws_sdk_wafv2.types.filter_string.FilterString"
     """<p>The name of the bot. For example, <code>gptbot</code> or <code>googlebot</code>.</p>"""
     request_count: "aws_sdk_wafv2.types.request_count.RequestCount"

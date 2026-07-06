@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BatchDeleteUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.user_ids
 
 
-class BatchDeleteUserRequest(TypedDict):
+class BatchDeleteUserRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network from which users will be deleted.</p>"""
     user_ids: "aws_sdk_wickr.types.user_ids.UserIds"

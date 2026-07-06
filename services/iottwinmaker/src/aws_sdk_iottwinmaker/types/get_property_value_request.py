@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#GetPropertyValueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.tabular_conditions
 
 
-class GetPropertyValueRequest(TypedDict):
+class GetPropertyValueRequest(TypedDict, closed=True):
     component_name: NotRequired["aws_sdk_iottwinmaker.types.name.Name"]
     """<p>The name of the component whose property values the operation returns.</p>"""
     component_path: NotRequired[

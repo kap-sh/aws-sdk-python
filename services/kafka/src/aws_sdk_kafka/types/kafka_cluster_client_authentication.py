@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#KafkaClusterClientAuthentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.kafka_cluster_sasl_scram_authentication
 
 
-class KafkaClusterClientAuthentication(TypedDict):
+class KafkaClusterClientAuthentication(TypedDict, closed=True):
     sasl_scram: NotRequired[
         "aws_sdk_kafka.types.kafka_cluster_sasl_scram_authentication.KafkaClusterSaslScramAuthentication"
     ]

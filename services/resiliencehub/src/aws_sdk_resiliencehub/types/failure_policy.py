@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#FailurePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.seconds
 
 
-class FailurePolicy(TypedDict):
+class FailurePolicy(TypedDict, closed=True):
     rto_in_secs: "aws_sdk_resiliencehub.types.seconds.Seconds"
     """<p>Recovery Time Objective (RTO) in seconds.</p>"""
     rpo_in_secs: "aws_sdk_resiliencehub.types.seconds.Seconds"

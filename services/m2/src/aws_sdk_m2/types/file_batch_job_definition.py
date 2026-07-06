@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#FileBatchJobDefinition``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
 
-class FileBatchJobDefinition(TypedDict):
+class FileBatchJobDefinition(TypedDict, closed=True):
     file_name: "str"
     """<p>The name of the file containing the batch job definition.</p>"""
     folder_path: NotRequired["str"]

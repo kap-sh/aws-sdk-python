@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationQuestionInputDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_transcript_type
 
 
-class EvaluationQuestionInputDetails(TypedDict):
+class EvaluationQuestionInputDetails(TypedDict, closed=True):
     transcript_type: NotRequired[
         "aws_sdk_connect.types.evaluation_transcript_type.EvaluationTranscriptType"
     ]

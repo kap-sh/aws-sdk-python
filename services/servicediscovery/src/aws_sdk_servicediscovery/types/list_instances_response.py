@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#ListInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.next_token
 
 
-class ListInstancesResponse(TypedDict):
+class ListInstancesResponse(TypedDict, closed=True):
     resource_owner: NotRequired[
         "aws_sdk_servicediscovery.types.aws_account_id.AWSAccountId"
     ]

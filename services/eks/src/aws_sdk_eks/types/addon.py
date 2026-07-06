@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Addon``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.addon_health
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class Addon(TypedDict):
+class Addon(TypedDict, closed=True):
     addon_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the add-on.</p>"""
     cluster_name: NotRequired["aws_sdk_eks.types.cluster_name.ClusterName"]

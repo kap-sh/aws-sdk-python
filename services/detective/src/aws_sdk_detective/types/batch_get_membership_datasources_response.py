@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#BatchGetMembershipDatasourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.membership_datasources_list
     import aws_sdk_detective.types.unprocessed_graph_list
 
 
-class BatchGetMembershipDatasourcesResponse(TypedDict):
+class BatchGetMembershipDatasourcesResponse(TypedDict, closed=True):
     membership_datasources: NotRequired[
         "aws_sdk_detective.types.membership_datasources_list.MembershipDatasourcesList"
     ]

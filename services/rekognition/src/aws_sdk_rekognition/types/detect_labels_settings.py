@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectLabelsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.detect_labels_image_properties_settings
     import aws_sdk_rekognition.types.general_labels_settings
 
 
-class DetectLabelsSettings(TypedDict):
+class DetectLabelsSettings(TypedDict, closed=True):
     general_labels: NotRequired[
         "aws_sdk_rekognition.types.general_labels_settings.GeneralLabelsSettings"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#AccessPointAlreadyOwnedByYou``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class AccessPointAlreadyOwnedByYou_(TypedDict):
+class AccessPointAlreadyOwnedByYou_(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_fsx.types.error_code.ErrorCode"]
     """<p>An error code indicating that an access point with that name already exists in the Amazon Web Services Region in your Amazon Web Services account.</p>"""
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]

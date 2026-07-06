@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Ec2ImageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Ec2ImageDetails(TypedDict):
+class Ec2ImageDetails(TypedDict, closed=True):
     image_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the EC2 AMI.</p>"""
 

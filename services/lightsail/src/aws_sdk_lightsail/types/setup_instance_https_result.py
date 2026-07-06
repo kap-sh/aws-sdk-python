@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#SetupInstanceHttpsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.operation_list
 
 
-class SetupInstanceHttpsResult(TypedDict):
+class SetupInstanceHttpsResult(TypedDict, closed=True):
     operations: NotRequired["aws_sdk_lightsail.types.operation_list.OperationList"]
     """<p>The available API operations for <code>SetupInstanceHttps</code>.</p>"""
 

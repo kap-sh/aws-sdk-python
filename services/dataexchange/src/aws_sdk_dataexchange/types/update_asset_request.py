@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#UpdateAssetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.id
 
 
-class UpdateAssetRequest(TypedDict):
+class UpdateAssetRequest(TypedDict, closed=True):
     asset_id: "aws_sdk_dataexchange.types.id.Id"
     """<p>The unique identifier for an asset.</p>"""
     data_set_id: "aws_sdk_dataexchange.types.id.Id"

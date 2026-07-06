@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#VideoSegmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation_runtime.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation_runtime.types.timestamp_segment
 
 
-class _VideoSegmentConfiguration_timestampSegment(TypedDict):
+class _VideoSegmentConfiguration_timestampSegment(TypedDict, closed=True):
     timestampSegment: "aws_sdk_bedrock_data_automation_runtime.types.timestamp_segment.TimestampSegment"
 
 

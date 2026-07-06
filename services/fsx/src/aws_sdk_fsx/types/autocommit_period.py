@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#AutocommitPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.autocommit_period_type
     import aws_sdk_fsx.types.autocommit_period_value
 
 
-class AutocommitPeriod(TypedDict):
+class AutocommitPeriod(TypedDict, closed=True):
     type: NotRequired["aws_sdk_fsx.types.autocommit_period_type.AutocommitPeriodType"]
     """<p>Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to <code>NONE</code> disables autocommit. The default value is <code>NONE</code>. </p>"""
     value: NotRequired[

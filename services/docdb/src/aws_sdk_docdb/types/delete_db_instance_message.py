@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DeleteDBInstanceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DeleteDBInstanceMessage(TypedDict):
+class DeleteDBInstanceMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The instance identifier for the instance to be deleted. This parameter isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>Must match the name of an existing instance.</p> </li> </ul>"""
 

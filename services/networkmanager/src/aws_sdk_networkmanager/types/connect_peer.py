@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConnectPeer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.attachment_id
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tag_list
 
 
-class ConnectPeer(TypedDict):
+class ConnectPeer(TypedDict, closed=True):
     core_network_id: NotRequired[
         "aws_sdk_networkmanager.types.core_network_id.CoreNetworkId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ListEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.next_token
 
 
-class ListEnvironmentsResponse(TypedDict):
+class ListEnvironmentsResponse(TypedDict, closed=True):
     environments: "aws_sdk_m2.types.environment_summary_list.EnvironmentSummaryList"
     """<p>Returns a list of summary details for all the runtime environments in your account. </p>"""
     next_token: NotRequired["aws_sdk_m2.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Filters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.agent_statuses
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.validation_test_types
 
 
-class Filters(TypedDict):
+class Filters(TypedDict, closed=True):
     queues: NotRequired["aws_sdk_connect.types.queues.Queues"]
     """<p>The queues to use to filter the metrics. You should specify at least one queue, and can specify up to 100 queues per request. The <code>GetCurrentMetricsData</code> API in particular requires a queue when you include a <code>Filter</code> in your request. </p>"""
     channels: NotRequired["aws_sdk_connect.types.channels.Channels"]

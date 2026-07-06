@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetTableOptimizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.batch_get_table_optimizer_errors
     import aws_sdk_glue.types.batch_table_optimizers
 
 
-class BatchGetTableOptimizerResponse(TypedDict):
+class BatchGetTableOptimizerResponse(TypedDict, closed=True):
     table_optimizers: NotRequired[
         "aws_sdk_glue.types.batch_table_optimizers.BatchTableOptimizers"
     ]

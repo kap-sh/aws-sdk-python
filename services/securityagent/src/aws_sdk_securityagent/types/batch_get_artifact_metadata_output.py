@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetArtifactMetadataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.artifact_metadata_list
 
 
-class BatchGetArtifactMetadataOutput(TypedDict):
+class BatchGetArtifactMetadataOutput(TypedDict, closed=True):
     artifact_metadata_list: (
         "aws_sdk_securityagent.types.artifact_metadata_list.ArtifactMetadataList"
     )

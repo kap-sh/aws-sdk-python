@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#PointInTimeRecoverySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.timestamp
 
 
-class PointInTimeRecoverySummary(TypedDict):
+class PointInTimeRecoverySummary(TypedDict, closed=True):
     status: "aws_sdk_keyspaces.types.point_in_time_recovery_status.PointInTimeRecoveryStatus"
     """<p>Shows if point-in-time recovery is enabled or disabled for the specified table.</p>"""
     earliest_restorable_timestamp: NotRequired[

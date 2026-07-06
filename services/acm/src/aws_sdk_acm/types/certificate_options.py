@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CertificateOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_export
     import aws_sdk_acm.types.certificate_transparency_logging_preference
 
 
-class CertificateOptions(TypedDict):
+class CertificateOptions(TypedDict, closed=True):
     certificate_transparency_logging_preference: NotRequired[
         "aws_sdk_acm.types.certificate_transparency_logging_preference.CertificateTransparencyLoggingPreference"
     ]

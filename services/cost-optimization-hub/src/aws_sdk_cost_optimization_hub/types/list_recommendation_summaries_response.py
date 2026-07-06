@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListRecommendationSummariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.recommendation_summaries_list
     import aws_sdk_cost_optimization_hub.types.summary_metrics_result
 
 
-class ListRecommendationSummariesResponse(TypedDict):
+class ListRecommendationSummariesResponse(TypedDict, closed=True):
     estimated_total_deduped_savings: NotRequired["float"]
     """<p>The total overall savings for the aggregated view.</p>"""
     items: NotRequired[

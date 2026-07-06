@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetIdNamespaceAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_namespace_association_identifier
     import aws_sdk_cleanrooms.types.membership_identifier
 
 
-class GetIdNamespaceAssociationInput(TypedDict):
+class GetIdNamespaceAssociationInput(TypedDict, closed=True):
     id_namespace_association_identifier: "aws_sdk_cleanrooms.types.id_namespace_association_identifier.IdNamespaceAssociationIdentifier"
     """<p>The unique identifier of the ID namespace association that you want to retrieve.</p>"""
     membership_identifier: (

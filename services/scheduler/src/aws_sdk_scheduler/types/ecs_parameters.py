@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#EcsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_scheduler.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.task_definition_arn
 
 
-class EcsParameters(TypedDict):
+class EcsParameters(TypedDict, closed=True):
     task_definition_arn: "aws_sdk_scheduler.types.task_definition_arn.TaskDefinitionArn"
     """<p>The Amazon Resource Name (ARN) of the task definition to use if the event target is an Amazon ECS task.</p>"""
     task_count: NotRequired["aws_sdk_scheduler.types.task_count.TaskCount"]

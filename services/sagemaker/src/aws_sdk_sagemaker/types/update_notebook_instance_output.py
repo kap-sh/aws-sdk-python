@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateNotebookInstanceOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateNotebookInstanceOutput(TypedDict):
+class UpdateNotebookInstanceOutput(TypedDict, closed=True):
     pass
 
 

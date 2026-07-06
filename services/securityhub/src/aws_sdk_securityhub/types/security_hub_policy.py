@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#SecurityHubPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.security_controls_configuration
 
 
-class SecurityHubPolicy(TypedDict):
+class SecurityHubPolicy(TypedDict, closed=True):
     service_enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Indicates whether Security Hub CSPM is enabled in the policy. </p>"""
     enabled_standard_identifiers: NotRequired[

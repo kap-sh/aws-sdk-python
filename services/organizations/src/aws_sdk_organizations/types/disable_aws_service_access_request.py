@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#DisableAWSServiceAccessRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.service_principal
 
 
-class DisableAWSServiceAccessRequest(TypedDict):
+class DisableAWSServiceAccessRequest(TypedDict, closed=True):
     service_principal: "aws_sdk_organizations.types.service_principal.ServicePrincipal"
     """<p>The service principal name of the Amazon Web Services service for which you want to disable integration with your organization. This is typically in the form of a URL, such as <code> <i>service-abbreviation</i>.amazonaws.com</code>.</p>"""
 

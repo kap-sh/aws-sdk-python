@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeMountTargetSecurityGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.security_groups
 
 
-class DescribeMountTargetSecurityGroupsResponse(TypedDict):
+class DescribeMountTargetSecurityGroupsResponse(TypedDict, closed=True):
     security_groups: "aws_sdk_efs.types.security_groups.SecurityGroups"
     """<p>An array of security groups.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#GlobalClusterMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class GlobalClusterMember(TypedDict):
+class GlobalClusterMember(TypedDict, closed=True):
     db_cluster_arn: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p> The Amazon Resource Name (ARN) for each Neptune cluster. </p>"""
     readers: NotRequired["aws_sdk_neptune.types.readers_arn_list.ReadersArnList"]

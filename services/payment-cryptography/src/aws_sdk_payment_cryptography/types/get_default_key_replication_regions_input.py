@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#GetDefaultKeyReplicationRegionsInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetDefaultKeyReplicationRegionsInput(TypedDict):
+class GetDefaultKeyReplicationRegionsInput(TypedDict, closed=True):
     pass
 
 

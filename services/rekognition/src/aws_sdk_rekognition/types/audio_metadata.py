@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#AudioMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
     import aws_sdk_rekognition.types.u_long
 
 
-class AudioMetadata(TypedDict):
+class AudioMetadata(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The audio codec used to encode or decode the audio stream. </p>"""
     duration_millis: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]

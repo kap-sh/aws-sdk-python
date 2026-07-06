@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#VerifySMSSandboxPhoneNumberInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.phone_number_string
 
 
-class VerifySMSSandboxPhoneNumberInput(TypedDict):
+class VerifySMSSandboxPhoneNumberInput(TypedDict, closed=True):
     phone_number: "aws_sdk_sns.types.phone_number_string.PhoneNumberString"
     """<p>The destination phone number to verify.</p>"""
     one_time_password: "aws_sdk_sns.types.otp_code.OTPCode"

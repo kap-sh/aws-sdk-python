@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#ListVpcEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.next_token
 
 
-class ListVpcEndpointsRequest(TypedDict):
+class ListVpcEndpointsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_elasticsearch_service.types.next_token.NextToken"]
     """<p>Identifier to allow retrieval of paginated results.</p>"""
 

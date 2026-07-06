@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#MatchGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.matched_records_list
 
 
-class MatchGroup(TypedDict):
+class MatchGroup(TypedDict, closed=True):
     records: "aws_sdk_entityresolution.types.matched_records_list.MatchedRecordsList"
     """<p> The matched records.</p>"""
     match_id: "str"

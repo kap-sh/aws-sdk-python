@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeAutomationExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_execution_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeAutomationExecutionsRequest(TypedDict):
+class DescribeAutomationExecutionsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_ssm.types.automation_execution_filter_list.AutomationExecutionFilterList"
     ]

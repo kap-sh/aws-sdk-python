@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#RetentionPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.retention_period_type
     import aws_sdk_fsx.types.retention_period_value
 
 
-class RetentionPeriod(TypedDict):
+class RetentionPeriod(TypedDict, closed=True):
     type: NotRequired["aws_sdk_fsx.types.retention_period_type.RetentionPeriodType"]
     """<p>Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to <code>INFINITE</code>, the files are retained forever. If you set it to <code>UNSPECIFIED</code>, the files are retained until you set an explicit retention period. </p>"""
     value: NotRequired["aws_sdk_fsx.types.retention_period_value.RetentionPeriodValue"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreatePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.policy
 
 
-class CreatePolicyResponse(TypedDict):
+class CreatePolicyResponse(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_iam.types.policy.Policy"]
     """<p>A structure containing details about the new policy.</p>"""
 

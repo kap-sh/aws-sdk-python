@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StartShotDetectionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.segment_confidence
 
 
-class StartShotDetectionFilter(TypedDict):
+class StartShotDetectionFilter(TypedDict, closed=True):
     min_segment_confidence: NotRequired[
         "aws_sdk_rekognition.types.segment_confidence.SegmentConfidence"
     ]

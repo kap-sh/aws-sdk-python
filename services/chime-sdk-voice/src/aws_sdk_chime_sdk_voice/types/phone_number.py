@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#PhoneNumber``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.alpha2_country_code
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string
 
 
-class PhoneNumber(TypedDict):
+class PhoneNumber(TypedDict, closed=True):
     phone_number_id: NotRequired[
         "aws_sdk_chime_sdk_voice.types.sensitive_non_empty_string.SensitiveNonEmptyString"
     ]

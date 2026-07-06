@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#GetAccountLinkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.aws_account
     import aws_sdk_workspaces.types.link_id
 
 
-class GetAccountLinkRequest(TypedDict):
+class GetAccountLinkRequest(TypedDict, closed=True):
     link_id: NotRequired["aws_sdk_workspaces.types.link_id.LinkId"]
     """<p>The identifier of the account to link.</p>"""
     linked_account_id: NotRequired["aws_sdk_workspaces.types.aws_account.AwsAccount"]

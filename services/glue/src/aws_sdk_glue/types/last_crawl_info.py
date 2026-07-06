@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#LastCrawlInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.description_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class LastCrawlInfo(TypedDict):
+class LastCrawlInfo(TypedDict, closed=True):
     status: NotRequired["aws_sdk_glue.types.last_crawl_status.LastCrawlStatus"]
     """<p>Status of the last crawl.</p>"""
     error_message: NotRequired[

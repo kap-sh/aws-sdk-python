@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#JobLevelCostAllocationConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class JobLevelCostAllocationConfiguration(TypedDict):
+class JobLevelCostAllocationConfiguration(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables job level cost allocation for the application.</p>"""
 

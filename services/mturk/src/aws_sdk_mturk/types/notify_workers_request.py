@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#NotifyWorkersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class NotifyWorkersRequest(TypedDict):
+class NotifyWorkersRequest(TypedDict, closed=True):
     subject: "aws_sdk_mturk.types.string.String"
     """<p>The subject line of the email message to send. Can include up to 200 characters.</p>"""
     message_text: "aws_sdk_mturk.types.string.String"

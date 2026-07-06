@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#MonitorSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.url
 
 
-class MonitorSummary(TypedDict):
+class MonitorSummary(TypedDict, closed=True):
     monitor_id: "aws_sdk_deadline.types.monitor_id.MonitorId"
     """<p>The unique identifier for the monitor.</p>"""
     display_name: "aws_sdk_deadline.types.resource_name.ResourceName"

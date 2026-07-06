@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailCrossRegionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_identifier
 
 
-class GuardrailCrossRegionConfig(TypedDict):
+class GuardrailCrossRegionConfig(TypedDict, closed=True):
     guardrail_profile_identifier: "aws_sdk_bedrock.types.guardrail_cross_region_guardrail_profile_identifier.GuardrailCrossRegionGuardrailProfileIdentifier"
     r"""<p>The ID or Amazon Resource Name (ARN) of the guardrail profile that your guardrail is using. Guardrail profile availability depends on your current Amazon Web Services Region. For more information, see the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-cross-region-support.html\">Amazon Bedrock User Guide</a>.</p>"""
 

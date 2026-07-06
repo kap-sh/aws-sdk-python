@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Agent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.welcome_message
 
 
-class Agent(TypedDict):
+class Agent(TypedDict, closed=True):
     spaces: NotRequired["aws_sdk_quicksight.types.agent_spaces_list.AgentSpacesList"]
     """<p>The Amazon Resource Names (ARNs) of the spaces attached to the agent.</p>"""
     action_connectors: NotRequired[

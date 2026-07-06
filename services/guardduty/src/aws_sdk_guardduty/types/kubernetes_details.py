@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.kubernetes_user_details
     import aws_sdk_guardduty.types.kubernetes_workload_details
 
 
-class KubernetesDetails(TypedDict):
+class KubernetesDetails(TypedDict, closed=True):
     kubernetes_user_details: NotRequired[
         "aws_sdk_guardduty.types.kubernetes_user_details.KubernetesUserDetails"
     ]

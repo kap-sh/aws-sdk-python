@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetQueryResultsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.token
 
 
-class GetQueryResultsOutput(TypedDict):
+class GetQueryResultsOutput(TypedDict, closed=True):
     update_count: NotRequired["aws_sdk_athena.types.long.Long"]
     """<p>The number of rows inserted with a <code>CREATE TABLE AS SELECT</code>, <code>INSERT INTO</code>, or <code>UPDATE</code> statement. </p>"""
     result_set: NotRequired["aws_sdk_athena.types.result_set.ResultSet"]

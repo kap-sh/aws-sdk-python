@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#DeleteWhatsAppMessageTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.delete_all_languages
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.meta_template_name
 
 
-class DeleteWhatsAppMessageTemplateInput(TypedDict):
+class DeleteWhatsAppMessageTemplateInput(TypedDict, closed=True):
     meta_template_id: NotRequired[
         "aws_sdk_socialmessaging.types.meta_template_id.MetaTemplateId"
     ]

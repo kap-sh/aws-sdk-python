@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MetadataProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.metadata_property_value
 
 
-class MetadataProperties(TypedDict):
+class MetadataProperties(TypedDict, closed=True):
     commit_id: NotRequired[
         "aws_sdk_sagemaker.types.metadata_property_value.MetadataPropertyValue"
     ]

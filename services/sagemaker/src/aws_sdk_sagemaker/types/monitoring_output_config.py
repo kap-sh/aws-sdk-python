@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
     import aws_sdk_sagemaker.types.monitoring_outputs
 
 
-class MonitoringOutputConfig(TypedDict):
+class MonitoringOutputConfig(TypedDict, closed=True):
     monitoring_outputs: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_outputs.MonitoringOutputs"
     ]

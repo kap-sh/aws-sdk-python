@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#CreateJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_transcoder.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.user_metadata
 
 
-class CreateJobRequest(TypedDict):
+class CreateJobRequest(TypedDict, closed=True):
     pipeline_id: "aws_sdk_elastic_transcoder.types.id.Id"
     """<p>The <code>Id</code> of the pipeline that you want Elastic Transcoder to use for transcoding. The pipeline determines several settings, including the Amazon S3 bucket from which Elastic Transcoder gets the files to transcode and the bucket into which Elastic Transcoder puts the transcoded files.</p>"""
     input: NotRequired["aws_sdk_elastic_transcoder.types.job_input.JobInput"]

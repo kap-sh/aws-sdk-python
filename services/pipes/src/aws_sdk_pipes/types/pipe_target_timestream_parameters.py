@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetTimestreamParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.version_value
 
 
-class PipeTargetTimestreamParameters(TypedDict):
+class PipeTargetTimestreamParameters(TypedDict, closed=True):
     time_value: "aws_sdk_pipes.types.time_value.TimeValue"
     """<p>Dynamic path to the source data field that represents the time value for your data.</p>"""
     epoch_time_unit: NotRequired["aws_sdk_pipes.types.epoch_time_unit.EpochTimeUnit"]

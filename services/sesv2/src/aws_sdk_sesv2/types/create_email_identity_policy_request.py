@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateEmailIdentityPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.policy_name
 
 
-class CreateEmailIdentityPolicyRequest(TypedDict):
+class CreateEmailIdentityPolicyRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_sesv2.types.identity.Identity"
     """<p>The email identity.</p>"""
     policy_name: "aws_sdk_sesv2.types.policy_name.PolicyName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerjobruntime#UpdateRewardRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemakerjobruntime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemakerjobruntime.types.trajectory_id
 
 
-class UpdateRewardRequest(TypedDict):
+class UpdateRewardRequest(TypedDict, closed=True):
     job_arn: "aws_sdk_sagemakerjobruntime.types.job_arn.JobArn"
     """The job ARN."""
     trajectory_id: "aws_sdk_sagemakerjobruntime.types.trajectory_id.TrajectoryId"

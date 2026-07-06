@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ReportJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class ReportJob(TypedDict):
+class ReportJob(TypedDict, closed=True):
     report_job_id: NotRequired["aws_sdk_backup.types.report_job_id.ReportJobId"]
     """<p>The identifier for a report job. A unique, randomly generated, Unicode, UTF-8 encoded string that is at most 1,024 bytes long. Report job IDs cannot be edited.</p>"""
     report_plan_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

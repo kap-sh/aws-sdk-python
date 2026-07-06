@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#CreatePlatformVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.tags
 
 
-class CreatePlatformVersionRequest(TypedDict):
+class CreatePlatformVersionRequest(TypedDict, closed=True):
     platform_name: "aws_sdk_elastic_beanstalk.types.platform_name.PlatformName"
     """<p>The name of your custom platform.</p>"""
     platform_version: "aws_sdk_elastic_beanstalk.types.platform_version.PlatformVersion"

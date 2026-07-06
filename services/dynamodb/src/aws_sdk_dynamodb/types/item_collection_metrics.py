@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ItemCollectionMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.item_collection_key_attribute_map
     import aws_sdk_dynamodb.types.item_collection_size_estimate_range
 
 
-class ItemCollectionMetrics(TypedDict):
+class ItemCollectionMetrics(TypedDict, closed=True):
     item_collection_key: NotRequired[
         "aws_sdk_dynamodb.types.item_collection_key_attribute_map.ItemCollectionKeyAttributeMap"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#RebootWorkspacesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.failed_reboot_workspace_requests
 
 
-class RebootWorkspacesResult(TypedDict):
+class RebootWorkspacesResult(TypedDict, closed=True):
     failed_requests: NotRequired[
         "aws_sdk_workspaces.types.failed_reboot_workspace_requests.FailedRebootWorkspaceRequests"
     ]

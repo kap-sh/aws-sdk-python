@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcontactlens#PostContactSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.post_contact_summary_content
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect_contact_lens.types.post_contact_summary_status
 
 
-class PostContactSummary(TypedDict):
+class PostContactSummary(TypedDict, closed=True):
     content: NotRequired[
         "aws_sdk_connect_contact_lens.types.post_contact_summary_content.PostContactSummaryContent"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateDataTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_lock_version
 
 
-class CreateDataTableResponse(TypedDict):
+class CreateDataTableResponse(TypedDict, closed=True):
     id: "aws_sdk_connect.types.data_table_id.DataTableId"
     """<p>The unique identifier for the created data table. Does not include the version alias.</p>"""
     arn: "aws_sdk_connect.types.arn.ARN"

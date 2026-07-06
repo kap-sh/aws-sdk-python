@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#TextMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.ai_guardrail_assessment
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.sensitive_string
 
 
-class TextMessage(TypedDict):
+class TextMessage(TypedDict, closed=True):
     value: NotRequired["aws_sdk_qconnect.types.sensitive_string.SensitiveString"]
     """<p>The value of the message data in text type.</p>"""
     citations: NotRequired["aws_sdk_qconnect.types.citations.Citations"]

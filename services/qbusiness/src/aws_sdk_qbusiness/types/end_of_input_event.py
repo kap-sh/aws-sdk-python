@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#EndOfInputEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness._protocol.eventstream import HeaderValue, Message
 
 
-class EndOfInputEvent(TypedDict):
+class EndOfInputEvent(TypedDict, closed=True):
     pass
 
 

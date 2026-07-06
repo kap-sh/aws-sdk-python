@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.tag_list
 
 
-class CreateRuleGroupRequest(TypedDict):
+class CreateRuleGroupRequest(TypedDict, closed=True):
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"
     """<p>A friendly name or description of the <a>RuleGroup</a>. You can't change <code>Name</code> after you create a <code>RuleGroup</code>.</p>"""
     metric_name: "aws_sdk_waf_regional.types.metric_name.MetricName"

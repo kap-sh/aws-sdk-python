@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#S3TablesDestinationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.s3_tables_namespace
 
 
-class S3TablesDestinationResult(TypedDict):
+class S3TablesDestinationResult(TypedDict, closed=True):
     table_bucket_arn: "aws_sdk_s3.types.s3_tables_bucket_arn.S3TablesBucketArn"
     """<p> The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. </p>"""
     table_name: "aws_sdk_s3.types.s3_tables_name.S3TablesName"

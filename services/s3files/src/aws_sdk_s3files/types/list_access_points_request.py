@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListAccessPointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.file_system_id
 
 
-class ListAccessPointsRequest(TypedDict):
+class ListAccessPointsRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_s3files.types.file_system_id.FileSystemId"
     """<p>The ID or Amazon Resource Name (ARN) of the S3 File System to list access points for.</p>"""
     max_results: "int"

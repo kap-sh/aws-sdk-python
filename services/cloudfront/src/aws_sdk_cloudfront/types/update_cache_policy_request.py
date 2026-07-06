@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#UpdateCachePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class UpdateCachePolicyRequest(TypedDict):
+class UpdateCachePolicyRequest(TypedDict, closed=True):
     cache_policy_config: (
         "aws_sdk_cloudfront.types.cache_policy_config.CachePolicyConfig"
     )

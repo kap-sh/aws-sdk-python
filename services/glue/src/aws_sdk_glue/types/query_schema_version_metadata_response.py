@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#QuerySchemaVersionMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.metadata_info_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_id_string
 
 
-class QuerySchemaVersionMetadataResponse(TypedDict):
+class QuerySchemaVersionMetadataResponse(TypedDict, closed=True):
     metadata_info_map: NotRequired[
         "aws_sdk_glue.types.metadata_info_map.MetadataInfoMap"
     ]

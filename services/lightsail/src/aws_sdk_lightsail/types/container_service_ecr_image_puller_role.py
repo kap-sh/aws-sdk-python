@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContainerServiceECRImagePullerRole``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
     import aws_sdk_lightsail.types.string
 
 
-class ContainerServiceECRImagePullerRole(TypedDict):
+class ContainerServiceECRImagePullerRole(TypedDict, closed=True):
     is_active: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>A Boolean value that indicates whether the role is activated.</p>"""
     principal_arn: NotRequired["aws_sdk_lightsail.types.string.string"]

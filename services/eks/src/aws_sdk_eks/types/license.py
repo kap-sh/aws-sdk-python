@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#License``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class License(TypedDict):
+class License(TypedDict, closed=True):
     id: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>An id associated with an EKS Anywhere subscription license.</p>"""
     token: NotRequired["aws_sdk_eks.types.string.String"]

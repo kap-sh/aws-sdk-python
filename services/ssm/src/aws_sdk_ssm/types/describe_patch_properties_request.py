@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribePatchPropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_set
 
 
-class DescribePatchPropertiesRequest(TypedDict):
+class DescribePatchPropertiesRequest(TypedDict, closed=True):
     operating_system: "aws_sdk_ssm.types.operating_system.OperatingSystem"
     """<p>The operating system type for which to list patches.</p>"""
     property: "aws_sdk_ssm.types.patch_property.PatchProperty"

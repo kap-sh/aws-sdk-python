@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListVPCEConfigurationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.pagination_token
     import aws_sdk_device_farm.types.vpce_configurations
 
 
-class ListVPCEConfigurationsResult(TypedDict):
+class ListVPCEConfigurationsResult(TypedDict, closed=True):
     vpce_configurations: NotRequired[
         "aws_sdk_device_farm.types.vpce_configurations.VPCEConfigurations"
     ]

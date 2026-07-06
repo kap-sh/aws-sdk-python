@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#CheckAccessNotGrantedRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.access_list
 
 
-class CheckAccessNotGrantedRequest(TypedDict):
+class CheckAccessNotGrantedRequest(TypedDict, closed=True):
     policy_document: "aws_sdk_accessanalyzer.types.access_check_policy_document.AccessCheckPolicyDocument"
     """<p>The JSON policy document to use as the content for the policy.</p>"""
     access: "aws_sdk_accessanalyzer.types.access_list.AccessList"

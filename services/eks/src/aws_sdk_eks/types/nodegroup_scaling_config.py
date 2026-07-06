@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#NodegroupScalingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capacity
     import aws_sdk_eks.types.zero_capacity
 
 
-class NodegroupScalingConfig(TypedDict):
+class NodegroupScalingConfig(TypedDict, closed=True):
     min_size: NotRequired["aws_sdk_eks.types.zero_capacity.ZeroCapacity"]
     """<p>The minimum number of nodes that the managed node group can scale in to.</p>"""
     max_size: NotRequired["aws_sdk_eks.types.capacity.Capacity"]

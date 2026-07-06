@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetMasterAccountRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetMasterAccountRequest(TypedDict):
+class GetMasterAccountRequest(TypedDict, closed=True):
     pass
 
 

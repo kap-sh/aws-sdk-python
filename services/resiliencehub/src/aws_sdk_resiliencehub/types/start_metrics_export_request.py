@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#StartMetricsExportRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.client_token
     import aws_sdk_resiliencehub.types.entity_name
 
 
-class StartMetricsExportRequest(TypedDict):
+class StartMetricsExportRequest(TypedDict, closed=True):
     bucket_name: NotRequired["aws_sdk_resiliencehub.types.entity_name.EntityName"]
     """<p>(Optional) Specifies the name of the Amazon Simple Storage Service bucket where the exported metrics will be stored.</p>"""
     client_token: NotRequired["aws_sdk_resiliencehub.types.client_token.ClientToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DeleteApplicationReferenceDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.id
 
 
-class DeleteApplicationReferenceDataSourceRequest(TypedDict):
+class DeleteApplicationReferenceDataSourceRequest(TypedDict, closed=True):
     application_name: "aws_sdk_kinesis_analytics.types.application_name.ApplicationName"
     """<p>Name of an existing application.</p>"""
     current_application_version_id: (

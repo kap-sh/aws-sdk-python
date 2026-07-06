@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#AddLayerVersionPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class AddLayerVersionPermissionRequest(TypedDict):
+class AddLayerVersionPermissionRequest(TypedDict, closed=True):
     layer_name: "aws_sdk_lambda.types.layer_name.LayerName"
     """<p>The name or Amazon Resource Name (ARN) of the layer.</p>"""
     version_number: "aws_sdk_lambda.types.layer_version_number.LayerVersionNumber"

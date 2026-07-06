@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetMigrationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.sort_order
 
 
-class GetMigrationsRequest(TypedDict):
+class GetMigrationsRequest(TypedDict, closed=True):
     sort_by_attribute: NotRequired[
         "aws_sdk_lex_model_building_service.types.migration_sort_attribute.MigrationSortAttribute"
     ]

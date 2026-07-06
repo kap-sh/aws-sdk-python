@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3DataRepositoryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.auto_export_policy
     import aws_sdk_fsx.types.auto_import_policy
 
 
-class S3DataRepositoryConfiguration(TypedDict):
+class S3DataRepositoryConfiguration(TypedDict, closed=True):
     auto_import_policy: NotRequired[
         "aws_sdk_fsx.types.auto_import_policy.AutoImportPolicy"
     ]

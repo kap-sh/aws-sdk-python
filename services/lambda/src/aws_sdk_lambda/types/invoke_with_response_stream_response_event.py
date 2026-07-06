@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeWithResponseStreamResponseEvent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda._iter import AnyIterator
 from aws_sdk_lambda._protocol.eventstream import Message
@@ -10,13 +12,13 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.invoke_with_response_stream_complete_event
 
 
-class _InvokeWithResponseStreamResponseEvent_PayloadChunk(TypedDict):
+class _InvokeWithResponseStreamResponseEvent_PayloadChunk(TypedDict, closed=True):
     PayloadChunk: (
         "aws_sdk_lambda.types.invoke_response_stream_update.InvokeResponseStreamUpdate"
     )
 
 
-class _InvokeWithResponseStreamResponseEvent_InvokeComplete(TypedDict):
+class _InvokeWithResponseStreamResponseEvent_InvokeComplete(TypedDict, closed=True):
     InvokeComplete: "aws_sdk_lambda.types.invoke_with_response_stream_complete_event.InvokeWithResponseStreamCompleteEvent"
 
 

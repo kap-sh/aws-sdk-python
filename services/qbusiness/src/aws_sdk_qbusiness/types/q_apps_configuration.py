@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#QAppsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.q_apps_control_mode
 
 
-class QAppsConfiguration(TypedDict):
+class QAppsConfiguration(TypedDict, closed=True):
     q_apps_control_mode: "aws_sdk_qbusiness.types.q_apps_control_mode.QAppsControlMode"
     """<p>Status information about whether end users can create and use Amazon Q Apps in the web experience.</p>"""
 

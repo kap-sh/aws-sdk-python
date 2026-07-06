@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListGatewayTargetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.target_summaries
 
 
-class ListGatewayTargetsResponse(TypedDict):
+class ListGatewayTargetsResponse(TypedDict, closed=True):
     items: "aws_sdk_bedrock_agentcore_control.types.target_summaries.TargetSummaries"
     """<p>The list of gateway target summaries.</p>"""
     next_token: NotRequired[

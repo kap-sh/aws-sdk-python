@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchDeleteTaxRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.batch_delete_tax_registration_errors
 
 
-class BatchDeleteTaxRegistrationResponse(TypedDict):
+class BatchDeleteTaxRegistrationResponse(TypedDict, closed=True):
     errors: "aws_sdk_taxsettings.types.batch_delete_tax_registration_errors.BatchDeleteTaxRegistrationErrors"
     """<p>The list of errors for the accounts the TRN information could not be deleted for. </p>"""
 

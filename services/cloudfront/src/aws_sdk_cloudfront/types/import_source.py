@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ImportSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ImportSource(TypedDict):
+class ImportSource(TypedDict, closed=True):
     source_type: "aws_sdk_cloudfront.types.import_source_type.ImportSourceType"
     """<p>The source type of the import source for the key value store.</p>"""
     source_arn: "aws_sdk_cloudfront.types.string.string"

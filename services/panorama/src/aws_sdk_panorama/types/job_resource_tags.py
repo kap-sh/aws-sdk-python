@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#JobResourceTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.tag_map
 
 
-class JobResourceTags(TypedDict):
+class JobResourceTags(TypedDict, closed=True):
     resource_type: "aws_sdk_panorama.types.job_resource_type.JobResourceType"
     """<p>The job's type.</p>"""
     tags: "aws_sdk_panorama.types.tag_map.TagMap"

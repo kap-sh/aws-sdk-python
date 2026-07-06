@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListOpenCypherQueriesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListOpenCypherQueriesInput(TypedDict):
+class ListOpenCypherQueriesInput(TypedDict, closed=True):
     include_waiting: NotRequired["bool"]
     """<p> When set to <code>TRUE</code> and other parameters are not present, causes status information to be returned for waiting queries as well as for running queries.</p>"""
 

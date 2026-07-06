@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AzElEphemeris``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ground_station_name
 
 
-class AzElEphemeris(TypedDict):
+class AzElEphemeris(TypedDict, closed=True):
     ground_station: "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
     """<p>The ground station name for which you're providing azimuth elevation data.</p> <p>This ephemeris is specific to this ground station and can't be used at other locations.</p>"""
     data: "aws_sdk_groundstation.types.az_el_segments_data.AzElSegmentsData"

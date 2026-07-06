@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#KeyPair``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.base64
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class KeyPair(TypedDict):
+class KeyPair(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The friendly name of the SSH key pair.</p>"""
     arn: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ViewValidation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.error_detail
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.view_text_string
 
 
-class ViewValidation(TypedDict):
+class ViewValidation(TypedDict, closed=True):
     dialect: NotRequired["aws_sdk_glue.types.view_dialect.ViewDialect"]
     """<p>The dialect of the query engine.</p>"""
     dialect_version: NotRequired[

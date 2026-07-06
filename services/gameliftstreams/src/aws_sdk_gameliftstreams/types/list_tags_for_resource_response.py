@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_gameliftstreams.types.tags.Tags"]
     """<p>A collection of tags that have been assigned to the specified resource.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#AssociateGatewayToServerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.server_arn
 
 
-class AssociateGatewayToServerInput(TypedDict):
+class AssociateGatewayToServerInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_backup_gateway.types.gateway_arn.GatewayArn"
     """<p>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation to return a list of gateways for your account and Amazon Web Services Region.</p>"""
     server_arn: "aws_sdk_backup_gateway.types.server_arn.ServerArn"

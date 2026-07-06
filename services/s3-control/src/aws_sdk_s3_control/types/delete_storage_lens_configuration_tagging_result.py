@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#DeleteStorageLensConfigurationTaggingResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
 
-class DeleteStorageLensConfigurationTaggingResult(TypedDict):
+class DeleteStorageLensConfigurationTaggingResult(TypedDict, closed=True):
     pass
 
 

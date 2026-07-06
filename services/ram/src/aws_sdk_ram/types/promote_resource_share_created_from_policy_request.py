@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ram#PromoteResourceShareCreatedFromPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.string
 
 
-class PromoteResourceShareCreatedFromPolicyRequest(TypedDict):
+class PromoteResourceShareCreatedFromPolicyRequest(TypedDict, closed=True):
     resource_share_arn: "aws_sdk_ram.types.string.String"
     r"""<p>Specifies the <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Name (ARN)</a> of the resource share to promote.</p>"""
 

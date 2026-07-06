@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#AutomatedSnapshotPauseRequestOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.update_timestamp
 
 
-class AutomatedSnapshotPauseRequestOptions(TypedDict):
+class AutomatedSnapshotPauseRequestOptions(TypedDict, closed=True):
     enabled: "aws_sdk_elasticsearch_service.types.boolean.Boolean"
     """<p>Whether to enable or disable automated snapshot pause for the domain.</p>"""
     start_time: NotRequired[

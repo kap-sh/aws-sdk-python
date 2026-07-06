@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateIPSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token
     import aws_sdk_waf_regional.types.ip_set
 
 
-class CreateIPSetResponse(TypedDict):
+class CreateIPSetResponse(TypedDict, closed=True):
     ip_set: NotRequired["aws_sdk_waf_regional.types.ip_set.IPSet"]
     """<p>The <a>IPSet</a> returned in the <code>CreateIPSet</code> response.</p>"""
     change_token: NotRequired["aws_sdk_waf_regional.types.change_token.ChangeToken"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#DescribeEndpointsRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeEndpointsRequest(TypedDict):
+class DescribeEndpointsRequest(TypedDict, closed=True):
     pass
 
 

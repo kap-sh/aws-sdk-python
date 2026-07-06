@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsResourceRequirement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.string
 
 
-class EcsResourceRequirement(TypedDict):
+class EcsResourceRequirement(TypedDict, closed=True):
     type: "aws_sdk_pipes.types.ecs_resource_requirement_type.EcsResourceRequirementType"
     """<p>The type of resource to assign to a container. The supported values are <code>GPU</code> or <code>InferenceAccelerator</code>.</p>"""
     value: "aws_sdk_pipes.types.string.String"

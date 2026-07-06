@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DataSourceFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.data_source_type
 
 
-class DataSourceFilter(TypedDict):
+class DataSourceFilter(TypedDict, closed=True):
     name: "aws_sdk_cloudwatch_logs.types.data_source_name.DataSourceName"
     """<p>The name pattern to filter data sources by.</p>"""
     type: NotRequired["aws_sdk_cloudwatch_logs.types.data_source_type.DataSourceType"]

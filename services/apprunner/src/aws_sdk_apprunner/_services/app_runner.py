@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#AppRunner``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_apprunner._auth._signers
@@ -135,7 +135,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.vpc_ingress_connection_name
 
 
-class AppRunnerClientConfig(TypedDict, total=False):
+class AppRunnerClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

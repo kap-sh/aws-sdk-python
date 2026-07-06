@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#LexConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.string
 
 
-class LexConfiguration(TypedDict):
+class LexConfiguration(TypedDict, closed=True):
     responds_to: NotRequired["aws_sdk_chime_sdk_identity.types.responds_to.RespondsTo"]
     """<important> <p> <b>Deprecated</b>. Use <code>InvokedBy</code> instead.</p> </important> <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>"""
     invoked_by: NotRequired["aws_sdk_chime_sdk_identity.types.invoked_by.InvokedBy"]

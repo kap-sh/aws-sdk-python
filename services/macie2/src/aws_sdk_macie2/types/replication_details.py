@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ReplicationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
     import aws_sdk_macie2.types.__list_of__string
 
 
-class ReplicationDetails(TypedDict):
+class ReplicationDetails(TypedDict, closed=True):
     replicated: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether the bucket is configured to replicate one or more objects to any destination.</p>"""
     replicated_externally: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]

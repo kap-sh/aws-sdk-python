@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.package_config
 
 
-class EnvironmentConfig(TypedDict):
+class EnvironmentConfig(TypedDict, closed=True):
     image_version: NotRequired["str"]
     """<p>The image version for the notebook run environment.</p>"""
     package_config: NotRequired["aws_sdk_datazone.types.package_config.PackageConfig"]

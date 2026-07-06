@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2ScanModeState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ec2_scan_mode
     import aws_sdk_inspector2.types.ec2_scan_mode_status
 
 
-class Ec2ScanModeState(TypedDict):
+class Ec2ScanModeState(TypedDict, closed=True):
     scan_mode: NotRequired["aws_sdk_inspector2.types.ec2_scan_mode.Ec2ScanMode"]
     """<p>The scan method that is applied to the instance.</p>"""
     scan_mode_status: NotRequired[

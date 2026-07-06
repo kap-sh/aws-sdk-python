@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StandardsControlAssociationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.association_status
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class StandardsControlAssociationUpdate(TypedDict):
+class StandardsControlAssociationUpdate(TypedDict, closed=True):
     standards_arn: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ScheduledQueryInsightsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_temporal_range
 
 
-class ScheduledQueryInsightsResponse(TypedDict):
+class ScheduledQueryInsightsResponse(TypedDict, closed=True):
     query_spatial_coverage: NotRequired[
         "aws_sdk_timestream_query.types.query_spatial_coverage.QuerySpatialCoverage"
     ]

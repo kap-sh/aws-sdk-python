@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListNodesSummaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_name
 
 
-class ListNodesSummaryRequest(TypedDict):
+class ListNodesSummaryRequest(TypedDict, closed=True):
     sync_name: NotRequired[
         "aws_sdk_ssm.types.resource_data_sync_name.ResourceDataSyncName"
     ]

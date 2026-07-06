@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#UpdateDomainNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.description
     import aws_sdk_appsync.types.domain_name
 
 
-class UpdateDomainNameRequest(TypedDict):
+class UpdateDomainNameRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_appsync.types.domain_name.DomainName"
     """<p>The domain name.</p>"""
     description: NotRequired["aws_sdk_appsync.types.description.Description"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#SceneSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iottwinmaker.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.twin_maker_arn
 
 
-class SceneSummary(TypedDict):
+class SceneSummary(TypedDict, closed=True):
     scene_id: "aws_sdk_iottwinmaker.types.id.Id"
     """<p>The ID of the scene.</p>"""
     content_location: "aws_sdk_iottwinmaker.types.s3_url.S3Url"

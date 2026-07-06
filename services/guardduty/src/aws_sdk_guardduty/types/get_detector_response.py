@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetDetectorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source_configurations_result
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.tag_map
 
 
-class GetDetectorResponse(TypedDict):
+class GetDetectorResponse(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The timestamp of when the detector was created.</p>"""
     finding_publishing_frequency: NotRequired[

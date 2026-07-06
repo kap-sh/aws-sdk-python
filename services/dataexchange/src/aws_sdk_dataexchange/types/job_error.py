@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#JobError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.job_error_resource_types
 
 
-class JobError(TypedDict):
+class JobError(TypedDict, closed=True):
     code: "aws_sdk_dataexchange.types.code.Code"
     """<p>The code for the job error.</p>"""
     details: NotRequired["aws_sdk_dataexchange.types.details.Details"]

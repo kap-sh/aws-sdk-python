@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetListing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.type_name
 
 
-class AssetListing(TypedDict):
+class AssetListing(TypedDict, closed=True):
     asset_id: NotRequired["aws_sdk_datazone.types.asset_id.AssetId"]
     """<p>The identifier of an asset published in an Amazon DataZone catalog. </p>"""
     asset_revision: NotRequired["aws_sdk_datazone.types.revision.Revision"]

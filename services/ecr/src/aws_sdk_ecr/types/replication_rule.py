@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#ReplicationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_filter_list
 
 
-class ReplicationRule(TypedDict):
+class ReplicationRule(TypedDict, closed=True):
     destinations: (
         "aws_sdk_ecr.types.replication_destination_list.ReplicationDestinationList"
     )

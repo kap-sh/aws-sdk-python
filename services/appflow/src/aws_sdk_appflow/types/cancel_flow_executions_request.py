@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CancelFlowExecutionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.flow_name
 
 
-class CancelFlowExecutionsRequest(TypedDict):
+class CancelFlowExecutionsRequest(TypedDict, closed=True):
     flow_name: "aws_sdk_appflow.types.flow_name.FlowName"
     """<p>The name of a flow with active runs that you want to cancel.</p>"""
     execution_ids: NotRequired["aws_sdk_appflow.types.execution_ids.ExecutionIds"]

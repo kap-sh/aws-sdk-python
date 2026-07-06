@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#StartSourceNetworkReplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network_id
 
 
-class StartSourceNetworkReplicationRequest(TypedDict):
+class StartSourceNetworkReplicationRequest(TypedDict, closed=True):
     source_network_id: "aws_sdk_drs.types.source_network_id.SourceNetworkID"
     """<p>ID of the Source Network to replicate.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#SourceS3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.s3_key
 
 
-class SourceS3Location(TypedDict):
+class SourceS3Location(TypedDict, closed=True):
     bucket: "aws_sdk_taxsettings.types.s3_bucket_name.S3BucketName"
     """<p>The name of your Amazon S3 bucket that your tax document is located.</p>"""
     key: "aws_sdk_taxsettings.types.s3_key.S3Key"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TableDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.archival_summary
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_warm_throughput_description
 
 
-class TableDescription(TypedDict):
+class TableDescription(TypedDict, closed=True):
     attribute_definitions: NotRequired[
         "aws_sdk_dynamodb.types.attribute_definitions.AttributeDefinitions"
     ]

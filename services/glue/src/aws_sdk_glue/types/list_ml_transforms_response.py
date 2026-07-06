@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListMLTransformsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.transform_id_list
 
 
-class ListMLTransformsResponse(TypedDict):
+class ListMLTransformsResponse(TypedDict, closed=True):
     transform_ids: "aws_sdk_glue.types.transform_id_list.TransformIdList"
     """<p>The identifiers of all the machine learning transforms in the account, or the machine learning transforms with the specified tags.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]

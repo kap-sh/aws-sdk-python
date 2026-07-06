@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#HostedZoneOwner``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.hosted_zone_owning_service
 
 
-class HostedZoneOwner(TypedDict):
+class HostedZoneOwner(TypedDict, closed=True):
     owning_account: NotRequired["aws_sdk_route_53.types.aws_account_id.AWSAccountID"]
     """<p>If the hosted zone was created by an Amazon Web Services account, or was created by an Amazon Web Services service that creates hosted zones using the current account, <code>OwningAccount</code> contains the account ID of that account. For example, when you use Cloud Map to create a hosted zone, Cloud Map creates the hosted zone using the current Amazon Web Services account. </p>"""
     owning_service: NotRequired[

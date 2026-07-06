@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#StartSavingsPlansPurchaseRecommendationGenerationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.recommendation_id
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class StartSavingsPlansPurchaseRecommendationGenerationResponse(TypedDict):
+class StartSavingsPlansPurchaseRecommendationGenerationResponse(TypedDict, closed=True):
     recommendation_id: NotRequired[
         "aws_sdk_cost_explorer.types.recommendation_id.RecommendationId"
     ]

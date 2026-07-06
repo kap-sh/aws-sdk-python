@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyBuildWorkflowRepairContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_annotation_list
 
 
-class AutomatedReasoningPolicyBuildWorkflowRepairContent(TypedDict):
+class AutomatedReasoningPolicyBuildWorkflowRepairContent(TypedDict, closed=True):
     annotations: "aws_sdk_bedrock.types.automated_reasoning_policy_annotation_list.AutomatedReasoningPolicyAnnotationList"
     """<p>Specific annotations or modifications to apply during the policy repair process, such as rule corrections or variable updates.</p>"""
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ComplianceContributorCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.boolean
     import aws_sdk_config_service.types.integer
 
 
-class ComplianceContributorCount(TypedDict):
+class ComplianceContributorCount(TypedDict, closed=True):
     capped_count: "aws_sdk_config_service.types.integer.Integer"
     """<p>The number of Amazon Web Services resources or Config rules responsible for the current compliance of the item.</p>"""
     cap_exceeded: "aws_sdk_config_service.types.boolean.Boolean"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeBackupVaultOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.vault_type
 
 
-class DescribeBackupVaultOutput(TypedDict):
+class DescribeBackupVaultOutput(TypedDict, closed=True):
     backup_vault_name: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.</p>"""
     backup_vault_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

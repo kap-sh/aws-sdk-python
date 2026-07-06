@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#RegexMatchSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.regex_match_tuples
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class RegexMatchSet(TypedDict):
+class RegexMatchSet(TypedDict, closed=True):
     regex_match_set_id: NotRequired["aws_sdk_waf.types.resource_id.ResourceId"]
     """<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code> (see <a>GetRegexMatchSet</a>), update a <code>RegexMatchSet</code> (see <a>UpdateRegexMatchSet</a>), insert a <code>RegexMatchSet</code> into a <code>Rule</code> or delete one from a <code>Rule</code> (see <a>UpdateRule</a>), and delete a <code>RegexMatchSet</code> from AWS WAF (see <a>DeleteRegexMatchSet</a>).</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"""
     name: NotRequired["aws_sdk_waf.types.resource_name.ResourceName"]

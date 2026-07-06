@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#AssociateDatasetKmsKeyOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
 
-class AssociateDatasetKmsKeyOutput(TypedDict):
+class AssociateDatasetKmsKeyOutput(TypedDict, closed=True):
     pass
 
 

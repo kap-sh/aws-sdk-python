@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ContactData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class ContactData(TypedDict):
+class ContactData(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of a contact.</p>"""
     mission_profile_arn: NotRequired[

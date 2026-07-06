@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#ListAppMonitorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.max_results_integer
 
 
-class ListAppMonitorsRequest(TypedDict):
+class ListAppMonitorsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_rum.types.max_results_integer.MaxResultsInteger"]
     """<p>The maximum number of results to return in one operation. The default is 50. The maximum that you can specify is 100.</p>"""
     next_token: NotRequired["str"]

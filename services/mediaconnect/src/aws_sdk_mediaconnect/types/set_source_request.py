@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#SetSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_media_stream_source_configuration_request
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.state
 
 
-class SetSourceRequest(TypedDict):
+class SetSourceRequest(TypedDict, closed=True):
     decryption: NotRequired["aws_sdk_mediaconnect.types.encryption.Encryption"]
     """<p> The type of encryption that is used on the content ingested from this source. Allowable encryption types: static-key.</p>"""
     description: NotRequired["str"]

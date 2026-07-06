@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#EntityStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workmail.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.string
 
 
-class EntityStateException_(TypedDict):
+class EntityStateException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_workmail.types.string.String"]
 
 

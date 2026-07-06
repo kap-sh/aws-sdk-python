@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ResetDeploymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class ResetDeploymentsResponse(TypedDict):
+class ResetDeploymentsResponse(TypedDict, closed=True):
     deployment_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the deployment."""
     deployment_id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

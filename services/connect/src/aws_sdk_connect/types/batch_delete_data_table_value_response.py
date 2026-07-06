@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#BatchDeleteDataTableValueResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.batch_delete_data_table_value_success_result_list
 
 
-class BatchDeleteDataTableValueResponse(TypedDict):
+class BatchDeleteDataTableValueResponse(TypedDict, closed=True):
     successful: "aws_sdk_connect.types.batch_delete_data_table_value_success_result_list.BatchDeleteDataTableValueSuccessResultList"
     """<p>A list of successfully deleted values with their identifiers and updated lock versions.</p>"""
     failed: "aws_sdk_connect.types.batch_delete_data_table_value_failure_result_list.BatchDeleteDataTableValueFailureResultList"

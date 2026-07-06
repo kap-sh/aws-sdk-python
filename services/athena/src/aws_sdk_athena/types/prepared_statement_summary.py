@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#PreparedStatementSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.date
     import aws_sdk_athena.types.statement_name
 
 
-class PreparedStatementSummary(TypedDict):
+class PreparedStatementSummary(TypedDict, closed=True):
     statement_name: NotRequired["aws_sdk_athena.types.statement_name.StatementName"]
     """<p>The name of the prepared statement.</p>"""
     last_modified_time: NotRequired["aws_sdk_athena.types.date.Date"]

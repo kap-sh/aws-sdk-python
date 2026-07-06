@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#PerformanceInsightsReferenceMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.performance_insights_metric_query
 
 
-class PerformanceInsightsReferenceMetric(TypedDict):
+class PerformanceInsightsReferenceMetric(TypedDict, closed=True):
     metric_query: NotRequired[
         "aws_sdk_devops_guru.types.performance_insights_metric_query.PerformanceInsightsMetricQuery"
     ]

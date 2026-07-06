@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DeletePolicyRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePolicyRequest(TypedDict):
+class DeletePolicyRequest(TypedDict, closed=True):
     pass
 
 

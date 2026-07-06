@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#CreatePricingRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.pricing_rule_arn
 
 
-class CreatePricingRuleOutput(TypedDict):
+class CreatePricingRuleOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_billingconductor.types.pricing_rule_arn.PricingRuleArn"]
     """<p> The Amazon Resource Name (ARN) of the created pricing rule. </p>"""
 

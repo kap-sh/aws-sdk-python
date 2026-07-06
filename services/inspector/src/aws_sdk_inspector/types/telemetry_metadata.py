@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#TelemetryMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.message_type
 
 
-class TelemetryMetadata(TypedDict):
+class TelemetryMetadata(TypedDict, closed=True):
     message_type: "aws_sdk_inspector.types.message_type.MessageType"
     """<p>A specific type of behavioral data that is collected by the agent.</p>"""
     count: "aws_sdk_inspector.types.long.Long"

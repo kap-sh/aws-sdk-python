@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#UpdateConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.connection_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.timestamp
 
 
-class UpdateConnectionResponse(TypedDict):
+class UpdateConnectionResponse(TypedDict, closed=True):
     connection_arn: NotRequired[
         "aws_sdk_cloudwatch_events.types.connection_arn.ConnectionArn"
     ]

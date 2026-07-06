@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InstanceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.url
 
 
-class InstanceSummary(TypedDict):
+class InstanceSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
     """<p>The identifier of the instance.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

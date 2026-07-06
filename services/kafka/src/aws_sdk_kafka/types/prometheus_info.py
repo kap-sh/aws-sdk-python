@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#PrometheusInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.jmx_exporter_info
     import aws_sdk_kafka.types.node_exporter_info
 
 
-class PrometheusInfo(TypedDict):
+class PrometheusInfo(TypedDict, closed=True):
     jmx_exporter: NotRequired["aws_sdk_kafka.types.jmx_exporter_info.JmxExporterInfo"]
     """<p>Indicates whether you want to turn on or turn off the JMX Exporter.</p>"""
     node_exporter: NotRequired[

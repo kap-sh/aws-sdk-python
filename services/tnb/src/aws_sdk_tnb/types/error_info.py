@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.error_cause
     import aws_sdk_tnb.types.error_details
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     cause: NotRequired["aws_sdk_tnb.types.error_cause.ErrorCause"]
     """<p>Error cause.</p>"""
     details: NotRequired["aws_sdk_tnb.types.error_details.ErrorDetails"]

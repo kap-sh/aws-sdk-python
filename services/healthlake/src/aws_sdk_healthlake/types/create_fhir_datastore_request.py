@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#CreateFHIRDatastoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.tag_list
 
 
-class CreateFHIRDatastoreRequest(TypedDict):
+class CreateFHIRDatastoreRequest(TypedDict, closed=True):
     datastore_name: NotRequired["aws_sdk_healthlake.types.datastore_name.DatastoreName"]
     """<p>The data store name (user-generated).</p>"""
     datastore_type_version: "aws_sdk_healthlake.types.fhir_version.FHIRVersion"

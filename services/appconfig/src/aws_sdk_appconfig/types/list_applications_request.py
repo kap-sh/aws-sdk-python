@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ListApplicationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.max_results
     import aws_sdk_appconfig.types.next_token
 
 
-class ListApplicationsRequest(TypedDict):
+class ListApplicationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_appconfig.types.max_results.MaxResults"]
     """<p>The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.</p>"""
     next_token: NotRequired["aws_sdk_appconfig.types.next_token.NextToken"]

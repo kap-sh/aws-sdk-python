@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteGameServerGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_group_delete_option
     import aws_sdk_gamelift.types.game_server_group_name_or_arn
 
 
-class DeleteGameServerGroupInput(TypedDict):
+class DeleteGameServerGroupInput(TypedDict, closed=True):
     game_server_group_name: NotRequired[
         "aws_sdk_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
     ]

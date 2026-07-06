@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#UpdateAgentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateAgentResponse(TypedDict):
+class UpdateAgentResponse(TypedDict, closed=True):
     pass
 
 

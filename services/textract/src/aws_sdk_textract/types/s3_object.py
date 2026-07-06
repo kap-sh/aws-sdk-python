@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#S3Object``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.s3_bucket
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.s3_object_version
 
 
-class S3Object(TypedDict):
+class S3Object(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_textract.types.s3_bucket.S3Bucket"]
     """<p>The name of the S3 bucket. Note that the # character is not valid in the file name.</p>"""
     name: NotRequired["aws_sdk_textract.types.s3_object_name.S3ObjectName"]

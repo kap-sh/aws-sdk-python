@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#TelemetryRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class TelemetryRecord(TypedDict):
+class TelemetryRecord(TypedDict, closed=True):
     timestamp: "aws_sdk_xray.types.timestamp.Timestamp"
     """<p></p>"""
     segments_received_count: NotRequired[

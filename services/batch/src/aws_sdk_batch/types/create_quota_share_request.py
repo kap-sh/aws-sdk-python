@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CreateQuotaShareRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.quota_share_capacity_limits
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class CreateQuotaShareRequest(TypedDict):
+class CreateQuotaShareRequest(TypedDict, closed=True):
     quota_share_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the quota share. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>"""
     job_queue: NotRequired["aws_sdk_batch.types.string.String"]

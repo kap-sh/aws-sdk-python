@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetPartitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.partition_list
     import aws_sdk_glue.types.token
 
 
-class GetPartitionsResponse(TypedDict):
+class GetPartitionsResponse(TypedDict, closed=True):
     partitions: NotRequired["aws_sdk_glue.types.partition_list.PartitionList"]
     """<p>A list of requested partitions.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

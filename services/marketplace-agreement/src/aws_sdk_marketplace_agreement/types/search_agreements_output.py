@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#SearchAgreementsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.agreement_view_summary_list
     import aws_sdk_marketplace_agreement.types.next_token
 
 
-class SearchAgreementsOutput(TypedDict):
+class SearchAgreementsOutput(TypedDict, closed=True):
     agreement_view_summaries: NotRequired[
         "aws_sdk_marketplace_agreement.types.agreement_view_summary_list.AgreementViewSummaryList"
     ]

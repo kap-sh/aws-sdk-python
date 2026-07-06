@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListBatchInferenceJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.batch_inference_jobs
     import aws_sdk_personalize.types.next_token
 
 
-class ListBatchInferenceJobsResponse(TypedDict):
+class ListBatchInferenceJobsResponse(TypedDict, closed=True):
     batch_inference_jobs: NotRequired[
         "aws_sdk_personalize.types.batch_inference_jobs.BatchInferenceJobs"
     ]

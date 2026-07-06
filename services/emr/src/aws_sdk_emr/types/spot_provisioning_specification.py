@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#SpotProvisioningSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.spot_provisioning_allocation_strategy
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.whole_number
 
 
-class SpotProvisioningSpecification(TypedDict):
+class SpotProvisioningSpecification(TypedDict, closed=True):
     timeout_duration_minutes: NotRequired["aws_sdk_emr.types.whole_number.WholeNumber"]
     """<p>The Spot provisioning timeout period in minutes. If Spot Instances are not provisioned within this time period, the <code>TimeOutAction</code> is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.</p>"""
     timeout_action: NotRequired[

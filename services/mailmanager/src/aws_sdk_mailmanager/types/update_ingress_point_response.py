@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#UpdateIngressPointResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateIngressPointResponse(TypedDict):
+class UpdateIngressPointResponse(TypedDict, closed=True):
     pass
 
 

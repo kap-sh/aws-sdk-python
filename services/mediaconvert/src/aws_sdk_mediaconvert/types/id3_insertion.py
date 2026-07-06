@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Id3Insertion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern010920405090509092
     import aws_sdk_mediaconvert.types.__string_pattern_a_za_z0902
 
 
-class Id3Insertion(TypedDict):
+class Id3Insertion(TypedDict, closed=True):
     id3: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_a_za_z0902.__stringPatternAZaZ0902"
     ]

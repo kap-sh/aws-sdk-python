@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetSlotTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.custom_or_builtin_slot_type_name
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class GetSlotTypeResponse(TypedDict):
+class GetSlotTypeResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_lex_model_building_service.types.slot_type_name.SlotTypeName"
     ]

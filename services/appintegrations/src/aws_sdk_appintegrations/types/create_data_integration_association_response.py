@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#CreateDataIntegrationAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
     import aws_sdk_appintegrations.types.uuid
 
 
-class CreateDataIntegrationAssociationResponse(TypedDict):
+class CreateDataIntegrationAssociationResponse(TypedDict, closed=True):
     data_integration_association_id: NotRequired[
         "aws_sdk_appintegrations.types.uuid.UUID"
     ]

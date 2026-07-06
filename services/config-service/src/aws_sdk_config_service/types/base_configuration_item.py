@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#BaseConfigurationItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.account_id
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.version
 
 
-class BaseConfigurationItem(TypedDict):
+class BaseConfigurationItem(TypedDict, closed=True):
     version: NotRequired["aws_sdk_config_service.types.version.Version"]
     """<p>The version number of the resource configuration.</p>"""
     account_id: NotRequired["aws_sdk_config_service.types.account_id.AccountId"]

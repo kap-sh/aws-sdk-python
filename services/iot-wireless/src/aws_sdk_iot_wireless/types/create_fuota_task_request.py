@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CreateFuotaTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.tag_list
 
 
-class CreateFuotaTaskRequest(TypedDict):
+class CreateFuotaTaskRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iot_wireless.types.fuota_task_name.FuotaTaskName"]
     description: NotRequired["aws_sdk_iot_wireless.types.description.Description"]
     client_request_token: NotRequired[

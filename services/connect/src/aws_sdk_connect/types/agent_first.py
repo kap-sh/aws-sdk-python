@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentFirst``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.preview
 
 
-class AgentFirst(TypedDict):
+class AgentFirst(TypedDict, closed=True):
     preview: NotRequired["aws_sdk_connect.types.preview.Preview"]
     """<p>Information about preview configuration of agent first outbound strategy</p>"""
 

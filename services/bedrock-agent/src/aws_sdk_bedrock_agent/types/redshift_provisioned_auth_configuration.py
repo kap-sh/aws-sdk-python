@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedshiftProvisionedAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.secret_arn
 
 
-class RedshiftProvisionedAuthConfiguration(TypedDict):
+class RedshiftProvisionedAuthConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.redshift_provisioned_auth_type.RedshiftProvisionedAuthType"
     """<p>The type of authentication to use.</p>"""
     database_user: NotRequired["str"]

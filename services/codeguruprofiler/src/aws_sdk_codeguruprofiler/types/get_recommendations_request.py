@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#GetRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.locale
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.timestamp
 
 
-class GetRecommendationsRequest(TypedDict):
+class GetRecommendationsRequest(TypedDict, closed=True):
     profiling_group_name: (
         "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
     )

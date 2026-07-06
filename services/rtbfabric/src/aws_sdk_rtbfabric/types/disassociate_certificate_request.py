@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#DisassociateCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.acm_certificate_arn
     import aws_sdk_rtbfabric.types.gateway_id
 
 
-class DisassociateCertificateRequest(TypedDict):
+class DisassociateCertificateRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
     acm_certificate_arn: "aws_sdk_rtbfabric.types.acm_certificate_arn.AcmCertificateArn"

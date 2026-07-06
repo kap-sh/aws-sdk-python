@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#PostWhatsAppMessageMediaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.whats_app_phone_number_id
 
 
-class PostWhatsAppMessageMediaInput(TypedDict):
+class PostWhatsAppMessageMediaInput(TypedDict, closed=True):
     origination_phone_number_id: (
         "aws_sdk_socialmessaging.types.whats_app_phone_number_id.WhatsAppPhoneNumberId"
     )

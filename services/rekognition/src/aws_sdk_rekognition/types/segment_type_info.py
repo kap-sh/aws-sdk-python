@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SegmentTypeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.segment_type
     import aws_sdk_rekognition.types.string
 
 
-class SegmentTypeInfo(TypedDict):
+class SegmentTypeInfo(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.segment_type.SegmentType"]
     """<p>The type of a segment (technical cue or shot detection).</p>"""
     model_version: NotRequired["aws_sdk_rekognition.types.string.String"]

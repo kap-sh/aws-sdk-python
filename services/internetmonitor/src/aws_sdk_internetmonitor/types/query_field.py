@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#QueryField``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class QueryField(TypedDict):
+class QueryField(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of a field to query your application's Amazon CloudWatch Internet Monitor data for, such as <code>availability_score</code>.</p>"""
     type: NotRequired["str"]

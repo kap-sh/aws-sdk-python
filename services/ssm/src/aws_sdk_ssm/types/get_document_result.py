@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetDocumentResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.attachment_content_list
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.review_status
 
 
-class GetDocumentResult(TypedDict):
+class GetDocumentResult(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.document_arn.DocumentARN"]
     """<p>The name of the SSM document.</p>"""
     created_date: NotRequired["aws_sdk_ssm.types.date_time.DateTime"]

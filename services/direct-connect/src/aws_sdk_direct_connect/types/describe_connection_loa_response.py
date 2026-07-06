@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeConnectionLoaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.loa
 
 
-class DescribeConnectionLoaResponse(TypedDict):
+class DescribeConnectionLoaResponse(TypedDict, closed=True):
     loa: NotRequired["aws_sdk_direct_connect.types.loa.Loa"]
     """<p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA).</p>"""
 

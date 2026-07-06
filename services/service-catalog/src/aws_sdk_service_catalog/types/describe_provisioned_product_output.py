@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DescribeProvisionedProductOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.cloud_watch_dashboards
     import aws_sdk_service_catalog.types.provisioned_product_detail
 
 
-class DescribeProvisionedProductOutput(TypedDict):
+class DescribeProvisionedProductOutput(TypedDict, closed=True):
     provisioned_product_detail: NotRequired[
         "aws_sdk_service_catalog.types.provisioned_product_detail.ProvisionedProductDetail"
     ]

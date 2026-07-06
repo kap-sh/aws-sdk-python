@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeviceInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.operating_system
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.platform_version
 
 
-class DeviceInfo(TypedDict):
+class DeviceInfo(TypedDict, closed=True):
     platform_name: NotRequired["aws_sdk_connect.types.platform_name.PlatformName"]
     """<p>Name of the platform that the participant used for the call.</p>"""
     platform_version: NotRequired[

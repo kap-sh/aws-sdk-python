@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListSessionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.orchestration_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.session_list
 
 
-class ListSessionsResponse(TypedDict):
+class ListSessionsResponse(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_glue.types.session_id_list.SessionIdList"]
     """<p>Returns the ID of the session. </p>"""
     sessions: NotRequired["aws_sdk_glue.types.session_list.SessionList"]

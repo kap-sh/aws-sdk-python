@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#SpotOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.spot_allocation_strategy
 
 
-class SpotOptions(TypedDict):
+class SpotOptions(TypedDict, closed=True):
     allocation_strategy: NotRequired[
         "aws_sdk_pcs.types.spot_allocation_strategy.SpotAllocationStrategy"
     ]

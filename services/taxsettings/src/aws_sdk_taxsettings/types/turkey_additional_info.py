@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#TurkeyAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.industries
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_office
 
 
-class TurkeyAdditionalInfo(TypedDict):
+class TurkeyAdditionalInfo(TypedDict, closed=True):
     tax_office: NotRequired["aws_sdk_taxsettings.types.tax_office.TaxOffice"]
     """<p>The tax office where you're registered. You can enter this information as a string. The Tax Settings API will add this information to your invoice. This parameter is required for business-to-business (B2B) and business-to-government customers. It's not required for business-to-consumer (B2C) customers.</p>"""
     kep_email_id: NotRequired["aws_sdk_taxsettings.types.kep_email_id.KepEmailId"]

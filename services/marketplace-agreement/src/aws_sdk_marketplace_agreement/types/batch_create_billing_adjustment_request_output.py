@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#BatchCreateBillingAdjustmentRequestOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item_list
 
 
-class BatchCreateBillingAdjustmentRequestOutput(TypedDict):
+class BatchCreateBillingAdjustmentRequestOutput(TypedDict, closed=True):
     items: "aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_item_list.BatchCreateBillingAdjustmentItemList"
     """<p>A list of successfully created billing adjustment items, each containing the <code>billingAdjustmentRequestId</code> and <code>clientToken</code>.</p>"""
     errors: "aws_sdk_marketplace_agreement.types.batch_create_billing_adjustment_error_list.BatchCreateBillingAdjustmentErrorList"

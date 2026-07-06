@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetMLTaskRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.task_run_sort_criteria
 
 
-class GetMLTaskRunsRequest(TypedDict):
+class GetMLTaskRunsRequest(TypedDict, closed=True):
     transform_id: "aws_sdk_glue.types.hash_string.HashString"
     """<p>The unique identifier of the machine learning transform.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]

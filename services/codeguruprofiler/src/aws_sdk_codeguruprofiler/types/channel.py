@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Channel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.event_publishers
 
 
-class Channel(TypedDict):
+class Channel(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codeguruprofiler.types.channel_id.ChannelId"]
     """<p>Unique identifier for each <code>Channel</code> in the notification configuration of a Profiling Group. A random UUID for channelId is used when adding a channel to the notification configuration if not specified in the request.</p>"""
     uri: "aws_sdk_codeguruprofiler.types.channel_uri.ChannelUri"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#AnalysisStatusUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.src_code_or_db_analysis_status
 
 
-class _AnalysisStatusUnion_runtimeAnalysisStatus(TypedDict):
+class _AnalysisStatusUnion_runtimeAnalysisStatus(TypedDict, closed=True):
     runtimeAnalysisStatus: "aws_sdk_migrationhubstrategy.types.runtime_analysis_status.RuntimeAnalysisStatus"
 
 
-class _AnalysisStatusUnion_srcCodeOrDbAnalysisStatus(TypedDict):
+class _AnalysisStatusUnion_srcCodeOrDbAnalysisStatus(TypedDict, closed=True):
     srcCodeOrDbAnalysisStatus: "aws_sdk_migrationhubstrategy.types.src_code_or_db_analysis_status.SrcCodeOrDbAnalysisStatus"
 
 

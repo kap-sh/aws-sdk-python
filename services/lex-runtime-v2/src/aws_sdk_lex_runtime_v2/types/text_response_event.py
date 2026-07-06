@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#TextResponseEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_runtime_v2._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.messages
 
 
-class TextResponseEvent(TypedDict):
+class TextResponseEvent(TypedDict, closed=True):
     messages: NotRequired["aws_sdk_lex_runtime_v2.types.messages.Messages"]
     """<p>A list of messages to send to the user. Messages are ordered based on the order that you returned the messages from your Lambda function or the order that the messages are defined in the bot.</p>"""
     event_id: NotRequired["aws_sdk_lex_runtime_v2.types.event_id.EventId"]

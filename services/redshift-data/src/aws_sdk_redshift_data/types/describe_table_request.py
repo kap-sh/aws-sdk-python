@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#DescribeTableRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.workgroup_name_string
 
 
-class DescribeTableRequest(TypedDict):
+class DescribeTableRequest(TypedDict, closed=True):
     cluster_identifier: NotRequired[
         "aws_sdk_redshift_data.types.cluster_identifier_string.ClusterIdentifierString"
     ]

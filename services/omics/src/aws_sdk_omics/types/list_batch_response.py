@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListBatchResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.batch_list
     import aws_sdk_omics.types.list_token
 
 
-class ListBatchResponse(TypedDict):
+class ListBatchResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_omics.types.batch_list.BatchList"]
     """<p>A list of batch summary objects. See <code>BatchListItem</code>.</p>"""
     next_token: NotRequired["aws_sdk_omics.types.list_token.ListToken"]

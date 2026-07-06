@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#Workload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.component_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_insights.types.workload_name
 
 
-class Workload(TypedDict):
+class Workload(TypedDict, closed=True):
     workload_id: NotRequired[
         "aws_sdk_application_insights.types.workload_id.WorkloadId"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendraranking#RescoreResultItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra_ranking.types.document_id
     import aws_sdk_kendra_ranking.types.float
 
 
-class RescoreResultItem(TypedDict):
+class RescoreResultItem(TypedDict, closed=True):
     document_id: NotRequired["aws_sdk_kendra_ranking.types.document_id.DocumentId"]
     """<p>The identifier of the document from the search service.</p>"""
     score: NotRequired["aws_sdk_kendra_ranking.types.float.Float"]

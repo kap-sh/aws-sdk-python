@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#OutputFormatConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.serializer
 
 
-class OutputFormatConfiguration(TypedDict):
+class OutputFormatConfiguration(TypedDict, closed=True):
     serializer: NotRequired["aws_sdk_firehose.types.serializer.Serializer"]
     """<p>Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.</p>"""
 

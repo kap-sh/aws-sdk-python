@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#SqsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.message_group_id
 
 
-class SqsParameters(TypedDict):
+class SqsParameters(TypedDict, closed=True):
     message_group_id: NotRequired[
         "aws_sdk_eventbridge.types.message_group_id.MessageGroupId"
     ]

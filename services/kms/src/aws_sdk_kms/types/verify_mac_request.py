@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#VerifyMacRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.plaintext_type
 
 
-class VerifyMacRequest(TypedDict):
+class VerifyMacRequest(TypedDict, closed=True):
     message: "aws_sdk_kms.types.plaintext_type.PlaintextType"
     """<p>The message that will be used in the verification. Enter the same message that was used to generate the HMAC.</p> <p> <a>GenerateMac</a> and <code>VerifyMac</code> do not provide special handling for message digests. If you generated an HMAC for a hash digest of a message, you must verify the HMAC for the same hash digest.</p>"""
     key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"

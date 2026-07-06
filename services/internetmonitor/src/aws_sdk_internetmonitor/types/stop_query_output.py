@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#StopQueryOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopQueryOutput(TypedDict):
+class StopQueryOutput(TypedDict, closed=True):
     pass
 
 

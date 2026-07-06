@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.code
     import aws_sdk_iot.types.ota_update_error_message
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     code: NotRequired["aws_sdk_iot.types.code.Code"]
     """<p>The error code.</p>"""
     message: NotRequired[

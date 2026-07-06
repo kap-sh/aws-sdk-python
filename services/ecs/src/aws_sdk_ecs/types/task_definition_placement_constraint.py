@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskDefinitionPlacementConstraint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
     import aws_sdk_ecs.types.task_definition_placement_constraint_type
 
 
-class TaskDefinitionPlacementConstraint(TypedDict):
+class TaskDefinitionPlacementConstraint(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_ecs.types.task_definition_placement_constraint_type.TaskDefinitionPlacementConstraintType"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SendCommandResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.command
 
 
-class SendCommandResult(TypedDict):
+class SendCommandResult(TypedDict, closed=True):
     command: NotRequired["aws_sdk_ssm.types.command.Command"]
     """<p>The request as it was received by Systems Manager. Also provides the command ID which can be used future references to this request.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DocumentClassifierDocuments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class DocumentClassifierDocuments(TypedDict):
+class DocumentClassifierDocuments(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p>The S3 URI location of the training documents specified in the S3Uri CSV file.</p>"""
     test_s3_uri: NotRequired["aws_sdk_comprehend.types.s3_uri.S3Uri"]

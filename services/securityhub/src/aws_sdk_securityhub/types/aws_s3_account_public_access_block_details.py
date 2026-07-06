@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3AccountPublicAccessBlockDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsS3AccountPublicAccessBlockDetails(TypedDict):
+class AwsS3AccountPublicAccessBlockDetails(TypedDict, closed=True):
     block_public_acls: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Indicates whether to reject calls to update an S3 bucket if the calls include a public access control list (ACL).</p>"""
     block_public_policy: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

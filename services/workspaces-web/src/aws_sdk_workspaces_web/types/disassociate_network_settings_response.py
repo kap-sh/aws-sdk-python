@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DisassociateNetworkSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateNetworkSettingsResponse(TypedDict):
+class DisassociateNetworkSettingsResponse(TypedDict, closed=True):
     pass
 
 

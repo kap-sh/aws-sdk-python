@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CodeInterpreterNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.code_interpreter_network_mode
     import aws_sdk_bedrock_agentcore_control.types.vpc_config
 
 
-class CodeInterpreterNetworkConfiguration(TypedDict):
+class CodeInterpreterNetworkConfiguration(TypedDict, closed=True):
     network_mode: "aws_sdk_bedrock_agentcore_control.types.code_interpreter_network_mode.CodeInterpreterNetworkMode"
     """<p>The network mode for the code interpreter. This field specifies how the code interpreter connects to the network.</p>"""
     vpc_config: NotRequired[

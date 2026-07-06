@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RoutePedestrianTravelOnlySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
 
 
-class RoutePedestrianTravelOnlySummary(TypedDict):
+class RoutePedestrianTravelOnlySummary(TypedDict, closed=True):
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
 

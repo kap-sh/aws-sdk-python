@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#StepDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.attempt_count
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.operation_payload
 
 
-class StepDetails(TypedDict):
+class StepDetails(TypedDict, closed=True):
     attempt: "aws_sdk_lambda.types.attempt_count.AttemptCount"
     """<p>The current attempt number for this step.</p>"""
     next_attempt_timestamp: NotRequired[

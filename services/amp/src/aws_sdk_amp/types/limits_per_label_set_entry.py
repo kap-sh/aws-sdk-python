@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amp#LimitsPerLabelSetEntry``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LimitsPerLabelSetEntry(TypedDict):
+class LimitsPerLabelSetEntry(TypedDict, closed=True):
     max_series: NotRequired["int"]
     """<p>The maximum number of active series that can be ingested that match this label set. </p> <p>Setting this to 0 causes no label set limit to be enforced, but it does cause Amazon Managed Service for Prometheus to vend label set metrics to CloudWatch</p>"""
 

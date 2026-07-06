@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetDedicatedIpsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.max_items
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.pool_name
 
 
-class GetDedicatedIpsRequest(TypedDict):
+class GetDedicatedIpsRequest(TypedDict, closed=True):
     pool_name: NotRequired["aws_sdk_pinpoint_email.types.pool_name.PoolName"]
     """<p>The name of the IP pool that the dedicated IP address is associated with.</p>"""
     next_token: NotRequired["aws_sdk_pinpoint_email.types.next_token.NextToken"]

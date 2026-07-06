@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#CloudWatchMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.is_enabled
 
 
-class CloudWatchMetrics(TypedDict):
+class CloudWatchMetrics(TypedDict, closed=True):
     is_enabled: "aws_sdk_s3_control.types.is_enabled.IsEnabled"
     """<p>A container that indicates whether CloudWatch publishing for S3 Storage Lens metrics is enabled. A value of <code>true</code> indicates that CloudWatch publishing for S3 Storage Lens metrics is enabled.</p>"""
 

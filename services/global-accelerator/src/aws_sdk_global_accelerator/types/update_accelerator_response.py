@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#UpdateAcceleratorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.accelerator
 
 
-class UpdateAcceleratorResponse(TypedDict):
+class UpdateAcceleratorResponse(TypedDict, closed=True):
     accelerator: NotRequired["aws_sdk_global_accelerator.types.accelerator.Accelerator"]
     """<p>Information about the updated accelerator.</p>"""
 

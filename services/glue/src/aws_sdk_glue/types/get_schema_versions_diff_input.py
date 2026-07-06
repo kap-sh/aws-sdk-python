@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSchemaVersionsDiffInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_number
 
 
-class GetSchemaVersionsDiffInput(TypedDict):
+class GetSchemaVersionsDiffInput(TypedDict, closed=True):
     schema_id: "aws_sdk_glue.types.schema_id.SchemaId"
     """<p>This is a wrapper structure to contain schema identity fields. The structure contains:</p> <ul> <li> <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> <li> <p>SchemaId$SchemaName: The name of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p> </li> </ul>"""
     first_schema_version_number: (

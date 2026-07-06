@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeCapabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capability
 
 
-class DescribeCapabilityResponse(TypedDict):
+class DescribeCapabilityResponse(TypedDict, closed=True):
     capability: NotRequired["aws_sdk_eks.types.capability.Capability"]
     """<p>An object containing detailed information about the capability, including its name, ARN, type, status, version, configuration, health status, and timestamps for when it was created and last modified.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3IcebergCatalogTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.one_input
 
 
-class S3IcebergCatalogTarget(TypedDict):
+class S3IcebergCatalogTarget(TypedDict, closed=True):
     name: "aws_sdk_glue.types.node_name.NodeName"
     """<p>The name of the Iceberg catalog target.</p>"""
     inputs: "aws_sdk_glue.types.one_input.OneInput"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.detective#TimestampForCollection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.timestamp
 
 
-class TimestampForCollection(TypedDict):
+class TimestampForCollection(TypedDict, closed=True):
     timestamp: NotRequired["aws_sdk_detective.types.timestamp.Timestamp"]
     """<p>The data and time when data collection began for a source package. The value is an ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>"""
 

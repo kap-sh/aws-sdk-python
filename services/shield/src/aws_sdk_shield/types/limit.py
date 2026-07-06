@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.shield#Limit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.long
     import aws_sdk_shield.types.string
 
 
-class Limit(TypedDict):
+class Limit(TypedDict, closed=True):
     type: NotRequired["aws_sdk_shield.types.string.String"]
     """<p>The type of protection.</p>"""
     max: "aws_sdk_shield.types.long.Long"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetDeploymentStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrass.types.error_details
 
 
-class GetDeploymentStatusResponse(TypedDict):
+class GetDeploymentStatusResponse(TypedDict, closed=True):
     deployment_status: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The status of the deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''."""
     deployment_type: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#ResourceSyncAttempt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.timestamp
 
 
-class ResourceSyncAttempt(TypedDict):
+class ResourceSyncAttempt(TypedDict, closed=True):
     events: "aws_sdk_codestar_connections.types.resource_sync_event_list.ResourceSyncEventList"
     """<p>The events related to a resource sync attempt.</p>"""
     initial_revision: "aws_sdk_codestar_connections.types.revision.Revision"

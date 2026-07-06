@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.detective#GetMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.member_detail_list
     import aws_sdk_detective.types.unprocessed_account_list
 
 
-class GetMembersResponse(TypedDict):
+class GetMembersResponse(TypedDict, closed=True):
     member_details: NotRequired[
         "aws_sdk_detective.types.member_detail_list.MemberDetailList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_export_list
     import aws_sdk_omics.types.run_id
 
 
-class GetRunRequest(TypedDict):
+class GetRunRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.run_id.RunId"
     """<p>The run's ID.</p>"""
     export: NotRequired["aws_sdk_omics.types.run_export_list.RunExportList"]

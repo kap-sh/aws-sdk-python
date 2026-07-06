@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AccessEndpointConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.internet_fallback_protocol_list
 
 
-class AccessEndpointConfig(TypedDict):
+class AccessEndpointConfig(TypedDict, closed=True):
     access_endpoints: "aws_sdk_workspaces.types.access_endpoint_list.AccessEndpointList"
     """<p>Indicates a list of access endpoints associated with this directory.</p>"""
     internet_fallback_protocols: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#GetArchiveExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.export_status
 
 
-class GetArchiveExportResponse(TypedDict):
+class GetArchiveExportResponse(TypedDict, closed=True):
     archive_id: NotRequired["aws_sdk_mailmanager.types.archive_id.ArchiveId"]
     """<p>The identifier of the archive the email export was performed from.</p>"""
     filters: NotRequired["aws_sdk_mailmanager.types.archive_filters.ArchiveFilters"]

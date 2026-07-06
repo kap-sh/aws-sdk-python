@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListDatasetsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListDatasetsRequest(TypedDict):
+class ListDatasetsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p> The token for the next page of results. </p>"""
     max_results: NotRequired["int"]

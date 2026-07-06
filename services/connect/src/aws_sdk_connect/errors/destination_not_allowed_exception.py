@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DestinationNotAllowedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.message
 
 
-class DestinationNotAllowedException_(TypedDict):
+class DestinationNotAllowedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_connect.types.message.Message"]
     """<p>The message about the outbound calls.</p>"""
 

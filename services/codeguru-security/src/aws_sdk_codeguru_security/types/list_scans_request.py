@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ListScansRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.next_token
 
 
-class ListScansRequest(TypedDict):
+class ListScansRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codeguru_security.types.next_token.NextToken"]
     """<p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>"""
     max_results: NotRequired["int"]

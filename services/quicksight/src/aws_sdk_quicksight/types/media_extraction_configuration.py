@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#MediaExtractionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.audio_extraction_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.video_extraction_configuration
 
 
-class MediaExtractionConfiguration(TypedDict):
+class MediaExtractionConfiguration(TypedDict, closed=True):
     image_extraction_configuration: NotRequired[
         "aws_sdk_quicksight.types.image_extraction_configuration.ImageExtractionConfiguration"
     ]

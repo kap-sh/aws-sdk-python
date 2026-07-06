@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#IpAddressUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.ip
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.subnet_id
 
 
-class IpAddressUpdate(TypedDict):
+class IpAddressUpdate(TypedDict, closed=True):
     ip_id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     r"""<p> <i>Only when removing an IP address from a Resolver endpoint</i>: The ID of the IP address that you want to remove. To get this ID, use <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_GetResolverEndpoint.html\">GetResolverEndpoint</a>.</p>"""
     subnet_id: NotRequired["aws_sdk_route53resolver.types.subnet_id.SubnetId"]

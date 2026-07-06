@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#Service``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.category_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.service_name
 
 
-class Service(TypedDict):
+class Service(TypedDict, closed=True):
     code: NotRequired["aws_sdk_support.types.service_code.ServiceCode"]
     """<p>The code for an Amazon Web Services service returned by the <a>DescribeServices</a> response. The <code>name</code> element contains the corresponding friendly name.</p>"""
     name: NotRequired["aws_sdk_support.types.service_name.ServiceName"]

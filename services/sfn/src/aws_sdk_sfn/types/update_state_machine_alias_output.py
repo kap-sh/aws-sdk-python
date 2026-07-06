@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#UpdateStateMachineAliasOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class UpdateStateMachineAliasOutput(TypedDict):
+class UpdateStateMachineAliasOutput(TypedDict, closed=True):
     update_date: "aws_sdk_sfn.types.timestamp.Timestamp"
     """<p>The date and time the state machine alias was updated.</p>"""
 

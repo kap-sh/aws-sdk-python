@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#GetNotificationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.notification_configuration
 
 
-class GetNotificationConfigurationResponse(TypedDict):
+class GetNotificationConfigurationResponse(TypedDict, closed=True):
     notification_configuration: "aws_sdk_codeguruprofiler.types.notification_configuration.NotificationConfiguration"
     """<p>The current notification configuration for this profiling group.</p>"""
 

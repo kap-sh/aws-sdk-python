@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RdsParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.instance_id
 
 
-class RdsParameters(TypedDict):
+class RdsParameters(TypedDict, closed=True):
     instance_id: "aws_sdk_quicksight.types.instance_id.InstanceId"
     """<p>Instance ID.</p>"""
     database: "aws_sdk_quicksight.types.database.Database"

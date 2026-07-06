@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#GetServiceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service
 
 
-class GetServiceOutput(TypedDict):
+class GetServiceOutput(TypedDict, closed=True):
     service: "aws_sdk_application_signals.types.service.Service"
     """<p>A structure containing information about the service.</p>"""
     start_time: "datetime.datetime"

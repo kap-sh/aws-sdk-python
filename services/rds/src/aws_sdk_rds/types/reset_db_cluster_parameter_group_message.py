@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ResetDBClusterParameterGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ResetDBClusterParameterGroupMessage(TypedDict):
+class ResetDBClusterParameterGroupMessage(TypedDict, closed=True):
     db_cluster_parameter_group_name: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The name of the DB cluster parameter group to reset.</p>"""
     reset_all_parameters: NotRequired["aws_sdk_rds.types.boolean.Boolean"]

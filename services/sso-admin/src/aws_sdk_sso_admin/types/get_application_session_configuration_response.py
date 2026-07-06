@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#GetApplicationSessionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.user_background_session_application_status
 
 
-class GetApplicationSessionConfigurationResponse(TypedDict):
+class GetApplicationSessionConfigurationResponse(TypedDict, closed=True):
     user_background_session_application_status: NotRequired[
         "aws_sdk_sso_admin.types.user_background_session_application_status.UserBackgroundSessionApplicationStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#ASN1Subject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.asn1_printable_string64
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string128
 
 
-class ASN1Subject(TypedDict):
+class ASN1Subject(TypedDict, closed=True):
     country: NotRequired["aws_sdk_acm_pca.types.country_code_string.CountryCodeString"]
     """<p>Two-digit code that specifies the country in which the certificate subject located.</p>"""
     organization: NotRequired["aws_sdk_acm_pca.types.string64.String64"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AgentAliasSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.name
 
 
-class AgentAliasSummary(TypedDict):
+class AgentAliasSummary(TypedDict, closed=True):
     agent_alias_id: "aws_sdk_bedrock_agent.types.agent_alias_id.AgentAliasId"
     """<p>Contains details about </p>"""
     agent_alias_name: "aws_sdk_bedrock_agent.types.name.Name"

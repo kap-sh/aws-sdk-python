@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCodeBuildProjectLogsConfigDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_code_build_project_logs_config_cloud_watch_logs_details
     import aws_sdk_securityhub.types.aws_code_build_project_logs_config_s3_logs_details
 
 
-class AwsCodeBuildProjectLogsConfigDetails(TypedDict):
+class AwsCodeBuildProjectLogsConfigDetails(TypedDict, closed=True):
     cloud_watch_logs: NotRequired[
         "aws_sdk_securityhub.types.aws_code_build_project_logs_config_cloud_watch_logs_details.AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails"
     ]

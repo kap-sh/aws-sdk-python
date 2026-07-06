@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#GetModelPackageGroupPolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.policy_string
 
 
-class GetModelPackageGroupPolicyOutput(TypedDict):
+class GetModelPackageGroupPolicyOutput(TypedDict, closed=True):
     resource_policy: NotRequired["aws_sdk_sagemaker.types.policy_string.PolicyString"]
     """<p>The resource policy for the model group.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#CopyImageSetInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.copy_source_image_set_information
 
 
-class CopyImageSetInformation(TypedDict):
+class CopyImageSetInformation(TypedDict, closed=True):
     source_image_set: "aws_sdk_medical_imaging.types.copy_source_image_set_information.CopySourceImageSetInformation"
     """<p>The source image set.</p>"""
     destination_image_set: NotRequired[

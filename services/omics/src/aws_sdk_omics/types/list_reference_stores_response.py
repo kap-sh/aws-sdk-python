@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListReferenceStoresResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_store_detail_list
 
 
-class ListReferenceStoresResponse(TypedDict):
+class ListReferenceStoresResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_omics.types.next_token.NextToken"]
     """<p>A pagination token that's included if more results are available.</p>"""
     reference_stores: (

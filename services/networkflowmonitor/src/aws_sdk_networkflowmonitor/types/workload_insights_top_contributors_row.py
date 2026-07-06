@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#WorkloadInsightsTopContributorsRow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.account_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.vpc_id
 
 
-class WorkloadInsightsTopContributorsRow(TypedDict):
+class WorkloadInsightsTopContributorsRow(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_networkflowmonitor.types.account_id.AccountId"]
     """<p>The account ID for a specific row of data.</p>"""
     local_subnet_id: NotRequired["aws_sdk_networkflowmonitor.types.subnet_id.SubnetId"]

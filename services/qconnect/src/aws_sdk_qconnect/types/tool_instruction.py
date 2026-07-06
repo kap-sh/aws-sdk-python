@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ToolInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tool_example_list
 
 
-class ToolInstruction(TypedDict):
+class ToolInstruction(TypedDict, closed=True):
     instruction: NotRequired["str"]
     """<p>The instruction text for the tool.</p>"""
     examples: NotRequired["aws_sdk_qconnect.types.tool_example_list.ToolExampleList"]

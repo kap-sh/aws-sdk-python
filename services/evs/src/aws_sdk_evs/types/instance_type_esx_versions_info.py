@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#InstanceTypeEsxVersionsInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.instance_type
 
 
-class InstanceTypeEsxVersionsInfo(TypedDict):
+class InstanceTypeEsxVersionsInfo(TypedDict, closed=True):
     instance_type: "aws_sdk_evs.types.instance_type.InstanceType"
     """<p>The EC2 instance type.</p>"""
     esx_versions: "aws_sdk_evs.types.esx_version_list.EsxVersionList"

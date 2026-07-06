@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TwitterParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.query
 
 
-class TwitterParameters(TypedDict):
+class TwitterParameters(TypedDict, closed=True):
     query: "aws_sdk_quicksight.types.query.Query"
     """<p>Twitter query string.</p>"""
     max_rows: "aws_sdk_quicksight.types.positive_integer.PositiveInteger"

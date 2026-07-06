@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RegisterCertificateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.certificate_id
 
 
-class RegisterCertificateResult(TypedDict):
+class RegisterCertificateResult(TypedDict, closed=True):
     certificate_id: NotRequired[
         "aws_sdk_directory_service.types.certificate_id.CertificateId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#Encryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.sse_algorithm
 
 
-class Encryption(TypedDict):
+class Encryption(TypedDict, closed=True):
     sse_algorithm: "aws_sdk_observabilityadmin.types.sse_algorithm.SSEAlgorithm"
     """<p>The server-side encryption algorithm used for encrypting data in the S3 Table integration.</p>"""
     kms_key_arn: NotRequired[

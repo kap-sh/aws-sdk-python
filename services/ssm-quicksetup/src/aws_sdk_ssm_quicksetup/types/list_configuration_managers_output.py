@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#ListConfigurationManagersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.configuration_manager_list
 
 
-class ListConfigurationManagersOutput(TypedDict):
+class ListConfigurationManagersOutput(TypedDict, closed=True):
     configuration_managers_list: NotRequired[
         "aws_sdk_ssm_quicksetup.types.configuration_manager_list.ConfigurationManagerList"
     ]

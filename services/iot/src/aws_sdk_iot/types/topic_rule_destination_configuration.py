@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TopicRuleDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.http_url_destination_configuration
     import aws_sdk_iot.types.vpc_destination_configuration
 
 
-class TopicRuleDestinationConfiguration(TypedDict):
+class TopicRuleDestinationConfiguration(TypedDict, closed=True):
     http_url_configuration: NotRequired[
         "aws_sdk_iot.types.http_url_destination_configuration.HttpUrlDestinationConfiguration"
     ]

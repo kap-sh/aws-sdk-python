@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.id_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.role_arn
 
 
-class UpdateKxUserResponse(TypedDict):
+class UpdateKxUserResponse(TypedDict, closed=True):
     user_name: NotRequired[
         "aws_sdk_finspace.types.kx_user_name_string.KxUserNameString"
     ]

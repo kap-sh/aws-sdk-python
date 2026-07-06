@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#Resolution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.integer
 
 
-class Resolution(TypedDict):
+class Resolution(TypedDict, closed=True):
     width: NotRequired["aws_sdk_device_farm.types.integer.Integer"]
     """<p>The screen resolution's width, expressed in pixels.</p>"""
     height: NotRequired["aws_sdk_device_farm.types.integer.Integer"]

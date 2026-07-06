@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CreateCapacityReservationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateCapacityReservationOutput(TypedDict):
+class CreateCapacityReservationOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ImportLensInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.client_request_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.tag_map
 
 
-class ImportLensInput(TypedDict):
+class ImportLensInput(TypedDict, closed=True):
     lens_alias: NotRequired["aws_sdk_wellarchitected.types.lens_alias.LensAlias"]
     json_string: NotRequired["aws_sdk_wellarchitected.types.lens_json.LensJSON"]
     """<p>The JSON representation of a lens.</p>"""

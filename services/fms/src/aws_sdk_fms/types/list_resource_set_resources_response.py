@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#ListResourceSetResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_list
 
 
-class ListResourceSetResourcesResponse(TypedDict):
+class ListResourceSetResourcesResponse(TypedDict, closed=True):
     items: "aws_sdk_fms.types.resource_list.ResourceList"
     """<p>An array of the associated resources' uniform resource identifiers (URI).</p>"""
     next_token: NotRequired["aws_sdk_fms.types.pagination_token.PaginationToken"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListSipMediaApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.next_token_string
     import aws_sdk_chime_sdk_voice.types.sip_media_application_list
 
 
-class ListSipMediaApplicationsResponse(TypedDict):
+class ListSipMediaApplicationsResponse(TypedDict, closed=True):
     sip_media_applications: NotRequired[
         "aws_sdk_chime_sdk_voice.types.sip_media_application_list.SipMediaApplicationList"
     ]

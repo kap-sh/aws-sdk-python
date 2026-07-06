@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#UpdateTrustRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.trust_id
 
 
-class UpdateTrustRequest(TypedDict):
+class UpdateTrustRequest(TypedDict, closed=True):
     trust_id: "aws_sdk_directory_service.types.trust_id.TrustId"
     """<p>Identifier of the trust relationship.</p>"""
     selective_auth: NotRequired[

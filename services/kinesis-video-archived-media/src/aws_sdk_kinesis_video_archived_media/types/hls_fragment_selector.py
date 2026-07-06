@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#HLSFragmentSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.hls_fragment_selector_type
     import aws_sdk_kinesis_video_archived_media.types.hls_timestamp_range
 
 
-class HLSFragmentSelector(TypedDict):
+class HLSFragmentSelector(TypedDict, closed=True):
     fragment_selector_type: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.hls_fragment_selector_type.HLSFragmentSelectorType"
     ]

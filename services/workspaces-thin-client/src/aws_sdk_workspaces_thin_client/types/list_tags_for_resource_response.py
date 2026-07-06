@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.tags_map
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_workspaces_thin_client.types.tags_map.TagsMap"]
     """<p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>"""
 

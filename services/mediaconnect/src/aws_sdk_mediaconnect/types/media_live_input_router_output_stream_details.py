@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaLiveInputRouterOutputStreamDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class MediaLiveInputRouterOutputStreamDetails(TypedDict):
+class MediaLiveInputRouterOutputStreamDetails(TypedDict, closed=True):
     pass
 
 

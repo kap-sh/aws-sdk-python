@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#StringAttributeConstraintsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_type
 
 
-class StringAttributeConstraintsType(TypedDict):
+class StringAttributeConstraintsType(TypedDict, closed=True):
     min_length: NotRequired[
         "aws_sdk_cognito_identity_provider.types.string_type.StringType"
     ]

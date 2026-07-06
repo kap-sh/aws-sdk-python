@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#SecretsManagerSecretResourceData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of__string
     import aws_sdk_greengrass.types.__string
 
 
-class SecretsManagerSecretResourceData(TypedDict):
+class SecretsManagerSecretResourceData(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default."""
     additional_staging_labels_to_download: NotRequired[

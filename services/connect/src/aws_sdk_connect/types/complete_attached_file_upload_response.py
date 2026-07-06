@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CompleteAttachedFileUploadResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CompleteAttachedFileUploadResponse(TypedDict):
+class CompleteAttachedFileUploadResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DeleteSystemInstanceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSystemInstanceResponse(TypedDict):
+class DeleteSystemInstanceResponse(TypedDict, closed=True):
     pass
 
 

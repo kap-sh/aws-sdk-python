@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>The name of the parameter field with the validation error.</p>"""
     message: "str"

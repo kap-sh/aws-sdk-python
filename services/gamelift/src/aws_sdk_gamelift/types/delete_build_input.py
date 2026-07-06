@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteBuildInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build_id_or_arn
 
 
-class DeleteBuildInput(TypedDict):
+class DeleteBuildInput(TypedDict, closed=True):
     build_id: NotRequired["aws_sdk_gamelift.types.build_id_or_arn.BuildIdOrArn"]
     """<p>A unique identifier for the build to delete. You can use either the build ID or ARN value. </p>"""
 

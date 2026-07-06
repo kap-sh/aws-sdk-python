@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineSeriesAxisDisplayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.axis_display_options
     import aws_sdk_quicksight.types.missing_data_configuration_list
 
 
-class LineSeriesAxisDisplayOptions(TypedDict):
+class LineSeriesAxisDisplayOptions(TypedDict, closed=True):
     axis_options: NotRequired[
         "aws_sdk_quicksight.types.axis_display_options.AxisDisplayOptions"
     ]

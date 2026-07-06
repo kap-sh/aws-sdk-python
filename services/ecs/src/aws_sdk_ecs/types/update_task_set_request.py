@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UpdateTaskSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class UpdateTaskSetRequest(TypedDict):
+class UpdateTaskSetRequest(TypedDict, closed=True):
     cluster: "aws_sdk_ecs.types.string.String"
     """<p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set is found in.</p>"""
     service: "aws_sdk_ecs.types.string.String"

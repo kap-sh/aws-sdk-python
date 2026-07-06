@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeReservedNodesOfferingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.reserved_nodes_offering_list
     import aws_sdk_memorydb.types.string
 
 
-class DescribeReservedNodesOfferingsResponse(TypedDict):
+class DescribeReservedNodesOfferingsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by MaxRecords.</p>"""
     reserved_nodes_offerings: NotRequired[

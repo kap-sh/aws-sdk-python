@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2Metadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ami_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.tag_map
 
 
-class Ec2Metadata(TypedDict):
+class Ec2Metadata(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_inspector2.types.tag_map.TagMap"]
     """<p>The tags attached to the instance.</p>"""
     ami_id: NotRequired["aws_sdk_inspector2.types.ami_id.AmiId"]

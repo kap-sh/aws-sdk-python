@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#GetIndexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.index_name
 
 
-class GetIndexRequest(TypedDict):
+class GetIndexRequest(TypedDict, closed=True):
     id: "aws_sdk_opensearchserverless.types.collection_id.CollectionId"
     """<p>The unique identifier of the collection containing the index.</p>"""
     index_name: "aws_sdk_opensearchserverless.types.index_name.IndexName"

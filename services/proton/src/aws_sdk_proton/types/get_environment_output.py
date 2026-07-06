@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetEnvironmentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.environment
 
 
-class GetEnvironmentOutput(TypedDict):
+class GetEnvironmentOutput(TypedDict, closed=True):
     environment: "aws_sdk_proton.types.environment.Environment"
     """<p>The detailed data of the requested environment.</p>"""
 

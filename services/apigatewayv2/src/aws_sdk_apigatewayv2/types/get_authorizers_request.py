@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetAuthorizersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class GetAuthorizersRequest(TypedDict):
+class GetAuthorizersRequest(TypedDict, closed=True):
     api_id: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The API identifier.</p>"""
     max_results: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]

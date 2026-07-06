@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ListInvitationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.pagination_token
     import aws_sdk_managedblockchain.types.proposal_list_max_results
 
 
-class ListInvitationsInput(TypedDict):
+class ListInvitationsInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_managedblockchain.types.proposal_list_max_results.ProposalListMaxResults"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ResourceSnapshotPayload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.opportunity_summary_view
 
 
-class _ResourceSnapshotPayload_OpportunitySummary(TypedDict):
+class _ResourceSnapshotPayload_OpportunitySummary(TypedDict, closed=True):
     OpportunitySummary: "aws_sdk_partnercentral_selling.types.opportunity_summary_view.OpportunitySummaryView"
 
 
-class _ResourceSnapshotPayload_AwsOpportunitySummaryFullView(TypedDict):
+class _ResourceSnapshotPayload_AwsOpportunitySummaryFullView(TypedDict, closed=True):
     AwsOpportunitySummaryFullView: "aws_sdk_partnercentral_selling.types.aws_opportunity_summary_full_view.AwsOpportunitySummaryFullView"
 
 

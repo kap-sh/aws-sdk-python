@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#AnomalyDetectorDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.tag_map
 
 
-class AnomalyDetectorDescription(TypedDict):
+class AnomalyDetectorDescription(TypedDict, closed=True):
     arn: "aws_sdk_amp.types.anomaly_detector_arn.AnomalyDetectorArn"
     """<p>The Amazon Resource Name (ARN) of the anomaly detector.</p>"""
     anomaly_detector_id: "aws_sdk_amp.types.anomaly_detector_id.AnomalyDetectorId"

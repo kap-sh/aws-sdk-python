@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CaptionLanguageMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1_max4
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string_min3_max3
 
 
-class CaptionLanguageMapping(TypedDict):
+class CaptionLanguageMapping(TypedDict, closed=True):
     caption_channel: NotRequired[
         "aws_sdk_medialive.types.__integer_min1_max4.__integerMin1Max4"
     ]

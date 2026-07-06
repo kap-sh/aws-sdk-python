@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#Ec2RecommendationsExportPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.excluded_instance_types
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.user_preferred_region
 
 
-class Ec2RecommendationsExportPreferences(TypedDict):
+class Ec2RecommendationsExportPreferences(TypedDict, closed=True):
     enabled: "aws_sdk_application_discovery_service.types.export_enabled.ExportEnabled"
     r"""<p> If set to true, the export <a href=\"https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_StartExportTask.html#API_StartExportTask_RequestSyntax\">preferences</a> is set to <code>Ec2RecommendationsExportPreferences</code>. </p>"""
     cpu_performance_metric_basis: NotRequired[

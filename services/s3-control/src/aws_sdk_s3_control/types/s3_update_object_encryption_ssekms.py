@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3UpdateObjectEncryptionSSEKMS``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.non_empty_kms_key_arn_string
 
 
-class S3UpdateObjectEncryptionSSEKMS(TypedDict):
+class S3UpdateObjectEncryptionSSEKMS(TypedDict, closed=True):
     kms_key_arn: (
         "aws_sdk_s3_control.types.non_empty_kms_key_arn_string.NonEmptyKmsKeyArnString"
     )

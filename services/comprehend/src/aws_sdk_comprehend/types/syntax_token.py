@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#SyntaxToken``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.string
 
 
-class SyntaxToken(TypedDict):
+class SyntaxToken(TypedDict, closed=True):
     token_id: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>A unique identifier for a token.</p>"""
     text: NotRequired["aws_sdk_comprehend.types.string.String"]

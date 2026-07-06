@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListAuditFindingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_findings
     import aws_sdk_iot.types.next_token
 
 
-class ListAuditFindingsResponse(TypedDict):
+class ListAuditFindingsResponse(TypedDict, closed=True):
     findings: NotRequired["aws_sdk_iot.types.audit_findings.AuditFindings"]
     """<p>The findings (results) of the audit.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

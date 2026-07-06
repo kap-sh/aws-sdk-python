@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#ActiveContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_service.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.active_context_time_to_live
 
 
-class ActiveContext(TypedDict):
+class ActiveContext(TypedDict, closed=True):
     name: "aws_sdk_lex_runtime_service.types.active_context_name.ActiveContextName"
     """<p>The name of the context.</p>"""
     time_to_live: "aws_sdk_lex_runtime_service.types.active_context_time_to_live.ActiveContextTimeToLive"

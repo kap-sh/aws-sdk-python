@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#IncreaseReplicaCountMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class IncreaseReplicaCountMessage(TypedDict):
+class IncreaseReplicaCountMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The id of the replication group to which you want to add replica nodes.</p>"""
     new_replica_count: NotRequired[

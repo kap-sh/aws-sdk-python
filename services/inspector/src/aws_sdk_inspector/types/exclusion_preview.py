@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ExclusionPreview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.text
 
 
-class ExclusionPreview(TypedDict):
+class ExclusionPreview(TypedDict, closed=True):
     title: "aws_sdk_inspector.types.text.Text"
     """<p>The name of the exclusion preview.</p>"""
     description: "aws_sdk_inspector.types.text.Text"

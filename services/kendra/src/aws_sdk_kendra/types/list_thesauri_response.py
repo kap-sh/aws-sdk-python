@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListThesauriResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.next_token
     import aws_sdk_kendra.types.thesaurus_summary_items
 
 
-class ListThesauriResponse(TypedDict):
+class ListThesauriResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_kendra.types.next_token.NextToken"]
     """<p>If the response is truncated, Amazon Kendra returns this token that you can use in the subsequent request to retrieve the next set of thesauri. </p>"""
     thesaurus_summary_items: NotRequired[

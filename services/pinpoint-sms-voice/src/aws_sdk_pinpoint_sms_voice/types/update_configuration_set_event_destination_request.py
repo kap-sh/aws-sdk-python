@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#UpdateConfigurationSetEventDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.__string
     import aws_sdk_pinpoint_sms_voice.types.event_destination_definition
 
 
-class UpdateConfigurationSetEventDestinationRequest(TypedDict):
+class UpdateConfigurationSetEventDestinationRequest(TypedDict, closed=True):
     configuration_set_name: "aws_sdk_pinpoint_sms_voice.types.__string.__string"
     """ConfigurationSetName"""
     event_destination: NotRequired[

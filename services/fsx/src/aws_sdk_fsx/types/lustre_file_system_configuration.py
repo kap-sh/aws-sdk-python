@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#LustreFileSystemConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.automatic_backup_retention_days
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.weekly_time
 
 
-class LustreFileSystemConfiguration(TypedDict):
+class LustreFileSystemConfiguration(TypedDict, closed=True):
     weekly_maintenance_start_time: NotRequired[
         "aws_sdk_fsx.types.weekly_time.WeeklyTime"
     ]

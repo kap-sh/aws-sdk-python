@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListResourceGatewaysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.max_results
     import aws_sdk_vpc_lattice.types.next_token
 
 
-class ListResourceGatewaysRequest(TypedDict):
+class ListResourceGatewaysRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_vpc_lattice.types.max_results.MaxResults"]
     """<p>The maximum page size.</p>"""
     next_token: NotRequired["aws_sdk_vpc_lattice.types.next_token.NextToken"]

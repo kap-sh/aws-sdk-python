@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#FilterClause``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.filter_list
 
 
-class _FilterClause_filter(TypedDict):
+class _FilterClause_filter(TypedDict, closed=True):
     filter: "aws_sdk_datazone.types.filter.Filter"
 
 
@@ -18,6 +20,7 @@ _FilterClause_and = TypedDict(
     {
         "and": "aws_sdk_datazone.types.filter_list.FilterList",
     },
+    closed=True,
 )
 
 
@@ -26,6 +29,7 @@ _FilterClause_or = TypedDict(
     {
         "or": "aws_sdk_datazone.types.filter_list.FilterList",
     },
+    closed=True,
 )
 
 FilterClause: TypeAlias = _FilterClause_filter | _FilterClause_and | _FilterClause_or

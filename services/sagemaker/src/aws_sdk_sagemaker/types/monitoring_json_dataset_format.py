@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MonitoringJsonDatasetFormat``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
 
 
-class MonitoringJsonDatasetFormat(TypedDict):
+class MonitoringJsonDatasetFormat(TypedDict, closed=True):
     line: NotRequired["aws_sdk_sagemaker.types.boolean.Boolean"]
     """<p>Indicates if the file should be read as a JSON object per line. </p>"""
 

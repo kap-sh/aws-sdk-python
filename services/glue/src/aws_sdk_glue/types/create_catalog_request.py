@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateCatalogRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class CreateCatalogRequest(TypedDict):
+class CreateCatalogRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.catalog_name_string.CatalogNameString"
     """<p>The name of the catalog to create.</p>"""
     catalog_input: "aws_sdk_glue.types.catalog_input.CatalogInput"

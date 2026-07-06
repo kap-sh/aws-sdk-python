@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#StreamProcessingStartSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.kinesis_video_stream_start_selector
 
 
-class StreamProcessingStartSelector(TypedDict):
+class StreamProcessingStartSelector(TypedDict, closed=True):
     kvs_stream_start_selector: NotRequired[
         "aws_sdk_rekognition.types.kinesis_video_stream_start_selector.KinesisVideoStreamStartSelector"
     ]

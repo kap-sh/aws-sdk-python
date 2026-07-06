@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserPhoneConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.after_contact_work_time_limit
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.sensitive_phone_number
 
 
-class UserPhoneConfig(TypedDict):
+class UserPhoneConfig(TypedDict, closed=True):
     phone_type: "aws_sdk_connect.types.phone_type.PhoneType"
     """<p>The phone type.</p>"""
     auto_accept: "aws_sdk_connect.types.auto_accept.AutoAccept"

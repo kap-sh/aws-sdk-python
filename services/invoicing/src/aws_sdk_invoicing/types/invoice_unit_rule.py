@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#InvoiceUnitRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.rule_account_id_list
 
 
-class InvoiceUnitRule(TypedDict):
+class InvoiceUnitRule(TypedDict, closed=True):
     linked_accounts: NotRequired[
         "aws_sdk_invoicing.types.rule_account_id_list.RuleAccountIdList"
     ]

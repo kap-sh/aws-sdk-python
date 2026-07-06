@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.group_number
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     content_type: "aws_sdk_lex_model_building_service.types.content_type.ContentType"
     """<p>The content type of the message string.</p>"""
     content: "aws_sdk_lex_model_building_service.types.content_string.ContentString"

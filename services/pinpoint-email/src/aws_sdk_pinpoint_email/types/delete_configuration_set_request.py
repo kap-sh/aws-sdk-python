@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DeleteConfigurationSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.configuration_set_name
 
 
-class DeleteConfigurationSetRequest(TypedDict):
+class DeleteConfigurationSetRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_pinpoint_email.types.configuration_set_name.ConfigurationSetName"
     )

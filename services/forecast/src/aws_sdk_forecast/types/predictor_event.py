@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#PredictorEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.detail
     import aws_sdk_forecast.types.timestamp
 
 
-class PredictorEvent(TypedDict):
+class PredictorEvent(TypedDict, closed=True):
     detail: NotRequired["aws_sdk_forecast.types.detail.Detail"]
     """<p>The type of event. For example, <code>Retrain</code>. A retraining event denotes the timepoint when a predictor was retrained. Any monitor results from before the <code>Datetime</code> are from the previous predictor. Any new metrics are for the newly retrained predictor.</p>"""
     datetime: NotRequired["aws_sdk_forecast.types.timestamp.Timestamp"]

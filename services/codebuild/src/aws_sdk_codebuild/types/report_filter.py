@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ReportFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_status_type
 
 
-class ReportFilter(TypedDict):
+class ReportFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codebuild.types.report_status_type.ReportStatusType"]
     """<p> The status used to filter reports. You can filter using one status only. </p>"""
 

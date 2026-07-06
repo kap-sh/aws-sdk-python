@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.action
 
 
-class GetActionResponse(TypedDict):
+class GetActionResponse(TypedDict, closed=True):
     action: NotRequired["aws_sdk_fis.types.action.Action"]
     """<p>Information about the action.</p>"""
 

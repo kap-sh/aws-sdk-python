@@ -4,9 +4,9 @@ import datetime
 import warnings
 from collections.abc import AsyncGenerator, AsyncIterator
 from contextlib import asynccontextmanager
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_devops_agent._auth._signers
@@ -143,7 +143,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.user_type
 
 
-class AsyncDevOpsAgentClientConfig(TypedDict, total=False):
+class AsyncDevOpsAgentClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     use_fips: bool | None

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#DeletePracticeRunConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.resource_identifier
 
 
-class DeletePracticeRunConfigurationRequest(TypedDict):
+class DeletePracticeRunConfigurationRequest(TypedDict, closed=True):
     resource_identifier: (
         "aws_sdk_arc_zonal_shift.types.resource_identifier.ResourceIdentifier"
     )

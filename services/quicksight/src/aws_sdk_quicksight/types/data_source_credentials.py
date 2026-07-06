@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSourceCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.copy_source_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.web_proxy_credentials
 
 
-class DataSourceCredentials(TypedDict):
+class DataSourceCredentials(TypedDict, closed=True):
     credential_pair: NotRequired[
         "aws_sdk_quicksight.types.credential_pair.CredentialPair"
     ]

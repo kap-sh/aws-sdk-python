@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#RequestAlreadyInProgressException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_greengrassv2.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.string
 
 
-class RequestAlreadyInProgressException_(TypedDict):
+class RequestAlreadyInProgressException_(TypedDict, closed=True):
     message: "aws_sdk_greengrassv2.types.string.String"
 
 

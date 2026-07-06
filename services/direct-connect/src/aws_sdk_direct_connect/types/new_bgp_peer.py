@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#NewBGPPeer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.address_family
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.long_asn
 
 
-class NewBGPPeer(TypedDict):
+class NewBGPPeer(TypedDict, closed=True):
     asn: "aws_sdk_direct_connect.types.asn.ASN"
     """<p>The autonomous system number (ASN). The valid range is from 1 to 2147483646 for Border Gateway Protocol (BGP) configuration. If you provide a number greater than the maximum, an error is returned. Use <code>asnLong</code> instead.</p>"""
     asn_long: NotRequired["aws_sdk_direct_connect.types.long_asn.LongAsn"]

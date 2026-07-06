@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#ModelStreamError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime._protocol.eventstream import HeaderValue, Message
 from aws_sdk_sagemaker_runtime.errors import ServiceError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.message
 
 
-class ModelStreamError_(TypedDict):
+class ModelStreamError_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sagemaker_runtime.types.message.Message"]
     error_code: NotRequired["aws_sdk_sagemaker_runtime.types.error_code.ErrorCode"]
     """<p>This error can have the following error codes:</p> <dl> <dt>ModelInvocationTimeExceeded</dt> <dd> <p>The model failed to finish sending the response within the timeout period allowed by Amazon SageMaker AI.</p> </dd> <dt>StreamBroken</dt> <dd> <p>The Transmission Control Protocol (TCP) connection between the client and the model was reset or closed.</p> </dd> </dl>"""

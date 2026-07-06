@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#SystemInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.network_info_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class SystemInfo(TypedDict):
+class SystemInfo(TypedDict, closed=True):
     os_info: NotRequired["aws_sdk_migrationhubstrategy.types.os_info.OSInfo"]
     """<p> Operating system corresponding to a server. </p>"""
     file_system_type: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]

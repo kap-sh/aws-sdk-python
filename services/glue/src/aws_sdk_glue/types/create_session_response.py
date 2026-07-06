@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.session
 
 
-class CreateSessionResponse(TypedDict):
+class CreateSessionResponse(TypedDict, closed=True):
     session: NotRequired["aws_sdk_glue.types.session.Session"]
     """<p>Returns the session object in the response.</p>"""
 

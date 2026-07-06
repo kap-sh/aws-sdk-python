@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#UpdateEventDataStoreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.termination_protection_enabled
 
 
-class UpdateEventDataStoreRequest(TypedDict):
+class UpdateEventDataStoreRequest(TypedDict, closed=True):
     event_data_store: "aws_sdk_cloudtrail.types.event_data_store_arn.EventDataStoreArn"
     """<p>The ARN (or the ID suffix of the ARN) of the event data store that you want to update.</p>"""
     name: NotRequired[

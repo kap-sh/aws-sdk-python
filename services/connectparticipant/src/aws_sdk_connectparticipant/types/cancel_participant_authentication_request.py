@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#CancelParticipantAuthenticationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectparticipant.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.session_id
 
 
-class CancelParticipantAuthenticationRequest(TypedDict):
+class CancelParticipantAuthenticationRequest(TypedDict, closed=True):
     session_id: "aws_sdk_connectparticipant.types.session_id.SessionId"
     """<p>The <code>sessionId</code> provided in the <code>authenticationInitiated</code> event.</p>"""
     connection_token: (

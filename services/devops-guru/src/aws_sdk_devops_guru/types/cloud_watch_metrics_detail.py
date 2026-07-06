@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#CloudWatchMetricsDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cloud_watch_metrics_data_summary
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.cloud_watch_metrics_unit
 
 
-class CloudWatchMetricsDetail(TypedDict):
+class CloudWatchMetricsDetail(TypedDict, closed=True):
     metric_name: NotRequired[
         "aws_sdk_devops_guru.types.cloud_watch_metrics_metric_name.CloudWatchMetricsMetricName"
     ]

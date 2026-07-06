@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DetectCustomLabelsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class DetectCustomLabelsRequest(TypedDict):
+class DetectCustomLabelsRequest(TypedDict, closed=True):
     project_version_arn: (
         "aws_sdk_rekognition.types.project_version_arn.ProjectVersionArn"
     )

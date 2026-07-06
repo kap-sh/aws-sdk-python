@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#ListEndpointsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.endpoints
     import aws_sdk_s3outposts.types.next_token
 
 
-class ListEndpointsResult(TypedDict):
+class ListEndpointsResult(TypedDict, closed=True):
     endpoints: NotRequired["aws_sdk_s3outposts.types.endpoints.Endpoints"]
     """<p>The list of endpoints associated with the specified Outpost.</p>"""
     next_token: NotRequired["aws_sdk_s3outposts.types.next_token.NextToken"]

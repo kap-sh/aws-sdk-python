@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssooidc#StartDeviceAuthorizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.device_code
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_oidc.types.user_code
 
 
-class StartDeviceAuthorizationResponse(TypedDict):
+class StartDeviceAuthorizationResponse(TypedDict, closed=True):
     device_code: NotRequired["aws_sdk_sso_oidc.types.device_code.DeviceCode"]
     """<p>The short-lived code that is used by the device when polling for a session token.</p>"""
     user_code: NotRequired["aws_sdk_sso_oidc.types.user_code.UserCode"]

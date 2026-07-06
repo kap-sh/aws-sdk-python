@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#BackendAuthSocialProviderConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class BackendAuthSocialProviderConfig(TypedDict):
+class BackendAuthSocialProviderConfig(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>Describes the client_id, which can be obtained from the third-party social federation provider.</p>"""
     client_secret: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

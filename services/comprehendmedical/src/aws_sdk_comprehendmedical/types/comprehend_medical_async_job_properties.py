@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#ComprehendMedicalAsyncJobProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.any_length_string
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.timestamp
 
 
-class ComprehendMedicalAsyncJobProperties(TypedDict):
+class ComprehendMedicalAsyncJobProperties(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_comprehendmedical.types.job_id.JobId"]
     """<p>The identifier assigned to the detection job.</p>"""
     job_name: NotRequired["aws_sdk_comprehendmedical.types.job_name.JobName"]

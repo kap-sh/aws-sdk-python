@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListResourcesFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.entity_state
     import aws_sdk_workmail.types.string
 
 
-class ListResourcesFilters(TypedDict):
+class ListResourcesFilters(TypedDict, closed=True):
     name_prefix: NotRequired["aws_sdk_workmail.types.string.String"]
     """<p>Filters only resource that start with the entered name prefix .</p>"""
     primary_email_prefix: NotRequired["aws_sdk_workmail.types.string.String"]

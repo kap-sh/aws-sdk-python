@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#Insight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.update_timestamp
 
 
-class Insight(TypedDict):
+class Insight(TypedDict, closed=True):
     insight_id: NotRequired["aws_sdk_opensearch.types.guid.GUID"]
     """<p>The unique identifier of the insight.</p>"""
     display_name: NotRequired["aws_sdk_opensearch.types.string.String"]

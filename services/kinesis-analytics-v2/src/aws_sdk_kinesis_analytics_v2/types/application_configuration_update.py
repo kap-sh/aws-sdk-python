@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationConfigurationUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_code_configuration_update
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.zeppelin_application_configuration_update
 
 
-class ApplicationConfigurationUpdate(TypedDict):
+class ApplicationConfigurationUpdate(TypedDict, closed=True):
     sql_application_configuration_update: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.sql_application_configuration_update.SqlApplicationConfigurationUpdate"
     ]

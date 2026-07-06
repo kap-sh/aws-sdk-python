@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PricingTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rate_card
 
 
-class PricingTerm(TypedDict):
+class PricingTerm(TypedDict, closed=True):
     rate_card: "aws_sdk_bedrock.types.rate_card.RateCard"
     """<p>Describes a usage price for each dimension.</p>"""
 

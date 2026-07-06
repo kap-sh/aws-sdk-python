@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageHeartbeatEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
 
 
-class SendMessageHeartbeatEvent(TypedDict):
+class SendMessageHeartbeatEvent(TypedDict, closed=True):
     pass
 
 

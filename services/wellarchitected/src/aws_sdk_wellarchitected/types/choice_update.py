@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ChoiceUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_notes
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_status
 
 
-class ChoiceUpdate(TypedDict):
+class ChoiceUpdate(TypedDict, closed=True):
     status: NotRequired["aws_sdk_wellarchitected.types.choice_status.ChoiceStatus"]
     """<p>The status of a choice.</p>"""
     reason: NotRequired["aws_sdk_wellarchitected.types.choice_reason.ChoiceReason"]

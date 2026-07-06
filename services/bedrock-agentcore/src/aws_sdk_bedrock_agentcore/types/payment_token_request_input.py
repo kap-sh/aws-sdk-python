@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#PaymentTokenRequestInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.stripe_privy_token_request_input
 
 
-class _PaymentTokenRequestInput_coinbaseCdpTokenRequest(TypedDict):
+class _PaymentTokenRequestInput_coinbaseCdpTokenRequest(TypedDict, closed=True):
     coinbaseCdpTokenRequest: "aws_sdk_bedrock_agentcore.types.coinbase_cdp_token_request_input.CoinbaseCdpTokenRequestInput"
 
 
-class _PaymentTokenRequestInput_stripePrivyTokenRequest(TypedDict):
+class _PaymentTokenRequestInput_stripePrivyTokenRequest(TypedDict, closed=True):
     stripePrivyTokenRequest: "aws_sdk_bedrock_agentcore.types.stripe_privy_token_request_input.StripePrivyTokenRequestInput"
 
 

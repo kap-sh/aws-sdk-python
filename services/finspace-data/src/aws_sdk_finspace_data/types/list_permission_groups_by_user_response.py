@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ListPermissionGroupsByUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.pagination_token
     import aws_sdk_finspace_data.types.permission_group_by_user_list
 
 
-class ListPermissionGroupsByUserResponse(TypedDict):
+class ListPermissionGroupsByUserResponse(TypedDict, closed=True):
     permission_groups: NotRequired[
         "aws_sdk_finspace_data.types.permission_group_by_user_list.PermissionGroupByUserList"
     ]

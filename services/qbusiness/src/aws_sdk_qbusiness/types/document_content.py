@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DocumentContent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.s3
 
 
-class _DocumentContent_blob(TypedDict):
+class _DocumentContent_blob(TypedDict, closed=True):
     blob: "bytes"
 
 
-class _DocumentContent_s3(TypedDict):
+class _DocumentContent_s3(TypedDict, closed=True):
     s3: "aws_sdk_qbusiness.types.s3.S3"
 
 

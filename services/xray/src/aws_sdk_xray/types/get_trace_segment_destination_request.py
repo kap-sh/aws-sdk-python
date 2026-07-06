@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetTraceSegmentDestinationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetTraceSegmentDestinationRequest(TypedDict):
+class GetTraceSegmentDestinationRequest(TypedDict, closed=True):
     pass
 
 

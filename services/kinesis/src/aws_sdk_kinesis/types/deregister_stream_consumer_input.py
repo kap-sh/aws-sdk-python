@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#DeregisterStreamConsumerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.consumer_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_id
 
 
-class DeregisterStreamConsumerInput(TypedDict):
+class DeregisterStreamConsumerInput(TypedDict, closed=True):
     stream_arn: NotRequired["aws_sdk_kinesis.types.stream_arn.StreamARN"]
     r"""<p>The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     consumer_name: NotRequired["aws_sdk_kinesis.types.consumer_name.ConsumerName"]

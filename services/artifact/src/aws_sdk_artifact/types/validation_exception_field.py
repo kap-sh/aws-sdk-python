@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_artifact.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>Name of validation exception.</p>"""
     message: "str"

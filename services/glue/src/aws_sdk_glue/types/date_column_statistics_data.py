@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DateColumnStatisticsData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.non_negative_long
     import aws_sdk_glue.types.timestamp
 
 
-class DateColumnStatisticsData(TypedDict):
+class DateColumnStatisticsData(TypedDict, closed=True):
     minimum_value: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]
     """<p>The lowest value in the column.</p>"""
     maximum_value: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]

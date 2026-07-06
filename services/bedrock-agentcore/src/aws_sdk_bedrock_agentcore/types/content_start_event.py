@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ContentStartEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ContentStartEvent(TypedDict):
+class ContentStartEvent(TypedDict, closed=True):
     pass
 
 

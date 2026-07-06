@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListVariantImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.id_list
     import aws_sdk_omics.types.list_variant_import_jobs_filter
 
 
-class ListVariantImportJobsRequest(TypedDict):
+class ListVariantImportJobsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of import jobs to return in one page of results.</p>"""
     ids: NotRequired["aws_sdk_omics.types.id_list.IdList"]

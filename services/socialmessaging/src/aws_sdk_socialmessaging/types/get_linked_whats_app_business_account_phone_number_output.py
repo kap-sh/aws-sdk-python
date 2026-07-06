@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#GetLinkedWhatsAppBusinessAccountPhoneNumberOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.linked_whats_app_business_account_id
     import aws_sdk_socialmessaging.types.whats_app_phone_number_detail
 
 
-class GetLinkedWhatsAppBusinessAccountPhoneNumberOutput(TypedDict):
+class GetLinkedWhatsAppBusinessAccountPhoneNumberOutput(TypedDict, closed=True):
     phone_number: NotRequired[
         "aws_sdk_socialmessaging.types.whats_app_phone_number_detail.WhatsAppPhoneNumberDetail"
     ]

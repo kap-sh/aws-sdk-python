@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialPolygonStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_polygon_symbol_style
 
 
-class GeospatialPolygonStyle(TypedDict):
+class GeospatialPolygonStyle(TypedDict, closed=True):
     polygon_symbol_style: NotRequired[
         "aws_sdk_quicksight.types.geospatial_polygon_symbol_style.GeospatialPolygonSymbolStyle"
     ]

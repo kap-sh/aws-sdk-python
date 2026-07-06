@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.max_items
 
 
-class DescribeTagsRequest(TypedDict):
+class DescribeTagsRequest(TypedDict, closed=True):
     max_items: NotRequired["aws_sdk_efs.types.max_items.MaxItems"]
     """<p>(Optional) The maximum number of file system tags to return in the response. Currently, this number is automatically set to 100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>"""
     marker: NotRequired["aws_sdk_efs.types.marker.Marker"]

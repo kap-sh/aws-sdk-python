@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#DeleteAwsLogSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.account_list
 
 
-class DeleteAwsLogSourceResponse(TypedDict):
+class DeleteAwsLogSourceResponse(TypedDict, closed=True):
     failed: NotRequired["aws_sdk_securitylake.types.account_list.AccountList"]
     """<p>Deletion of the Amazon Web Services sources failed as the account is not a part of the organization.</p>"""
 

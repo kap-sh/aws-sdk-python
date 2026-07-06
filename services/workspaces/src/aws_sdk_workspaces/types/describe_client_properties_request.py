@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeClientPropertiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.resource_id_list
 
 
-class DescribeClientPropertiesRequest(TypedDict):
+class DescribeClientPropertiesRequest(TypedDict, closed=True):
     resource_ids: "aws_sdk_workspaces.types.resource_id_list.ResourceIdList"
     """<p>The resource identifier, in the form of directory IDs.</p>"""
 

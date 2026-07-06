@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ParentChildFieldOptionsMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.parent_child_field_option_value_list
 
 
-class ParentChildFieldOptionsMapping(TypedDict):
+class ParentChildFieldOptionsMapping(TypedDict, closed=True):
     parent_field_option_value: "aws_sdk_connectcases.types.parent_child_field_option_value.ParentChildFieldOptionValue"
     """<p>The value in the parent field.</p>"""
     child_field_option_values: "aws_sdk_connectcases.types.parent_child_field_option_value_list.ParentChildFieldOptionValueList"

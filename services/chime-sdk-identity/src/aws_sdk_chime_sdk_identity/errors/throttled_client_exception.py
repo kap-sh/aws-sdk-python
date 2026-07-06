@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#ThrottledClientException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.string
 
 
-class ThrottledClientException_(TypedDict):
+class ThrottledClientException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime_sdk_identity.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_chime_sdk_identity.types.string.String"]
 

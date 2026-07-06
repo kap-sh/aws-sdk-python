@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ParallelDataProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.description
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.unbounded_length_string
 
 
-class ParallelDataProperties(TypedDict):
+class ParallelDataProperties(TypedDict, closed=True):
     name: NotRequired["aws_sdk_translate.types.resource_name.ResourceName"]
     """<p>The custom name assigned to the parallel data resource.</p>"""
     arn: NotRequired["aws_sdk_translate.types.parallel_data_arn.ParallelDataArn"]

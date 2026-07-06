@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeMultiRegionParameterGroupsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.multi_region_parameter_group_list
     import aws_sdk_memorydb.types.string
 
 
-class DescribeMultiRegionParameterGroupsResponse(TypedDict):
+class DescribeMultiRegionParameterGroupsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>An optional token to include in the response. If this token is provided, the response includes only results beyond the token, up to the value specified by MaxResults.</p>"""
     multi_region_parameter_groups: NotRequired[

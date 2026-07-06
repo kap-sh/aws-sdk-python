@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#UpdateScraperLoggingConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.scraper_logging_configuration_status
 
 
-class UpdateScraperLoggingConfigurationResponse(TypedDict):
+class UpdateScraperLoggingConfigurationResponse(TypedDict, closed=True):
     status: "aws_sdk_amp.types.scraper_logging_configuration_status.ScraperLoggingConfigurationStatus"
     """<p>The status of the updated scraper logging configuration.</p>"""
 

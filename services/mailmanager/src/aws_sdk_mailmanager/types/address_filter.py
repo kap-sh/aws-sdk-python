@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#AddressFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.address_prefix
 
 
-class AddressFilter(TypedDict):
+class AddressFilter(TypedDict, closed=True):
     address_prefix: NotRequired[
         "aws_sdk_mailmanager.types.address_prefix.AddressPrefix"
     ]

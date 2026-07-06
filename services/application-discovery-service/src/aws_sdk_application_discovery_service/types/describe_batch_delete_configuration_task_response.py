@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DescribeBatchDeleteConfigurationTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.batch_delete_configuration_task
 
 
-class DescribeBatchDeleteConfigurationTaskResponse(TypedDict):
+class DescribeBatchDeleteConfigurationTaskResponse(TypedDict, closed=True):
     task: NotRequired[
         "aws_sdk_application_discovery_service.types.batch_delete_configuration_task.BatchDeleteConfigurationTask"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ResolverEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.arn
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.target_name_server_metrics_enabled
 
 
-class ResolverEndpoint(TypedDict):
+class ResolverEndpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The ID of the Resolver endpoint.</p>"""
     creator_request_id: NotRequired[

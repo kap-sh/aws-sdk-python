@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#CorsRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.max_age_seconds
 
 
-class CorsRule(TypedDict):
+class CorsRule(TypedDict, closed=True):
     allowed_origins: "aws_sdk_mediastore.types.allowed_origins.AllowedOrigins"
     """<p>One or more response headers that you want users to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p> <p>Each CORS rule must have at least one <code>AllowedOrigins</code> element. The string value can include only one wildcard character (*), for example, http://*.example.com. Additionally, you can specify only one wildcard character to allow cross-origin access for all origins.</p>"""
     allowed_methods: NotRequired[

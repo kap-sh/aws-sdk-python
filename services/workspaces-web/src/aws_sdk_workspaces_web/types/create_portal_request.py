@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreatePortalRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.authentication_type
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.tag_list
 
 
-class CreatePortalRequest(TypedDict):
+class CreatePortalRequest(TypedDict, closed=True):
     display_name: NotRequired["aws_sdk_workspaces_web.types.display_name.DisplayName"]
     """<p>The name of the web portal. This is not visible to users who log into the web portal.</p>"""
     tags: NotRequired["aws_sdk_workspaces_web.types.tag_list.TagList"]

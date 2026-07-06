@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ListTagsForResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.arn_list
     import aws_sdk_database_migration_service.types.string
 
 
-class ListTagsForResourceMessage(TypedDict):
+class ListTagsForResourceMessage(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The Amazon Resource Name (ARN) string that uniquely identifies the DMS resource to list tags for. This returns a list of keys (names of tags) created for the resource and their associated tag values.</p>"""
     resource_arn_list: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#UpdateGatewaySoftwareNowInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_backup_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.gateway_arn
 
 
-class UpdateGatewaySoftwareNowInput(TypedDict):
+class UpdateGatewaySoftwareNowInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_backup_gateway.types.gateway_arn.GatewayArn"
     """<p>The Amazon Resource Name (ARN) of the gateway to be updated.</p>"""
 

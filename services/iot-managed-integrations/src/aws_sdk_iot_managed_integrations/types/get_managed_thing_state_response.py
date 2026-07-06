@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetManagedThingStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.state_endpoints
 
 
-class GetManagedThingStateResponse(TypedDict):
+class GetManagedThingStateResponse(TypedDict, closed=True):
     endpoints: "aws_sdk_iot_managed_integrations.types.state_endpoints.StateEndpoints"
     """<p>The device endpoint.</p>"""
 

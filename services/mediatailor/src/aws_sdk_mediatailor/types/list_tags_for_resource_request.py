@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The Amazon Resource Name (ARN) associated with this resource.</p>"""
 

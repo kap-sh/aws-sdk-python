@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteProvisioningTemplateVersionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteProvisioningTemplateVersionResponse(TypedDict):
+class DeleteProvisioningTemplateVersionResponse(TypedDict, closed=True):
     pass
 
 

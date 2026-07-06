@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListReportsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.report_generation_result_list
 
 
-class ListReportsResponse(TypedDict):
+class ListReportsResponse(TypedDict, closed=True):
     report_generation_results: "aws_sdk_resiliencehubv2.types.report_generation_result_list.ReportGenerationResultList"
     """<p>The list of report generation results.</p>"""
     next_token: NotRequired["aws_sdk_resiliencehubv2.types.next_token.NextToken"]

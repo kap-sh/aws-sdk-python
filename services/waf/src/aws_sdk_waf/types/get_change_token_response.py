@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetChangeTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.change_token
 
 
-class GetChangeTokenResponse(TypedDict):
+class GetChangeTokenResponse(TypedDict, closed=True):
     change_token: NotRequired["aws_sdk_waf.types.change_token.ChangeToken"]
     """<p>The <code>ChangeToken</code> that you used in the request. Use this value in a <code>GetChangeTokenStatus</code> request to get the current status of the request. </p>"""
 

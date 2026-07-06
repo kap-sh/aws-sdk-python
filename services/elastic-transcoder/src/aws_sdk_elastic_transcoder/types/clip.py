@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#Clip``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.time_span
 
 
-class Clip(TypedDict):
+class Clip(TypedDict, closed=True):
     time_span: NotRequired["aws_sdk_elastic_transcoder.types.time_span.TimeSpan"]
     """<p>Settings that determine when a clip begins and how long it lasts.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Limitation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class Limitation(TypedDict):
+class Limitation(TypedDict, closed=True):
     database_id: NotRequired["aws_sdk_database_migration_service.types.string.String"]
     """<p>The identifier of the source database.</p>"""
     engine_name: NotRequired["aws_sdk_database_migration_service.types.string.String"]

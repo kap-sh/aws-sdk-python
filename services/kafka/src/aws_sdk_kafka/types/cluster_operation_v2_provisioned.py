@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ClusterOperationV2Provisioned``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_cluster_operation_step
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connection_info
 
 
-class ClusterOperationV2Provisioned(TypedDict):
+class ClusterOperationV2Provisioned(TypedDict, closed=True):
     operation_steps: NotRequired[
         "aws_sdk_kafka.types.__list_of_cluster_operation_step.__listOfClusterOperationStep"
     ]

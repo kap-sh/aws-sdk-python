@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#PartnerWatermarking``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.nex_guard_file_marker_settings
 
 
-class PartnerWatermarking(TypedDict):
+class PartnerWatermarking(TypedDict, closed=True):
     nexguard_file_marker_settings: NotRequired[
         "aws_sdk_mediaconvert.types.nex_guard_file_marker_settings.NexGuardFileMarkerSettings"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DeleteTimeSeriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.property_alias
 
 
-class DeleteTimeSeriesRequest(TypedDict):
+class DeleteTimeSeriesRequest(TypedDict, closed=True):
     alias: NotRequired["aws_sdk_iotsitewise.types.property_alias.PropertyAlias"]
     """<p>The alias that identifies the time series.</p>"""
     asset_id: NotRequired["aws_sdk_iotsitewise.types.custom_id.CustomID"]

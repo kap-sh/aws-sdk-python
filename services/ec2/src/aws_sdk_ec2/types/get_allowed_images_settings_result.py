@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetAllowedImagesSettingsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class GetAllowedImagesSettingsResult(TypedDict):
+class GetAllowedImagesSettingsResult(TypedDict, closed=True):
     state: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The current state of the Allowed AMIs setting at the account level in the specified Amazon Web Services Region.</p> <p>Possible values:</p> <ul> <li> <p> <code>disabled</code>: All AMIs are allowed.</p> </li> <li> <p> <code>audit-mode</code>: All AMIs are allowed, but the <code>ImageAllowed</code> field is set to <code>true</code> if the AMI would be allowed with the current list of criteria if allowed AMIs was enabled.</p> </li> <li> <p> <code>enabled</code>: Only AMIs matching the image criteria are discoverable and available for use.</p> </li> </ul>"""
     image_criteria: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#InputSessionStateSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.active_context_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.string_map
 
 
-class InputSessionStateSpecification(TypedDict):
+class InputSessionStateSpecification(TypedDict, closed=True):
     session_attributes: NotRequired["aws_sdk_lex_models_v2.types.string_map.StringMap"]
     """<p>Session attributes for the session state.</p>"""
     active_contexts: NotRequired[

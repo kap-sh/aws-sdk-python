@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutBucketAccelerateConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.checksum_algorithm
 
 
-class PutBucketAccelerateConfigurationRequest(TypedDict):
+class PutBucketAccelerateConfigurationRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The name of the bucket for which the accelerate configuration is set.</p>"""
     accelerate_configuration: (

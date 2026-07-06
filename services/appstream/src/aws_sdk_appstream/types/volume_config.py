@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#VolumeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.integer
 
 
-class VolumeConfig(TypedDict):
+class VolumeConfig(TypedDict, closed=True):
     volume_size_in_gb: NotRequired["aws_sdk_appstream.types.integer.Integer"]
     """<p>The size of the root volume in GB. Valid range is 200-500 GB. The default is 200 GB, which is included in the hourly instance rate. Additional storage beyond 200 GB incurs extra charges and applies to instances regardless of their running state.</p>"""
 

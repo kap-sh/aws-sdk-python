@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#VectorData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.float32_vector_data
 
 
-class _VectorData_float32(TypedDict):
+class _VectorData_float32(TypedDict, closed=True):
     float32: "aws_sdk_s3vectors.types.float32_vector_data.Float32VectorData"
 
 

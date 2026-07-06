@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AddonPodIdentityAssociations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class AddonPodIdentityAssociations(TypedDict):
+class AddonPodIdentityAssociations(TypedDict, closed=True):
     service_account: "aws_sdk_eks.types.string.String"
     """<p>The name of a Kubernetes Service Account.</p>"""
     role_arn: "aws_sdk_eks.types.string.String"

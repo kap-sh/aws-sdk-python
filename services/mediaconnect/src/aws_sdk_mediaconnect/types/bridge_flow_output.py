@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#BridgeFlowOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class BridgeFlowOutput(TypedDict):
+class BridgeFlowOutput(TypedDict, closed=True):
     flow_arn: NotRequired["str"]
     """<p> The Amazon Resource Number (ARN) of the cloud flow.</p>"""
     flow_source_arn: NotRequired["str"]

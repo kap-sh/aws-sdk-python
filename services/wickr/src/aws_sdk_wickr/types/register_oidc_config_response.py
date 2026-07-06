@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#RegisterOidcConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.sensitive_string
 
 
-class RegisterOidcConfigResponse(TypedDict):
+class RegisterOidcConfigResponse(TypedDict, closed=True):
     application_name: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>The name of the registered OIDC application.</p>"""
     client_id: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

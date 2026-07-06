@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#DurableConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.execution_timeout
     import aws_sdk_lambda.types.retention_period_in_days
 
 
-class DurableConfig(TypedDict):
+class DurableConfig(TypedDict, closed=True):
     retention_period_in_days: NotRequired[
         "aws_sdk_lambda.types.retention_period_in_days.RetentionPeriodInDays"
     ]

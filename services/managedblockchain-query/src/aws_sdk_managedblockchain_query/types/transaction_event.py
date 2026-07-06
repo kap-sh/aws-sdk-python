@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#TransactionEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -47,6 +47,7 @@ TransactionEvent = TypedDict(
             "aws_sdk_managedblockchain_query.types.confirmation_status.ConfirmationStatus"
         ],
     },
+    closed=True,
 )
 
 

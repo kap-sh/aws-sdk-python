@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UserSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.user_setting_permission_enum
 
 
-class UserSetting(TypedDict):
+class UserSetting(TypedDict, closed=True):
     action: "aws_sdk_workspaces.types.user_setting_action_enum.UserSettingActionEnum"
     """<p>Indicates the type of action.</p>"""
     permission: "aws_sdk_workspaces.types.user_setting_permission_enum.UserSettingPermissionEnum"

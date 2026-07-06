@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANGatewayCurrentVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.lo_ra_wan_gateway_version
 
 
-class LoRaWANGatewayCurrentVersion(TypedDict):
+class LoRaWANGatewayCurrentVersion(TypedDict, closed=True):
     current_version: NotRequired[
         "aws_sdk_iot_wireless.types.lo_ra_wan_gateway_version.LoRaWANGatewayVersion"
     ]

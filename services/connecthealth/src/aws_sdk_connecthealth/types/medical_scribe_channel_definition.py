@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeChannelDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.medical_scribe_participant_role
 
 
-class MedicalScribeChannelDefinition(TypedDict):
+class MedicalScribeChannelDefinition(TypedDict, closed=True):
     channel_id: (
         "aws_sdk_connecthealth.types.medical_scribe_channel_id.MedicalScribeChannelId"
     )

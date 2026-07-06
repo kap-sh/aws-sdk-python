@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TreeMapFieldWells``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tree_map_aggregated_field_wells
 
 
-class TreeMapFieldWells(TypedDict):
+class TreeMapFieldWells(TypedDict, closed=True):
     tree_map_aggregated_field_wells: NotRequired[
         "aws_sdk_quicksight.types.tree_map_aggregated_field_wells.TreeMapAggregatedFieldWells"
     ]

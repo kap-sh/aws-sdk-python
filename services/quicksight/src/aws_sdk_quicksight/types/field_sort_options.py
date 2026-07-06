@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FieldSortOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_sort
     import aws_sdk_quicksight.types.field_sort
 
 
-class FieldSortOptions(TypedDict):
+class FieldSortOptions(TypedDict, closed=True):
     field_sort: NotRequired["aws_sdk_quicksight.types.field_sort.FieldSort"]
     """<p>The sort configuration for a field in a field well.</p>"""
     column_sort: NotRequired["aws_sdk_quicksight.types.column_sort.ColumnSort"]

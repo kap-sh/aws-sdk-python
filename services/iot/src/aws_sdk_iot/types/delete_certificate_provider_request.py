@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteCertificateProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_provider_name
 
 
-class DeleteCertificateProviderRequest(TypedDict):
+class DeleteCertificateProviderRequest(TypedDict, closed=True):
     certificate_provider_name: (
         "aws_sdk_iot.types.certificate_provider_name.CertificateProviderName"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayInterceptorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.interceptor_input_configuration
 
 
-class GatewayInterceptorConfiguration(TypedDict):
+class GatewayInterceptorConfiguration(TypedDict, closed=True):
     interceptor: "aws_sdk_bedrock_agentcore_control.types.interceptor_configuration.InterceptorConfiguration"
     """<p>The infrastructure settings of an interceptor configuration. This structure defines how the interceptor can be invoked.</p>"""
     interception_points: "aws_sdk_bedrock_agentcore_control.types.gateway_interception_points.GatewayInterceptionPoints"

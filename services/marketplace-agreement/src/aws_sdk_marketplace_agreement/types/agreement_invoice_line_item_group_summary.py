@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#AgreementInvoiceLineItemGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.invoice_billing_period
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.timestamp
 
 
-class AgreementInvoiceLineItemGroupSummary(TypedDict):
+class AgreementInvoiceLineItemGroupSummary(TypedDict, closed=True):
     agreement_id: NotRequired[
         "aws_sdk_marketplace_agreement.types.resource_id.ResourceId"
     ]

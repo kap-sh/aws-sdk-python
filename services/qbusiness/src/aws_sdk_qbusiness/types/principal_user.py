@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#PrincipalUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_id
 
 
-class PrincipalUser(TypedDict):
+class PrincipalUser(TypedDict, closed=True):
     id: NotRequired["aws_sdk_qbusiness.types.user_id.UserId"]
     """<p> The identifier of the user. </p>"""
     access: "aws_sdk_qbusiness.types.read_access_type.ReadAccessType"

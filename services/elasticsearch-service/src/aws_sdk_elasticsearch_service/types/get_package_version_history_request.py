@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#GetPackageVersionHistoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.package_id
 
 
-class GetPackageVersionHistoryRequest(TypedDict):
+class GetPackageVersionHistoryRequest(TypedDict, closed=True):
     package_id: "aws_sdk_elasticsearch_service.types.package_id.PackageID"
     """<p>Returns an audit history of versions of the package.</p>"""
     max_results: "aws_sdk_elasticsearch_service.types.max_results.MaxResults"

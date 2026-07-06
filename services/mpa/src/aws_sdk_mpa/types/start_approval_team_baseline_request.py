@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#StartApprovalTeamBaselineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.approval_team_arn
     import aws_sdk_mpa.types.start_approval_team_baseline_approver_ids
 
 
-class StartApprovalTeamBaselineRequest(TypedDict):
+class StartApprovalTeamBaselineRequest(TypedDict, closed=True):
     arn: "aws_sdk_mpa.types.approval_team_arn.ApprovalTeamArn"
     """<p>Amazon Resource Name (ARN) for the approval team.</p>"""
     approver_ids: NotRequired[

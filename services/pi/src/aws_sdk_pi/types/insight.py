@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pi#Insight``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pi.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_pi.types.string
 
 
-class Insight(TypedDict):
+class Insight(TypedDict, closed=True):
     insight_id: "aws_sdk_pi.types.string.String"
     """<p>The unique identifier for the insight. For example, <code>insight-12345678901234567</code>.</p>"""
     insight_type: NotRequired["aws_sdk_pi.types.string.String"]

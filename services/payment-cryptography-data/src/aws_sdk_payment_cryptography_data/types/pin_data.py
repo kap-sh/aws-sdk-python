@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#PinData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.verification_value_type
 
 
-class _PinData_PinOffset(TypedDict):
+class _PinData_PinOffset(TypedDict, closed=True):
     PinOffset: "aws_sdk_payment_cryptography_data.types.pin_offset_type.PinOffsetType"
 
 
-class _PinData_VerificationValue(TypedDict):
+class _PinData_VerificationValue(TypedDict, closed=True):
     VerificationValue: "aws_sdk_payment_cryptography_data.types.verification_value_type.VerificationValueType"
 
 

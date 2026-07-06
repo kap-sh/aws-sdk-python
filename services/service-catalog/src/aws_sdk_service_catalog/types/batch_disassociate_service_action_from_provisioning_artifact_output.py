@@ -1,14 +1,16 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#BatchDisassociateServiceActionFromProvisioningArtifactOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.failed_service_action_associations
 
 
-class BatchDisassociateServiceActionFromProvisioningArtifactOutput(TypedDict):
+class BatchDisassociateServiceActionFromProvisioningArtifactOutput(
+    TypedDict, closed=True
+):
     failed_service_action_associations: NotRequired[
         "aws_sdk_service_catalog.types.failed_service_action_associations.FailedServiceActionAssociations"
     ]

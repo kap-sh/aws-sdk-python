@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#PrivateIp``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.text
 
 
-class PrivateIp(TypedDict):
+class PrivateIp(TypedDict, closed=True):
     private_dns_name: NotRequired["aws_sdk_inspector.types.text.Text"]
     """<p>The DNS name of the private IP address.</p>"""
     private_ip_address: NotRequired["aws_sdk_inspector.types.text.Text"]

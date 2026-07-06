@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StringValidation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.allowed_string_values_list
 
 
-class StringValidation(TypedDict):
+class StringValidation(TypedDict, closed=True):
     allowed_values: "aws_sdk_bedrock_agentcore_control.types.allowed_string_values_list.AllowedStringValuesList"
     """<p>Allowed values for this STRING field.</p>"""
 

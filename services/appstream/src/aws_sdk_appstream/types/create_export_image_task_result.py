@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateExportImageTaskResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.export_image_task
 
 
-class CreateExportImageTaskResult(TypedDict):
+class CreateExportImageTaskResult(TypedDict, closed=True):
     export_image_task: NotRequired[
         "aws_sdk_appstream.types.export_image_task.ExportImageTask"
     ]

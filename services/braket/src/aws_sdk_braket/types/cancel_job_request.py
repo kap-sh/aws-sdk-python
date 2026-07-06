@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.braket#CancelJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.job_arn
 
 
-class CancelJobRequest(TypedDict):
+class CancelJobRequest(TypedDict, closed=True):
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"
     """<p>The ARN of the Amazon Braket hybrid job to cancel.</p>"""
 

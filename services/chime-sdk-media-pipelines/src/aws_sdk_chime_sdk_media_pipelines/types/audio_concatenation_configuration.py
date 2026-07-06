@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#AudioConcatenationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.audio_artifacts_concatenation_state
 
 
-class AudioConcatenationConfiguration(TypedDict):
+class AudioConcatenationConfiguration(TypedDict, closed=True):
     state: "aws_sdk_chime_sdk_media_pipelines.types.audio_artifacts_concatenation_state.AudioArtifactsConcatenationState"
     """<p>Enables or disables the configuration object.</p>"""
 

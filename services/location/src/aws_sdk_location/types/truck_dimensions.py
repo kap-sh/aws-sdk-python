@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#TruckDimensions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.dimension_unit
     import aws_sdk_location.types.sensitive_double
 
 
-class TruckDimensions(TypedDict):
+class TruckDimensions(TypedDict, closed=True):
     length: NotRequired["aws_sdk_location.types.sensitive_double.SensitiveDouble"]
     """<p>The length of the truck.</p> <ul> <li> <p>For example, <code>15.5</code>.</p> </li> </ul> <note> <p> For routes calculated with a HERE resource, this value must be between 0 and 300 meters. </p> </note>"""
     height: NotRequired["aws_sdk_location.types.sensitive_double.SensitiveDouble"]

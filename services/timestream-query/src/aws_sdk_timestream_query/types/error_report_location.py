@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ErrorReportLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.s3_report_location
 
 
-class ErrorReportLocation(TypedDict):
+class ErrorReportLocation(TypedDict, closed=True):
     s3_report_location: NotRequired[
         "aws_sdk_timestream_query.types.s3_report_location.S3ReportLocation"
     ]

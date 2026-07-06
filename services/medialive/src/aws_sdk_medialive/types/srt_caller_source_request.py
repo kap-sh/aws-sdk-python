@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#SrtCallerSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.srt_caller_decryption_request
 
 
-class SrtCallerSourceRequest(TypedDict):
+class SrtCallerSourceRequest(TypedDict, closed=True):
     decryption: NotRequired[
         "aws_sdk_medialive.types.srt_caller_decryption_request.SrtCallerDecryptionRequest"
     ]

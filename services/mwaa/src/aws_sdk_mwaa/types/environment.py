@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#Environment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.airflow_configuration_options
@@ -34,7 +34,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.weekly_maintenance_window_start
 
 
-class Environment(TypedDict):
+class Environment(TypedDict, closed=True):
     name: NotRequired["aws_sdk_mwaa.types.environment_name.EnvironmentName"]
     """<p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
     status: NotRequired["aws_sdk_mwaa.types.environment_status.EnvironmentStatus"]

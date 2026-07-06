@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#IotTopicPublishAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.payload
 
 
-class IotTopicPublishAction(TypedDict):
+class IotTopicPublishAction(TypedDict, closed=True):
     mqtt_topic: "aws_sdk_iot_events.types.mqtt_topic.MQTTTopic"
     """<p>The MQTT topic of the message. You can use a string expression that includes variables (<code>$variable.<variable-name></code>) and input values (<code>$input.<input-name>.<path-to-datum></code>) as the topic string.</p>"""
     payload: NotRequired["aws_sdk_iot_events.types.payload.Payload"]

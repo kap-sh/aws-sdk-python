@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RuleAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.allow_action
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.count_action
 
 
-class RuleAction(TypedDict):
+class RuleAction(TypedDict, closed=True):
     block: NotRequired["aws_sdk_wafv2.types.block_action.BlockAction"]
     """<p>Instructs WAF to block the web request.</p>"""
     allow: NotRequired["aws_sdk_wafv2.types.allow_action.AllowAction"]

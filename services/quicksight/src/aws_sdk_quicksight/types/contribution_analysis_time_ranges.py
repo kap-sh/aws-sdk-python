@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ContributionAnalysisTimeRanges``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_ir_filter_option
 
 
-class ContributionAnalysisTimeRanges(TypedDict):
+class ContributionAnalysisTimeRanges(TypedDict, closed=True):
     start_range: NotRequired[
         "aws_sdk_quicksight.types.topic_ir_filter_option.TopicIRFilterOption"
     ]

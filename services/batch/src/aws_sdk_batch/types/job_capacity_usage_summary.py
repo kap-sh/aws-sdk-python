@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#JobCapacityUsageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.double
     import aws_sdk_batch.types.string
 
 
-class JobCapacityUsageSummary(TypedDict):
+class JobCapacityUsageSummary(TypedDict, closed=True):
     capacity_unit: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The unit of measure for the capacity usage. This is <code>VCPU</code> for Amazon EC2 and <code>cpu</code> for Amazon EKS.</p>"""
     quantity: NotRequired["aws_sdk_batch.types.double.Double"]

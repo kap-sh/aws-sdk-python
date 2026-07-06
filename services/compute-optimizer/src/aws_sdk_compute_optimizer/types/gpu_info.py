@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GpuInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.gpus
 
 
-class GpuInfo(TypedDict):
+class GpuInfo(TypedDict, closed=True):
     gpus: NotRequired["aws_sdk_compute_optimizer.types.gpus.Gpus"]
     """<p> Describes the GPU accelerators for the instance type. </p>"""
 

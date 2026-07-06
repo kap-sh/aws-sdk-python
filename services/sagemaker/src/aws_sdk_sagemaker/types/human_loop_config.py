@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HumanLoopConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.flow_definition_task_availability_lifetime_in_seconds
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_arn
 
 
-class HumanLoopConfig(TypedDict):
+class HumanLoopConfig(TypedDict, closed=True):
     workteam_arn: NotRequired["aws_sdk_sagemaker.types.workteam_arn.WorkteamArn"]
     r"""<p>Amazon Resource Name (ARN) of a team of workers. To learn more about the types of workforces and work teams you can create and use with Amazon A2I, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management.html\">Create and Manage Workforces</a>.</p>"""
     human_task_ui_arn: NotRequired[

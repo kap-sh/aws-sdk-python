@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CloudWatchLogOptionsSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class CloudWatchLogOptionsSpecification(TypedDict):
+class CloudWatchLogOptionsSpecification(TypedDict, closed=True):
     log_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Enable or disable VPN tunnel logging feature. Default value is <code>False</code>.</p> <p>Valid values: <code>True</code> | <code>False</code> </p>"""
     log_group_arn: NotRequired[

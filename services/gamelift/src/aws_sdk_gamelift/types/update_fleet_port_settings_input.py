@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateFleetPortSettingsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.fleet_id_or_arn
     import aws_sdk_gamelift.types.ip_permissions_list
 
 
-class UpdateFleetPortSettingsInput(TypedDict):
+class UpdateFleetPortSettingsInput(TypedDict, closed=True):
     fleet_id: NotRequired["aws_sdk_gamelift.types.fleet_id_or_arn.FleetIdOrArn"]
     """<p>A unique identifier for the fleet to update port settings for. You can use either the fleet ID or ARN value.</p>"""
     inbound_permission_authorizations: NotRequired[

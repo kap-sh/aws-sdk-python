@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#DataSetImportConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.string2000
 
 
-class _DataSetImportConfig_s3Location(TypedDict):
+class _DataSetImportConfig_s3Location(TypedDict, closed=True):
     s3Location: "aws_sdk_m2.types.string2000.String2000"
 
 
-class _DataSetImportConfig_dataSets(TypedDict):
+class _DataSetImportConfig_dataSets(TypedDict, closed=True):
     dataSets: "aws_sdk_m2.types.data_set_import_list.DataSetImportList"
 
 

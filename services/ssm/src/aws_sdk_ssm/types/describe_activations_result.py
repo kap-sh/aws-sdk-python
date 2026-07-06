@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeActivationsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.activation_list
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeActivationsResult(TypedDict):
+class DescribeActivationsResult(TypedDict, closed=True):
     activation_list: NotRequired["aws_sdk_ssm.types.activation_list.ActivationList"]
     """<p>A list of activations for your Amazon Web Services account.</p>"""
     next_token: NotRequired["aws_sdk_ssm.types.next_token.NextToken"]

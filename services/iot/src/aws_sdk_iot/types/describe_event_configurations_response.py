@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeEventConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.creation_date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.last_modified_date
 
 
-class DescribeEventConfigurationsResponse(TypedDict):
+class DescribeEventConfigurationsResponse(TypedDict, closed=True):
     event_configurations: NotRequired[
         "aws_sdk_iot.types.event_configurations.EventConfigurations"
     ]

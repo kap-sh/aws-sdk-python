@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GeoLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.double
 
 
-class GeoLocation(TypedDict):
+class GeoLocation(TypedDict, closed=True):
     lon: NotRequired["aws_sdk_securityhub.types.double.Double"]
     """<p>The longitude of the location.</p>"""
     lat: NotRequired["aws_sdk_securityhub.types.double.Double"]

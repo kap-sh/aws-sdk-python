@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.aws_iam_config
 
 
-class AuthorizationConfig(TypedDict):
+class AuthorizationConfig(TypedDict, closed=True):
     authorization_type: "aws_sdk_appsync.types.authorization_type.AuthorizationType"
     """<p>The authorization type that the HTTP endpoint requires.</p> <ul> <li> <p> <b>AWS_IAM</b>: The authorization type is Signature Version 4 (SigV4).</p> </li> </ul>"""
     aws_iam_config: NotRequired["aws_sdk_appsync.types.aws_iam_config.AwsIamConfig"]

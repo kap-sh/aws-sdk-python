@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#OutpostConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class OutpostConfigRequest(TypedDict):
+class OutpostConfigRequest(TypedDict, closed=True):
     outpost_arns: "aws_sdk_eks.types.string_list.StringList"
     """<p>The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.</p>"""
     control_plane_instance_type: "aws_sdk_eks.types.string.String"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DownlinkConnectionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.ranged_connection_details
 
 
-class DownlinkConnectionDetails(TypedDict):
+class DownlinkConnectionDetails(TypedDict, closed=True):
     agent_ip_and_port_address: (
         "aws_sdk_groundstation.types.ranged_connection_details.RangedConnectionDetails"
     )

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#FipsEndpoints``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FipsEndpoints(TypedDict):
+class FipsEndpoints(TypedDict, closed=True):
     collection_endpoint: NotRequired["str"]
     """<p>FIPS-compliant collection endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection. This endpoint uses FIPS 140-3 validated cryptography and is required for federal government workloads.</p>"""
     dashboard_endpoint: NotRequired["str"]

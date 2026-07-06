@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#SessionKeyDerivationValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.hex_length_equals4
 
 
-class _SessionKeyDerivationValue_ApplicationCryptogram(TypedDict):
+class _SessionKeyDerivationValue_ApplicationCryptogram(TypedDict, closed=True):
     ApplicationCryptogram: "aws_sdk_payment_cryptography_data.types.application_cryptogram_type.ApplicationCryptogramType"
 
 
-class _SessionKeyDerivationValue_ApplicationTransactionCounter(TypedDict):
+class _SessionKeyDerivationValue_ApplicationTransactionCounter(TypedDict, closed=True):
     ApplicationTransactionCounter: (
         "aws_sdk_payment_cryptography_data.types.hex_length_equals4.HexLengthEquals4"
     )

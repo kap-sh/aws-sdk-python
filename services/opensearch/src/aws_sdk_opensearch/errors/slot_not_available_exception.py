@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#SlotNotAvailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.slot_list
 
 
-class SlotNotAvailableException_(TypedDict):
+class SlotNotAvailableException_(TypedDict, closed=True):
     slot_suggestions: NotRequired["aws_sdk_opensearch.types.slot_list.SlotList"]
     """<p>Alternate time slots during which OpenSearch Service has available capacity to schedule a domain action.</p>"""
     message: NotRequired["aws_sdk_opensearch.types.error_message.ErrorMessage"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotFleetRequestConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class SpotFleetRequestConfig(TypedDict):
+class SpotFleetRequestConfig(TypedDict, closed=True):
     activity_status: NotRequired["aws_sdk_ec2.types.activity_status.ActivityStatus"]
     """<p>The progress of the Spot Fleet request. If there is an error, the status is <code>error</code>. After all requests are placed, the status is <code>pending_fulfillment</code>. If the size of the fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>. If the size of the fleet is decreased, the status is <code>pending_termination</code> while Spot Instances are terminating.</p>"""
     create_time: NotRequired[

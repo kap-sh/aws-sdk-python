@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#TestHypervisorConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TestHypervisorConfigurationOutput(TypedDict):
+class TestHypervisorConfigurationOutput(TypedDict, closed=True):
     pass
 
 

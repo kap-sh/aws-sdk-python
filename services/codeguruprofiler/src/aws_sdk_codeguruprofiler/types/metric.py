@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#Metric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.strings
 
 
-class Metric(TypedDict):
+class Metric(TypedDict, closed=True):
     frame_name: "str"
     """<p> The name of the method that appears as a frame in any stack in a profile. </p>"""
     type: "aws_sdk_codeguruprofiler.types.metric_type.MetricType"

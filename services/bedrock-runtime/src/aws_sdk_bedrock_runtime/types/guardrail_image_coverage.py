@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#GuardrailImageCoverage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.images_guarded
     import aws_sdk_bedrock_runtime.types.images_total
 
 
-class GuardrailImageCoverage(TypedDict):
+class GuardrailImageCoverage(TypedDict, closed=True):
     guarded: NotRequired["aws_sdk_bedrock_runtime.types.images_guarded.ImagesGuarded"]
     """<p>The count (integer) of images guardrails guarded.</p>"""
     total: NotRequired["aws_sdk_bedrock_runtime.types.images_total.ImagesTotal"]

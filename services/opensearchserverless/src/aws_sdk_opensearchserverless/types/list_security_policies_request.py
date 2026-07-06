@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#ListSecurityPoliciesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.security_policy_type
 
 
-class ListSecurityPoliciesRequest(TypedDict):
+class ListSecurityPoliciesRequest(TypedDict, closed=True):
     type: "aws_sdk_opensearchserverless.types.security_policy_type.SecurityPolicyType"
     """<p>The type of policy.</p>"""
     resource: NotRequired[

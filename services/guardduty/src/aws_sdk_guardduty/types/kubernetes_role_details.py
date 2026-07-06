@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesRoleDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class KubernetesRoleDetails(TypedDict):
+class KubernetesRoleDetails(TypedDict, closed=True):
     kind: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The kind of role. For this API, the value of <code>kind</code> will be <code>Role</code>.</p>"""
     name: NotRequired["aws_sdk_guardduty.types.string.String"]

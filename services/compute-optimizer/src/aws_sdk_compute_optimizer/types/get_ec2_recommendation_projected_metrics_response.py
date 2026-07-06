@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#GetEC2RecommendationProjectedMetricsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.recommended_option_projected_metrics
 
 
-class GetEC2RecommendationProjectedMetricsResponse(TypedDict):
+class GetEC2RecommendationProjectedMetricsResponse(TypedDict, closed=True):
     recommended_option_projected_metrics: NotRequired[
         "aws_sdk_compute_optimizer.types.recommended_option_projected_metrics.RecommendedOptionProjectedMetrics"
     ]

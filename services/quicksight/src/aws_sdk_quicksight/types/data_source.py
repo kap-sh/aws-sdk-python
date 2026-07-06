@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.vpc_connection_properties
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the data source.</p>"""
     data_source_id: NotRequired["aws_sdk_quicksight.types.resource_id.ResourceId"]

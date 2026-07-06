@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#PutResourcePolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class PutResourcePolicyInput(TypedDict):
+class PutResourcePolicyInput(TypedDict, closed=True):
     policy: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     r"""<p> A JSON-formatted resource policy. For more information, see <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share\">Sharing a Project</a> and <a href=\"https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share\">Sharing a Report Group</a> in the <i>CodeBuild User Guide</i>. </p>"""
     resource_arn: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"

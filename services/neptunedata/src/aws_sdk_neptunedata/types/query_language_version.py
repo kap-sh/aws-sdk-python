@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#QueryLanguageVersion``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class QueryLanguageVersion(TypedDict):
+class QueryLanguageVersion(TypedDict, closed=True):
     version: "str"
     """<p>The version of the query language.</p>"""
 

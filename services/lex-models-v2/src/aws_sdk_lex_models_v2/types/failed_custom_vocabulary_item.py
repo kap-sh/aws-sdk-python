@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#FailedCustomVocabularyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.item_id
 
 
-class FailedCustomVocabularyItem(TypedDict):
+class FailedCustomVocabularyItem(TypedDict, closed=True):
     item_id: NotRequired["aws_sdk_lex_models_v2.types.item_id.ItemId"]
     """<p>The unique item identifer for the failed custom vocabulary item from the custom vocabulary list.</p>"""
     error_message: NotRequired["aws_sdk_lex_models_v2.types.error_message.ErrorMessage"]

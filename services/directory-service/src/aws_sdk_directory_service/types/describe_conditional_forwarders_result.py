@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeConditionalForwardersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.conditional_forwarders
 
 
-class DescribeConditionalForwardersResult(TypedDict):
+class DescribeConditionalForwardersResult(TypedDict, closed=True):
     conditional_forwarders: NotRequired[
         "aws_sdk_directory_service.types.conditional_forwarders.ConditionalForwarders"
     ]

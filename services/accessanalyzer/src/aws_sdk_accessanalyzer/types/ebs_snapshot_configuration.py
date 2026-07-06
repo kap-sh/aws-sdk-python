@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#EbsSnapshotConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.ebs_group_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.ebs_user_id_list
 
 
-class EbsSnapshotConfiguration(TypedDict):
+class EbsSnapshotConfiguration(TypedDict, closed=True):
     user_ids: NotRequired["aws_sdk_accessanalyzer.types.ebs_user_id_list.EbsUserIdList"]
     """<p>The IDs of the Amazon Web Services accounts that have access to the Amazon EBS volume snapshot.</p> <ul> <li> <p>If the configuration is for an existing Amazon EBS volume snapshot and you do not specify the <code>userIds</code>, then the access preview uses the existing shared <code>userIds</code> for the snapshot.</p> </li> <li> <p>If the access preview is for a new resource and you do not specify the <code>userIds</code>, then the access preview considers the snapshot without any <code>userIds</code>.</p> </li> <li> <p>To propose deletion of existing shared <code>accountIds</code>, you can specify an empty list for <code>userIds</code>.</p> </li> </ul>"""
     groups: NotRequired["aws_sdk_accessanalyzer.types.ebs_group_list.EbsGroupList"]

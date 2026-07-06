@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListCustomPermissionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.custom_permissions_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class ListCustomPermissionsResponse(TypedDict):
+class ListCustomPermissionsResponse(TypedDict, closed=True):
     status: "aws_sdk_quicksight.types.status_code.StatusCode"
     """<p>The HTTP status of the request.</p>"""
     custom_permissions_list: NotRequired[

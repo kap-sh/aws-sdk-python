@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#DeleteEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.client_token
     import aws_sdk_workspaces_thin_client.types.environment_id
 
 
-class DeleteEnvironmentRequest(TypedDict):
+class DeleteEnvironmentRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.environment_id.EnvironmentId"
     """<p>The ID of the environment to delete.</p>"""
     client_token: NotRequired[

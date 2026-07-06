@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeFeatureTransformationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.feature_transformation
 
 
-class DescribeFeatureTransformationResponse(TypedDict):
+class DescribeFeatureTransformationResponse(TypedDict, closed=True):
     feature_transformation: NotRequired[
         "aws_sdk_personalize.types.feature_transformation.FeatureTransformation"
     ]

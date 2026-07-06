@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetCodeReviewJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.code_review_job_id_list
 
 
-class BatchGetCodeReviewJobsInput(TypedDict):
+class BatchGetCodeReviewJobsInput(TypedDict, closed=True):
     code_review_job_ids: (
         "aws_sdk_securityagent.types.code_review_job_id_list.CodeReviewJobIdList"
     )

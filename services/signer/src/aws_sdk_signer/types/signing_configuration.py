@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SigningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.hash_algorithm_options
 
 
-class SigningConfiguration(TypedDict):
+class SigningConfiguration(TypedDict, closed=True):
     encryption_algorithm_options: (
         "aws_sdk_signer.types.encryption_algorithm_options.EncryptionAlgorithmOptions"
     )

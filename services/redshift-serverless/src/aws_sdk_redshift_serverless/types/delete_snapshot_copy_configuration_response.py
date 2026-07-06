@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#DeleteSnapshotCopyConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.snapshot_copy_configuration
 
 
-class DeleteSnapshotCopyConfigurationResponse(TypedDict):
+class DeleteSnapshotCopyConfigurationResponse(TypedDict, closed=True):
     snapshot_copy_configuration: "aws_sdk_redshift_serverless.types.snapshot_copy_configuration.SnapshotCopyConfiguration"
     """<p>The deleted snapshot copy configuration object.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#RecordError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.error_code
     import aws_sdk_service_catalog.types.error_description
 
 
-class RecordError(TypedDict):
+class RecordError(TypedDict, closed=True):
     code: NotRequired["aws_sdk_service_catalog.types.error_code.ErrorCode"]
     """<p>The numeric value of the error.</p>"""
     description: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdatePhoneNumberMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.phone_number_id
 
 
-class UpdatePhoneNumberMetadataRequest(TypedDict):
+class UpdatePhoneNumberMetadataRequest(TypedDict, closed=True):
     phone_number_id: "aws_sdk_connect.types.phone_number_id.PhoneNumberId"
     """<p>The Amazon Resource Name (ARN) or resource ID of the phone number.</p>"""
     phone_number_description: NotRequired[

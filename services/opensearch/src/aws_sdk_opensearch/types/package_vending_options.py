@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PackageVendingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
 
 
-class PackageVendingOptions(TypedDict):
+class PackageVendingOptions(TypedDict, closed=True):
     vending_enabled: "aws_sdk_opensearch.types.boolean.Boolean"
     """<p>Indicates whether the package vending feature is enabled, allowing the package to be used by other users.</p>"""
 

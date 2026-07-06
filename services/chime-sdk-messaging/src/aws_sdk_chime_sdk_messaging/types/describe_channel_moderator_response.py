@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#DescribeChannelModeratorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.channel_moderator
 
 
-class DescribeChannelModeratorResponse(TypedDict):
+class DescribeChannelModeratorResponse(TypedDict, closed=True):
     channel_moderator: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.channel_moderator.ChannelModerator"
     ]

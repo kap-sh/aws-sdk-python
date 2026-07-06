@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetModelImportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.error_message
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.vpc_config
 
 
-class GetModelImportJobResponse(TypedDict):
+class GetModelImportJobResponse(TypedDict, closed=True):
     job_arn: NotRequired["aws_sdk_bedrock.types.model_import_job_arn.ModelImportJobArn"]
     """<p>The Amazon Resource Name (ARN) of the import job.</p>"""
     job_name: NotRequired["aws_sdk_bedrock.types.job_name.JobName"]

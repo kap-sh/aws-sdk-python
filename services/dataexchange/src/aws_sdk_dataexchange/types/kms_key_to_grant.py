@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#KmsKeyToGrant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.kms_key_arn
 
 
-class KmsKeyToGrant(TypedDict):
+class KmsKeyToGrant(TypedDict, closed=True):
     kms_key_arn: "aws_sdk_dataexchange.types.kms_key_arn.KmsKeyArn"
     """<p>The AWS KMS CMK (Key Management System Customer Managed Key) used to encrypt S3 objects in the shared S3 Bucket. AWS Data exchange will create a KMS grant for each subscriber to allow them to access and decrypt their entitled data that is encrypted using this KMS key specified.</p>"""
 

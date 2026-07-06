@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BatchUpdateJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.batch_update_job_errors
 
 
-class BatchUpdateJobResponse(TypedDict):
+class BatchUpdateJobResponse(TypedDict, closed=True):
     errors: "aws_sdk_deadline.types.batch_update_job_errors.BatchUpdateJobErrors"
     """<p>A list of errors for jobs that could not be updated.</p>"""
 

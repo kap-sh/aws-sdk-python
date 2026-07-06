@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayProtocolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.mcp_gateway_configuration
 
 
-class _GatewayProtocolConfiguration_mcp(TypedDict):
+class _GatewayProtocolConfiguration_mcp(TypedDict, closed=True):
     mcp: "aws_sdk_bedrock_agentcore_control.types.mcp_gateway_configuration.MCPGatewayConfiguration"
 
 

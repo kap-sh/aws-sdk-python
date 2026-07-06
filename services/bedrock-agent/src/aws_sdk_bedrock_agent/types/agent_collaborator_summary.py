@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AgentCollaboratorSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.version
 
 
-class AgentCollaboratorSummary(TypedDict):
+class AgentCollaboratorSummary(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The collaborator's agent ID.</p>"""
     agent_version: "aws_sdk_bedrock_agent.types.version.Version"

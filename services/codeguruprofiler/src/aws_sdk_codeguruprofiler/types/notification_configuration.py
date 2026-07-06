@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#NotificationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.channels
 
 
-class NotificationConfiguration(TypedDict):
+class NotificationConfiguration(TypedDict, closed=True):
     channels: NotRequired["aws_sdk_codeguruprofiler.types.channels.Channels"]
     """<p>List of up to two channels to be used for sending notifications for events detected from the application profile.</p>"""
 

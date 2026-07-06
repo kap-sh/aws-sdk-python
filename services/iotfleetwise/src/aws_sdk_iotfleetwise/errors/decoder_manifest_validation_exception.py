@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#DecoderManifestValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class DecoderManifestValidationException_(TypedDict):
+class DecoderManifestValidationException_(TypedDict, closed=True):
     invalid_signals: NotRequired[
         "aws_sdk_iotfleetwise.types.invalid_signal_decoders.InvalidSignalDecoders"
     ]

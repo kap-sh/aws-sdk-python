@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#SeverityLevel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.severity_level_code
     import aws_sdk_support.types.severity_level_name
 
 
-class SeverityLevel(TypedDict):
+class SeverityLevel(TypedDict, closed=True):
     code: NotRequired["aws_sdk_support.types.severity_level_code.SeverityLevelCode"]
     """<p>The code for case severity level.</p> <p>Valid values: <code>low</code> | <code>normal</code> | <code>high</code> | <code>urgent</code> | <code>critical</code> </p>"""
     name: NotRequired["aws_sdk_support.types.severity_level_name.SeverityLevelName"]

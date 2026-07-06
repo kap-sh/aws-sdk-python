@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.aws_account_id
     import aws_sdk_bedrock_agentcore_control.types.s3_bucket_uri
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     uri: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.s3_bucket_uri.S3BucketUri"
     ]

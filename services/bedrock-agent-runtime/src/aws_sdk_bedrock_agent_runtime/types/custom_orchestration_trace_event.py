@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CustomOrchestrationTraceEvent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CustomOrchestrationTraceEvent(TypedDict):
+class CustomOrchestrationTraceEvent(TypedDict, closed=True):
     text: NotRequired["str"]
     """<p> The text that prompted the event at this step. </p>"""
 

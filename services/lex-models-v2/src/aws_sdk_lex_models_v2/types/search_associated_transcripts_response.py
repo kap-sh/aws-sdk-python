@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SearchAssociatedTranscriptsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.associated_transcript_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.next_index
 
 
-class SearchAssociatedTranscriptsResponse(TypedDict):
+class SearchAssociatedTranscriptsResponse(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>The unique identifier of the bot associated with the transcripts that you are searching.</p>"""
     bot_version: NotRequired["aws_sdk_lex_models_v2.types.bot_version.BotVersion"]

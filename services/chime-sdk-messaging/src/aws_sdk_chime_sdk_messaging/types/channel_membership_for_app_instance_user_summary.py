@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelMembershipForAppInstanceUserSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.app_instance_user_membership_summary
     import aws_sdk_chime_sdk_messaging.types.channel_summary
 
 
-class ChannelMembershipForAppInstanceUserSummary(TypedDict):
+class ChannelMembershipForAppInstanceUserSummary(TypedDict, closed=True):
     channel_summary: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.channel_summary.ChannelSummary"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#RemoteNetworkConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.remote_node_network_list
     import aws_sdk_eks.types.remote_pod_network_list
 
 
-class RemoteNetworkConfigResponse(TypedDict):
+class RemoteNetworkConfigResponse(TypedDict, closed=True):
     remote_node_networks: NotRequired[
         "aws_sdk_eks.types.remote_node_network_list.RemoteNodeNetworkList"
     ]

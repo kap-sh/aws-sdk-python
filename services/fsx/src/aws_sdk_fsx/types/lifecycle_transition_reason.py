@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#LifecycleTransitionReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.error_message
 
 
-class LifecycleTransitionReason(TypedDict):
+class LifecycleTransitionReason(TypedDict, closed=True):
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#InboxPlacementTrackingOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
@@ -16,6 +16,7 @@ InboxPlacementTrackingOption = TypedDict(
             "aws_sdk_pinpoint_email.types.isp_name_list.IspNameList"
         ],
     },
+    closed=True,
 )
 
 

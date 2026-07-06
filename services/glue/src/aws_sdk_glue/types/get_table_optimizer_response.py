@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetTableOptimizerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_optimizer
 
 
-class GetTableOptimizerResponse(TypedDict):
+class GetTableOptimizerResponse(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The Catalog ID of the table.</p>"""
     database_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

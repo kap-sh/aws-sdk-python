@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AnomalyObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.observations
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.profile_type
 
 
-class AnomalyObject(TypedDict):
+class AnomalyObject(TypedDict, closed=True):
     profile_type: NotRequired["aws_sdk_guardduty.types.profile_type.ProfileType"]
     """<p>The type of behavior of the profile.</p>"""
     profile_subtype: NotRequired[

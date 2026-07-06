@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateXssMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token
     import aws_sdk_waf_regional.types.xss_match_set
 
 
-class CreateXssMatchSetResponse(TypedDict):
+class CreateXssMatchSetResponse(TypedDict, closed=True):
     xss_match_set: NotRequired["aws_sdk_waf_regional.types.xss_match_set.XssMatchSet"]
     """<p>An <a>XssMatchSet</a>.</p>"""
     change_token: NotRequired["aws_sdk_waf_regional.types.change_token.ChangeToken"]

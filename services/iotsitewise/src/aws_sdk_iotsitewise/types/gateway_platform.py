@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#GatewayPlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.greengrass
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.siemens_ie
 
 
-class GatewayPlatform(TypedDict):
+class GatewayPlatform(TypedDict, closed=True):
     greengrass: NotRequired["aws_sdk_iotsitewise.types.greengrass.Greengrass"]
     """<p>A gateway that runs on IoT Greengrass.</p>"""
     greengrass_v2: NotRequired["aws_sdk_iotsitewise.types.greengrass_v2.GreengrassV2"]

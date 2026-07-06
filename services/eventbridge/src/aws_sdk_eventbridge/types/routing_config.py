@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#RoutingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.failover_config
 
 
-class RoutingConfig(TypedDict):
+class RoutingConfig(TypedDict, closed=True):
     failover_config: "aws_sdk_eventbridge.types.failover_config.FailoverConfig"
     """<p>The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>"""
 

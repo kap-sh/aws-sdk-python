@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateScriptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.dag_edges
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.language
 
 
-class CreateScriptRequest(TypedDict):
+class CreateScriptRequest(TypedDict, closed=True):
     dag_nodes: NotRequired["aws_sdk_glue.types.dag_nodes.DagNodes"]
     """<p>A list of the nodes in the DAG.</p>"""
     dag_edges: NotRequired["aws_sdk_glue.types.dag_edges.DagEdges"]

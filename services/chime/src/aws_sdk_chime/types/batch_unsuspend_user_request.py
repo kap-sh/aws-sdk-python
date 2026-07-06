@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BatchUnsuspendUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.user_id_list
 
 
-class BatchUnsuspendUserRequest(TypedDict):
+class BatchUnsuspendUserRequest(TypedDict, closed=True):
     account_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The Amazon Chime account ID.</p>"""
     user_id_list: "aws_sdk_chime.types.user_id_list.UserIdList"

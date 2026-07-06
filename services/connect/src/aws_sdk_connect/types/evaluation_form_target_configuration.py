@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormTargetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_interaction_type
 
 
-class EvaluationFormTargetConfiguration(TypedDict):
+class EvaluationFormTargetConfiguration(TypedDict, closed=True):
     contact_interaction_type: (
         "aws_sdk_connect.types.contact_interaction_type.ContactInteractionType"
     )

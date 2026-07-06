@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AssessmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.security_group_ids
 
 
-class AssessmentConfiguration(TypedDict):
+class AssessmentConfiguration(TypedDict, closed=True):
     customer_dns_ips: "aws_sdk_directory_service.types.customer_dns_ips.CustomerDnsIps"
     """<p>A list of IP addresses for the DNS servers or domain controllers in your self-managed AD that are tested during the assessment.</p>"""
     dns_name: "aws_sdk_directory_service.types.directory_name.DirectoryName"

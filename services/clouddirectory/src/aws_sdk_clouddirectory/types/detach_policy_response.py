@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#DetachPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DetachPolicyResponse(TypedDict):
+class DetachPolicyResponse(TypedDict, closed=True):
     pass
 
 

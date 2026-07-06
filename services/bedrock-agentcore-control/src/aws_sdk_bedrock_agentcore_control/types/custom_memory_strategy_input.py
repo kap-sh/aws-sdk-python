@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomMemoryStrategyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.namespaces_list
 
 
-class CustomMemoryStrategyInput(TypedDict):
+class CustomMemoryStrategyInput(TypedDict, closed=True):
     name: "aws_sdk_bedrock_agentcore_control.types.name.Name"
     """<p>The name of the custom memory strategy.</p>"""
     description: NotRequired[

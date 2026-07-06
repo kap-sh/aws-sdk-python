@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AlarmModelVersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.alarm_model_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.timestamp
 
 
-class AlarmModelVersionSummary(TypedDict):
+class AlarmModelVersionSummary(TypedDict, closed=True):
     alarm_model_name: NotRequired[
         "aws_sdk_iot_events.types.alarm_model_name.AlarmModelName"
     ]

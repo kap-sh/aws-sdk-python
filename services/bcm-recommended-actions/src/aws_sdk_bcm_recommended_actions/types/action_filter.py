@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmrecommendedactions#ActionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_recommended_actions.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_recommended_actions.types.match_option
 
 
-class ActionFilter(TypedDict):
+class ActionFilter(TypedDict, closed=True):
     key: "aws_sdk_bcm_recommended_actions.types.filter_name.FilterName"
     """<p>The category to filter on. Valid values are <code>FEATURE</code> for feature type, <code>SEVERITY</code> for severity level, and <code>TYPE</code> for recommendation type.</p>"""
     match_option: "aws_sdk_bcm_recommended_actions.types.match_option.MatchOption"

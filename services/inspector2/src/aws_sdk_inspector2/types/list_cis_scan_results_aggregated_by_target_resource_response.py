@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCisScanResultsAggregatedByTargetResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_target_resource_aggregation_list
     import aws_sdk_inspector2.types.next_token
 
 
-class ListCisScanResultsAggregatedByTargetResourceResponse(TypedDict):
+class ListCisScanResultsAggregatedByTargetResourceResponse(TypedDict, closed=True):
     target_resource_aggregations: NotRequired[
         "aws_sdk_inspector2.types.cis_target_resource_aggregation_list.CisTargetResourceAggregationList"
     ]

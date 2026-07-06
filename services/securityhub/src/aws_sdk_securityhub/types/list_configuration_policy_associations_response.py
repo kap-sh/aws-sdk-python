@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListConfigurationPolicyAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.configuration_policy_association_summary_list
     import aws_sdk_securityhub.types.next_token
 
 
-class ListConfigurationPolicyAssociationsResponse(TypedDict):
+class ListConfigurationPolicyAssociationsResponse(TypedDict, closed=True):
     configuration_policy_association_summaries: NotRequired[
         "aws_sdk_securityhub.types.configuration_policy_association_summary_list.ConfigurationPolicyAssociationSummaryList"
     ]

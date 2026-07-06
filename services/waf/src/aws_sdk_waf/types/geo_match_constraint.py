@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GeoMatchConstraint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.geo_match_constraint_value
 
 
-class GeoMatchConstraint(TypedDict):
+class GeoMatchConstraint(TypedDict, closed=True):
     type: "aws_sdk_waf.types.geo_match_constraint_type.GeoMatchConstraintType"
     """<p>The type of geographical area you want AWS WAF to search for. Currently <code>Country</code> is the only valid value.</p>"""
     value: "aws_sdk_waf.types.geo_match_constraint_value.GeoMatchConstraintValue"

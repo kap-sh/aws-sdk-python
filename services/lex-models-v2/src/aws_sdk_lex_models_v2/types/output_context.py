@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#OutputContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class OutputContext(TypedDict):
+class OutputContext(TypedDict, closed=True):
     name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the output context.</p>"""
     time_to_live_in_seconds: "aws_sdk_lex_models_v2.types.context_time_to_live_in_seconds.ContextTimeToLiveInSeconds"

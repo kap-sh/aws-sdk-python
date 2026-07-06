@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Notification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class Notification(TypedDict):
+class Notification(TypedDict, closed=True):
     id: NotRequired["aws_sdk_auditmanager.types.timestamp_uuid.TimestampUUID"]
     """<p> The unique identifier for the notification. </p>"""
     assessment_id: NotRequired["aws_sdk_auditmanager.types.uuid.UUID"]

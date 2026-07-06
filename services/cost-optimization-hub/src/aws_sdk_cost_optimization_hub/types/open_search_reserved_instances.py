@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#OpenSearchReservedInstances``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.open_search_reserved_instances_configuration
     import aws_sdk_cost_optimization_hub.types.reserved_instances_cost_calculation
 
 
-class OpenSearchReservedInstances(TypedDict):
+class OpenSearchReservedInstances(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.open_search_reserved_instances_configuration.OpenSearchReservedInstancesConfiguration"
     ]

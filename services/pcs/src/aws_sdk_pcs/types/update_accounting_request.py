@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#UpdateAccountingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.accounting_mode
 
 
-class UpdateAccountingRequest(TypedDict):
+class UpdateAccountingRequest(TypedDict, closed=True):
     default_purge_time_in_days: NotRequired["int"]
     r"""<p>The default value for all purge settings for <code>slurmdbd.conf</code>. For more information, see the <a href=\"https://slurm.schedmd.com/slurmdbd.conf.html\">slurmdbd.conf documentation at SchedMD</a>.</p> <p>The default value for <code>defaultPurgeTimeInDays</code> is <code>-1</code>.</p> <p>A value of <code>-1</code> means there is no purge time and records persist as long as the cluster exists.</p> <important> <p> <code>0</code> isn't a valid value.</p> </important>"""
     mode: NotRequired["aws_sdk_pcs.types.accounting_mode.AccountingMode"]

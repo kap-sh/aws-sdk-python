@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RestoreObjectOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.restore_output_path
 
 
-class RestoreObjectOutput(TypedDict):
+class RestoreObjectOutput(TypedDict, closed=True):
     request_charged: NotRequired["aws_sdk_s3.types.request_charged.RequestCharged"]
     restore_output_path: NotRequired[
         "aws_sdk_s3.types.restore_output_path.RestoreOutputPath"

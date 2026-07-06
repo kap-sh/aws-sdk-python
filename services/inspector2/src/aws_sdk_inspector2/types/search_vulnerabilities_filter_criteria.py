@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#SearchVulnerabilitiesFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.vuln_id_list
 
 
-class SearchVulnerabilitiesFilterCriteria(TypedDict):
+class SearchVulnerabilitiesFilterCriteria(TypedDict, closed=True):
     vulnerability_ids: "aws_sdk_inspector2.types.vuln_id_list.VulnIdList"
     """<p>The IDs for specific vulnerabilities.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#AssociateSoftwareToImageBuilderResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateSoftwareToImageBuilderResult(TypedDict):
+class AssociateSoftwareToImageBuilderResult(TypedDict, closed=True):
     pass
 
 

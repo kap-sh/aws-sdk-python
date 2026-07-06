@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Document``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.image_blob
     import aws_sdk_textract.types.s3_object
 
 
-class Document(TypedDict):
+class Document(TypedDict, closed=True):
     bytes: NotRequired["aws_sdk_textract.types.image_blob.ImageBlob"]
     """<p>A blob of base64-encoded document bytes. The maximum size of a document that's provided in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>"""
     s3_object: NotRequired["aws_sdk_textract.types.s3_object.S3Object"]

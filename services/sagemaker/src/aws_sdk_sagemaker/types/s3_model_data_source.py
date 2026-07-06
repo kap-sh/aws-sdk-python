@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#S3ModelDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_hub_access_config
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class S3ModelDataSource(TypedDict):
+class S3ModelDataSource(TypedDict, closed=True):
     s3_uri: NotRequired["aws_sdk_sagemaker.types.s3_model_uri.S3ModelUri"]
     """<p>Specifies the S3 path of ML model data to deploy.</p>"""
     s3_data_type: NotRequired[

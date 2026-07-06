@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ListTargetsByRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.next_token
     import aws_sdk_cloudwatch_events.types.target_list
 
 
-class ListTargetsByRuleResponse(TypedDict):
+class ListTargetsByRuleResponse(TypedDict, closed=True):
     targets: NotRequired["aws_sdk_cloudwatch_events.types.target_list.TargetList"]
     """<p>The targets assigned to the rule.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_events.types.next_token.NextToken"]

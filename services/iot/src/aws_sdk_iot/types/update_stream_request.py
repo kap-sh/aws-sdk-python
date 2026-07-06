@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.stream_id
 
 
-class UpdateStreamRequest(TypedDict):
+class UpdateStreamRequest(TypedDict, closed=True):
     stream_id: "aws_sdk_iot.types.stream_id.StreamId"
     """<p>The stream ID.</p>"""
     description: NotRequired["aws_sdk_iot.types.stream_description.StreamDescription"]

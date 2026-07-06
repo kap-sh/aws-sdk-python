@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#PermissionSetProvisioningStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.account_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.uu_id
 
 
-class PermissionSetProvisioningStatus(TypedDict):
+class PermissionSetProvisioningStatus(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sso_admin.types.status_values.StatusValues"]
     """<p>The status of the permission set provisioning process.</p>"""
     request_id: NotRequired["aws_sdk_sso_admin.types.uu_id.UUId"]

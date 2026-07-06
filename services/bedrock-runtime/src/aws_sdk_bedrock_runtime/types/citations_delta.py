@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#CitationsDelta``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.citation_location
     import aws_sdk_bedrock_runtime.types.citation_source_content_list_delta
 
 
-class CitationsDelta(TypedDict):
+class CitationsDelta(TypedDict, closed=True):
     title: NotRequired["str"]
     """<p>The title or identifier of the source document being cited.</p>"""
     source: NotRequired["str"]

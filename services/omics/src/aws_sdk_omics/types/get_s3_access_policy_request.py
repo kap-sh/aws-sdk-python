@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetS3AccessPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.s3_access_point_arn
 
 
-class GetS3AccessPolicyRequest(TypedDict):
+class GetS3AccessPolicyRequest(TypedDict, closed=True):
     s3_access_point_arn: "aws_sdk_omics.types.s3_access_point_arn.S3AccessPointArn"
     """<p>The S3 access point ARN that has the access policy.</p>"""
 

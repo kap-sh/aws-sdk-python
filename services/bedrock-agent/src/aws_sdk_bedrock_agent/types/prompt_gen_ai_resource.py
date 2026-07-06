@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PromptGenAiResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.prompt_agent_resource
 
 
-class _PromptGenAiResource_agent(TypedDict):
+class _PromptGenAiResource_agent(TypedDict, closed=True):
     agent: "aws_sdk_bedrock_agent.types.prompt_agent_resource.PromptAgentResource"
 
 

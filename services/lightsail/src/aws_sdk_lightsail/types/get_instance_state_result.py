@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetInstanceStateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.instance_state
 
 
-class GetInstanceStateResult(TypedDict):
+class GetInstanceStateResult(TypedDict, closed=True):
     state: NotRequired["aws_sdk_lightsail.types.instance_state.InstanceState"]
     """<p>The state of the instance.</p>"""
 

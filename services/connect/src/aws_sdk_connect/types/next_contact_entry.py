@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#NextContactEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_contact_metadata
     import aws_sdk_connect.types.next_contact_type
 
 
-class NextContactEntry(TypedDict):
+class NextContactEntry(TypedDict, closed=True):
     type: NotRequired["aws_sdk_connect.types.next_contact_type.NextContactType"]
     """<p> The type of the next contact entry. </p>"""
     next_contact_metadata: NotRequired[

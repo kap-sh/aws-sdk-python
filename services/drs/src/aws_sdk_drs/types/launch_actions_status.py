@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchActionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
     import aws_sdk_drs.types.launch_action_runs
 
 
-class LaunchActionsStatus(TypedDict):
+class LaunchActionsStatus(TypedDict, closed=True):
     ssm_agent_discovery_datetime: NotRequired[
         "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

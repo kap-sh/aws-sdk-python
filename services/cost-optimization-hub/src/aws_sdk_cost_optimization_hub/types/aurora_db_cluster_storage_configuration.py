@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#AuroraDbClusterStorageConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AuroraDbClusterStorageConfiguration(TypedDict):
+class AuroraDbClusterStorageConfiguration(TypedDict, closed=True):
     storage_type: NotRequired["str"]
     """<p>The storage type to associate with the Aurora DB cluster.</p>"""
 

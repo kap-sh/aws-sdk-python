@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreatePolicyVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.is_default_version
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.policy_version_id
 
 
-class CreatePolicyVersionResponse(TypedDict):
+class CreatePolicyVersionResponse(TypedDict, closed=True):
     policy_arn: NotRequired["aws_sdk_iot.types.policy_arn.PolicyArn"]
     """<p>The policy ARN.</p>"""
     policy_document: NotRequired["aws_sdk_iot.types.policy_document.PolicyDocument"]

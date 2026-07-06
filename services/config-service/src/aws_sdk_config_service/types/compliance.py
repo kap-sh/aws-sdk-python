@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#Compliance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.compliance_contributor_count
     import aws_sdk_config_service.types.compliance_type
 
 
-class Compliance(TypedDict):
+class Compliance(TypedDict, closed=True):
     compliance_type: NotRequired[
         "aws_sdk_config_service.types.compliance_type.ComplianceType"
     ]

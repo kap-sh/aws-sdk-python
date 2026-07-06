@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#CancelReplayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.replay_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.replay_state_reason
 
 
-class CancelReplayResponse(TypedDict):
+class CancelReplayResponse(TypedDict, closed=True):
     replay_arn: NotRequired["aws_sdk_eventbridge.types.replay_arn.ReplayArn"]
     """<p>The ARN of the replay to cancel.</p>"""
     state: NotRequired["aws_sdk_eventbridge.types.replay_state.ReplayState"]

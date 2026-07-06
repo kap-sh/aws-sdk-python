@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3BucketDefinitionForJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
     import aws_sdk_macie2.types.__string
 
 
-class S3BucketDefinitionForJob(TypedDict):
+class S3BucketDefinitionForJob(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The unique identifier for the Amazon Web Services account that owns the buckets.</p>"""
     buckets: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListLicenseSpecificationsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ListLicenseSpecificationsForResourceRequest(TypedDict):
+class ListLicenseSpecificationsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_license_manager.types.string.String"
     """<p>Amazon Resource Name (ARN) of a resource that has an associated license configuration.</p>"""
     max_results: NotRequired["aws_sdk_license_manager.types.box_integer.BoxInteger"]

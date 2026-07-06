@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Output``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.s3_location
 
 
-class Output(TypedDict):
+class Output(TypedDict, closed=True):
     compression_format: NotRequired[
         "aws_sdk_databrew.types.compression_format.CompressionFormat"
     ]

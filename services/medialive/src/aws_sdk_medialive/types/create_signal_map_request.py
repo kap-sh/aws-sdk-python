@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreateSignalMapRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of__string_pattern_s
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.tag_map
 
 
-class CreateSignalMapRequest(TypedDict):
+class CreateSignalMapRequest(TypedDict, closed=True):
     cloud_watch_alarm_template_group_identifiers: NotRequired[
         "aws_sdk_medialive.types.__list_of__string_pattern_s.__listOf__stringPatternS"
     ]

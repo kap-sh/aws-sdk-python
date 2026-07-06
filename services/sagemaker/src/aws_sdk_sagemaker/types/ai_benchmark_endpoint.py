@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AIBenchmarkEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_benchmark_inference_component_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class AIBenchmarkEndpoint(TypedDict):
+class AIBenchmarkEndpoint(TypedDict, closed=True):
     identifier: NotRequired[
         "aws_sdk_sagemaker.types.ai_resource_identifier.AIResourceIdentifier"
     ]

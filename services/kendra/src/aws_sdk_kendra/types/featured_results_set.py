@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FeaturedResultsSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.featured_document_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.query_text_list
 
 
-class FeaturedResultsSet(TypedDict):
+class FeaturedResultsSet(TypedDict, closed=True):
     featured_results_set_id: NotRequired[
         "aws_sdk_kendra.types.featured_results_set_id.FeaturedResultsSetId"
     ]

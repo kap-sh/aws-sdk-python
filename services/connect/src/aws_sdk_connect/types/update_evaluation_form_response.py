@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateEvaluationFormResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.version_number
 
 
-class UpdateEvaluationFormResponse(TypedDict):
+class UpdateEvaluationFormResponse(TypedDict, closed=True):
     evaluation_form_id: "aws_sdk_connect.types.resource_id.ResourceId"
     """<p>The unique identifier for the evaluation form.</p>"""
     evaluation_form_arn: "aws_sdk_connect.types.arn.ARN"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListTrustedTokenIssuersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.token
 
 
-class ListTrustedTokenIssuersRequest(TypedDict):
+class ListTrustedTokenIssuersRequest(TypedDict, closed=True):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
     """<p>Specifies the ARN of the instance of IAM Identity Center with the trusted token issuer configurations that you want to list.</p>"""
     max_results: NotRequired["aws_sdk_sso_admin.types.max_results.MaxResults"]

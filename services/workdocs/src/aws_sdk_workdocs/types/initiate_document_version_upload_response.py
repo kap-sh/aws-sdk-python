@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#InitiateDocumentVersionUploadResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.document_metadata
     import aws_sdk_workdocs.types.upload_metadata
 
 
-class InitiateDocumentVersionUploadResponse(TypedDict):
+class InitiateDocumentVersionUploadResponse(TypedDict, closed=True):
     metadata: NotRequired["aws_sdk_workdocs.types.document_metadata.DocumentMetadata"]
     """<p>The document metadata.</p>"""
     upload_metadata: NotRequired[

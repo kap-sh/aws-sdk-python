@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DeleteConversationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConversationResponse(TypedDict):
+class DeleteConversationResponse(TypedDict, closed=True):
     pass
 
 

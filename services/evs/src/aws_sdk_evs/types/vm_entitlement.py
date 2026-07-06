@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#VmEntitlement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.vm_name
 
 
-class VmEntitlement(TypedDict):
+class VmEntitlement(TypedDict, closed=True):
     vm_id: NotRequired["aws_sdk_evs.types.vm_id.VmId"]
     """<p>The unique ID of the virtual machine.</p>"""
     environment_id: NotRequired["aws_sdk_evs.types.environment_id.EnvironmentId"]

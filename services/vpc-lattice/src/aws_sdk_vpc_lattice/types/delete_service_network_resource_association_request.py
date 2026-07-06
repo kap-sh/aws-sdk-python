@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#DeleteServiceNetworkResourceAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_network_resource_association_identifier
 
 
-class DeleteServiceNetworkResourceAssociationRequest(TypedDict):
+class DeleteServiceNetworkResourceAssociationRequest(TypedDict, closed=True):
     service_network_resource_association_identifier: "aws_sdk_vpc_lattice.types.service_network_resource_association_identifier.ServiceNetworkResourceAssociationIdentifier"
     """<p>The ID of the association.</p>"""
 

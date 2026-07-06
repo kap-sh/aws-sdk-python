@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#DropAction``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DropAction(TypedDict):
+class DropAction(TypedDict, closed=True):
     pass
 
 

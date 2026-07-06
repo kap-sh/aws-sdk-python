@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Country``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Country(TypedDict):
+class Country(TypedDict, closed=True):
     country_code: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The country code of the remote IP address.</p>"""
     country_name: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetReviewTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.template_arn
 
 
-class GetReviewTemplateInput(TypedDict):
+class GetReviewTemplateInput(TypedDict, closed=True):
     template_arn: "aws_sdk_wellarchitected.types.template_arn.TemplateArn"
     """<p>The review template ARN.</p>"""
 

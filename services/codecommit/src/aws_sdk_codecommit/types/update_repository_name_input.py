@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UpdateRepositoryNameInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class UpdateRepositoryNameInput(TypedDict):
+class UpdateRepositoryNameInput(TypedDict, closed=True):
     old_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"
     """<p>The current name of the repository.</p>"""
     new_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"

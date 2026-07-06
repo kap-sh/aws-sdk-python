@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#NodePropertiesSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.integer
 
 
-class NodePropertiesSummary(TypedDict):
+class NodePropertiesSummary(TypedDict, closed=True):
     is_main_node: NotRequired["aws_sdk_batch.types.boolean.Boolean"]
     """<p>Specifies whether the current node is the main node for a multi-node parallel job.</p>"""
     num_nodes: NotRequired["aws_sdk_batch.types.integer.Integer"]

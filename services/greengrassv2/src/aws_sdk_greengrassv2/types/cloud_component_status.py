@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#CloudComponentStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.cloud_component_state
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.vendor_guidance
 
 
-class CloudComponentStatus(TypedDict):
+class CloudComponentStatus(TypedDict, closed=True):
     component_state: NotRequired[
         "aws_sdk_greengrassv2.types.cloud_component_state.CloudComponentState"
     ]

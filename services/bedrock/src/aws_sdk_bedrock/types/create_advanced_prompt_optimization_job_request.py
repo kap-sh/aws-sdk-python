@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateAdvancedPromptOptimizationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.tag_list
 
 
-class CreateAdvancedPromptOptimizationJobRequest(TypedDict):
+class CreateAdvancedPromptOptimizationJobRequest(TypedDict, closed=True):
     job_name: "aws_sdk_bedrock.types.advanced_prompt_optimization_job_name.AdvancedPromptOptimizationJobName"
     """<p>A name for the advanced prompt optimization job.</p>"""
     job_description: NotRequired[

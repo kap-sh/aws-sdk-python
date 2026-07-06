@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AtigData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.first_seen
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ttps
 
 
-class AtigData(TypedDict):
+class AtigData(TypedDict, closed=True):
     first_seen: NotRequired["aws_sdk_inspector2.types.first_seen.FirstSeen"]
     """<p>The date and time this vulnerability was first observed.</p>"""
     last_seen: NotRequired["aws_sdk_inspector2.types.last_seen.LastSeen"]

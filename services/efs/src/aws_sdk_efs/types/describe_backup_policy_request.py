@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeBackupPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
 
 
-class DescribeBackupPolicyRequest(TypedDict):
+class DescribeBackupPolicyRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>Specifies which EFS file system for which to retrieve the <code>BackupPolicy</code>.</p>"""
 

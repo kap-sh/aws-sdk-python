@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssociateSbomWithPackageVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.package_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version_name
 
 
-class AssociateSbomWithPackageVersionResponse(TypedDict):
+class AssociateSbomWithPackageVersionResponse(TypedDict, closed=True):
     package_name: NotRequired["aws_sdk_iot.types.package_name.PackageName"]
     """<p>The name of the new software package.</p>"""
     version_name: NotRequired["aws_sdk_iot.types.version_name.VersionName"]

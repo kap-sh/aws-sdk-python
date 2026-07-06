@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#PutFileOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.object_id
 
 
-class PutFileOutput(TypedDict):
+class PutFileOutput(TypedDict, closed=True):
     commit_id: "aws_sdk_codecommit.types.object_id.ObjectId"
     """<p>The full SHA ID of the commit that contains this file change.</p>"""
     blob_id: "aws_sdk_codecommit.types.object_id.ObjectId"

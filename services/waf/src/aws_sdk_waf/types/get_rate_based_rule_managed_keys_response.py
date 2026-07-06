@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GetRateBasedRuleManagedKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.managed_keys
     import aws_sdk_waf.types.next_marker
 
 
-class GetRateBasedRuleManagedKeysResponse(TypedDict):
+class GetRateBasedRuleManagedKeysResponse(TypedDict, closed=True):
     managed_keys: NotRequired["aws_sdk_waf.types.managed_keys.ManagedKeys"]
     """<p>An array of IP addresses that currently are blocked by the specified <a>RateBasedRule</a>. </p>"""
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]

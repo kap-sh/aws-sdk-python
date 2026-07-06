@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListFarmsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_deadline.types.identity_center_principal_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.next_token
 
 
-class ListFarmsRequest(TypedDict):
+class ListFarmsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_deadline.types.next_token.NextToken"]
     """<p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>"""
     max_results: "aws_sdk_deadline.types.max_results.MaxResults"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#BatchExecuteStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.workgroup_name_string
 
 
-class BatchExecuteStatementInput(TypedDict):
+class BatchExecuteStatementInput(TypedDict, closed=True):
     sqls: "aws_sdk_redshift_data.types.sql_list.SqlList"
     """<p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>"""
     cluster_identifier: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicCategoryFilterConstant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.collective_constant
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.limited_string
 
 
-class TopicCategoryFilterConstant(TypedDict):
+class TopicCategoryFilterConstant(TypedDict, closed=True):
     constant_type: NotRequired["aws_sdk_quicksight.types.constant_type.ConstantType"]
     """<p>The type of category filter constant. This element is used to specify whether a constant is a singular or collective. Valid values are <code>SINGULAR</code> and <code>COLLECTIVE</code>.</p>"""
     singular_constant: NotRequired[

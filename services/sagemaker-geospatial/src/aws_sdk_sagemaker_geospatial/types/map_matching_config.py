@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#MapMatchingConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
 
-class MapMatchingConfig(TypedDict):
+class MapMatchingConfig(TypedDict, closed=True):
     id_attribute_name: "str"
     """<p>The field name for the data that describes the identifier representing a collection of GPS points belonging to an individual trace.</p>"""
     y_attribute_name: "str"

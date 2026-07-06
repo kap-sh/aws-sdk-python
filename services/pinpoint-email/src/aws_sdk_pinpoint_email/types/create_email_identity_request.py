@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#CreateEmailIdentityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tag_list
 
 
-class CreateEmailIdentityRequest(TypedDict):
+class CreateEmailIdentityRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_pinpoint_email.types.identity.Identity"
     """<p>The email address or domain that you want to verify.</p>"""
     tags: NotRequired["aws_sdk_pinpoint_email.types.tag_list.TagList"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#StatisticsSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class StatisticsSummary(TypedDict):
+class StatisticsSummary(TypedDict, closed=True):
     signature_count: NotRequired["int"]
     """<p>The total number of signatures across all characteristic sets.</p>"""
     instance_count: NotRequired["int"]

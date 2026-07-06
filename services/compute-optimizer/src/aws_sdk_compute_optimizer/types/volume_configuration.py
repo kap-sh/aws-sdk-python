@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#VolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.root_volume
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.volume_type
 
 
-class VolumeConfiguration(TypedDict):
+class VolumeConfiguration(TypedDict, closed=True):
     volume_type: NotRequired["aws_sdk_compute_optimizer.types.volume_type.VolumeType"]
     """<p>The volume type.</p> <p>The volume types can be the following:</p> <ul> <li> <p>General Purpose SSD <code>gp2</code> and <code>gp3</code> </p> </li> <li> <p>Provisioned IOPS SSD <code>io1</code>, <code>io2</code>, and <code>io2 Block Express</code> </p> </li> <li> <p>Throughput Optimized HDD <code>st1</code> </p> </li> <li> <p>Cold HDD <code>sc1</code> </p> </li> <li> <p>Magnetic volumes <code>standard</code> </p> </li> </ul>"""
     volume_size: "aws_sdk_compute_optimizer.types.volume_size.VolumeSize"

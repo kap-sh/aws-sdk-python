@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListClustersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_summary_list
     import aws_sdk_emr.types.marker
 
 
-class ListClustersOutput(TypedDict):
+class ListClustersOutput(TypedDict, closed=True):
     clusters: NotRequired["aws_sdk_emr.types.cluster_summary_list.ClusterSummaryList"]
     """<p>The list of clusters for the account based on the given filters.</p>"""
     marker: NotRequired["aws_sdk_emr.types.marker.Marker"]

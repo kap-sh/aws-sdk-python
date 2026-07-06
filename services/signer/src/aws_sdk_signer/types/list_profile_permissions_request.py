@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#ListProfilePermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.profile_name
     import aws_sdk_signer.types.string
 
 
-class ListProfilePermissionsRequest(TypedDict):
+class ListProfilePermissionsRequest(TypedDict, closed=True):
     profile_name: "aws_sdk_signer.types.profile_name.ProfileName"
     """<p>Name of the signing profile containing the cross-account permissions.</p>"""
     next_token: NotRequired["aws_sdk_signer.types.string.String"]

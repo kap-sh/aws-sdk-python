@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#WorkflowRunSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.workflow_run_status_reasons
 
 
-class WorkflowRunSummary(TypedDict):
+class WorkflowRunSummary(TypedDict, closed=True):
     id: "aws_sdk_codecatalyst.types.uuid.Uuid"
     """<p>The system-generated unique ID of the workflow run.</p>"""
     workflow_id: "aws_sdk_codecatalyst.types.uuid.Uuid"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#LifecyclePolicyDetailActionIncludeResources``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.boolean
 
 
-class LifecyclePolicyDetailActionIncludeResources(TypedDict):
+class LifecyclePolicyDetailActionIncludeResources(TypedDict, closed=True):
     amis: "aws_sdk_imagebuilder.types.boolean.Boolean"
     """<p>Specifies whether the lifecycle action should apply to distributed AMIs.</p>"""
     snapshots: "aws_sdk_imagebuilder.types.boolean.Boolean"

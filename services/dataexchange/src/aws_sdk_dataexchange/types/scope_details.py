@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#ScopeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_lake_formation_tag_policies
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_s3_data_accesses
 
 
-class ScopeDetails(TypedDict):
+class ScopeDetails(TypedDict, closed=True):
     lake_formation_tag_policies: NotRequired[
         "aws_sdk_dataexchange.types.list_of_lake_formation_tag_policies.ListOfLakeFormationTagPolicies"
     ]

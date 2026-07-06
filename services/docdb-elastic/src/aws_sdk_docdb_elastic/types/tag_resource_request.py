@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.tag_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_docdb_elastic.types.arn.Arn"
     """<p>The ARN identifier of the elastic cluster resource.</p>"""
     tags: "aws_sdk_docdb_elastic.types.tag_map.TagMap"

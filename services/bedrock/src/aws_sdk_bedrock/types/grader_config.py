@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GraderConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.lambda_grader_config
 
 
-class _GraderConfig_lambdaGrader(TypedDict):
+class _GraderConfig_lambdaGrader(TypedDict, closed=True):
     lambdaGrader: "aws_sdk_bedrock.types.lambda_grader_config.LambdaGraderConfig"
 
 

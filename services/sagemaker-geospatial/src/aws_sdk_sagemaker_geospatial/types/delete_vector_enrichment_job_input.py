@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#DeleteVectorEnrichmentJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_arn
 
 
-class DeleteVectorEnrichmentJobInput(TypedDict):
+class DeleteVectorEnrichmentJobInput(TypedDict, closed=True):
     arn: "aws_sdk_sagemaker_geospatial.types.vector_enrichment_job_arn.VectorEnrichmentJobArn"
     """<p>The Amazon Resource Name (ARN) of the Vector Enrichment job being deleted.</p>"""
 

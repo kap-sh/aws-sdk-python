@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ForbiddenException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mq.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class ForbiddenException_(TypedDict):
+class ForbiddenException_(TypedDict, closed=True):
     error_attribute: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>The attribute which caused the error.</p>"""
     message: NotRequired["aws_sdk_mq.types.__string.__string"]

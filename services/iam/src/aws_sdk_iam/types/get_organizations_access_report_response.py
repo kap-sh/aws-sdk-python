@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetOrganizationsAccessReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.marker_type
 
 
-class GetOrganizationsAccessReportResponse(TypedDict):
+class GetOrganizationsAccessReportResponse(TypedDict, closed=True):
     job_status: "aws_sdk_iam.types.job_status_type.jobStatusType"
     """<p>The status of the job.</p>"""
     job_creation_date: "aws_sdk_iam.types.date_type.dateType"

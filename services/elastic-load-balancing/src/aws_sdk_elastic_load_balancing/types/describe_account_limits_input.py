@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#DescribeAccountLimitsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.page_size
 
 
-class DescribeAccountLimitsInput(TypedDict):
+class DescribeAccountLimitsInput(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_elastic_load_balancing.types.marker.Marker"]
     """<p>The marker for the next set of results. (You received this marker from a previous call.)</p>"""
     page_size: NotRequired["aws_sdk_elastic_load_balancing.types.page_size.PageSize"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ArchiveStringExpression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.string_value_list
 
 
-class ArchiveStringExpression(TypedDict):
+class ArchiveStringExpression(TypedDict, closed=True):
     evaluate: (
         "aws_sdk_mailmanager.types.archive_string_to_evaluate.ArchiveStringToEvaluate"
     )

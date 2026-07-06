@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.internetmonitor#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_internetmonitor.types.monitor_arn
     import aws_sdk_internetmonitor.types.tag_keys
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_internetmonitor.types.monitor_arn.MonitorArn"
     """<p>The Amazon Resource Name (ARN) for a tag you remove a resource from.</p>"""
     tag_keys: "aws_sdk_internetmonitor.types.tag_keys.TagKeys"

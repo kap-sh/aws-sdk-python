@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#OAuth2Authentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.email
 
 
-class OAuth2Authentication(TypedDict):
+class OAuth2Authentication(TypedDict, closed=True):
     sub: "str"
     """<p>The subject (sub) claim from the OAuth2 provider. Uniquely identifies the user at the provider.</p>"""
     email_address: NotRequired["aws_sdk_bedrock_agentcore.types.email.Email"]

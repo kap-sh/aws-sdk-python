@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billing#TimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class TimeRange(TypedDict):
+class TimeRange(TypedDict, closed=True):
     begin_date_inclusive: NotRequired["datetime.datetime"]
     """<p> The inclusive start date of the time range. </p>"""
     end_date_inclusive: NotRequired["datetime.datetime"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateRelationalDatabaseParametersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class UpdateRelationalDatabaseParametersRequest(TypedDict):
+class UpdateRelationalDatabaseParametersRequest(TypedDict, closed=True):
     relational_database_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of your database for which to update parameters.</p>"""
     parameters: "aws_sdk_lightsail.types.relational_database_parameter_list.RelationalDatabaseParameterList"

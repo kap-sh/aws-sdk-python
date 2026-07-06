@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_task_definition_container_definitions_log_configuration_secret_options_list
@@ -10,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails(TypedDict):
+class AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails(
+    TypedDict, closed=True
+):
     log_driver: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The log driver to use for the container.</p> <p>Valid values on Fargate are as follows:</p> <ul> <li> <p> <code>awsfirelens</code> </p> </li> <li> <p> <code>awslogs</code> </p> </li> <li> <p> <code>splunk</code> </p> </li> </ul> <p>Valid values on Amazon EC2 are as follows:</p> <ul> <li> <p> <code>awsfirelens</code> </p> </li> <li> <p> <code>awslogs</code> </p> </li> <li> <p> <code>fluentd</code> </p> </li> <li> <p> <code>gelf</code> </p> </li> <li> <p> <code>journald</code> </p> </li> <li> <p> <code>json-file</code> </p> </li> <li> <p> <code>logentries</code> </p> </li> <li> <p> <code>splunk</code> </p> </li> <li> <p> <code>syslog</code> </p> </li> </ul>"""
     options: NotRequired["aws_sdk_securityhub.types.field_map.FieldMap"]

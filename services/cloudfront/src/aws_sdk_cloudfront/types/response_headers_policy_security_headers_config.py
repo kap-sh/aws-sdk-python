@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ResponseHeadersPolicySecurityHeadersConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.response_headers_policy_xss_protection
 
 
-class ResponseHeadersPolicySecurityHeadersConfig(TypedDict):
+class ResponseHeadersPolicySecurityHeadersConfig(TypedDict, closed=True):
     xss_protection: NotRequired[
         "aws_sdk_cloudfront.types.response_headers_policy_xss_protection.ResponseHeadersPolicyXSSProtection"
     ]

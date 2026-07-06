@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#CreatePrefetchScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__map_of__string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.recurring_prefetch_configuration
 
 
-class CreatePrefetchScheduleResponse(TypedDict):
+class CreatePrefetchScheduleResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The ARN to assign to the prefetch schedule.</p>"""
     consumption: NotRequired[

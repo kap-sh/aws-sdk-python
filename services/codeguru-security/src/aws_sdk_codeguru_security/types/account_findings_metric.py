@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#AccountFindingsMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.finding_metrics_value_per_severity
 
 
-class AccountFindingsMetric(TypedDict):
+class AccountFindingsMetric(TypedDict, closed=True):
     date: NotRequired["datetime.datetime"]
     """<p>The date from which the findings metrics were retrieved.</p>"""
     new_findings: NotRequired[

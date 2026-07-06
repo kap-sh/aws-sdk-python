@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#ReverseGeocodeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_places.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.reverse_geocode_intended_use
 
 
-class ReverseGeocodeRequest(TypedDict):
+class ReverseGeocodeRequest(TypedDict, closed=True):
     query_position: "aws_sdk_geo_places.types.position.Position"
     """<p>The position in World Geodetic System (WGS 84) format: [longitude, latitude] for which you are querying nearby results for. Results closer to the position will be ranked higher then results further away from the position</p>"""
     query_radius: NotRequired["aws_sdk_geo_places.types.distance_meters.DistanceMeters"]

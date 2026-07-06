@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetByteMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.byte_match_set
 
 
-class GetByteMatchSetResponse(TypedDict):
+class GetByteMatchSetResponse(TypedDict, closed=True):
     byte_match_set: NotRequired[
         "aws_sdk_waf_regional.types.byte_match_set.ByteMatchSet"
     ]

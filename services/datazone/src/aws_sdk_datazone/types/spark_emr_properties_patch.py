@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SparkEmrPropertiesPatch``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SparkEmrPropertiesPatch(TypedDict):
+class SparkEmrPropertiesPatch(TypedDict, closed=True):
     compute_arn: NotRequired["str"]
     """<p>The compute ARN in the Spark EMR properties patch.</p>"""
     instance_profile_arn: NotRequired["str"]

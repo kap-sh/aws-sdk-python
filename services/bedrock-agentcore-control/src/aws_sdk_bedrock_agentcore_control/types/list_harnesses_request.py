@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListHarnessesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.max_results
     import aws_sdk_bedrock_agentcore_control.types.next_token
 
 
-class ListHarnessesRequest(TypedDict):
+class ListHarnessesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
     ]

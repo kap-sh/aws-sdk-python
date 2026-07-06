@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ListRuleSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.rule_sets
 
 
-class ListRuleSetsResponse(TypedDict):
+class ListRuleSetsResponse(TypedDict, closed=True):
     rule_sets: "aws_sdk_mailmanager.types.rule_sets.RuleSets"
     """<p>The list of rule sets.</p>"""
     next_token: NotRequired[

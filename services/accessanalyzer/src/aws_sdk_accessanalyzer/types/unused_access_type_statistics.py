@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedAccessTypeStatistics``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class UnusedAccessTypeStatistics(TypedDict):
+class UnusedAccessTypeStatistics(TypedDict, closed=True):
     unused_access_type: NotRequired["str"]
     """<p>The type of unused access.</p>"""
     total: NotRequired["int"]

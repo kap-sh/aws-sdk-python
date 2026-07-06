@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetNumericComparisonFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_numeric_filter_value
 
 
-class DataSetNumericComparisonFilterCondition(TypedDict):
+class DataSetNumericComparisonFilterCondition(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.data_set_numeric_comparison_filter_operator.DataSetNumericComparisonFilterOperator"
     """<p>The comparison operator to use, such as <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>LESS_THAN</code>, or their variants.</p>"""
     value: NotRequired[

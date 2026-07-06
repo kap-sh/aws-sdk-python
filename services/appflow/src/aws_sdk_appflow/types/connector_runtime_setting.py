@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorRuntimeSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.label
 
 
-class ConnectorRuntimeSetting(TypedDict):
+class ConnectorRuntimeSetting(TypedDict, closed=True):
     key: NotRequired["aws_sdk_appflow.types.key.Key"]
     """<p>Contains value information about the connector runtime setting.</p>"""
     data_type: NotRequired[

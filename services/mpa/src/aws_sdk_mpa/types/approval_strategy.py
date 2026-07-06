@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#ApprovalStrategy``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.mof_n_approval_strategy
 
 
-class _ApprovalStrategy_MofN(TypedDict):
+class _ApprovalStrategy_MofN(TypedDict, closed=True):
     MofN: "aws_sdk_mpa.types.mof_n_approval_strategy.MofNApprovalStrategy"
 
 

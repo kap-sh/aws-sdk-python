@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#CreateContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.tags_list
 
 
-class CreateContactRequest(TypedDict):
+class CreateContactRequest(TypedDict, closed=True):
     alias: "aws_sdk_ssm_contacts.types.contact_alias.ContactAlias"
     """<p>The short name to quickly identify a contact or escalation plan. The contact alias must be unique and identifiable.</p>"""
     display_name: NotRequired["aws_sdk_ssm_contacts.types.contact_name.ContactName"]

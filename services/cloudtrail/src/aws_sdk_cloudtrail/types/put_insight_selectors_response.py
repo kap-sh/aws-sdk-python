@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#PutInsightSelectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.event_data_store_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.string
 
 
-class PutInsightSelectorsResponse(TypedDict):
+class PutInsightSelectorsResponse(TypedDict, closed=True):
     trail_arn: NotRequired["aws_sdk_cloudtrail.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.</p>"""
     insight_selectors: NotRequired[

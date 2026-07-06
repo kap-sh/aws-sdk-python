@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergStructField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer
 
 
-class IcebergStructField(TypedDict):
+class IcebergStructField(TypedDict, closed=True):
     id: "aws_sdk_glue.types.integer.Integer"
     """<p>The unique identifier assigned to this field within the Iceberg table schema, used for schema evolution and field tracking.</p>"""
     name: "aws_sdk_glue.types.column_name_string.ColumnNameString"

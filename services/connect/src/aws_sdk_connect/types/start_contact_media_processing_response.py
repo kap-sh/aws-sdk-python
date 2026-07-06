@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartContactMediaProcessingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartContactMediaProcessingResponse(TypedDict):
+class StartContactMediaProcessingResponse(TypedDict, closed=True):
     pass
 
 

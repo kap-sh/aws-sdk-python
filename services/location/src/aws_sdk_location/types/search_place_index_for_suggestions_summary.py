@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#SearchPlaceIndexForSuggestionsSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.sensitive_string
 
 
-class SearchPlaceIndexForSuggestionsSummary(TypedDict):
+class SearchPlaceIndexForSuggestionsSummary(TypedDict, closed=True):
     text: "aws_sdk_location.types.sensitive_string.SensitiveString"
     """<p>The free-form partial text input specified in the request.</p>"""
     bias_position: NotRequired["aws_sdk_location.types.position.Position"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafWebAclDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_waf_web_acl_rule_list
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafWebAclDetails(TypedDict):
+class AwsWafWebAclDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A friendly name or description of the web ACL. You can't change the name of a web ACL after you create it.</p>"""
     default_action: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ReplicaUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.create_replica_action
     import aws_sdk_dynamodb.types.delete_replica_action
 
 
-class ReplicaUpdate(TypedDict):
+class ReplicaUpdate(TypedDict, closed=True):
     create: NotRequired[
         "aws_sdk_dynamodb.types.create_replica_action.CreateReplicaAction"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateFlowDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.flow_definition_arn
 
 
-class CreateFlowDefinitionResponse(TypedDict):
+class CreateFlowDefinitionResponse(TypedDict, closed=True):
     flow_definition_arn: NotRequired[
         "aws_sdk_sagemaker.types.flow_definition_arn.FlowDefinitionArn"
     ]

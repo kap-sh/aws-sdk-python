@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.tag_key
     import aws_sdk_gamelift.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: NotRequired["aws_sdk_gamelift.types.tag_key.TagKey"]
     """<p>The key for a developer-defined key value pair for tagging an Amazon Web Services resource. </p>"""
     value: NotRequired["aws_sdk_gamelift.types.tag_value.TagValue"]

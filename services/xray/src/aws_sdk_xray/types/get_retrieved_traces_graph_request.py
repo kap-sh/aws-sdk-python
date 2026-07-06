@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetRetrievedTracesGraphRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class GetRetrievedTracesGraphRequest(TypedDict):
+class GetRetrievedTracesGraphRequest(TypedDict, closed=True):
     retrieval_token: "aws_sdk_xray.types.retrieval_token.RetrievalToken"
     """<p> Retrieval token. </p>"""
     next_token: NotRequired["aws_sdk_xray.types.string.String"]

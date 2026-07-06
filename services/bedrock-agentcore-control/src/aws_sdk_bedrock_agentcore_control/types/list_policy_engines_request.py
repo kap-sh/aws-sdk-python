@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListPolicyEnginesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.max_results
     import aws_sdk_bedrock_agentcore_control.types.next_token
 
 
-class ListPolicyEnginesRequest(TypedDict):
+class ListPolicyEnginesRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.next_token.NextToken"
     ]

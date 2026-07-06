@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#EinvoiceDeliveryPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.purchase_order_data_sources
 
 
-class EinvoiceDeliveryPreference(TypedDict):
+class EinvoiceDeliveryPreference(TypedDict, closed=True):
     einvoice_delivery_document_types: "aws_sdk_invoicing.types.einvoice_delivery_document_types.EinvoiceDeliveryDocumentTypes"
     """<p>The types of e-invoice documents to be delivered.</p>"""
     einvoice_delivery_attachment_types: NotRequired[

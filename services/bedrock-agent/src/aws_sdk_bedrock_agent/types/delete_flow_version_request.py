@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DeleteFlowVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_identifier
     import aws_sdk_bedrock_agent.types.numerical_version
 
 
-class DeleteFlowVersionRequest(TypedDict):
+class DeleteFlowVersionRequest(TypedDict, closed=True):
     flow_identifier: "aws_sdk_bedrock_agent.types.flow_identifier.FlowIdentifier"
     """<p>The unique identifier of the flow whose version that you want to delete</p>"""
     flow_version: "aws_sdk_bedrock_agent.types.numerical_version.NumericalVersion"

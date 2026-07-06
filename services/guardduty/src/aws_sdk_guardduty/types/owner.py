@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Owner``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Owner(TypedDict):
+class Owner(TypedDict, closed=True):
     id: NotRequired["aws_sdk_guardduty.types.string.String"]
     r"""<p>The canonical user ID of the bucket owner. For information about locating your canonical user ID see <a href=\"https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId\">Finding Your Account Canonical User ID.</a> </p>"""
 

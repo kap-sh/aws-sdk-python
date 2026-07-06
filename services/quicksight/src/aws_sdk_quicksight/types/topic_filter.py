@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_relative_date_filter
 
 
-class TopicFilter(TypedDict):
+class TopicFilter(TypedDict, closed=True):
     filter_description: NotRequired[
         "aws_sdk_quicksight.types.limited_string.LimitedString"
     ]

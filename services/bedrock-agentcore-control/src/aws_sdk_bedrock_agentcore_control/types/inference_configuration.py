@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#InferenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.non_empty_string_list
 
 
-class InferenceConfiguration(TypedDict):
+class InferenceConfiguration(TypedDict, closed=True):
     max_tokens: NotRequired["int"]
     """<p> The maximum number of tokens to generate in the model response during evaluation. </p>"""
     temperature: NotRequired["float"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#CreateMeetingDialOutRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.join_token_string
 
 
-class CreateMeetingDialOutRequest(TypedDict):
+class CreateMeetingDialOutRequest(TypedDict, closed=True):
     meeting_id: "aws_sdk_chime.types.guid_string.GuidString"
     """<p>The Amazon Chime SDK meeting ID.</p>"""
     from_phone_number: "aws_sdk_chime.types.e164_phone_number.E164PhoneNumber"

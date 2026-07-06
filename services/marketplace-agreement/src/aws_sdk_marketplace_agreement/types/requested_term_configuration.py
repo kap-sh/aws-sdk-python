@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#RequestedTermConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import (
     DeserializationError,
@@ -14,16 +16,18 @@ if TYPE_CHECKING:
 
 
 class _RequestedTermConfiguration_configurableUpfrontPricingTermConfiguration(
-    TypedDict
+    TypedDict, closed=True
 ):
     configurableUpfrontPricingTermConfiguration: "aws_sdk_marketplace_agreement.types.configurable_upfront_pricing_term_configuration.ConfigurableUpfrontPricingTermConfiguration"
 
 
-class _RequestedTermConfiguration_renewalTermConfiguration(TypedDict):
+class _RequestedTermConfiguration_renewalTermConfiguration(TypedDict, closed=True):
     renewalTermConfiguration: "aws_sdk_marketplace_agreement.types.renewal_term_configuration.RenewalTermConfiguration"
 
 
-class _RequestedTermConfiguration_variablePaymentTermConfiguration(TypedDict):
+class _RequestedTermConfiguration_variablePaymentTermConfiguration(
+    TypedDict, closed=True
+):
     variablePaymentTermConfiguration: "aws_sdk_marketplace_agreement.types.variable_payment_term_configuration.VariablePaymentTermConfiguration"
 
 

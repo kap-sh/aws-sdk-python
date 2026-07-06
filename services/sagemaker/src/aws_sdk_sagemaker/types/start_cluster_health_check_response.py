@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StartClusterHealthCheckResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cluster_arn
 
 
-class StartClusterHealthCheckResponse(TypedDict):
+class StartClusterHealthCheckResponse(TypedDict, closed=True):
     cluster_arn: "aws_sdk_sagemaker.types.cluster_arn.ClusterArn"
     """<p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster on which the deep health checks were initiated.</p>"""
 

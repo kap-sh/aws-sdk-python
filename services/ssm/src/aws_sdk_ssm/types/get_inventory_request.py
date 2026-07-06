@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetInventoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_aggregator_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.result_attribute_list
 
 
-class GetInventoryRequest(TypedDict):
+class GetInventoryRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_ssm.types.inventory_filter_list.InventoryFilterList"]
     """<p>One or more filters. Use a filter to return a more specific list of results.</p>"""
     aggregators: NotRequired[

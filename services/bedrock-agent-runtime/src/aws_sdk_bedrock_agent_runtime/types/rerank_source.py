@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RerankSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.rerank_source_type
 
 
-class RerankSource(TypedDict):
+class RerankSource(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent_runtime.types.rerank_source_type.RerankSourceType"
     """<p>The type of the source.</p>"""
     inline_document_source: (

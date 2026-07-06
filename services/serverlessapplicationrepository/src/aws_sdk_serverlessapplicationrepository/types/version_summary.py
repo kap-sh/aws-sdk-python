@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#VersionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class VersionSummary(TypedDict):
+class VersionSummary(TypedDict, closed=True):
     application_id: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

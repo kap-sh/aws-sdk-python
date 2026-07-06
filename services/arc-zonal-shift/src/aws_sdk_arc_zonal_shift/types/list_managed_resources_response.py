@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#ListManagedResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_zonal_shift.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_zonal_shift.types.managed_resource_summaries
 
 
-class ListManagedResourcesResponse(TypedDict):
+class ListManagedResourcesResponse(TypedDict, closed=True):
     items: "aws_sdk_arc_zonal_shift.types.managed_resource_summaries.ManagedResourceSummaries"
     """<p>The items in the response list.</p>"""
     next_token: NotRequired["str"]

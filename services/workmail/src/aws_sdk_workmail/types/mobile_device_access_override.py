@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#MobileDeviceAccessOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.device_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.work_mail_identifier
 
 
-class MobileDeviceAccessOverride(TypedDict):
+class MobileDeviceAccessOverride(TypedDict, closed=True):
     user_id: NotRequired[
         "aws_sdk_workmail.types.work_mail_identifier.WorkMailIdentifier"
     ]

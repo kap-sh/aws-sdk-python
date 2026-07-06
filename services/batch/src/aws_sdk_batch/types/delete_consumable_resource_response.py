@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteConsumableResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteConsumableResourceResponse(TypedDict):
+class DeleteConsumableResourceResponse(TypedDict, closed=True):
     pass
 
 

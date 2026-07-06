@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#BatchAssociateClientDeviceWithCoreDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.associate_client_device_with_core_device_entry_list
     import aws_sdk_greengrassv2.types.io_t_thing_name
 
 
-class BatchAssociateClientDeviceWithCoreDeviceRequest(TypedDict):
+class BatchAssociateClientDeviceWithCoreDeviceRequest(TypedDict, closed=True):
     entries: NotRequired[
         "aws_sdk_greengrassv2.types.associate_client_device_with_core_device_entry_list.AssociateClientDeviceWithCoreDeviceEntryList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#StageExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.stage_execution_status
 
 
-class StageExecution(TypedDict):
+class StageExecution(TypedDict, closed=True):
     pipeline_execution_id: (
         "aws_sdk_codepipeline.types.pipeline_execution_id.PipelineExecutionId"
     )

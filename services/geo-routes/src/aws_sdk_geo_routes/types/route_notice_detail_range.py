@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteNoticeDetailRange``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RouteNoticeDetailRange(TypedDict):
+class RouteNoticeDetailRange(TypedDict, closed=True):
     min: NotRequired["int"]
     """<p>Minimum value for the range.</p>"""
     max: NotRequired["int"]

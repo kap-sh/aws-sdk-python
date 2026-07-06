@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntime#ModelError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_runtime.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime.types.status_code
 
 
-class ModelError_(TypedDict):
+class ModelError_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_sagemaker_runtime.types.message.Message"]
     original_status_code: NotRequired[
         "aws_sdk_sagemaker_runtime.types.status_code.StatusCode"

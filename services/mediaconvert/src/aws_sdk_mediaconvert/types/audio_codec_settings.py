@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AudioCodecSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.aac_settings
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.wav_settings
 
 
-class AudioCodecSettings(TypedDict):
+class AudioCodecSettings(TypedDict, closed=True):
     aac_settings: NotRequired["aws_sdk_mediaconvert.types.aac_settings.AacSettings"]
     r"""Required when you set Codec to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode to \"VBR\" or \"CBR\". In VBR mode, you control the audio quality with the setting VBR quality. In CBR mode, you use the setting Bitrate. Defaults and valid values depend on the rate control mode."""
     ac3_settings: NotRequired["aws_sdk_mediaconvert.types.ac3_settings.Ac3Settings"]

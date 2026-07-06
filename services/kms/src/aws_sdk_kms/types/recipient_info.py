@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#RecipientInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.attestation_document_type
     import aws_sdk_kms.types.key_encryption_mechanism
 
 
-class RecipientInfo(TypedDict):
+class RecipientInfo(TypedDict, closed=True):
     key_encryption_algorithm: NotRequired[
         "aws_sdk_kms.types.key_encryption_mechanism.KeyEncryptionMechanism"
     ]

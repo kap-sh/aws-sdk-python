@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ABTestResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluator_metric_list
 
 
-class ABTestResults(TypedDict):
+class ABTestResults(TypedDict, closed=True):
     analysis_timestamp: NotRequired["datetime.datetime"]
     """<p>The timestamp when the analysis was performed.</p>"""
     evaluator_metrics: (

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeLine``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
 
-class CodeLine(TypedDict):
+class CodeLine(TypedDict, closed=True):
     content: "str"
     """<p>The content of a line of code</p>"""
     line_number: "int"

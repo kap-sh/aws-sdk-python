@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#GetLensReviewReportOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_review_report
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class GetLensReviewReportOutput(TypedDict):
+class GetLensReviewReportOutput(TypedDict, closed=True):
     workload_id: NotRequired["aws_sdk_wellarchitected.types.workload_id.WorkloadId"]
     milestone_number: NotRequired[
         "aws_sdk_wellarchitected.types.milestone_number.MilestoneNumber"

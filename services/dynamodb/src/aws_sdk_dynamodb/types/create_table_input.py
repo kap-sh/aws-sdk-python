@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#CreateTableInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.warm_throughput
 
 
-class CreateTableInput(TypedDict):
+class CreateTableInput(TypedDict, closed=True):
     attribute_definitions: NotRequired[
         "aws_sdk_dynamodb.types.attribute_definitions.AttributeDefinitions"
     ]

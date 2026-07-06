@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#DescribeSecurityConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.security_configuration
 
 
-class DescribeSecurityConfigurationResponse(TypedDict):
+class DescribeSecurityConfigurationResponse(TypedDict, closed=True):
     security_configuration: NotRequired[
         "aws_sdk_emr_containers.types.security_configuration.SecurityConfiguration"
     ]

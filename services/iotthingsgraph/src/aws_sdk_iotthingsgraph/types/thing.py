@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#Thing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.thing_arn
     import aws_sdk_iotthingsgraph.types.thing_name
 
 
-class Thing(TypedDict):
+class Thing(TypedDict, closed=True):
     thing_arn: NotRequired["aws_sdk_iotthingsgraph.types.thing_arn.ThingArn"]
     """<p>The ARN of the thing.</p>"""
     thing_name: NotRequired["aws_sdk_iotthingsgraph.types.thing_name.ThingName"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DisasterRecoverySource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.entity_name
     import aws_sdk_resiliencehubv2.types.policy_value_source
 
 
-class DisasterRecoverySource(TypedDict):
+class DisasterRecoverySource(TypedDict, closed=True):
     value: NotRequired["str"]
     """<p>The disaster recovery approach value.</p>"""
     policy_name: NotRequired["aws_sdk_resiliencehubv2.types.entity_name.EntityName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeploymentEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.action_invocations
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.triggered_by
 
 
-class DeploymentEvent(TypedDict):
+class DeploymentEvent(TypedDict, closed=True):
     event_type: NotRequired[
         "aws_sdk_appconfig.types.deployment_event_type.DeploymentEventType"
     ]

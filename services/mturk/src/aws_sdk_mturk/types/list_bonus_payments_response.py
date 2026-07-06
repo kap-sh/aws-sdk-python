@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListBonusPaymentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.bonus_payment_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.pagination_token
 
 
-class ListBonusPaymentsResponse(TypedDict):
+class ListBonusPaymentsResponse(TypedDict, closed=True):
     num_results: NotRequired["aws_sdk_mturk.types.integer.Integer"]
     """<p>The number of bonus payments on this page in the filtered results list, equivalent to the number of bonus payments being returned by this call. </p>"""
     next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]

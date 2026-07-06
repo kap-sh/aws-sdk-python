@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultRelativeDateTimeControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.commit_mode
     import aws_sdk_quicksight.types.relative_date_time_control_display_options
 
 
-class DefaultRelativeDateTimeControlOptions(TypedDict):
+class DefaultRelativeDateTimeControlOptions(TypedDict, closed=True):
     display_options: NotRequired[
         "aws_sdk_quicksight.types.relative_date_time_control_display_options.RelativeDateTimeControlDisplayOptions"
     ]

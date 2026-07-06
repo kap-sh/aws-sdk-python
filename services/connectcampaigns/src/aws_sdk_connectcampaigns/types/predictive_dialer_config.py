@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#PredictiveDialerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.dialing_capacity
 
 
-class PredictiveDialerConfig(TypedDict):
+class PredictiveDialerConfig(TypedDict, closed=True):
     bandwidth_allocation: (
         "aws_sdk_connectcampaigns.types.bandwidth_allocation.BandwidthAllocation"
     )

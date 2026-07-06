@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ListAliasesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.key_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.next_token
 
 
-class ListAliasesInput(TypedDict):
+class ListAliasesInput(TypedDict, closed=True):
     key_arn: NotRequired["aws_sdk_payment_cryptography.types.key_arn.KeyArn"]
     """<p>The <code>keyARN</code> for which you want to list all aliases.</p>"""
     next_token: NotRequired["aws_sdk_payment_cryptography.types.next_token.NextToken"]

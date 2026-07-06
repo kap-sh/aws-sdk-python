@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3Target``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connection_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.path_list
 
 
-class S3Target(TypedDict):
+class S3Target(TypedDict, closed=True):
     path: NotRequired["aws_sdk_glue.types.path.Path"]
     """<p>The path to the Amazon S3 target.</p>"""
     exclusions: NotRequired["aws_sdk_glue.types.path_list.PathList"]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeRestoreJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.restore_job_id
 
 
-class DescribeRestoreJobInput(TypedDict):
+class DescribeRestoreJobInput(TypedDict, closed=True):
     restore_job_id: "aws_sdk_backup.types.restore_job_id.RestoreJobId"
     """<p>Uniquely identifies the job that restores a recovery point.</p>"""
 

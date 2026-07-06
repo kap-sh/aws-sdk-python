@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#KnowledgeBaseConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.retrieve_config
 
 
-class _KnowledgeBaseConfig_retrieveConfig(TypedDict):
+class _KnowledgeBaseConfig_retrieveConfig(TypedDict, closed=True):
     retrieveConfig: "aws_sdk_bedrock.types.retrieve_config.RetrieveConfig"
 
 
-class _KnowledgeBaseConfig_retrieveAndGenerateConfig(TypedDict):
+class _KnowledgeBaseConfig_retrieveAndGenerateConfig(TypedDict, closed=True):
     retrieveAndGenerateConfig: "aws_sdk_bedrock.types.retrieve_and_generate_configuration.RetrieveAndGenerateConfiguration"
 
 

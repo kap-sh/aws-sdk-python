@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#SourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.selected_video_streams
 
 
-class SourceConfiguration(TypedDict):
+class SourceConfiguration(TypedDict, closed=True):
     selected_video_streams: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.selected_video_streams.SelectedVideoStreams"
     ]

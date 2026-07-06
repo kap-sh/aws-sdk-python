@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DisassociateAgentCollaboratorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.draft_version
     import aws_sdk_bedrock_agent.types.id
 
 
-class DisassociateAgentCollaboratorRequest(TypedDict):
+class DisassociateAgentCollaboratorRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>An agent ID.</p>"""
     agent_version: "aws_sdk_bedrock_agent.types.draft_version.DraftVersion"

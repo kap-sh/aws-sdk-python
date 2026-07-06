@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ChangeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.time_stamp
 
 
-class ChangeInfo(TypedDict):
+class ChangeInfo(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.resource_id.ResourceId"
     r"""<p>This element contains an ID that you use when performing a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html\">GetChange</a> action to get detailed information about the change.</p>"""
     status: "aws_sdk_route_53.types.change_status.ChangeStatus"

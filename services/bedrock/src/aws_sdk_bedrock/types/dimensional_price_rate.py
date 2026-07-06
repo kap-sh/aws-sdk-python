@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DimensionalPriceRate``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DimensionalPriceRate(TypedDict):
+class DimensionalPriceRate(TypedDict, closed=True):
     dimension: NotRequired["str"]
     """<p>Dimension for the price rate.</p>"""
     price: NotRequired["str"]

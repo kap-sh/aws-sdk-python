@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.tag_map
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_controltower.types.arn.Arn"
     """<p>The ARN of the resource to be tagged.</p>"""
     tags: "aws_sdk_controltower.types.tag_map.TagMap"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeAnomalyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.proactive_anomaly
     import aws_sdk_devops_guru.types.reactive_anomaly
 
 
-class DescribeAnomalyResponse(TypedDict):
+class DescribeAnomalyResponse(TypedDict, closed=True):
     proactive_anomaly: NotRequired[
         "aws_sdk_devops_guru.types.proactive_anomaly.ProactiveAnomaly"
     ]

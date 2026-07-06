@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ReferenceOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class ReferenceOutput(TypedDict):
+class ReferenceOutput(TypedDict, closed=True):
     system: "str"
     """<p>The name of the external system</p>"""
     title: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#AuditLogProcessingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.schema
 
 
-class AuditLogProcessingConfiguration(TypedDict):
+class AuditLogProcessingConfiguration(TypedDict, closed=True):
     schema: "aws_sdk_appfabric.types.schema.Schema"
     """<p>The event schema in which the audit logs need to be formatted.</p>"""
     format: "aws_sdk_appfabric.types.format.Format"

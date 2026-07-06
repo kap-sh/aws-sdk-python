@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#PutRegistryCatalogDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr_public.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.registry_catalog_data
 
 
-class PutRegistryCatalogDataResponse(TypedDict):
+class PutRegistryCatalogDataResponse(TypedDict, closed=True):
     registry_catalog_data: (
         "aws_sdk_ecr_public.types.registry_catalog_data.RegistryCatalogData"
     )

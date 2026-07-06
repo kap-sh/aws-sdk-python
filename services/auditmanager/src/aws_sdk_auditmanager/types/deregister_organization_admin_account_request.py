@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeregisterOrganizationAdminAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_id
 
 
-class DeregisterOrganizationAdminAccountRequest(TypedDict):
+class DeregisterOrganizationAdminAccountRequest(TypedDict, closed=True):
     admin_account_id: NotRequired["aws_sdk_auditmanager.types.account_id.AccountId"]
     """<p> The identifier for the administrator account. </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateDatasetExportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class CreateDatasetExportJobResponse(TypedDict):
+class CreateDatasetExportJobResponse(TypedDict, closed=True):
     dataset_export_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the dataset export job.</p>"""
 

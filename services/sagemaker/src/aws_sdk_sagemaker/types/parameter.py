@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Parameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.pipeline_parameter_name
     import aws_sdk_sagemaker.types.string1024
 
 
-class Parameter(TypedDict):
+class Parameter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_sagemaker.types.pipeline_parameter_name.PipelineParameterName"
     ]

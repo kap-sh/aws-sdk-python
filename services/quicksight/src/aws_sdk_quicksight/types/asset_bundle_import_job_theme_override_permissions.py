@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobThemeOverridePermissions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.asset_bundle_restrictive_resource_id_list
 
 
-class AssetBundleImportJobThemeOverridePermissions(TypedDict):
+class AssetBundleImportJobThemeOverridePermissions(TypedDict, closed=True):
     theme_ids: "aws_sdk_quicksight.types.asset_bundle_restrictive_resource_id_list.AssetBundleRestrictiveResourceIdList"
     """<p>A list of theme IDs that you want to apply overrides to. You can use <code>*</code> to override all themes in this asset bundle.</p>"""
     permissions: "aws_sdk_quicksight.types.asset_bundle_resource_permissions.AssetBundleResourcePermissions"

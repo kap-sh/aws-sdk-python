@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ReportOutput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.s3_report_output
 
 
-class _ReportOutput_s3ReportOutput(TypedDict):
+class _ReportOutput_s3ReportOutput(TypedDict, closed=True):
     s3ReportOutput: "aws_sdk_arc_region_switch.types.s3_report_output.S3ReportOutput"
 
 
-class _ReportOutput_failedReportOutput(TypedDict):
+class _ReportOutput_failedReportOutput(TypedDict, closed=True):
     failedReportOutput: (
         "aws_sdk_arc_region_switch.types.failed_report_output.FailedReportOutput"
     )

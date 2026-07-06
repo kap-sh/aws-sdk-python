@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DeleteImageRecipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_recipe_arn
 
 
-class DeleteImageRecipeRequest(TypedDict):
+class DeleteImageRecipeRequest(TypedDict, closed=True):
     image_recipe_arn: "aws_sdk_imagebuilder.types.image_recipe_arn.ImageRecipeArn"
     """<p>The Amazon Resource Name (ARN) of the image recipe to delete.</p>"""
 

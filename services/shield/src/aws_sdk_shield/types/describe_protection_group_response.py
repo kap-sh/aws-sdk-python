@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DescribeProtectionGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_group
 
 
-class DescribeProtectionGroupResponse(TypedDict):
+class DescribeProtectionGroupResponse(TypedDict, closed=True):
     protection_group: "aws_sdk_shield.types.protection_group.ProtectionGroup"
     """<p>A grouping of protected resources that you and Shield Advanced can monitor as a collective. This resource grouping improves the accuracy of detection and reduces false positives. </p>"""
 

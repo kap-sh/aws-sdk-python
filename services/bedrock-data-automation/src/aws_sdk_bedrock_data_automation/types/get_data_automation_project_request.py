@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetDataAutomationProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.data_automation_project_arn
     import aws_sdk_bedrock_data_automation.types.data_automation_project_stage
 
 
-class GetDataAutomationProjectRequest(TypedDict):
+class GetDataAutomationProjectRequest(TypedDict, closed=True):
     project_arn: "aws_sdk_bedrock_data_automation.types.data_automation_project_arn.DataAutomationProjectArn"
     """ARN generated at the server side when a DataAutomationProject is created"""
     project_stage: NotRequired[

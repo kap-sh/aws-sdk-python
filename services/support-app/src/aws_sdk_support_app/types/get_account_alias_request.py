@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#GetAccountAliasRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountAliasRequest(TypedDict):
+class GetAccountAliasRequest(TypedDict, closed=True):
     pass
 
 

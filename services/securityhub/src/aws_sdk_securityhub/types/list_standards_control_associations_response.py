@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListStandardsControlAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
     import aws_sdk_securityhub.types.standards_control_association_summaries
 
 
-class ListStandardsControlAssociationsResponse(TypedDict):
+class ListStandardsControlAssociationsResponse(TypedDict, closed=True):
     standards_control_association_summaries: NotRequired[
         "aws_sdk_securityhub.types.standards_control_association_summaries.StandardsControlAssociationSummaries"
     ]

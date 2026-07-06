@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#NotificationProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.notify_delay_after
 
 
-class NotificationProperty(TypedDict):
+class NotificationProperty(TypedDict, closed=True):
     notify_delay_after: NotRequired[
         "aws_sdk_glue.types.notify_delay_after.NotifyDelayAfter"
     ]

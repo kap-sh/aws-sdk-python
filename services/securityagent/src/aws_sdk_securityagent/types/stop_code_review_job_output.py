@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#StopCodeReviewJobOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopCodeReviewJobOutput(TypedDict):
+class StopCodeReviewJobOutput(TypedDict, closed=True):
     pass
 
 

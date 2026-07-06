@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#UpdateStreamWarmThroughputOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.warm_throughput_object
 
 
-class UpdateStreamWarmThroughputOutput(TypedDict):
+class UpdateStreamWarmThroughputOutput(TypedDict, closed=True):
     stream_arn: NotRequired["aws_sdk_kinesis.types.stream_arn.StreamARN"]
     """<p>The ARN of the stream that was updated.</p>"""
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#TextEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 from aws_sdk_polly.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.text_type
 
 
-class TextEvent(TypedDict):
+class TextEvent(TypedDict, closed=True):
     text: "aws_sdk_polly.types.text.Text"
     """<p>The text content to synthesize. If you specify <code>ssml</code> as the <code>TextType</code>, follow the SSML format for the input text.</p>"""
     text_type: NotRequired["aws_sdk_polly.types.text_type.TextType"]

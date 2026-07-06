@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StopTargetedSentimentDetectionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.job_id
     import aws_sdk_comprehend.types.job_status
 
 
-class StopTargetedSentimentDetectionJobResponse(TypedDict):
+class StopTargetedSentimentDetectionJobResponse(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_comprehend.types.job_id.JobId"]
     """<p>The identifier of the targeted sentiment detection job to stop.</p>"""
     job_status: NotRequired["aws_sdk_comprehend.types.job_status.JobStatus"]

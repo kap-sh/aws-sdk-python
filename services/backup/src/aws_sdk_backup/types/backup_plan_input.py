@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.scan_settings
 
 
-class BackupPlanInput(TypedDict):
+class BackupPlanInput(TypedDict, closed=True):
     backup_plan_name: "aws_sdk_backup.types.backup_plan_name.BackupPlanName"
     """<p>The display name of a backup plan. Must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
     rules: "aws_sdk_backup.types.backup_rules_input.BackupRulesInput"

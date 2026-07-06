@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeleteOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
     import aws_sdk_workmail.types.string
 
 
-class DeleteOrganizationResponse(TypedDict):
+class DeleteOrganizationResponse(TypedDict, closed=True):
     organization_id: NotRequired[
         "aws_sdk_workmail.types.organization_id.OrganizationId"
     ]

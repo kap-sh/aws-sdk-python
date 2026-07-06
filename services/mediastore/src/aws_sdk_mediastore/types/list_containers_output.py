@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#ListContainersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.pagination_token
 
 
-class ListContainersOutput(TypedDict):
+class ListContainersOutput(TypedDict, closed=True):
     containers: "aws_sdk_mediastore.types.container_list.ContainerList"
     """<p>The names of the containers.</p>"""
     next_token: NotRequired["aws_sdk_mediastore.types.pagination_token.PaginationToken"]

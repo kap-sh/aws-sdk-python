@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#RemoveAttributesFromFindingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.failed_items
 
 
-class RemoveAttributesFromFindingsResponse(TypedDict):
+class RemoveAttributesFromFindingsResponse(TypedDict, closed=True):
     failed_items: "aws_sdk_inspector.types.failed_items.FailedItems"
     """<p>Attributes details that cannot be described. An error code is provided for each failed item.</p>"""
 

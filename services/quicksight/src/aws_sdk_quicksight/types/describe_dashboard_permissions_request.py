@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeDashboardPermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.short_restrictive_resource_id
 
 
-class DescribeDashboardPermissionsRequest(TypedDict):
+class DescribeDashboardPermissionsRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the dashboard that you're describing permissions for.</p>"""
     dashboard_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"

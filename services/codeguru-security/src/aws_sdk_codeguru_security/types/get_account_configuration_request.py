@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#GetAccountConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountConfigurationRequest(TypedDict):
+class GetAccountConfigurationRequest(TypedDict, closed=True):
     pass
 
 

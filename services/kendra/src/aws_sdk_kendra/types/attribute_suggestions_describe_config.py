@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#AttributeSuggestionsDescribeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.attribute_suggestions_mode
     import aws_sdk_kendra.types.suggestable_config_list
 
 
-class AttributeSuggestionsDescribeConfig(TypedDict):
+class AttributeSuggestionsDescribeConfig(TypedDict, closed=True):
     suggestable_config_list: NotRequired[
         "aws_sdk_kendra.types.suggestable_config_list.SuggestableConfigList"
     ]

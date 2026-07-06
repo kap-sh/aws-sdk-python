@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeFlywheelIterationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.flywheel_iteration_id
 
 
-class DescribeFlywheelIterationRequest(TypedDict):
+class DescribeFlywheelIterationRequest(TypedDict, closed=True):
     flywheel_arn: (
         "aws_sdk_comprehend.types.comprehend_flywheel_arn.ComprehendFlywheelArn"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CustomizedMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.statistic
     import aws_sdk_sagemaker.types.string
 
 
-class CustomizedMetricSpecification(TypedDict):
+class CustomizedMetricSpecification(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The name of the customized metric.</p>"""
     namespace: NotRequired["aws_sdk_sagemaker.types.string.String"]

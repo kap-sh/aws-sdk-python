@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ServiceNowParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.site_base_url
 
 
-class ServiceNowParameters(TypedDict):
+class ServiceNowParameters(TypedDict, closed=True):
     site_base_url: "aws_sdk_quicksight.types.site_base_url.SiteBaseUrl"
     """<p>URL of the base site.</p>"""
 

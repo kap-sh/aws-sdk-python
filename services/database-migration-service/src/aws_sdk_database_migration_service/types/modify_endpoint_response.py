@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ModifyEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.endpoint
 
 
-class ModifyEndpointResponse(TypedDict):
+class ModifyEndpointResponse(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_database_migration_service.types.endpoint.Endpoint"]
     """<p>The modified endpoint.</p>"""
 

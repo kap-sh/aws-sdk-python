@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.taggable_resource_type
 
 
-class DescribeTagsInput(TypedDict):
+class DescribeTagsInput(TypedDict, closed=True):
     resource_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>The ID of the ML object. For example, <code>exampleModelId</code>. </p>"""
     resource_type: (

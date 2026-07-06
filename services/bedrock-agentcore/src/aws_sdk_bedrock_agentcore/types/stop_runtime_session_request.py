@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StopRuntimeSessionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.client_token
     import aws_sdk_bedrock_agentcore.types.session_type
 
 
-class StopRuntimeSessionRequest(TypedDict):
+class StopRuntimeSessionRequest(TypedDict, closed=True):
     runtime_session_id: "aws_sdk_bedrock_agentcore.types.session_type.SessionType"
     """<p>The ID of the session that you want to stop.</p>"""
     agent_runtime_arn: "str"

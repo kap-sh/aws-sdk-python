@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateFlowEntitlementRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.update_encryption
 
 
-class UpdateFlowEntitlementRequest(TypedDict):
+class UpdateFlowEntitlementRequest(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p> A description of the entitlement. This description appears only on the MediaConnect console and will not be seen by the subscriber or end user.</p>"""
     encryption: NotRequired[

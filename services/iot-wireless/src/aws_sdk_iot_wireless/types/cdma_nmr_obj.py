@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#CdmaNmrObj``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.pn_offset
 
 
-class CdmaNmrObj(TypedDict):
+class CdmaNmrObj(TypedDict, closed=True):
     pn_offset: "aws_sdk_iot_wireless.types.pn_offset.PnOffset"
     """<p>Pseudo-noise offset, which is a characteristic of the signal from a cell on a radio tower.</p>"""
     cdma_channel: "aws_sdk_iot_wireless.types.cdma_channel.CdmaChannel"

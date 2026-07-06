@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DescribeConfigurationSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.configuration_set_name
 
 
-class DescribeConfigurationSetRequest(TypedDict):
+class DescribeConfigurationSetRequest(TypedDict, closed=True):
     configuration_set_name: (
         "aws_sdk_ses.types.configuration_set_name.ConfigurationSetName"
     )

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     quota_name: NotRequired["str"]
     """The name of the service quota limit that was exceeded"""

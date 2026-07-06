@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Cell``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__long
     import aws_sdk_macie2.types.__string
 
 
-class Cell(TypedDict):
+class Cell(TypedDict, closed=True):
     cell_reference: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The location of the cell, as an absolute cell reference, that contains the sensitive data, for example Sheet2!C5 for cell C5 on Sheet2 in a Microsoft Excel workbook. This value is null for CSV and TSV files.</p>"""
     column: NotRequired["aws_sdk_macie2.types.__long.__long"]

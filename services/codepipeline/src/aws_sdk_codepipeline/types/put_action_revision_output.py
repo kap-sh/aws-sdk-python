@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PutActionRevisionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.boolean
     import aws_sdk_codepipeline.types.pipeline_execution_id
 
 
-class PutActionRevisionOutput(TypedDict):
+class PutActionRevisionOutput(TypedDict, closed=True):
     new_revision: "aws_sdk_codepipeline.types.boolean.Boolean"
     """<p>Indicates whether the artifact revision was previously used in an execution of the specified pipeline.</p>"""
     pipeline_execution_id: NotRequired[

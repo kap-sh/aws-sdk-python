@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetIdMappingTableInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_identifier
     import aws_sdk_cleanrooms.types.uuid
 
 
-class GetIdMappingTableInput(TypedDict):
+class GetIdMappingTableInput(TypedDict, closed=True):
     id_mapping_table_identifier: "aws_sdk_cleanrooms.types.uuid.UUID"
     """<p>The unique identifier of the ID mapping table identifier that you want to retrieve.</p>"""
     membership_identifier: (

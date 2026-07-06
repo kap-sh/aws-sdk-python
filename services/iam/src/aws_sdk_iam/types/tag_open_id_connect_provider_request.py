@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#TagOpenIDConnectProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_list_type
 
 
-class TagOpenIDConnectProviderRequest(TypedDict):
+class TagOpenIDConnectProviderRequest(TypedDict, closed=True):
     open_id_connect_provider_arn: "aws_sdk_iam.types.arn_type.arnType"
     r"""<p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tags: "aws_sdk_iam.types.tag_list_type.tagListType"

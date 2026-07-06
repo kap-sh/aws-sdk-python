@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeleteParametersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameter_name_list
 
 
-class DeleteParametersResult(TypedDict):
+class DeleteParametersResult(TypedDict, closed=True):
     deleted_parameters: NotRequired[
         "aws_sdk_ssm.types.parameter_name_list.ParameterNameList"
     ]

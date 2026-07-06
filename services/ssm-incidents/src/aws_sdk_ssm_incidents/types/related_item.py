@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#RelatedItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.item_identifier
 
 
-class RelatedItem(TypedDict):
+class RelatedItem(TypedDict, closed=True):
     identifier: "aws_sdk_ssm_incidents.types.item_identifier.ItemIdentifier"
     """<p>Details about the related item.</p>"""
     title: NotRequired["str"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteMatrixVehicleLicensePlate``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RouteMatrixVehicleLicensePlate(TypedDict):
+class RouteMatrixVehicleLicensePlate(TypedDict, closed=True):
     last_character: NotRequired["str"]
     """<p>The last character of the License Plate.</p>"""
 

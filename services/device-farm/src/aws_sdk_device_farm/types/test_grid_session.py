@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#TestGridSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_session_status
 
 
-class TestGridSession(TypedDict):
+class TestGridSession(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_device_farm.types.device_farm_arn.DeviceFarmArn"]
     """<p>The ARN of the session.</p>"""
     status: NotRequired[

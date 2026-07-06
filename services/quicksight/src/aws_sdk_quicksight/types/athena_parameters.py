@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AthenaParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.identity_center_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.work_group
 
 
-class AthenaParameters(TypedDict):
+class AthenaParameters(TypedDict, closed=True):
     work_group: NotRequired["aws_sdk_quicksight.types.work_group.WorkGroup"]
     """<p>The workgroup that Amazon Athena uses.</p>"""
     role_arn: NotRequired["aws_sdk_quicksight.types.role_arn.RoleArn"]

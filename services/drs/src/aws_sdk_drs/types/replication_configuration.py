@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ReplicationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class ReplicationConfiguration(TypedDict):
+class ReplicationConfiguration(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_drs.types.source_server_id.SourceServerID"]
     """<p>The ID of the Source Server for this Replication Configuration.</p>"""
     name: NotRequired["aws_sdk_drs.types.small_bounded_string.SmallBoundedString"]

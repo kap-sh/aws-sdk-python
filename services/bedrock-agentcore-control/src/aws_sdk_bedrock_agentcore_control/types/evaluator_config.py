@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EvaluatorConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.llm_as_a_judge_evaluator_config
 
 
-class _EvaluatorConfig_llmAsAJudge(TypedDict):
+class _EvaluatorConfig_llmAsAJudge(TypedDict, closed=True):
     llmAsAJudge: "aws_sdk_bedrock_agentcore_control.types.llm_as_a_judge_evaluator_config.LlmAsAJudgeEvaluatorConfig"
 
 
-class _EvaluatorConfig_codeBased(TypedDict):
+class _EvaluatorConfig_codeBased(TypedDict, closed=True):
     codeBased: "aws_sdk_bedrock_agentcore_control.types.code_based_evaluator_config.CodeBasedEvaluatorConfig"
 
 

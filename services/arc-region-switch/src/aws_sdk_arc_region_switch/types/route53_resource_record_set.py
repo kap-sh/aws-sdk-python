@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Route53ResourceRecordSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.region
     import aws_sdk_arc_region_switch.types.route53_resource_record_set_identifier
 
 
-class Route53ResourceRecordSet(TypedDict):
+class Route53ResourceRecordSet(TypedDict, closed=True):
     record_set_identifier: NotRequired[
         "aws_sdk_arc_region_switch.types.route53_resource_record_set_identifier.Route53ResourceRecordSetIdentifier"
     ]

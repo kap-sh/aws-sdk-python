@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdNamespaceAssociationInputReferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_namespace_association_input_reference_arn
 
 
-class IdNamespaceAssociationInputReferenceConfig(TypedDict):
+class IdNamespaceAssociationInputReferenceConfig(TypedDict, closed=True):
     input_reference_arn: "aws_sdk_cleanrooms.types.id_namespace_association_input_reference_arn.IdNamespaceAssociationInputReferenceArn"
     """<p>The Amazon Resource Name (ARN) of the Entity Resolution resource that is being associated to the collaboration. Valid resource ARNs are from the ID namespaces that you own.</p>"""
     manage_resource_policies: "bool"

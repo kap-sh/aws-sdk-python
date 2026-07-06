@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspacesstreams.errors import ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The request was denied due to request throttling. Reduce the frequency of requests and try again.</p>"""
 

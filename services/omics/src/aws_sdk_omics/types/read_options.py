@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReadOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.comment_char
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.separator
 
 
-class ReadOptions(TypedDict):
+class ReadOptions(TypedDict, closed=True):
     sep: NotRequired["aws_sdk_omics.types.separator.Separator"]
     """<p>The file's field separator.</p>"""
     encoding: NotRequired["aws_sdk_omics.types.encoding.Encoding"]

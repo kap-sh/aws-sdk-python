@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PurchaseScheduledInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class PurchaseScheduledInstancesRequest(TypedDict):
+class PurchaseScheduledInstancesRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\">Ensuring Idempotency</a>.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

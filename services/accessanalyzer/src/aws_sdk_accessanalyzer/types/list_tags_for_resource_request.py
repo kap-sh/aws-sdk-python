@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ListTagsForResourceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The ARN of the resource to retrieve tags from.</p>"""
 

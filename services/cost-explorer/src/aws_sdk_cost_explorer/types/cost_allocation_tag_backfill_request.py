@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostAllocationTagBackfillRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_allocation_tag_backfill_status
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class CostAllocationTagBackfillRequest(TypedDict):
+class CostAllocationTagBackfillRequest(TypedDict, closed=True):
     backfill_from: NotRequired[
         "aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"
     ]

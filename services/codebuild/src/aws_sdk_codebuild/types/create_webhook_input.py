@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#CreateWebhookInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class CreateWebhookInput(TypedDict):
+class CreateWebhookInput(TypedDict, closed=True):
     project_name: "aws_sdk_codebuild.types.project_name.ProjectName"
     """<p>The name of the CodeBuild project.</p>"""
     branch_filter: NotRequired["aws_sdk_codebuild.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#SearchJobBackupsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.search_job_state
 
 
-class SearchJobBackupsResult(TypedDict):
+class SearchJobBackupsResult(TypedDict, closed=True):
     status: NotRequired["aws_sdk_backupsearch.types.search_job_state.SearchJobState"]
     """<p>This is the status of the search job backup result.</p>"""
     status_message: NotRequired["str"]

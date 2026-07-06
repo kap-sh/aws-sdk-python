@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.action_on_failure
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class StepSummary(TypedDict):
+class StepSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_emr.types.step_id.StepId"]
     """<p>The identifier of the cluster step.</p>"""
     name: NotRequired["aws_sdk_emr.types.string.String"]

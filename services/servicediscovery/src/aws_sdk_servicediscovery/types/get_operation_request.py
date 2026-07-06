@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#GetOperationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_servicediscovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.operation_id
 
 
-class GetOperationRequest(TypedDict):
+class GetOperationRequest(TypedDict, closed=True):
     operation_id: "aws_sdk_servicediscovery.types.operation_id.OperationId"
     """<p>The ID of the operation that you want to get more information about.</p>"""
     owner_account: NotRequired[

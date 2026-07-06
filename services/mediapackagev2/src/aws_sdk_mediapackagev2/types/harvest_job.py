@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#HarvestJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.resource_name
 
 
-class HarvestJob(TypedDict):
+class HarvestJob(TypedDict, closed=True):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>The name of the channel group containing the channel associated with this harvest job.</p>"""
     channel_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"

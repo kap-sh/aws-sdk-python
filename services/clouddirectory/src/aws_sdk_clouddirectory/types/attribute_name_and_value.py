@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#AttributeNameAndValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.typed_attribute_value
 
 
-class AttributeNameAndValue(TypedDict):
+class AttributeNameAndValue(TypedDict, closed=True):
     attribute_name: "aws_sdk_clouddirectory.types.attribute_name.AttributeName"
     """<p>The attribute name of the typed link.</p>"""
     value: "aws_sdk_clouddirectory.types.typed_attribute_value.TypedAttributeValue"

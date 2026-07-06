@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#MediaSourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.media_uri_type
 
 
-class MediaSourceConfig(TypedDict):
+class MediaSourceConfig(TypedDict, closed=True):
     media_uri_secret_arn: (
         "aws_sdk_kinesis_video.types.media_uri_secret_arn.MediaUriSecretArn"
     )

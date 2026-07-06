@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#CustomerAgentlessCollectorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.integer
 
 
-class CustomerAgentlessCollectorInfo(TypedDict):
+class CustomerAgentlessCollectorInfo(TypedDict, closed=True):
     active_agentless_collectors: (
         "aws_sdk_application_discovery_service.types.integer.Integer"
     )

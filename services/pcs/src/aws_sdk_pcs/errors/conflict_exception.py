@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p> The unique identifier of the resource that caused the conflict exception. </p>"""

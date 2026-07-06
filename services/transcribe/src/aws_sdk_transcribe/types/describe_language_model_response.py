@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#DescribeLanguageModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.language_model
 
 
-class DescribeLanguageModelResponse(TypedDict):
+class DescribeLanguageModelResponse(TypedDict, closed=True):
     language_model: NotRequired["aws_sdk_transcribe.types.language_model.LanguageModel"]
     """<p>Provides information about the specified custom language model.</p> <p>This parameter also shows if the base language model you used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model.</p> <p>If you tried to create a new custom language model and the request wasn't successful, you can use this <code>DescribeLanguageModel</code> to help identify the reason for this failure.</p>"""
 

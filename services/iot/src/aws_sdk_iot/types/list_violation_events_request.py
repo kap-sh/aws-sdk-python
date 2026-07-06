@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListViolationEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.behavior_criteria_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.verification_state
 
 
-class ListViolationEventsRequest(TypedDict):
+class ListViolationEventsRequest(TypedDict, closed=True):
     start_time: "aws_sdk_iot.types.timestamp.Timestamp"
     """<p>The start time for the alerts to be listed.</p>"""
     end_time: "aws_sdk_iot.types.timestamp.Timestamp"

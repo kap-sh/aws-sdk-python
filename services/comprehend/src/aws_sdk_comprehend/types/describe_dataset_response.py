@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.dataset_properties
 
 
-class DescribeDatasetResponse(TypedDict):
+class DescribeDatasetResponse(TypedDict, closed=True):
     dataset_properties: NotRequired[
         "aws_sdk_comprehend.types.dataset_properties.DatasetProperties"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#DynamicCardVerificationValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.service_code_type
 
 
-class DynamicCardVerificationValue(TypedDict):
+class DynamicCardVerificationValue(TypedDict, closed=True):
     pan_sequence_number: "aws_sdk_payment_cryptography_data.types.number_length_equals2.NumberLengthEquals2"
     """<p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN).</p>"""
     card_expiry_date: "aws_sdk_payment_cryptography_data.types.card_expiry_date_type.CardExpiryDateType"

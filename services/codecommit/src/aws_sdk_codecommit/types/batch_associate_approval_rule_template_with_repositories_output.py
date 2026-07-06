@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchAssociateApprovalRuleTemplateWithRepositoriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name_list
 
 
-class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(TypedDict):
+class BatchAssociateApprovalRuleTemplateWithRepositoriesOutput(TypedDict, closed=True):
     associated_repository_names: (
         "aws_sdk_codecommit.types.repository_name_list.RepositoryNameList"
     )

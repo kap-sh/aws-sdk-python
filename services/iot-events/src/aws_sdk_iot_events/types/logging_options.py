@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#LoggingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.logging_level
 
 
-class LoggingOptions(TypedDict):
+class LoggingOptions(TypedDict, closed=True):
     role_arn: "aws_sdk_iot_events.types.amazon_resource_name.AmazonResourceName"
     """<p>The ARN of the role that grants permission to AWS IoT Events to perform logging.</p>"""
     level: "aws_sdk_iot_events.types.logging_level.LoggingLevel"

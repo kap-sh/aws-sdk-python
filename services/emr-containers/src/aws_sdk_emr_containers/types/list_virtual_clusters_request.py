@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ListVirtualClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.virtual_cluster_states
 
 
-class ListVirtualClustersRequest(TypedDict):
+class ListVirtualClustersRequest(TypedDict, closed=True):
     container_provider_id: NotRequired[
         "aws_sdk_emr_containers.types.string1024.String1024"
     ]

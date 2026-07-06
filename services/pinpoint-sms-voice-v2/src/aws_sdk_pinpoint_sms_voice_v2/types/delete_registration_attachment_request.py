@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteRegistrationAttachmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.registration_attachment_id_or_arn
 
 
-class DeleteRegistrationAttachmentRequest(TypedDict):
+class DeleteRegistrationAttachmentRequest(TypedDict, closed=True):
     registration_attachment_id: "aws_sdk_pinpoint_sms_voice_v2.types.registration_attachment_id_or_arn.RegistrationAttachmentIdOrArn"
     """<p>The unique identifier for the registration attachment.</p>"""
 

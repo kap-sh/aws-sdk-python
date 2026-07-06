@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#UplinkSpectrumConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.polarization
 
 
-class UplinkSpectrumConfig(TypedDict):
+class UplinkSpectrumConfig(TypedDict, closed=True):
     center_frequency: "aws_sdk_groundstation.types.frequency.Frequency"
     """<p>Center frequency of an uplink spectral <code>Config</code>. Valid values are between 2025 to 2120 MHz.</p>"""
     polarization: NotRequired["aws_sdk_groundstation.types.polarization.Polarization"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#CreateInputSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.input_source_id
 
 
-class CreateInputSourceResponse(TypedDict):
+class CreateInputSourceResponse(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     input_source_id: "aws_sdk_resiliencehubv2.types.input_source_id.InputSourceId"
     """<p>The unique identifier assigned to the created input source.</p>"""

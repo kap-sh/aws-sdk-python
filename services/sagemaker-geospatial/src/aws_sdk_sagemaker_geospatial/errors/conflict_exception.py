@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>Identifier of the resource affected.</p>"""

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetSlotTypeVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.slot_type_name
 
 
-class GetSlotTypeVersionsRequest(TypedDict):
+class GetSlotTypeVersionsRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.slot_type_name.SlotTypeName"
     """<p>The name of the slot type for which versions should be returned.</p>"""
     next_token: NotRequired[

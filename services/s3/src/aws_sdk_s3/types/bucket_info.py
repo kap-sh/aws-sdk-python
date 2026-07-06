@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#BucketInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.data_redundancy
 
 
-class BucketInfo(TypedDict):
+class BucketInfo(TypedDict, closed=True):
     data_redundancy: NotRequired["aws_sdk_s3.types.data_redundancy.DataRedundancy"]
     """<p>The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.</p>"""
     type: NotRequired["aws_sdk_s3.types.bucket_type.BucketType"]

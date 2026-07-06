@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationFsxOpenZfsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
 
 
-class CreateLocationFsxOpenZfsResponse(TypedDict):
+class CreateLocationFsxOpenZfsResponse(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>The ARN of the FSx for OpenZFS file system location that you created.</p>"""
 

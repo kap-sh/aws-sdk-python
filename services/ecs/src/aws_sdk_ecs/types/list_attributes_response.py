@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.attributes
     import aws_sdk_ecs.types.string
 
 
-class ListAttributesResponse(TypedDict):
+class ListAttributesResponse(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_ecs.types.attributes.Attributes"]
     """<p>A list of attribute objects that meet the criteria of the request.</p>"""
     next_token: NotRequired["aws_sdk_ecs.types.string.String"]

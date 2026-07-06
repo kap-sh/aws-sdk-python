@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#EventResourceData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_drs.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.source_network_data
 
 
-class _EventResourceData_sourceNetworkData(TypedDict):
+class _EventResourceData_sourceNetworkData(TypedDict, closed=True):
     sourceNetworkData: "aws_sdk_drs.types.source_network_data.SourceNetworkData"
 
 

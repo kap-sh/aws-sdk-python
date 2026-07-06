@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DeleteDataTableAttributeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_lock_version
 
 
-class DeleteDataTableAttributeResponse(TypedDict):
+class DeleteDataTableAttributeResponse(TypedDict, closed=True):
     lock_version: "aws_sdk_connect.types.data_table_lock_version.DataTableLockVersion"
     """<p>The updated lock version of the data table.</p>"""
 

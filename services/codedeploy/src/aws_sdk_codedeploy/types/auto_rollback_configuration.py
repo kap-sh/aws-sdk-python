@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#AutoRollbackConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.auto_rollback_events_list
     import aws_sdk_codedeploy.types.boolean
 
 
-class AutoRollbackConfiguration(TypedDict):
+class AutoRollbackConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_codedeploy.types.boolean.Boolean"
     """<p>Indicates whether a defined automatic rollback configuration is currently enabled.</p>"""
     events: NotRequired[

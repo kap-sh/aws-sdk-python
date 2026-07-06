@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ServiceUnavailableError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rds_data.errors import ServiceError
 
 
-class ServiceUnavailableError_(TypedDict):
+class ServiceUnavailableError_(TypedDict, closed=True):
     pass
 
 

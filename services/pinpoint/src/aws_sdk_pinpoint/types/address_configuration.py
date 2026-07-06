@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#AddressConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.map_of_list_of__string
 
 
-class AddressConfiguration(TypedDict):
+class AddressConfiguration(TypedDict, closed=True):
     body_override: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The message body to use instead of the default message body. This value overrides the default message body.</p>"""
     channel_type: NotRequired["aws_sdk_pinpoint.types.channel_type.ChannelType"]

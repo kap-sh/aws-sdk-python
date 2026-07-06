@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#StartChangeRequestExecutionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.automation_execution_id
 
 
-class StartChangeRequestExecutionResult(TypedDict):
+class StartChangeRequestExecutionResult(TypedDict, closed=True):
     automation_execution_id: NotRequired[
         "aws_sdk_ssm.types.automation_execution_id.AutomationExecutionId"
     ]

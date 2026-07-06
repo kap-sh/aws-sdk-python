@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#GuestUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class GuestUser(TypedDict):
+class GuestUser(TypedDict, closed=True):
     billing_period: "aws_sdk_wickr.types.generic_string.GenericString"
     """<p>The billing period when this guest user accessed the network (e.g., '2024-01').</p>"""
     username: "aws_sdk_wickr.types.generic_string.GenericString"

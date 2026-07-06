@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#CloudWatchDimensionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.dimension_value_source
 
 
-class CloudWatchDimensionConfiguration(TypedDict):
+class CloudWatchDimensionConfiguration(TypedDict, closed=True):
     dimension_name: "aws_sdk_ses.types.dimension_name.DimensionName"
     """<p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must meet the following requirements:</p> <ul> <li> <p>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), dashes (-), or colons (:).</p> </li> <li> <p>Contain 256 characters or fewer.</p> </li> </ul>"""
     dimension_value_source: (

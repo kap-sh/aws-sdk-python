@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#RuleRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class RuleRevision(TypedDict):
+class RuleRevision(TypedDict, closed=True):
     revision_id: "aws_sdk_codepipeline.types.revision.Revision"
     """<p>The system-generated unique ID that identifies the revision number of the rule.</p>"""
     revision_change_id: (

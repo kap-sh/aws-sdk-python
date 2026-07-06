@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessToolResultBlockDelta``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.sensitive_text
 
 
-class _HarnessToolResultBlockDelta_text(TypedDict):
+class _HarnessToolResultBlockDelta_text(TypedDict, closed=True):
     text: "aws_sdk_bedrock_agentcore.types.sensitive_text.SensitiveText"
 
 
-class _HarnessToolResultBlockDelta_json(TypedDict):
+class _HarnessToolResultBlockDelta_json(TypedDict, closed=True):
     json: "aws_sdk_bedrock_agentcore.types.sensitive_json.SensitiveJson"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ChileAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.chile_document_type
     import aws_sdk_taxsettings.types.generic_string
 
 
-class ChileAdditionalInfo(TypedDict):
+class ChileAdditionalInfo(TypedDict, closed=True):
     document_type: NotRequired[
         "aws_sdk_taxsettings.types.chile_document_type.ChileDocumentType"
     ]

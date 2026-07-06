@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HeaderMatchMethod``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError, SerializationError
 
@@ -9,23 +11,23 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.match_range
 
 
-class _HeaderMatchMethod_exact(TypedDict):
+class _HeaderMatchMethod_exact(TypedDict, closed=True):
     exact: "aws_sdk_app_mesh.types.header_match.HeaderMatch"
 
 
-class _HeaderMatchMethod_regex(TypedDict):
+class _HeaderMatchMethod_regex(TypedDict, closed=True):
     regex: "aws_sdk_app_mesh.types.header_match.HeaderMatch"
 
 
-class _HeaderMatchMethod_range(TypedDict):
+class _HeaderMatchMethod_range(TypedDict, closed=True):
     range: "aws_sdk_app_mesh.types.match_range.MatchRange"
 
 
-class _HeaderMatchMethod_prefix(TypedDict):
+class _HeaderMatchMethod_prefix(TypedDict, closed=True):
     prefix: "aws_sdk_app_mesh.types.header_match.HeaderMatch"
 
 
-class _HeaderMatchMethod_suffix(TypedDict):
+class _HeaderMatchMethod_suffix(TypedDict, closed=True):
     suffix: "aws_sdk_app_mesh.types.header_match.HeaderMatch"
 
 

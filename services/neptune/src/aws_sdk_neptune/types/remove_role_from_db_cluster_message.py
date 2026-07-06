@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#RemoveRoleFromDBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class RemoveRoleFromDBClusterMessage(TypedDict):
+class RemoveRoleFromDBClusterMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>The name of the DB cluster to disassociate the IAM role from.</p>"""
     role_arn: NotRequired["aws_sdk_neptune.types.string.String"]

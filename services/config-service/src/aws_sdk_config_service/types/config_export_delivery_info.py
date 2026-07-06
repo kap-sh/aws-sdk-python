@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ConfigExportDeliveryInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string
 
 
-class ConfigExportDeliveryInfo(TypedDict):
+class ConfigExportDeliveryInfo(TypedDict, closed=True):
     last_status: NotRequired[
         "aws_sdk_config_service.types.delivery_status.DeliveryStatus"
     ]

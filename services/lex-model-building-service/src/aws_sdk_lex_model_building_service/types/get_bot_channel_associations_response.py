@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBotChannelAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_channel_association_list
     import aws_sdk_lex_model_building_service.types.next_token
 
 
-class GetBotChannelAssociationsResponse(TypedDict):
+class GetBotChannelAssociationsResponse(TypedDict, closed=True):
     bot_channel_associations: NotRequired[
         "aws_sdk_lex_model_building_service.types.bot_channel_association_list.BotChannelAssociationList"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#DeleteAttributeGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.attribute_group_specifier
 
 
-class DeleteAttributeGroupRequest(TypedDict):
+class DeleteAttributeGroupRequest(TypedDict, closed=True):
     attribute_group: "aws_sdk_service_catalog_appregistry.types.attribute_group_specifier.AttributeGroupSpecifier"
     """<p> The name, ID, or ARN of the attribute group that holds the attributes to describe the application. </p>"""
 

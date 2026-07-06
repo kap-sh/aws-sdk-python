@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteEnvironmentProfileInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.environment_profile_id
 
 
-class DeleteEnvironmentProfileInput(TypedDict):
+class DeleteEnvironmentProfileInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain in which the environment profile is deleted.</p>"""
     identifier: "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId"

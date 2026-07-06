@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CreateDomainConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.acm_certificate_arn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.tls_config
 
 
-class CreateDomainConfigurationRequest(TypedDict):
+class CreateDomainConfigurationRequest(TypedDict, closed=True):
     domain_configuration_name: (
         "aws_sdk_iot.types.domain_configuration_name.DomainConfigurationName"
     )

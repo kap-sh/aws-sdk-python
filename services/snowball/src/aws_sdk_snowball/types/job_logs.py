@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#JobLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class JobLogs(TypedDict):
+class JobLogs(TypedDict, closed=True):
     job_completion_report_uri: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>A link to an Amazon S3 presigned URL where the job completion report is located.</p>"""
     job_success_log_uri: NotRequired["aws_sdk_snowball.types.string.String"]

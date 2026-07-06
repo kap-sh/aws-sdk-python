@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IntegratedResourceInputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider_resource_capabilities
 
 
-class IntegratedResourceInputItem(TypedDict):
+class IntegratedResourceInputItem(TypedDict, closed=True):
     resource: "aws_sdk_securityagent.types.integrated_resource.IntegratedResource"
     """<p>The integrated resource to update.</p>"""
     capabilities: NotRequired[

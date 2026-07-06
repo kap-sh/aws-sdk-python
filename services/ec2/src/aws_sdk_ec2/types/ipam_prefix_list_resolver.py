@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#IpamPrefixListResolver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class IpamPrefixListResolver(TypedDict):
+class IpamPrefixListResolver(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the Amazon Web Services account that owns the IPAM prefix list resolver.</p>"""
     ipam_prefix_list_resolver_id: NotRequired[

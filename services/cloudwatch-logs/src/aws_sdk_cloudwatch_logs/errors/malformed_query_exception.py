@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#MalformedQueryException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.query_compile_error
 
 
-class MalformedQueryException_(TypedDict):
+class MalformedQueryException_(TypedDict, closed=True):
     query_compile_error: NotRequired[
         "aws_sdk_cloudwatch_logs.types.query_compile_error.QueryCompileError"
     ]

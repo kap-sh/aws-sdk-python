@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#TrainedModelArtifactMaxSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.trained_model_artifact_max_size_value
 
 
-class TrainedModelArtifactMaxSize(TypedDict):
+class TrainedModelArtifactMaxSize(TypedDict, closed=True):
     unit: "aws_sdk_cleanroomsml.types.trained_model_artifact_max_size_unit_type.TrainedModelArtifactMaxSizeUnitType"
     """<p>The unit of measurement for the maximum artifact size. Valid values include common storage units such as bytes, kilobytes, megabytes, gigabytes, and terabytes.</p>"""
     value: "aws_sdk_cleanroomsml.types.trained_model_artifact_max_size_value.TrainedModelArtifactMaxSizeValue"

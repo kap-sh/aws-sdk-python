@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InstanceGroupMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capacity_reservation
     import aws_sdk_sagemaker.types.security_group_ids
 
 
-class InstanceGroupMetadata(TypedDict):
+class InstanceGroupMetadata(TypedDict, closed=True):
     failure_message: NotRequired["str"]
     """<p>An error message describing why the instance group level operation (such as creating, scaling, or deleting) failed.</p>"""
     availability_zone_id: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DataSourceConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.kubernetes_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.s3_logs_configuration
 
 
-class DataSourceConfigurations(TypedDict):
+class DataSourceConfigurations(TypedDict, closed=True):
     s3_logs: NotRequired[
         "aws_sdk_guardduty.types.s3_logs_configuration.S3LogsConfiguration"
     ]

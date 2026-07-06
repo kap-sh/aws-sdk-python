@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#TagSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class TagSpecification(TypedDict):
+class TagSpecification(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The type of resource to tag on creation.</p> <p>Valid Values: </p> <ul> <li> <p> <code>auto-backup</code> - The DB instance's automated backup.</p> </li> <li> <p> <code>cluster-auto-backup</code> - The DB cluster's automated backup.</p> </li> </ul>"""
     tags: NotRequired["aws_sdk_rds.types.tag_list.TagList"]

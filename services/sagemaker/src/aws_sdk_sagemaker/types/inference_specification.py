@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.content_types
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_instance_types
 
 
-class InferenceSpecification(TypedDict):
+class InferenceSpecification(TypedDict, closed=True):
     containers: NotRequired[
         "aws_sdk_sagemaker.types.model_package_container_definition_list.ModelPackageContainerDefinitionList"
     ]

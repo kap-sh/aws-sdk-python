@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Gnss``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.use2_d_solver
 
 
-class Gnss(TypedDict):
+class Gnss(TypedDict, closed=True):
     payload: "aws_sdk_iot_wireless.types.gnss_nav.GnssNav"
     """<p>Payload that contains the GNSS scan result, or NAV message, in hexadecimal notation.</p>"""
     capture_time: NotRequired["aws_sdk_iot_wireless.types.gpst.GPST"]

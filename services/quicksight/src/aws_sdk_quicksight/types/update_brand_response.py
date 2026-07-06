@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateBrandResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.brand_definition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class UpdateBrandResponse(TypedDict):
+class UpdateBrandResponse(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The Amazon Web Services request ID for this operation.</p>"""
     brand_detail: NotRequired["aws_sdk_quicksight.types.brand_detail.BrandDetail"]

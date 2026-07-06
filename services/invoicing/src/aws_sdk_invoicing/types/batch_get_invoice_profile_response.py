@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#BatchGetInvoiceProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.profile_list
 
 
-class BatchGetInvoiceProfileResponse(TypedDict):
+class BatchGetInvoiceProfileResponse(TypedDict, closed=True):
     profiles: NotRequired["aws_sdk_invoicing.types.profile_list.ProfileList"]
     """<p> A list of invoice profiles corresponding to the requested accounts. </p>"""
 

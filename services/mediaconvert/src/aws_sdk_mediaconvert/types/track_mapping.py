@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#TrackMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of__integer
 
 
-class TrackMapping(TypedDict):
+class TrackMapping(TypedDict, closed=True):
     audio_track_indexes: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of__integer.__listOf__integer"
     ]

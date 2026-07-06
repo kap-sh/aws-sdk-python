@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationAzureBlobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.location_arn
 
 
-class CreateLocationAzureBlobResponse(TypedDict):
+class CreateLocationAzureBlobResponse(TypedDict, closed=True):
     location_arn: NotRequired["aws_sdk_datasync.types.location_arn.LocationArn"]
     """<p>The ARN of the Azure Blob Storage transfer location that you created.</p>"""
 

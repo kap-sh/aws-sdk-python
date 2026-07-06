@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListEnvironmentBlueprintConfigurationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.environment_blueprint_configurations
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListEnvironmentBlueprintConfigurationsOutput(TypedDict):
+class ListEnvironmentBlueprintConfigurationsOutput(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_datazone.types.environment_blueprint_configurations.EnvironmentBlueprintConfigurations"
     ]

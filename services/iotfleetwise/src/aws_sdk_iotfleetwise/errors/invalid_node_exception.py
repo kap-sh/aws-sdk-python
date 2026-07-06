@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#InvalidNodeException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.string
 
 
-class InvalidNodeException_(TypedDict):
+class InvalidNodeException_(TypedDict, closed=True):
     invalid_nodes: NotRequired["aws_sdk_iotfleetwise.types.nodes.Nodes"]
     """<p>The specified node type isn't valid.</p>"""
     reason: NotRequired["aws_sdk_iotfleetwise.types.string.string"]

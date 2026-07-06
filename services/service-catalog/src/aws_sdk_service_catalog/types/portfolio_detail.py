@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#PortfolioDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.creation_time
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.resource_arn
 
 
-class PortfolioDetail(TypedDict):
+class PortfolioDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The portfolio identifier.</p>"""
     arn: NotRequired["aws_sdk_service_catalog.types.resource_arn.ResourceARN"]

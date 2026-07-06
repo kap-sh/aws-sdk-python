@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ReportTaskRunnerHeartbeatOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.boolean
 
 
-class ReportTaskRunnerHeartbeatOutput(TypedDict):
+class ReportTaskRunnerHeartbeatOutput(TypedDict, closed=True):
     terminate: "aws_sdk_data_pipeline.types.boolean.boolean"
     """<p>Indicates whether the calling task runner should terminate.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#NotScaledReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.xml_string
 
 
-class NotScaledReason(TypedDict):
+class NotScaledReason(TypedDict, closed=True):
     code: "aws_sdk_application_auto_scaling.types.xml_string.XmlString"
     """<p>A code that represents the reason for not scaling.</p> <p>Valid values:</p> <ul> <li> <p>AutoScalingAnticipatedFlapping</p> </li> <li> <p>TargetServicePutResourceAsUnscalable</p> </li> <li> <p>AlreadyAtMaxCapacity</p> </li> <li> <p>AlreadyAtMinCapacity</p> </li> <li> <p>AlreadyAtDesiredCapacity</p> </li> </ul>"""
     max_capacity: NotRequired[

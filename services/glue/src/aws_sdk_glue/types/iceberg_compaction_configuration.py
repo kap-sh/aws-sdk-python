@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergCompactionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.compaction_strategy
     import aws_sdk_glue.types.nullable_integer
 
 
-class IcebergCompactionConfiguration(TypedDict):
+class IcebergCompactionConfiguration(TypedDict, closed=True):
     strategy: NotRequired["aws_sdk_glue.types.compaction_strategy.CompactionStrategy"]
     """<p>The strategy to use for compaction. Valid values are:</p> <ul> <li> <p> <code>binpack</code>: Combines small files into larger files, typically targeting sizes over 100MB, while applying any pending deletes. This is the recommended compaction strategy for most use cases. </p> </li> <li> <p> <code>sort</code>: Organizes data based on specified columns which are sorted hierarchically during compaction, improving query performance for filtered operations. This strategy is recommended when your queries frequently filter on specific columns. To use this strategy, you must first define a sort order in your Iceberg table properties using the <code>sort_order</code> table property.</p> </li> <li> <p> <code>z-order</code>: Optimizes data organization by blending multiple attributes into a single scalar value that can be used for sorting, allowing efficient querying across multiple dimensions. This strategy is recommended when you need to query data across multiple dimensions simultaneously. To use this strategy, you must first define a sort order in your Iceberg table properties using the <code>sort_order</code> table property. </p> </li> </ul> <p>If an input is not provided, the default value 'binpack' will be used.</p>"""
     min_input_files: NotRequired["aws_sdk_glue.types.nullable_integer.NullableInteger"]

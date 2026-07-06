@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#JobParameter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.path_string
 
 
-class _JobParameter_int(TypedDict):
+class _JobParameter_int(TypedDict, closed=True):
     int: "aws_sdk_deadline.types.int_string.IntString"
 
 
-class _JobParameter_float(TypedDict):
+class _JobParameter_float(TypedDict, closed=True):
     float: "aws_sdk_deadline.types.float_string.FloatString"
 
 
-class _JobParameter_string(TypedDict):
+class _JobParameter_string(TypedDict, closed=True):
     string: "aws_sdk_deadline.types.parameter_string.ParameterString"
 
 
-class _JobParameter_path(TypedDict):
+class _JobParameter_path(TypedDict, closed=True):
     path: "aws_sdk_deadline.types.path_string.PathString"
 
 

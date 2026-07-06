@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeJobResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.job_metadata
     import aws_sdk_snowball.types.job_metadata_list
 
 
-class DescribeJobResult(TypedDict):
+class DescribeJobResult(TypedDict, closed=True):
     job_metadata: NotRequired["aws_sdk_snowball.types.job_metadata.JobMetadata"]
     """<p>Information about a specific job, including shipping information, job status, and other important metadata.</p>"""
     sub_job_metadata: NotRequired[

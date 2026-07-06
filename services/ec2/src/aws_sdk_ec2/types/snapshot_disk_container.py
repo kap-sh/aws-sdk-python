@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SnapshotDiskContainer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_bucket
 
 
-class SnapshotDiskContainer(TypedDict):
+class SnapshotDiskContainer(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The description of the disk image being imported.</p>"""
     format: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#ImportBackendStorageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.service_name
 
 
-class ImportBackendStorageRequest(TypedDict):
+class ImportBackendStorageRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplifybackend.types.__string.__string"
     """<p>The app ID.</p>"""
     backend_environment_name: "aws_sdk_amplifybackend.types.__string.__string"

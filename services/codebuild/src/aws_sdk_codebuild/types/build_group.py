@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BuildGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class BuildGroup(TypedDict):
+class BuildGroup(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>Contains the identifier of the build group.</p>"""
     depends_on: NotRequired["aws_sdk_codebuild.types.identifiers.Identifiers"]

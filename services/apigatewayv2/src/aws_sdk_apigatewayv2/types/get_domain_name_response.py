@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetDomainNameResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.tags
 
 
-class GetDomainNameResponse(TypedDict):
+class GetDomainNameResponse(TypedDict, closed=True):
     api_mapping_selection_expression: NotRequired[
         "aws_sdk_apigatewayv2.types.selection_expression.SelectionExpression"
     ]

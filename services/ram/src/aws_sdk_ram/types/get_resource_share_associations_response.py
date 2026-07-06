@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#GetResourceShareAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_share_association_list
     import aws_sdk_ram.types.string
 
 
-class GetResourceShareAssociationsResponse(TypedDict):
+class GetResourceShareAssociationsResponse(TypedDict, closed=True):
     resource_share_associations: NotRequired[
         "aws_sdk_ram.types.resource_share_association_list.ResourceShareAssociationList"
     ]

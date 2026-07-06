@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListExportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.list_exports_request_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListExportsRequest(TypedDict):
+class ListExportsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_mgn.types.list_exports_request_filters.ListExportsRequestFilters"
     ]

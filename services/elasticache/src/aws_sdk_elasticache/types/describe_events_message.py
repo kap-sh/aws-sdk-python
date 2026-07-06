@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeEventsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.t_stamp
 
 
-class DescribeEventsMessage(TypedDict):
+class DescribeEventsMessage(TypedDict, closed=True):
     source_identifier: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The identifier of the event source for which events are returned. If not specified, all sources are included in the response.</p>"""
     source_type: NotRequired["aws_sdk_elasticache.types.source_type.SourceType"]

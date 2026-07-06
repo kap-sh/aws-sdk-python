@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#GetPatientInsightsJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.domain_id
     import aws_sdk_connecthealth.types.job_id
 
 
-class GetPatientInsightsJobRequest(TypedDict):
+class GetPatientInsightsJobRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connecthealth.types.domain_id.DomainId"
     """<p/>"""
     job_id: "aws_sdk_connecthealth.types.job_id.JobId"

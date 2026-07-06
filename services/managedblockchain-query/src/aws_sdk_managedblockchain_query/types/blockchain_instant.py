@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#BlockchainInstant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class BlockchainInstant(TypedDict):
+class BlockchainInstant(TypedDict, closed=True):
     time: NotRequired["datetime.datetime"]
     """<p>The container of the <code>Timestamp</code> of the blockchain instant.</p> <note> <p>This <code>timestamp</code> will only be recorded up to the second.</p> </note>"""
 

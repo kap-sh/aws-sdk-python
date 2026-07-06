@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetMLTaskRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.pagination_token
     import aws_sdk_glue.types.task_run_list
 
 
-class GetMLTaskRunsResponse(TypedDict):
+class GetMLTaskRunsResponse(TypedDict, closed=True):
     task_runs: NotRequired["aws_sdk_glue.types.task_run_list.TaskRunList"]
     """<p>A list of task runs that are associated with the transform.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]

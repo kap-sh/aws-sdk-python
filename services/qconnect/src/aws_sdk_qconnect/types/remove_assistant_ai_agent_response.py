@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RemoveAssistantAIAgentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveAssistantAIAgentResponse(TypedDict):
+class RemoveAssistantAIAgentResponse(TypedDict, closed=True):
     pass
 
 

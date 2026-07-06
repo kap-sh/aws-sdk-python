@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetCommandExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean_wrapper_object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.target_arn
 
 
-class GetCommandExecutionRequest(TypedDict):
+class GetCommandExecutionRequest(TypedDict, closed=True):
     execution_id: "aws_sdk_iot.types.command_execution_id.CommandExecutionId"
     """<p>The unique identifier for the command execution. This information is returned as a response of the <code>StartCommandExecution</code> API request.</p>"""
     target_arn: "aws_sdk_iot.types.target_arn.TargetArn"

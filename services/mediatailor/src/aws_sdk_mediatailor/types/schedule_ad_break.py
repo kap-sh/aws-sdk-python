@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#ScheduleAdBreak``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__timestamp_unix
 
 
-class ScheduleAdBreak(TypedDict):
+class ScheduleAdBreak(TypedDict, closed=True):
     approximate_duration_seconds: NotRequired["aws_sdk_mediatailor.types.__long.__long"]
     """<p>The approximate duration of the ad break, in seconds.</p>"""
     approximate_start_time: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeQuickConnectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.quick_connect
 
 
-class DescribeQuickConnectResponse(TypedDict):
+class DescribeQuickConnectResponse(TypedDict, closed=True):
     quick_connect: NotRequired["aws_sdk_connect.types.quick_connect.QuickConnect"]
     """<p>Information about the quick connect.</p>"""
 

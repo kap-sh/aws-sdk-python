@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CrossChannelBehavior``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.behavior_type
 
 
-class CrossChannelBehavior(TypedDict):
+class CrossChannelBehavior(TypedDict, closed=True):
     behavior_type: "aws_sdk_connect.types.behavior_type.BehaviorType"
     """<p>Specifies the other channels that can be routed to an agent handling their current channel.</p>"""
 

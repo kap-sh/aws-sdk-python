@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupPlanFromTemplateInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class GetBackupPlanFromTemplateInput(TypedDict):
+class GetBackupPlanFromTemplateInput(TypedDict, closed=True):
     backup_plan_template_id: "aws_sdk_backup.types.string.string"
     """<p>Uniquely identifies a stored backup plan template.</p>"""
 

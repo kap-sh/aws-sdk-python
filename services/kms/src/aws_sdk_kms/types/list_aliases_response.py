@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ListAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.alias_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.marker_type
 
 
-class ListAliasesResponse(TypedDict):
+class ListAliasesResponse(TypedDict, closed=True):
     aliases: NotRequired["aws_sdk_kms.types.alias_list.AliasList"]
     """<p>A list of aliases.</p>"""
     next_marker: NotRequired["aws_sdk_kms.types.marker_type.MarkerType"]

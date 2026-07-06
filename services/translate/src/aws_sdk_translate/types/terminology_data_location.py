@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#TerminologyDataLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.string
 
 
-class TerminologyDataLocation(TypedDict):
+class TerminologyDataLocation(TypedDict, closed=True):
     repository_type: "aws_sdk_translate.types.string.String"
     """<p>The repository type for the custom terminology data.</p>"""
     location: "aws_sdk_translate.types.string.String"

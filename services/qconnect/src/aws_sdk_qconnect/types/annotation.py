@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#Annotation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Annotation(TypedDict):
+class Annotation(TypedDict, closed=True):
     title: NotRequired["str"]
     """<p>The title of the annotation.</p>"""
     destructive_hint: NotRequired["bool"]

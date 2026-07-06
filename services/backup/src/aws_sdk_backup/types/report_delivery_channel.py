@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ReportDeliveryChannel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ReportDeliveryChannel(TypedDict):
+class ReportDeliveryChannel(TypedDict, closed=True):
     s3_bucket_name: "aws_sdk_backup.types.string.string"
     """<p>The unique name of the S3 bucket that receives your reports.</p>"""
     s3_key_prefix: NotRequired["aws_sdk_backup.types.string.string"]

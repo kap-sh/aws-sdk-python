@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StepExecutionStatusDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
 
 
-class StepExecutionStatusDetail(TypedDict):
+class StepExecutionStatusDetail(TypedDict, closed=True):
     state: NotRequired["aws_sdk_emr.types.step_execution_state.StepExecutionState"]
     """<p>The state of the step.</p>"""
     creation_date_time: NotRequired["aws_sdk_emr.types.date.Date"]

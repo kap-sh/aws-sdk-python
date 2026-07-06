@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#JobCheckpointConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.string4096
 
 
-class JobCheckpointConfig(TypedDict):
+class JobCheckpointConfig(TypedDict, closed=True):
     local_path: NotRequired["aws_sdk_braket.types.string4096.String4096"]
     """<p>(Optional) The local directory where checkpoint data is stored. The default directory is <code>/opt/braket/checkpoints/</code>.</p>"""
     s3_uri: "aws_sdk_braket.types.s3_path.S3Path"

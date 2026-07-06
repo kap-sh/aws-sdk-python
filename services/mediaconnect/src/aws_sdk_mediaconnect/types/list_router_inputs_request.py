@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#ListRouterInputsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_input_filter_list
 
 
-class ListRouterInputsRequest(TypedDict):
+class ListRouterInputsRequest(TypedDict, closed=True):
     max_results: NotRequired["int"]
     """<p>The maximum number of router inputs to return in the response.</p>"""
     next_token: NotRequired["str"]

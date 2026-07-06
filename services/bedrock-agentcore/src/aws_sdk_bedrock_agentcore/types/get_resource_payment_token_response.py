@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GetResourcePaymentTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.payment_token_response_output
 
 
-class GetResourcePaymentTokenResponse(TypedDict):
+class GetResourcePaymentTokenResponse(TypedDict, closed=True):
     payment_token_response: "aws_sdk_bedrock_agentcore.types.payment_token_response_output.PaymentTokenResponseOutput"
     """<p>Vendor-specific token response output. Contains all response data in a type-safe, vendor-specific structure.</p>"""
 

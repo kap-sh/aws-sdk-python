@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ResourceConflict``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.resource_type
 
 
-class ResourceConflict(TypedDict):
+class ResourceConflict(TypedDict, closed=True):
     resource_id: "str"
     """<p>The unique identifier of the resource involved in a conflict.</p>"""
     resource_type: "aws_sdk_verifiedpermissions.types.resource_type.ResourceType"

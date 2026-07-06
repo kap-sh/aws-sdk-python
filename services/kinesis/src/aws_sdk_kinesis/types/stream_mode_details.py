@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#StreamModeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_mode
 
 
-class StreamModeDetails(TypedDict):
+class StreamModeDetails(TypedDict, closed=True):
     stream_mode: "aws_sdk_kinesis.types.stream_mode.StreamMode"
     """<p> Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>"""
 

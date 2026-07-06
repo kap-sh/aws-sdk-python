@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetEntityTypesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.entity_type_list
     import aws_sdk_frauddetector.types.string
 
 
-class GetEntityTypesResult(TypedDict):
+class GetEntityTypesResult(TypedDict, closed=True):
     entity_types: NotRequired[
         "aws_sdk_frauddetector.types.entity_type_list.entityTypeList"
     ]

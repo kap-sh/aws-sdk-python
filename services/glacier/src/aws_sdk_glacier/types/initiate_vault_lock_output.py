@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#InitiateVaultLockOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class InitiateVaultLockOutput(TypedDict):
+class InitiateVaultLockOutput(TypedDict, closed=True):
     lock_id: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The lock ID, which is used to complete the vault locking process.</p>"""
 

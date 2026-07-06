@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.translate#JobDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.integer
 
 
-class JobDetails(TypedDict):
+class JobDetails(TypedDict, closed=True):
     translated_documents_count: NotRequired["aws_sdk_translate.types.integer.Integer"]
     """<p>The number of documents successfully processed during a translation job.</p>"""
     documents_with_errors_count: NotRequired["aws_sdk_translate.types.integer.Integer"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#BudgetDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.budget_name
 
 
-class BudgetDetail(TypedDict):
+class BudgetDetail(TypedDict, closed=True):
     budget_name: NotRequired["aws_sdk_service_catalog.types.budget_name.BudgetName"]
     """<p>Name of the associated budget.</p>"""
 

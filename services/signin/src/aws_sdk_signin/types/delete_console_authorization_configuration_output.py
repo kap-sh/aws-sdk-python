@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#DeleteConsoleAuthorizationConfigurationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.target_id
 
 
-class DeleteConsoleAuthorizationConfigurationOutput(TypedDict):
+class DeleteConsoleAuthorizationConfigurationOutput(TypedDict, closed=True):
     target_id: "aws_sdk_signin.types.target_id.TargetId"
     """Target account identifier"""
     scope: "str"

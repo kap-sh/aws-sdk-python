@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#ModifyEndpointEncryptionModeResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ModifyEndpointEncryptionModeResponse(TypedDict):
+class ModifyEndpointEncryptionModeResponse(TypedDict, closed=True):
     pass
 
 

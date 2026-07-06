@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#UpdateSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_schemas.types.type
 
 
-class UpdateSchemaRequest(TypedDict):
+class UpdateSchemaRequest(TypedDict, closed=True):
     client_token_id: NotRequired[
         "aws_sdk_schemas.types.__string_min0_max36.__stringMin0Max36"
     ]

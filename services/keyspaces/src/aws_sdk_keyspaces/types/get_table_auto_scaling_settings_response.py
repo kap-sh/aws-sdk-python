@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#GetTableAutoScalingSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.table_name
 
 
-class GetTableAutoScalingSettingsResponse(TypedDict):
+class GetTableAutoScalingSettingsResponse(TypedDict, closed=True):
     keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
     """<p>The name of the keyspace.</p>"""
     table_name: "aws_sdk_keyspaces.types.table_name.TableName"

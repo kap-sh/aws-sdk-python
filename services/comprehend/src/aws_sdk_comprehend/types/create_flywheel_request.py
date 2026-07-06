@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#CreateFlywheelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.task_config
 
 
-class CreateFlywheelRequest(TypedDict):
+class CreateFlywheelRequest(TypedDict, closed=True):
     flywheel_name: "aws_sdk_comprehend.types.comprehend_arn_name.ComprehendArnName"
     """<p>Name for the flywheel.</p>"""
     active_model_arn: NotRequired[

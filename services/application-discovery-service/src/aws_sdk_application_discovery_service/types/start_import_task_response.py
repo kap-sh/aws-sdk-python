@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#StartImportTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.import_task
 
 
-class StartImportTaskResponse(TypedDict):
+class StartImportTaskResponse(TypedDict, closed=True):
     task: NotRequired[
         "aws_sdk_application_discovery_service.types.import_task.ImportTask"
     ]

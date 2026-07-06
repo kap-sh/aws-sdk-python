@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListTapesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.marker
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_ar_ns
 
 
-class ListTapesInput(TypedDict):
+class ListTapesInput(TypedDict, closed=True):
     tape_ar_ns: NotRequired["aws_sdk_storage_gateway.types.tape_ar_ns.TapeARNs"]
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]
     """<p>A string that indicates the position at which to begin the returned list of tapes.</p>"""

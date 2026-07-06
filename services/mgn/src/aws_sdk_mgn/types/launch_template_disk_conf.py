@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#LaunchTemplateDiskConf``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.iops
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.volume_type
 
 
-class LaunchTemplateDiskConf(TypedDict):
+class LaunchTemplateDiskConf(TypedDict, closed=True):
     volume_type: NotRequired["aws_sdk_mgn.types.volume_type.VolumeType"]
     """<p>Launch template disk volume type configuration.</p>"""
     iops: NotRequired["aws_sdk_mgn.types.iops.Iops"]

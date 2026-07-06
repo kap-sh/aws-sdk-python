@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DeleteAgentActionGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAgentActionGroupResponse(TypedDict):
+class DeleteAgentActionGroupResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#MultitrackInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.is_multitrack_input_enabled
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.multitrack_policy
 
 
-class MultitrackInputConfiguration(TypedDict):
+class MultitrackInputConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_ivs.types.is_multitrack_input_enabled.IsMultitrackInputEnabled"
     """<p>Indicates whether multitrack input is enabled. Can be set to <code>true</code> only if channel type is <code>STANDARD</code>. Setting <code>enabled</code> to <code>true</code> with any other channel type will cause an exception. If <code>true</code>, then <code>policy</code>, <code>maximumResolution</code>, and <code>containerFormat</code> are required, and <code>containerFormat</code> must be set to <code>FRAGMENTED_MP4</code>. Default: <code>false</code>.</p>"""
     policy: NotRequired["aws_sdk_ivs.types.multitrack_policy.MultitrackPolicy"]

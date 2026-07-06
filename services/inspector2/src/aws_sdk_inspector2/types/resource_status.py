@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ResourceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -18,6 +18,7 @@ ResourceStatus = TypedDict(
         "lambda_code": NotRequired["aws_sdk_inspector2.types.status.Status"],
         "code_repository": NotRequired["aws_sdk_inspector2.types.status.Status"],
     },
+    closed=True,
 )
 
 

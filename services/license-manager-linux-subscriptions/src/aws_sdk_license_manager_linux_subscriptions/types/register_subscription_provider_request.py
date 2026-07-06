@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#RegisterSubscriptionProviderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_linux_subscriptions.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_linux_subscriptions.types.tags
 
 
-class RegisterSubscriptionProviderRequest(TypedDict):
+class RegisterSubscriptionProviderRequest(TypedDict, closed=True):
     subscription_provider_source: "aws_sdk_license_manager_linux_subscriptions.types.subscription_provider_source.SubscriptionProviderSource"
     """<p>The supported Linux subscription provider to register.</p>"""
     secret_arn: "aws_sdk_license_manager_linux_subscriptions.types.secret_arn.SecretArn"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetBlueprintResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint
 
 
-class GetBlueprintResponse(TypedDict):
+class GetBlueprintResponse(TypedDict, closed=True):
     blueprint: "aws_sdk_bedrock_data_automation.types.blueprint.Blueprint"
 
 

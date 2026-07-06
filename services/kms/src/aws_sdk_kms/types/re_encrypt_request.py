@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#ReEncryptRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.nullable_boolean_type
 
 
-class ReEncryptRequest(TypedDict):
+class ReEncryptRequest(TypedDict, closed=True):
     ciphertext_blob: NotRequired["aws_sdk_kms.types.ciphertext_type.CiphertextType"]
     """<p>Ciphertext of the data to reencrypt.</p> <p>This parameter is required in all cases except when <code>DryRun</code> is <code>true</code> and <code>DryRunModifiers</code> is set to <code>IGNORE_CIPHERTEXT</code>.</p>"""
     source_encryption_context: NotRequired[

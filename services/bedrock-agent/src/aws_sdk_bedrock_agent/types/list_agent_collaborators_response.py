@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ListAgentCollaboratorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.next_token
 
 
-class ListAgentCollaboratorsResponse(TypedDict):
+class ListAgentCollaboratorsResponse(TypedDict, closed=True):
     agent_collaborator_summaries: "aws_sdk_bedrock_agent.types.agent_collaborator_summaries.AgentCollaboratorSummaries"
     """<p>A list of collaborator summaries.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agent.types.next_token.NextToken"]

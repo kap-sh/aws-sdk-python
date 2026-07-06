@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CommandPlugin``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.command_plugin_name
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.url
 
 
-class CommandPlugin(TypedDict):
+class CommandPlugin(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.command_plugin_name.CommandPluginName"]
     """<p>The name of the plugin. Must be one of the following: <code>aws:updateAgent</code>, <code>aws:domainjoin</code>, <code>aws:applications</code>, <code>aws:runPowerShellScript</code>, <code>aws:psmodule</code>, <code>aws:cloudWatch</code>, <code>aws:runShellScript</code>, or <code>aws:updateSSMAgent</code>. </p>"""
     status: NotRequired["aws_sdk_ssm.types.command_plugin_status.CommandPluginStatus"]

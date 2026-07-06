@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacemetering#UsageRecordResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_metering.types.usage_record_result_status
 
 
-class UsageRecordResult(TypedDict):
+class UsageRecordResult(TypedDict, closed=True):
     usage_record: NotRequired[
         "aws_sdk_marketplace_metering.types.usage_record.UsageRecord"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribeInventoryDeletionsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_deletions_list
     import aws_sdk_ssm.types.next_token
 
 
-class DescribeInventoryDeletionsResult(TypedDict):
+class DescribeInventoryDeletionsResult(TypedDict, closed=True):
     inventory_deletions: NotRequired[
         "aws_sdk_ssm.types.inventory_deletions_list.InventoryDeletionsList"
     ]

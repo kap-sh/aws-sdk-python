@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectionTypeVariant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.url_string
 
 
-class ConnectionTypeVariant(TypedDict):
+class ConnectionTypeVariant(TypedDict, closed=True):
     connection_type_variant_name: NotRequired[
         "aws_sdk_glue.types.display_name.DisplayName"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailAutomatedReasoningPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_arn_list
 
 
-class GuardrailAutomatedReasoningPolicy(TypedDict):
+class GuardrailAutomatedReasoningPolicy(TypedDict, closed=True):
     policies: "aws_sdk_bedrock.types.automated_reasoning_policy_arn_list.AutomatedReasoningPolicyArnList"
     """<p>The list of Automated Reasoning policy ARNs that should be applied as part of this guardrail configuration.</p>"""
     confidence_threshold: NotRequired[

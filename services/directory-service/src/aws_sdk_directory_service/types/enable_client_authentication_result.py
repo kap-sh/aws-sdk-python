@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#EnableClientAuthenticationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EnableClientAuthenticationResult(TypedDict):
+class EnableClientAuthenticationResult(TypedDict, closed=True):
     pass
 
 

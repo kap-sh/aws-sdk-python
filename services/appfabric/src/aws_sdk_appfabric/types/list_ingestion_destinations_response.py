@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#ListIngestionDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appfabric.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appfabric.types.ingestion_destination_list
 
 
-class ListIngestionDestinationsResponse(TypedDict):
+class ListIngestionDestinationsResponse(TypedDict, closed=True):
     ingestion_destinations: (
         "aws_sdk_appfabric.types.ingestion_destination_list.IngestionDestinationList"
     )

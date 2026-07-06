@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListReviewableHITsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.entity_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.reviewable_hit_status
 
 
-class ListReviewableHITsRequest(TypedDict):
+class ListReviewableHITsRequest(TypedDict, closed=True):
     hit_type_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]
     """<p> The ID of the HIT type of the HITs to consider for the query. If not specified, all HITs for the Reviewer are considered </p>"""
     status: NotRequired["aws_sdk_mturk.types.reviewable_hit_status.ReviewableHITStatus"]

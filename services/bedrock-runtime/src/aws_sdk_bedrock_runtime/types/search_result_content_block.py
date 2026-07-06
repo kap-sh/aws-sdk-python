@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#SearchResultContentBlock``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
 
-class SearchResultContentBlock(TypedDict):
+class SearchResultContentBlock(TypedDict, closed=True):
     text: "str"
     """<p>The actual text content</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#BatchGetRepositoriesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name_list
 
 
-class BatchGetRepositoriesInput(TypedDict):
+class BatchGetRepositoriesInput(TypedDict, closed=True):
     repository_names: "aws_sdk_codecommit.types.repository_name_list.RepositoryNameList"
     """<p>The names of the repositories to get information about.</p> <note> <p>The length constraint limit is for each string in the array. The array itself can be empty.</p> </note>"""
 

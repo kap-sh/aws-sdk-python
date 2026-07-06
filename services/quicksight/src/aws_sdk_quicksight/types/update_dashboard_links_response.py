@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateDashboardLinksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class UpdateDashboardLinksResponse(TypedDict):
+class UpdateDashboardLinksResponse(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The Amazon Web Services request ID for this operation.</p>"""
     status: "aws_sdk_quicksight.types.status_code.StatusCode"

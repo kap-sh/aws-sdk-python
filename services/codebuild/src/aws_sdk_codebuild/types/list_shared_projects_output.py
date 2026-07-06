@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListSharedProjectsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.project_arns
     import aws_sdk_codebuild.types.string
 
 
-class ListSharedProjectsOutput(TypedDict):
+class ListSharedProjectsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p> During a previous call, the maximum number of items that can be returned is the value specified in <code>maxResults</code>. If there more items in the list, then a unique string called a <i>nextToken</i> is returned. To get the next batch of items in the list, call this operation again, adding the next token to the call. To get all of the items in the list, keep calling this operation with each subsequent next token that is returned, until no more next tokens are returned. </p>"""
     projects: NotRequired["aws_sdk_codebuild.types.project_arns.ProjectArns"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#JourneyLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.journey_timeframe_cap
 
 
-class JourneyLimits(TypedDict):
+class JourneyLimits(TypedDict, closed=True):
     daily_cap: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]
     """<p>The maximum number of messages that the journey can send to a single participant during a 24-hour period. The maximum value is 100.</p>"""
     endpoint_reentry_cap: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ValidationEnum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.boolean
     import aws_sdk_connect.types.validation_enum_values
 
 
-class ValidationEnum(TypedDict):
+class ValidationEnum(TypedDict, closed=True):
     strict: "aws_sdk_connect.types.boolean.Boolean"
     """<p>Boolean that defaults to false. When true, only values specified in the enum list are allowed. When false, custom values beyond the enumerated list are permitted.</p>"""
     values: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#CreateRedshiftIdcApplicationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_list
 
 
-class CreateRedshiftIdcApplicationMessage(TypedDict):
+class CreateRedshiftIdcApplicationMessage(TypedDict, closed=True):
     idc_instance_arn: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The Amazon resource name (ARN) of the IAM Identity Center instance where Amazon Redshift creates a new managed application.</p>"""
     redshift_idc_application_name: NotRequired[

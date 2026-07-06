@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#TaskConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.language_code
 
 
-class TaskConfig(TypedDict):
+class TaskConfig(TypedDict, closed=True):
     language_code: "aws_sdk_comprehend.types.language_code.LanguageCode"
     """<p>Language code for the language that the model supports.</p>"""
     document_classification_config: NotRequired[

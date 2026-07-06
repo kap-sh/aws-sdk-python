@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#MofNApprovalStrategy``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
 
-class MofNApprovalStrategy(TypedDict):
+class MofNApprovalStrategy(TypedDict, closed=True):
     min_approvals_required: "int"
     """<p>Minimum number of approvals (M) required for a total number of approvers (N).</p>"""
 

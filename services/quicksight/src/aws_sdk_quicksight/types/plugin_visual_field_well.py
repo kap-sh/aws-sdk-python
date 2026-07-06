@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PluginVisualFieldWell``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.dimension_field_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unaggregated_field_list
 
 
-class PluginVisualFieldWell(TypedDict):
+class PluginVisualFieldWell(TypedDict, closed=True):
     axis_name: NotRequired[
         "aws_sdk_quicksight.types.plugin_visual_axis_name.PluginVisualAxisName"
     ]

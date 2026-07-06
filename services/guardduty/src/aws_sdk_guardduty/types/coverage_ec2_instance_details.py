@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CoverageEc2InstanceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.agent_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class CoverageEc2InstanceDetails(TypedDict):
+class CoverageEc2InstanceDetails(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon EC2 instance ID.</p>"""
     instance_type: NotRequired["aws_sdk_guardduty.types.string.String"]

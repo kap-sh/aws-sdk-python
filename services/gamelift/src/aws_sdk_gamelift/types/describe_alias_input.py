@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeAliasInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias_id_or_arn
 
 
-class DescribeAliasInput(TypedDict):
+class DescribeAliasInput(TypedDict, closed=True):
     alias_id: NotRequired["aws_sdk_gamelift.types.alias_id_or_arn.AliasIdOrArn"]
     """<p>The unique identifier for the fleet alias that you want to retrieve. You can use either the alias ID or ARN value. </p>"""
 

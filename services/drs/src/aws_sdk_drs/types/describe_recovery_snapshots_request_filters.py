@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeRecoverySnapshotsRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.iso8601_datetime_string
 
 
-class DescribeRecoverySnapshotsRequestFilters(TypedDict):
+class DescribeRecoverySnapshotsRequestFilters(TypedDict, closed=True):
     from_date_time: NotRequired[
         "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

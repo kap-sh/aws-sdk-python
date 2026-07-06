@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateStandbyWorkspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.standby_workspaces_list
 
 
-class CreateStandbyWorkspacesRequest(TypedDict):
+class CreateStandbyWorkspacesRequest(TypedDict, closed=True):
     primary_region: "aws_sdk_workspaces.types.region.Region"
     """<p>The Region of the primary WorkSpace.</p>"""
     standby_workspaces: (

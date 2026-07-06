@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetAggregateDiscoveredResourceCountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.grouped_resource_count_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.string_with_char_limit256
 
 
-class GetAggregateDiscoveredResourceCountsResponse(TypedDict):
+class GetAggregateDiscoveredResourceCountsResponse(TypedDict, closed=True):
     total_discovered_resources: "aws_sdk_config_service.types.long.Long"
     """<p>The total number of resources that are present in an aggregator with the filters that you provide.</p>"""
     group_by_key: NotRequired[

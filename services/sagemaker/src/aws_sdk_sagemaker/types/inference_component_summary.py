@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceComponentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.variant_name
 
 
-class InferenceComponentSummary(TypedDict):
+class InferenceComponentSummary(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_sagemaker.types.timestamp.Timestamp"]
     """<p>The time when the inference component was created.</p>"""
     inference_component_arn: NotRequired[

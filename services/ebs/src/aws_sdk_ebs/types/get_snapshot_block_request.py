@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ebs#GetSnapshotBlockRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ebs.types.block_index
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ebs.types.snapshot_id
 
 
-class GetSnapshotBlockRequest(TypedDict):
+class GetSnapshotBlockRequest(TypedDict, closed=True):
     snapshot_id: "aws_sdk_ebs.types.snapshot_id.SnapshotId"
     r"""<p>The ID of the snapshot containing the block from which to get data.</p> <important> <p>If the specified snapshot is encrypted, you must have permission to use the KMS key that was used to encrypt the snapshot. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebsapis-using-encryption.html\"> Using encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> </important>"""
     block_index: "aws_sdk_ebs.types.block_index.BlockIndex"

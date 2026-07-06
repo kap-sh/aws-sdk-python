@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#QueryStringKeyValuePair``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
 
-class QueryStringKeyValuePair(TypedDict):
+class QueryStringKeyValuePair(TypedDict, closed=True):
     key: "str"
     """<p>The key of the query string parameter to match. Must contain only RFC 3986 unreserved characters.</p>"""
     value: "str"

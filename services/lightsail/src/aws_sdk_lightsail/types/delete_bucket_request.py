@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteBucketRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.bucket_name
 
 
-class DeleteBucketRequest(TypedDict):
+class DeleteBucketRequest(TypedDict, closed=True):
     bucket_name: "aws_sdk_lightsail.types.bucket_name.BucketName"
     r"""<p>The name of the bucket to delete.</p> <p>Use the <a href=\"https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html\">GetBuckets</a> action to get a list of bucket names that you can specify.</p>"""
     force_delete: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]

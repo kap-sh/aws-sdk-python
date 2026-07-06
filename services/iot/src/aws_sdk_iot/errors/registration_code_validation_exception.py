@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RegistrationCodeValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.error_message2
 
 
-class RegistrationCodeValidationException_(TypedDict):
+class RegistrationCodeValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iot.types.error_message2.ErrorMessage2"]
     """<p>Additional information about the exception.</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#CancelStatementResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelStatementResponse(TypedDict):
+class CancelStatementResponse(TypedDict, closed=True):
     status: NotRequired["bool"]
     """<p>A value that indicates whether the cancel statement succeeded (true). </p>"""
 

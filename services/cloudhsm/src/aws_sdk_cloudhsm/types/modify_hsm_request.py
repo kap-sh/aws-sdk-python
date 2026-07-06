@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsm#ModifyHsmRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudhsm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm.types.subnet_id
 
 
-class ModifyHsmRequest(TypedDict):
+class ModifyHsmRequest(TypedDict, closed=True):
     hsm_arn: "aws_sdk_cloudhsm.types.hsm_arn.HsmArn"
     """<p>The ARN of the HSM to modify.</p>"""
     subnet_id: NotRequired["aws_sdk_cloudhsm.types.subnet_id.SubnetId"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabasePeerSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_arn
     import aws_sdk_odb.types.resource_id
 
 
-class AutonomousDatabasePeerSummary(TypedDict):
+class AutonomousDatabasePeerSummary(TypedDict, closed=True):
     autonomous_database_id: NotRequired["aws_sdk_odb.types.resource_id.ResourceId"]
     """<p>The unique identifier of the peer Autonomous Database.</p>"""
     autonomous_database_arn: NotRequired["aws_sdk_odb.types.resource_arn.ResourceArn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#VpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.vpc_subnet_ids
 
 
-class VpcConfig(TypedDict):
+class VpcConfig(TypedDict, closed=True):
     security_group_ids: (
         "aws_sdk_device_farm.types.vpc_security_group_ids.VpcSecurityGroupIds"
     )

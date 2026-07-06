@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#RuleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.collection_member_string
 
 
-class RuleSummary(TypedDict):
+class RuleSummary(TypedDict, closed=True):
     sid: NotRequired[
         "aws_sdk_network_firewall.types.collection_member_string.CollectionMember_String"
     ]

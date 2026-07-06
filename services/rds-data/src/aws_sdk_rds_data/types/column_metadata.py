@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ColumnMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds_data.types.string
 
 
-class ColumnMetadata(TypedDict):
+class ColumnMetadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rds_data.types.string.String"]
     """<p>The name of the column.</p>"""
     type: "aws_sdk_rds_data.types.integer.Integer"

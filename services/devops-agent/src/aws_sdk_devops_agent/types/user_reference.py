@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#UserReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.user_type
 
 
-class UserReference(TypedDict):
+class UserReference(TypedDict, closed=True):
     user_id: "str"
     """<p>The unique identifier for the user</p>"""
     user_type: "aws_sdk_devops_agent.types.user_type.UserType"

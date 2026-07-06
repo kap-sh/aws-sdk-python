@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchActionRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.failure_reason
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.launch_action_run_status
 
 
-class LaunchActionRun(TypedDict):
+class LaunchActionRun(TypedDict, closed=True):
     action: NotRequired["aws_sdk_drs.types.launch_action.LaunchAction"]
     """<p>Action.</p>"""
     run_id: NotRequired["aws_sdk_drs.types.launch_action_run_id.LaunchActionRunId"]

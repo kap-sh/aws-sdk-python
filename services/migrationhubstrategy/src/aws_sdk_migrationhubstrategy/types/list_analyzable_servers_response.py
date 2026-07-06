@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ListAnalyzableServersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.analyzable_server_summary_list
     import aws_sdk_migrationhubstrategy.types.next_token
 
 
-class ListAnalyzableServersResponse(TypedDict):
+class ListAnalyzableServersResponse(TypedDict, closed=True):
     analyzable_servers: NotRequired[
         "aws_sdk_migrationhubstrategy.types.analyzable_server_summary_list.AnalyzableServerSummaryList"
     ]

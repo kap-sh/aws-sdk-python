@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#AssociateDRTLogBucketResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateDRTLogBucketResponse(TypedDict):
+class AssociateDRTLogBucketResponse(TypedDict, closed=True):
     pass
 
 

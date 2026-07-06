@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#GetObjectAttributesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class
 
 
-class GetObjectAttributesOutput(TypedDict):
+class GetObjectAttributesOutput(TypedDict, closed=True):
     delete_marker: NotRequired["aws_sdk_s3.types.delete_marker.DeleteMarker"]
     r"""<p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response. To learn more about delete markers, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html\">Working with delete markers</a>.</p> <note> <p>This functionality is not supported for directory buckets.</p> </note>"""
     last_modified: NotRequired["aws_sdk_s3.types.last_modified.LastModified"]

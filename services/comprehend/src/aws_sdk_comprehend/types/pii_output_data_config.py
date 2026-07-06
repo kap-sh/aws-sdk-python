@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#PiiOutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class PiiOutputDataConfig(TypedDict):
+class PiiOutputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p> <p> For a PII entity detection job, the output file is plain text, not a compressed archive. The output file name is the same as the input file, with <code>.out</code> appended at the end. </p>"""
     kms_key_id: NotRequired["aws_sdk_comprehend.types.kms_key_id.KmsKeyId"]

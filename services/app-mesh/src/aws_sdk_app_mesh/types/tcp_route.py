@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TcpRoute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tcp_timeout
 
 
-class TcpRoute(TypedDict):
+class TcpRoute(TypedDict, closed=True):
     action: "aws_sdk_app_mesh.types.tcp_route_action.TcpRouteAction"
     """<p>The action to take if a match is determined.</p>"""
     timeout: NotRequired["aws_sdk_app_mesh.types.tcp_timeout.TcpTimeout"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#EventBus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class EventBus(TypedDict):
+class EventBus(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudwatch_events.types.string.String"]
     """<p>The name of the event bus.</p>"""
     arn: NotRequired["aws_sdk_cloudwatch_events.types.string.String"]

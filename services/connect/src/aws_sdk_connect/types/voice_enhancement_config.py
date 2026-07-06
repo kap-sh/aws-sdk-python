@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#VoiceEnhancementConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.voice_enhancement_mode
 
 
-class VoiceEnhancementConfig(TypedDict):
+class VoiceEnhancementConfig(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.channel.Channel"
     """<p>The channel for this voice enhancement configuration. <b>Only <code>VOICE</code> is supported for this data type.</b> </p>"""
     voice_enhancement_mode: (

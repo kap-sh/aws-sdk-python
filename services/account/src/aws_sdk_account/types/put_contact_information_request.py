@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#PutContactInformationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.contact_information
 
 
-class PutContactInformationRequest(TypedDict):
+class PutContactInformationRequest(TypedDict, closed=True):
     contact_information: "aws_sdk_account.types.contact_information.ContactInformation"
     """<p>Contains the details of the primary contact information associated with an Amazon Web Services account.</p>"""
     account_id: NotRequired["aws_sdk_account.types.account_id.AccountId"]

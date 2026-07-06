@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pi#ResponseResourceMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.description
     import aws_sdk_pi.types.string
 
 
-class ResponseResourceMetric(TypedDict):
+class ResponseResourceMetric(TypedDict, closed=True):
     metric: NotRequired["aws_sdk_pi.types.string.String"]
     """<p>The full name of the metric.</p>"""
     description: NotRequired["aws_sdk_pi.types.description.Description"]

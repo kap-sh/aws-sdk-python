@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExecuteTransactionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity_multiple
     import aws_sdk_dynamodb.types.item_response_list
 
 
-class ExecuteTransactionOutput(TypedDict):
+class ExecuteTransactionOutput(TypedDict, closed=True):
     responses: NotRequired["aws_sdk_dynamodb.types.item_response_list.ItemResponseList"]
     """<p>The response to a PartiQL transaction.</p>"""
     consumed_capacity: NotRequired[

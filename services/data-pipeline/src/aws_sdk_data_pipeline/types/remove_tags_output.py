@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#RemoveTagsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemoveTagsOutput(TypedDict):
+class RemoveTagsOutput(TypedDict, closed=True):
     pass
 
 

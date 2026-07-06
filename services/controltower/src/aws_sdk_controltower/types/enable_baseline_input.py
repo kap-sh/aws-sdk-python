@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#EnableBaselineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.tag_map
 
 
-class EnableBaselineInput(TypedDict):
+class EnableBaselineInput(TypedDict, closed=True):
     baseline_version: "aws_sdk_controltower.types.baseline_version.BaselineVersion"
     """<p>The specific version to be enabled of the specified baseline.</p>"""
     parameters: NotRequired[

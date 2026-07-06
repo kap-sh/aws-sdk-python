@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#VpcAttachmentOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.cidr_block
 
 
-class VpcAttachmentOptions(TypedDict):
+class VpcAttachmentOptions(TypedDict, closed=True):
     attach_to_vpc: "aws_sdk_osis.types.boolean.Boolean"
     """<p>Whether a VPC is attached to the pipeline.</p>"""
     cidr_block: NotRequired["aws_sdk_osis.types.cidr_block.CidrBlock"]

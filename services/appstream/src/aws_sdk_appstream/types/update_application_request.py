@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UpdateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.application_attributes
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.string
 
 
-class UpdateApplicationRequest(TypedDict):
+class UpdateApplicationRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the application. This name is visible to users when display name is not specified.</p>"""
     display_name: NotRequired["aws_sdk_appstream.types.display_name.DisplayName"]

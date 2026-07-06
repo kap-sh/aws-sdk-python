@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_of_simple_condition
     import aws_sdk_pinpoint.types.operator
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     conditions: NotRequired[
         "aws_sdk_pinpoint.types.list_of_simple_condition.ListOfSimpleCondition"
     ]

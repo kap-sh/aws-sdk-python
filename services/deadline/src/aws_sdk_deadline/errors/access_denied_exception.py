@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AccessDeniedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "aws_sdk_deadline.types.string.String"
     context: NotRequired["aws_sdk_deadline.types.exception_context.ExceptionContext"]
     """<p>Information about the resources in use when the exception was thrown.</p>"""

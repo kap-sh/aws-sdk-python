@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#BorrowConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_integer
 
 
-class BorrowConfiguration(TypedDict):
+class BorrowConfiguration(TypedDict, closed=True):
     allow_early_check_in: "aws_sdk_license_manager.types.box_boolean.BoxBoolean"
     """<p>Indicates whether early check-ins are allowed.</p>"""
     max_time_to_live_in_minutes: "aws_sdk_license_manager.types.box_integer.BoxInteger"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#Operation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.aws_account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.timestamp
 
 
-class Operation(TypedDict):
+class Operation(TypedDict, closed=True):
     id: NotRequired["aws_sdk_servicediscovery.types.operation_id.OperationId"]
     """<p>The ID of the operation that you want to get information about.</p>"""
     owner_account: NotRequired[

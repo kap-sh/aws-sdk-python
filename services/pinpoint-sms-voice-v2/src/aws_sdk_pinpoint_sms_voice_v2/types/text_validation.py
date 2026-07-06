@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#TextValidation``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
 
-class TextValidation(TypedDict):
+class TextValidation(TypedDict, closed=True):
     min_length: "int"
     """<p>The minimum number of characters for the text field.</p>"""
     max_length: "int"

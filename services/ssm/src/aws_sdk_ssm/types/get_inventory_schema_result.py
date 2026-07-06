@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetInventorySchemaResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_item_schema_result_list
     import aws_sdk_ssm.types.next_token
 
 
-class GetInventorySchemaResult(TypedDict):
+class GetInventorySchemaResult(TypedDict, closed=True):
     schemas: NotRequired[
         "aws_sdk_ssm.types.inventory_item_schema_result_list.InventoryItemSchemaResultList"
     ]

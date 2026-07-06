@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CreateAnomalyMonitorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.resource_tag_list
 
 
-class CreateAnomalyMonitorRequest(TypedDict):
+class CreateAnomalyMonitorRequest(TypedDict, closed=True):
     anomaly_monitor: "aws_sdk_cost_explorer.types.anomaly_monitor.AnomalyMonitor"
     """<p>The cost anomaly detection monitor object that you want to create.</p>"""
     resource_tags: NotRequired[

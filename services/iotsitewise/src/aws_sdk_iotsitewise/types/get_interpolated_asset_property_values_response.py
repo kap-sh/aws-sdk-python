@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#GetInterpolatedAssetPropertyValuesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class GetInterpolatedAssetPropertyValuesResponse(TypedDict):
+class GetInterpolatedAssetPropertyValuesResponse(TypedDict, closed=True):
     interpolated_asset_property_values: "aws_sdk_iotsitewise.types.interpolated_asset_property_values.InterpolatedAssetPropertyValues"
     """<p>The requested interpolated values.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

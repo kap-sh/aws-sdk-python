@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpRouteMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_method
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.listener_port
 
 
-class HttpRouteMatch(TypedDict):
+class HttpRouteMatch(TypedDict, closed=True):
     prefix: NotRequired["str"]
     """<p>Specifies the path to match requests with. This parameter must always start with <code>/</code>, which by itself matches all requests to the virtual service name. You can also match for path-based routing of requests. For example, if your virtual service name is <code>my-service.local</code> and you want the route to match requests to <code>my-service.local/metrics</code>, your prefix should be <code>/metrics</code>.</p>"""
     path: NotRequired["aws_sdk_app_mesh.types.http_path_match.HttpPathMatch"]

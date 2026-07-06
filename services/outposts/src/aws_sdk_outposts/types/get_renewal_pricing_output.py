@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetRenewalPricingOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.pricing_option_list
     import aws_sdk_outposts.types.pricing_result
 
 
-class GetRenewalPricingOutput(TypedDict):
+class GetRenewalPricingOutput(TypedDict, closed=True):
     pricing_result: NotRequired["aws_sdk_outposts.types.pricing_result.PricingResult"]
     """<p>The result of the pricing request.</p>"""
     pricing_options: NotRequired[

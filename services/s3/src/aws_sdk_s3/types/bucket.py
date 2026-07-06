@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Bucket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.s3_regional_or_s3_express_bucket_arn_string
 
 
-class Bucket(TypedDict):
+class Bucket(TypedDict, closed=True):
     name: NotRequired["aws_sdk_s3.types.bucket_name.BucketName"]
     """<p>The name of the bucket.</p>"""
     creation_date: NotRequired["aws_sdk_s3.types.creation_date.CreationDate"]

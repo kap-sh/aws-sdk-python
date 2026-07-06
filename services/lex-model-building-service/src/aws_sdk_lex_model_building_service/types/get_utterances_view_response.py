@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetUtterancesViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
     import aws_sdk_lex_model_building_service.types.lists_of_utterances
 
 
-class GetUtterancesViewResponse(TypedDict):
+class GetUtterancesViewResponse(TypedDict, closed=True):
     bot_name: NotRequired["aws_sdk_lex_model_building_service.types.bot_name.BotName"]
     """<p>The name of the bot for which utterance information was returned.</p>"""
     utterances: NotRequired[

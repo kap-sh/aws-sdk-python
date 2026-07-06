@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CampaignEventFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.event_dimensions
     import aws_sdk_pinpoint.types.filter_type
 
 
-class CampaignEventFilter(TypedDict):
+class CampaignEventFilter(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_pinpoint.types.event_dimensions.EventDimensions"]
     """<p>The dimension settings of the event filter for the campaign.</p>"""
     filter_type: NotRequired["aws_sdk_pinpoint.types.filter_type.FilterType"]

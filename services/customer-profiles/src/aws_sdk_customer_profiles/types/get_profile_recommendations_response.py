@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetProfileRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.recommendations
 
 
-class GetProfileRecommendationsResponse(TypedDict):
+class GetProfileRecommendationsResponse(TypedDict, closed=True):
     recommendations: NotRequired[
         "aws_sdk_customer_profiles.types.recommendations.Recommendations"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ScannedResourceIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.resource_type
 
 
-class ScannedResourceIdentifier(TypedDict):
+class ScannedResourceIdentifier(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_cloudformation.types.resource_type.ResourceType"
     ]

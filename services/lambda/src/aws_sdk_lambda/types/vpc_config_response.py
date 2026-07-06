@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#VpcConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.nullable_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.vpc_id
 
 
-class VpcConfigResponse(TypedDict):
+class VpcConfigResponse(TypedDict, closed=True):
     subnet_ids: NotRequired["aws_sdk_lambda.types.subnet_ids.SubnetIds"]
     """<p>A list of VPC subnet IDs.</p>"""
     security_group_ids: NotRequired[

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#DeleteGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_synthetics.types.group_identifier
 
 
-class DeleteGroupRequest(TypedDict):
+class DeleteGroupRequest(TypedDict, closed=True):
     group_identifier: "aws_sdk_synthetics.types.group_identifier.GroupIdentifier"
     """<p>Specifies which group to delete. You can specify the group name, the ARN, or the group ID as the <code>GroupIdentifier</code>.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyMutation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -16,39 +18,39 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_mutation
 
 
-class _AutomatedReasoningPolicyMutation_addType(TypedDict):
+class _AutomatedReasoningPolicyMutation_addType(TypedDict, closed=True):
     addType: "aws_sdk_bedrock.types.automated_reasoning_policy_add_type_mutation.AutomatedReasoningPolicyAddTypeMutation"
 
 
-class _AutomatedReasoningPolicyMutation_updateType(TypedDict):
+class _AutomatedReasoningPolicyMutation_updateType(TypedDict, closed=True):
     updateType: "aws_sdk_bedrock.types.automated_reasoning_policy_update_type_mutation.AutomatedReasoningPolicyUpdateTypeMutation"
 
 
-class _AutomatedReasoningPolicyMutation_deleteType(TypedDict):
+class _AutomatedReasoningPolicyMutation_deleteType(TypedDict, closed=True):
     deleteType: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_type_mutation.AutomatedReasoningPolicyDeleteTypeMutation"
 
 
-class _AutomatedReasoningPolicyMutation_addVariable(TypedDict):
+class _AutomatedReasoningPolicyMutation_addVariable(TypedDict, closed=True):
     addVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_add_variable_mutation.AutomatedReasoningPolicyAddVariableMutation"
 
 
-class _AutomatedReasoningPolicyMutation_updateVariable(TypedDict):
+class _AutomatedReasoningPolicyMutation_updateVariable(TypedDict, closed=True):
     updateVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_update_variable_mutation.AutomatedReasoningPolicyUpdateVariableMutation"
 
 
-class _AutomatedReasoningPolicyMutation_deleteVariable(TypedDict):
+class _AutomatedReasoningPolicyMutation_deleteVariable(TypedDict, closed=True):
     deleteVariable: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_variable_mutation.AutomatedReasoningPolicyDeleteVariableMutation"
 
 
-class _AutomatedReasoningPolicyMutation_addRule(TypedDict):
+class _AutomatedReasoningPolicyMutation_addRule(TypedDict, closed=True):
     addRule: "aws_sdk_bedrock.types.automated_reasoning_policy_add_rule_mutation.AutomatedReasoningPolicyAddRuleMutation"
 
 
-class _AutomatedReasoningPolicyMutation_updateRule(TypedDict):
+class _AutomatedReasoningPolicyMutation_updateRule(TypedDict, closed=True):
     updateRule: "aws_sdk_bedrock.types.automated_reasoning_policy_update_rule_mutation.AutomatedReasoningPolicyUpdateRuleMutation"
 
 
-class _AutomatedReasoningPolicyMutation_deleteRule(TypedDict):
+class _AutomatedReasoningPolicyMutation_deleteRule(TypedDict, closed=True):
     deleteRule: "aws_sdk_bedrock.types.automated_reasoning_policy_delete_rule_mutation.AutomatedReasoningPolicyDeleteRuleMutation"
 
 

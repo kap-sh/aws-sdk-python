@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#SigV4Authorization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.signing_region
 
 
-class SigV4Authorization(TypedDict):
+class SigV4Authorization(TypedDict, closed=True):
     signing_region: "aws_sdk_iot.types.signing_region.SigningRegion"
     """<p>The signing region.</p>"""
     service_name: "aws_sdk_iot.types.service_name.ServiceName"

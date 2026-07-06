@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#UpgradeAppliedSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class UpgradeAppliedSchemaResponse(TypedDict):
+class UpgradeAppliedSchemaResponse(TypedDict, closed=True):
     upgraded_schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>The ARN of the upgraded schema that is returned as part of the response.</p>"""
     directory_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]

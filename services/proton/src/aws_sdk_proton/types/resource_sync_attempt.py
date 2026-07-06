@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ResourceSyncAttempt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.revision
 
 
-class ResourceSyncAttempt(TypedDict):
+class ResourceSyncAttempt(TypedDict, closed=True):
     initial_revision: "aws_sdk_proton.types.revision.Revision"
     """<p>Detail data for the initial repository commit, path and push.</p>"""
     target_revision: "aws_sdk_proton.types.revision.Revision"

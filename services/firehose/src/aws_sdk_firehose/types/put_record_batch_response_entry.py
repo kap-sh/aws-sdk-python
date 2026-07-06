@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#PutRecordBatchResponseEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.put_response_record_id
 
 
-class PutRecordBatchResponseEntry(TypedDict):
+class PutRecordBatchResponseEntry(TypedDict, closed=True):
     record_id: NotRequired[
         "aws_sdk_firehose.types.put_response_record_id.PutResponseRecordId"
     ]

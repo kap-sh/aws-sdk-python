@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#ListServicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.next_token
     import aws_sdk_servicediscovery.types.service_summaries_list
 
 
-class ListServicesResponse(TypedDict):
+class ListServicesResponse(TypedDict, closed=True):
     services: NotRequired[
         "aws_sdk_servicediscovery.types.service_summaries_list.ServiceSummariesList"
     ]

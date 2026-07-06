@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#UpdateImageGenerationConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateImageGenerationConfigurationOutput(TypedDict):
+class UpdateImageGenerationConfigurationOutput(TypedDict, closed=True):
     pass
 
 

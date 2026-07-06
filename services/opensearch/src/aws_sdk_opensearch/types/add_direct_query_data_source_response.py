@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AddDirectQueryDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class AddDirectQueryDataSourceResponse(TypedDict):
+class AddDirectQueryDataSourceResponse(TypedDict, closed=True):
     data_source_arn: NotRequired["aws_sdk_opensearch.types.string.String"]
     """<p> The unique, system-generated identifier that represents the data source. </p>"""
 

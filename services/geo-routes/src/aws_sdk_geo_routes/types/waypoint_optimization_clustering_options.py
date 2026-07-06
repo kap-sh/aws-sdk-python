@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationClusteringOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_driving_distance_options
 
 
-class WaypointOptimizationClusteringOptions(TypedDict):
+class WaypointOptimizationClusteringOptions(TypedDict, closed=True):
     algorithm: "aws_sdk_geo_routes.types.waypoint_optimization_clustering_algorithm.WaypointOptimizationClusteringAlgorithm"
     """<p>The algorithm to be used. <code>DrivingDistance</code> assigns all the waypoints that are within driving distance of each other into a single cluster. <code>TopologySegment</code> assigns all the waypoints that are within the same topology segment into a single cluster. A Topology segment is a linear stretch of road between two junctions.</p>"""
     driving_distance_options: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetContainerServiceMetricDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.container_service_metric_name
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.metric_statistic_list
 
 
-class GetContainerServiceMetricDataRequest(TypedDict):
+class GetContainerServiceMetricDataRequest(TypedDict, closed=True):
     service_name: "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     """<p>The name of the container service for which to get metric data.</p>"""
     metric_name: "aws_sdk_lightsail.types.container_service_metric_name.ContainerServiceMetricName"

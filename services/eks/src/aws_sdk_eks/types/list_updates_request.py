@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListUpdatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.list_updates_request_max_results
     import aws_sdk_eks.types.string
 
 
-class ListUpdatesRequest(TypedDict):
+class ListUpdatesRequest(TypedDict, closed=True):
     name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Amazon EKS cluster to list updates for.</p>"""
     nodegroup_name: NotRequired["aws_sdk_eks.types.string.String"]

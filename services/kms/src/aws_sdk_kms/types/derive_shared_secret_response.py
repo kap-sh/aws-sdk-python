@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DeriveSharedSecretResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.ciphertext_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.plaintext_type
 
 
-class DeriveSharedSecretResponse(TypedDict):
+class DeriveSharedSecretResponse(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]
     """<p>Identifies the KMS key used to derive the shared secret.</p>"""
     shared_secret: NotRequired["aws_sdk_kms.types.plaintext_type.PlaintextType"]

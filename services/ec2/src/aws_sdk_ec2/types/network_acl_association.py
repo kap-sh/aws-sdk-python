@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#NetworkAclAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class NetworkAclAssociation(TypedDict):
+class NetworkAclAssociation(TypedDict, closed=True):
     network_acl_association_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the association between a network ACL and a subnet.</p>"""
     network_acl_id: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#ResourceTags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.tag_map
 
 
-class ResourceTags(TypedDict):
+class ResourceTags(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_appconfig.types.tag_map.TagMap"]
     """<p>Metadata to assign to AppConfig resources. Tags help organize and categorize your AppConfig resources. Each tag consists of a key and an optional value, both of which you define.</p>"""
 

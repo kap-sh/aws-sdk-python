@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RowFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.row_filter_list
 
 
-class _RowFilter_expression(TypedDict):
+class _RowFilter_expression(TypedDict, closed=True):
     expression: "aws_sdk_datazone.types.row_filter_expression.RowFilterExpression"
 
 
@@ -18,6 +20,7 @@ _RowFilter_and = TypedDict(
     {
         "and": "aws_sdk_datazone.types.row_filter_list.RowFilterList",
     },
+    closed=True,
 )
 
 
@@ -26,6 +29,7 @@ _RowFilter_or = TypedDict(
     {
         "or": "aws_sdk_datazone.types.row_filter_list.RowFilterList",
     },
+    closed=True,
 )
 
 RowFilter: TypeAlias = _RowFilter_expression | _RowFilter_and | _RowFilter_or

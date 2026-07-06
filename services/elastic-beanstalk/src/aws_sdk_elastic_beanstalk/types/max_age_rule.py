@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#MaxAgeRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.boxed_int
 
 
-class MaxAgeRule(TypedDict):
+class MaxAgeRule(TypedDict, closed=True):
     enabled: "aws_sdk_elastic_beanstalk.types.boxed_boolean.BoxedBoolean"
     """<p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable it.</p>"""
     max_age_in_days: NotRequired["aws_sdk_elastic_beanstalk.types.boxed_int.BoxedInt"]

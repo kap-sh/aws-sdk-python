@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendAuthIdentityPoolConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__boolean
     import aws_sdk_amplifybackend.types.__string
 
 
-class CreateBackendAuthIdentityPoolConfig(TypedDict):
+class CreateBackendAuthIdentityPoolConfig(TypedDict, closed=True):
     identity_pool_name: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>Name of the Amazon Cognito identity pool used for authorization.</p>"""
     unauthenticated_login: NotRequired[

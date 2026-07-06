@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#QueryStringObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
     import aws_sdk_lightsail.types.string_list
 
 
-class QueryStringObject(TypedDict):
+class QueryStringObject(TypedDict, closed=True):
     option: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>Indicates whether the distribution forwards and caches based on query strings.</p>"""
     query_strings_allow_list: NotRequired[

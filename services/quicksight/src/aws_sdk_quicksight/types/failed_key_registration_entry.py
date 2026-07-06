@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FailedKeyRegistrationEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class FailedKeyRegistrationEntry(TypedDict):
+class FailedKeyRegistrationEntry(TypedDict, closed=True):
     key_arn: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The ARN of the KMS key that failed to update.</p>"""
     message: "aws_sdk_quicksight.types.non_empty_string.NonEmptyString"

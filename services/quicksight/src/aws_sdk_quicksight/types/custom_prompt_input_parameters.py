@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomPromptInputParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.style_description
 
 
-class CustomPromptInputParameters(TypedDict):
+class CustomPromptInputParameters(TypedDict, closed=True):
     response_length: NotRequired[
         "aws_sdk_quicksight.types.style_description.StyleDescription"
     ]

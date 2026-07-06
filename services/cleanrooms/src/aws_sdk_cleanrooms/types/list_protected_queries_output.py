@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListProtectedQueriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.protected_query_summary_list
 
 
-class ListProtectedQueriesOutput(TypedDict):
+class ListProtectedQueriesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]
     """<p>The pagination token that's used to fetch the next set of results.</p>"""
     protected_queries: "aws_sdk_cleanrooms.types.protected_query_summary_list.ProtectedQuerySummaryList"

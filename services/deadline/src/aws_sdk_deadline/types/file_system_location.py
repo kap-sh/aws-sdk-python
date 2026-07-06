@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#FileSystemLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.path_string
 
 
-class FileSystemLocation(TypedDict):
+class FileSystemLocation(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.file_system_location_name.FileSystemLocationName"
     """<p>The location name.</p>"""
     path: "aws_sdk_deadline.types.path_string.PathString"

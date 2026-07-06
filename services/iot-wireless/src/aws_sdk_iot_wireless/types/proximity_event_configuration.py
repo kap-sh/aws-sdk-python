@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ProximityEventConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.event_notification_topic_status
     import aws_sdk_iot_wireless.types.sidewalk_event_notification_configurations
 
 
-class ProximityEventConfiguration(TypedDict):
+class ProximityEventConfiguration(TypedDict, closed=True):
     sidewalk: NotRequired[
         "aws_sdk_iot_wireless.types.sidewalk_event_notification_configurations.SidewalkEventNotificationConfigurations"
     ]

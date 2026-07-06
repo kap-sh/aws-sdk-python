@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeStoreImageTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeStoreImageTasksRequest(TypedDict):
+class DescribeStoreImageTasksRequest(TypedDict, closed=True):
     image_ids: NotRequired["aws_sdk_ec2.types.image_id_list.ImageIdList"]
     """<p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

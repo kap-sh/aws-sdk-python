@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.configuration_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.string_map
 
 
-class Configuration(TypedDict):
+class Configuration(TypedDict, closed=True):
     classification: NotRequired["aws_sdk_emr.types.string.String"]
     """<p>The classification within a configuration.</p>"""
     configurations: NotRequired[

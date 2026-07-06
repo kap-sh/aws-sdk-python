@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#TaskSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.schedule_status
 
 
-class TaskSchedule(TypedDict):
+class TaskSchedule(TypedDict, closed=True):
     schedule_expression: (
         "aws_sdk_datasync.types.schedule_expression_cron.ScheduleExpressionCron"
     )

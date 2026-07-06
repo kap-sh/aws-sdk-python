@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ReplicaGlobalSecondaryIndexDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.global_secondary_index_warm_throughput_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.provisioned_throughput_override
 
 
-class ReplicaGlobalSecondaryIndexDescription(TypedDict):
+class ReplicaGlobalSecondaryIndexDescription(TypedDict, closed=True):
     index_name: NotRequired["aws_sdk_dynamodb.types.index_name.IndexName"]
     """<p>The name of the global secondary index.</p>"""
     provisioned_throughput_override: NotRequired[

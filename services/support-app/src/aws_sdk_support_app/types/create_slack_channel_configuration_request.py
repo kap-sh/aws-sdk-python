@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#CreateSlackChannelConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support_app.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_support_app.types.team_id
 
 
-class CreateSlackChannelConfigurationRequest(TypedDict):
+class CreateSlackChannelConfigurationRequest(TypedDict, closed=True):
     team_id: "aws_sdk_support_app.types.team_id.teamId"
     """<p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>"""
     channel_id: "aws_sdk_support_app.types.channel_id.channelId"

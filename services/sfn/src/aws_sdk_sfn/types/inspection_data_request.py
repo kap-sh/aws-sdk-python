@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#InspectionDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.http_body
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.url
 
 
-class InspectionDataRequest(TypedDict):
+class InspectionDataRequest(TypedDict, closed=True):
     protocol: NotRequired["aws_sdk_sfn.types.http_protocol.HTTPProtocol"]
     """<p>The protocol used to make the HTTP request.</p>"""
     method: NotRequired["aws_sdk_sfn.types.http_method.HTTPMethod"]

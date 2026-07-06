@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateSecurityProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.security_profile_id
 
 
-class CreateSecurityProfileResponse(TypedDict):
+class CreateSecurityProfileResponse(TypedDict, closed=True):
     security_profile_id: NotRequired[
         "aws_sdk_connect.types.security_profile_id.SecurityProfileId"
     ]

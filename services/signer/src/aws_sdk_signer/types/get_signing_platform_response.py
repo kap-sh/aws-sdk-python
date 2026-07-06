@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#GetSigningPlatformResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.bool
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class GetSigningPlatformResponse(TypedDict):
+class GetSigningPlatformResponse(TypedDict, closed=True):
     platform_id: NotRequired["aws_sdk_signer.types.platform_id.PlatformId"]
     """<p>The ID of the target signing platform.</p>"""
     display_name: NotRequired["aws_sdk_signer.types.display_name.DisplayName"]

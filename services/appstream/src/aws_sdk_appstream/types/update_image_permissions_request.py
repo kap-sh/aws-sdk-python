@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UpdateImagePermissionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.aws_account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.name
 
 
-class UpdateImagePermissionsRequest(TypedDict):
+class UpdateImagePermissionsRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the private image.</p>"""
     shared_account_id: NotRequired[

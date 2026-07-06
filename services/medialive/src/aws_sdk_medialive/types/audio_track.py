@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AudioTrack``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min1
     import aws_sdk_medialive.types.audio_pre_mixer_settings
 
 
-class AudioTrack(TypedDict):
+class AudioTrack(TypedDict, closed=True):
     track: NotRequired["aws_sdk_medialive.types.__integer_min1.__integerMin1"]
     """1-based integer value that maps to a specific audio track"""
     premix_settings: NotRequired[

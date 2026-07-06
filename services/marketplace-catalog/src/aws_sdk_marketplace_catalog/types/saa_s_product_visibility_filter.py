@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#SaaSProductVisibilityFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.saa_s_product_visibility_filter_value_list
 
 
-class SaaSProductVisibilityFilter(TypedDict):
+class SaaSProductVisibilityFilter(TypedDict, closed=True):
     value_list: NotRequired[
         "aws_sdk_marketplace_catalog.types.saa_s_product_visibility_filter_value_list.SaaSProductVisibilityFilterValueList"
     ]

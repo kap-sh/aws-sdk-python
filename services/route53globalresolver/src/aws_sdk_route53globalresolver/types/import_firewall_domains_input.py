@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#ImportFirewallDomainsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53globalresolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
 
 
-class ImportFirewallDomainsInput(TypedDict):
+class ImportFirewallDomainsInput(TypedDict, closed=True):
     domain_file_url: "str"
     """<p>The fully qualified URL of the file in Amazon S3 that contains the list of domains to import. The file should contain one domain per line.</p>"""
     firewall_domain_list_id: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ProvisioningParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.parameter_key
     import aws_sdk_service_catalog.types.parameter_value
 
 
-class ProvisioningParameter(TypedDict):
+class ProvisioningParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_service_catalog.types.parameter_key.ParameterKey"]
     """<p>The parameter key.</p>"""
     value: NotRequired["aws_sdk_service_catalog.types.parameter_value.ParameterValue"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#TransportStreamProgram``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_transport_stream
 
 
-class TransportStreamProgram(TypedDict):
+class TransportStreamProgram(TypedDict, closed=True):
     pcr_pid: NotRequired["int"]
     """<p> The Program Clock Reference (PCR) Packet ID (PID) as it is reported in the Program Association Table.</p>"""
     program_name: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#DisassociateCustomDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.domain_name
 
 
-class DisassociateCustomDomainRequest(TypedDict):
+class DisassociateCustomDomainRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"
     """<p>The Amazon Resource Name (ARN) of the App Runner service that you want to disassociate a custom domain name from.</p>"""
     domain_name: "aws_sdk_apprunner.types.domain_name.DomainName"

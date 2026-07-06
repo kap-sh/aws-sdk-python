@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#RequestCancelActivityTaskFailedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.request_cancel_activity_task_failed_cause
 
 
-class RequestCancelActivityTaskFailedEventAttributes(TypedDict):
+class RequestCancelActivityTaskFailedEventAttributes(TypedDict, closed=True):
     activity_id: "aws_sdk_swf.types.activity_id.ActivityId"
     """<p>The activityId provided in the <code>RequestCancelActivityTask</code> decision that failed.</p>"""
     cause: "aws_sdk_swf.types.request_cancel_activity_task_failed_cause.RequestCancelActivityTaskFailedCause"

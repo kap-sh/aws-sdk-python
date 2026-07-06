@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#BrokerEngineType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__list_of_engine_version
     import aws_sdk_mq.types.engine_type
 
 
-class BrokerEngineType(TypedDict):
+class BrokerEngineType(TypedDict, closed=True):
     engine_type: NotRequired["aws_sdk_mq.types.engine_type.EngineType"]
     """<p>The broker's engine type.</p>"""
     engine_versions: NotRequired[

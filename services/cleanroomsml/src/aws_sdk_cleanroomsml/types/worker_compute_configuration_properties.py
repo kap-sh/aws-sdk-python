@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#WorkerComputeConfigurationProperties``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.spark_properties
 
 
-class _WorkerComputeConfigurationProperties_spark(TypedDict):
+class _WorkerComputeConfigurationProperties_spark(TypedDict, closed=True):
     spark: "aws_sdk_cleanroomsml.types.spark_properties.SparkProperties"
 
 

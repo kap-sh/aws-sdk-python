@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#ListManagedEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.endpoints
     import aws_sdk_emr_containers.types.next_token
 
 
-class ListManagedEndpointsResponse(TypedDict):
+class ListManagedEndpointsResponse(TypedDict, closed=True):
     endpoints: NotRequired["aws_sdk_emr_containers.types.endpoints.Endpoints"]
     """<p>The managed endpoints to be listed.</p>"""
     next_token: NotRequired["aws_sdk_emr_containers.types.next_token.NextToken"]

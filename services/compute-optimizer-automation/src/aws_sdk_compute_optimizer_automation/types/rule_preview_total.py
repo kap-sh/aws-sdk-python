@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#RulePreviewTotal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.estimated_monthly_savings
 
 
-class RulePreviewTotal(TypedDict):
+class RulePreviewTotal(TypedDict, closed=True):
     recommended_action_count: "int"
     """<p>The total number of recommended actions matching the rule preview configuration.</p>"""
     estimated_monthly_savings: "aws_sdk_compute_optimizer_automation.types.estimated_monthly_savings.EstimatedMonthlySavings"

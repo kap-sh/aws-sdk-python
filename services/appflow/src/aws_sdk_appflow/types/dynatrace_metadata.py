@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DynatraceMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DynatraceMetadata(TypedDict):
+class DynatraceMetadata(TypedDict, closed=True):
     pass
 
 

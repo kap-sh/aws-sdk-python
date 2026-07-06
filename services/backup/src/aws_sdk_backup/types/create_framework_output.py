@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateFrameworkOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
     import aws_sdk_backup.types.framework_name
 
 
-class CreateFrameworkOutput(TypedDict):
+class CreateFrameworkOutput(TypedDict, closed=True):
     framework_name: NotRequired["aws_sdk_backup.types.framework_name.FrameworkName"]
     """<p>The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>"""
     framework_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

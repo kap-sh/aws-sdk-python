@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LabelingJobSnsDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sns_topic_arn
 
 
-class LabelingJobSnsDataSource(TypedDict):
+class LabelingJobSnsDataSource(TypedDict, closed=True):
     sns_topic_arn: NotRequired["aws_sdk_sagemaker.types.sns_topic_arn.SnsTopicArn"]
     """<p>The Amazon SNS input topic Amazon Resource Name (ARN). Specify the ARN of the input topic you will use to send new data objects to a streaming labeling job.</p>"""
 

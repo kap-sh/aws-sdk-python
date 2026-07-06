@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#StartTransformerJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.transformer_job_id
 
 
-class StartTransformerJobResponse(TypedDict):
+class StartTransformerJobResponse(TypedDict, closed=True):
     transformer_job_id: "aws_sdk_b2bi.types.transformer_job_id.TransformerJobId"
     """<p>Returns the unique, system-generated identifier for a transformer run.</p>"""
 

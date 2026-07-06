@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#ListKeyspacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.max_results
     import aws_sdk_keyspaces.types.next_token
 
 
-class ListKeyspacesRequest(TypedDict):
+class ListKeyspacesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_keyspaces.types.next_token.NextToken"]
     """<p>The pagination token. To resume pagination, provide the <code>NextToken</code> value as argument of a subsequent API invocation.</p>"""
     max_results: NotRequired["aws_sdk_keyspaces.types.max_results.MaxResults"]

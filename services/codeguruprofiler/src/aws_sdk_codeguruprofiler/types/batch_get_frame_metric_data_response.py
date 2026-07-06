@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#BatchGetFrameMetricDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.unprocessed_end_time_map
 
 
-class BatchGetFrameMetricDataResponse(TypedDict):
+class BatchGetFrameMetricDataResponse(TypedDict, closed=True):
     start_time: "aws_sdk_codeguruprofiler.types.timestamp.Timestamp"
     """<p> The start time of the time period for the returned time series values. This is specified using the ISO 8601 format. For example, 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020 1:15:02 PM UTC. </p>"""
     end_time: "aws_sdk_codeguruprofiler.types.timestamp.Timestamp"

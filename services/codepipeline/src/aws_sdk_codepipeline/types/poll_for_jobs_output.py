@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PollForJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.job_list
 
 
-class PollForJobsOutput(TypedDict):
+class PollForJobsOutput(TypedDict, closed=True):
     jobs: NotRequired["aws_sdk_codepipeline.types.job_list.JobList"]
     """<p>Information about the jobs to take action on.</p>"""
 

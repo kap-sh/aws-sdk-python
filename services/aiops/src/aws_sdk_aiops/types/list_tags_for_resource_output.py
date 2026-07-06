@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.aiops#ListTagsForResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_aiops.types.tags
 
 
-class ListTagsForResourceOutput(TypedDict):
+class ListTagsForResourceOutput(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_aiops.types.tags.Tags"]
     """<p>The list of tag keys and values associated with the resource you specified.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateQuickConnectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.quick_connect_id
 
 
-class CreateQuickConnectResponse(TypedDict):
+class CreateQuickConnectResponse(TypedDict, closed=True):
     quick_connect_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) for the quick connect. </p>"""
     quick_connect_id: NotRequired[

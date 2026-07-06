@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#TotalImpactFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.numeric_operator
 
 
-class TotalImpactFilter(TypedDict):
+class TotalImpactFilter(TypedDict, closed=True):
     numeric_operator: "aws_sdk_cost_explorer.types.numeric_operator.NumericOperator"
     """<p>The comparing value that's used in the filter. </p>"""
     start_value: "aws_sdk_cost_explorer.types.generic_double.GenericDouble"

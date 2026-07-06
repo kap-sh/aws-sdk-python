@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedisEnterpriseCloudConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.secret_arn
 
 
-class RedisEnterpriseCloudConfiguration(TypedDict):
+class RedisEnterpriseCloudConfiguration(TypedDict, closed=True):
     endpoint: "aws_sdk_bedrock_agent.types.redis_enterprise_cloud_endpoint.RedisEnterpriseCloudEndpoint"
     """<p>The endpoint URL of the Redis Enterprise Cloud database.</p>"""
     vector_index_name: "aws_sdk_bedrock_agent.types.redis_enterprise_cloud_index_name.RedisEnterpriseCloudIndexName"

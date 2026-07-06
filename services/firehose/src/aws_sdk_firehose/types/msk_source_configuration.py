@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#MSKSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.topic_name
 
 
-class MSKSourceConfiguration(TypedDict):
+class MSKSourceConfiguration(TypedDict, closed=True):
     msk_cluster_arn: "aws_sdk_firehose.types.msk_cluster_arn.MSKClusterARN"
     """<p>The ARN of the Amazon MSK cluster.</p>"""
     topic_name: "aws_sdk_firehose.types.topic_name.TopicName"

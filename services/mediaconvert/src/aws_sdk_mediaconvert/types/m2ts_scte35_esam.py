@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#M2tsScte35Esam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min32_max8182
 
 
-class M2tsScte35Esam(TypedDict):
+class M2tsScte35Esam(TypedDict, closed=True):
     scte35_esam_pid: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min32_max8182.__integerMin32Max8182"
     ]

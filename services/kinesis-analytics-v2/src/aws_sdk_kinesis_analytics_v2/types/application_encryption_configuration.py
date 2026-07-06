@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationEncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.key_type
 
 
-class ApplicationEncryptionConfiguration(TypedDict):
+class ApplicationEncryptionConfiguration(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_kinesis_analytics_v2.types.key_id.KeyId"]
     """<p>The key ARN, key ID, alias ARN, or alias name of the KMS key used for encryption at rest.</p>"""
     key_type: "aws_sdk_kinesis_analytics_v2.types.key_type.KeyType"

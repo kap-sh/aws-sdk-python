@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#Connector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.open_id_configuration
 
 
-class Connector(TypedDict):
+class Connector(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_pca_connector_scep.types.connector_arn.ConnectorArn"]
     """<p>The Amazon Resource Name (ARN) of the connector.</p>"""
     certificate_authority_arn: NotRequired[

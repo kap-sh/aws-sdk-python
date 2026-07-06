@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#InvalidParameterException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.validation_exception_reason
 
 
-class InvalidParameterException_(TypedDict):
+class InvalidParameterException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_shield.types.error_message.errorMessage"]
     reason: NotRequired[
         "aws_sdk_shield.types.validation_exception_reason.ValidationExceptionReason"

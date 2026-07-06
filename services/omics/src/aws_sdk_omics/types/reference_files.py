@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ReferenceFiles``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.file_information
 
 
-class ReferenceFiles(TypedDict):
+class ReferenceFiles(TypedDict, closed=True):
     source: NotRequired["aws_sdk_omics.types.file_information.FileInformation"]
     """<p>The source file's location in Amazon S3.</p>"""
     index: NotRequired["aws_sdk_omics.types.file_information.FileInformation"]

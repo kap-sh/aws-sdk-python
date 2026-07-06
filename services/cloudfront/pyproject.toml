@@ -27,12 +27,16 @@ dependencies = [
 pythonpath = ["src"]
 testpaths = ["tests"]
 
-[tool.pyright]
+[tool.ty.environment]
+python-version = "3.14"
+root = ["./src"]
+
+[tool.ty.src]
 include = ["src", "tests"]
-extraPaths = ["src"]
-pythonVersion = "3.14"
-reportInvalidStringEscapeSequence = false
-reportTypedDictNotRequiredAccess = false
+
+[tool.ty.rules]
+missing-typed-dict-key = "ignore"
+unused-type-ignore-comment = "ignore"
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]
@@ -41,7 +45,7 @@ ignore = ["E501", "E741"]
 [dependency-groups]
 dev = [
     "inline-snapshot>=0.33.0",
-    "pyright>=1.1.409",
+    "ty>=0.0.56",
     "pytest>=9.0.3",
     "ruff>=0.15.14",
     "trio",

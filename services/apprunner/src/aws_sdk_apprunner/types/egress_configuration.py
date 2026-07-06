@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#EgressConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
     import aws_sdk_apprunner.types.egress_type
 
 
-class EgressConfiguration(TypedDict):
+class EgressConfiguration(TypedDict, closed=True):
     egress_type: NotRequired["aws_sdk_apprunner.types.egress_type.EgressType"]
     """<p>The type of egress configuration.</p> <p>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</p> <p>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</p>"""
     vpc_connector_arn: NotRequired[

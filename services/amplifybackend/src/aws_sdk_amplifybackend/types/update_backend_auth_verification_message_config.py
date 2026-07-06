@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#UpdateBackendAuthVerificationMessageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.delivery_method
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.sms_settings
 
 
-class UpdateBackendAuthVerificationMessageConfig(TypedDict):
+class UpdateBackendAuthVerificationMessageConfig(TypedDict, closed=True):
     delivery_method: NotRequired[
         "aws_sdk_amplifybackend.types.delivery_method.DeliveryMethod"
     ]

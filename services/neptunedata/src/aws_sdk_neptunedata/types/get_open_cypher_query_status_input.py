@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetOpenCypherQueryStatusInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetOpenCypherQueryStatusInput(TypedDict):
+class GetOpenCypherQueryStatusInput(TypedDict, closed=True):
     query_id: "str"
     """<p>The unique ID of the openCypher query for which to retrieve the query status.</p>"""
 

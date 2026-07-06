@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClusterInstanceGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.active_operations
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.vpc_config
 
 
-class ClusterInstanceGroupDetails(TypedDict):
+class ClusterInstanceGroupDetails(TypedDict, closed=True):
     current_count: NotRequired[
         "aws_sdk_sagemaker.types.cluster_non_negative_instance_count.ClusterNonNegativeInstanceCount"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#PropertyFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.logical_operator
     import aws_sdk_sagemaker_geospatial.types.property_filters_list
 
 
-class PropertyFilters(TypedDict):
+class PropertyFilters(TypedDict, closed=True):
     properties: NotRequired[
         "aws_sdk_sagemaker_geospatial.types.property_filters_list.PropertyFiltersList"
     ]

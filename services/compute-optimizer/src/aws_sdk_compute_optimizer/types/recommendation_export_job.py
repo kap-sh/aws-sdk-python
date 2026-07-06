@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#RecommendationExportJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.creation_timestamp
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.resource_type
 
 
-class RecommendationExportJob(TypedDict):
+class RecommendationExportJob(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_compute_optimizer.types.job_id.JobId"]
     """<p>The identification number of the export job.</p>"""
     destination: NotRequired[

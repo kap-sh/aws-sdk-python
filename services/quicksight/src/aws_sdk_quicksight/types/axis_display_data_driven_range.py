@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AxisDisplayDataDrivenRange``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AxisDisplayDataDrivenRange(TypedDict):
+class AxisDisplayDataDrivenRange(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NoiseReducerSpatialFilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max3
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min_negative2_max3
 
 
-class NoiseReducerSpatialFilterSettings(TypedDict):
+class NoiseReducerSpatialFilterSettings(TypedDict, closed=True):
     post_filter_sharpen_strength: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min0_max3.__integerMin0Max3"
     ]

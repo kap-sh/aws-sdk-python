@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#LoadBalancerAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.private_i_pv4_address
 
 
-class LoadBalancerAddress(TypedDict):
+class LoadBalancerAddress(TypedDict, closed=True):
     ip_address: NotRequired[
         "aws_sdk_elastic_load_balancing_v2.types.ip_address.IpAddress"
     ]

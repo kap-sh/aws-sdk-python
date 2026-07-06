@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#BillingGroupCostReportResultElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.attributes_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.proforma_cost
 
 
-class BillingGroupCostReportResultElement(TypedDict):
+class BillingGroupCostReportResultElement(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"]
     """<p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>"""
     aws_cost: NotRequired["aws_sdk_billingconductor.types.aws_cost.AWSCost"]

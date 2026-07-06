@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#UpdateServiceInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_instance
 
 
-class UpdateServiceInstanceOutput(TypedDict):
+class UpdateServiceInstanceOutput(TypedDict, closed=True):
     service_instance: "aws_sdk_proton.types.service_instance.ServiceInstance"
     """<p>The service instance summary data that's returned by Proton.</p>"""
 

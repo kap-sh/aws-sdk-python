@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TestingData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.assets
     import aws_sdk_rekognition.types.boolean
 
 
-class TestingData(TypedDict):
+class TestingData(TypedDict, closed=True):
     assets: NotRequired["aws_sdk_rekognition.types.assets.Assets"]
     """<p>The assets used for testing.</p>"""
     auto_create: "aws_sdk_rekognition.types.boolean.Boolean"

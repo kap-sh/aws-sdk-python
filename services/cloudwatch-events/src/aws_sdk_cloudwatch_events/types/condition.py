@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.string
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     type: "aws_sdk_cloudwatch_events.types.string.String"
     """<p>Specifies the type of condition. Currently the only supported value is <code>StringEquals</code>.</p>"""
     key: "aws_sdk_cloudwatch_events.types.string.String"

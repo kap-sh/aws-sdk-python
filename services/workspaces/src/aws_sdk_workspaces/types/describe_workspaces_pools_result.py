@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeWorkspacesPoolsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
     import aws_sdk_workspaces.types.workspaces_pools
 
 
-class DescribeWorkspacesPoolsResult(TypedDict):
+class DescribeWorkspacesPoolsResult(TypedDict, closed=True):
     workspaces_pools: NotRequired[
         "aws_sdk_workspaces.types.workspaces_pools.WorkspacesPools"
     ]

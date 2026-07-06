@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterCapabilityReportCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.spec_version
 
 
-class MatterCapabilityReportCluster(TypedDict):
+class MatterCapabilityReportCluster(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.cluster_id.ClusterId"
     """<p>The id of the Amazon Web Services Matter capability report cluster.</p>"""
     revision: "aws_sdk_iot_managed_integrations.types.matter_capability_report_cluster_revision_id.MatterCapabilityReportClusterRevisionId"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#DescribeSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.dataset_schema
 
 
-class DescribeSchemaResponse(TypedDict):
+class DescribeSchemaResponse(TypedDict, closed=True):
     schema: NotRequired["aws_sdk_personalize.types.dataset_schema.DatasetSchema"]
     """<p>The requested schema.</p>"""
 

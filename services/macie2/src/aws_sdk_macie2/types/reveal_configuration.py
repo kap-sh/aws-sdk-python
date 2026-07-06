@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#RevealConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string_min1_max2048
     import aws_sdk_macie2.types.reveal_status
 
 
-class RevealConfiguration(TypedDict):
+class RevealConfiguration(TypedDict, closed=True):
     kms_key_id: NotRequired[
         "aws_sdk_macie2.types.__string_min1_max2048.__stringMin1Max2048"
     ]

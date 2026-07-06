@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#APNSVoipChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
     import aws_sdk_pinpoint.types.__string
 
 
-class APNSVoipChannelRequest(TypedDict):
+class APNSVoipChannelRequest(TypedDict, closed=True):
     bundle_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The bundle identifier that's assigned to your iOS app. This identifier is used for APNs tokens.</p>"""
     certificate: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

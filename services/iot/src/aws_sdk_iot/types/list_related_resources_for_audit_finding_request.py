@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListRelatedResourcesForAuditFindingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.finding_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
 
 
-class ListRelatedResourcesForAuditFindingRequest(TypedDict):
+class ListRelatedResourcesForAuditFindingRequest(TypedDict, closed=True):
     finding_id: "aws_sdk_iot.types.finding_id.FindingId"
     """<p>The finding Id.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

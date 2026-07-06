@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#Prediction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.details_map
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.score_value_per_label_map
 
 
-class Prediction(TypedDict):
+class Prediction(TypedDict, closed=True):
     predicted_label: NotRequired["aws_sdk_machine_learning.types.label.Label"]
     """<p>The prediction label for either a <code>BINARY</code> or <code>MULTICLASS</code> <code>MLModel</code>.</p>"""
     predicted_value: NotRequired[

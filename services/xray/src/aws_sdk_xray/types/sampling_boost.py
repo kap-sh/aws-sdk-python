@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#SamplingBoost``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.timestamp
 
 
-class SamplingBoost(TypedDict):
+class SamplingBoost(TypedDict, closed=True):
     boost_rate: "aws_sdk_xray.types.double.Double"
     """<p>The calculated sampling boost rate for this service </p>"""
     boost_rate_ttl: "aws_sdk_xray.types.timestamp.Timestamp"

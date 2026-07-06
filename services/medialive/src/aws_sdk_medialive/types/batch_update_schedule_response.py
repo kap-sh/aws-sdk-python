@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#BatchUpdateScheduleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.batch_schedule_action_create_result
     import aws_sdk_medialive.types.batch_schedule_action_delete_result
 
 
-class BatchUpdateScheduleResponse(TypedDict):
+class BatchUpdateScheduleResponse(TypedDict, closed=True):
     creates: NotRequired[
         "aws_sdk_medialive.types.batch_schedule_action_create_result.BatchScheduleActionCreateResult"
     ]

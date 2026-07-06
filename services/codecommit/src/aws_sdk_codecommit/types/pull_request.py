@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#PullRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.approval_rules_list
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.title
 
 
-class PullRequest(TypedDict):
+class PullRequest(TypedDict, closed=True):
     pull_request_id: NotRequired[
         "aws_sdk_codecommit.types.pull_request_id.PullRequestId"
     ]

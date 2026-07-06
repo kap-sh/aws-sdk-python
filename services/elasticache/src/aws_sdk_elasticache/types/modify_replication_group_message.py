@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ModifyReplicationGroupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_group_id_list
 
 
-class ModifyReplicationGroupMessage(TypedDict):
+class ModifyReplicationGroupMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The identifier of the replication group to modify.</p>"""
     replication_group_description: NotRequired[

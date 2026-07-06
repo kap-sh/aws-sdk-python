@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#IntegratedResourceMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.git_hub_repository_metadata
 
 
-class _IntegratedResourceMetadata_githubRepository(TypedDict):
+class _IntegratedResourceMetadata_githubRepository(TypedDict, closed=True):
     githubRepository: "aws_sdk_securityagent.types.git_hub_repository_metadata.GitHubRepositoryMetadata"
 
 

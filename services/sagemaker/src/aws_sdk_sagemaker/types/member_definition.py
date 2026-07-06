@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MemberDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cognito_member_definition
     import aws_sdk_sagemaker.types.oidc_member_definition
 
 
-class MemberDefinition(TypedDict):
+class MemberDefinition(TypedDict, closed=True):
     cognito_member_definition: NotRequired[
         "aws_sdk_sagemaker.types.cognito_member_definition.CognitoMemberDefinition"
     ]

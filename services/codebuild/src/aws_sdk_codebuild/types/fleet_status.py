@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#FleetStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.fleet_context_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class FleetStatus(TypedDict):
+class FleetStatus(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_codebuild.types.fleet_status_code.FleetStatusCode"
     ]

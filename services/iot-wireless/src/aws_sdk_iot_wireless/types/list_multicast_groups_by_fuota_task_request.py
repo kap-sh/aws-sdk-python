@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListMulticastGroupsByFuotaTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.fuota_task_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.next_token
 
 
-class ListMulticastGroupsByFuotaTaskRequest(TypedDict):
+class ListMulticastGroupsByFuotaTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.fuota_task_id.FuotaTaskId"
     next_token: NotRequired["aws_sdk_iot_wireless.types.next_token.NextToken"]
     """<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>"""

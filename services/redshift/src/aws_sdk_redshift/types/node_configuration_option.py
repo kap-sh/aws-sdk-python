@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#NodeConfigurationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class NodeConfigurationOption(TypedDict):
+class NodeConfigurationOption(TypedDict, closed=True):
     node_type: NotRequired["aws_sdk_redshift.types.string.String"]
     r"""<p>The node type, such as, \"ra3.4xlarge\".</p>"""
     number_of_nodes: NotRequired["aws_sdk_redshift.types.integer.Integer"]

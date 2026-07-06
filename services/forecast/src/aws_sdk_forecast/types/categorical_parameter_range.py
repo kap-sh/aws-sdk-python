@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CategoricalParameterRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.values
 
 
-class CategoricalParameterRange(TypedDict):
+class CategoricalParameterRange(TypedDict, closed=True):
     name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the categorical hyperparameter to tune.</p>"""
     values: "aws_sdk_forecast.types.values.Values"

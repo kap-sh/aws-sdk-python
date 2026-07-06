@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#SubscribeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.subscription_arn
 
 
-class SubscribeResponse(TypedDict):
+class SubscribeResponse(TypedDict, closed=True):
     subscription_arn: NotRequired["aws_sdk_sns.types.subscription_arn.subscriptionARN"]
     r"""<p>The ARN of the subscription if it is confirmed, or the string \"pending confirmation\" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>"""
 

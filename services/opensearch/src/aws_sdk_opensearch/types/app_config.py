@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AppConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.app_config_type
     import aws_sdk_opensearch.types.app_config_value
 
 
-class AppConfig(TypedDict):
+class AppConfig(TypedDict, closed=True):
     key: NotRequired["aws_sdk_opensearch.types.app_config_type.AppConfigType"]
     """<p>The configuration item to set, such as the admin role for the OpenSearch application.</p>"""
     value: NotRequired["aws_sdk_opensearch.types.app_config_value.AppConfigValue"]

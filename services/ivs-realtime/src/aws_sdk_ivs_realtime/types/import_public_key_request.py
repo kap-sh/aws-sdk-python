@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#ImportPublicKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.tags
 
 
-class ImportPublicKeyRequest(TypedDict):
+class ImportPublicKeyRequest(TypedDict, closed=True):
     public_key_material: (
         "aws_sdk_ivs_realtime.types.public_key_material.PublicKeyMaterial"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetRedshiftDataParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.statement_name
 
 
-class PipeTargetRedshiftDataParameters(TypedDict):
+class PipeTargetRedshiftDataParameters(TypedDict, closed=True):
     secret_manager_arn: NotRequired[
         "aws_sdk_pipes.types.secret_manager_arn_or_json_path.SecretManagerArnOrJsonPath"
     ]

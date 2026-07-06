@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#EpisodicReflectionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.memory_record_schema
     import aws_sdk_bedrock_agentcore_control.types.namespaces_list
 
 
-class EpisodicReflectionConfiguration(TypedDict):
+class EpisodicReflectionConfiguration(TypedDict, closed=True):
     namespaces: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.namespaces_list.NamespacesList"
     ]

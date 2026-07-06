@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RegisterContainerImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class RegisterContainerImageRequest(TypedDict):
+class RegisterContainerImageRequest(TypedDict, closed=True):
     service_name: "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     """<p>The name of the container service for which to register a container image.</p>"""
     label: "aws_sdk_lightsail.types.container_label.ContainerLabel"

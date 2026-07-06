@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultSectionBasedLayoutConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.section_based_layout_canvas_size_options
 
 
-class DefaultSectionBasedLayoutConfiguration(TypedDict):
+class DefaultSectionBasedLayoutConfiguration(TypedDict, closed=True):
     canvas_size_options: "aws_sdk_quicksight.types.section_based_layout_canvas_size_options.SectionBasedLayoutCanvasSizeOptions"
     """<p>Determines the screen canvas size options for a section-based layout.</p>"""
 

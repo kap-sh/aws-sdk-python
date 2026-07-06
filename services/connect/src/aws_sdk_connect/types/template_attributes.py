@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TemplateAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attributes
     import aws_sdk_connect.types.customer_profile_attributes_serialized
 
 
-class TemplateAttributes(TypedDict):
+class TemplateAttributes(TypedDict, closed=True):
     custom_attributes: NotRequired["aws_sdk_connect.types.attributes.Attributes"]
     """<p>An object that specifies the custom attributes values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. </p>"""
     customer_profile_attributes: NotRequired[

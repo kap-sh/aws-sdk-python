@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#DeleteConnectInstanceConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaigns.types.instance_id
 
 
-class DeleteConnectInstanceConfigRequest(TypedDict):
+class DeleteConnectInstanceConfigRequest(TypedDict, closed=True):
     connect_instance_id: "aws_sdk_connectcampaigns.types.instance_id.InstanceId"
 
 

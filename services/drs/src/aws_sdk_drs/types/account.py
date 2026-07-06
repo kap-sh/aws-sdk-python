@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.account_id
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_drs.types.account_id.AccountID"]
     """<p>Account ID of AWS account.</p>"""
 

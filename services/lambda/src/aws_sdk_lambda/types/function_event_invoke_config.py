@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#FunctionEventInvokeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.date
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.maximum_retry_attempts
 
 
-class FunctionEventInvokeConfig(TypedDict):
+class FunctionEventInvokeConfig(TypedDict, closed=True):
     last_modified: NotRequired["aws_sdk_lambda.types.date.Date"]
     """<p>The date and time that the configuration was last updated.</p>"""
     function_arn: NotRequired["aws_sdk_lambda.types.function_arn.FunctionArn"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksPodProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class EksPodProperties(TypedDict):
+class EksPodProperties(TypedDict, closed=True):
     service_account_name: NotRequired["aws_sdk_batch.types.string.String"]
     r"""<p>The name of the service account that's used to run the pod. For more information, see <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html\">Kubernetes service accounts</a> and <a href=\"https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html\">Configure a Kubernetes service account to assume an IAM role</a> in the <i>Amazon EKS User Guide</i> and <a href=\"https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/\">Configure service accounts for pods</a> in the <i>Kubernetes documentation</i>.</p>"""
     host_network: NotRequired["aws_sdk_batch.types.boolean.Boolean"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Aggregation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_prep_aggregation_function
 
 
-class Aggregation(TypedDict):
+class Aggregation(TypedDict, closed=True):
     aggregation_function: "aws_sdk_quicksight.types.data_prep_aggregation_function.DataPrepAggregationFunction"
     """<p>The aggregation function to apply, such as <code>SUM</code>, <code>COUNT</code>, <code>AVERAGE</code>, <code>MIN</code>, <code>MAX</code> </p>"""
     new_column_name: "aws_sdk_quicksight.types.column_name.ColumnName"

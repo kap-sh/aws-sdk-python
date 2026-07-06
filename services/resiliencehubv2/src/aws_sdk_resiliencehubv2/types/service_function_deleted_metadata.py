@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceFunctionDeletedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceFunctionDeletedMetadata(TypedDict):
+class ServiceFunctionDeletedMetadata(TypedDict, closed=True):
     service_function_id: NotRequired["str"]
     """<p>The identifier of the deleted service function.</p>"""
     service_function_name: NotRequired["str"]

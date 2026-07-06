@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#PutLoggingOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.logging_options
 
 
-class PutLoggingOptionsRequest(TypedDict):
+class PutLoggingOptionsRequest(TypedDict, closed=True):
     logging_options: "aws_sdk_iot_events.types.logging_options.LoggingOptions"
     """<p>The new values of the AWS IoT Events logging options.</p>"""
 

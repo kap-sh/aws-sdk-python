@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#PutResolverRulePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.resolver_rule_policy
 
 
-class PutResolverRulePolicyRequest(TypedDict):
+class PutResolverRulePolicyRequest(TypedDict, closed=True):
     arn: "aws_sdk_route53resolver.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the rule that you want to share with another account.</p>"""
     resolver_rule_policy: (

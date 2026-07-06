@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisNumberFilter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CisNumberFilter(TypedDict):
+class CisNumberFilter(TypedDict, closed=True):
     upper_inclusive: NotRequired["int"]
     """<p>The CIS number filter's upper inclusive.</p>"""
     lower_inclusive: NotRequired["int"]

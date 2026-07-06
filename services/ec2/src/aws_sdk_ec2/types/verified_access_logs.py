@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VerifiedAccessLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.verified_access_log_s3_destination
 
 
-class VerifiedAccessLogs(TypedDict):
+class VerifiedAccessLogs(TypedDict, closed=True):
     s3: NotRequired[
         "aws_sdk_ec2.types.verified_access_log_s3_destination.VerifiedAccessLogS3Destination"
     ]

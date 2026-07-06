@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#DeleteEnvironmentConfigurationMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.environment_name
 
 
-class DeleteEnvironmentConfigurationMessage(TypedDict):
+class DeleteEnvironmentConfigurationMessage(TypedDict, closed=True):
     application_name: "aws_sdk_elastic_beanstalk.types.application_name.ApplicationName"
     """<p>The name of the application the environment is associated with.</p>"""
     environment_name: "aws_sdk_elastic_beanstalk.types.environment_name.EnvironmentName"

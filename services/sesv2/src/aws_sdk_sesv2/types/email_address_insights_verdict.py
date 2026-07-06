@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#EmailAddressInsightsVerdict``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.email_address_insights_confidence_verdict
 
 
-class EmailAddressInsightsVerdict(TypedDict):
+class EmailAddressInsightsVerdict(TypedDict, closed=True):
     confidence_verdict: NotRequired[
         "aws_sdk_sesv2.types.email_address_insights_confidence_verdict.EmailAddressInsightsConfidenceVerdict"
     ]

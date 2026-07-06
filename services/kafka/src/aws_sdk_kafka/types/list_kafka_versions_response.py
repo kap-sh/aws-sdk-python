@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListKafkaVersionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of_kafka_version
     import aws_sdk_kafka.types.__string
 
 
-class ListKafkaVersionsResponse(TypedDict):
+class ListKafkaVersionsResponse(TypedDict, closed=True):
     kafka_versions: NotRequired[
         "aws_sdk_kafka.types.__list_of_kafka_version.__listOfKafkaVersion"
     ]

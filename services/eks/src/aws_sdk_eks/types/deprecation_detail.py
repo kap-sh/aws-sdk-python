@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DeprecationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.client_stats
     import aws_sdk_eks.types.string
 
 
-class DeprecationDetail(TypedDict):
+class DeprecationDetail(TypedDict, closed=True):
     usage: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The deprecated version of the resource.</p>"""
     replaced_with: NotRequired["aws_sdk_eks.types.string.String"]

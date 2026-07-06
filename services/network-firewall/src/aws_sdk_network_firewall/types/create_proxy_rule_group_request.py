@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateProxyRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tag_list
 
 
-class CreateProxyRuleGroupRequest(TypedDict):
+class CreateProxyRuleGroupRequest(TypedDict, closed=True):
     proxy_rule_group_name: "aws_sdk_network_firewall.types.resource_name.ResourceName"
     """<p>The descriptive name of the proxy rule group. You can't change the name of a proxy rule group after you create it.</p>"""
     description: NotRequired["aws_sdk_network_firewall.types.description.Description"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#DescribeKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class DescribeKeyResponse(TypedDict):
+class DescribeKeyResponse(TypedDict, closed=True):
     key: "aws_sdk_location.types.api_key.ApiKey"
     """<p>The key value/string of an API key.</p>"""
     key_arn: "aws_sdk_location.types.arn.Arn"

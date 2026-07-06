@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#DeleteScopeOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteScopeOutput(TypedDict):
+class DeleteScopeOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateSlotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sub_slot_setting
 
 
-class UpdateSlotRequest(TypedDict):
+class UpdateSlotRequest(TypedDict, closed=True):
     slot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The unique identifier for the slot to update.</p>"""
     slot_name: "aws_sdk_lex_models_v2.types.name.Name"

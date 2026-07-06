@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluatorMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.variant_result_list
 
 
-class EvaluatorMetric(TypedDict):
+class EvaluatorMetric(TypedDict, closed=True):
     evaluator_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the evaluator.</p>"""
     control_stats: "aws_sdk_bedrock_agentcore.types.control_stats.ControlStats"

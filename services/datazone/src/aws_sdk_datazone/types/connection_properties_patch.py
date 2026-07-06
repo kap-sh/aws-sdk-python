@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ConnectionPropertiesPatch``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -17,55 +19,55 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.vpc_properties_patch
 
 
-class _ConnectionPropertiesPatch_athenaProperties(TypedDict):
+class _ConnectionPropertiesPatch_athenaProperties(TypedDict, closed=True):
     athenaProperties: (
         "aws_sdk_datazone.types.athena_properties_patch.AthenaPropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_glueProperties(TypedDict):
+class _ConnectionPropertiesPatch_glueProperties(TypedDict, closed=True):
     glueProperties: "aws_sdk_datazone.types.glue_properties_patch.GluePropertiesPatch"
 
 
-class _ConnectionPropertiesPatch_iamProperties(TypedDict):
+class _ConnectionPropertiesPatch_iamProperties(TypedDict, closed=True):
     iamProperties: "aws_sdk_datazone.types.iam_properties_patch.IamPropertiesPatch"
 
 
-class _ConnectionPropertiesPatch_redshiftProperties(TypedDict):
+class _ConnectionPropertiesPatch_redshiftProperties(TypedDict, closed=True):
     redshiftProperties: (
         "aws_sdk_datazone.types.redshift_properties_patch.RedshiftPropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_sparkEmrProperties(TypedDict):
+class _ConnectionPropertiesPatch_sparkEmrProperties(TypedDict, closed=True):
     sparkEmrProperties: (
         "aws_sdk_datazone.types.spark_emr_properties_patch.SparkEmrPropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_s3Properties(TypedDict):
+class _ConnectionPropertiesPatch_s3Properties(TypedDict, closed=True):
     s3Properties: "aws_sdk_datazone.types.s3_properties_patch.S3PropertiesPatch"
 
 
-class _ConnectionPropertiesPatch_amazonQProperties(TypedDict):
+class _ConnectionPropertiesPatch_amazonQProperties(TypedDict, closed=True):
     amazonQProperties: (
         "aws_sdk_datazone.types.amazon_q_properties_patch.AmazonQPropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_mlflowProperties(TypedDict):
+class _ConnectionPropertiesPatch_mlflowProperties(TypedDict, closed=True):
     mlflowProperties: (
         "aws_sdk_datazone.types.mlflow_properties_patch.MlflowPropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_lakehouseProperties(TypedDict):
+class _ConnectionPropertiesPatch_lakehouseProperties(TypedDict, closed=True):
     lakehouseProperties: (
         "aws_sdk_datazone.types.lakehouse_properties_patch.LakehousePropertiesPatch"
     )
 
 
-class _ConnectionPropertiesPatch_vpcProperties(TypedDict):
+class _ConnectionPropertiesPatch_vpcProperties(TypedDict, closed=True):
     vpcProperties: "aws_sdk_datazone.types.vpc_properties_patch.VpcPropertiesPatch"
 
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DeleteContainerServiceResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteContainerServiceResult(TypedDict):
+class DeleteContainerServiceResult(TypedDict, closed=True):
     pass
 
 

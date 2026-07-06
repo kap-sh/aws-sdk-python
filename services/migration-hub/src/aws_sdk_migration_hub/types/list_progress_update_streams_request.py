@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ListProgressUpdateStreamsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.max_results
     import aws_sdk_migration_hub.types.token
 
 
-class ListProgressUpdateStreamsRequest(TypedDict):
+class ListProgressUpdateStreamsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_migration_hub.types.token.Token"]
     """<p>If a <code>NextToken</code> was returned by a previous call, there are more results available. To retrieve the next page of results, make the call again using the returned token in <code>NextToken</code>.</p>"""
     max_results: NotRequired["aws_sdk_migration_hub.types.max_results.MaxResults"]

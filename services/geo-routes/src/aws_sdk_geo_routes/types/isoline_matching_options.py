@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineMatchingOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.distance_meters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class IsolineMatchingOptions(TypedDict):
+class IsolineMatchingOptions(TypedDict, closed=True):
     name_hint: NotRequired["aws_sdk_geo_routes.types.sensitive_string.SensitiveString"]
     """<p>The expected street name near the point. Helps disambiguate matching when multiple roads are within range.</p>"""
     on_road_threshold: "aws_sdk_geo_routes.types.distance_meters.DistanceMeters"

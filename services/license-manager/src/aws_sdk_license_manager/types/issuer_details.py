@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#IssuerDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class IssuerDetails(TypedDict):
+class IssuerDetails(TypedDict, closed=True):
     name: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Issuer name.</p>"""
     sign_key: NotRequired["aws_sdk_license_manager.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#RegionalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class RegionalSummary(TypedDict):
+class RegionalSummary(TypedDict, closed=True):
     region_name: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Web Services Region.</p>"""
     number_of_matched_accounts: NotRequired["aws_sdk_ec2.types.integer.Integer"]

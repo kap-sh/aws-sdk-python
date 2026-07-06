@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#FilterRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.filter_type
     import aws_sdk_datasync.types.filter_value
 
 
-class FilterRule(TypedDict):
+class FilterRule(TypedDict, closed=True):
     filter_type: NotRequired["aws_sdk_datasync.types.filter_type.FilterType"]
     """<p>The type of filter rule to apply. DataSync only supports the SIMPLE_PATTERN rule type.</p>"""
     value: NotRequired["aws_sdk_datasync.types.filter_value.FilterValue"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.textract#SplitDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.page_list
     import aws_sdk_textract.types.u_integer
 
 
-class SplitDocument(TypedDict):
+class SplitDocument(TypedDict, closed=True):
     index: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>The index for a given document in a DocumentGroup of a specific Type.</p>"""
     pages: NotRequired["aws_sdk_textract.types.page_list.PageList"]

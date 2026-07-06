@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#CoverageEksClusterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.addon_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class CoverageEksClusterDetails(TypedDict):
+class CoverageEksClusterDetails(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Name of the EKS cluster.</p>"""
     covered_nodes: NotRequired["aws_sdk_guardduty.types.long.Long"]

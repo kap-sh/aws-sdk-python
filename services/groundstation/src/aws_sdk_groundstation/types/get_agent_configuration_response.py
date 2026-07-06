@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#GetAgentConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class GetAgentConfigurationResponse(TypedDict):
+class GetAgentConfigurationResponse(TypedDict, closed=True):
     agent_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of agent.</p>"""
     tasking_document: NotRequired["str"]

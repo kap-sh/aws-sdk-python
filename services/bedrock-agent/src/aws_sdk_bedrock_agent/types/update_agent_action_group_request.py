@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#UpdateAgentActionGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.name
 
 
-class UpdateAgentActionGroupRequest(TypedDict):
+class UpdateAgentActionGroupRequest(TypedDict, closed=True):
     agent_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the agent for which to update the action group.</p>"""
     agent_version: "aws_sdk_bedrock_agent.types.draft_version.DraftVersion"

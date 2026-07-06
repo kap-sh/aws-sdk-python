@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#TargetAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.ip
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.server_name_indication
 
 
-class TargetAddress(TypedDict):
+class TargetAddress(TypedDict, closed=True):
     ip: NotRequired["aws_sdk_route53resolver.types.ip.Ip"]
     """<p>One IPv4 address that you want to forward DNS queries to.</p>"""
     port: NotRequired["aws_sdk_route53resolver.types.port.Port"]

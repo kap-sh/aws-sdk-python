@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAmazonMqBrokerLogsPendingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class AwsAmazonMqBrokerLogsPendingDetails(TypedDict):
+class AwsAmazonMqBrokerLogsPendingDetails(TypedDict, closed=True):
     audit: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Activates audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Doesn't apply to RabbitMQ brokers. </p>"""
     general: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListTrustStoreCertificatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.pagination_token
 
 
-class ListTrustStoreCertificatesResponse(TypedDict):
+class ListTrustStoreCertificatesResponse(TypedDict, closed=True):
     certificate_list: NotRequired[
         "aws_sdk_workspaces_web.types.certificate_summary_list.CertificateSummaryList"
     ]

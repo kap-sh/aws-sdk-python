@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#Trigger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.workflow_target_action
 
 
-class Trigger(TypedDict):
+class Trigger(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>The description for a trigger.</p>"""
     target_region: "aws_sdk_arc_region_switch.types.region.Region"

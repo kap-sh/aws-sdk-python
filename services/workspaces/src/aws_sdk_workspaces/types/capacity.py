@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#Capacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.desired_user_sessions
 
 
-class Capacity(TypedDict):
+class Capacity(TypedDict, closed=True):
     desired_user_sessions: (
         "aws_sdk_workspaces.types.desired_user_sessions.DesiredUserSessions"
     )

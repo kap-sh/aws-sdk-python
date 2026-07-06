@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#ThrottlingException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
 
 

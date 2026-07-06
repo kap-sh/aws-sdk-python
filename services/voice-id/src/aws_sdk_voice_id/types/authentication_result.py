@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#AuthenticationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.authentication_configuration
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.unique_id_large
 
 
-class AuthenticationResult(TypedDict):
+class AuthenticationResult(TypedDict, closed=True):
     authentication_result_id: NotRequired[
         "aws_sdk_voice_id.types.unique_id_large.UniqueIdLarge"
     ]

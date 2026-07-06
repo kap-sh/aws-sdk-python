@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateIndexRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.user_token_configuration_list
 
 
-class CreateIndexRequest(TypedDict):
+class CreateIndexRequest(TypedDict, closed=True):
     name: "aws_sdk_kendra.types.index_name.IndexName"
     """<p>A name for the index.</p>"""
     edition: NotRequired["aws_sdk_kendra.types.index_edition.IndexEdition"]

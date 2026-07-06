@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RtpRouterOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.forward_error_correction_state
 
 
-class RtpRouterOutputConfiguration(TypedDict):
+class RtpRouterOutputConfiguration(TypedDict, closed=True):
     destination_address: "str"
     """<p>The destination IP address for the RTP protocol in the router output configuration.</p>"""
     destination_port: "int"

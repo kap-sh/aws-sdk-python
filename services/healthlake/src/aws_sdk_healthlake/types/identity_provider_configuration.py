@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#IdentityProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.lambda_arn
 
 
-class IdentityProviderConfiguration(TypedDict):
+class IdentityProviderConfiguration(TypedDict, closed=True):
     authorization_strategy: (
         "aws_sdk_healthlake.types.authorization_strategy.AuthorizationStrategy"
     )

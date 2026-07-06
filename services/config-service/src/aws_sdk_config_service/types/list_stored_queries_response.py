@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ListStoredQueriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.stored_query_metadata_list
     import aws_sdk_config_service.types.string
 
 
-class ListStoredQueriesResponse(TypedDict):
+class ListStoredQueriesResponse(TypedDict, closed=True):
     stored_query_metadata: NotRequired[
         "aws_sdk_config_service.types.stored_query_metadata_list.StoredQueryMetadataList"
     ]

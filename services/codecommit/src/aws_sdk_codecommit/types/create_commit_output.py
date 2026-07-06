@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreateCommitOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.files_metadata
     import aws_sdk_codecommit.types.object_id
 
 
-class CreateCommitOutput(TypedDict):
+class CreateCommitOutput(TypedDict, closed=True):
     commit_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]
     """<p>The full commit ID of the commit that contains your committed file changes.</p>"""
     tree_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

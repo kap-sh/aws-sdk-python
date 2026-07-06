@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListSandboxesForProjectInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.sort_order_type
 
 
-class ListSandboxesForProjectInput(TypedDict):
+class ListSandboxesForProjectInput(TypedDict, closed=True):
     project_name: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>The CodeBuild project name.</p>"""
     max_results: NotRequired["aws_sdk_codebuild.types.page_size.PageSize"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#ListRoutingRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__list_of_routing_rule
     import aws_sdk_apigatewayv2.types.next_token
 
 
-class ListRoutingRulesResponse(TypedDict):
+class ListRoutingRulesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_apigatewayv2.types.next_token.NextToken"]
     routing_rules: NotRequired[
         "aws_sdk_apigatewayv2.types.__list_of_routing_rule.__listOfRoutingRule"

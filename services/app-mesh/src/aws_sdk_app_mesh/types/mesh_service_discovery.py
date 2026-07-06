@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#MeshServiceDiscovery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.ip_preference
 
 
-class MeshServiceDiscovery(TypedDict):
+class MeshServiceDiscovery(TypedDict, closed=True):
     ip_preference: NotRequired["aws_sdk_app_mesh.types.ip_preference.IpPreference"]
     """<p>The IP version to use to control traffic within the mesh.</p>"""
 

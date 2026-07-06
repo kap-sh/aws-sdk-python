@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#HeaderMatchType``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.header_match_prefix
 
 
-class _HeaderMatchType_exact(TypedDict):
+class _HeaderMatchType_exact(TypedDict, closed=True):
     exact: "aws_sdk_vpc_lattice.types.header_match_exact.HeaderMatchExact"
 
 
-class _HeaderMatchType_prefix(TypedDict):
+class _HeaderMatchType_prefix(TypedDict, closed=True):
     prefix: "aws_sdk_vpc_lattice.types.header_match_prefix.HeaderMatchPrefix"
 
 
-class _HeaderMatchType_contains(TypedDict):
+class _HeaderMatchType_contains(TypedDict, closed=True):
     contains: "aws_sdk_vpc_lattice.types.header_match_contains.HeaderMatchContains"
 
 

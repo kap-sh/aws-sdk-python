@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#DescribeEnvironmentStatusResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloud9.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.string
 
 
-class DescribeEnvironmentStatusResult(TypedDict):
+class DescribeEnvironmentStatusResult(TypedDict, closed=True):
     status: "aws_sdk_cloud9.types.environment_status.EnvironmentStatus"
     """<p>The status of the environment. Available values include:</p> <ul> <li> <p> <code>connecting</code>: The environment is connecting.</p> </li> <li> <p> <code>creating</code>: The environment is being created.</p> </li> <li> <p> <code>deleting</code>: The environment is being deleted.</p> </li> <li> <p> <code>error</code>: The environment is in an error state.</p> </li> <li> <p> <code>ready</code>: The environment is ready.</p> </li> <li> <p> <code>stopped</code>: The environment is stopped.</p> </li> <li> <p> <code>stopping</code>: The environment is stopping.</p> </li> </ul>"""
     message: "aws_sdk_cloud9.types.string.String"

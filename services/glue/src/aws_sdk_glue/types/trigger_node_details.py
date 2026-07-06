@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TriggerNodeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.trigger
 
 
-class TriggerNodeDetails(TypedDict):
+class TriggerNodeDetails(TypedDict, closed=True):
     trigger: NotRequired["aws_sdk_glue.types.trigger.Trigger"]
     """<p>The information of the trigger represented by the trigger node.</p>"""
 

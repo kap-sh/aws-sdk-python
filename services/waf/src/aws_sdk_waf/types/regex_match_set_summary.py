@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#RegexMatchSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_name
 
 
-class RegexMatchSetSummary(TypedDict):
+class RegexMatchSetSummary(TypedDict, closed=True):
     regex_match_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>RegexMatchSetId</code> for a <code>RegexMatchSet</code>. You use <code>RegexMatchSetId</code> to get information about a <code>RegexMatchSet</code>, update a <code>RegexMatchSet</code>, remove a <code>RegexMatchSet</code> from a <code>Rule</code>, and delete a <code>RegexMatchSet</code> from AWS WAF.</p> <p> <code>RegexMatchSetId</code> is returned by <a>CreateRegexMatchSet</a> and by <a>ListRegexMatchSets</a>.</p>"""
     name: "aws_sdk_waf.types.resource_name.ResourceName"

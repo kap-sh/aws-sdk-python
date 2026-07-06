@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#MarketplaceInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class MarketplaceInformation(TypedDict):
+class MarketplaceInformation(TypedDict, closed=True):
     product_id: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The product ID from the Amazon Web Services Marketplace.</p>"""
     product_url: NotRequired["aws_sdk_eks.types.string.String"]

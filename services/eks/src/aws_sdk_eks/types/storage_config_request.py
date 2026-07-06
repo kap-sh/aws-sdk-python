@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#StorageConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.block_storage
 
 
-class StorageConfigRequest(TypedDict):
+class StorageConfigRequest(TypedDict, closed=True):
     block_storage: NotRequired["aws_sdk_eks.types.block_storage.BlockStorage"]
     """<p>Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.</p>"""
 

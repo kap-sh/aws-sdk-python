@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.blob
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.version
 
 
-class Configuration(TypedDict):
+class Configuration(TypedDict, closed=True):
     content: NotRequired["aws_sdk_appconfig.types.blob.Blob"]
     """<p>The content of the configuration or the configuration data.</p> <important> <p>The <code>Content</code> attribute only contains data if the system finds new or updated configuration data. If there is no new or updated data and <code>ClientConfigurationVersion</code> matches the version of the current configuration, AppConfig returns a <code>204 No Content</code> HTTP response code and the <code>Content</code> value will be empty.</p> </important>"""
     configuration_version: NotRequired["aws_sdk_appconfig.types.version.Version"]

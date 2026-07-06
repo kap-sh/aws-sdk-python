@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ProtectiveEquipmentPerson``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.body_parts
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class ProtectiveEquipmentPerson(TypedDict):
+class ProtectiveEquipmentPerson(TypedDict, closed=True):
     body_parts: NotRequired["aws_sdk_rekognition.types.body_parts.BodyParts"]
     """<p>An array of body parts detected on a person's body (including body parts without PPE). </p>"""
     bounding_box: NotRequired["aws_sdk_rekognition.types.bounding_box.BoundingBox"]

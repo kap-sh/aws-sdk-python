@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#DeleteMetricStreamOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
 
-class DeleteMetricStreamOutput(TypedDict):
+class DeleteMetricStreamOutput(TypedDict, closed=True):
     pass
 
 

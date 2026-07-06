@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialPointStyleOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.cluster_marker_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_selected_point_style
 
 
-class GeospatialPointStyleOptions(TypedDict):
+class GeospatialPointStyleOptions(TypedDict, closed=True):
     selected_point_style: NotRequired[
         "aws_sdk_quicksight.types.geospatial_selected_point_style.GeospatialSelectedPointStyle"
     ]

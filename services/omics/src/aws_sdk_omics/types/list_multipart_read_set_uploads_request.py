@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListMultipartReadSetUploadsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.next_token
     import aws_sdk_omics.types.sequence_store_id
 
 
-class ListMultipartReadSetUploadsRequest(TypedDict):
+class ListMultipartReadSetUploadsRequest(TypedDict, closed=True):
     sequence_store_id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"
     """<p>The Sequence Store ID used for the multipart uploads.</p>"""
     max_results: NotRequired["int"]

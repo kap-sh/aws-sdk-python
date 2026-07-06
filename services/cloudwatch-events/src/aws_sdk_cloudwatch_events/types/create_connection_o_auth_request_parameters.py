@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#CreateConnectionOAuthRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.https_endpoint
 
 
-class CreateConnectionOAuthRequestParameters(TypedDict):
+class CreateConnectionOAuthRequestParameters(TypedDict, closed=True):
     client_parameters: "aws_sdk_cloudwatch_events.types.create_connection_o_auth_client_request_parameters.CreateConnectionOAuthClientRequestParameters"
     """<p>A <code>CreateConnectionOAuthClientRequestParameters</code> object that contains the client parameters for OAuth authorization.</p>"""
     authorization_endpoint: (

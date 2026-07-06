@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdateFreeTierConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.tiering_activated
 
 
-class UpdateFreeTierConfig(TypedDict):
+class UpdateFreeTierConfig(TypedDict, closed=True):
     activated: "aws_sdk_billingconductor.types.tiering_activated.TieringActivated"
     """<p> Activate or deactivate application of Amazon Web Services Free Tier. </p>"""
 

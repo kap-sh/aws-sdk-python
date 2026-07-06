@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ServiceMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_details
 
 
-class ServiceMetadata(TypedDict):
+class ServiceMetadata(TypedDict, closed=True):
     user_details: "aws_sdk_transfer.types.user_details.UserDetails"
     """<p>The Server ID (<code>ServerId</code>), Session ID (<code>SessionId</code>) and user (<code>UserName</code>) make up the <code>UserDetails</code>.</p>"""
 

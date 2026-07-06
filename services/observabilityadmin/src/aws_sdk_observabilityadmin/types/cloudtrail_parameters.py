@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CloudtrailParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.advanced_event_selectors
 
 
-class CloudtrailParameters(TypedDict):
+class CloudtrailParameters(TypedDict, closed=True):
     advanced_event_selectors: "aws_sdk_observabilityadmin.types.advanced_event_selectors.AdvancedEventSelectors"
     """<p> The advanced event selectors to use for filtering Amazon Web Services CloudTrail events. </p>"""
 

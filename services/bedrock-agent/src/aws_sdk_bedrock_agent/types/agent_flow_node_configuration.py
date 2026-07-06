@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AgentFlowNodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.flow_agent_alias_arn
 
 
-class AgentFlowNodeConfiguration(TypedDict):
+class AgentFlowNodeConfiguration(TypedDict, closed=True):
     agent_alias_arn: (
         "aws_sdk_bedrock_agent.types.flow_agent_alias_arn.FlowAgentAliasArn"
     )

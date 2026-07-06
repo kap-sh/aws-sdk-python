@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#TaskParameterValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class _TaskParameterValue_int(TypedDict):
+class _TaskParameterValue_int(TypedDict, closed=True):
     int: "aws_sdk_deadline.types.int_string.IntString"
 
 
-class _TaskParameterValue_float(TypedDict):
+class _TaskParameterValue_float(TypedDict, closed=True):
     float: "aws_sdk_deadline.types.float_string.FloatString"
 
 
-class _TaskParameterValue_string(TypedDict):
+class _TaskParameterValue_string(TypedDict, closed=True):
     string: "aws_sdk_deadline.types.parameter_string.ParameterString"
 
 
-class _TaskParameterValue_path(TypedDict):
+class _TaskParameterValue_path(TypedDict, closed=True):
     path: "aws_sdk_deadline.types.path_string.PathString"
 
 
-class _TaskParameterValue_chunkInt(TypedDict):
+class _TaskParameterValue_chunkInt(TypedDict, closed=True):
     chunkInt: "aws_sdk_deadline.types.string.String"
 
 

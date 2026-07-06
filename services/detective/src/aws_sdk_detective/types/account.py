@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_detective.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.email_address
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     account_id: "aws_sdk_detective.types.account_id.AccountId"
     """<p>The account identifier of the Amazon Web Services account.</p>"""
     email_address: "aws_sdk_detective.types.email_address.EmailAddress"

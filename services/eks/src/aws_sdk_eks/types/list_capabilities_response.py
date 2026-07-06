@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListCapabilitiesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.capability_summary_list
     import aws_sdk_eks.types.string
 
 
-class ListCapabilitiesResponse(TypedDict):
+class ListCapabilitiesResponse(TypedDict, closed=True):
     capabilities: NotRequired[
         "aws_sdk_eks.types.capability_summary_list.CapabilitySummaryList"
     ]

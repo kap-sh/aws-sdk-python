@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ContentTypeProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class ContentTypeProfile(TypedDict):
+class ContentTypeProfile(TypedDict, closed=True):
     format: "aws_sdk_cloudfront.types.format.Format"
     """<p>The format for a field-level encryption content type-profile mapping.</p>"""
     profile_id: NotRequired["aws_sdk_cloudfront.types.string.string"]

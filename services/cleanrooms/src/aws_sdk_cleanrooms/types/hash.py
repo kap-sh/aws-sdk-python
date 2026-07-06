@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#Hash``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Hash(TypedDict):
+class Hash(TypedDict, closed=True):
     sha256: NotRequired["str"]
     """<p> The SHA-256 hash value.</p>"""
 

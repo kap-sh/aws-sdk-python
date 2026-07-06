@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError, ServiceError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.service_code
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "aws_sdk_managedblockchain_query.types.exception_message.ExceptionMessage"
     """<p>The container for the exception message.</p>"""
     resource_id: "aws_sdk_managedblockchain_query.types.resource_id.ResourceId"

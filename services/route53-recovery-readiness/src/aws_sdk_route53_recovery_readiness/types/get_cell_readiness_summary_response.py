@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#GetCellReadinessSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of_readiness_check_summary
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.readiness
 
 
-class GetCellReadinessSummaryResponse(TypedDict):
+class GetCellReadinessSummaryResponse(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string.__string"
     ]

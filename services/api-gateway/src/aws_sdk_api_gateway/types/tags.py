@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Tags``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_string_to_string
 
 
-class Tags(TypedDict):
+class Tags(TypedDict, closed=True):
     tags: NotRequired[
         "aws_sdk_api_gateway.types.map_of_string_to_string.MapOfStringToString"
     ]

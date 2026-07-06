@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#MetadataAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.string_value
 
 
-class MetadataAttributeValue(TypedDict):
+class MetadataAttributeValue(TypedDict, closed=True):
     type: "aws_sdk_bedrock_agent.types.metadata_value_type.MetadataValueType"
     """<p>The type of the metadata attribute.</p>"""
     number_value: NotRequired["aws_sdk_bedrock_agent.types.number_value.NumberValue"]

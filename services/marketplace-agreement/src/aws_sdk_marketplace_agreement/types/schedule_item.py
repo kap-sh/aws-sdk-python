@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ScheduleItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.bounded_string
     import aws_sdk_marketplace_agreement.types.timestamp
 
 
-class ScheduleItem(TypedDict):
+class ScheduleItem(TypedDict, closed=True):
     charge_date: NotRequired["aws_sdk_marketplace_agreement.types.timestamp.Timestamp"]
     """<p>The date that the customer would pay the price defined in this payment schedule term. Invoices are generated on the date provided.</p>"""
     charge_amount: NotRequired[

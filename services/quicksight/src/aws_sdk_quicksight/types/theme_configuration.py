@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ThemeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_color_palette
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.ui_color_palette
 
 
-class ThemeConfiguration(TypedDict):
+class ThemeConfiguration(TypedDict, closed=True):
     data_color_palette: NotRequired[
         "aws_sdk_quicksight.types.data_color_palette.DataColorPalette"
     ]

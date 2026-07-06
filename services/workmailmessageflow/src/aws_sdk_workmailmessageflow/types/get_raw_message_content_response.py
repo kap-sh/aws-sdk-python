@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmailmessageflow#GetRawMessageContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmailmessageflow.types.message_content_blob
 
 
-class GetRawMessageContentResponse(TypedDict):
+class GetRawMessageContentResponse(TypedDict, closed=True):
     message_content: (
         "aws_sdk_workmailmessageflow.types.message_content_blob.messageContentBlob"
     )

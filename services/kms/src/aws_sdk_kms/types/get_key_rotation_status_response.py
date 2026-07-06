@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GetKeyRotationStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.boolean_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.rotation_period_in_days_type
 
 
-class GetKeyRotationStatusResponse(TypedDict):
+class GetKeyRotationStatusResponse(TypedDict, closed=True):
     key_rotation_enabled: "aws_sdk_kms.types.boolean_type.BooleanType"
     """<p>A Boolean value that specifies whether key rotation is enabled.</p>"""
     key_id: NotRequired["aws_sdk_kms.types.key_id_type.KeyIdType"]

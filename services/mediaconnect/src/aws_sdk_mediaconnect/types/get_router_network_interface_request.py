@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#GetRouterNetworkInterfaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.router_network_interface_arn
 
 
-class GetRouterNetworkInterfaceRequest(TypedDict):
+class GetRouterNetworkInterfaceRequest(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_network_interface_arn.RouterNetworkInterfaceArn"
     """<p>The Amazon Resource Name (ARN) of the router network interface that you want to retrieve information about.</p>"""
 

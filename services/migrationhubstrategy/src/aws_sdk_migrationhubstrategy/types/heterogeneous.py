@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#Heterogeneous``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.heterogeneous_target_database_engines
 
 
-class Heterogeneous(TypedDict):
+class Heterogeneous(TypedDict, closed=True):
     target_database_engine: "aws_sdk_migrationhubstrategy.types.heterogeneous_target_database_engines.HeterogeneousTargetDatabaseEngines"
     """<p> The target database engine for heterogeneous database migration preference. </p>"""
 

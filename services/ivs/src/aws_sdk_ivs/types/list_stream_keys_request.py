@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#ListStreamKeysRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.pagination_token
 
 
-class ListStreamKeysRequest(TypedDict):
+class ListStreamKeysRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>Channel ARN used to filter the list.</p>"""
     next_token: NotRequired["aws_sdk_ivs.types.pagination_token.PaginationToken"]

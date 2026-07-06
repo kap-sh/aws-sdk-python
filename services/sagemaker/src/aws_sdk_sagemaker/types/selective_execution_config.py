@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#SelectiveExecutionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.pipeline_execution_arn
     import aws_sdk_sagemaker.types.selected_step_list
 
 
-class SelectiveExecutionConfig(TypedDict):
+class SelectiveExecutionConfig(TypedDict, closed=True):
     source_pipeline_execution_arn: NotRequired[
         "aws_sdk_sagemaker.types.pipeline_execution_arn.PipelineExecutionArn"
     ]

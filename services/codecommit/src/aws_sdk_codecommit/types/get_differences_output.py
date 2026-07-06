@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetDifferencesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.difference_list
     import aws_sdk_codecommit.types.next_token
 
 
-class GetDifferencesOutput(TypedDict):
+class GetDifferencesOutput(TypedDict, closed=True):
     differences: NotRequired["aws_sdk_codecommit.types.difference_list.DifferenceList"]
     """<p>A data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).</p>"""
     next_token: NotRequired["aws_sdk_codecommit.types.next_token.NextToken"]

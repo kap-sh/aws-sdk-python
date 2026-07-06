@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyDBSnapshotAttributeMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class ModifyDBSnapshotAttributeMessage(TypedDict):
+class ModifyDBSnapshotAttributeMessage(TypedDict, closed=True):
     db_snapshot_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier for the DB snapshot to modify the attributes for.</p>"""
     attribute_name: NotRequired["aws_sdk_rds.types.string.String"]

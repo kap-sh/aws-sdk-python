@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutSchemaVersionMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_number
 
 
-class PutSchemaVersionMetadataInput(TypedDict):
+class PutSchemaVersionMetadataInput(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_glue.types.schema_id.SchemaId"]
     """<p>The unique ID for the schema.</p>"""
     schema_version_number: NotRequired[

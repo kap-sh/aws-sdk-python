@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchDeleteBillScenarioUsageModificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_pricing_calculator.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.resource_id
 
 
-class BatchDeleteBillScenarioUsageModificationRequest(TypedDict):
+class BatchDeleteBillScenarioUsageModificationRequest(TypedDict, closed=True):
     bill_scenario_id: "aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"
     """<p> The ID of the Bill Scenario for which you want to delete the modeled usage. </p>"""
     ids: "aws_sdk_bcm_pricing_calculator.types.batch_delete_bill_scenario_usage_modification_entries.BatchDeleteBillScenarioUsageModificationEntries"

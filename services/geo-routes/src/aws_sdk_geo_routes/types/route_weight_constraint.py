@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteWeightConstraint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.weight_kilograms
 
 
-class RouteWeightConstraint(TypedDict):
+class RouteWeightConstraint(TypedDict, closed=True):
     type: "aws_sdk_geo_routes.types.route_weight_constraint_type.RouteWeightConstraintType"
     """<p>The type of constraint.</p>"""
     value: "aws_sdk_geo_routes.types.weight_kilograms.WeightKilograms"

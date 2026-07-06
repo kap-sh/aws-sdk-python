@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AssociationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.ai_agent_association_configuration_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class AssociationConfiguration(TypedDict):
+class AssociationConfiguration(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_qconnect.types.uuid.Uuid"]
     """<p>The identifier of the association for this Association Configuration.</p>"""
     association_type: NotRequired[

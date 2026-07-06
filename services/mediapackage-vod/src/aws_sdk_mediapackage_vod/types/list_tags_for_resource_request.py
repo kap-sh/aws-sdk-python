@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_mediapackage_vod.types.__string.__string"
     """The Amazon Resource Name (ARN) for the resource. You can get this from the response to any request to the resource."""
 

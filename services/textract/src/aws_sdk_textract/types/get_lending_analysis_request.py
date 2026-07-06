@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#GetLendingAnalysisRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.pagination_token
 
 
-class GetLendingAnalysisRequest(TypedDict):
+class GetLendingAnalysisRequest(TypedDict, closed=True):
     job_id: "aws_sdk_textract.types.job_id.JobId"
     """<p>A unique identifier for the lending or text-detection job. The <code>JobId</code> is returned from <code>StartLendingAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>"""
     max_results: NotRequired["aws_sdk_textract.types.max_results.MaxResults"]

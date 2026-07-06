@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListInstanceProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.response_marker_type
 
 
-class ListInstanceProfilesResponse(TypedDict):
+class ListInstanceProfilesResponse(TypedDict, closed=True):
     instance_profiles: (
         "aws_sdk_iam.types.instance_profile_list_type.instanceProfileListType"
     )

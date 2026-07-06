@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ActivityStartedEventDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.identity
 
 
-class ActivityStartedEventDetails(TypedDict):
+class ActivityStartedEventDetails(TypedDict, closed=True):
     worker_name: NotRequired["aws_sdk_sfn.types.identity.Identity"]
     """<p>The name of the worker that the task is assigned to. These names are provided by the workers when calling <a>GetActivityTask</a>.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#RegisterEventTopicRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.topic_name
 
 
-class RegisterEventTopicRequest(TypedDict):
+class RegisterEventTopicRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>The Directory ID that will publish status messages to the Amazon SNS topic.</p>"""
     topic_name: "aws_sdk_directory_service.types.topic_name.TopicName"

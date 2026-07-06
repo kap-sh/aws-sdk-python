@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DeleteSourceServerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSourceServerResponse(TypedDict):
+class DeleteSourceServerResponse(TypedDict, closed=True):
     pass
 
 

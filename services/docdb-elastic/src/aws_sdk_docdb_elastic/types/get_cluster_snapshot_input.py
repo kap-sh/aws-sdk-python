@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#GetClusterSnapshotInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetClusterSnapshotInput(TypedDict):
+class GetClusterSnapshotInput(TypedDict, closed=True):
     snapshot_arn: "str"
     """<p>The ARN identifier of the elastic cluster snapshot.</p>"""
 

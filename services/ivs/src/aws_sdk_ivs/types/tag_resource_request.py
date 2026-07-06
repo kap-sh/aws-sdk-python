@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.tags
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_ivs.types.resource_arn.ResourceArn"
     """<p>ARN of the resource for which tags are to be added or updated. The ARN must be URL-encoded.</p>"""
     tags: "aws_sdk_ivs.types.tags.Tags"

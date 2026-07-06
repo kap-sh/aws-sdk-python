@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WaypointOptimizationDrivingDistanceOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.waypoint_optimization_driving_distance
 
 
-class WaypointOptimizationDrivingDistanceOptions(TypedDict):
+class WaypointOptimizationDrivingDistanceOptions(TypedDict, closed=True):
     driving_distance: "aws_sdk_geo_routes.types.waypoint_optimization_driving_distance.WaypointOptimizationDrivingDistance"
     """<p>DrivingDistance assigns all the waypoints that are within driving distance of each other into a single cluster.</p>"""
 

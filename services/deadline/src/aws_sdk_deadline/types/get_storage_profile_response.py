@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetStorageProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.updated_by
 
 
-class GetStorageProfileResponse(TypedDict):
+class GetStorageProfileResponse(TypedDict, closed=True):
     storage_profile_id: "aws_sdk_deadline.types.storage_profile_id.StorageProfileId"
     """<p>The storage profile ID.</p>"""
     display_name: "aws_sdk_deadline.types.resource_name.ResourceName"

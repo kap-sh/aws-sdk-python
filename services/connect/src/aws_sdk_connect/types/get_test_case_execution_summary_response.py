@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#GetTestCaseExecutionSummaryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.observation_summary
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class GetTestCaseExecutionSummaryResponse(TypedDict):
+class GetTestCaseExecutionSummaryResponse(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]
     """<p>The timestamp when the test case execution started.</p>"""
     end_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

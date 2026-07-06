@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetWorkflowStepExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.date_time
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_step_timeout_seconds_integer
 
 
-class GetWorkflowStepExecutionResponse(TypedDict):
+class GetWorkflowStepExecutionResponse(TypedDict, closed=True):
     request_id: NotRequired[
         "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     ]

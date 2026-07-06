@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_pipes.types.pipe_arn.PipeArn"
     """<p>The ARN of the pipe for which you want to view tags.</p>"""
 

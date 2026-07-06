@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_annotation_rule_natural_language
 
 
-class AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation(TypedDict):
+class AutomatedReasoningPolicyAddRuleFromNaturalLanguageAnnotation(
+    TypedDict, closed=True
+):
     natural_language: "aws_sdk_bedrock.types.automated_reasoning_policy_annotation_rule_natural_language.AutomatedReasoningPolicyAnnotationRuleNaturalLanguage"
     """<p>The natural language description of the rule that should be converted into a formal logical expression.</p>"""
 

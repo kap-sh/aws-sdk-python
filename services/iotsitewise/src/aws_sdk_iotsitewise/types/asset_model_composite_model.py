@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetModelCompositeModel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.name
 
 
-class AssetModelCompositeModel(TypedDict):
+class AssetModelCompositeModel(TypedDict, closed=True):
     name: "aws_sdk_iotsitewise.types.name.Name"
     """<p>The name of the composite model.</p>"""
     description: NotRequired["aws_sdk_iotsitewise.types.description.Description"]

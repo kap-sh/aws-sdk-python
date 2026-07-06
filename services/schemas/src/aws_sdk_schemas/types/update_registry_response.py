@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#UpdateRegistryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
     import aws_sdk_schemas.types.tags
 
 
-class UpdateRegistryResponse(TypedDict):
+class UpdateRegistryResponse(TypedDict, closed=True):
     description: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The description of the registry.</p>"""
     registry_arn: NotRequired["aws_sdk_schemas.types.__string.__string"]

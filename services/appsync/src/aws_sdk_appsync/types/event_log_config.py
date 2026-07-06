@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#EventLogConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class EventLogConfig(TypedDict):
+class EventLogConfig(TypedDict, closed=True):
     log_level: "aws_sdk_appsync.types.event_log_level.EventLogLevel"
     """<p>The type of information to log for the Event API. </p>"""
     cloud_watch_logs_role_arn: "aws_sdk_appsync.types.string.String"

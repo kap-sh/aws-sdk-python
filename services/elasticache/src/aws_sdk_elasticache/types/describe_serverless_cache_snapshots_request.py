@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeServerlessCacheSnapshotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class DescribeServerlessCacheSnapshotsRequest(TypedDict):
+class DescribeServerlessCacheSnapshotsRequest(TypedDict, closed=True):
     serverless_cache_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The identifier of serverless cache. If this parameter is specified, only snapshots associated with that specific serverless cache are described. Available for Valkey, Redis OSS and Serverless Memcached only.</p>"""
     serverless_cache_snapshot_name: NotRequired[

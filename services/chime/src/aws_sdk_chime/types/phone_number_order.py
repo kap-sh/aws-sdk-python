@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#PhoneNumberOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.guid_string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.phone_number_product_type
 
 
-class PhoneNumberOrder(TypedDict):
+class PhoneNumberOrder(TypedDict, closed=True):
     phone_number_order_id: NotRequired["aws_sdk_chime.types.guid_string.GuidString"]
     """<p>The phone number order ID.</p>"""
     product_type: NotRequired[

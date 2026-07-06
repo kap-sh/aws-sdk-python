@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateUserProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.domain_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.user_settings
 
 
-class CreateUserProfileRequest(TypedDict):
+class CreateUserProfileRequest(TypedDict, closed=True):
     domain_id: NotRequired["aws_sdk_sagemaker.types.domain_id.DomainId"]
     """<p>The ID of the associated Domain.</p>"""
     user_profile_name: NotRequired[

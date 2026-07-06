@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#ListOriginEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__list_of_origin_endpoint
     import aws_sdk_mediapackage.types.__string
 
 
-class ListOriginEndpointsResponse(TypedDict):
+class ListOriginEndpointsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """A token that can be used to resume pagination from the end of the collection."""
     origin_endpoints: NotRequired[

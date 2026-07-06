@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#InternalException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.string
 
 
-class InternalException_(TypedDict):
+class InternalException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_datasync.types.string.string"]
     error_code: NotRequired["aws_sdk_datasync.types.string.string"]
 

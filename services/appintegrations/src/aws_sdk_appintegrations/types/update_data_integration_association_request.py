@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#UpdateDataIntegrationAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appintegrations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.identifier
 
 
-class UpdateDataIntegrationAssociationRequest(TypedDict):
+class UpdateDataIntegrationAssociationRequest(TypedDict, closed=True):
     data_integration_identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
     """<p>A unique identifier for the DataIntegration.</p>"""
     data_integration_association_identifier: (

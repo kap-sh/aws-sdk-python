@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetServerStrategiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.server_id
 
 
-class GetServerStrategiesRequest(TypedDict):
+class GetServerStrategiesRequest(TypedDict, closed=True):
     server_id: "aws_sdk_migrationhubstrategy.types.server_id.ServerId"
     """<p> The ID of the server. </p>"""
 

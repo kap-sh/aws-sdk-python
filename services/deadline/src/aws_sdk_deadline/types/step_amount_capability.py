@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#StepAmountCapability``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.double
 
 
-class StepAmountCapability(TypedDict):
+class StepAmountCapability(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.amount_capability_name.AmountCapabilityName"
     """<p>The name of the step.</p>"""
     min: NotRequired["aws_sdk_deadline.types.double.Double"]

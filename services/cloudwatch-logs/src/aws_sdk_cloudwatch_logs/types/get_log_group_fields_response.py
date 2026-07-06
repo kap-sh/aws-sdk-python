@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetLogGroupFieldsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.log_group_field_list
 
 
-class GetLogGroupFieldsResponse(TypedDict):
+class GetLogGroupFieldsResponse(TypedDict, closed=True):
     log_group_fields: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_field_list.LogGroupFieldList"
     ]

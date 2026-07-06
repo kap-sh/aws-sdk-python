@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#ListReportVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.max_results_attribute
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_artifact.types.report_id
 
 
-class ListReportVersionsRequest(TypedDict):
+class ListReportVersionsRequest(TypedDict, closed=True):
     report_id: "aws_sdk_artifact.types.report_id.ReportId"
     """<p>Unique resource ID for the report resource.</p>"""
     max_results: NotRequired[

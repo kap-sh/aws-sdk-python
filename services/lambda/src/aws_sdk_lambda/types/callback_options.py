@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CallbackOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.duration_seconds
 
 
-class CallbackOptions(TypedDict):
+class CallbackOptions(TypedDict, closed=True):
     timeout_seconds: "aws_sdk_lambda.types.duration_seconds.DurationSeconds"
     """<p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>"""
     heartbeat_timeout_seconds: "aws_sdk_lambda.types.duration_seconds.DurationSeconds"

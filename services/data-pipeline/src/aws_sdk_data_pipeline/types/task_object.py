@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#TaskObject``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.task_id
 
 
-class TaskObject(TypedDict):
+class TaskObject(TypedDict, closed=True):
     task_id: NotRequired["aws_sdk_data_pipeline.types.task_id.taskId"]
     """<p>An internal identifier for the task. This ID is passed to the <a>SetTaskStatus</a> and <a>ReportTaskProgress</a> actions.</p>"""
     pipeline_id: NotRequired["aws_sdk_data_pipeline.types.id.id"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#DescribeTagsType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string
 
 
-class DescribeTagsType(TypedDict):
+class DescribeTagsType(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_auto_scaling.types.filters.Filters"]
     """<p>One or more filters to scope the tags to return. The maximum number of filters per filter type (for example, <code>auto-scaling-group</code>) is 1000.</p>"""
     next_token: NotRequired["aws_sdk_auto_scaling.types.xml_string.XmlString"]

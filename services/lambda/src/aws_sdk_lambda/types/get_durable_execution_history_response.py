@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetDurableExecutionHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class GetDurableExecutionHistoryResponse(TypedDict):
+class GetDurableExecutionHistoryResponse(TypedDict, closed=True):
     events: "aws_sdk_lambda.types.events.Events"
     """<p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>"""
     next_marker: NotRequired["aws_sdk_lambda.types.string.String"]

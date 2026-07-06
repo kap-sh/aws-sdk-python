@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#DeletePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
 
 
-class DeletePolicyResponse(TypedDict):
+class DeletePolicyResponse(TypedDict, closed=True):
     policy_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
 
 

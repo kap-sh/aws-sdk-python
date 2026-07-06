@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ReportSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string_list
 
 
-class ReportSetting(TypedDict):
+class ReportSetting(TypedDict, closed=True):
     report_template: "aws_sdk_backup.types.string.string"
     """<p>Identifies the report template for the report. Reports are built using a report template. The report templates are:</p> <p> <code>RESOURCE_COMPLIANCE_REPORT | CONTROL_COMPLIANCE_REPORT | BACKUP_JOB_REPORT | COPY_JOB_REPORT | RESTORE_JOB_REPORT | SCAN_JOB_REPORT</code> </p>"""
     framework_arns: NotRequired["aws_sdk_backup.types.string_list.stringList"]

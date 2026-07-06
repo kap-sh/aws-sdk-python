@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.s3_configuration
 
 
-class DestinationConfiguration(TypedDict):
+class DestinationConfiguration(TypedDict, closed=True):
     s3_configuration: "aws_sdk_cloudwatch_logs.types.s3_configuration.S3Configuration"
     """<p>Configuration for delivering query results to Amazon S3.</p>"""
 

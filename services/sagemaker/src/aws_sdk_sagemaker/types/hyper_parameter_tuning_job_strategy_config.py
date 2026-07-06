@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperParameterTuningJobStrategyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyperband_strategy_config
 
 
-class HyperParameterTuningJobStrategyConfig(TypedDict):
+class HyperParameterTuningJobStrategyConfig(TypedDict, closed=True):
     hyperband_strategy_config: NotRequired[
         "aws_sdk_sagemaker.types.hyperband_strategy_config.HyperbandStrategyConfig"
     ]

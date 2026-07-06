@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#CreateRestoreTestingPlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.sensitive_string_map
 
 
-class CreateRestoreTestingPlanInput(TypedDict):
+class CreateRestoreTestingPlanInput(TypedDict, closed=True):
     creator_request_id: NotRequired["str"]
     """<p>This is a unique string that identifies the request and allows failed requests to be retriedwithout the risk of running the operation twice. This parameter is optional. If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
     restore_testing_plan: "aws_sdk_backup.types.restore_testing_plan_for_create.RestoreTestingPlanForCreate"

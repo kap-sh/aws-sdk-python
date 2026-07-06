@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListPrincipalsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.principal_list
     import aws_sdk_ram.types.string
 
 
-class ListPrincipalsResponse(TypedDict):
+class ListPrincipalsResponse(TypedDict, closed=True):
     principals: NotRequired["aws_sdk_ram.types.principal_list.PrincipalList"]
     """<p>An array of objects that contain the details about the principals.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

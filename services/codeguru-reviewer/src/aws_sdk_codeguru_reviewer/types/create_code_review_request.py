@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurureviewer#CreateCodeReviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeguru_reviewer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_reviewer.types.code_review_type
 
 
-class CreateCodeReviewRequest(TypedDict):
+class CreateCodeReviewRequest(TypedDict, closed=True):
     name: "aws_sdk_codeguru_reviewer.types.code_review_name.CodeReviewName"
     """<p>The name of the code review. The name of each code review in your Amazon Web Services account must be unique.</p>"""
     repository_association_arn: (

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#StartConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.connection_id
     import aws_sdk_outposts.types.underlay_ip_address
 
 
-class StartConnectionResponse(TypedDict):
+class StartConnectionResponse(TypedDict, closed=True):
     connection_id: NotRequired["aws_sdk_outposts.types.connection_id.ConnectionId"]
     """<p> The ID of the connection. </p>"""
     underlay_ip_address: NotRequired[

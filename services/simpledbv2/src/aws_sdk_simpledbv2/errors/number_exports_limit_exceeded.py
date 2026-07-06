@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#NumberExportsLimitExceeded``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError, ServiceError
 
 
-class NumberExportsLimitExceeded_(TypedDict):
+class NumberExportsLimitExceeded_(TypedDict, closed=True):
     message: "str"
 
 

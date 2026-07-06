@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#NodeToNodeEncryptionOptionsStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.option_status
 
 
-class NodeToNodeEncryptionOptionsStatus(TypedDict):
+class NodeToNodeEncryptionOptionsStatus(TypedDict, closed=True):
     options: "aws_sdk_opensearch.types.node_to_node_encryption_options.NodeToNodeEncryptionOptions"
     """<p>The node-to-node encryption options for the specified domain.</p>"""
     status: "aws_sdk_opensearch.types.option_status.OptionStatus"

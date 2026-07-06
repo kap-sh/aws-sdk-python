@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DeleteComputationModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.computation_model_status
 
 
-class DeleteComputationModelResponse(TypedDict):
+class DeleteComputationModelResponse(TypedDict, closed=True):
     computation_model_status: (
         "aws_sdk_iotsitewise.types.computation_model_status.ComputationModelStatus"
     )

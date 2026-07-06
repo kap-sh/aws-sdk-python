@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#UpdateCampaignCommunicationTimeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.communication_time_config
 
 
-class UpdateCampaignCommunicationTimeRequest(TypedDict):
+class UpdateCampaignCommunicationTimeRequest(TypedDict, closed=True):
     id: "aws_sdk_connectcampaignsv2.types.campaign_id.CampaignId"
     communication_time_config: "aws_sdk_connectcampaignsv2.types.communication_time_config.CommunicationTimeConfig"
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AwsEncryptionKeyConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.external_id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.role_arn
 
 
-class AwsEncryptionKeyConfigurationInput(TypedDict):
+class AwsEncryptionKeyConfigurationInput(TypedDict, closed=True):
     iam_role_arn: NotRequired["aws_sdk_odb.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that grants access to the KMS key.</p>"""
     external_id_type: NotRequired["aws_sdk_odb.types.external_id_type.ExternalIdType"]

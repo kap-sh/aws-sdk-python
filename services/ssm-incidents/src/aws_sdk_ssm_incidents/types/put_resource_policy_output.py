@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#PutResourcePolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.policy_id
 
 
-class PutResourcePolicyOutput(TypedDict):
+class PutResourcePolicyOutput(TypedDict, closed=True):
     policy_id: "aws_sdk_ssm_incidents.types.policy_id.PolicyId"
     """<p>The ID of the resource policy.</p>"""
 

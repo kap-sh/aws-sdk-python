@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#ListDashboardsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.dashboards
     import aws_sdk_cloudtrail.types.pagination_token
 
 
-class ListDashboardsResponse(TypedDict):
+class ListDashboardsResponse(TypedDict, closed=True):
     dashboards: NotRequired["aws_sdk_cloudtrail.types.dashboards.Dashboards"]
     """<p> Contains information about dashboards in the account, in the current Region that match the applied filters. </p>"""
     next_token: NotRequired["aws_sdk_cloudtrail.types.pagination_token.PaginationToken"]

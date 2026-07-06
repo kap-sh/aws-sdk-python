@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#UpdateIdNamespaceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.description
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.role_arn
 
 
-class UpdateIdNamespaceInput(TypedDict):
+class UpdateIdNamespaceInput(TypedDict, closed=True):
     id_namespace_name: "aws_sdk_entityresolution.types.entity_name.EntityName"
     """<p>The name of the ID namespace.</p>"""
     description: NotRequired["aws_sdk_entityresolution.types.description.Description"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#PerformanceMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.performance_metrics_properties
 
 
-class PerformanceMetrics(TypedDict):
+class PerformanceMetrics(TypedDict, closed=True):
     properties: NotRequired[
         "aws_sdk_machine_learning.types.performance_metrics_properties.PerformanceMetricsProperties"
     ]

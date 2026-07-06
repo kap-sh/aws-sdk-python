@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#CreateDocumentClassifierRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.vpc_config
 
 
-class CreateDocumentClassifierRequest(TypedDict):
+class CreateDocumentClassifierRequest(TypedDict, closed=True):
     document_classifier_name: (
         "aws_sdk_comprehend.types.comprehend_arn_name.ComprehendArnName"
     )

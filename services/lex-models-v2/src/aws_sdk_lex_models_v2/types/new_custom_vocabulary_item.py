@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#NewCustomVocabularyItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.weight
 
 
-class NewCustomVocabularyItem(TypedDict):
+class NewCustomVocabularyItem(TypedDict, closed=True):
     phrase: "aws_sdk_lex_models_v2.types.phrase.Phrase"
     """<p>The unique phrase for the new custom vocabulary item from the custom vocabulary list.</p>"""
     weight: NotRequired["aws_sdk_lex_models_v2.types.weight.Weight"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakermetrics#RawMetricData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.double
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_metrics.types.timestamp
 
 
-class RawMetricData(TypedDict):
+class RawMetricData(TypedDict, closed=True):
     metric_name: NotRequired["aws_sdk_sagemaker_metrics.types.metric_name.MetricName"]
     """<p>The name of the metric.</p>"""
     timestamp: NotRequired["aws_sdk_sagemaker_metrics.types.timestamp.Timestamp"]

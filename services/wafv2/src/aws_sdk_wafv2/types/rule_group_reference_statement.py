@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RuleGroupReferenceStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.rule_action_overrides
 
 
-class RuleGroupReferenceStatement(TypedDict):
+class RuleGroupReferenceStatement(TypedDict, closed=True):
     arn: "aws_sdk_wafv2.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the entity.</p>"""
     excluded_rules: NotRequired["aws_sdk_wafv2.types.excluded_rules.ExcludedRules"]

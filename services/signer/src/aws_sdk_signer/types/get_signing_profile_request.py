@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#GetSigningProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.account_id
     import aws_sdk_signer.types.profile_name
 
 
-class GetSigningProfileRequest(TypedDict):
+class GetSigningProfileRequest(TypedDict, closed=True):
     profile_name: "aws_sdk_signer.types.profile_name.ProfileName"
     """<p>The name of the target signing profile.</p>"""
     profile_owner: NotRequired["aws_sdk_signer.types.account_id.AccountId"]

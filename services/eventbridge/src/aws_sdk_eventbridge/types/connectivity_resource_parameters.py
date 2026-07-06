@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ConnectivityResourceParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.connectivity_resource_configuration_arn
 
 
-class ConnectivityResourceParameters(TypedDict):
+class ConnectivityResourceParameters(TypedDict, closed=True):
     resource_parameters: "aws_sdk_eventbridge.types.connectivity_resource_configuration_arn.ConnectivityResourceConfigurationArn"
     """<p>The parameters for EventBridge to use when invoking the resource endpoint.</p>"""
 

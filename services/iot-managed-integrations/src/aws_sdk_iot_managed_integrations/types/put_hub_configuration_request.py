@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#PutHubConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds
 
 
-class PutHubConfigurationRequest(TypedDict):
+class PutHubConfigurationRequest(TypedDict, closed=True):
     hub_token_timer_expiry_setting_in_seconds: "aws_sdk_iot_managed_integrations.types.hub_token_timer_expiry_setting_in_seconds.HubTokenTimerExpirySettingInSeconds"
     """<p>A user-defined integer value that represents the hub token timer expiry setting in seconds.</p>"""
 

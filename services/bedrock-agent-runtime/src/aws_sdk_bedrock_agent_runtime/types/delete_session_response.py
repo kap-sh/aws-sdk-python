@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#DeleteSessionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSessionResponse(TypedDict):
+class DeleteSessionResponse(TypedDict, closed=True):
     pass
 
 

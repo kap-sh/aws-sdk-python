@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListOpsItemEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.ops_item_event_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ListOpsItemEventsRequest(TypedDict):
+class ListOpsItemEventsRequest(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_ssm.types.ops_item_event_filters.OpsItemEventFilters"]
     """<p>One or more OpsItem filters. Use a filter to return a more specific list of results. </p>"""
     max_results: NotRequired[

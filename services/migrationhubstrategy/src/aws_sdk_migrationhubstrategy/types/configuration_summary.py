@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ConfigurationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.ip_address_based_remote_info_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.version_control_info_list
 
 
-class ConfigurationSummary(TypedDict):
+class ConfigurationSummary(TypedDict, closed=True):
     vcenter_based_remote_info_list: NotRequired[
         "aws_sdk_migrationhubstrategy.types.vcenter_based_remote_info_list.VcenterBasedRemoteInfoList"
     ]

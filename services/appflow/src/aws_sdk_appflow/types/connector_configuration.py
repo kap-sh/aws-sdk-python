@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.arn
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.trigger_type_list
 
 
-class ConnectorConfiguration(TypedDict):
+class ConnectorConfiguration(TypedDict, closed=True):
     can_use_as_source: "aws_sdk_appflow.types.boolean.Boolean"
     """<p> Specifies whether the connector can be used as a source. </p>"""
     can_use_as_destination: "aws_sdk_appflow.types.boolean.Boolean"

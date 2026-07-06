@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#InitializeServiceInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class InitializeServiceInput(TypedDict):
+class InitializeServiceInput(TypedDict, closed=True):
     oci_identity_domain: "bool"
     """<p>The Oracle Cloud Infrastructure (OCI) identity domain configuration for service initialization.</p>"""
 

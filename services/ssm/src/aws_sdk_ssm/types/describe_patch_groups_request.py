@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DescribePatchGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_orchestrator_filter_list
 
 
-class DescribePatchGroupsRequest(TypedDict):
+class DescribePatchGroupsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_ssm.types.patch_baseline_max_results.PatchBaselineMaxResults"
     ]

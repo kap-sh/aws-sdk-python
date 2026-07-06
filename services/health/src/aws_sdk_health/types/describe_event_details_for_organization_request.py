@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeEventDetailsForOrganizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_health.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.organization_event_detail_filters_list
 
 
-class DescribeEventDetailsForOrganizationRequest(TypedDict):
+class DescribeEventDetailsForOrganizationRequest(TypedDict, closed=True):
     organization_event_detail_filters: "aws_sdk_health.types.organization_event_detail_filters_list.OrganizationEventDetailFiltersList"
     """<p>A set of JSON elements that includes the <code>awsAccountId</code> and the <code>eventArn</code>.</p>"""
     locale: NotRequired["aws_sdk_health.types.locale.locale"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#ListSessionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.max_results
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.username
 
 
-class ListSessionsRequest(TypedDict):
+class ListSessionsRequest(TypedDict, closed=True):
     portal_id: "aws_sdk_workspaces_web.types.portal_id.PortalId"
     """<p>The ID of the web portal for the sessions.</p>"""
     username: NotRequired["aws_sdk_workspaces_web.types.username.Username"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateResourceEventConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.connection_status_event_configuration
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.proximity_event_configuration
 
 
-class UpdateResourceEventConfigurationRequest(TypedDict):
+class UpdateResourceEventConfigurationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_wireless.types.identifier.Identifier"
     """<p>Resource identifier to opt in for event messaging.</p>"""
     identifier_type: "aws_sdk_iot_wireless.types.identifier_type.IdentifierType"

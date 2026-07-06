@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ListRuleNamesByTargetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.next_token
     import aws_sdk_eventbridge.types.rule_name_list
 
 
-class ListRuleNamesByTargetResponse(TypedDict):
+class ListRuleNamesByTargetResponse(TypedDict, closed=True):
     rule_names: NotRequired["aws_sdk_eventbridge.types.rule_name_list.RuleNameList"]
     """<p>The names of the rules that can invoke the given target.</p>"""
     next_token: NotRequired["aws_sdk_eventbridge.types.next_token.NextToken"]

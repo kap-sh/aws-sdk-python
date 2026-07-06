@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ContainerInstanceHealthStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.instance_health_check_result_list
     import aws_sdk_ecs.types.instance_health_check_state
 
 
-class ContainerInstanceHealthStatus(TypedDict):
+class ContainerInstanceHealthStatus(TypedDict, closed=True):
     overall_status: NotRequired[
         "aws_sdk_ecs.types.instance_health_check_state.InstanceHealthCheckState"
     ]

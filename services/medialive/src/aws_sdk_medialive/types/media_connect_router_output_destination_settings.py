@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MediaConnectRouterOutputDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.media_connect_router_output_encryption_type
 
 
-class MediaConnectRouterOutputDestinationSettings(TypedDict):
+class MediaConnectRouterOutputDestinationSettings(TypedDict, closed=True):
     encryption_type: NotRequired[
         "aws_sdk_medialive.types.media_connect_router_output_encryption_type.MediaConnectRouterOutputEncryptionType"
     ]

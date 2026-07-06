@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_execution_id
     import aws_sdk_codepipeline.types.action_name
 
 
-class ActionContext(TypedDict):
+class ActionContext(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.action_name.ActionName"]
     """<p>The name of the action in the context of a job.</p>"""
     action_execution_id: NotRequired[

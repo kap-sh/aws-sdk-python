@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ListTrustStoresResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.trust_store_list
 
 
-class ListTrustStoresResult(TypedDict):
+class ListTrustStoresResult(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>Indicates the next page of trust stores. To get the next page of the list, use this value in the <code>Marker</code> field of your request.</p>"""
     trust_store_list: NotRequired[

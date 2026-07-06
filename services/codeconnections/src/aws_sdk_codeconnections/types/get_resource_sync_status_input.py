@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#GetResourceSyncStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.sync_configuration_type
 
 
-class GetResourceSyncStatusInput(TypedDict):
+class GetResourceSyncStatusInput(TypedDict, closed=True):
     resource_name: "aws_sdk_codeconnections.types.resource_name.ResourceName"
     """<p>The name of the Amazon Web Services resource for the sync status with the Git repository.</p>"""
     sync_type: (

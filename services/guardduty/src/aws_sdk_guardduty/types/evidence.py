@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Evidence``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.threat_intelligence_details
 
 
-class Evidence(TypedDict):
+class Evidence(TypedDict, closed=True):
     threat_intelligence_details: NotRequired[
         "aws_sdk_guardduty.types.threat_intelligence_details.ThreatIntelligenceDetails"
     ]

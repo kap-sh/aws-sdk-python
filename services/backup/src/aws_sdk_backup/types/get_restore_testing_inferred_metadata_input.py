@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetRestoreTestingInferredMetadataInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetRestoreTestingInferredMetadataInput(TypedDict):
+class GetRestoreTestingInferredMetadataInput(TypedDict, closed=True):
     backup_vault_account_id: NotRequired["str"]
     """<p>The account ID of the specified backup vault.</p>"""
     backup_vault_name: "str"

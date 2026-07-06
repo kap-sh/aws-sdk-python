@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#NumberValidation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NumberValidation(TypedDict):
+class NumberValidation(TypedDict, closed=True):
     min_value: NotRequired["float"]
     """<p>Minimum allowed value.</p>"""
     max_value: NotRequired["float"]

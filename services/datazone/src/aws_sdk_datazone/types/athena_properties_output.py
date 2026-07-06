@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AthenaPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AthenaPropertiesOutput(TypedDict):
+class AthenaPropertiesOutput(TypedDict, closed=True):
     workgroup_name: NotRequired["str"]
     """<p>The Amazon Athena workgroup name of a connection.</p>"""
 

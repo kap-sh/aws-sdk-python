@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#ListOrganizationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.max_results
     import aws_sdk_workmail.types.next_token
 
 
-class ListOrganizationsRequest(TypedDict):
+class ListOrganizationsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_workmail.types.next_token.NextToken"]
     """<p>The token to use to retrieve the next page of results. The first call does not contain any tokens.</p>"""
     max_results: NotRequired["aws_sdk_workmail.types.max_results.MaxResults"]

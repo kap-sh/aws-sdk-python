@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SendDataToWirelessDeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.message_id
 
 
-class SendDataToWirelessDeviceResponse(TypedDict):
+class SendDataToWirelessDeviceResponse(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_iot_wireless.types.message_id.MessageId"]
     """<p>The ID of the message sent to the wireless device.</p>"""
 

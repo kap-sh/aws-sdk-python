@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#FraudRiskDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_voice_id.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.voice_spoofing_risk
 
 
-class FraudRiskDetails(TypedDict):
+class FraudRiskDetails(TypedDict, closed=True):
     known_fraudster_risk: (
         "aws_sdk_voice_id.types.known_fraudster_risk.KnownFraudsterRisk"
     )

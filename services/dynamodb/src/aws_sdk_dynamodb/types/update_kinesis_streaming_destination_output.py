@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.destination_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.update_kinesis_streaming_configuration
 
 
-class UpdateKinesisStreamingDestinationOutput(TypedDict):
+class UpdateKinesisStreamingDestinationOutput(TypedDict, closed=True):
     table_name: NotRequired["aws_sdk_dynamodb.types.table_name.TableName"]
     """<p>The table name for the Kinesis streaming destination output.</p>"""
     stream_arn: NotRequired["aws_sdk_dynamodb.types.stream_arn.StreamArn"]

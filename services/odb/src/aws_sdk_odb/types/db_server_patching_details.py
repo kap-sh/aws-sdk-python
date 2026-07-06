@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DbServerPatchingDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.db_server_patching_status
 
 
-class DbServerPatchingDetails(TypedDict):
+class DbServerPatchingDetails(TypedDict, closed=True):
     estimated_patch_duration: NotRequired["int"]
     """<p>Estimated time, in minutes, to patch one database server.</p>"""
     patching_status: NotRequired[

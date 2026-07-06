@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UserSearchFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.control_plane_tag_filter
     import aws_sdk_connect.types.control_plane_user_attribute_filter
 
 
-class UserSearchFilter(TypedDict):
+class UserSearchFilter(TypedDict, closed=True):
     tag_filter: NotRequired[
         "aws_sdk_connect.types.control_plane_tag_filter.ControlPlaneTagFilter"
     ]

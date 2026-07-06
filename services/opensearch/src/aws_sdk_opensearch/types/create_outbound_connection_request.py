@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateOutboundConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_information_container
 
 
-class CreateOutboundConnectionRequest(TypedDict):
+class CreateOutboundConnectionRequest(TypedDict, closed=True):
     local_domain_info: "aws_sdk_opensearch.types.domain_information_container.DomainInformationContainer"
     """<p>Name and Region of the source (local) domain.</p>"""
     remote_domain_info: "aws_sdk_opensearch.types.domain_information_container.DomainInformationContainer"

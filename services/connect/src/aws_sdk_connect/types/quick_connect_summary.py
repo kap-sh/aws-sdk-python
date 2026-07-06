@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#QuickConnectSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class QuickConnectSummary(TypedDict):
+class QuickConnectSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.quick_connect_id.QuickConnectId"]
     """<p>The identifier for the quick connect.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

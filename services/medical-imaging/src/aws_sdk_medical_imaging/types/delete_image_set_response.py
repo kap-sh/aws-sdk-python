@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DeleteImageSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.image_set_workflow_status
 
 
-class DeleteImageSetResponse(TypedDict):
+class DeleteImageSetResponse(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     image_set_id: "aws_sdk_medical_imaging.types.image_set_id.ImageSetId"

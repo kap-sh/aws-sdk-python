@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ShiftDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn_list
 
 
-class ShiftDetails(TypedDict):
+class ShiftDetails(TypedDict, closed=True):
     overridden_contact_ids: (
         "aws_sdk_ssm_contacts.types.ssm_contacts_arn_list.SsmContactsArnList"
     )

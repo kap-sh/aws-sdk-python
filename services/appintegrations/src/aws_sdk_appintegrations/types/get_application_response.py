@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#GetApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.application_config
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.uuid
 
 
-class GetApplicationResponse(TypedDict):
+class GetApplicationResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Application.</p>"""
     id: NotRequired["aws_sdk_appintegrations.types.uuid.UUID"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailTopicPolicyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_topics_tier_config
 
 
-class GuardrailTopicPolicyConfig(TypedDict):
+class GuardrailTopicPolicyConfig(TypedDict, closed=True):
     topics_config: "aws_sdk_bedrock.types.guardrail_topics_config.GuardrailTopicsConfig"
     """<p>A list of policies related to topics that the guardrail should deny.</p>"""
     tier_config: NotRequired[

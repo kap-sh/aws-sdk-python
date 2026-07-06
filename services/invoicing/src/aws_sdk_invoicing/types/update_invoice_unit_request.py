@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#UpdateInvoiceUnitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.tax_inheritance_disabled_flag
 
 
-class UpdateInvoiceUnitRequest(TypedDict):
+class UpdateInvoiceUnitRequest(TypedDict, closed=True):
     invoice_unit_arn: (
         "aws_sdk_invoicing.types.invoice_unit_arn_string.InvoiceUnitArnString"
     )

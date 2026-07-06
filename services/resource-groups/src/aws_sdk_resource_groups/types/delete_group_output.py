@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#DeleteGroupOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group
 
 
-class DeleteGroupOutput(TypedDict):
+class DeleteGroupOutput(TypedDict, closed=True):
     group: NotRequired["aws_sdk_resource_groups.types.group.Group"]
     """<p>A full description of the deleted resource group.</p>"""
 

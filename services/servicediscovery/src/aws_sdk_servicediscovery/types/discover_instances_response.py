@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DiscoverInstancesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.http_instance_summary_list
     import aws_sdk_servicediscovery.types.revision
 
 
-class DiscoverInstancesResponse(TypedDict):
+class DiscoverInstancesResponse(TypedDict, closed=True):
     instances: NotRequired[
         "aws_sdk_servicediscovery.types.http_instance_summary_list.HttpInstanceSummaryList"
     ]

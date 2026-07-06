@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#Websocket``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.iso8601_datetime
     import aws_sdk_connectparticipant.types.pre_signed_connection_url
 
 
-class Websocket(TypedDict):
+class Websocket(TypedDict, closed=True):
     url: NotRequired[
         "aws_sdk_connectparticipant.types.pre_signed_connection_url.PreSignedConnectionUrl"
     ]

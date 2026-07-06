@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetResourcePoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.get_resource_policies_response_list
     import aws_sdk_glue.types.token
 
 
-class GetResourcePoliciesResponse(TypedDict):
+class GetResourcePoliciesResponse(TypedDict, closed=True):
     get_resource_policies_response_list: NotRequired[
         "aws_sdk_glue.types.get_resource_policies_response_list.GetResourcePoliciesResponseList"
     ]

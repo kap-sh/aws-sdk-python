@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#BatchDetectTargetedSentimentItemResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
     import aws_sdk_comprehend.types.list_of_targeted_sentiment_entities
 
 
-class BatchDetectTargetedSentimentItemResult(TypedDict):
+class BatchDetectTargetedSentimentItemResult(TypedDict, closed=True):
     index: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p>The zero-based index of this result in the input list.</p>"""
     entities: NotRequired[

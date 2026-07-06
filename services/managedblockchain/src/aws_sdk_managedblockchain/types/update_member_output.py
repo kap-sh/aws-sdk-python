@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#UpdateMemberOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateMemberOutput(TypedDict):
+class UpdateMemberOutput(TypedDict, closed=True):
     pass
 
 

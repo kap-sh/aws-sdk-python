@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#AggregationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.templates
 
 
-class AggregationConfiguration(TypedDict):
+class AggregationConfiguration(TypedDict, closed=True):
     templates: "aws_sdk_cloudtrail.types.templates.Templates"
     """<p>A list of aggregation templates that can be used to configure event aggregation.</p>"""
     event_category: (

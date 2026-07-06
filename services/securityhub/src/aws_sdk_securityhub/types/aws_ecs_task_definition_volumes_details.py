@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionVolumesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_task_definition_volumes_docker_volume_configuration_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionVolumesDetails(TypedDict):
+class AwsEcsTaskDefinitionVolumesDetails(TypedDict, closed=True):
     docker_volume_configuration: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_task_definition_volumes_docker_volume_configuration_details.AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails"
     ]

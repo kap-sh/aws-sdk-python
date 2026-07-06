@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#CreateSignalingChannelInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.tag_on_create_list
 
 
-class CreateSignalingChannelInput(TypedDict):
+class CreateSignalingChannelInput(TypedDict, closed=True):
     channel_name: "aws_sdk_kinesis_video.types.channel_name.ChannelName"
     """<p>A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.</p>"""
     channel_type: NotRequired["aws_sdk_kinesis_video.types.channel_type.ChannelType"]

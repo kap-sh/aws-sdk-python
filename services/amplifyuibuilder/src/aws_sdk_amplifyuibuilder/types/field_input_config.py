@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#FieldInputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.value_mappings
 
 
-class FieldInputConfig(TypedDict):
+class FieldInputConfig(TypedDict, closed=True):
     type: "str"
     """<p>The input type for the field. </p>"""
     required: NotRequired["bool"]

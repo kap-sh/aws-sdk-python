@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SyntheticDataColumnProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.synthetic_data_column_type
 
 
-class SyntheticDataColumnProperties(TypedDict):
+class SyntheticDataColumnProperties(TypedDict, closed=True):
     column_name: (
         "aws_sdk_cleanrooms.types.synthetic_data_column_name.SyntheticDataColumnName"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ForecastedEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.uuid
 
 
-class ForecastedEvent(TypedDict):
+class ForecastedEvent(TypedDict, closed=True):
     event_id: "aws_sdk_location.types.uuid.Uuid"
     """<p>The forecasted event identifier.</p>"""
     geofence_id: "aws_sdk_location.types.id.Id"

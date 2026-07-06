@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#ConfigurationEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe_streaming._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.post_call_analytics_settings
 
 
-class ConfigurationEvent(TypedDict):
+class ConfigurationEvent(TypedDict, closed=True):
     channel_definitions: NotRequired[
         "aws_sdk_transcribe_streaming.types.channel_definitions.ChannelDefinitions"
     ]

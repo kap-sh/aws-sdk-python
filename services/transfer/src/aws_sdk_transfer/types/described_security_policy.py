@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedSecurityPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.security_policy_resource_type
 
 
-class DescribedSecurityPolicy(TypedDict):
+class DescribedSecurityPolicy(TypedDict, closed=True):
     fips: NotRequired["aws_sdk_transfer.types.fips.Fips"]
     """<p>Specifies whether this policy enables Federal Information Processing Standards (FIPS). This parameter applies to both server and connector security policies.</p>"""
     security_policy_name: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#RedshiftScopeUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.redshift_connect
 
 
-class _RedshiftScopeUnion_RedshiftConnect(TypedDict):
+class _RedshiftScopeUnion_RedshiftConnect(TypedDict, closed=True):
     RedshiftConnect: "aws_sdk_lakeformation.types.redshift_connect.RedshiftConnect"
 
 

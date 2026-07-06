@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#Message``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.user_message
 
 
-class _Message_userMessage(TypedDict):
+class _Message_userMessage(TypedDict, closed=True):
     userMessage: "aws_sdk_devops_agent.types.user_message.UserMessage"
 
 
-class _Message_assistantMessage(TypedDict):
+class _Message_assistantMessage(TypedDict, closed=True):
     assistantMessage: "aws_sdk_devops_agent.types.assistant_message.AssistantMessage"
 
 

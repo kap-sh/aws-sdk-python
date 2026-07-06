@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerDocuments``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.s3_uri
 
 
-class EntityRecognizerDocuments(TypedDict):
+class EntityRecognizerDocuments(TypedDict, closed=True):
     s3_uri: "aws_sdk_comprehend.types.s3_uri.S3Uri"
     """<p> Specifies the Amazon S3 location where the training documents for an entity recognizer are located. The URI must be in the same Region as the API endpoint that you are calling.</p>"""
     test_s3_uri: NotRequired["aws_sdk_comprehend.types.s3_uri.S3Uri"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#AgentAliasHistoryEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.agent_alias_routing_configuration
     import aws_sdk_bedrock_agent.types.date_timestamp
 
 
-class AgentAliasHistoryEvent(TypedDict):
+class AgentAliasHistoryEvent(TypedDict, closed=True):
     routing_configuration: NotRequired[
         "aws_sdk_bedrock_agent.types.agent_alias_routing_configuration.AgentAliasRoutingConfiguration"
     ]

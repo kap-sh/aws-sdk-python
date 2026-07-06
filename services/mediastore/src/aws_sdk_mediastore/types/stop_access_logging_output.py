@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#StopAccessLoggingOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopAccessLoggingOutput(TypedDict):
+class StopAccessLoggingOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#UpdateResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.field_list
 
 
-class UpdateResult(TypedDict):
+class UpdateResult(TypedDict, closed=True):
     generated_fields: NotRequired["aws_sdk_rds_data.types.field_list.FieldList"]
     """<p>Values for fields generated during the request.</p>"""
 

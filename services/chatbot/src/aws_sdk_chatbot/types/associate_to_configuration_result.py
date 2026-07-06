@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#AssociateToConfigurationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateToConfigurationResult(TypedDict):
+class AssociateToConfigurationResult(TypedDict, closed=True):
     pass
 
 

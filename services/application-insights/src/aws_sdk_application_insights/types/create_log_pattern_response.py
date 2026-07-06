@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#CreateLogPatternResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.log_pattern
     import aws_sdk_application_insights.types.resource_group_name
 
 
-class CreateLogPatternResponse(TypedDict):
+class CreateLogPatternResponse(TypedDict, closed=True):
     log_pattern: NotRequired[
         "aws_sdk_application_insights.types.log_pattern.LogPattern"
     ]

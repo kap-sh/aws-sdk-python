@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#InteractiveConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class InteractiveConfiguration(TypedDict):
+class InteractiveConfiguration(TypedDict, closed=True):
     studio_enabled: NotRequired["bool"]
     """<p>Enables you to connect an application to Amazon EMR Studio to run interactive workloads in a notebook.</p>"""
     livy_endpoint_enabled: NotRequired["bool"]

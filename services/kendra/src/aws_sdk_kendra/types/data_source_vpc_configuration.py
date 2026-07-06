@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#DataSourceVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.subnet_id_list
 
 
-class DataSourceVpcConfiguration(TypedDict):
+class DataSourceVpcConfiguration(TypedDict, closed=True):
     subnet_ids: "aws_sdk_kendra.types.subnet_id_list.SubnetIdList"
     """<p>A list of identifiers for subnets within your Amazon VPC. The subnets should be able to connect to each other in the VPC, and they should have outgoing access to the Internet through a NAT device.</p>"""
     security_group_ids: (

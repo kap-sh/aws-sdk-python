@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#StartFHIRExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.output_data_config
 
 
-class StartFHIRExportJobRequest(TypedDict):
+class StartFHIRExportJobRequest(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_healthlake.types.job_name.JobName"]
     """<p>The export job name.</p>"""
     output_data_config: "aws_sdk_healthlake.types.output_data_config.OutputDataConfig"

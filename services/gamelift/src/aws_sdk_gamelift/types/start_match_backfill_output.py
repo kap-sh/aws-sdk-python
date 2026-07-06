@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#StartMatchBackfillOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.matchmaking_ticket
 
 
-class StartMatchBackfillOutput(TypedDict):
+class StartMatchBackfillOutput(TypedDict, closed=True):
     matchmaking_ticket: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_ticket.MatchmakingTicket"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fms#OrganizationalUnitScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.boolean
     import aws_sdk_fms.types.organizational_unit_id_list
 
 
-class OrganizationalUnitScope(TypedDict):
+class OrganizationalUnitScope(TypedDict, closed=True):
     organizational_units: NotRequired[
         "aws_sdk_fms.types.organizational_unit_id_list.OrganizationalUnitIdList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ProjectListFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.string_list
 
 
-class ProjectListFilter(TypedDict):
+class ProjectListFilter(TypedDict, closed=True):
     key: "aws_sdk_codecatalyst.types.filter_key.FilterKey"
     """<p>A key that can be used to sort results.</p>"""
     values: "aws_sdk_codecatalyst.types.string_list.StringList"

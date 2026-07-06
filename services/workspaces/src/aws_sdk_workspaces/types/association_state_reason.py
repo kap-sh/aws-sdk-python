@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#AssociationStateReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.association_error_code
     import aws_sdk_workspaces.types.string2048
 
 
-class AssociationStateReason(TypedDict):
+class AssociationStateReason(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_workspaces.types.association_error_code.AssociationErrorCode"
     ]

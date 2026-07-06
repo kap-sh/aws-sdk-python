@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_string_date_time
 
 
-class PatchRule(TypedDict):
+class PatchRule(TypedDict, closed=True):
     patch_filter_group: "aws_sdk_ssm.types.patch_filter_group.PatchFilterGroup"
     """<p>The patch filter group that defines the criteria for the rule.</p>"""
     compliance_level: NotRequired[

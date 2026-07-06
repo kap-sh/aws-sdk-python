@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#DeleteBucketAnalyticsConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.bucket_name
 
 
-class DeleteBucketAnalyticsConfigurationRequest(TypedDict):
+class DeleteBucketAnalyticsConfigurationRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p>The name of the bucket from which an analytics configuration is deleted.</p>"""
     id: "aws_sdk_s3.types.analytics_id.AnalyticsId"

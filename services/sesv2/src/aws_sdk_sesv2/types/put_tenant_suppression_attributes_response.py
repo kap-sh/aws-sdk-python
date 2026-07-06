@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutTenantSuppressionAttributesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutTenantSuppressionAttributesResponse(TypedDict):
+class PutTenantSuppressionAttributesResponse(TypedDict, closed=True):
     pass
 
 

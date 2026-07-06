@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateImportedImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.agent_software_version
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.workspace_image_id
 
 
-class CreateImportedImageRequest(TypedDict):
+class CreateImportedImageRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>A unique name for the imported image. The name must be between 1 and 100 characters and can contain letters, numbers, underscores, periods, and hyphens.</p>"""
     source_ami_id: NotRequired["aws_sdk_appstream.types.photon_ami_id.PhotonAmiId"]

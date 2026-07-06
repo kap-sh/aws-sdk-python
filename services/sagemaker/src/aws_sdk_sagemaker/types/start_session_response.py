@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StartSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.session_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.token_value
 
 
-class StartSessionResponse(TypedDict):
+class StartSessionResponse(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_sagemaker.types.session_id.SessionId"]
     """<p>A unique identifier for the established remote connection session.</p>"""
     stream_url: NotRequired["aws_sdk_sagemaker.types.stream_url.StreamUrl"]

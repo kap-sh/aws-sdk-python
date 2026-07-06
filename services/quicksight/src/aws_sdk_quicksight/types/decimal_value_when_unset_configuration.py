@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DecimalValueWhenUnsetConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sensitive_double
     import aws_sdk_quicksight.types.value_when_unset_option
 
 
-class DecimalValueWhenUnsetConfiguration(TypedDict):
+class DecimalValueWhenUnsetConfiguration(TypedDict, closed=True):
     value_when_unset_option: NotRequired[
         "aws_sdk_quicksight.types.value_when_unset_option.ValueWhenUnsetOption"
     ]

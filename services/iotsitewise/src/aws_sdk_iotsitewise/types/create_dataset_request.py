@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CreateDatasetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.tag_map
 
 
-class CreateDatasetRequest(TypedDict):
+class CreateDatasetRequest(TypedDict, closed=True):
     dataset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the dataset.</p>"""
     dataset_name: "aws_sdk_iotsitewise.types.restricted_name.RestrictedName"

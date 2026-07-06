@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InfraCheckConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.enable_infra_check
 
 
-class InfraCheckConfig(TypedDict):
+class InfraCheckConfig(TypedDict, closed=True):
     enable_infra_check: NotRequired[
         "aws_sdk_sagemaker.types.enable_infra_check.EnableInfraCheck"
     ]

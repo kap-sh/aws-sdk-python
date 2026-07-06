@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ListDomainsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcases.types.max_results
     import aws_sdk_connectcases.types.next_token
 
 
-class ListDomainsRequest(TypedDict):
+class ListDomainsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_connectcases.types.max_results.MaxResults"]
     """<p>The maximum number of results to return per page.</p>"""
     next_token: NotRequired["aws_sdk_connectcases.types.next_token.NextToken"]

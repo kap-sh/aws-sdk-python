@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#NotificationEventOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.organizational_unit_id
 
 
-class NotificationEventOverview(TypedDict):
+class NotificationEventOverview(TypedDict, closed=True):
     arn: "aws_sdk_notifications.types.notification_event_arn.NotificationEventArn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     notification_configuration_arn: "aws_sdk_notifications.types.notification_configuration_arn.NotificationConfigurationArn"

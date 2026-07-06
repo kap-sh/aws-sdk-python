@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.next_token
 
 
-class GetBotsRequest(TypedDict):
+class GetBotsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_lex_model_building_service.types.next_token.NextToken"
     ]

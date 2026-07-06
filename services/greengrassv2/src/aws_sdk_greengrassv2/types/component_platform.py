@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ComponentPlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.non_empty_string
     import aws_sdk_greengrassv2.types.platform_attributes_map
 
 
-class ComponentPlatform(TypedDict):
+class ComponentPlatform(TypedDict, closed=True):
     name: NotRequired["aws_sdk_greengrassv2.types.non_empty_string.NonEmptyString"]
     """<p>The friendly name of the platform. This name helps you identify the platform.</p> <p>If you omit this parameter, IoT Greengrass creates a friendly name from the <code>os</code> and <code>architecture</code> of the platform.</p>"""
     attributes: NotRequired[

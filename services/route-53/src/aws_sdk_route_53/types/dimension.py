@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#Dimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.dimension_field
 
 
-class Dimension(TypedDict):
+class Dimension(TypedDict, closed=True):
     name: "aws_sdk_route_53.types.dimension_field.DimensionField"
     """<p>For the metric that the CloudWatch alarm is associated with, the name of one dimension.</p>"""
     value: "aws_sdk_route_53.types.dimension_field.DimensionField"

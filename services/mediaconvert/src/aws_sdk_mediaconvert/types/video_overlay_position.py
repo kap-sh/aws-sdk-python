@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoOverlayPosition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max100
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.video_overlay_unit
 
 
-class VideoOverlayPosition(TypedDict):
+class VideoOverlayPosition(TypedDict, closed=True):
     height: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min_negative1_max2147483647.__integerMinNegative1Max2147483647"
     ]

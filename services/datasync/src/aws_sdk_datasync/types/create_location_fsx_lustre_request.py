@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#CreateLocationFsxLustreRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.input_tag_list
 
 
-class CreateLocationFsxLustreRequest(TypedDict):
+class CreateLocationFsxLustreRequest(TypedDict, closed=True):
     fsx_filesystem_arn: "aws_sdk_datasync.types.fsx_filesystem_arn.FsxFilesystemArn"
     """<p>Specifies the Amazon Resource Name (ARN) of the FSx for Lustre file system.</p>"""
     security_group_arns: (

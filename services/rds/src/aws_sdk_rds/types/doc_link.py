@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DocLink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DocLink(TypedDict):
+class DocLink(TypedDict, closed=True):
     text: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The text with the link to documentation for the recommendation.</p>"""
     url: NotRequired["aws_sdk_rds.types.string.String"]

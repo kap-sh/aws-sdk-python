@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListMembershipsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.list_membership_items
 
 
-class ListMembershipsResponse(TypedDict):
+class ListMembershipsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>An optional string that, if supplied on subsequent calls to ListMemberships, allows the API to fetch the next page of results. </p>"""
     items: NotRequired[

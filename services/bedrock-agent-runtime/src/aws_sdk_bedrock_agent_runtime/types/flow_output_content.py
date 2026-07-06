@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowOutputContent``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -8,7 +10,7 @@ from aws_sdk_bedrock_agent_runtime.errors import (
 )
 
 
-class _FlowOutputContent_document(TypedDict):
+class _FlowOutputContent_document(TypedDict, closed=True):
     document: "object"
 
 

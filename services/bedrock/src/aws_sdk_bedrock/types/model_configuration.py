@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_configuration
 
 
-class ModelConfiguration(TypedDict):
+class ModelConfiguration(TypedDict, closed=True):
     model_id: "aws_sdk_bedrock.types.bedrock_model_id.BedrockModelId"
     """<p>The ID of the model to use for optimization.</p>"""
     inference_config: NotRequired[

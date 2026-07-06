@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ListFirewallRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_rules
     import aws_sdk_route53resolver.types.next_token
 
 
-class ListFirewallRulesResponse(TypedDict):
+class ListFirewallRulesResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_route53resolver.types.next_token.NextToken"]
     """<p>If objects are still available for retrieval, Resolver returns this token in the response. To retrieve the next batch of objects, provide this token in your next request.</p>"""
     firewall_rules: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#S3ObjectDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class S3ObjectDetail(TypedDict):
+class S3ObjectDetail(TypedDict, closed=True):
     object_arn: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Amazon Resource Name (ARN) of the S3 object.</p>"""
     key: NotRequired["aws_sdk_guardduty.types.string.String"]

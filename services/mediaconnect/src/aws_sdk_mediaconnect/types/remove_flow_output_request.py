@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RemoveFlowOutputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.flow_arn
 
 
-class RemoveFlowOutputRequest(TypedDict):
+class RemoveFlowOutputRequest(TypedDict, closed=True):
     flow_arn: "aws_sdk_mediaconnect.types.flow_arn.FlowArn"
     """<p> The Amazon Resource Name (ARN) of the flow that you want to remove an output from.</p>"""
     output_arn: "str"

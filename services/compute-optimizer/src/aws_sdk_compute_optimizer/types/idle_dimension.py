@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#IdleDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.idle_dimension_key
     import aws_sdk_compute_optimizer.types.idle_dimension_values
 
 
-class IdleDimension(TypedDict):
+class IdleDimension(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_compute_optimizer.types.idle_dimension_key.IdleDimensionKey"
     ]

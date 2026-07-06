@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListCommandInvocationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListCommandInvocationsRequest(TypedDict):
+class ListCommandInvocationsRequest(TypedDict, closed=True):
     command_id: NotRequired["aws_sdk_ssm.types.command_id.CommandId"]
     """<p>(Optional) The invocations for a specific command ID.</p>"""
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]

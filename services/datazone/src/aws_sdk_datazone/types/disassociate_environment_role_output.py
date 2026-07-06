@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DisassociateEnvironmentRoleOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateEnvironmentRoleOutput(TypedDict):
+class DisassociateEnvironmentRoleOutput(TypedDict, closed=True):
     pass
 
 

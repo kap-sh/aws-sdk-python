@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#Endpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.cidr_block
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.vpc_id
 
 
-class Endpoint(TypedDict):
+class Endpoint(TypedDict, closed=True):
     endpoint_arn: NotRequired["aws_sdk_s3outposts.types.endpoint_arn.EndpointArn"]
     """<p>The Amazon Resource Name (ARN) of the endpoint.</p>"""
     outposts_id: NotRequired["aws_sdk_s3outposts.types.outpost_id.OutpostId"]

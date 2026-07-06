@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ExtractionJobFilterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.extraction_job_status
 
 
-class ExtractionJobFilterInput(TypedDict):
+class ExtractionJobFilterInput(TypedDict, closed=True):
     strategy_id: NotRequired["str"]
     """<p>The memory strategy identifier to filter extraction jobs by. If specified, only extraction jobs with this strategy ID are returned.</p>"""
     session_id: NotRequired["str"]

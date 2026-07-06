@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#CreateAccessPointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing.types.dns_name
 
 
-class CreateAccessPointOutput(TypedDict):
+class CreateAccessPointOutput(TypedDict, closed=True):
     dns_name: NotRequired["aws_sdk_elastic_load_balancing.types.dns_name.DNSName"]
     """<p>The DNS name of the load balancer.</p>"""
 

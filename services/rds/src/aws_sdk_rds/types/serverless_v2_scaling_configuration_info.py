@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ServerlessV2ScalingConfigurationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.integer_optional
 
 
-class ServerlessV2ScalingConfigurationInfo(TypedDict):
+class ServerlessV2ScalingConfigurationInfo(TypedDict, closed=True):
     min_capacity: NotRequired["aws_sdk_rds.types.double_optional.DoubleOptional"]
     """<p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5. </p>"""
     max_capacity: NotRequired["aws_sdk_rds.types.double_optional.DoubleOptional"]

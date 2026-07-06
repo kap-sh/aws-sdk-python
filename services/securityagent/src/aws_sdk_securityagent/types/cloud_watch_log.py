@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CloudWatchLog``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CloudWatchLog(TypedDict):
+class CloudWatchLog(TypedDict, closed=True):
     log_group: NotRequired["str"]
     """<p>The name of the CloudWatch log group.</p>"""
     log_stream: NotRequired["str"]

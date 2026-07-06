@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ListHarvestJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.harvest_jobs_list
 
 
-class ListHarvestJobsResponse(TypedDict):
+class ListHarvestJobsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mediapackagev2.types.harvest_jobs_list.HarvestJobsList"]
     """<p>An array of harvest job objects that match the specified criteria.</p>"""
     next_token: NotRequired["str"]

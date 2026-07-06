@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#PlanningStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.number_of_bytes
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.number_of_milliseconds
 
 
-class PlanningStatistics(TypedDict):
+class PlanningStatistics(TypedDict, closed=True):
     estimated_data_to_scan_bytes: (
         "aws_sdk_lakeformation.types.number_of_bytes.NumberOfBytes"
     )

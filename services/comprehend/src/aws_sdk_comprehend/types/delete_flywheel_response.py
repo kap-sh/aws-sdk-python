@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DeleteFlywheelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteFlywheelResponse(TypedDict):
+class DeleteFlywheelResponse(TypedDict, closed=True):
     pass
 
 

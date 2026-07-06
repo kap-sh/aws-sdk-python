@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetAnomalyMonitorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class GetAnomalyMonitorsResponse(TypedDict):
+class GetAnomalyMonitorsResponse(TypedDict, closed=True):
     anomaly_monitors: "aws_sdk_cost_explorer.types.anomaly_monitors.AnomalyMonitors"
     """<p>A list of cost anomaly monitors that includes the detailed metadata for each monitor. </p>"""
     next_page_token: NotRequired[

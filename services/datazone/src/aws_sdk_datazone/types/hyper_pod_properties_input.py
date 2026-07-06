@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#HyperPodPropertiesInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class HyperPodPropertiesInput(TypedDict):
+class HyperPodPropertiesInput(TypedDict, closed=True):
     cluster_name: "str"
     """<p>The cluster name the hyper pod properties.</p>"""
 

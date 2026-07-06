@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#HttpPackageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediatailor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.type
 
 
-class HttpPackageConfiguration(TypedDict):
+class HttpPackageConfiguration(TypedDict, closed=True):
     path: "aws_sdk_mediatailor.types.__string.__string"
     """<p>The relative path to the URL for this VOD source. This is combined with <code>SourceLocation::HttpConfiguration::BaseUrl</code> to form a valid URL.</p>"""
     source_group: "aws_sdk_mediatailor.types.__string.__string"

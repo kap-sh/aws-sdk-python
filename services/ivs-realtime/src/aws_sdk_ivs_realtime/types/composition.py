@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#Composition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ivs_realtime.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.time
 
 
-class Composition(TypedDict):
+class Composition(TypedDict, closed=True):
     arn: "aws_sdk_ivs_realtime.types.composition_arn.CompositionArn"
     """<p>ARN of the Composition resource.</p>"""
     stage_arn: "aws_sdk_ivs_realtime.types.stage_arn.StageArn"

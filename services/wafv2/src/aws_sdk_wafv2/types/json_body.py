@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#JsonBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.oversize_handling
 
 
-class JsonBody(TypedDict):
+class JsonBody(TypedDict, closed=True):
     match_pattern: "aws_sdk_wafv2.types.json_match_pattern.JsonMatchPattern"
     """<p>The patterns to look for in the JSON body. WAF inspects the results of these pattern matches against the rule inspection criteria. </p>"""
     match_scope: "aws_sdk_wafv2.types.json_match_scope.JsonMatchScope"

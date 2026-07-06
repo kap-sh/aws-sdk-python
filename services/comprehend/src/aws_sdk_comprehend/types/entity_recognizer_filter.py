@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.comprehend_arn_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class EntityRecognizerFilter(TypedDict):
+class EntityRecognizerFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_comprehend.types.model_status.ModelStatus"]
     """<p>The status of an entity recognizer.</p>"""
     recognizer_name: NotRequired[

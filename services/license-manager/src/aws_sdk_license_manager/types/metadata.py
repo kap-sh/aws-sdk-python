@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#Metadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class Metadata(TypedDict):
+class Metadata(TypedDict, closed=True):
     name: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>The key name.</p>"""
     value: NotRequired["aws_sdk_license_manager.types.string.String"]

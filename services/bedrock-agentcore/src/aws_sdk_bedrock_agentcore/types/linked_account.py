@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LinkedAccount``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.linked_account_sms
 
 
-class _LinkedAccount_email(TypedDict):
+class _LinkedAccount_email(TypedDict, closed=True):
     email: "aws_sdk_bedrock_agentcore.types.linked_account_email.LinkedAccountEmail"
 
 
-class _LinkedAccount_sms(TypedDict):
+class _LinkedAccount_sms(TypedDict, closed=True):
     sms: "aws_sdk_bedrock_agentcore.types.linked_account_sms.LinkedAccountSms"
 
 
-class _LinkedAccount_developerJwt(TypedDict):
+class _LinkedAccount_developerJwt(TypedDict, closed=True):
     developerJwt: "aws_sdk_bedrock_agentcore.types.linked_account_developer_jwt.LinkedAccountDeveloperJwt"
 
 
-class _LinkedAccount_oAuth2(TypedDict):
+class _LinkedAccount_oAuth2(TypedDict, closed=True):
     oAuth2: "aws_sdk_bedrock_agentcore.types.linked_account_o_auth2.LinkedAccountOAuth2"
 
 

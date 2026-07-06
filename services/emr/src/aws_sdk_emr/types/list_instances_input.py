@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.cluster_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
 
 
-class ListInstancesInput(TypedDict):
+class ListInstancesInput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>The identifier of the cluster for which to list the instances.</p>"""
     instance_group_id: NotRequired[

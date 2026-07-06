@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeSnapshotsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.include_shared
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.snapshot_ids
 
 
-class DescribeSnapshotsRequest(TypedDict):
+class DescribeSnapshotsRequest(TypedDict, closed=True):
     snapshot_ids: NotRequired["aws_sdk_fsx.types.snapshot_ids.SnapshotIds"]
     """<p>The IDs of the snapshots that you want to retrieve. This parameter value overrides any filters. If any IDs aren't found, a <code>SnapshotNotFound</code> error occurs.</p>"""
     filters: NotRequired["aws_sdk_fsx.types.snapshot_filters.SnapshotFilters"]

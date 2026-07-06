@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialWindowOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_coordinate_bounds
     import aws_sdk_quicksight.types.map_zoom_mode
 
 
-class GeospatialWindowOptions(TypedDict):
+class GeospatialWindowOptions(TypedDict, closed=True):
     bounds: NotRequired[
         "aws_sdk_quicksight.types.geospatial_coordinate_bounds.GeospatialCoordinateBounds"
     ]

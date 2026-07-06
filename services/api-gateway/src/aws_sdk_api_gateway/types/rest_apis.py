@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#RestApis``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_rest_api
     import aws_sdk_api_gateway.types.string
 
 
-class RestApis(TypedDict):
+class RestApis(TypedDict, closed=True):
     items: NotRequired["aws_sdk_api_gateway.types.list_of_rest_api.ListOfRestApi"]
     """<p>The current page of elements from this collection.</p>"""
     position: NotRequired["aws_sdk_api_gateway.types.string.String"]

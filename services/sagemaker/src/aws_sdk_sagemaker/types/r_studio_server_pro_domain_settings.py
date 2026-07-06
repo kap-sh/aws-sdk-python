@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RStudioServerProDomainSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.resource_spec
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class RStudioServerProDomainSettings(TypedDict):
+class RStudioServerProDomainSettings(TypedDict, closed=True):
     domain_execution_role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The ARN of the execution role for the <code>RStudioServerPro</code> Domain-level app.</p>"""
     r_studio_connect_url: NotRequired["aws_sdk_sagemaker.types.string.String"]

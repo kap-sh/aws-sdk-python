@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#IcebergSortOrder``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.iceberg_sort_field_list
 
 
-class IcebergSortOrder(TypedDict):
+class IcebergSortOrder(TypedDict, closed=True):
     order_id: "int"
     """<p>The unique identifier for this sort order. If not specified, defaults to <code>1</code>. The order ID is used by Apache Iceberg to track sort order evolution.</p>"""
     fields: "aws_sdk_s3tables.types.iceberg_sort_field_list.IcebergSortFieldList"

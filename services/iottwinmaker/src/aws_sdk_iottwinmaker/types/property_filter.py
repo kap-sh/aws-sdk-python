@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#PropertyFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.data_value
     import aws_sdk_iottwinmaker.types.string
 
 
-class PropertyFilter(TypedDict):
+class PropertyFilter(TypedDict, closed=True):
     property_name: NotRequired["aws_sdk_iottwinmaker.types.string.String"]
     """<p>The property name associated with this property filter.</p>"""
     operator: NotRequired["aws_sdk_iottwinmaker.types.string.String"]

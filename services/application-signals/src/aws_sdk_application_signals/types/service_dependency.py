@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ServiceDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.operation_name
 
 
-class ServiceDependency(TypedDict):
+class ServiceDependency(TypedDict, closed=True):
     operation_name: "aws_sdk_application_signals.types.operation_name.OperationName"
     """<p>The name of the operation in this service that calls the dependency.</p>"""
     dependency_key_attributes: "aws_sdk_application_signals.types.attributes.Attributes"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#PeeringError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.peering_error_code
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.server_side_string
 
 
-class PeeringError(TypedDict):
+class PeeringError(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_networkmanager.types.peering_error_code.PeeringErrorCode"
     ]

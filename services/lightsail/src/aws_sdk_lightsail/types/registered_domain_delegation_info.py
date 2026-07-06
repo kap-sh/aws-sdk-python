@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RegisteredDomainDelegationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.name_servers_update_state
     import aws_sdk_lightsail.types.r53_hosted_zone_deletion_state
 
 
-class RegisteredDomainDelegationInfo(TypedDict):
+class RegisteredDomainDelegationInfo(TypedDict, closed=True):
     name_servers_update_state: NotRequired[
         "aws_sdk_lightsail.types.name_servers_update_state.NameServersUpdateState"
     ]

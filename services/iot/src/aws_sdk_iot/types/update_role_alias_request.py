@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateRoleAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.credential_duration_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class UpdateRoleAliasRequest(TypedDict):
+class UpdateRoleAliasRequest(TypedDict, closed=True):
     role_alias: "aws_sdk_iot.types.role_alias.RoleAlias"
     """<p>The role alias to update.</p>"""
     role_arn: NotRequired["aws_sdk_iot.types.role_arn.RoleArn"]

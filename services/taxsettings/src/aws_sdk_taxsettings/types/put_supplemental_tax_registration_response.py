@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#PutSupplementalTaxRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_registration_status
 
 
-class PutSupplementalTaxRegistrationResponse(TypedDict):
+class PutSupplementalTaxRegistrationResponse(TypedDict, closed=True):
     authority_id: "aws_sdk_taxsettings.types.generic_string.GenericString"
     """<p> Unique authority ID for the supplemental TRN information that was stored. </p>"""
     status: "aws_sdk_taxsettings.types.tax_registration_status.TaxRegistrationStatus"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#FreeTierUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_freetier.types.generic_double
     import aws_sdk_freetier.types.generic_string
 
 
-class FreeTierUsage(TypedDict):
+class FreeTierUsage(TypedDict, closed=True):
     service: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]
     """<p>The name of the Amazon Web Services service providing the Free Tier offer. For example, this can be Amazon Elastic Compute Cloud.</p>"""
     operation: NotRequired["aws_sdk_freetier.types.generic_string.GenericString"]

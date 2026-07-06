@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeAuditTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_task_id
 
 
-class DescribeAuditTaskRequest(TypedDict):
+class DescribeAuditTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_iot.types.audit_task_id.AuditTaskId"
     """<p>The ID of the audit whose information you want to get.</p>"""
 

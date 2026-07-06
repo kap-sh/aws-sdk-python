@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#TaggedDatabase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.database_resource
     import aws_sdk_lakeformation.types.lf_tags_list
 
 
-class TaggedDatabase(TypedDict):
+class TaggedDatabase(TypedDict, closed=True):
     database: NotRequired[
         "aws_sdk_lakeformation.types.database_resource.DatabaseResource"
     ]

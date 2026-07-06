@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeFileSystemAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aliases
     import aws_sdk_fsx.types.next_token
 
 
-class DescribeFileSystemAliasesResponse(TypedDict):
+class DescribeFileSystemAliasesResponse(TypedDict, closed=True):
     aliases: NotRequired["aws_sdk_fsx.types.aliases.Aliases"]
     """<p>An array of one or more DNS aliases currently associated with the specified file system.</p>"""
     next_token: NotRequired["aws_sdk_fsx.types.next_token.NextToken"]

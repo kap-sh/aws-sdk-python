@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DetachManagedPolicyFromPermissionSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DetachManagedPolicyFromPermissionSetResponse(TypedDict):
+class DetachManagedPolicyFromPermissionSetResponse(TypedDict, closed=True):
     pass
 
 

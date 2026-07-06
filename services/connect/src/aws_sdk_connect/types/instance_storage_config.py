@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InstanceStorageConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.storage_type
 
 
-class InstanceStorageConfig(TypedDict):
+class InstanceStorageConfig(TypedDict, closed=True):
     association_id: NotRequired["aws_sdk_connect.types.association_id.AssociationId"]
     """<p>The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.</p>"""
     storage_type: "aws_sdk_connect.types.storage_type.StorageType"

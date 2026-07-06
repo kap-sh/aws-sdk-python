@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ConverseStreamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.additional_model_response_field_paths
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_configuration
 
 
-class ConverseStreamRequest(TypedDict):
+class ConverseStreamRequest(TypedDict, closed=True):
     model_id: (
         "aws_sdk_bedrock_runtime.types.conversational_model_id.ConversationalModelId"
     )

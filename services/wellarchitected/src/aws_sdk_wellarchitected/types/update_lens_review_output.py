@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateLensReviewOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.lens_review
     import aws_sdk_wellarchitected.types.workload_id
 
 
-class UpdateLensReviewOutput(TypedDict):
+class UpdateLensReviewOutput(TypedDict, closed=True):
     workload_id: NotRequired["aws_sdk_wellarchitected.types.workload_id.WorkloadId"]
     lens_review: NotRequired["aws_sdk_wellarchitected.types.lens_review.LensReview"]
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of__string
     import aws_sdk_macie2.types.sort_criteria
 
 
-class GetFindingsRequest(TypedDict):
+class GetFindingsRequest(TypedDict, closed=True):
     finding_ids: NotRequired["aws_sdk_macie2.types.__list_of__string.__listOf__string"]
     """<p>An array of strings that lists the unique identifiers for the findings to retrieve. You can specify as many as 50 unique identifiers in this array.</p>"""
     sort_criteria: NotRequired["aws_sdk_macie2.types.sort_criteria.SortCriteria"]

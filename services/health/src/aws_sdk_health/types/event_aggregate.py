@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.health#EventAggregate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.aggregate_value
     import aws_sdk_health.types.count
 
 
-class EventAggregate(TypedDict):
+class EventAggregate(TypedDict, closed=True):
     aggregate_value: NotRequired["aws_sdk_health.types.aggregate_value.aggregateValue"]
     """<p>The issue type for the associated count.</p>"""
     count: "aws_sdk_health.types.count.count"

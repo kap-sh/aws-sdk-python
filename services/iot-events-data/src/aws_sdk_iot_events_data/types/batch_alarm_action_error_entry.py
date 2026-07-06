@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#BatchAlarmActionErrorEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.request_id
 
 
-class BatchAlarmActionErrorEntry(TypedDict):
+class BatchAlarmActionErrorEntry(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_iot_events_data.types.request_id.RequestId"]
     """<p>The request ID. Each ID must be unique within each batch.</p>"""
     error_code: NotRequired["aws_sdk_iot_events_data.types.error_code.ErrorCode"]

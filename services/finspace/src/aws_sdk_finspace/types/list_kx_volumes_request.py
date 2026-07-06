@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ListKxVolumesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_environment_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.pagination_token
 
 
-class ListKxVolumesRequest(TypedDict):
+class ListKxVolumesRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     """<p>A unique identifier for the kdb environment, whose clusters can attach to the volume. </p>"""
     max_results: "aws_sdk_finspace.types.max_results.MaxResults"

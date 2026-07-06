@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#EthernetStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.hw_address
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.network_connection_status
 
 
-class EthernetStatus(TypedDict):
+class EthernetStatus(TypedDict, closed=True):
     ip_address: NotRequired["aws_sdk_panorama.types.ip_address.IpAddress"]
     """<p>The device's IP address.</p>"""
     connection_status: NotRequired[

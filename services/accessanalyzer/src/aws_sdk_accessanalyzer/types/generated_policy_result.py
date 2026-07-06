@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#GeneratedPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.generated_policy_properties
 
 
-class GeneratedPolicyResult(TypedDict):
+class GeneratedPolicyResult(TypedDict, closed=True):
     properties: "aws_sdk_accessanalyzer.types.generated_policy_properties.GeneratedPolicyProperties"
     """<p>A <code>GeneratedPolicyProperties</code> object that contains properties of the generated policy.</p>"""
     generated_policies: NotRequired[

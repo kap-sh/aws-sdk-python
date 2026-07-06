@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ListDomainNamesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.domain_name_configs
     import aws_sdk_appsync.types.pagination_token
 
 
-class ListDomainNamesResponse(TypedDict):
+class ListDomainNamesResponse(TypedDict, closed=True):
     domain_name_configs: NotRequired[
         "aws_sdk_appsync.types.domain_name_configs.DomainNameConfigs"
     ]

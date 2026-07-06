@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportSourceDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.s3_uri
     import aws_sdk_quicksight.types.sensitive_s3_uri
 
 
-class AssetBundleImportSourceDescription(TypedDict):
+class AssetBundleImportSourceDescription(TypedDict, closed=True):
     body: NotRequired["aws_sdk_quicksight.types.sensitive_s3_uri.SensitiveS3Uri"]
     """<p>An HTTPS download URL for the provided asset bundle that you optionally provided at the start of the import job. This URL is valid for five minutes after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if needed. The downloaded asset bundle is a <code>.qs</code> zip file.</p>"""
     s3_uri: NotRequired["aws_sdk_quicksight.types.s3_uri.S3Uri"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ListExportErrorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.export_errors
     import aws_sdk_mgn.types.pagination_token
 
 
-class ListExportErrorsResponse(TypedDict):
+class ListExportErrorsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mgn.types.export_errors.ExportErrors"]
     """<p>List export errors response items.</p>"""
     next_token: NotRequired["aws_sdk_mgn.types.pagination_token.PaginationToken"]

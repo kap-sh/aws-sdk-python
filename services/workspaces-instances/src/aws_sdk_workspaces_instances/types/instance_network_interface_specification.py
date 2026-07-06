@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InstanceNetworkInterfaceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.connection_tracking_specification_request
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.subnet_id
 
 
-class InstanceNetworkInterfaceSpecification(TypedDict):
+class InstanceNetworkInterfaceSpecification(TypedDict, closed=True):
     associate_carrier_ip_address: NotRequired["bool"]
     """<p>Enables carrier IP address association.</p>"""
     associate_public_ip_address: NotRequired["bool"]

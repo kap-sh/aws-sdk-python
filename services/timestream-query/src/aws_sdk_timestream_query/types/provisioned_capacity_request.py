@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#ProvisionedCapacityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.query_tcu
 
 
-class ProvisionedCapacityRequest(TypedDict):
+class ProvisionedCapacityRequest(TypedDict, closed=True):
     target_query_tcu: "aws_sdk_timestream_query.types.query_tcu.QueryTCU"
     """<p>The target compute capacity for querying data, specified in Timestream Compute Units (TCUs).</p>"""
     notification_configuration: NotRequired[

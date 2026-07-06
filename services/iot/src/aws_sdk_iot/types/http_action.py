@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#HttpAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.url
 
 
-class HttpAction(TypedDict):
+class HttpAction(TypedDict, closed=True):
     url: "aws_sdk_iot.types.url.Url"
     """<p>The endpoint URL. If substitution templates are used in the URL, you must also specify a <code>confirmationUrl</code>. If this is a new destination, a new <code>TopicRuleDestination</code> is created if possible.</p>"""
     confirmation_url: NotRequired["aws_sdk_iot.types.url.Url"]

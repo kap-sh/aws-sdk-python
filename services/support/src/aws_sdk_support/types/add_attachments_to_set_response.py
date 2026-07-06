@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#AddAttachmentsToSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.attachment_set_id
     import aws_sdk_support.types.expiry_time
 
 
-class AddAttachmentsToSetResponse(TypedDict):
+class AddAttachmentsToSetResponse(TypedDict, closed=True):
     attachment_set_id: NotRequired[
         "aws_sdk_support.types.attachment_set_id.AttachmentSetId"
     ]

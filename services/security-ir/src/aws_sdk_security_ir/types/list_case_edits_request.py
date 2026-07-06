@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#ListCaseEditsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_security_ir.types.case_id
 
 
-class ListCaseEditsRequest(TypedDict):
+class ListCaseEditsRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>An optional string that, if supplied, must be copied from the output of a previous call to ListCaseEdits. When provided in this manner, the API fetches the next page of results. </p>"""
     max_results: NotRequired["int"]

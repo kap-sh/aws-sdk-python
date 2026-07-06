@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANSendDataToDevice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.f_port
     import aws_sdk_iot_wireless.types.participating_gateways
 
 
-class LoRaWANSendDataToDevice(TypedDict):
+class LoRaWANSendDataToDevice(TypedDict, closed=True):
     f_port: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     participating_gateways: NotRequired[
         "aws_sdk_iot_wireless.types.participating_gateways.ParticipatingGateways"

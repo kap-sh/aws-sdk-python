@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#NotifyConfigurationType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -31,6 +31,7 @@ NotifyConfigurationType = TypedDict(
             "aws_sdk_cognito_identity_provider.types.notify_email_type.NotifyEmailType"
         ],
     },
+    closed=True,
 )
 
 

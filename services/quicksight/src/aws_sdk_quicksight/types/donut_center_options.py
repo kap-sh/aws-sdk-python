@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DonutCenterOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class DonutCenterOptions(TypedDict):
+class DonutCenterOptions(TypedDict, closed=True):
     label_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>Determines the visibility of the label in a donut chart. In the Quick Sight console, this option is called <code>'Show total'</code>.</p>"""
 

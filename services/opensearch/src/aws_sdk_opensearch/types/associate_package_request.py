@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AssociatePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_id_list
 
 
-class AssociatePackageRequest(TypedDict):
+class AssociatePackageRequest(TypedDict, closed=True):
     package_id: "aws_sdk_opensearch.types.package_id.PackageID"
     """<p>Internal ID of the package to associate with a domain. Use <code>DescribePackages</code> to find this value. </p>"""
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"

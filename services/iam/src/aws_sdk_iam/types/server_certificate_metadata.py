@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ServerCertificateMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.server_certificate_name_type
 
 
-class ServerCertificateMetadata(TypedDict):
+class ServerCertificateMetadata(TypedDict, closed=True):
     path: "aws_sdk_iam.types.path_type.pathType"
     r"""<p> The path to the server certificate. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>. </p>"""
     server_certificate_name: (

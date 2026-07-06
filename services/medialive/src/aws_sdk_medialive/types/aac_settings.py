@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AacSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.aac_vbr_quality
 
 
-class AacSettings(TypedDict):
+class AacSettings(TypedDict, closed=True):
     bitrate: NotRequired["aws_sdk_medialive.types.__double.__double"]
     """Average bitrate in bits/second. Valid values depend on rate control mode and profile."""
     coding_mode: NotRequired["aws_sdk_medialive.types.aac_coding_mode.AacCodingMode"]

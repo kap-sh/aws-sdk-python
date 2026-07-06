@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetIntrospectionSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.blob
 
 
-class GetIntrospectionSchemaResponse(TypedDict):
+class GetIntrospectionSchemaResponse(TypedDict, closed=True):
     schema: NotRequired["aws_sdk_appsync.types.blob.Blob"]
     r"""<p>The schema, in GraphQL Schema Definition Language (SDL) format.</p> <p>For more information, see the <a href=\"http://graphql.org/learn/schema/\">GraphQL SDL documentation</a>.</p>"""
 

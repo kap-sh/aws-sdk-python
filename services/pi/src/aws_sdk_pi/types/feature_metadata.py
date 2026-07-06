@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pi#FeatureMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pi.types.feature_status
 
 
-class FeatureMetadata(TypedDict):
+class FeatureMetadata(TypedDict, closed=True):
     status: NotRequired["aws_sdk_pi.types.feature_status.FeatureStatus"]
     """<p>The status of the feature on the DB instance. Possible values include the following:</p> <ul> <li> <p> <code>ENABLED</code> - The feature is enabled on the instance.</p> </li> <li> <p> <code>DISABLED</code> - The feature is disabled on the instance.</p> </li> <li> <p> <code>UNSUPPORTED</code> - The feature isn't supported on the instance.</p> </li> <li> <p> <code>ENABLED_PENDING_REBOOT</code> - The feature is enabled on the instance but requires a reboot to take effect.</p> </li> <li> <p> <code>DISABLED_PENDING_REBOOT</code> - The feature is disabled on the instance but requires a reboot to take effect.</p> </li> <li> <p> <code>UNKNOWN</code> - The feature status couldn't be determined.</p> </li> </ul>"""
 

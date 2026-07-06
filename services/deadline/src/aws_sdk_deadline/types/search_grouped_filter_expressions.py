@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SearchGroupedFilterExpressions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.search_filter_expressions
 
 
-class SearchGroupedFilterExpressions(TypedDict):
+class SearchGroupedFilterExpressions(TypedDict, closed=True):
     filters: "aws_sdk_deadline.types.search_filter_expressions.SearchFilterExpressions"
     """<p>The filters to use for the search.</p>"""
     operator: "aws_sdk_deadline.types.logical_operator.LogicalOperator"

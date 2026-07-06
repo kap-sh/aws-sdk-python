@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.action_id
 
 
-class GetActionRequest(TypedDict):
+class GetActionRequest(TypedDict, closed=True):
     id: "aws_sdk_fis.types.action_id.ActionId"
     """<p>The ID of the action.</p>"""
 

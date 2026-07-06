@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#QuerySchemaVersionMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.metadata_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_version_number
 
 
-class QuerySchemaVersionMetadataInput(TypedDict):
+class QuerySchemaVersionMetadataInput(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_glue.types.schema_id.SchemaId"]
     """<p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>"""
     schema_version_number: NotRequired[

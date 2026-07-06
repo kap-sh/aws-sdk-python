@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.tag_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_customer_profiles.types.tag_arn.TagArn"
     """<p>The ARN of the resource for which you want to view tags.</p>"""
 

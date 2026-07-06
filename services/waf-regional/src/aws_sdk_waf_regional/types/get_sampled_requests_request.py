@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GetSampledRequestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.time_window
 
 
-class GetSampledRequestsRequest(TypedDict):
+class GetSampledRequestsRequest(TypedDict, closed=True):
     web_acl_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>WebACLId</code> of the <code>WebACL</code> for which you want <code>GetSampledRequests</code> to return a sample of requests.</p>"""
     rule_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"

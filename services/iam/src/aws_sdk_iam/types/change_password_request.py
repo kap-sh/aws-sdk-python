@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ChangePasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.password_type
 
 
-class ChangePasswordRequest(TypedDict):
+class ChangePasswordRequest(TypedDict, closed=True):
     old_password: "aws_sdk_iam.types.password_type.passwordType"
     """<p>The IAM user's current password.</p>"""
     new_password: "aws_sdk_iam.types.password_type.passwordType"

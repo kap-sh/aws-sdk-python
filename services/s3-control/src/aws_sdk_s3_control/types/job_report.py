@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#JobReport``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_bucket_arn_string
 
 
-class JobReport(TypedDict):
+class JobReport(TypedDict, closed=True):
     bucket: NotRequired[
         "aws_sdk_s3_control.types.s3_bucket_arn_string.S3BucketArnString"
     ]

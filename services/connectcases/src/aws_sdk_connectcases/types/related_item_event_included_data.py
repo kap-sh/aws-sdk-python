@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RelatedItemEventIncludedData``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
 
-class RelatedItemEventIncludedData(TypedDict):
+class RelatedItemEventIncludedData(TypedDict, closed=True):
     include_content: "bool"
     """<p>Details of what related item data is published through the case event stream.</p>"""
 

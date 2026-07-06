@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#StackInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.stack_instance_status
 
 
-class StackInstance(TypedDict):
+class StackInstance(TypedDict, closed=True):
     account: NotRequired["aws_sdk_service_catalog.types.account_id.AccountId"]
     """<p>The name of the Amazon Web Services account that the stack instance is associated with.</p>"""
     region: NotRequired["aws_sdk_service_catalog.types.region.Region"]

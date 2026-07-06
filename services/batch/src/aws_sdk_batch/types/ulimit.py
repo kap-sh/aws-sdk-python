@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#Ulimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.string
 
 
-class Ulimit(TypedDict):
+class Ulimit(TypedDict, closed=True):
     hard_limit: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The hard limit for the <code>ulimit</code> type. </p>"""
     name: NotRequired["aws_sdk_batch.types.string.String"]

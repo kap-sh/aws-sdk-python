@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TextAreaControlDisplayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.label_options
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.text_control_placeholder_options
 
 
-class TextAreaControlDisplayOptions(TypedDict):
+class TextAreaControlDisplayOptions(TypedDict, closed=True):
     title_options: NotRequired["aws_sdk_quicksight.types.label_options.LabelOptions"]
     """<p>The options to configure the title visibility, name, and font size.</p>"""
     placeholder_options: NotRequired[

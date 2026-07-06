@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RedshiftParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.redshift_iam_parameters
 
 
-class RedshiftParameters(TypedDict):
+class RedshiftParameters(TypedDict, closed=True):
     host: NotRequired["aws_sdk_quicksight.types.host.Host"]
     """<p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>"""
     port: "aws_sdk_quicksight.types.optional_port.OptionalPort"

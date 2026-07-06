@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#GetWorkingLocationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.string_value_length1to63
     import aws_sdk_finspace_data.types.string_value_length1to1024
 
 
-class GetWorkingLocationResponse(TypedDict):
+class GetWorkingLocationResponse(TypedDict, closed=True):
     s3_uri: NotRequired[
         "aws_sdk_finspace_data.types.string_value_length1to1024.stringValueLength1to1024"
     ]

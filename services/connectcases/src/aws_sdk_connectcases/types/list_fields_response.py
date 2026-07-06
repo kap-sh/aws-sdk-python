@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#ListFieldsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.next_token
 
 
-class ListFieldsResponse(TypedDict):
+class ListFieldsResponse(TypedDict, closed=True):
     fields: "aws_sdk_connectcases.types.field_summary_list.FieldSummaryList"
     """<p>List of detailed field information.</p>"""
     next_token: NotRequired["aws_sdk_connectcases.types.next_token.NextToken"]

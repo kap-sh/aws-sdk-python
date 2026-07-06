@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RFTHyperParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.epoch_count
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rft_training_sample_per_prompt
 
 
-class RFTHyperParameters(TypedDict):
+class RFTHyperParameters(TypedDict, closed=True):
     epoch_count: NotRequired["aws_sdk_bedrock.types.epoch_count.EpochCount"]
     """<p> Number of training epochs to run during reinforcement fine-tuning. Higher values may improve performance but increase training time. </p>"""
     batch_size: NotRequired["aws_sdk_bedrock.types.rft_batch_size.RFTBatchSize"]

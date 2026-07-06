@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AcceptSubscriptionRequestInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.accepted_asset_scopes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscription_request_id
 
 
-class AcceptSubscriptionRequestInput(TypedDict):
+class AcceptSubscriptionRequestInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The Amazon DataZone domain where the specified subscription request is being accepted.</p>"""
     identifier: "aws_sdk_datazone.types.subscription_request_id.SubscriptionRequestId"

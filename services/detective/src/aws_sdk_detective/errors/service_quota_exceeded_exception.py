@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_detective.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.resource_list
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_detective.types.error_message.ErrorMessage"]
     resources: NotRequired["aws_sdk_detective.types.resource_list.ResourceList"]
     """<p>The type of resource that has exceeded the service quota.</p>"""

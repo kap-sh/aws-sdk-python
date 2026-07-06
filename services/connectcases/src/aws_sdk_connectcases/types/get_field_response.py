@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetFieldResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.tags
 
 
-class GetFieldResponse(TypedDict):
+class GetFieldResponse(TypedDict, closed=True):
     field_id: "aws_sdk_connectcases.types.field_id.FieldId"
     """<p>Unique identifier of the field.</p>"""
     name: "aws_sdk_connectcases.types.field_name.FieldName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#GetRepositoryPermissionsPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.repository_name
 
 
-class GetRepositoryPermissionsPolicyRequest(TypedDict):
+class GetRepositoryPermissionsPolicyRequest(TypedDict, closed=True):
     domain: "aws_sdk_codeartifact.types.domain_name.DomainName"
     """<p> The name of the domain containing the repository whose associated resource policy is to be retrieved. </p>"""
     domain_owner: NotRequired["aws_sdk_codeartifact.types.account_id.AccountId"]

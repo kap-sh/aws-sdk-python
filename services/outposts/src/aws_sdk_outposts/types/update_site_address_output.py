@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateSiteAddressOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.address
     import aws_sdk_outposts.types.address_type
 
 
-class UpdateSiteAddressOutput(TypedDict):
+class UpdateSiteAddressOutput(TypedDict, closed=True):
     address_type: NotRequired["aws_sdk_outposts.types.address_type.AddressType"]
     """<p> The type of the address. </p>"""
     address: NotRequired["aws_sdk_outposts.types.address.Address"]

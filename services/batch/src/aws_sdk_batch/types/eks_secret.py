@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#EksSecret``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.string
 
 
-class EksSecret(TypedDict):
+class EksSecret(TypedDict, closed=True):
     secret_name: NotRequired["aws_sdk_batch.types.string.String"]
     r"""<p>The name of the secret. The name must be allowed as a DNS subdomain name. For more information, see <a href=\"https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names\">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>"""
     optional: NotRequired["aws_sdk_batch.types.boolean.Boolean"]

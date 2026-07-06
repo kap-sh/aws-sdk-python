@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ec2instanceconnect#SendSerialConsoleSSHPublicKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ec2_instance_connect.types.request_id
     import aws_sdk_ec2_instance_connect.types.success
 
 
-class SendSerialConsoleSSHPublicKeyResponse(TypedDict):
+class SendSerialConsoleSSHPublicKeyResponse(TypedDict, closed=True):
     request_id: NotRequired["aws_sdk_ec2_instance_connect.types.request_id.RequestId"]
     """<p>The ID of the request. Please provide this ID when contacting AWS Support for assistance.</p>"""
     success: "aws_sdk_ec2_instance_connect.types.success.Success"

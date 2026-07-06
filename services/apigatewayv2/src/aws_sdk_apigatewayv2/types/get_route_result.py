@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#GetRouteResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.string_with_length_between1_and128
 
 
-class GetRouteResult(TypedDict):
+class GetRouteResult(TypedDict, closed=True):
     api_gateway_managed: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]
     """<p>Specifies whether a route is managed by API Gateway. If you created an API using quick create, the $default route is managed by API Gateway. You can't modify the $default route key.</p>"""
     api_key_required: NotRequired["aws_sdk_apigatewayv2.types.__boolean.__boolean"]

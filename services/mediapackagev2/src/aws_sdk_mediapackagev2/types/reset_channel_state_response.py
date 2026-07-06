@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ResetChannelStateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class ResetChannelStateResponse(TypedDict):
+class ResetChannelStateResponse(TypedDict, closed=True):
     channel_group_name: "str"
     """<p>The name of the channel group that contains the channel that you just reset.</p>"""
     channel_name: "str"

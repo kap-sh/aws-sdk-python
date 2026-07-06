@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#AcquiredLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.min_one_max_integer
 
 
-class AcquiredLimit(TypedDict):
+class AcquiredLimit(TypedDict, closed=True):
     limit_id: "aws_sdk_deadline.types.limit_id.LimitId"
     """<p>The unique identifier of the limit.</p>"""
     count: "aws_sdk_deadline.types.min_one_max_integer.MinOneMaxInteger"

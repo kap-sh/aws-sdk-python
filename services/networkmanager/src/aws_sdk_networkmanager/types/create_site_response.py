@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CreateSiteResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.site
 
 
-class CreateSiteResponse(TypedDict):
+class CreateSiteResponse(TypedDict, closed=True):
     site: NotRequired["aws_sdk_networkmanager.types.site.Site"]
     """<p>Information about the site.</p>"""
 

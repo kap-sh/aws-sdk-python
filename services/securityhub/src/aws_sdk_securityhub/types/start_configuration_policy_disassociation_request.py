@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StartConfigurationPolicyDisassociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.target
 
 
-class StartConfigurationPolicyDisassociationRequest(TypedDict):
+class StartConfigurationPolicyDisassociationRequest(TypedDict, closed=True):
     target: NotRequired["aws_sdk_securityhub.types.target.Target"]
     """<p> The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration. </p>"""
     configuration_policy_identifier: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12FunctionalGroupHeaders``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_application_receiver_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_responsible_agency_code
 
 
-class X12FunctionalGroupHeaders(TypedDict):
+class X12FunctionalGroupHeaders(TypedDict, closed=True):
     application_sender_code: NotRequired[
         "aws_sdk_b2bi.types.x12_application_sender_code.X12ApplicationSenderCode"
     ]

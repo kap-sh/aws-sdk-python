@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#TestFailoverMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class TestFailoverMessage(TypedDict):
+class TestFailoverMessage(TypedDict, closed=True):
     replication_group_id: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The name of the replication group (console: cluster) whose automatic failover is being tested by this operation.</p>"""
     node_group_id: NotRequired[

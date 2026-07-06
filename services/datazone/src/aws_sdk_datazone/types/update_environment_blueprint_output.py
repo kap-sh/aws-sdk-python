@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#UpdateEnvironmentBlueprintOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.provisioning_properties
 
 
-class UpdateEnvironmentBlueprintOutput(TypedDict):
+class UpdateEnvironmentBlueprintOutput(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.environment_blueprint_id.EnvironmentBlueprintId"
     """<p>The identifier of the blueprint to be updated.</p>"""
     name: "aws_sdk_datazone.types.environment_blueprint_name.EnvironmentBlueprintName"

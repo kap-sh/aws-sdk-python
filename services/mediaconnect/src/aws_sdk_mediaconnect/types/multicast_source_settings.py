@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MulticastSourceSettings``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MulticastSourceSettings(TypedDict):
+class MulticastSourceSettings(TypedDict, closed=True):
     multicast_source_ip: NotRequired["str"]
     """<p> The IP address of the source for source-specific multicast (SSM).</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ApplicationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.application_config_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.f_port
 
 
-class ApplicationConfig(TypedDict):
+class ApplicationConfig(TypedDict, closed=True):
     f_port: NotRequired["aws_sdk_iot_wireless.types.f_port.FPort"]
     type: NotRequired[
         "aws_sdk_iot_wireless.types.application_config_type.ApplicationConfigType"

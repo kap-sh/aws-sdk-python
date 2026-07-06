@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#AccessDeniedException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     code: NotRequired["str"]
     message: NotRequired["str"]
 

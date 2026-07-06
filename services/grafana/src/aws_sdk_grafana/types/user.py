@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.user_type
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     id: "aws_sdk_grafana.types.sso_id.SsoId"
     """<p>The ID of the user or group.</p> <p>Pattern: <code>^([0-9a-fA-F]{10}-|)[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$</code> </p>"""
     type: "aws_sdk_grafana.types.user_type.UserType"

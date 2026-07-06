@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#ExternalWorkflowExecutionSignaledEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_swf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.workflow_execution
 
 
-class ExternalWorkflowExecutionSignaledEventAttributes(TypedDict):
+class ExternalWorkflowExecutionSignaledEventAttributes(TypedDict, closed=True):
     workflow_execution: "aws_sdk_swf.types.workflow_execution.WorkflowExecution"
     """<p>The external workflow execution that the signal was delivered to.</p>"""
     initiated_event_id: "aws_sdk_swf.types.event_id.EventId"

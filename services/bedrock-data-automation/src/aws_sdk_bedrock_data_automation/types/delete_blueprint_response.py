@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DeleteBlueprintResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteBlueprintResponse(TypedDict):
+class DeleteBlueprintResponse(TypedDict, closed=True):
     pass
 
 

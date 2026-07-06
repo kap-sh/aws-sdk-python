@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#NetworkConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subnet_ids
 
 
-class NetworkConfig(TypedDict):
+class NetworkConfig(TypedDict, closed=True):
     network_access_type: "aws_sdk_datazone.types.network_access_type.NetworkAccessType"
     """<p>The network access type for the notebook run. Valid values are <code>PUBLIC_INTERNET_ONLY</code> and <code>VPC_ONLY</code>.</p>"""
     vpc_id: NotRequired["str"]

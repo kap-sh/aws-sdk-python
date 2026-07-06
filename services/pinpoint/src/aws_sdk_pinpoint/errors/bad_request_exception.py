@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#BadRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The message that's returned from the API.</p>"""
     request_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

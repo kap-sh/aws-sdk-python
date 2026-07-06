@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ListRoleTagsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.role_name_type
 
 
-class ListRoleTagsRequest(TypedDict):
+class ListRoleTagsRequest(TypedDict, closed=True):
     role_name: "aws_sdk_iam.types.role_name_type.roleNameType"
     r"""<p>The name of the IAM role for which you want to see the list of tags.</p> <p>This parameter accepts (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     marker: NotRequired["aws_sdk_iam.types.marker_type.markerType"]

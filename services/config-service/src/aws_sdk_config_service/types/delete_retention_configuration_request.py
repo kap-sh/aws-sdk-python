@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#DeleteRetentionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.retention_configuration_name
 
 
-class DeleteRetentionConfigurationRequest(TypedDict):
+class DeleteRetentionConfigurationRequest(TypedDict, closed=True):
     retention_configuration_name: "aws_sdk_config_service.types.retention_configuration_name.RetentionConfigurationName"
     """<p>The name of the retention configuration to delete.</p>"""
 

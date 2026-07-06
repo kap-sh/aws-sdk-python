@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.user
 
 
-class DeleteUserResponse(TypedDict):
+class DeleteUserResponse(TypedDict, closed=True):
     user: NotRequired["aws_sdk_memorydb.types.user.User"]
     """<p>The user object that has been deleted.</p>"""
 

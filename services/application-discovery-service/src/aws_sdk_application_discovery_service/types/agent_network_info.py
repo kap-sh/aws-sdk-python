@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#AgentNetworkInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.string
 
 
-class AgentNetworkInfo(TypedDict):
+class AgentNetworkInfo(TypedDict, closed=True):
     ip_address: NotRequired["aws_sdk_application_discovery_service.types.string.String"]
     """<p>The IP address for the host where the agent/collector resides.</p>"""
     mac_address: NotRequired[

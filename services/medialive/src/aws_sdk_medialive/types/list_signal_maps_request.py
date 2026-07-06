@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListSignalMapsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.max_results
 
 
-class ListSignalMapsRequest(TypedDict):
+class ListSignalMapsRequest(TypedDict, closed=True):
     cloud_watch_alarm_template_group_identifier: NotRequired[
         "aws_sdk_medialive.types.__string.__string"
     ]

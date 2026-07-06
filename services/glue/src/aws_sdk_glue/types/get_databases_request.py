@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDatabasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_getter_page_size
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.token
 
 
-class GetDatabasesRequest(TypedDict):
+class GetDatabasesRequest(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the Data Catalog from which to retrieve <code>Databases</code>. If none is provided, the Amazon Web Services account ID is used by default.</p>"""
     next_token: NotRequired["aws_sdk_glue.types.token.Token"]

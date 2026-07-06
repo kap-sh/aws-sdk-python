@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#Projection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.non_key_attribute_name_list
     import aws_sdk_dynamodb.types.projection_type
 
 
-class Projection(TypedDict):
+class Projection(TypedDict, closed=True):
     projection_type: NotRequired[
         "aws_sdk_dynamodb.types.projection_type.ProjectionType"
     ]

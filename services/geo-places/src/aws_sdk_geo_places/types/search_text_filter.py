@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#SearchTextFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.bounding_box
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.filter_circle
 
 
-class SearchTextFilter(TypedDict):
+class SearchTextFilter(TypedDict, closed=True):
     bounding_box: NotRequired["aws_sdk_geo_places.types.bounding_box.BoundingBox"]
     """<p>The bounding box enclosing the geometric shape (area or line) that an individual result covers.</p> <p>The bounding box formed is defined as a set 4 coordinates: <code>[{westward lng}, {southern lat}, {eastward lng}, {northern lat}]</code> </p>"""
     circle: NotRequired["aws_sdk_geo_places.types.filter_circle.FilterCircle"]

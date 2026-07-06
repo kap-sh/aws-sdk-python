@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CoversBodyPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.boolean
     import aws_sdk_rekognition.types.percent
 
 
-class CoversBodyPart(TypedDict):
+class CoversBodyPart(TypedDict, closed=True):
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>The confidence that Amazon Rekognition has in the value of <code>Value</code>.</p>"""
     value: "aws_sdk_rekognition.types.boolean.Boolean"

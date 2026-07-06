@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#AccessDeniedException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "str"
     """<p>User does not have sufficient access to perform this action.</p>"""
 

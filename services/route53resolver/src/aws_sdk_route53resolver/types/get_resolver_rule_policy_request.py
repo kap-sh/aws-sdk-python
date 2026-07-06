@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#GetResolverRulePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.arn
 
 
-class GetResolverRulePolicyRequest(TypedDict):
+class GetResolverRulePolicyRequest(TypedDict, closed=True):
     arn: "aws_sdk_route53resolver.types.arn.Arn"
     """<p>The ID of the Resolver rule that you want to get the Resolver rule policy for.</p>"""
 

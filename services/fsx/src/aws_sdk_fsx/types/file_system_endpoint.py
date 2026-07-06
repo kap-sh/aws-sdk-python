@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileSystemEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.dns_name
     import aws_sdk_fsx.types.ontap_endpoint_ip_addresses
 
 
-class FileSystemEndpoint(TypedDict):
+class FileSystemEndpoint(TypedDict, closed=True):
     dns_name: NotRequired["aws_sdk_fsx.types.dns_name.DNSName"]
     ip_addresses: NotRequired[
         "aws_sdk_fsx.types.ontap_endpoint_ip_addresses.OntapEndpointIpAddresses"

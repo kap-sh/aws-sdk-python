@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sso#ListAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso.types.access_token_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso.types.next_token_type
 
 
-class ListAccountsRequest(TypedDict):
+class ListAccountsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sso.types.next_token_type.NextTokenType"]
     """<p>(Optional) When requesting subsequent pages, this is the page token from the previous response output.</p>"""
     max_results: NotRequired["aws_sdk_sso.types.max_result_type.MaxResultType"]

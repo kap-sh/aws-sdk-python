@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#DeleteTableBucketPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_arn
 
 
-class DeleteTableBucketPolicyRequest(TypedDict):
+class DeleteTableBucketPolicyRequest(TypedDict, closed=True):
     table_bucket_arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket.</p>"""
 

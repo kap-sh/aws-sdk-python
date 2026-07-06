@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#GetWorkflowExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_execution_id
 
 
-class GetWorkflowExecutionRequest(TypedDict):
+class GetWorkflowExecutionRequest(TypedDict, closed=True):
     workflow_execution_id: (
         "aws_sdk_imagebuilder.types.workflow_execution_id.WorkflowExecutionId"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListCampaignsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.campaigns
     import aws_sdk_personalize.types.next_token
 
 
-class ListCampaignsResponse(TypedDict):
+class ListCampaignsResponse(TypedDict, closed=True):
     campaigns: NotRequired["aws_sdk_personalize.types.campaigns.Campaigns"]
     """<p>A list of the campaigns.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

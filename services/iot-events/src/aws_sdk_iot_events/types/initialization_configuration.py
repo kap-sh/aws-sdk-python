@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#InitializationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.disabled_on_initialization
 
 
-class InitializationConfiguration(TypedDict):
+class InitializationConfiguration(TypedDict, closed=True):
     disabled_on_initialization: (
         "aws_sdk_iot_events.types.disabled_on_initialization.DisabledOnInitialization"
     )

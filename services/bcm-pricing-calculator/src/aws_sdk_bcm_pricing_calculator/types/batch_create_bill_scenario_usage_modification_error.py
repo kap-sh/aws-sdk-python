@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BatchCreateBillScenarioUsageModificationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.batch_create_bill_scenario_usage_modification_error_code
     import aws_sdk_bcm_pricing_calculator.types.key
 
 
-class BatchCreateBillScenarioUsageModificationError(TypedDict):
+class BatchCreateBillScenarioUsageModificationError(TypedDict, closed=True):
     key: NotRequired["aws_sdk_bcm_pricing_calculator.types.key.Key"]
     """<p> The key of the entry that caused the error. </p>"""
     error_message: NotRequired["str"]

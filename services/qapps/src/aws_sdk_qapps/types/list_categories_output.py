@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ListCategoriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.categories_list
 
 
-class ListCategoriesOutput(TypedDict):
+class ListCategoriesOutput(TypedDict, closed=True):
     categories: NotRequired["aws_sdk_qapps.types.categories_list.CategoriesList"]
     """<p>The categories of a Amazon Q Business application environment instance.</p>"""
 

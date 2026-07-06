@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.polly#FlushStreamConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.force
 
 
-class FlushStreamConfiguration(TypedDict):
+class FlushStreamConfiguration(TypedDict, closed=True):
     force: "aws_sdk_polly.types.force.Force"
     """<p>Specifies whether to force the synthesis engine to immediately write buffered audio data to the output stream.</p>"""
 

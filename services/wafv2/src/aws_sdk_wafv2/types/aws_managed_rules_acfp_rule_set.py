@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AWSManagedRulesACFPRuleSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.response_inspection
 
 
-class AWSManagedRulesACFPRuleSet(TypedDict):
+class AWSManagedRulesACFPRuleSet(TypedDict, closed=True):
     creation_path: "aws_sdk_wafv2.types.creation_path_string.CreationPathString"
     """<p>The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept <code>POST</code> requests.</p> <p>For example, for the URL <code>https://example.com/web/newaccount</code>, you would provide the path <code>/web/newaccount</code>. Account creation page paths that start with the path that you provide are considered a match. For example <code>/web/newaccount</code> matches the account creation paths <code>/web/newaccount</code>, <code>/web/newaccount/</code>, <code>/web/newaccountPage</code>, and <code>/web/newaccount/thisPage</code>, but doesn't match the path <code>/home/web/newaccount</code> or <code>/website/newaccount</code>. </p>"""
     registration_page_path: (

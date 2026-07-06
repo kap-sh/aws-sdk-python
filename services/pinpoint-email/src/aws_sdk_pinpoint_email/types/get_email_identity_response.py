@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetEmailIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.dkim_attributes
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.tag_list
 
 
-class GetEmailIdentityResponse(TypedDict):
+class GetEmailIdentityResponse(TypedDict, closed=True):
     identity_type: NotRequired[
         "aws_sdk_pinpoint_email.types.identity_type.IdentityType"
     ]

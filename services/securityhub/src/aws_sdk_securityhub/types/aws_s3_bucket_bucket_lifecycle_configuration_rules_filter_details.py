@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details
 
 
-class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails(TypedDict):
+class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails(TypedDict, closed=True):
     predicate: NotRequired[
         "aws_sdk_securityhub.types.aws_s3_bucket_bucket_lifecycle_configuration_rules_filter_predicate_details.AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails"
     ]

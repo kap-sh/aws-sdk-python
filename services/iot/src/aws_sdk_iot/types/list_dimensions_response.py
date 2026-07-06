@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListDimensionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.dimension_names
     import aws_sdk_iot.types.next_token
 
 
-class ListDimensionsResponse(TypedDict):
+class ListDimensionsResponse(TypedDict, closed=True):
     dimension_names: NotRequired["aws_sdk_iot.types.dimension_names.DimensionNames"]
     """<p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

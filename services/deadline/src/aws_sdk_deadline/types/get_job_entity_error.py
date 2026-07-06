@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetJobEntityError``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.step_details_error
 
 
-class _GetJobEntityError_jobDetails(TypedDict):
+class _GetJobEntityError_jobDetails(TypedDict, closed=True):
     jobDetails: "aws_sdk_deadline.types.job_details_error.JobDetailsError"
 
 
-class _GetJobEntityError_jobAttachmentDetails(TypedDict):
+class _GetJobEntityError_jobAttachmentDetails(TypedDict, closed=True):
     jobAttachmentDetails: (
         "aws_sdk_deadline.types.job_attachment_details_error.JobAttachmentDetailsError"
     )
 
 
-class _GetJobEntityError_stepDetails(TypedDict):
+class _GetJobEntityError_stepDetails(TypedDict, closed=True):
     stepDetails: "aws_sdk_deadline.types.step_details_error.StepDetailsError"
 
 
-class _GetJobEntityError_environmentDetails(TypedDict):
+class _GetJobEntityError_environmentDetails(TypedDict, closed=True):
     environmentDetails: (
         "aws_sdk_deadline.types.environment_details_error.EnvironmentDetailsError"
     )

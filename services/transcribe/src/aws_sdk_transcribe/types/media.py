@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#Media``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.uri
 
 
-class Media(TypedDict):
+class Media(TypedDict, closed=True):
     media_file_uri: NotRequired["aws_sdk_transcribe.types.uri.Uri"]
     """<p>The Amazon S3 location of the media file you want to transcribe. For example:</p> <ul> <li> <p> <code>s3://DOC-EXAMPLE-BUCKET/my-media-file.flac</code> </p> </li> <li> <p> <code>s3://DOC-EXAMPLE-BUCKET/media-files/my-media-file.flac</code> </p> </li> </ul> <p>Note that the Amazon S3 bucket that contains your input media must be located in the same Amazon Web Services Region where you're making your transcription request.</p>"""
     redacted_media_file_uri: NotRequired["aws_sdk_transcribe.types.uri.Uri"]

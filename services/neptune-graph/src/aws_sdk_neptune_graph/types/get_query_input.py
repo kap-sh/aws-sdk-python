@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#GetQueryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.graph_identifier
 
 
-class GetQueryInput(TypedDict):
+class GetQueryInput(TypedDict, closed=True):
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>The unique identifier of the Neptune Analytics graph.</p>"""
     query_id: "str"

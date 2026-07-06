@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#EncodingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.encoding_profile
 
 
-class EncodingConfig(TypedDict):
+class EncodingConfig(TypedDict, closed=True):
     encoding_profile: NotRequired[
         "aws_sdk_mediaconnect.types.encoding_profile.EncodingProfile"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceTimeline``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
 
 
-class InstanceTimeline(TypedDict):
+class InstanceTimeline(TypedDict, closed=True):
     creation_date_time: NotRequired["aws_sdk_emr.types.date.Date"]
     """<p>The creation date and time of the instance.</p>"""
     ready_date_time: NotRequired["aws_sdk_emr.types.date.Date"]

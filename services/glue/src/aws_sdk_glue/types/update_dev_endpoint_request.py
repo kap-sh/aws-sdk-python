@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#UpdateDevEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string_list
 
 
-class UpdateDevEndpointRequest(TypedDict):
+class UpdateDevEndpointRequest(TypedDict, closed=True):
     endpoint_name: "aws_sdk_glue.types.generic_string.GenericString"
     """<p>The name of the <code>DevEndpoint</code> to be updated.</p>"""
     public_key: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

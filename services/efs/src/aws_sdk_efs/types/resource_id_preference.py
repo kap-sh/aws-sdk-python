@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.efs#ResourceIdPreference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.resource_id_type
     import aws_sdk_efs.types.resources
 
 
-class ResourceIdPreference(TypedDict):
+class ResourceIdPreference(TypedDict, closed=True):
     resource_id_type: NotRequired["aws_sdk_efs.types.resource_id_type.ResourceIdType"]
     """<p>Identifies the EFS resource ID preference, either <code>LONG_ID</code> (17 characters) or <code>SHORT_ID</code> (8 characters).</p>"""
     resources: NotRequired["aws_sdk_efs.types.resources.Resources"]

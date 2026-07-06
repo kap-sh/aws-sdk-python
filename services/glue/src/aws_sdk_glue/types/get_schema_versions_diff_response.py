@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetSchemaVersionsDiffResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_definition_diff
 
 
-class GetSchemaVersionsDiffResponse(TypedDict):
+class GetSchemaVersionsDiffResponse(TypedDict, closed=True):
     diff: NotRequired["aws_sdk_glue.types.schema_definition_diff.SchemaDefinitionDiff"]
     """<p>The difference between schemas as a string in JsonPatch format.</p>"""
 

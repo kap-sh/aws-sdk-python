@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#HistogramBinOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.bin_count_options
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.histogram_bin_type
 
 
-class HistogramBinOptions(TypedDict):
+class HistogramBinOptions(TypedDict, closed=True):
     selected_bin_type: NotRequired[
         "aws_sdk_quicksight.types.histogram_bin_type.HistogramBinType"
     ]

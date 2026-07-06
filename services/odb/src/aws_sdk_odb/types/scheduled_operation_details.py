@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ScheduledOperationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.day_of_week
 
 
-class ScheduledOperationDetails(TypedDict):
+class ScheduledOperationDetails(TypedDict, closed=True):
     day_of_week: "aws_sdk_odb.types.day_of_week.DayOfWeek"
     """<p>The day of the week on which the scheduled operation occurs.</p>"""
     scheduled_start_time: NotRequired["str"]

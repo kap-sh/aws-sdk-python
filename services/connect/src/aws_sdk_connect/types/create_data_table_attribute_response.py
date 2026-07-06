@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateDataTableAttributeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.data_table_name
 
 
-class CreateDataTableAttributeResponse(TypedDict):
+class CreateDataTableAttributeResponse(TypedDict, closed=True):
     name: "aws_sdk_connect.types.data_table_name.DataTableName"
     """<p>The name of the created attribute since it also serves as the identifier. This could be different than the parameter passed in since it will be trimmed for whitespace.</p>"""
     attribute_id: NotRequired["aws_sdk_connect.types.data_table_id.DataTableId"]

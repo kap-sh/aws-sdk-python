@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsSsmComplianceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsSsmComplianceSummary(TypedDict):
+class AwsSsmComplianceSummary(TypedDict, closed=True):
     status: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The current patch compliance status. Valid values are as follows:</p> <ul> <li> <p> <code>COMPLIANT</code> </p> </li> <li> <p> <code>NON_COMPLIANT</code> </p> </li> <li> <p> <code>UNSPECIFIED_DATA</code> </p> </li> </ul>"""
     compliant_critical_count: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

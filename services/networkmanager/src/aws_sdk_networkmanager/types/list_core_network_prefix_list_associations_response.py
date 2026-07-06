@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ListCoreNetworkPrefixListAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.next_token
     import aws_sdk_networkmanager.types.prefix_list_association_list
 
 
-class ListCoreNetworkPrefixListAssociationsResponse(TypedDict):
+class ListCoreNetworkPrefixListAssociationsResponse(TypedDict, closed=True):
     prefix_list_associations: NotRequired[
         "aws_sdk_networkmanager.types.prefix_list_association_list.PrefixListAssociationList"
     ]

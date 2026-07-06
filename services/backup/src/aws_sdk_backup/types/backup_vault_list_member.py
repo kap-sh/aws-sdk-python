@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupVaultListMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.vault_type
 
 
-class BackupVaultListMember(TypedDict):
+class BackupVaultListMember(TypedDict, closed=True):
     backup_vault_name: NotRequired[
         "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     ]

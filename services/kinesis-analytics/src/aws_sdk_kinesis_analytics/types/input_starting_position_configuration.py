@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputStartingPositionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.input_starting_position
 
 
-class InputStartingPositionConfiguration(TypedDict):
+class InputStartingPositionConfiguration(TypedDict, closed=True):
     input_starting_position: NotRequired[
         "aws_sdk_kinesis_analytics.types.input_starting_position.InputStartingPosition"
     ]

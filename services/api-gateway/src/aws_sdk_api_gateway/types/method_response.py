@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#MethodResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.map_of_string_to_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.status_code
 
 
-class MethodResponse(TypedDict):
+class MethodResponse(TypedDict, closed=True):
     status_code: NotRequired["aws_sdk_api_gateway.types.status_code.StatusCode"]
     """<p>The method response's status code.</p>"""
     response_parameters: NotRequired[

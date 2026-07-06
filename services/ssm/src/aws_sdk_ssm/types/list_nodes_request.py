@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListNodesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_name
 
 
-class ListNodesRequest(TypedDict):
+class ListNodesRequest(TypedDict, closed=True):
     sync_name: NotRequired[
         "aws_sdk_ssm.types.resource_data_sync_name.ResourceDataSyncName"
     ]

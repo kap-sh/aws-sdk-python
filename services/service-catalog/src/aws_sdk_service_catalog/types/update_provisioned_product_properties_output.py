@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UpdateProvisionedProductPropertiesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.record_status
 
 
-class UpdateProvisionedProductPropertiesOutput(TypedDict):
+class UpdateProvisionedProductPropertiesOutput(TypedDict, closed=True):
     provisioned_product_id: NotRequired["aws_sdk_service_catalog.types.id.Id"]
     """<p>The provisioned product identifier.</p>"""
     provisioned_product_properties: NotRequired[

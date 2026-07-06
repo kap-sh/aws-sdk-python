@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateImageBuilderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.access_endpoint_list
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.vpc_config
 
 
-class CreateImageBuilderRequest(TypedDict):
+class CreateImageBuilderRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>A unique name for the image builder.</p>"""
     image_name: NotRequired["aws_sdk_appstream.types.string.String"]

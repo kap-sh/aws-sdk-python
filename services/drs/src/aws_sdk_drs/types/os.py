@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.drs#OS``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
 
 
-class OS(TypedDict):
+class OS(TypedDict, closed=True):
     full_string: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The long name of the Operating System.</p>"""
 

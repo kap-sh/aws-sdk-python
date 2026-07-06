@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#ListAssistantAssociationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wisdom.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wisdom.types.next_token
 
 
-class ListAssistantAssociationsResponse(TypedDict):
+class ListAssistantAssociationsResponse(TypedDict, closed=True):
     assistant_association_summaries: "aws_sdk_wisdom.types.assistant_association_summary_list.AssistantAssociationSummaryList"
     """<p>Summary information about assistant associations.</p>"""
     next_token: NotRequired["aws_sdk_wisdom.types.next_token.NextToken"]

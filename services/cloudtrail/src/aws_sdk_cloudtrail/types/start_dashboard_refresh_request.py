@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StartDashboardRefreshRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.query_parameter_values
 
 
-class StartDashboardRefreshRequest(TypedDict):
+class StartDashboardRefreshRequest(TypedDict, closed=True):
     dashboard_id: "aws_sdk_cloudtrail.types.dashboard_arn.DashboardArn"
     """<p> The name or ARN of the dashboard. </p>"""
     query_parameter_values: NotRequired[

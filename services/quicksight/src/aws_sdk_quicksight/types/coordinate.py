@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Coordinate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.coordinate_longitude_double
 
 
-class Coordinate(TypedDict):
+class Coordinate(TypedDict, closed=True):
     latitude: (
         "aws_sdk_quicksight.types.coordinate_latitude_double.CoordinateLatitudeDouble"
     )

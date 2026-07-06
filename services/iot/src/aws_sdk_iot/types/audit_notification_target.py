@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuditNotificationTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.enabled
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.target_arn
 
 
-class AuditNotificationTarget(TypedDict):
+class AuditNotificationTarget(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_iot.types.target_arn.TargetArn"]
     """<p>The ARN of the target (SNS topic) to which audit notifications are sent.</p>"""
     role_arn: NotRequired["aws_sdk_iot.types.role_arn.RoleArn"]

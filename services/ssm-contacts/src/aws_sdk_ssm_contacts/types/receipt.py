@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#Receipt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn
 
 
-class Receipt(TypedDict):
+class Receipt(TypedDict, closed=True):
     contact_channel_arn: NotRequired[
         "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     ]

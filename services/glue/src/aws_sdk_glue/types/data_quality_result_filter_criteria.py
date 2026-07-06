@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DataQualityResultFilterCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_source
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class DataQualityResultFilterCriteria(TypedDict):
+class DataQualityResultFilterCriteria(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_glue.types.data_source.DataSource"]
     """<p>Filter results by the specified data source. For example, retrieving all results for an Glue table.</p>"""
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

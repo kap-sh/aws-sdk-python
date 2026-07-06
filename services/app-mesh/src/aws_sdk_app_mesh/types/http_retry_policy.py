@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#HttpRetryPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tcp_retry_policy_events
 
 
-class HttpRetryPolicy(TypedDict):
+class HttpRetryPolicy(TypedDict, closed=True):
     per_retry_timeout: "aws_sdk_app_mesh.types.duration.Duration"
     """<p>The timeout for each retry attempt.</p>"""
     max_retries: "aws_sdk_app_mesh.types.max_retries.MaxRetries"

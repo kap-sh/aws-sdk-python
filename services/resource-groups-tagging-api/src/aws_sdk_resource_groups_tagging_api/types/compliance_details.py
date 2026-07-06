@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#ComplianceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.compliance_status
     import aws_sdk_resource_groups_tagging_api.types.tag_key_list
 
 
-class ComplianceDetails(TypedDict):
+class ComplianceDetails(TypedDict, closed=True):
     noncompliant_keys: NotRequired[
         "aws_sdk_resource_groups_tagging_api.types.tag_key_list.TagKeyList"
     ]

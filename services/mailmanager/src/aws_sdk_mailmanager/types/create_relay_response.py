@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateRelayResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.relay_id
 
 
-class CreateRelayResponse(TypedDict):
+class CreateRelayResponse(TypedDict, closed=True):
     relay_id: "aws_sdk_mailmanager.types.relay_id.RelayId"
     """<p>A unique identifier of the created relay resource.</p>"""
 

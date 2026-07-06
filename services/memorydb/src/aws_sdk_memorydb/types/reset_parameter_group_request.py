@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ResetParameterGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class ResetParameterGroupRequest(TypedDict):
+class ResetParameterGroupRequest(TypedDict, closed=True):
     parameter_group_name: "aws_sdk_memorydb.types.string.String"
     """<p>The name of the parameter group to reset.</p>"""
     all_parameters: "aws_sdk_memorydb.types.boolean.Boolean"

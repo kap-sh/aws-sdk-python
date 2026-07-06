@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#KerberosAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class KerberosAttributes(TypedDict):
+class KerberosAttributes(TypedDict, closed=True):
     realm: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The name of the Kerberos realm to which all nodes in a cluster belong. For example, <code>EC2.INTERNAL</code>. </p>"""
     kdc_admin_password: NotRequired[

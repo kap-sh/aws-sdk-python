@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCommitmentPurchaseAnalysesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.analysis_summary_list
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCommitmentPurchaseAnalysesResponse(TypedDict):
+class ListCommitmentPurchaseAnalysesResponse(TypedDict, closed=True):
     analysis_summary_list: NotRequired[
         "aws_sdk_cost_explorer.types.analysis_summary_list.AnalysisSummaryList"
     ]

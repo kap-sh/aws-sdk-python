@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListDevEnvironmentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.dev_environment_summary_list
 
 
-class ListDevEnvironmentsResponse(TypedDict):
+class ListDevEnvironmentsResponse(TypedDict, closed=True):
     items: "aws_sdk_codecatalyst.types.dev_environment_summary_list.DevEnvironmentSummaryList"
     """<p>Information about the Dev Environments in a project.</p>"""
     next_token: NotRequired["str"]

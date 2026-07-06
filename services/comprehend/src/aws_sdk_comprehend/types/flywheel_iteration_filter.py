@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#FlywheelIterationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.timestamp
 
 
-class FlywheelIterationFilter(TypedDict):
+class FlywheelIterationFilter(TypedDict, closed=True):
     creation_time_after: NotRequired["aws_sdk_comprehend.types.timestamp.Timestamp"]
     """<p>Filter the flywheel iterations to include iterations created after the specified time.</p>"""
     creation_time_before: NotRequired["aws_sdk_comprehend.types.timestamp.Timestamp"]

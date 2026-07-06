@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ExemptionCertificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.exemption_file_blob
 
 
-class ExemptionCertificate(TypedDict):
+class ExemptionCertificate(TypedDict, closed=True):
     document_name: (
         "aws_sdk_taxsettings.types.exemption_document_name.ExemptionDocumentName"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#DeleteReportDefinitionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_and_usage_report_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.report_name
 
 
-class DeleteReportDefinitionRequest(TypedDict):
+class DeleteReportDefinitionRequest(TypedDict, closed=True):
     report_name: "aws_sdk_cost_and_usage_report_service.types.report_name.ReportName"
     """<p>The name of the report that you want to delete. The name must be unique, is case sensitive, and can't include spaces.</p>"""
 

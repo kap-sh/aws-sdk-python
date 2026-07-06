@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StorageMaximumSize``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.storage_maximum_size_value
 
 
-class StorageMaximumSize(TypedDict):
+class StorageMaximumSize(TypedDict, closed=True):
     unit: "aws_sdk_iotfleetwise.types.storage_maximum_size_unit.StorageMaximumSizeUnit"
     """<p>The data type of the data to store.</p>"""
     value: (

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DeleteAgentResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteAgentResponse(TypedDict):
+class DeleteAgentResponse(TypedDict, closed=True):
     request_id: NotRequired["str"]
     """<p>The Amazon Web Services request ID for this operation.</p>"""
 

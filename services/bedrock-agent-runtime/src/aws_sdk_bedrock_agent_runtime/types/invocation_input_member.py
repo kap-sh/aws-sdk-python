@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#InvocationInputMember``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.function_invocation_input
 
 
-class _InvocationInputMember_apiInvocationInput(TypedDict):
+class _InvocationInputMember_apiInvocationInput(TypedDict, closed=True):
     apiInvocationInput: (
         "aws_sdk_bedrock_agent_runtime.types.api_invocation_input.ApiInvocationInput"
     )
 
 
-class _InvocationInputMember_functionInvocationInput(TypedDict):
+class _InvocationInputMember_functionInvocationInput(TypedDict, closed=True):
     functionInvocationInput: "aws_sdk_bedrock_agent_runtime.types.function_invocation_input.FunctionInvocationInput"
 
 

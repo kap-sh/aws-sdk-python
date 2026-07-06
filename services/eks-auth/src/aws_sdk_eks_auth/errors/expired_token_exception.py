@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#ExpiredTokenException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks_auth.errors import ServiceError
 
 
-class ExpiredTokenException_(TypedDict):
+class ExpiredTokenException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

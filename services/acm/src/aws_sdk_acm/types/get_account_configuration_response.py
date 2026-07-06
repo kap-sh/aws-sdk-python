@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#GetAccountConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.expiry_events_configuration
 
 
-class GetAccountConfigurationResponse(TypedDict):
+class GetAccountConfigurationResponse(TypedDict, closed=True):
     expiry_events: NotRequired[
         "aws_sdk_acm.types.expiry_events_configuration.ExpiryEventsConfiguration"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#UpdatePackageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.package_details
 
 
-class UpdatePackageResponse(TypedDict):
+class UpdatePackageResponse(TypedDict, closed=True):
     package_details: NotRequired[
         "aws_sdk_opensearch.types.package_details.PackageDetails"
     ]

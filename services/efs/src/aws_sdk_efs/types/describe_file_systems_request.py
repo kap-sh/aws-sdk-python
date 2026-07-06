@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DescribeFileSystemsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.creation_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.max_items
 
 
-class DescribeFileSystemsRequest(TypedDict):
+class DescribeFileSystemsRequest(TypedDict, closed=True):
     max_items: NotRequired["aws_sdk_efs.types.max_items.MaxItems"]
     """<p>(Optional) Specifies the maximum number of file systems to return in the response (integer). This number is automatically set to 100. The response is paginated at 100 per page if you have more than 100 file systems. </p>"""
     marker: NotRequired["aws_sdk_efs.types.marker.Marker"]

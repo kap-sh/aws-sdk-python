@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#InputParallelismUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.input_parallelism_count
 
 
-class InputParallelismUpdate(TypedDict):
+class InputParallelismUpdate(TypedDict, closed=True):
     count_update: "aws_sdk_kinesis_analytics_v2.types.input_parallelism_count.InputParallelismCount"
     """<p>The number of in-application streams to create for the specified streaming source.</p>"""
 

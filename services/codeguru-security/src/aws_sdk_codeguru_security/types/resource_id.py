@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ResourceId``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.uuid
 
 
-class _ResourceId_codeArtifactId(TypedDict):
+class _ResourceId_codeArtifactId(TypedDict, closed=True):
     codeArtifactId: "aws_sdk_codeguru_security.types.uuid.Uuid"
 
 

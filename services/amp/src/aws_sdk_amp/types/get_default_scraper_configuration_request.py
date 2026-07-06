@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amp#GetDefaultScraperConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetDefaultScraperConfigurationRequest(TypedDict):
+class GetDefaultScraperConfigurationRequest(TypedDict, closed=True):
     pass
 
 

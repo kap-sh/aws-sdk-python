@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ImageSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class _ImageSource_PublicUrl(TypedDict):
+class _ImageSource_PublicUrl(TypedDict, closed=True):
     PublicUrl: "aws_sdk_quicksight.types.string.String"
 
 
-class _ImageSource_S3Uri(TypedDict):
+class _ImageSource_S3Uri(TypedDict, closed=True):
     S3Uri: "aws_sdk_quicksight.types.string.String"
 
 

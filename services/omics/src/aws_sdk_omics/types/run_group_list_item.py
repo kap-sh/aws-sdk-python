@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#RunGroupListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_group_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.run_group_timestamp
 
 
-class RunGroupListItem(TypedDict):
+class RunGroupListItem(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_omics.types.run_group_arn.RunGroupArn"]
     """<p>The group's ARN.</p>"""
     id: NotRequired["aws_sdk_omics.types.run_group_id.RunGroupId"]

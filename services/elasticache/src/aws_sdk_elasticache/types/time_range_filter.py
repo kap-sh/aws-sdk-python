@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#TimeRangeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.t_stamp
 
 
-class TimeRangeFilter(TypedDict):
+class TimeRangeFilter(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_elasticache.types.t_stamp.TStamp"]
     """<p>The start time of the time range filter</p>"""
     end_time: NotRequired["aws_sdk_elasticache.types.t_stamp.TStamp"]

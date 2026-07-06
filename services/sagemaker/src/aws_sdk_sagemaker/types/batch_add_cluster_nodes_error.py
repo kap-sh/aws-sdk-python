@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BatchAddClusterNodesError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class BatchAddClusterNodesError(TypedDict):
+class BatchAddClusterNodesError(TypedDict, closed=True):
     instance_group_name: "aws_sdk_sagemaker.types.instance_group_name.InstanceGroupName"
     """<p>The name of the instance group for which the error occurred.</p>"""
     error_code: "aws_sdk_sagemaker.types.batch_add_cluster_nodes_error_code.BatchAddClusterNodesErrorCode"

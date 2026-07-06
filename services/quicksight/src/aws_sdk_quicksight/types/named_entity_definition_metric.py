@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NamedEntityDefinitionMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aggregation_function_parameters
     import aws_sdk_quicksight.types.named_entity_agg_type
 
 
-class NamedEntityDefinitionMetric(TypedDict):
+class NamedEntityDefinitionMetric(TypedDict, closed=True):
     aggregation: NotRequired[
         "aws_sdk_quicksight.types.named_entity_agg_type.NamedEntityAggType"
     ]

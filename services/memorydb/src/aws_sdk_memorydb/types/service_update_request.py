@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#ServiceUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class ServiceUpdateRequest(TypedDict):
+class ServiceUpdateRequest(TypedDict, closed=True):
     service_update_name_to_apply: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The unique ID of the service update</p>"""
 

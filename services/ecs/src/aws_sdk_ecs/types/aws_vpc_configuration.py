@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#AwsVpcConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class AwsVpcConfiguration(TypedDict):
+class AwsVpcConfiguration(TypedDict, closed=True):
     subnets: "aws_sdk_ecs.types.string_list.StringList"
     """<p>The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified.</p> <note> <p>All specified subnets must be from the same VPC.</p> </note>"""
     security_groups: NotRequired["aws_sdk_ecs.types.string_list.StringList"]

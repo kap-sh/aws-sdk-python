@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#QualificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.customer_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.timestamp
 
 
-class QualificationRequest(TypedDict):
+class QualificationRequest(TypedDict, closed=True):
     qualification_request_id: NotRequired["aws_sdk_mturk.types.string.String"]
     """<p>The ID of the Qualification request, a unique identifier generated when the request was submitted. </p>"""
     qualification_type_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]

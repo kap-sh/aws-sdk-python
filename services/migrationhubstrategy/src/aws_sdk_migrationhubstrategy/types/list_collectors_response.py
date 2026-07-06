@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ListCollectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.collectors
     import aws_sdk_migrationhubstrategy.types.next_token
 
 
-class ListCollectorsResponse(TypedDict):
+class ListCollectorsResponse(TypedDict, closed=True):
     collectors: NotRequired["aws_sdk_migrationhubstrategy.types.collectors.Collectors"]
     """<p> The list of all the installed collectors. </p>"""
     next_token: NotRequired["aws_sdk_migrationhubstrategy.types.next_token.NextToken"]

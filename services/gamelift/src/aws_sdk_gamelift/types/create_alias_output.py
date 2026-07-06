@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateAliasOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.alias
 
 
-class CreateAliasOutput(TypedDict):
+class CreateAliasOutput(TypedDict, closed=True):
     alias: NotRequired["aws_sdk_gamelift.types.alias.Alias"]
     """<p>The newly created alias resource.</p>"""
 

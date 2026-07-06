@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#UdpGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.udp_timed_metadata_id3_frame
 
 
-class UdpGroupSettings(TypedDict):
+class UdpGroupSettings(TypedDict, closed=True):
     input_loss_action: NotRequired[
         "aws_sdk_medialive.types.input_loss_action_for_udp_out.InputLossActionForUdpOut"
     ]

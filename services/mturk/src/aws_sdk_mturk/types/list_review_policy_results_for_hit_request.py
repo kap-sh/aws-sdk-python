@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListReviewPolicyResultsForHITRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.review_policy_level_list
 
 
-class ListReviewPolicyResultsForHITRequest(TypedDict):
+class ListReviewPolicyResultsForHITRequest(TypedDict, closed=True):
     hit_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p>The unique identifier of the HIT to retrieve review results for.</p>"""
     policy_levels: NotRequired[

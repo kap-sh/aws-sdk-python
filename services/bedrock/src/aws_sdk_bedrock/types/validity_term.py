@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ValidityTerm``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ValidityTerm(TypedDict):
+class ValidityTerm(TypedDict, closed=True):
     agreement_duration: NotRequired["str"]
     """<p>Describes the agreement duration.</p>"""
 

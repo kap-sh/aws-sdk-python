@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Ec2AutoScalingGroupConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.allocation_strategy
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.mixed_instance_configuration_list
 
 
-class Ec2AutoScalingGroupConfiguration(TypedDict):
+class Ec2AutoScalingGroupConfiguration(TypedDict, closed=True):
     instance: NotRequired[
         "aws_sdk_cost_optimization_hub.types.instance_configuration.InstanceConfiguration"
     ]

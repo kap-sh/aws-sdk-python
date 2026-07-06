@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CreateTransitGatewayRouteTableAttachmentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.transit_gateway_route_table_attachment
 
 
-class CreateTransitGatewayRouteTableAttachmentResponse(TypedDict):
+class CreateTransitGatewayRouteTableAttachmentResponse(TypedDict, closed=True):
     transit_gateway_route_table_attachment: NotRequired[
         "aws_sdk_networkmanager.types.transit_gateway_route_table_attachment.TransitGatewayRouteTableAttachment"
     ]

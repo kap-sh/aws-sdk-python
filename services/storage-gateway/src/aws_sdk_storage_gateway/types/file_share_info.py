@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#FileShareInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.file_share_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
 
 
-class FileShareInfo(TypedDict):
+class FileShareInfo(TypedDict, closed=True):
     file_share_type: NotRequired[
         "aws_sdk_storage_gateway.types.file_share_type.FileShareType"
     ]

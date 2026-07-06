@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateWirelessDeviceFromMulticastGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateWirelessDeviceFromMulticastGroupResponse(TypedDict):
+class DisassociateWirelessDeviceFromMulticastGroupResponse(TypedDict, closed=True):
     pass
 
 

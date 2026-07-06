@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListApplicationsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.account_id
     import aws_sdk_sso_admin.types.application_provider_arn
 
 
-class ListApplicationsFilter(TypedDict):
+class ListApplicationsFilter(TypedDict, closed=True):
     application_account: NotRequired["aws_sdk_sso_admin.types.account_id.AccountId"]
     """<p>An Amazon Web Services account ID number that filters the results in the response.</p>"""
     application_provider: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#HlsGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min0_max2147483647
@@ -38,7 +38,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.hls_timed_metadata_id3_frame
 
 
-class HlsGroupSettings(TypedDict):
+class HlsGroupSettings(TypedDict, closed=True):
     ad_markers: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of_hls_ad_markers.__listOfHlsAdMarkers"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.subnets
 
 
-class Settings(TypedDict):
+class Settings(TypedDict, closed=True):
     subnets: "aws_sdk_license_manager_user_subscriptions.types.subnets.Subnets"
     """<p>The subnets defined for the registered identity provider.</p>"""
     security_group_id: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#GroupingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.grouping_attribute_definitions
 
 
-class GroupingConfiguration(TypedDict):
+class GroupingConfiguration(TypedDict, closed=True):
     grouping_attribute_definitions: "aws_sdk_application_signals.types.grouping_attribute_definitions.GroupingAttributeDefinitions"
     """<p>An array of grouping attribute definitions that specify how services should be grouped based on various attributes and source keys.</p>"""
     updated_at: "datetime.datetime"

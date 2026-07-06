@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InstanceMetadataServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.minimum_instance_metadata_service_version
 
 
-class InstanceMetadataServiceConfiguration(TypedDict):
+class InstanceMetadataServiceConfiguration(TypedDict, closed=True):
     minimum_instance_metadata_service_version: NotRequired[
         "aws_sdk_sagemaker.types.minimum_instance_metadata_service_version.MinimumInstanceMetadataServiceVersion"
     ]

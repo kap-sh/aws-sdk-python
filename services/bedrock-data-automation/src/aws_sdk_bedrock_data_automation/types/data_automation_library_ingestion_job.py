@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DataAutomationLibraryIngestionJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.output_configuration
 
 
-class DataAutomationLibraryIngestionJob(TypedDict):
+class DataAutomationLibraryIngestionJob(TypedDict, closed=True):
     job_arn: "aws_sdk_bedrock_data_automation.types.data_automation_library_ingestion_job_arn.DataAutomationLibraryIngestionJobArn"
     """ARN of the DataAutomationLibraryIngestionJob"""
     creation_time: "aws_sdk_bedrock_data_automation.types.date_timestamp.DateTimestamp"

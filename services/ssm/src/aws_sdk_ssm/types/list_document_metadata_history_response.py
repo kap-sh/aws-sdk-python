@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListDocumentMetadataHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.document_author
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
 
 
-class ListDocumentMetadataHistoryResponse(TypedDict):
+class ListDocumentMetadataHistoryResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ssm.types.document_name.DocumentName"]
     """<p>The name of the change template.</p>"""
     document_version: NotRequired["aws_sdk_ssm.types.document_version.DocumentVersion"]

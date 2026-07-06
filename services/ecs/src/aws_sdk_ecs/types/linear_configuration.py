@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#LinearConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.double
     import aws_sdk_ecs.types.integer
 
 
-class LinearConfiguration(TypedDict):
+class LinearConfiguration(TypedDict, closed=True):
     step_percent: NotRequired["aws_sdk_ecs.types.double.Double"]
     """<p>The percentage of production traffic to shift in each step during a linear deployment. Valid values are multiples of 0.1 from 3.0 to 100.0. The default value is 10.0.</p>"""
     step_bake_time_in_minutes: NotRequired["aws_sdk_ecs.types.integer.Integer"]

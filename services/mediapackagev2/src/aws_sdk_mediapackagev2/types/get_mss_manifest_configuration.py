@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#GetMssManifestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediapackagev2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.mss_manifest_layout
 
 
-class GetMssManifestConfiguration(TypedDict):
+class GetMssManifestConfiguration(TypedDict, closed=True):
     manifest_name: "aws_sdk_mediapackagev2.types.manifest_name.ManifestName"
     """<p>The name of the MSS manifest. This name is appended to the origin endpoint URL to create the unique path for accessing this specific MSS manifest.</p>"""
     url: "str"

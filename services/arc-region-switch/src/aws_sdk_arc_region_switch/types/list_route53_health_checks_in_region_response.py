@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#ListRoute53HealthChecksInRegionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.next_token
     import aws_sdk_arc_region_switch.types.route53_health_check_list
 
 
-class ListRoute53HealthChecksInRegionResponse(TypedDict):
+class ListRoute53HealthChecksInRegionResponse(TypedDict, closed=True):
     health_checks: NotRequired[
         "aws_sdk_arc_region_switch.types.route53_health_check_list.Route53HealthCheckList"
     ]

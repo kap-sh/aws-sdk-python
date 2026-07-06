@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#Sandbox``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.logs_config
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class Sandbox(TypedDict):
+class Sandbox(TypedDict, closed=True):
     id: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]
     """<p>The ID of the sandbox.</p>"""
     arn: NotRequired["aws_sdk_codebuild.types.non_empty_string.NonEmptyString"]

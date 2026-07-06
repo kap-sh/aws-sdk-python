@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#ApplicationCodeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.code_content_type
 
 
-class ApplicationCodeConfiguration(TypedDict):
+class ApplicationCodeConfiguration(TypedDict, closed=True):
     code_content: NotRequired[
         "aws_sdk_kinesis_analytics_v2.types.code_content.CodeContent"
     ]

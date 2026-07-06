@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#AddressList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.address_list_name
 
 
-class AddressList(TypedDict):
+class AddressList(TypedDict, closed=True):
     address_list_id: "aws_sdk_mailmanager.types.address_list_id.AddressListId"
     """<p>The identifier of the address list.</p>"""
     address_list_arn: "aws_sdk_mailmanager.types.address_list_arn.AddressListArn"

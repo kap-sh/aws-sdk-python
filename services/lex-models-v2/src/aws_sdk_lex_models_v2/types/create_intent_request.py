@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateIntentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sample_utterances_list
 
 
-class CreateIntentRequest(TypedDict):
+class CreateIntentRequest(TypedDict, closed=True):
     intent_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.</p>"""
     intent_display_name: NotRequired[

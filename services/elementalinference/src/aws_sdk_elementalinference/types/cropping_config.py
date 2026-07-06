@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#CroppingConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CroppingConfig(TypedDict):
+class CroppingConfig(TypedDict, closed=True):
     pass
 
 

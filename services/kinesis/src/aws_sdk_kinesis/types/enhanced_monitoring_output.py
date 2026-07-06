@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#EnhancedMonitoringOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.metrics_name_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_name
 
 
-class EnhancedMonitoringOutput(TypedDict):
+class EnhancedMonitoringOutput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis.types.stream_name.StreamName"]
     """<p>The name of the Kinesis data stream.</p>"""
     current_shard_level_metrics: NotRequired[

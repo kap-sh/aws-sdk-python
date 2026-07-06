@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#CreateUpdatedImageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.boolean
     import aws_sdk_appstream.types.image
 
 
-class CreateUpdatedImageResult(TypedDict):
+class CreateUpdatedImageResult(TypedDict, closed=True):
     image: NotRequired["aws_sdk_appstream.types.image.Image"]
     can_update_image: NotRequired["aws_sdk_appstream.types.boolean.Boolean"]
     """<p>Indicates whether a new image can be created.</p>"""

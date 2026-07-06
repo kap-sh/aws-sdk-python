@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DeleteAutonomousDatabaseOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAutonomousDatabaseOutput(TypedDict):
+class DeleteAutonomousDatabaseOutput(TypedDict, closed=True):
     pass
 
 

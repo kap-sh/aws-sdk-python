@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ConfigureAgentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.fleet_instance_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.profiling_group_name
 
 
-class ConfigureAgentRequest(TypedDict):
+class ConfigureAgentRequest(TypedDict, closed=True):
     profiling_group_name: (
         "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
     )

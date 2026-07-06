@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#WorkerComputeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.worker_compute_configuration_properties
     import aws_sdk_cleanroomsml.types.worker_compute_type
 
 
-class WorkerComputeConfiguration(TypedDict):
+class WorkerComputeConfiguration(TypedDict, closed=True):
     type: "aws_sdk_cleanroomsml.types.worker_compute_type.WorkerComputeType"
     """<p>The instance type of the compute workers that are used.</p>"""
     number: "int"

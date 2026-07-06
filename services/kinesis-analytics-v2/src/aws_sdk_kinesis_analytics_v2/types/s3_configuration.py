@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#S3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.file_key
 
 
-class S3Configuration(TypedDict):
+class S3Configuration(TypedDict, closed=True):
     bucket_arn: "aws_sdk_kinesis_analytics_v2.types.bucket_arn.BucketARN"
     """<p>The ARN of the S3 bucket that contains the data.</p>"""
     file_key: "aws_sdk_kinesis_analytics_v2.types.file_key.FileKey"

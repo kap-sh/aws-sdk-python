@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Concurrency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.reserved_concurrent_executions
 
 
-class Concurrency(TypedDict):
+class Concurrency(TypedDict, closed=True):
     reserved_concurrent_executions: NotRequired[
         "aws_sdk_lambda.types.reserved_concurrent_executions.ReservedConcurrentExecutions"
     ]

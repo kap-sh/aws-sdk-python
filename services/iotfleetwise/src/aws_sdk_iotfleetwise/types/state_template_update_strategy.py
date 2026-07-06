@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#StateTemplateUpdateStrategy``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.periodic_state_template_update_strategy
 
 
-class _StateTemplateUpdateStrategy_periodic(TypedDict):
+class _StateTemplateUpdateStrategy_periodic(TypedDict, closed=True):
     periodic: "aws_sdk_iotfleetwise.types.periodic_state_template_update_strategy.PeriodicStateTemplateUpdateStrategy"
 
 
-class _StateTemplateUpdateStrategy_onChange(TypedDict):
+class _StateTemplateUpdateStrategy_onChange(TypedDict, closed=True):
     onChange: "aws_sdk_iotfleetwise.types.on_change_state_template_update_strategy.OnChangeStateTemplateUpdateStrategy"
 
 

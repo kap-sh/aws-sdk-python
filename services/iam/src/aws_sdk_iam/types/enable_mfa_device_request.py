@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#EnableMFADeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.serial_number_type
 
 
-class EnableMFADeviceRequest(TypedDict):
+class EnableMFADeviceRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
     r"""<p>The name of the IAM user for whom you want to enable the MFA device.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     serial_number: "aws_sdk_iam.types.serial_number_type.serialNumberType"

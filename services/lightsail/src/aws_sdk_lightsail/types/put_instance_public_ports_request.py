@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#PutInstancePublicPortsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name
 
 
-class PutInstancePublicPortsRequest(TypedDict):
+class PutInstancePublicPortsRequest(TypedDict, closed=True):
     port_infos: "aws_sdk_lightsail.types.port_info_list.PortInfoList"
     """<p>An array of objects to describe the ports to open for the specified instance.</p>"""
     instance_name: "aws_sdk_lightsail.types.resource_name.ResourceName"

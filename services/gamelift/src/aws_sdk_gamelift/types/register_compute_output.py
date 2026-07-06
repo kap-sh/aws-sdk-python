@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#RegisterComputeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.compute
 
 
-class RegisterComputeOutput(TypedDict):
+class RegisterComputeOutput(TypedDict, closed=True):
     compute: NotRequired["aws_sdk_gamelift.types.compute.Compute"]
     """<p>The details of the compute resource you registered.</p>"""
 

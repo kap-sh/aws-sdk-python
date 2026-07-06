@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedConnector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.url
 
 
-class DescribedConnector(TypedDict):
+class DescribedConnector(TypedDict, closed=True):
     arn: "aws_sdk_transfer.types.arn.Arn"
     """<p>The unique Amazon Resource Name (ARN) for the connector.</p>"""
     connector_id: NotRequired["aws_sdk_transfer.types.connector_id.ConnectorId"]

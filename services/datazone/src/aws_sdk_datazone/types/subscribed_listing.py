@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedListing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscribed_listing_item
 
 
-class SubscribedListing(TypedDict):
+class SubscribedListing(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.listing_id.ListingId"
     """<p>The identifier of the published asset for which the subscription grant is created.</p>"""
     revision: NotRequired["aws_sdk_datazone.types.revision.Revision"]

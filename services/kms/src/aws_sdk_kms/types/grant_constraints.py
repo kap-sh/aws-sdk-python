@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kms#GrantConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.encryption_context_type
     import aws_sdk_kms.types.grant_constraint_source_arn_type
 
 
-class GrantConstraints(TypedDict):
+class GrantConstraints(TypedDict, closed=True):
     encryption_context_subset: NotRequired[
         "aws_sdk_kms.types.encryption_context_type.EncryptionContextType"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#JsonOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.multi_line
 
 
-class JsonOptions(TypedDict):
+class JsonOptions(TypedDict, closed=True):
     multi_line: "aws_sdk_databrew.types.multi_line.MultiLine"
     """<p>A value that specifies whether JSON input contains embedded new line characters.</p>"""
 

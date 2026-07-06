@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#UpdateApplicationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateApplicationResponse(TypedDict):
+class UpdateApplicationResponse(TypedDict, closed=True):
     pass
 
 

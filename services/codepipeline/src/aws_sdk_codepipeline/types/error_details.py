@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ErrorDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.code
     import aws_sdk_codepipeline.types.message
 
 
-class ErrorDetails(TypedDict):
+class ErrorDetails(TypedDict, closed=True):
     code: NotRequired["aws_sdk_codepipeline.types.code.Code"]
     """<p>The system ID or number code of the error.</p>"""
     message: NotRequired["aws_sdk_codepipeline.types.message.Message"]

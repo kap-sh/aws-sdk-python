@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#LeftExpression``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.metadata_key
 
 
-class _LeftExpression_metadataKey(TypedDict):
+class _LeftExpression_metadataKey(TypedDict, closed=True):
     metadataKey: "aws_sdk_bedrock_agentcore.types.metadata_key.MetadataKey"
 
 

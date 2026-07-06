@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DataResponse(TypedDict):
+class DataResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID passed in the <code>DataQuery</code>.</p>"""
     source: NotRequired["aws_sdk_ec2.types.string.String"]

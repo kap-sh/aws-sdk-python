@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateTrafficPolicyVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_id
 
 
-class CreateTrafficPolicyVersionRequest(TypedDict):
+class CreateTrafficPolicyVersionRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
     """<p>The ID of the traffic policy for which you want to create a new version.</p>"""
     document: "aws_sdk_route_53.types.traffic_policy_document.TrafficPolicyDocument"

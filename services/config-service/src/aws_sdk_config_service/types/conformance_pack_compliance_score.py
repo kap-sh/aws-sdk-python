@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ConformancePackComplianceScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.compliance_score
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.last_updated_time
 
 
-class ConformancePackComplianceScore(TypedDict):
+class ConformancePackComplianceScore(TypedDict, closed=True):
     score: NotRequired["aws_sdk_config_service.types.compliance_score.ComplianceScore"]
     """<p>Compliance score for the conformance pack. Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>"""
     conformance_pack_name: NotRequired[

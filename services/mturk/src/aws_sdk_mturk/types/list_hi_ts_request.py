@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListHITsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.pagination_token
     import aws_sdk_mturk.types.result_size
 
 
-class ListHITsRequest(TypedDict):
+class ListHITsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]
     """<p>Pagination token</p>"""
     max_results: NotRequired["aws_sdk_mturk.types.result_size.ResultSize"]

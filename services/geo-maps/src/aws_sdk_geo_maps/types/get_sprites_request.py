@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetSpritesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.color_scheme
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_maps.types.variant
 
 
-class GetSpritesRequest(TypedDict):
+class GetSpritesRequest(TypedDict, closed=True):
     file_name: "str"
     r"""<p> <code>Sprites</code> API: The name of the sprite ﬁle to retrieve, following pattern <code>sprites(@2x)?\.(png|json)</code>.</p> <p>Example: <code>sprites.png</code> </p>"""
     style: "aws_sdk_geo_maps.types.map_style.MapStyle"

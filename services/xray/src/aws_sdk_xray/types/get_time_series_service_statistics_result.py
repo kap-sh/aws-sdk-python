@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetTimeSeriesServiceStatisticsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.time_series_service_statistics_list
 
 
-class GetTimeSeriesServiceStatisticsResult(TypedDict):
+class GetTimeSeriesServiceStatisticsResult(TypedDict, closed=True):
     time_series_service_statistics: NotRequired[
         "aws_sdk_xray.types.time_series_service_statistics_list.TimeSeriesServiceStatisticsList"
     ]

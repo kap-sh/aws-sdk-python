@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#FindingAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.api_call_details
     import aws_sdk_macie2.types.finding_action_type
 
 
-class FindingAction(TypedDict):
+class FindingAction(TypedDict, closed=True):
     action_type: NotRequired[
         "aws_sdk_macie2.types.finding_action_type.FindingActionType"
     ]

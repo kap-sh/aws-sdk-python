@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetRunTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.run_id
     import aws_sdk_omics.types.task_id
 
 
-class GetRunTaskRequest(TypedDict):
+class GetRunTaskRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.run_id.RunId"
     """<p>The workflow run ID.</p>"""
     task_id: "aws_sdk_omics.types.task_id.TaskId"

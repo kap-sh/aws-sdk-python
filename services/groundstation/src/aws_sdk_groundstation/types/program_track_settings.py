@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ProgramTrackSettings``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.tle_program_track_settings
 
 
-class _ProgramTrackSettings_azEl(TypedDict):
+class _ProgramTrackSettings_azEl(TypedDict, closed=True):
     azEl: "aws_sdk_groundstation.types.az_el_program_track_settings.AzElProgramTrackSettings"
 
 
-class _ProgramTrackSettings_oem(TypedDict):
+class _ProgramTrackSettings_oem(TypedDict, closed=True):
     oem: (
         "aws_sdk_groundstation.types.oem_program_track_settings.OemProgramTrackSettings"
     )
 
 
-class _ProgramTrackSettings_tle(TypedDict):
+class _ProgramTrackSettings_tle(TypedDict, closed=True):
     tle: (
         "aws_sdk_groundstation.types.tle_program_track_settings.TleProgramTrackSettings"
     )

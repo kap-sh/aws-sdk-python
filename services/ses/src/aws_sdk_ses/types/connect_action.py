@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ConnectAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.iam_role_arn
 
 
-class ConnectAction(TypedDict):
+class ConnectAction(TypedDict, closed=True):
     instance_arn: "aws_sdk_ses.types.connect_instance_arn.ConnectInstanceArn"
     r"""<p>The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting email contacts.</p> <p>For more information about Amazon Connect instances, see the <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html\">Amazon Connect Administrator Guide</a> </p>"""
     iam_role_arn: "aws_sdk_ses.types.iam_role_arn.IAMRoleARN"

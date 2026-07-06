@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#MatchingResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.matching_bucket
 
 
-class MatchingResource(TypedDict):
+class MatchingResource(TypedDict, closed=True):
     matching_bucket: NotRequired["aws_sdk_macie2.types.matching_bucket.MatchingBucket"]
     """<p>The details of an S3 bucket that Amazon Macie monitors and analyzes for your account.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#BatchGetPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.batch_get_policy_input_list
 
 
-class BatchGetPolicyInput(TypedDict):
+class BatchGetPolicyInput(TypedDict, closed=True):
     requests: "aws_sdk_verifiedpermissions.types.batch_get_policy_input_list.BatchGetPolicyInputList"
     """<p>An array of up to 100 policies you want information about.</p>"""
 

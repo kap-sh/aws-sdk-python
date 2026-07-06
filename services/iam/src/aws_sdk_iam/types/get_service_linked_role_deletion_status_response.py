@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetServiceLinkedRoleDeletionStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.deletion_task_status_type
 
 
-class GetServiceLinkedRoleDeletionStatusResponse(TypedDict):
+class GetServiceLinkedRoleDeletionStatusResponse(TypedDict, closed=True):
     status: "aws_sdk_iam.types.deletion_task_status_type.DeletionTaskStatusType"
     """<p>The status of the deletion.</p>"""
     reason: NotRequired[

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReferenceLineStaticDataConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sensitive_double
 
 
-class ReferenceLineStaticDataConfiguration(TypedDict):
+class ReferenceLineStaticDataConfiguration(TypedDict, closed=True):
     value: "aws_sdk_quicksight.types.sensitive_double.SensitiveDouble"
     """<p>The double input of the static data.</p>"""
 

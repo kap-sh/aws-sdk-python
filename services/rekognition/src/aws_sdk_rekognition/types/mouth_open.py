@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#MouthOpen``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.boolean
     import aws_sdk_rekognition.types.percent
 
 
-class MouthOpen(TypedDict):
+class MouthOpen(TypedDict, closed=True):
     value: "aws_sdk_rekognition.types.boolean.Boolean"
     """<p>Boolean value that indicates whether the mouth on the face is open or not.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

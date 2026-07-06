@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#CancelFlowExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.execution_ids
 
 
-class CancelFlowExecutionsResponse(TypedDict):
+class CancelFlowExecutionsResponse(TypedDict, closed=True):
     invalid_executions: NotRequired["aws_sdk_appflow.types.execution_ids.ExecutionIds"]
     """<p>The IDs of runs that Amazon AppFlow couldn't cancel. These runs might be ineligible for canceling because they haven't started yet or have already completed.</p>"""
 

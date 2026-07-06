@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#CreateEnvironmentOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.environment_arn
 
 
-class CreateEnvironmentOutput(TypedDict):
+class CreateEnvironmentOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mwaa.types.environment_arn.EnvironmentArn"]
     """<p>The Amazon Resource Name (ARN) returned in the response for the environment.</p>"""
 

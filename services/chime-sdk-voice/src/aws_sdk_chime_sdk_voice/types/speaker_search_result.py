@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#SpeakerSearchResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.confidence_score
     import aws_sdk_chime_sdk_voice.types.non_empty_string256
 
 
-class SpeakerSearchResult(TypedDict):
+class SpeakerSearchResult(TypedDict, closed=True):
     confidence_score: "aws_sdk_chime_sdk_voice.types.confidence_score.ConfidenceScore"
     """<p>The confidence score in the speaker search analysis.</p>"""
     voice_profile_id: NotRequired[

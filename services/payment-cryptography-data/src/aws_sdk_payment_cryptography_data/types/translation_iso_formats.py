@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#TranslationIsoFormats``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import (
     DeserializationError,
@@ -13,23 +15,23 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.translation_pin_data_iso_format1
 
 
-class _TranslationIsoFormats_IsoFormat0(TypedDict):
+class _TranslationIsoFormats_IsoFormat0(TypedDict, closed=True):
     IsoFormat0: "aws_sdk_payment_cryptography_data.types.translation_pin_data_iso_format034.TranslationPinDataIsoFormat034"
 
 
-class _TranslationIsoFormats_IsoFormat1(TypedDict):
+class _TranslationIsoFormats_IsoFormat1(TypedDict, closed=True):
     IsoFormat1: "aws_sdk_payment_cryptography_data.types.translation_pin_data_iso_format1.TranslationPinDataIsoFormat1"
 
 
-class _TranslationIsoFormats_IsoFormat3(TypedDict):
+class _TranslationIsoFormats_IsoFormat3(TypedDict, closed=True):
     IsoFormat3: "aws_sdk_payment_cryptography_data.types.translation_pin_data_iso_format034.TranslationPinDataIsoFormat034"
 
 
-class _TranslationIsoFormats_IsoFormat4(TypedDict):
+class _TranslationIsoFormats_IsoFormat4(TypedDict, closed=True):
     IsoFormat4: "aws_sdk_payment_cryptography_data.types.translation_pin_data_iso_format034.TranslationPinDataIsoFormat034"
 
 
-class _TranslationIsoFormats_As2805Format0(TypedDict):
+class _TranslationIsoFormats_As2805Format0(TypedDict, closed=True):
     As2805Format0: "aws_sdk_payment_cryptography_data.types.translation_pin_data_as2805_format0.TranslationPinDataAs2805Format0"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#QueryError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.query_error_code
     import aws_sdk_resource_groups.types.query_error_message
 
 
-class QueryError(TypedDict):
+class QueryError(TypedDict, closed=True):
     error_code: NotRequired[
         "aws_sdk_resource_groups.types.query_error_code.QueryErrorCode"
     ]

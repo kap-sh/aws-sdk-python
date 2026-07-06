@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#BatchDeleteImageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_failure_list
     import aws_sdk_ecr.types.image_identifier_list
 
 
-class BatchDeleteImageResponse(TypedDict):
+class BatchDeleteImageResponse(TypedDict, closed=True):
     image_ids: NotRequired[
         "aws_sdk_ecr.types.image_identifier_list.ImageIdentifierList"
     ]

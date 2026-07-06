@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetUpgradeStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
 
 
-class GetUpgradeStatusRequest(TypedDict):
+class GetUpgradeStatusRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The domain of the domain to get upgrade status information for.</p>"""
 

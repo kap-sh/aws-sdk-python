@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DeleteSigningConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSigningConfigurationRequest(TypedDict):
+class DeleteSigningConfigurationRequest(TypedDict, closed=True):
     pass
 
 

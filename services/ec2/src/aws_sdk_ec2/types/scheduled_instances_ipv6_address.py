@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ScheduledInstancesIpv6Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipv6_address
 
 
-class ScheduledInstancesIpv6Address(TypedDict):
+class ScheduledInstancesIpv6Address(TypedDict, closed=True):
     ipv6_address: NotRequired["aws_sdk_ec2.types.ipv6_address.Ipv6Address"]
     """<p>The IPv6 address.</p>"""
 

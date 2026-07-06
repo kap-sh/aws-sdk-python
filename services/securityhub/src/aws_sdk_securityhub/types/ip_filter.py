@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#IpFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class IpFilter(TypedDict):
+class IpFilter(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>A finding's CIDR value.</p>"""
 

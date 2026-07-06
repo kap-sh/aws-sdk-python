@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchContactsTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class SearchContactsTimeRange(TypedDict):
+class SearchContactsTimeRange(TypedDict, closed=True):
     type: "aws_sdk_connect.types.search_contacts_time_range_type.SearchContactsTimeRangeType"
     """<p>The type of timestamp to search.</p>"""
     start_time: "aws_sdk_connect.types.timestamp.Timestamp"

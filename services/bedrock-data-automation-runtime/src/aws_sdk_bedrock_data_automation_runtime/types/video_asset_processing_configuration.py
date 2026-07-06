@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomationruntime#VideoAssetProcessingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation_runtime.types.video_segment_configuration
 
 
-class VideoAssetProcessingConfiguration(TypedDict):
+class VideoAssetProcessingConfiguration(TypedDict, closed=True):
     segment_configuration: NotRequired[
         "aws_sdk_bedrock_data_automation_runtime.types.video_segment_configuration.VideoSegmentConfiguration"
     ]

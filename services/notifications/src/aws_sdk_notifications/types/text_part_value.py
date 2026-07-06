@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#TextPartValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.url
 
 
-class TextPartValue(TypedDict):
+class TextPartValue(TypedDict, closed=True):
     type: "aws_sdk_notifications.types.text_part_type.TextPartType"
     """<p>The type of text part. Determines the usage of all other fields and whether or not they're required.</p>"""
     display_text: NotRequired["str"]

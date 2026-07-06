@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#ListRotationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.rotation_name
 
 
-class ListRotationsRequest(TypedDict):
+class ListRotationsRequest(TypedDict, closed=True):
     rotation_name_prefix: NotRequired[
         "aws_sdk_ssm_contacts.types.rotation_name.RotationName"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#CostTypes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.nullable_boolean
 
 
-class CostTypes(TypedDict):
+class CostTypes(TypedDict, closed=True):
     include_tax: NotRequired["aws_sdk_budgets.types.nullable_boolean.NullableBoolean"]
     """<p>Specifies whether a budget includes taxes.</p> <p>The default value is <code>true</code>.</p>"""
     include_subscription: NotRequired[

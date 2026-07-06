@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#BatchGetFieldRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.domain_id
 
 
-class BatchGetFieldRequest(TypedDict):
+class BatchGetFieldRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     fields: "aws_sdk_connectcases.types.batch_get_field_identifier_list.BatchGetFieldIdentifierList"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteCustomMetricResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomMetricResponse(TypedDict):
+class DeleteCustomMetricResponse(TypedDict, closed=True):
     pass
 
 

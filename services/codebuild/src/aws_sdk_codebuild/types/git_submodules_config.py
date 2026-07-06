@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#GitSubmodulesConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_boolean
 
 
-class GitSubmodulesConfig(TypedDict):
+class GitSubmodulesConfig(TypedDict, closed=True):
     fetch_submodules: "aws_sdk_codebuild.types.wrapper_boolean.WrapperBoolean"
     """<p> Set to true to fetch Git submodules for your CodeBuild build project. </p>"""
 

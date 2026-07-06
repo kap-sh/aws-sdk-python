@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#AnalyzeDocumentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.queries_config
 
 
-class AnalyzeDocumentRequest(TypedDict):
+class AnalyzeDocumentRequest(TypedDict, closed=True):
     document: "aws_sdk_textract.types.document.Document"
     """<p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG, PNG, PDF, or TIFF format.</p> <p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>"""
     feature_types: "aws_sdk_textract.types.feature_types.FeatureTypes"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#EndpointState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.endpoint_status_reason
 
 
-class EndpointState(TypedDict):
+class EndpointState(TypedDict, closed=True):
     status: "aws_sdk_chime_sdk_identity.types.endpoint_status.EndpointStatus"
     """<p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>"""
     status_reason: NotRequired[

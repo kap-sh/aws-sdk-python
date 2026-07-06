@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#NatGateway``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.nat_gateway_configuration
     import aws_sdk_cost_optimization_hub.types.resource_cost_calculation
 
 
-class NatGateway(TypedDict):
+class NatGateway(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.nat_gateway_configuration.NatGatewayConfiguration"
     ]

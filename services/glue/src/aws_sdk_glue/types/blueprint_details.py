@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BlueprintDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.id_string
     import aws_sdk_glue.types.orchestration_name_string
 
 
-class BlueprintDetails(TypedDict):
+class BlueprintDetails(TypedDict, closed=True):
     blueprint_name: NotRequired[
         "aws_sdk_glue.types.orchestration_name_string.OrchestrationNameString"
     ]

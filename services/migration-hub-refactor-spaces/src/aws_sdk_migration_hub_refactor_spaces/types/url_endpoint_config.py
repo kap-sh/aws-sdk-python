@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubrefactorspaces#UrlEndpointConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub_refactor_spaces.types.uri
 
 
-class UrlEndpointConfig(TypedDict):
+class UrlEndpointConfig(TypedDict, closed=True):
     url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]
     """<p>The HTTP URL endpoint. </p>"""
     health_url: NotRequired["aws_sdk_migration_hub_refactor_spaces.types.uri.Uri"]

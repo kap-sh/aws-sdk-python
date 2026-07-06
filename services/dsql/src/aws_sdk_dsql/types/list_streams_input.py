@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#ListStreamsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.next_token
 
 
-class ListStreamsInput(TypedDict):
+class ListStreamsInput(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster for which to list streams.</p>"""
     max_results: "aws_sdk_dsql.types.max_results.MaxResults"

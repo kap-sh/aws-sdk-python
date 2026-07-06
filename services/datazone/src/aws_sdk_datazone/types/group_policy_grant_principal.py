@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GroupPolicyGrantPrincipal``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.group_identifier
 
 
-class _GroupPolicyGrantPrincipal_groupIdentifier(TypedDict):
+class _GroupPolicyGrantPrincipal_groupIdentifier(TypedDict, closed=True):
     groupIdentifier: "aws_sdk_datazone.types.group_identifier.GroupIdentifier"
 
 

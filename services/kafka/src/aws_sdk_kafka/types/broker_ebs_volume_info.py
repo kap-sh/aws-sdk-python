@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#BrokerEBSVolumeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.provisioned_throughput
 
 
-class BrokerEBSVolumeInfo(TypedDict):
+class BrokerEBSVolumeInfo(TypedDict, closed=True):
     kafka_broker_node_id: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The ID of the broker to update.</p>"""
     provisioned_throughput: NotRequired[

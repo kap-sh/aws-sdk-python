@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#ListDataViewsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.dataset_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.result_limit
 
 
-class ListDataViewsRequest(TypedDict):
+class ListDataViewsRequest(TypedDict, closed=True):
     dataset_id: "aws_sdk_finspace_data.types.dataset_id.DatasetId"
     """<p>The unique identifier of the Dataset for which to retrieve Dataviews.</p>"""
     next_token: NotRequired[

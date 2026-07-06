@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#NodeCounts``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.number
 
 
-class NodeCounts(TypedDict):
+class NodeCounts(TypedDict, closed=True):
     total_nodes: "aws_sdk_iotfleetwise.types.number.number"
     """<p>The total number of nodes in a vehicle network.</p>"""
     total_branches: "aws_sdk_iotfleetwise.types.number.number"

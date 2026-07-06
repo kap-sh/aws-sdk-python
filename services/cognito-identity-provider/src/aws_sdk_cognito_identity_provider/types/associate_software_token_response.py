@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AssociateSoftwareTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.secret_code_type
     import aws_sdk_cognito_identity_provider.types.session_type
 
 
-class AssociateSoftwareTokenResponse(TypedDict):
+class AssociateSoftwareTokenResponse(TypedDict, closed=True):
     secret_code: NotRequired[
         "aws_sdk_cognito_identity_provider.types.secret_code_type.SecretCodeType"
     ]

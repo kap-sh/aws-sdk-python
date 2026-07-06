@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DvbTdtSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1000_max30000
 
 
-class DvbTdtSettings(TypedDict):
+class DvbTdtSettings(TypedDict, closed=True):
     tdt_interval: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1000_max30000.__integerMin1000Max30000"
     ]

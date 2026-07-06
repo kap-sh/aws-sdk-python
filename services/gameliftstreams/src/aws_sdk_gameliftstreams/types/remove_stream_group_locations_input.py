@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#RemoveStreamGroupLocationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.identifier
     import aws_sdk_gameliftstreams.types.locations_list
 
 
-class RemoveStreamGroupLocationsInput(TypedDict):
+class RemoveStreamGroupLocationsInput(TypedDict, closed=True):
     identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"
     r"""<p> A stream group to remove the specified locations from. </p> <p> This value is an <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>"""
     locations: "aws_sdk_gameliftstreams.types.locations_list.LocationsList"

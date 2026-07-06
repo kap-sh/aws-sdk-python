@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DataTableAccessControlConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.primary_attribute_access_control_configuration_item
 
 
-class DataTableAccessControlConfiguration(TypedDict):
+class DataTableAccessControlConfiguration(TypedDict, closed=True):
     primary_attribute_access_control_configuration: NotRequired[
         "aws_sdk_connect.types.primary_attribute_access_control_configuration_item.PrimaryAttributeAccessControlConfigurationItem"
     ]

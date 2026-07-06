@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#DescribeSupportedLanguagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_support.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.validated_service_code
 
 
-class DescribeSupportedLanguagesRequest(TypedDict):
+class DescribeSupportedLanguagesRequest(TypedDict, closed=True):
     issue_type: (
         "aws_sdk_support.types.validated_issue_type_string.ValidatedIssueTypeString"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#UpdateConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.connector_ssm_command_config
 
 
-class UpdateConnectorRequest(TypedDict):
+class UpdateConnectorRequest(TypedDict, closed=True):
     connector_id: "aws_sdk_mgn.types.connector_id.ConnectorID"
     """<p>Update Connector request connector ID.</p>"""
     name: NotRequired["aws_sdk_mgn.types.connector_name.ConnectorName"]

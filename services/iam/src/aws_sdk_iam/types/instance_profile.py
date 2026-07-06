@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#InstanceProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_list_type
 
 
-class InstanceProfile(TypedDict):
+class InstanceProfile(TypedDict, closed=True):
     path: "aws_sdk_iam.types.path_type.pathType"
     r"""<p> The path to the instance profile. For more information about paths, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html\">IAM identifiers</a> in the <i>IAM User Guide</i>. </p>"""
     instance_profile_name: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribedCertificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.tags
 
 
-class DescribedCertificate(TypedDict):
+class DescribedCertificate(TypedDict, closed=True):
     arn: "aws_sdk_transfer.types.arn.Arn"
     """<p>The unique Amazon Resource Name (ARN) for the certificate.</p>"""
     certificate_id: NotRequired["aws_sdk_transfer.types.certificate_id.CertificateId"]

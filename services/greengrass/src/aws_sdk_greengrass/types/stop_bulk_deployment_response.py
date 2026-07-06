@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#StopBulkDeploymentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopBulkDeploymentResponse(TypedDict):
+class StopBulkDeploymentResponse(TypedDict, closed=True):
     pass
 
 

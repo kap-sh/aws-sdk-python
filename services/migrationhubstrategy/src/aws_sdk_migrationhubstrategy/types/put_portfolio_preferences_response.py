@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#PutPortfolioPreferencesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutPortfolioPreferencesResponse(TypedDict):
+class PutPortfolioPreferencesResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#GetConnectInstanceConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.instance_id
 
 
-class GetConnectInstanceConfigRequest(TypedDict):
+class GetConnectInstanceConfigRequest(TypedDict, closed=True):
     connect_instance_id: "aws_sdk_connectcampaignsv2.types.instance_id.InstanceId"
 
 

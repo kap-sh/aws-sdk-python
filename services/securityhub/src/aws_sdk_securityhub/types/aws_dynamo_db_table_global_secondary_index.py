@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDynamoDbTableGlobalSecondaryIndex``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_dynamo_db_table_key_schema_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.size_bytes
 
 
-class AwsDynamoDbTableGlobalSecondaryIndex(TypedDict):
+class AwsDynamoDbTableGlobalSecondaryIndex(TypedDict, closed=True):
     backfilling: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Whether the index is currently backfilling.</p>"""
     index_arn: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

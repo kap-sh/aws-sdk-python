@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#LifecyclePolicyPreviewResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_digest
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.push_timestamp
 
 
-class LifecyclePolicyPreviewResult(TypedDict):
+class LifecyclePolicyPreviewResult(TypedDict, closed=True):
     image_tags: NotRequired["aws_sdk_ecr.types.image_tag_list.ImageTagList"]
     """<p>The list of tags associated with this image.</p>"""
     image_digest: NotRequired["aws_sdk_ecr.types.image_digest.ImageDigest"]

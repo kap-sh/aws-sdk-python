@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#CancelOrderOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelOrderOutput(TypedDict):
+class CancelOrderOutput(TypedDict, closed=True):
     pass
 
 

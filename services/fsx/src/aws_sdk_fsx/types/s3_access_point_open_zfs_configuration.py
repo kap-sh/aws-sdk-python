@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3AccessPointOpenZFSConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.open_zfs_file_system_identity
     import aws_sdk_fsx.types.volume_id
 
 
-class S3AccessPointOpenZFSConfiguration(TypedDict):
+class S3AccessPointOpenZFSConfiguration(TypedDict, closed=True):
     volume_id: NotRequired["aws_sdk_fsx.types.volume_id.VolumeId"]
     """<p>The ID of the FSx for OpenZFS volume that the S3 access point is attached to.</p>"""
     file_system_identity: NotRequired[

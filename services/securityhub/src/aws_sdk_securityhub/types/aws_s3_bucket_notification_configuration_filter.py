@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3BucketNotificationConfigurationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_s3_bucket_notification_configuration_s3_key_filter
 
 
-class AwsS3BucketNotificationConfigurationFilter(TypedDict):
+class AwsS3BucketNotificationConfigurationFilter(TypedDict, closed=True):
     s3_key_filter: NotRequired[
         "aws_sdk_securityhub.types.aws_s3_bucket_notification_configuration_s3_key_filter.AwsS3BucketNotificationConfigurationS3KeyFilter"
     ]

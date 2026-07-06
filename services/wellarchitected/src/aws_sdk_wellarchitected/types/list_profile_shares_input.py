@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ListProfileSharesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.list_profile_shares_max_results
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.shared_with_prefix
 
 
-class ListProfileSharesInput(TypedDict):
+class ListProfileSharesInput(TypedDict, closed=True):
     profile_arn: "aws_sdk_wellarchitected.types.profile_arn.ProfileArn"
     """<p>The profile ARN.</p>"""
     shared_with_prefix: NotRequired[

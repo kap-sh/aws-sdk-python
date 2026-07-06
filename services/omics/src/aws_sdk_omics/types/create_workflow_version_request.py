@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#CreateWorkflowVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.workflow_version_name
 
 
-class CreateWorkflowVersionRequest(TypedDict):
+class CreateWorkflowVersionRequest(TypedDict, closed=True):
     workflow_id: "aws_sdk_omics.types.workflow_id.WorkflowId"
     """<p>The ID of the workflow where you are creating the new version. The <code>workflowId</code> is not the UUID.</p>"""
     version_name: "aws_sdk_omics.types.workflow_version_name.WorkflowVersionName"

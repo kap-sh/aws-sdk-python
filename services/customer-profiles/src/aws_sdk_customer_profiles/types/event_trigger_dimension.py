@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#EventTriggerDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.object_attributes
 
 
-class EventTriggerDimension(TypedDict):
+class EventTriggerDimension(TypedDict, closed=True):
     object_attributes: (
         "aws_sdk_customer_profiles.types.object_attributes.ObjectAttributes"
     )

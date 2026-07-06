@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdatePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.client_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version_name
 
 
-class UpdatePackageRequest(TypedDict):
+class UpdatePackageRequest(TypedDict, closed=True):
     package_name: "aws_sdk_iot.types.package_name.PackageName"
     """<p>The name of the target software package.</p>"""
     description: NotRequired[

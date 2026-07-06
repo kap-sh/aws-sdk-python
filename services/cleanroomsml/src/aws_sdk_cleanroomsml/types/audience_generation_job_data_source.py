@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#AudienceGenerationJobDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.s3_config_map
 
 
-class AudienceGenerationJobDataSource(TypedDict):
+class AudienceGenerationJobDataSource(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_cleanroomsml.types.s3_config_map.S3ConfigMap"]
     r"""<p>Defines the Amazon S3 bucket where the seed audience for the generating audience is stored. A valid data source is a JSON line file in the following format:</p> <p> <code>{\"user_id\": \"111111\"}</code> </p> <p> <code>{\"user_id\": \"222222\"}</code> </p> <p> <code>...</code> </p>"""
     role_arn: "aws_sdk_cleanroomsml.types.iam_role_arn.IamRoleArn"

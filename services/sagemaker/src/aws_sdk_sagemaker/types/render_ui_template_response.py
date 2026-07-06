@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#RenderUiTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.rendering_error_list
     import aws_sdk_sagemaker.types.string
 
 
-class RenderUiTemplateResponse(TypedDict):
+class RenderUiTemplateResponse(TypedDict, closed=True):
     rendered_content: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>A Liquid template that renders the HTML for the worker UI.</p>"""
     errors: NotRequired[

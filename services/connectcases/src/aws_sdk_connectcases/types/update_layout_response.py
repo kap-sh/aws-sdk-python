@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#UpdateLayoutResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateLayoutResponse(TypedDict):
+class UpdateLayoutResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AppliedOrchestrationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.orchestration_control
 
 
-class AppliedOrchestrationConfiguration(TypedDict):
+class AppliedOrchestrationConfiguration(TypedDict, closed=True):
     control: "aws_sdk_qbusiness.types.orchestration_control.OrchestrationControl"
     """<p> Information about whether chat orchestration is enabled or disabled for an Amazon Q Business application. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.state_enum
 
 
-class AppMonitorSummary(TypedDict):
+class AppMonitorSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rum.types.app_monitor_name.AppMonitorName"]
     """<p>The name of this app monitor.</p>"""
     id: NotRequired["aws_sdk_rum.types.app_monitor_id.AppMonitorId"]

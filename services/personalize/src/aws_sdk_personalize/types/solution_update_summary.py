@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#SolutionUpdateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.date
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class SolutionUpdateSummary(TypedDict):
+class SolutionUpdateSummary(TypedDict, closed=True):
     solution_update_config: NotRequired[
         "aws_sdk_personalize.types.solution_update_config.SolutionUpdateConfig"
     ]

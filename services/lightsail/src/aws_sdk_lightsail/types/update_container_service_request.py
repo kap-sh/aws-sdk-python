@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#UpdateContainerServiceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.private_registry_access_request
 
 
-class UpdateContainerServiceRequest(TypedDict):
+class UpdateContainerServiceRequest(TypedDict, closed=True):
     service_name: "aws_sdk_lightsail.types.container_service_name.ContainerServiceName"
     """<p>The name of the container service to update.</p>"""
     power: NotRequired[

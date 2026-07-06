@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#LoRaWANMulticastSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.dl_dr
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.session_timeout
 
 
-class LoRaWANMulticastSession(TypedDict):
+class LoRaWANMulticastSession(TypedDict, closed=True):
     dl_dr: NotRequired["aws_sdk_iot_wireless.types.dl_dr.DlDr"]
     dl_freq: NotRequired["aws_sdk_iot_wireless.types.dl_freq.DlFreq"]
     session_start_time: NotRequired[

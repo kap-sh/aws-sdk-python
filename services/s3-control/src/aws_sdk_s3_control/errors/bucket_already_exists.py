@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#BucketAlreadyExists``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import ServiceError
 
 
-class BucketAlreadyExists_(TypedDict):
+class BucketAlreadyExists_(TypedDict, closed=True):
     pass
 
 

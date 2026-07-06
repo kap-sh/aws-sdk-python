@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListResourceServersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.resource_servers_list_type
 
 
-class ListResourceServersResponse(TypedDict):
+class ListResourceServersResponse(TypedDict, closed=True):
     resource_servers: "aws_sdk_cognito_identity_provider.types.resource_servers_list_type.ResourceServersListType"
     """<p>An array of resource servers and the details of their configuration. For each, the response includes names, identifiers, and custom scopes.</p>"""
     next_token: NotRequired[

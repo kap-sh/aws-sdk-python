@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeAffectedEntitiesForOrganizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.locale
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_health.types.organization_entity_filters_list
 
 
-class DescribeAffectedEntitiesForOrganizationRequest(TypedDict):
+class DescribeAffectedEntitiesForOrganizationRequest(TypedDict, closed=True):
     organization_entity_filters: NotRequired[
         "aws_sdk_health.types.organization_entity_filters_list.OrganizationEntityFiltersList"
     ]

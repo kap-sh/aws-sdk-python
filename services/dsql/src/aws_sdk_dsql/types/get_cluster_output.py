@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#GetClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.tag_map
 
 
-class GetClusterOutput(TypedDict):
+class GetClusterOutput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the retrieved cluster.</p>"""
     arn: "aws_sdk_dsql.types.cluster_arn.ClusterArn"

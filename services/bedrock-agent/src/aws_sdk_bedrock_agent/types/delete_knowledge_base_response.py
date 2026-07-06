@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#DeleteKnowledgeBaseResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.knowledge_base_status
 
 
-class DeleteKnowledgeBaseResponse(TypedDict):
+class DeleteKnowledgeBaseResponse(TypedDict, closed=True):
     knowledge_base_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the knowledge base that was deleted.</p>"""
     status: "aws_sdk_bedrock_agent.types.knowledge_base_status.KnowledgeBaseStatus"

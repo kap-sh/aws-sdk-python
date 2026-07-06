@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#SpainAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.registration_type
 
 
-class SpainAdditionalInfo(TypedDict):
+class SpainAdditionalInfo(TypedDict, closed=True):
     registration_type: "aws_sdk_taxsettings.types.registration_type.RegistrationType"
     """<p>The registration type in Spain.</p>"""
 

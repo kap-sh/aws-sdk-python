@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#S3Identifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.s3_bucket_name
     import aws_sdk_bedrock_agent.types.s3_object_key
 
 
-class S3Identifier(TypedDict):
+class S3Identifier(TypedDict, closed=True):
     s3_bucket_name: NotRequired[
         "aws_sdk_bedrock_agent.types.s3_bucket_name.S3BucketName"
     ]

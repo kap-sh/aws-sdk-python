@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#KnowledgeBaseAssociationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.arn
     import aws_sdk_wisdom.types.uuid
 
 
-class KnowledgeBaseAssociationData(TypedDict):
+class KnowledgeBaseAssociationData(TypedDict, closed=True):
     knowledge_base_id: NotRequired["aws_sdk_wisdom.types.uuid.Uuid"]
     """<p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base if you're storing Wisdom Content resource to it.</p>"""
     knowledge_base_arn: NotRequired["aws_sdk_wisdom.types.arn.Arn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeRoleCustomPermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role
 
 
-class DescribeRoleCustomPermissionRequest(TypedDict):
+class DescribeRoleCustomPermissionRequest(TypedDict, closed=True):
     role: "aws_sdk_quicksight.types.role.Role"
     """<p>The name of the role whose permissions you want described.</p>"""
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"

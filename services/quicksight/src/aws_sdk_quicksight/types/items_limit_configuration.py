@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ItemsLimitConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.long
     import aws_sdk_quicksight.types.other_categories
 
 
-class ItemsLimitConfiguration(TypedDict):
+class ItemsLimitConfiguration(TypedDict, closed=True):
     items_limit: NotRequired["aws_sdk_quicksight.types.long.Long"]
     """<p>The limit on how many items of a field are showed in the chart. For example, the number of slices that are displayed in a pie chart.</p>"""
     other_categories: NotRequired[

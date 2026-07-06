@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeClientPropertiesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.client_properties_list
 
 
-class DescribeClientPropertiesResult(TypedDict):
+class DescribeClientPropertiesResult(TypedDict, closed=True):
     client_properties_list: NotRequired[
         "aws_sdk_workspaces.types.client_properties_list.ClientPropertiesList"
     ]

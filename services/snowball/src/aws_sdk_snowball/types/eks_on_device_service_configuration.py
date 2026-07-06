@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#EKSOnDeviceServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class EKSOnDeviceServiceConfiguration(TypedDict):
+class EKSOnDeviceServiceConfiguration(TypedDict, closed=True):
     kubernetes_version: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The Kubernetes version for EKS Anywhere on the Snow Family device.</p>"""
     eks_anywhere_version: NotRequired["aws_sdk_snowball.types.string.String"]

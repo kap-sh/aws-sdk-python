@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#UpdateSiteInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.site_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.site_notes
 
 
-class UpdateSiteInput(TypedDict):
+class UpdateSiteInput(TypedDict, closed=True):
     site_id: "aws_sdk_outposts.types.site_id.SiteId"
     """<p> The ID or the Amazon Resource Name (ARN) of the site. </p>"""
     name: NotRequired["aws_sdk_outposts.types.site_name.SiteName"]

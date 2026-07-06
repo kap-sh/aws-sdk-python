@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#PerformanceTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.performance_target_status
 
 
-class PerformanceTarget(TypedDict):
+class PerformanceTarget(TypedDict, closed=True):
     status: NotRequired[
         "aws_sdk_redshift_serverless.types.performance_target_status.PerformanceTargetStatus"
     ]

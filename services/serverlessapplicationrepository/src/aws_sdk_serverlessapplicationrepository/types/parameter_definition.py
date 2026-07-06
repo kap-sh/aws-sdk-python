@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#ParameterDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__string
 
 
-class ParameterDefinition(TypedDict):
+class ParameterDefinition(TypedDict, closed=True):
     allowed_pattern: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__string.__string"
     ]

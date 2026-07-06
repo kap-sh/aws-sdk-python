@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#RecommendationDetailData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.account_scope
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class RecommendationDetailData(TypedDict):
+class RecommendationDetailData(TypedDict, closed=True):
     account_scope: NotRequired["aws_sdk_cost_explorer.types.account_scope.AccountScope"]
     """<p>The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to PAYER. If the value is LINKED, recommendations are calculated for individual member accounts only.</p>"""
     lookback_period_in_days: NotRequired[

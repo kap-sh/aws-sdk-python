@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetImportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.import_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.timestamp
 
 
-class GetImportResponse(TypedDict):
+class GetImportResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lex_model_building_service.types.name.Name"]
     """<p>The name given to the import job.</p>"""
     resource_type: NotRequired[

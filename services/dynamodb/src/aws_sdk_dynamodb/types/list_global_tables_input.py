@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ListGlobalTablesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.positive_integer_object
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class ListGlobalTablesInput(TypedDict):
+class ListGlobalTablesInput(TypedDict, closed=True):
     exclusive_start_global_table_name: NotRequired[
         "aws_sdk_dynamodb.types.table_name.TableName"
     ]

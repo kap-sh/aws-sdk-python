@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#FailedReportOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.report_generation_error_code
 
 
-class FailedReportOutput(TypedDict):
+class FailedReportOutput(TypedDict, closed=True):
     error_code: "aws_sdk_resiliencehubv2.types.report_generation_error_code.ReportGenerationErrorCode"
     """<p>The error code describing why the report generation failed.</p>"""
     error_message: NotRequired["str"]

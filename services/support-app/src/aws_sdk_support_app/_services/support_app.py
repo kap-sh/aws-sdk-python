@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#SupportApp``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_support_app._auth._signers
@@ -57,7 +57,7 @@ if TYPE_CHECKING:
     import aws_sdk_support_app.types.update_slack_channel_configuration_result
 
 
-class SupportAppClientConfig(TypedDict, total=False):
+class SupportAppClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

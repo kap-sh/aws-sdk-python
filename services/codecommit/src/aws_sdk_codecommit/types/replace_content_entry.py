@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#ReplaceContentEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.replacement_type_enum
 
 
-class ReplaceContentEntry(TypedDict):
+class ReplaceContentEntry(TypedDict, closed=True):
     file_path: "aws_sdk_codecommit.types.path.Path"
     """<p>The path of the conflicting file.</p>"""
     replacement_type: (

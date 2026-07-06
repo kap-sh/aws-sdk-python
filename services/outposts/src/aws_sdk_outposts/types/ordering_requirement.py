@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#OrderingRequirement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.ordering_requirement_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.status_message
 
 
-class OrderingRequirement(TypedDict):
+class OrderingRequirement(TypedDict, closed=True):
     status_message: NotRequired["aws_sdk_outposts.types.status_message.StatusMessage"]
     """<p>A message about the ordering requirement.</p>"""
     ordering_requirement_type: NotRequired[

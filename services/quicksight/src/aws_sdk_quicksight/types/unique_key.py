@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UniqueKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unique_key_column_name_list
 
 
-class UniqueKey(TypedDict):
+class UniqueKey(TypedDict, closed=True):
     column_names: (
         "aws_sdk_quicksight.types.unique_key_column_name_list.UniqueKeyColumnNameList"
     )

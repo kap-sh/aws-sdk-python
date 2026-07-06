@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#Payload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.payload_type
 
 
-class Payload(TypedDict):
+class Payload(TypedDict, closed=True):
     content_expression: "aws_sdk_iot_events.types.content_expression.ContentExpression"
     """<p>The content of the payload. You can use a string expression that includes quoted strings (<code>'<string>'</code>), variables (<code>$variable.<variable-name></code>), input values (<code>$input.<input-name>.<path-to-datum></code>), string concatenations, and quoted strings that contain <code>${}</code> as the content. The recommended maximum size of a content expression is 1 KB.</p>"""
     type: "aws_sdk_iot_events.types.payload_type.PayloadType"

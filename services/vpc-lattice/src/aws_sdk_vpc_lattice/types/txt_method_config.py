@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#TxtMethodConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError
 
 
-class TxtMethodConfig(TypedDict):
+class TxtMethodConfig(TypedDict, closed=True):
     value: "str"
     """<p> The value that must be added to the TXT record for domain verification. </p>"""
     name: "str"

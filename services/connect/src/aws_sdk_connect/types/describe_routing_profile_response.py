@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#DescribeRoutingProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.routing_profile
 
 
-class DescribeRoutingProfileResponse(TypedDict):
+class DescribeRoutingProfileResponse(TypedDict, closed=True):
     routing_profile: NotRequired["aws_sdk_connect.types.routing_profile.RoutingProfile"]
     """<p>The routing profile.</p>"""
 

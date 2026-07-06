@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetBlueprintsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.nullable_boolean
 
 
-class BatchGetBlueprintsRequest(TypedDict):
+class BatchGetBlueprintsRequest(TypedDict, closed=True):
     names: "aws_sdk_glue.types.batch_get_blueprint_names.BatchGetBlueprintNames"
     """<p>A list of blueprint names.</p>"""
     include_blueprint: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#CedarTagValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -17,47 +19,47 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.string_attribute
 
 
-class _CedarTagValue_boolean(TypedDict):
+class _CedarTagValue_boolean(TypedDict, closed=True):
     boolean: "aws_sdk_verifiedpermissions.types.boolean_attribute.BooleanAttribute"
 
 
-class _CedarTagValue_entityIdentifier(TypedDict):
+class _CedarTagValue_entityIdentifier(TypedDict, closed=True):
     entityIdentifier: (
         "aws_sdk_verifiedpermissions.types.entity_identifier.EntityIdentifier"
     )
 
 
-class _CedarTagValue_long(TypedDict):
+class _CedarTagValue_long(TypedDict, closed=True):
     long: "aws_sdk_verifiedpermissions.types.long_attribute.LongAttribute"
 
 
-class _CedarTagValue_string(TypedDict):
+class _CedarTagValue_string(TypedDict, closed=True):
     string: "aws_sdk_verifiedpermissions.types.string_attribute.StringAttribute"
 
 
-class _CedarTagValue_set(TypedDict):
+class _CedarTagValue_set(TypedDict, closed=True):
     set: (
         "aws_sdk_verifiedpermissions.types.cedar_tag_set_attribute.CedarTagSetAttribute"
     )
 
 
-class _CedarTagValue_record(TypedDict):
+class _CedarTagValue_record(TypedDict, closed=True):
     record: "aws_sdk_verifiedpermissions.types.cedar_tag_record_attribute.CedarTagRecordAttribute"
 
 
-class _CedarTagValue_ipaddr(TypedDict):
+class _CedarTagValue_ipaddr(TypedDict, closed=True):
     ipaddr: "aws_sdk_verifiedpermissions.types.ip_addr.IpAddr"
 
 
-class _CedarTagValue_decimal(TypedDict):
+class _CedarTagValue_decimal(TypedDict, closed=True):
     decimal: "aws_sdk_verifiedpermissions.types.decimal.Decimal"
 
 
-class _CedarTagValue_datetime(TypedDict):
+class _CedarTagValue_datetime(TypedDict, closed=True):
     datetime: "aws_sdk_verifiedpermissions.types.datetime_attribute.DatetimeAttribute"
 
 
-class _CedarTagValue_duration(TypedDict):
+class _CedarTagValue_duration(TypedDict, closed=True):
     duration: "aws_sdk_verifiedpermissions.types.duration.Duration"
 
 

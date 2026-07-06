@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#RecipeReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.recipe_version
 
 
-class RecipeReference(TypedDict):
+class RecipeReference(TypedDict, closed=True):
     name: "aws_sdk_databrew.types.recipe_name.RecipeName"
     """<p>The name of the recipe.</p>"""
     recipe_version: NotRequired["aws_sdk_databrew.types.recipe_version.RecipeVersion"]

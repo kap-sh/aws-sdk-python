@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#StartBgpFailoverTestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface_id
 
 
-class StartBgpFailoverTestRequest(TypedDict):
+class StartBgpFailoverTestRequest(TypedDict, closed=True):
     virtual_interface_id: (
         "aws_sdk_direct_connect.types.virtual_interface_id.VirtualInterfaceId"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListWorkersWithQualificationTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mturk.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.result_size
 
 
-class ListWorkersWithQualificationTypeRequest(TypedDict):
+class ListWorkersWithQualificationTypeRequest(TypedDict, closed=True):
     qualification_type_id: "aws_sdk_mturk.types.entity_id.EntityId"
     """<p>The ID of the Qualification type of the Qualifications to return.</p>"""
     status: NotRequired["aws_sdk_mturk.types.qualification_status.QualificationStatus"]

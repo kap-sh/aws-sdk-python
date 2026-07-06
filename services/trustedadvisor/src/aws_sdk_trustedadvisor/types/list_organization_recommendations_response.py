@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.trustedadvisor#ListOrganizationRecommendationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_trustedadvisor.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_trustedadvisor.types.organization_recommendation_summary_list
 
 
-class ListOrganizationRecommendationsResponse(TypedDict):
+class ListOrganizationRecommendationsResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>"""
     organization_recommendation_summaries: "aws_sdk_trustedadvisor.types.organization_recommendation_summary_list.OrganizationRecommendationSummaryList"

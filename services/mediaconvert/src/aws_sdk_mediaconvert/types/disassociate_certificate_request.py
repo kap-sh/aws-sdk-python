@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DisassociateCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
 
 
-class DisassociateCertificateRequest(TypedDict):
+class DisassociateCertificateRequest(TypedDict, closed=True):
     arn: "aws_sdk_mediaconvert.types.__string.__string"
     """The ARN of the ACM certificate that you want to disassociate from your MediaConvert resource."""
 

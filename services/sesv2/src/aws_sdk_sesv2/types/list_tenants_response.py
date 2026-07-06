@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListTenantsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token
     import aws_sdk_sesv2.types.tenant_info_list
 
 
-class ListTenantsResponse(TypedDict):
+class ListTenantsResponse(TypedDict, closed=True):
     tenants: NotRequired["aws_sdk_sesv2.types.tenant_info_list.TenantInfoList"]
     """<p>An array that contains basic information about each tenant.</p>"""
     next_token: NotRequired["aws_sdk_sesv2.types.next_token.NextToken"]

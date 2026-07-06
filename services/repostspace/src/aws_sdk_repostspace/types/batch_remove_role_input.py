@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#BatchRemoveRoleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_repostspace.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_repostspace.types.space_id
 
 
-class BatchRemoveRoleInput(TypedDict):
+class BatchRemoveRoleInput(TypedDict, closed=True):
     space_id: "aws_sdk_repostspace.types.space_id.SpaceId"
     """<p>The unique ID of the private re:Post.</p>"""
     accessor_ids: "aws_sdk_repostspace.types.accessor_id_list.AccessorIdList"

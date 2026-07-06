@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeBudgetPerformanceHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.budget_performance_history
     import aws_sdk_budgets.types.generic_string
 
 
-class DescribeBudgetPerformanceHistoryResponse(TypedDict):
+class DescribeBudgetPerformanceHistoryResponse(TypedDict, closed=True):
     budget_performance_history: NotRequired[
         "aws_sdk_budgets.types.budget_performance_history.BudgetPerformanceHistory"
     ]

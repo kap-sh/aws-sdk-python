@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#GetHypervisorPropertyMappingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.iam_role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.vmware_to_aws_tag_mappings
 
 
-class GetHypervisorPropertyMappingsOutput(TypedDict):
+class GetHypervisorPropertyMappingsOutput(TypedDict, closed=True):
     hypervisor_arn: NotRequired["aws_sdk_backup_gateway.types.server_arn.ServerArn"]
     """<p>The Amazon Resource Name (ARN) of the hypervisor.</p>"""
     vmware_to_aws_tag_mappings: NotRequired[

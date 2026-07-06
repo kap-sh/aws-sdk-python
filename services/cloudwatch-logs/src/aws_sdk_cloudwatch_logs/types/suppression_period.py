@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#SuppressionPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.integer
     import aws_sdk_cloudwatch_logs.types.suppression_unit
 
 
-class SuppressionPeriod(TypedDict):
+class SuppressionPeriod(TypedDict, closed=True):
     value: "aws_sdk_cloudwatch_logs.types.integer.Integer"
     """<p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>"""
     suppression_unit: NotRequired[

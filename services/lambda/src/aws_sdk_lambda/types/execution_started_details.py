@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ExecutionStartedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.event_input
 
 
-class ExecutionStartedDetails(TypedDict):
+class ExecutionStartedDetails(TypedDict, closed=True):
     input: "aws_sdk_lambda.types.event_input.EventInput"
     """<p>The input payload provided for the durable execution.</p>"""
     execution_timeout: "aws_sdk_lambda.types.duration_seconds.DurationSeconds"

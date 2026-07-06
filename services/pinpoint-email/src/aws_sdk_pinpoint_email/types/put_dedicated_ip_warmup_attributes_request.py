@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutDedicatedIpWarmupAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.percentage100_wrapper
 
 
-class PutDedicatedIpWarmupAttributesRequest(TypedDict):
+class PutDedicatedIpWarmupAttributesRequest(TypedDict, closed=True):
     ip: "aws_sdk_pinpoint_email.types.ip.Ip"
     """<p>The dedicated IP address that you want to update the warm-up attributes for.</p>"""
     warmup_percentage: (

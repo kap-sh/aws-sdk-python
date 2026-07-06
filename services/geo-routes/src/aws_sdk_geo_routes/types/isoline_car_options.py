@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineCarOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.isoline_engine_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.speed_kilometers_per_hour
 
 
-class IsolineCarOptions(TypedDict):
+class IsolineCarOptions(TypedDict, closed=True):
     engine_type: NotRequired[
         "aws_sdk_geo_routes.types.isoline_engine_type.IsolineEngineType"
     ]

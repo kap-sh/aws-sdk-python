@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#InstanceProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.instance_property_map
 
 
-class InstanceProperty(TypedDict):
+class InstanceProperty(TypedDict, closed=True):
     seen_at: NotRequired["datetime.datetime"]
     """<p>The ISO-8601 time stamp of when the certificate was last used in a temporary credential request.</p>"""
     properties: NotRequired[

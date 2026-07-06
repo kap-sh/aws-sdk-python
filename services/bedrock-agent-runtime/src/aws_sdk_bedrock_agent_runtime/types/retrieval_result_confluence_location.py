@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalResultConfluenceLocation``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RetrievalResultConfluenceLocation(TypedDict):
+class RetrievalResultConfluenceLocation(TypedDict, closed=True):
     url: NotRequired["str"]
     """<p>The Confluence host URL for the data source location.</p>"""
 

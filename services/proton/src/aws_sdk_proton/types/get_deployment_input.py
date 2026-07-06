@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetDeploymentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.resource_name
 
 
-class GetDeploymentInput(TypedDict):
+class GetDeploymentInput(TypedDict, closed=True):
     id: "aws_sdk_proton.types.deployment_id.DeploymentId"
     """<p>The ID of the deployment that you want to get the detailed data for.</p>"""
     environment_name: NotRequired["aws_sdk_proton.types.resource_name.ResourceName"]

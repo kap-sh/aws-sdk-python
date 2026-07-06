@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.update_kinesis_streaming_configuration
 
 
-class UpdateKinesisStreamingDestinationInput(TypedDict):
+class UpdateKinesisStreamingDestinationInput(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>"""
     stream_arn: "aws_sdk_dynamodb.types.stream_arn.StreamArn"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListEndpointConfigsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_config_summary_list
     import aws_sdk_sagemaker.types.pagination_token
 
 
-class ListEndpointConfigsOutput(TypedDict):
+class ListEndpointConfigsOutput(TypedDict, closed=True):
     endpoint_configs: NotRequired[
         "aws_sdk_sagemaker.types.endpoint_config_summary_list.EndpointConfigSummaryList"
     ]

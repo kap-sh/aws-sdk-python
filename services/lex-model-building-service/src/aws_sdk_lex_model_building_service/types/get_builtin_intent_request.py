@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBuiltinIntentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.builtin_intent_signature
 
 
-class GetBuiltinIntentRequest(TypedDict):
+class GetBuiltinIntentRequest(TypedDict, closed=True):
     signature: "aws_sdk_lex_model_building_service.types.builtin_intent_signature.BuiltinIntentSignature"
     r"""<p>The unique identifier for a built-in intent. To find the signature for an intent, see <a href=\"https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents\">Standard Built-in Intents</a> in the <i>Alexa Skills Kit</i>.</p>"""
 

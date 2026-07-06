@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.endpoint_response
 
 
-class GetEndpointResponse(TypedDict):
+class GetEndpointResponse(TypedDict, closed=True):
     endpoint_response: NotRequired[
         "aws_sdk_pinpoint.types.endpoint_response.EndpointResponse"
     ]

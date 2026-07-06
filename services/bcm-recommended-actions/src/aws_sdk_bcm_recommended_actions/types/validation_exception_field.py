@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bcmrecommendedactions#ValidationExceptionField``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_recommended_actions.errors import DeserializationError
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "str"
     """<p>Provides the name of the field that failed validation.</p>"""
     message: "str"

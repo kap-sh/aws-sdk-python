@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#GetRegisterAccountStatusRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetRegisterAccountStatusRequest(TypedDict):
+class GetRegisterAccountStatusRequest(TypedDict, closed=True):
     pass
 
 

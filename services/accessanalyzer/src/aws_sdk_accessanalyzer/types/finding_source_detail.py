@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingSourceDetail``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class FindingSourceDetail(TypedDict):
+class FindingSourceDetail(TypedDict, closed=True):
     access_point_arn: NotRequired["str"]
     """<p>The ARN of the access point that generated the finding. The ARN format depends on whether the ARN represents an access point or a multi-region access point.</p>"""
     access_point_account: NotRequired["str"]

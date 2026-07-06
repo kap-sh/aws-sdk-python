@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#StartLoggingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartLoggingResponse(TypedDict):
+class StartLoggingResponse(TypedDict, closed=True):
     pass
 
 

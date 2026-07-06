@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#Integration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.pager_duty_configuration
 
 
-class _Integration_pagerDutyConfiguration(TypedDict):
+class _Integration_pagerDutyConfiguration(TypedDict, closed=True):
     pagerDutyConfiguration: (
         "aws_sdk_ssm_incidents.types.pager_duty_configuration.PagerDutyConfiguration"
     )

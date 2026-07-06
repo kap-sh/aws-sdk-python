@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#RecordingGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.all_supported
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.resource_type_list
 
 
-class RecordingGroup(TypedDict):
+class RecordingGroup(TypedDict, closed=True):
     all_supported: "aws_sdk_config_service.types.all_supported.AllSupported"
     r"""<p>Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.</p> <p>If you set this field to <code>true</code>, when Config adds support for a new resource type, Config starts recording resources of that type automatically.</p> <p>If you set this field to <code>true</code>, you cannot enumerate specific resource types to record in the <code>resourceTypes</code> field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html\">RecordingGroup</a>, or to exclude in the <code>resourceTypes</code> field of <a href=\"https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html\">ExclusionByResourceTypes</a>.</p> <note> <p> <b>Region availability</b> </p> <p>Check <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html\">Resource Coverage by Region Availability</a> to see if a resource type is supported in the Amazon Web Services Region where you set up Config.</p> </note>"""
     include_global_resource_types: "aws_sdk_config_service.types.include_global_resource_types.IncludeGlobalResourceTypes"

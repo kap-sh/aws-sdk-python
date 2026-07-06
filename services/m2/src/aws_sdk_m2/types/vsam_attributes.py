@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#VsamAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.primary_key
 
 
-class VsamAttributes(TypedDict):
+class VsamAttributes(TypedDict, closed=True):
     format: "str"
     """<p>The record format of the data set.</p>"""
     encoding: NotRequired["str"]

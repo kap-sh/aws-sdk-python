@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#QueryRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.query_granularity
 
 
-class QueryRange(TypedDict):
+class QueryRange(TypedDict, closed=True):
     start_time: "datetime.datetime"
     """<p>The start time of the query range.</p>"""
     end_time: "datetime.datetime"

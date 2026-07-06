@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CreateCodeInterpreterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.date_timestamp
 
 
-class CreateCodeInterpreterResponse(TypedDict):
+class CreateCodeInterpreterResponse(TypedDict, closed=True):
     code_interpreter_id: (
         "aws_sdk_bedrock_agentcore_control.types.code_interpreter_id.CodeInterpreterId"
     )

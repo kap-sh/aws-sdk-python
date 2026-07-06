@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Ipam``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class Ipam(TypedDict):
+class Ipam(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The Amazon Web Services account ID of the owner of the IPAM.</p>"""
     ipam_id: NotRequired["aws_sdk_ec2.types.ipam_id.IpamId"]

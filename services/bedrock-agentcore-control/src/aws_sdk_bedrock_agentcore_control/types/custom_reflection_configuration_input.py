@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#CustomReflectionConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,9 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.episodic_override_reflection_configuration_input
 
 
-class _CustomReflectionConfigurationInput_episodicReflectionOverride(TypedDict):
+class _CustomReflectionConfigurationInput_episodicReflectionOverride(
+    TypedDict, closed=True
+):
     episodicReflectionOverride: "aws_sdk_bedrock_agentcore_control.types.episodic_override_reflection_configuration_input.EpisodicOverrideReflectionConfigurationInput"
 
 

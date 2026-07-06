@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#PutCaseEventConfigurationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutCaseEventConfigurationResponse(TypedDict):
+class PutCaseEventConfigurationResponse(TypedDict, closed=True):
     pass
 
 

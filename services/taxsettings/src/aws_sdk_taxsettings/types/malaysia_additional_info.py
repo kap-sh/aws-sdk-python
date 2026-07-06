@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#MalaysiaAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.business_registration_number
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_information_number
 
 
-class MalaysiaAdditionalInfo(TypedDict):
+class MalaysiaAdditionalInfo(TypedDict, closed=True):
     service_tax_codes: "aws_sdk_taxsettings.types.malaysia_service_tax_codes_list.MalaysiaServiceTaxCodesList"
     """<p>List of service tax codes for your TRN in Malaysia.</p>"""
     tax_information_number: NotRequired[

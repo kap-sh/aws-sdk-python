@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#DescribeRouteOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.route_data
 
 
-class DescribeRouteOutput(TypedDict):
+class DescribeRouteOutput(TypedDict, closed=True):
     route: "aws_sdk_app_mesh.types.route_data.RouteData"
     """<p>The full description of your route.</p>"""
 

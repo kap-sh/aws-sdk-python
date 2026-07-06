@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#ValidationError``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.field_validation_error
 
 
-class _ValidationError_FieldValidationError(TypedDict):
+class _ValidationError_FieldValidationError(TypedDict, closed=True):
     FieldValidationError: "aws_sdk_partnercentral_account.types.field_validation_error.FieldValidationError"
 
 
-class _ValidationError_BusinessValidationError(TypedDict):
+class _ValidationError_BusinessValidationError(TypedDict, closed=True):
     BusinessValidationError: "aws_sdk_partnercentral_account.types.business_validation_error.BusinessValidationError"
 
 

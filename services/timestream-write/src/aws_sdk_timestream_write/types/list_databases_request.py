@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ListDatabasesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.pagination_limit
     import aws_sdk_timestream_write.types.string
 
 
-class ListDatabasesRequest(TypedDict):
+class ListDatabasesRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_timestream_write.types.string.String"]
     """<p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>"""
     max_results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AlgorithmStatusItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.detailed_algorithm_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class AlgorithmStatusItem(TypedDict):
+class AlgorithmStatusItem(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>The name of the algorithm for which the overall status is being reported.</p>"""
     status: NotRequired[

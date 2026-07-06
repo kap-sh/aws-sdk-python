@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#GetSystemInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.system_instance_description
 
 
-class GetSystemInstanceResponse(TypedDict):
+class GetSystemInstanceResponse(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_iotthingsgraph.types.system_instance_description.SystemInstanceDescription"
     ]

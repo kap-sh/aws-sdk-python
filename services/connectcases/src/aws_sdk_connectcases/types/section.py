@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#Section``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_group
 
 
-class _Section_fieldGroup(TypedDict):
+class _Section_fieldGroup(TypedDict, closed=True):
     fieldGroup: "aws_sdk_connectcases.types.field_group.FieldGroup"
 
 

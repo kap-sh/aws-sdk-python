@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#CrossRegionDisasterRecoveryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.disaster_recovery_type
 
 
-class CrossRegionDisasterRecoveryConfiguration(TypedDict):
+class CrossRegionDisasterRecoveryConfiguration(TypedDict, closed=True):
     source_autonomous_database_arn: "aws_sdk_odb.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the source Autonomous Database for the cross-Region disaster recovery configuration.</p>"""
     remote_disaster_recovery_type: (

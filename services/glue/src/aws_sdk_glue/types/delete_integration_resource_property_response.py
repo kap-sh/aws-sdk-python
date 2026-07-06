@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteIntegrationResourcePropertyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteIntegrationResourcePropertyResponse(TypedDict):
+class DeleteIntegrationResourcePropertyResponse(TypedDict, closed=True):
     pass
 
 

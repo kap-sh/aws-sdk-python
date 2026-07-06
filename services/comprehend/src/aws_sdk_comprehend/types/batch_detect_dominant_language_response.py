@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#BatchDetectDominantLanguageResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_detect_dominant_language_result
 
 
-class BatchDetectDominantLanguageResponse(TypedDict):
+class BatchDetectDominantLanguageResponse(TypedDict, closed=True):
     result_list: "aws_sdk_comprehend.types.list_of_detect_dominant_language_result.ListOfDetectDominantLanguageResult"
     """<p>A list of objects containing the results of the operation. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If all of the documents contain an error, the <code>ResultList</code> is empty.</p>"""
     error_list: "aws_sdk_comprehend.types.batch_item_error_list.BatchItemErrorList"

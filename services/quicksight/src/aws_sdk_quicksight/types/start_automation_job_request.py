@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#StartAutomationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.automate_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sensitive_io_payload
 
 
-class StartAutomationJobRequest(TypedDict):
+class StartAutomationJobRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the automation.</p>"""
     automation_group_id: "aws_sdk_quicksight.types.automate_id.AutomateId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backupgateway#GetBandwidthRateLimitScheduleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup_gateway.types.bandwidth_rate_limit_intervals
     import aws_sdk_backup_gateway.types.gateway_arn
 
 
-class GetBandwidthRateLimitScheduleOutput(TypedDict):
+class GetBandwidthRateLimitScheduleOutput(TypedDict, closed=True):
     gateway_arn: NotRequired["aws_sdk_backup_gateway.types.gateway_arn.GatewayArn"]
     r"""<p>The Amazon Resource Name (ARN) of the gateway. Use the <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_BGW_ListGateways.html\"> <code>ListGateways</code> </a> operation to return a list of gateways for your account and Amazon Web Services Region.</p>"""
     bandwidth_rate_limit_intervals: NotRequired[

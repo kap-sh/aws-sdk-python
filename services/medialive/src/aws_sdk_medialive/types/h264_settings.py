@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#H264Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -45,7 +45,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.timecode_burnin_settings
 
 
-class H264Settings(TypedDict):
+class H264Settings(TypedDict, closed=True):
     adaptive_quantization: NotRequired[
         "aws_sdk_medialive.types.h264_adaptive_quantization.H264AdaptiveQuantization"
     ]

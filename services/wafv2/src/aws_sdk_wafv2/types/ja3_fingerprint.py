@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#JA3Fingerprint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.fallback_behavior
 
 
-class JA3Fingerprint(TypedDict):
+class JA3Fingerprint(TypedDict, closed=True):
     fallback_behavior: "aws_sdk_wafv2.types.fallback_behavior.FallbackBehavior"
     """<p>The match status to assign to the web request if the request doesn't have a JA3 fingerprint. </p> <p>You can specify the following fallback behaviors:</p> <ul> <li> <p> <code>MATCH</code> - Treat the web request as matching the rule statement. WAF applies the rule action to the request.</p> </li> <li> <p> <code>NO_MATCH</code> - Treat the web request as not matching the rule statement.</p> </li> </ul>"""
 

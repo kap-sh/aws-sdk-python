@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateWorkspaceBundleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class CreateWorkspaceBundleRequest(TypedDict):
+class CreateWorkspaceBundleRequest(TypedDict, closed=True):
     bundle_name: "aws_sdk_workspaces.types.workspace_bundle_name.WorkspaceBundleName"
     """<p>The name of the bundle.</p>"""
     bundle_description: "aws_sdk_workspaces.types.workspace_bundle_description.WorkspaceBundleDescription"

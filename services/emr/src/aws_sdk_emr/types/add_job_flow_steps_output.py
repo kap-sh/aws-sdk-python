@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#AddJobFlowStepsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.step_ids_list
 
 
-class AddJobFlowStepsOutput(TypedDict):
+class AddJobFlowStepsOutput(TypedDict, closed=True):
     step_ids: NotRequired["aws_sdk_emr.types.step_ids_list.StepIdsList"]
     """<p>The identifiers of the list of steps added to the job flow.</p>"""
 

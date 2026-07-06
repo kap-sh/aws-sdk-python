@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#GetIdentityCenterAuthTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.t_stamp
 
 
-class GetIdentityCenterAuthTokenResponse(TypedDict):
+class GetIdentityCenterAuthTokenResponse(TypedDict, closed=True):
     token: NotRequired["aws_sdk_redshift.types.sensitive_string.SensitiveString"]
     """<p>The encrypted authentication token containing the caller's Amazon Web Services IAM Identity Center identity information. This token is encrypted using Key Management Service and can only be decrypted by the specified Amazon Redshift clusters. Use this token with Amazon Redshift drivers to authenticate using your Amazon Web Services IAM Identity Center identity.</p>"""
     expiration_time: NotRequired["aws_sdk_redshift.types.t_stamp.TStamp"]

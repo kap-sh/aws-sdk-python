@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) to use to untag a resource.</p>"""
     tag_keys: "aws_sdk_amplifyuibuilder.types.tag_key_list.TagKeyList"

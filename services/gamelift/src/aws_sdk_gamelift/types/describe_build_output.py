@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeBuildOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build
 
 
-class DescribeBuildOutput(TypedDict):
+class DescribeBuildOutput(TypedDict, closed=True):
     build: NotRequired["aws_sdk_gamelift.types.build.Build"]
     """<p>Set of properties describing the requested build.</p>"""
 

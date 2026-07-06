@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelPackageModelCard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_card_content
     import aws_sdk_sagemaker.types.model_card_status
 
 
-class ModelPackageModelCard(TypedDict):
+class ModelPackageModelCard(TypedDict, closed=True):
     model_card_content: NotRequired[
         "aws_sdk_sagemaker.types.model_card_content.ModelCardContent"
     ]

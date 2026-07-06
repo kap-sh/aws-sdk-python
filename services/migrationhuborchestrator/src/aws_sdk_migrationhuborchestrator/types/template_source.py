@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#TemplateSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_id
 
 
-class _TemplateSource_workflowId(TypedDict):
+class _TemplateSource_workflowId(TypedDict, closed=True):
     workflowId: "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
 
 

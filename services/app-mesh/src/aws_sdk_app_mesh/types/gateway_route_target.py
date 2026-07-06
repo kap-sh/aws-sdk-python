@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GatewayRouteTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.listener_port
 
 
-class GatewayRouteTarget(TypedDict):
+class GatewayRouteTarget(TypedDict, closed=True):
     virtual_service: "aws_sdk_app_mesh.types.gateway_route_virtual_service.GatewayRouteVirtualService"
     """<p>An object that represents a virtual service gateway route target.</p>"""
     port: NotRequired["aws_sdk_app_mesh.types.listener_port.ListenerPort"]

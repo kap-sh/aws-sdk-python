@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#ThrottlingException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError, ServiceError
 
 
-class ThrottlingException_(TypedDict):
+class ThrottlingException_(TypedDict, closed=True):
     message: "str"
     service_code: "str"
     """<p>The code for the service where the quota was exceeded</p>"""

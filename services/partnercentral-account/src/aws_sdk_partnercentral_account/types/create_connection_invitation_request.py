@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#CreateConnectionInvitationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.unicode_string_including_new_line
 
 
-class CreateConnectionInvitationRequest(TypedDict):
+class CreateConnectionInvitationRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_account.types.catalog.Catalog"
     """<p>The catalog identifier where the connection invitation will be created.</p>"""
     client_token: "aws_sdk_partnercentral_account.types.client_token.ClientToken"

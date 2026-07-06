@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetDelegatedAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 from aws_sdk_sts.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.trade_in_token_type
 
 
-class GetDelegatedAccessTokenRequest(TypedDict):
+class GetDelegatedAccessTokenRequest(TypedDict, closed=True):
     trade_in_token: "aws_sdk_sts.types.trade_in_token_type.tradeInTokenType"
     """<p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>"""
 

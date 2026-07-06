@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#CopyClusterSnapshotOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.cluster_snapshot
 
 
-class CopyClusterSnapshotOutput(TypedDict):
+class CopyClusterSnapshotOutput(TypedDict, closed=True):
     snapshot: "aws_sdk_docdb_elastic.types.cluster_snapshot.ClusterSnapshot"
 
 

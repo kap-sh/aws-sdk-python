@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#Route``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.destination_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.target_type
 
 
-class Route(TypedDict):
+class Route(TypedDict, closed=True):
     destination_type: NotRequired["aws_sdk_fms.types.destination_type.DestinationType"]
     """<p>The type of destination for the route.</p>"""
     target_type: NotRequired["aws_sdk_fms.types.target_type.TargetType"]

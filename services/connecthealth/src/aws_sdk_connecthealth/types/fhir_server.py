@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#FHIRServer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.sensitive_non_empty_string
 
 
-class FHIRServer(TypedDict):
+class FHIRServer(TypedDict, closed=True):
     fhir_endpoint: "aws_sdk_connecthealth.types.non_empty_string.NonEmptyString"
     """<p>FHIR server endpoint URL for accessing patient data.</p>"""
     oauth_token: NotRequired[

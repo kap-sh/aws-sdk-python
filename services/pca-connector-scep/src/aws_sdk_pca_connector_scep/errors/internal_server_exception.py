@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#InternalServerException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError, ServiceError
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "str"
 
 

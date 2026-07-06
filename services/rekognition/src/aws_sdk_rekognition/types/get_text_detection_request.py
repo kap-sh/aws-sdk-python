@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#GetTextDetectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.pagination_token
 
 
-class GetTextDetectionRequest(TypedDict):
+class GetTextDetectionRequest(TypedDict, closed=True):
     job_id: "aws_sdk_rekognition.types.job_id.JobId"
     """<p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>"""
     max_results: NotRequired["aws_sdk_rekognition.types.max_results.MaxResults"]

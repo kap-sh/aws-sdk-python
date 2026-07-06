@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeAIWorkloadConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.ai_dataset_config
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeAIWorkloadConfigResponse(TypedDict):
+class DescribeAIWorkloadConfigResponse(TypedDict, closed=True):
     ai_workload_config_name: NotRequired[
         "aws_sdk_sagemaker.types.ai_entity_name.AIEntityName"
     ]

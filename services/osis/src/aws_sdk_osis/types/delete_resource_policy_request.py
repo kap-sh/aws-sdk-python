@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.osis#DeleteResourcePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_osis.types.pipeline_arn
 
 
-class DeleteResourcePolicyRequest(TypedDict):
+class DeleteResourcePolicyRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_osis.types.pipeline_arn.PipelineArn"
     """<p>The Amazon Resource Name (ARN) of the resource from which to delete the policy.</p>"""
 

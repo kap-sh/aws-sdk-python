@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Permission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.permission_principal_string
 
 
-class Permission(TypedDict):
+class Permission(TypedDict, closed=True):
     actions: "aws_sdk_quicksight.types.actions_list.ActionsList"
     """<p>A list of actions that the principal can perform against the flow.</p> <p>The following are the list of values to set a principal as a flow owner:</p> <ul> <li> <p>quicksight:PublishFlow</p> </li> <li> <p>quicksight:GetFlow</p> </li> <li> <p>quicksight:UpdateFlowPermissions</p> </li> <li> <p>quicksight:GetFlowSession</p> </li> <li> <p>quicksight:StartFlowSession</p> </li> <li> <p>quicksight:StopFlowSession</p> </li> <li> <p>quicksight:UpdateFlowSession</p> </li> <li> <p>quicksight:UnpublishFlow</p> </li> <li> <p>quicksight:GetFlowStages</p> </li> <li> <p>quicksight:DeleteFlow</p> </li> <li> <p>quicksight:DescribeFlowPermissions</p> </li> <li> <p>quicksight:UpdateFlow</p> </li> <li> <p>quicksight:CreatePresignedUrl</p> </li> </ul> <p>The following are the list of values to set a principal as a flow viewer:</p> <ul> <li> <p>quicksight:GetFlow</p> </li> <li> <p>quicksight:UpdateFlowSession</p> </li> <li> <p>quicksight:StartFlowSession</p> </li> <li> <p>quicksight:StopFlowSession</p> </li> <li> <p>quicksight:GetFlowSession</p> </li> <li> <p>quicksight:CreatePresignedUrl</p> </li> <li> <p>quicksight:GetFlowStages</p> </li> </ul>"""
     principal: (

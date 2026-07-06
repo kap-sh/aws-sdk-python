@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#Computer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.attributes
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.sid
 
 
-class Computer(TypedDict):
+class Computer(TypedDict, closed=True):
     computer_id: NotRequired["aws_sdk_directory_service.types.sid.SID"]
     """<p>The identifier of the computer.</p>"""
     computer_name: NotRequired[

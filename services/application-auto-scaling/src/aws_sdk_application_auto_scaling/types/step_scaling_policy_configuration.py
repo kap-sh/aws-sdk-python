@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#StepScalingPolicyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.adjustment_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.step_adjustments
 
 
-class StepScalingPolicyConfiguration(TypedDict):
+class StepScalingPolicyConfiguration(TypedDict, closed=True):
     adjustment_type: NotRequired[
         "aws_sdk_application_auto_scaling.types.adjustment_type.AdjustmentType"
     ]

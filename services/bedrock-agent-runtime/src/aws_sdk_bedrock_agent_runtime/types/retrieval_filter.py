@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrievalFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -12,29 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.retrieval_filter_list
 
 
-class _RetrievalFilter_equals(TypedDict):
+class _RetrievalFilter_equals(TypedDict, closed=True):
     equals: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_notEquals(TypedDict):
+class _RetrievalFilter_notEquals(TypedDict, closed=True):
     notEquals: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_greaterThan(TypedDict):
+class _RetrievalFilter_greaterThan(TypedDict, closed=True):
     greaterThan: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_greaterThanOrEquals(TypedDict):
+class _RetrievalFilter_greaterThanOrEquals(TypedDict, closed=True):
     greaterThanOrEquals: (
         "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
     )
 
 
-class _RetrievalFilter_lessThan(TypedDict):
+class _RetrievalFilter_lessThan(TypedDict, closed=True):
     lessThan: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_lessThanOrEquals(TypedDict):
+class _RetrievalFilter_lessThanOrEquals(TypedDict, closed=True):
     lessThanOrEquals: (
         "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
     )
@@ -45,34 +47,35 @@ _RetrievalFilter_in = TypedDict(
     {
         "in": "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute",
     },
+    closed=True,
 )
 
 
-class _RetrievalFilter_notIn(TypedDict):
+class _RetrievalFilter_notIn(TypedDict, closed=True):
     notIn: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_startsWith(TypedDict):
+class _RetrievalFilter_startsWith(TypedDict, closed=True):
     startsWith: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_listContains(TypedDict):
+class _RetrievalFilter_listContains(TypedDict, closed=True):
     listContains: "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
 
 
-class _RetrievalFilter_stringContains(TypedDict):
+class _RetrievalFilter_stringContains(TypedDict, closed=True):
     stringContains: (
         "aws_sdk_bedrock_agent_runtime.types.filter_attribute.FilterAttribute"
     )
 
 
-class _RetrievalFilter_andAll(TypedDict):
+class _RetrievalFilter_andAll(TypedDict, closed=True):
     andAll: (
         "aws_sdk_bedrock_agent_runtime.types.retrieval_filter_list.RetrievalFilterList"
     )
 
 
-class _RetrievalFilter_orAll(TypedDict):
+class _RetrievalFilter_orAll(TypedDict, closed=True):
     orAll: (
         "aws_sdk_bedrock_agent_runtime.types.retrieval_filter_list.RetrievalFilterList"
     )

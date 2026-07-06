@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListEdgePackagingJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.edge_packaging_job_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListEdgePackagingJobsRequest(TypedDict):
+class ListEdgePackagingJobsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sagemaker.types.next_token.NextToken"]
     """<p>The response from the last list when returning a list large enough to need tokening.</p>"""
     max_results: NotRequired["aws_sdk_sagemaker.types.list_max_results.ListMaxResults"]

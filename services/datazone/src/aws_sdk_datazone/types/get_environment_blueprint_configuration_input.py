@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetEnvironmentBlueprintConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_id
     import aws_sdk_datazone.types.environment_blueprint_id
 
 
-class GetEnvironmentBlueprintConfigurationInput(TypedDict):
+class GetEnvironmentBlueprintConfigurationInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain where this blueprint exists.</p>"""
     environment_blueprint_identifier: (

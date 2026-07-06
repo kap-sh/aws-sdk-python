@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#RequestUploadCredentialsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.build_id_or_arn
 
 
-class RequestUploadCredentialsInput(TypedDict):
+class RequestUploadCredentialsInput(TypedDict, closed=True):
     build_id: NotRequired["aws_sdk_gamelift.types.build_id_or_arn.BuildIdOrArn"]
     """<p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>"""
 

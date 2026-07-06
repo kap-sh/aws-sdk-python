@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TableCreationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_name
 
 
-class TableCreationParameters(TypedDict):
+class TableCreationParameters(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_name.TableName"
     """<p> The name of the table created as part of the import operation. </p>"""
     attribute_definitions: (

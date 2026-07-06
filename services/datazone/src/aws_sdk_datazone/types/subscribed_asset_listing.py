@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedAssetListing``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_id
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.type_name
 
 
-class SubscribedAssetListing(TypedDict):
+class SubscribedAssetListing(TypedDict, closed=True):
     entity_id: NotRequired["aws_sdk_datazone.types.asset_id.AssetId"]
     """<p>The identifier of the published asset for which the subscription grant is created.</p>"""
     entity_revision: NotRequired["aws_sdk_datazone.types.revision.Revision"]

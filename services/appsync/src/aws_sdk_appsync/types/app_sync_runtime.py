@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#AppSyncRuntime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appsync.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class AppSyncRuntime(TypedDict):
+class AppSyncRuntime(TypedDict, closed=True):
     name: "aws_sdk_appsync.types.runtime_name.RuntimeName"
     """<p>The <code>name</code> of the runtime to use. Currently, the only allowed value is <code>APPSYNC_JS</code>.</p>"""
     runtime_version: "aws_sdk_appsync.types.string.String"

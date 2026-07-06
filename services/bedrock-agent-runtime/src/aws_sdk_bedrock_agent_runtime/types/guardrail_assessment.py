@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_content_policy_assessment
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guardrail_word_policy_assessment
 
 
-class GuardrailAssessment(TypedDict):
+class GuardrailAssessment(TypedDict, closed=True):
     topic_policy: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.guardrail_topic_policy_assessment.GuardrailTopicPolicyAssessment"
     ]

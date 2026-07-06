@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#DeleteSessionLoggerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSessionLoggerResponse(TypedDict):
+class DeleteSessionLoggerResponse(TypedDict, closed=True):
     pass
 
 

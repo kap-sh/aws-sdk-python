@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListControlDisplayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.label_options
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_info_icon_label_options
 
 
-class ListControlDisplayOptions(TypedDict):
+class ListControlDisplayOptions(TypedDict, closed=True):
     search_options: NotRequired[
         "aws_sdk_quicksight.types.list_control_search_options.ListControlSearchOptions"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacedeployment#PutDeploymentParameterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_deployment.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_deployment.types.tags_map
 
 
-class PutDeploymentParameterRequest(TypedDict):
+class PutDeploymentParameterRequest(TypedDict, closed=True):
     catalog: "aws_sdk_marketplace_deployment.types.catalog.Catalog"
     """<p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code> </p>"""
     product_id: "aws_sdk_marketplace_deployment.types.resource_id.ResourceId"

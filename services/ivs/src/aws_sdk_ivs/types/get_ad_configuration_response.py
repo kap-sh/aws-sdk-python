@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetAdConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs.types.ad_configuration
 
 
-class GetAdConfigurationResponse(TypedDict):
+class GetAdConfigurationResponse(TypedDict, closed=True):
     ad_configuration: NotRequired["aws_sdk_ivs.types.ad_configuration.AdConfiguration"]
     """<p/>"""
 

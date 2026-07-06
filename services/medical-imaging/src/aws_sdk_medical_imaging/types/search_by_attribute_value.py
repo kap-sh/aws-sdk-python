@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#SearchByAttributeValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError, SerializationError
 
@@ -14,47 +16,47 @@ if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.dicom_study_instance_uid
 
 
-class _SearchByAttributeValue_DICOMPatientId(TypedDict):
+class _SearchByAttributeValue_DICOMPatientId(TypedDict, closed=True):
     DICOMPatientId: "aws_sdk_medical_imaging.types.dicom_patient_id.DICOMPatientId"
 
 
-class _SearchByAttributeValue_DICOMAccessionNumber(TypedDict):
+class _SearchByAttributeValue_DICOMAccessionNumber(TypedDict, closed=True):
     DICOMAccessionNumber: (
         "aws_sdk_medical_imaging.types.dicom_accession_number.DICOMAccessionNumber"
     )
 
 
-class _SearchByAttributeValue_DICOMStudyId(TypedDict):
+class _SearchByAttributeValue_DICOMStudyId(TypedDict, closed=True):
     DICOMStudyId: "aws_sdk_medical_imaging.types.dicom_study_id.DICOMStudyId"
 
 
-class _SearchByAttributeValue_DICOMStudyInstanceUID(TypedDict):
+class _SearchByAttributeValue_DICOMStudyInstanceUID(TypedDict, closed=True):
     DICOMStudyInstanceUID: (
         "aws_sdk_medical_imaging.types.dicom_study_instance_uid.DICOMStudyInstanceUID"
     )
 
 
-class _SearchByAttributeValue_DICOMSeriesInstanceUID(TypedDict):
+class _SearchByAttributeValue_DICOMSeriesInstanceUID(TypedDict, closed=True):
     DICOMSeriesInstanceUID: (
         "aws_sdk_medical_imaging.types.dicom_series_instance_uid.DICOMSeriesInstanceUID"
     )
 
 
-class _SearchByAttributeValue_createdAt(TypedDict):
+class _SearchByAttributeValue_createdAt(TypedDict, closed=True):
     createdAt: "aws_sdk_medical_imaging.types.date.Date"
 
 
-class _SearchByAttributeValue_updatedAt(TypedDict):
+class _SearchByAttributeValue_updatedAt(TypedDict, closed=True):
     updatedAt: "aws_sdk_medical_imaging.types.date.Date"
 
 
-class _SearchByAttributeValue_DICOMStudyDateAndTime(TypedDict):
+class _SearchByAttributeValue_DICOMStudyDateAndTime(TypedDict, closed=True):
     DICOMStudyDateAndTime: (
         "aws_sdk_medical_imaging.types.dicom_study_date_and_time.DICOMStudyDateAndTime"
     )
 
 
-class _SearchByAttributeValue_isPrimary(TypedDict):
+class _SearchByAttributeValue_isPrimary(TypedDict, closed=True):
     isPrimary: "bool"
 
 

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ArtifactDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.maximum_artifact_count
     import aws_sdk_codepipeline.types.minimum_artifact_count
 
 
-class ArtifactDetails(TypedDict):
+class ArtifactDetails(TypedDict, closed=True):
     minimum_count: (
         "aws_sdk_codepipeline.types.minimum_artifact_count.MinimumArtifactCount"
     )

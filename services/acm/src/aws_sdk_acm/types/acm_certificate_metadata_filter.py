@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#AcmCertificateMetadataFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -14,35 +16,35 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.validation_method
 
 
-class _AcmCertificateMetadataFilter_Status(TypedDict):
+class _AcmCertificateMetadataFilter_Status(TypedDict, closed=True):
     Status: "aws_sdk_acm.types.certificate_status.CertificateStatus"
 
 
-class _AcmCertificateMetadataFilter_RenewalStatus(TypedDict):
+class _AcmCertificateMetadataFilter_RenewalStatus(TypedDict, closed=True):
     RenewalStatus: "aws_sdk_acm.types.renewal_status.RenewalStatus"
 
 
-class _AcmCertificateMetadataFilter_Type(TypedDict):
+class _AcmCertificateMetadataFilter_Type(TypedDict, closed=True):
     Type: "aws_sdk_acm.types.certificate_type.CertificateType"
 
 
-class _AcmCertificateMetadataFilter_InUse(TypedDict):
+class _AcmCertificateMetadataFilter_InUse(TypedDict, closed=True):
     InUse: "aws_sdk_acm.types.nullable_boolean.NullableBoolean"
 
 
-class _AcmCertificateMetadataFilter_Exported(TypedDict):
+class _AcmCertificateMetadataFilter_Exported(TypedDict, closed=True):
     Exported: "aws_sdk_acm.types.nullable_boolean.NullableBoolean"
 
 
-class _AcmCertificateMetadataFilter_ExportOption(TypedDict):
+class _AcmCertificateMetadataFilter_ExportOption(TypedDict, closed=True):
     ExportOption: "aws_sdk_acm.types.certificate_export.CertificateExport"
 
 
-class _AcmCertificateMetadataFilter_ManagedBy(TypedDict):
+class _AcmCertificateMetadataFilter_ManagedBy(TypedDict, closed=True):
     ManagedBy: "aws_sdk_acm.types.certificate_managed_by.CertificateManagedBy"
 
 
-class _AcmCertificateMetadataFilter_ValidationMethod(TypedDict):
+class _AcmCertificateMetadataFilter_ValidationMethod(TypedDict, closed=True):
     ValidationMethod: "aws_sdk_acm.types.validation_method.ValidationMethod"
 
 

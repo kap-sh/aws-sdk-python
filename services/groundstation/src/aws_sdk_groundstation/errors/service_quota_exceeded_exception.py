@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["str"]
     parameter_name: NotRequired["str"]
     """<p>Parameter name that caused the exception</p>"""

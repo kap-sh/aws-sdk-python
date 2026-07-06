@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LocationAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.string
 
 
-class LocationAction(TypedDict):
+class LocationAction(TypedDict, closed=True):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The IAM role that grants permission to write to the Amazon Location resource.</p>"""
     tracker_name: "aws_sdk_iot.types.string.String"

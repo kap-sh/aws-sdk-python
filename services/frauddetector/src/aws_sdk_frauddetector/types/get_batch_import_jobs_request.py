@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetBatchImportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.batch_imports_max_page_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class GetBatchImportJobsRequest(TypedDict):
+class GetBatchImportJobsRequest(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The ID of the batch import job to get.</p>"""
     max_results: NotRequired[

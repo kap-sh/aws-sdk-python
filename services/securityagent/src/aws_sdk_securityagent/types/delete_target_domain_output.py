@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DeleteTargetDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.target_domain_id
 
 
-class DeleteTargetDomainOutput(TypedDict):
+class DeleteTargetDomainOutput(TypedDict, closed=True):
     target_domain_id: NotRequired[
         "aws_sdk_securityagent.types.target_domain_id.TargetDomainId"
     ]

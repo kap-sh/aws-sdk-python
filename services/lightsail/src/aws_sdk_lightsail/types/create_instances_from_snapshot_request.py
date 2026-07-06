@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateInstancesFromSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class CreateInstancesFromSnapshotRequest(TypedDict):
+class CreateInstancesFromSnapshotRequest(TypedDict, closed=True):
     instance_names: "aws_sdk_lightsail.types.string_list.StringList"
     """<p>The names for your new instances.</p>"""
     attached_disk_mapping: NotRequired[

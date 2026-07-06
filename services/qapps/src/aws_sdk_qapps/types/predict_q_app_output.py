@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#PredictQAppOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.predict_app_definition
 
 
-class PredictQAppOutput(TypedDict):
+class PredictQAppOutput(TypedDict, closed=True):
     app: "aws_sdk_qapps.types.predict_app_definition.PredictAppDefinition"
     """<p>The generated Q App definition.</p>"""
     problem_statement: "str"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#WorkflowParameterDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.workflow_parameter_value_list
 
 
-class WorkflowParameterDetail(TypedDict):
+class WorkflowParameterDetail(TypedDict, closed=True):
     name: "aws_sdk_imagebuilder.types.workflow_parameter_name.WorkflowParameterName"
     """<p>The name of this input parameter.</p>"""
     type: "aws_sdk_imagebuilder.types.workflow_parameter_type.WorkflowParameterType"

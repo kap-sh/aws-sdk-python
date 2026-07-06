@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#GetAccessPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3files.types.access_point_id
 
 
-class GetAccessPointRequest(TypedDict):
+class GetAccessPointRequest(TypedDict, closed=True):
     access_point_id: "aws_sdk_s3files.types.access_point_id.AccessPointId"
     """<p>The ID or Amazon Resource Name (ARN) of the access point to retrieve information for.</p>"""
 

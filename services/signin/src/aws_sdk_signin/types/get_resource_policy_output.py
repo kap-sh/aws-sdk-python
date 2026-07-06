@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#GetResourcePolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.signin_resource_based_policy
 
 
-class GetResourcePolicyOutput(TypedDict):
+class GetResourcePolicyOutput(TypedDict, closed=True):
     signin_resource_based_policy: (
         "aws_sdk_signin.types.signin_resource_based_policy.SigninResourceBasedPolicy"
     )

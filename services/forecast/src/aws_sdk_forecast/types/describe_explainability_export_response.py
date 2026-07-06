@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeExplainabilityExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class DescribeExplainabilityExportResponse(TypedDict):
+class DescribeExplainabilityExportResponse(TypedDict, closed=True):
     explainability_export_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the Explainability export.</p>"""
     explainability_export_name: NotRequired["aws_sdk_forecast.types.name.Name"]

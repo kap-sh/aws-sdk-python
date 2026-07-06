@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#EntityDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.entity_info
 
 
-class EntityDetails(TypedDict):
+class EntityDetails(TypedDict, closed=True):
     entity_info: "aws_sdk_iam.types.entity_info.EntityInfo"
     """<p>The <code>EntityInfo</code> object that contains details about the entity (user or role).</p>"""
     last_authenticated: NotRequired["aws_sdk_iam.types.date_type.dateType"]

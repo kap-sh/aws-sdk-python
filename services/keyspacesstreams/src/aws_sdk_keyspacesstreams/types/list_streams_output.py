@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#ListStreamsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.stream_arn_token
     import aws_sdk_keyspacesstreams.types.stream_list
 
 
-class ListStreamsOutput(TypedDict):
+class ListStreamsOutput(TypedDict, closed=True):
     streams: NotRequired["aws_sdk_keyspacesstreams.types.stream_list.StreamList"]
     """<p> An array of stream objects, each containing summary information about a stream including its ARN, status, and associated table information. This list includes all streams that match the request criteria. </p>"""
     next_token: NotRequired[

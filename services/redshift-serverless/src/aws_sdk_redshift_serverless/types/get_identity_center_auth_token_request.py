@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetIdentityCenterAuthTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.workgroup_name_list
 
 
-class GetIdentityCenterAuthTokenRequest(TypedDict):
+class GetIdentityCenterAuthTokenRequest(TypedDict, closed=True):
     workgroup_names: (
         "aws_sdk_redshift_serverless.types.workgroup_name_list.WorkgroupNameList"
     )

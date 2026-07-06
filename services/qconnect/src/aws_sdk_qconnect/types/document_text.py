@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#DocumentText``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.highlights
     import aws_sdk_qconnect.types.sensitive_string
 
 
-class DocumentText(TypedDict):
+class DocumentText(TypedDict, closed=True):
     text: NotRequired["aws_sdk_qconnect.types.sensitive_string.SensitiveString"]
     """<p>Text in the document.</p>"""
     highlights: NotRequired["aws_sdk_qconnect.types.highlights.Highlights"]

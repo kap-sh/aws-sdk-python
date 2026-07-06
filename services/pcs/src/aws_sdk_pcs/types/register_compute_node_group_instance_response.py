@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#RegisterComputeNodeGroupInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.shared_secret
 
 
-class RegisterComputeNodeGroupInstanceResponse(TypedDict):
+class RegisterComputeNodeGroupInstanceResponse(TypedDict, closed=True):
     node_id: "str"
     """<p>The scheduler node ID for this instance.</p>"""
     shared_secret: "aws_sdk_pcs.types.shared_secret.SharedSecret"

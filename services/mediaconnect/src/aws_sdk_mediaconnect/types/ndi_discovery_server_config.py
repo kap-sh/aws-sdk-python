@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#NdiDiscoveryServerConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NdiDiscoveryServerConfig(TypedDict):
+class NdiDiscoveryServerConfig(TypedDict, closed=True):
     discovery_server_address: NotRequired["str"]
     """<p>The unique network address of the NDI discovery server. </p>"""
     discovery_server_port: NotRequired["int"]

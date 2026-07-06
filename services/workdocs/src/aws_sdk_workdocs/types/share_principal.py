@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#SharePrincipal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workdocs.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workdocs.types.role_type
 
 
-class SharePrincipal(TypedDict):
+class SharePrincipal(TypedDict, closed=True):
     id: "aws_sdk_workdocs.types.id_type.IdType"
     """<p>The ID of the recipient.</p>"""
     type: "aws_sdk_workdocs.types.principal_type.PrincipalType"

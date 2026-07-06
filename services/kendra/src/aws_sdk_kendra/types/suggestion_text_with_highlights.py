@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#SuggestionTextWithHighlights``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.string
     import aws_sdk_kendra.types.suggestion_highlight_list
 
 
-class SuggestionTextWithHighlights(TypedDict):
+class SuggestionTextWithHighlights(TypedDict, closed=True):
     text: NotRequired["aws_sdk_kendra.types.string.String"]
     """<p>The query suggestion text to display to the user.</p>"""
     highlights: NotRequired[

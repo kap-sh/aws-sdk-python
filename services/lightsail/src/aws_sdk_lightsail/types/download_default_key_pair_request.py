@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DownloadDefaultKeyPairRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DownloadDefaultKeyPairRequest(TypedDict):
+class DownloadDefaultKeyPairRequest(TypedDict, closed=True):
     pass
 
 

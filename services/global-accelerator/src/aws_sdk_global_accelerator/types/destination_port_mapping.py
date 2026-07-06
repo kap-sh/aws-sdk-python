@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#DestinationPortMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.custom_routing_destination_traffic_state
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.socket_addresses
 
 
-class DestinationPortMapping(TypedDict):
+class DestinationPortMapping(TypedDict, closed=True):
     accelerator_arn: NotRequired[
         "aws_sdk_global_accelerator.types.generic_string.GenericString"
     ]

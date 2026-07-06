@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#Subnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.subnet_outpost
 
 
-class Subnet(TypedDict):
+class Subnet(TypedDict, closed=True):
     subnet_identifier: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>The unique identifier for the subnet.</p>"""
     subnet_availability_zone: NotRequired[

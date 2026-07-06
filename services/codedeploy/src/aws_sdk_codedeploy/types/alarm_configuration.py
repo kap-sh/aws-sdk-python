@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#AlarmConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.alarm_list
     import aws_sdk_codedeploy.types.boolean
 
 
-class AlarmConfiguration(TypedDict):
+class AlarmConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_codedeploy.types.boolean.Boolean"
     """<p>Indicates whether the alarm configuration is enabled.</p>"""
     ignore_poll_alarm_failure: "aws_sdk_codedeploy.types.boolean.Boolean"

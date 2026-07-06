@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListTagsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ListTagsInput(TypedDict):
+class ListTagsInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_backup.types.arn.ARN"
     """<p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN depends on the type of resource. Valid targets for <code>ListTags</code> are recovery points, backup plans, and backup vaults.</p>"""
     next_token: NotRequired["aws_sdk_backup.types.string.string"]

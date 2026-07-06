@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#Command``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snow_device_management.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.unlock
 
 
-class _Command_unlock(TypedDict):
+class _Command_unlock(TypedDict, closed=True):
     unlock: "aws_sdk_snow_device_management.types.unlock.Unlock"
 
 
-class _Command_reboot(TypedDict):
+class _Command_reboot(TypedDict, closed=True):
     reboot: "aws_sdk_snow_device_management.types.reboot.Reboot"
 
 

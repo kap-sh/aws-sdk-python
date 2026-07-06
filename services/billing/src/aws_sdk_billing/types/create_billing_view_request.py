@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#CreateBillingViewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.resource_tag_list
 
 
-class CreateBillingViewRequest(TypedDict):
+class CreateBillingViewRequest(TypedDict, closed=True):
     name: "aws_sdk_billing.types.billing_view_name.BillingViewName"
     """<p> The name of the billing view. </p>"""
     description: NotRequired[

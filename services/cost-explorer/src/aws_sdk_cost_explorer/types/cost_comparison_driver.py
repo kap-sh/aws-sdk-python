@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostComparisonDriver``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.comparison_metrics
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.expression
 
 
-class CostComparisonDriver(TypedDict):
+class CostComparisonDriver(TypedDict, closed=True):
     cost_selector: NotRequired["aws_sdk_cost_explorer.types.expression.Expression"]
     metrics: NotRequired[
         "aws_sdk_cost_explorer.types.comparison_metrics.ComparisonMetrics"

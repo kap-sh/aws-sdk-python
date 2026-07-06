@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#DescribeLiveSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__map_of__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.http_package_configurations
 
 
-class DescribeLiveSourceResponse(TypedDict):
+class DescribeLiveSourceResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The ARN of the live source.</p>"""
     creation_time: NotRequired[

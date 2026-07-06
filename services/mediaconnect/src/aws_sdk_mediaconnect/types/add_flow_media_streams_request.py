@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#AddFlowMediaStreamsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_add_media_stream_request
     import aws_sdk_mediaconnect.types.flow_arn
 
 
-class AddFlowMediaStreamsRequest(TypedDict):
+class AddFlowMediaStreamsRequest(TypedDict, closed=True):
     flow_arn: "aws_sdk_mediaconnect.types.flow_arn.FlowArn"
     """<p> The Amazon Resource Name (ARN) of the flow.</p>"""
     media_streams: NotRequired[

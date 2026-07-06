@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#StackError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.stack_error_code
     import aws_sdk_appstream.types.string
 
 
-class StackError(TypedDict):
+class StackError(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_appstream.types.stack_error_code.StackErrorCode"]
     """<p>The error code.</p>"""
     error_message: NotRequired["aws_sdk_appstream.types.string.String"]

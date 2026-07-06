@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#GetTermForReportResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetTermForReportResponse(TypedDict):
+class GetTermForReportResponse(TypedDict, closed=True):
     document_presigned_url: NotRequired["str"]
     """<p>Presigned S3 url to access the term content.</p>"""
     term_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#WcdmaNmrObj``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_wireless.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.utran_cid
 
 
-class WcdmaNmrObj(TypedDict):
+class WcdmaNmrObj(TypedDict, closed=True):
     uarfcndl: "aws_sdk_iot_wireless.types.uarfcndl.UARFCNDL"
     """<p>WCDMA UTRA Absolute RF Channel Number downlink.</p>"""
     psc: "aws_sdk_iot_wireless.types.psc.PSC"

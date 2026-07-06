@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.s3#NoSuchUpload``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import ServiceError
 
 
-class NoSuchUpload_(TypedDict):
+class NoSuchUpload_(TypedDict, closed=True):
     pass
 
 

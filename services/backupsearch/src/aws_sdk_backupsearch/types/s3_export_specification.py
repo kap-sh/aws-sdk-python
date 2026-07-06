@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#S3ExportSpecification``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError
 
 
-class S3ExportSpecification(TypedDict):
+class S3ExportSpecification(TypedDict, closed=True):
     destination_bucket: "str"
     """<p>This specifies the destination Amazon S3 bucket for the export job.</p>"""
     destination_prefix: NotRequired["str"]

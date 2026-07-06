@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ConditionalCheckFailedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.error_message
 
 
-class ConditionalCheckFailedException_(TypedDict):
+class ConditionalCheckFailedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_dynamodb.types.error_message.ErrorMessage"]
     """<p>The conditional request failed.</p>"""
     item: NotRequired["aws_sdk_dynamodb.types.attribute_map.AttributeMap"]

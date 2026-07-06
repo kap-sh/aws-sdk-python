@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicNumericEqualityFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.named_filter_agg_type
     import aws_sdk_quicksight.types.topic_singular_filter_constant
 
 
-class TopicNumericEqualityFilter(TypedDict):
+class TopicNumericEqualityFilter(TypedDict, closed=True):
     constant: NotRequired[
         "aws_sdk_quicksight.types.topic_singular_filter_constant.TopicSingularFilterConstant"
     ]

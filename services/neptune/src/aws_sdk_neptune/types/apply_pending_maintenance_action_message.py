@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#ApplyPendingMaintenanceActionMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class ApplyPendingMaintenanceActionMessage(TypedDict):
+class ApplyPendingMaintenanceActionMessage(TypedDict, closed=True):
     resource_identifier: NotRequired["aws_sdk_neptune.types.string.String"]
     r"""<p>The Amazon Resource Name (ARN) of the resource that the pending maintenance action applies to. For information about creating an ARN, see <a href=\"https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing\"> Constructing an Amazon Resource Name (ARN)</a>.</p>"""
     apply_action: NotRequired["aws_sdk_neptune.types.string.String"]

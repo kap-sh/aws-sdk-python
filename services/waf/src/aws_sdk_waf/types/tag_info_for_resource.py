@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.waf#TagInfoForResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_arn
     import aws_sdk_waf.types.tag_list
 
 
-class TagInfoForResource(TypedDict):
+class TagInfoForResource(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_waf.types.resource_arn.ResourceArn"]
     """<p></p>"""
     tag_list: NotRequired["aws_sdk_waf.types.tag_list.TagList"]

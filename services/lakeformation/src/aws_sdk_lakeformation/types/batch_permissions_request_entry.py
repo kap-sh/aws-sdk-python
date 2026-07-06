@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#BatchPermissionsRequestEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource
 
 
-class BatchPermissionsRequestEntry(TypedDict):
+class BatchPermissionsRequestEntry(TypedDict, closed=True):
     id: "aws_sdk_lakeformation.types.identifier.Identifier"
     """<p>A unique identifier for the batch permissions request entry.</p>"""
     principal: NotRequired[

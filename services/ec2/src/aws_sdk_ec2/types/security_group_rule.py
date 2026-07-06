@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SecurityGroupRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class SecurityGroupRule(TypedDict):
+class SecurityGroupRule(TypedDict, closed=True):
     security_group_rule_id: NotRequired[
         "aws_sdk_ec2.types.security_group_rule_id.SecurityGroupRuleId"
     ]

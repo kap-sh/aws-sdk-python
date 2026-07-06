@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#FargateProfile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.fargate_profile_health
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.timestamp
 
 
-class FargateProfile(TypedDict):
+class FargateProfile(TypedDict, closed=True):
     fargate_profile_name: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The name of the Fargate profile.</p>"""
     fargate_profile_arn: NotRequired["aws_sdk_eks.types.string.String"]

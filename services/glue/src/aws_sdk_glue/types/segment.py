@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Segment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.total_segments_integer
 
 
-class Segment(TypedDict):
+class Segment(TypedDict, closed=True):
     segment_number: "aws_sdk_glue.types.non_negative_integer.NonNegativeInteger"
     """<p>The zero-based index number of the segment. For example, if the total number of segments is 4, <code>SegmentNumber</code> values range from 0 through 3.</p>"""
     total_segments: "aws_sdk_glue.types.total_segments_integer.TotalSegmentsInteger"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EC2ManagedInstance``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EC2ManagedInstance(TypedDict):
+class EC2ManagedInstance(TypedDict, closed=True):
     instance_id: NotRequired["str"]
     """<p>Unique identifier of the managed EC2 instance.</p>"""
 

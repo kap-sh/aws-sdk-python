@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AppflowIntegrationWorkflowAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class AppflowIntegrationWorkflowAttributes(TypedDict):
+class AppflowIntegrationWorkflowAttributes(TypedDict, closed=True):
     source_connector_type: (
         "aws_sdk_customer_profiles.types.source_connector_type.SourceConnectorType"
     )

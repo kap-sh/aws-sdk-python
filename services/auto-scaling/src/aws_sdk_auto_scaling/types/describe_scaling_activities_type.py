@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#DescribeScalingActivitiesType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_max_len255
 
 
-class DescribeScalingActivitiesType(TypedDict):
+class DescribeScalingActivitiesType(TypedDict, closed=True):
     activity_ids: NotRequired["aws_sdk_auto_scaling.types.activity_ids.ActivityIds"]
     """<p> The activity IDs of the desired scaling activities. If unknown activity IDs are requested, they are ignored with no error. Only activities started within the last six weeks can be returned regardless of the activity IDs specified. If other filters are specified with the request, only results matching all filter criteria can be returned. </p> <p>Array Members: Maximum number of 50 IDs.</p>"""
     auto_scaling_group_name: NotRequired[

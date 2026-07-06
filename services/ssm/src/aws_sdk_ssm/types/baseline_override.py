@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#BaselineOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.boolean
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_source_list
 
 
-class BaselineOverride(TypedDict):
+class BaselineOverride(TypedDict, closed=True):
     operating_system: NotRequired["aws_sdk_ssm.types.operating_system.OperatingSystem"]
     """<p>The operating system rule used by the patch baseline override.</p>"""
     global_filters: NotRequired["aws_sdk_ssm.types.patch_filter_group.PatchFilterGroup"]

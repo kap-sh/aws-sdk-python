@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#VoteOnProposalOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class VoteOnProposalOutput(TypedDict):
+class VoteOnProposalOutput(TypedDict, closed=True):
     pass
 
 

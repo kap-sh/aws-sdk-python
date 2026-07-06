@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ReceiptIpFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.receipt_filter_policy
 
 
-class ReceiptIpFilter(TypedDict):
+class ReceiptIpFilter(TypedDict, closed=True):
     policy: "aws_sdk_ses.types.receipt_filter_policy.ReceiptFilterPolicy"
     """<p>Indicates whether to block or allow incoming mail from the specified IP addresses.</p>"""
     cidr: "aws_sdk_ses.types.cidr.Cidr"

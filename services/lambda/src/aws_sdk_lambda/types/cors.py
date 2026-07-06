@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#Cors``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.allow_credentials
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.max_age
 
 
-class Cors(TypedDict):
+class Cors(TypedDict, closed=True):
     allow_credentials: NotRequired[
         "aws_sdk_lambda.types.allow_credentials.AllowCredentials"
     ]

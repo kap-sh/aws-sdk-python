@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateRevealConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.reveal_configuration
     import aws_sdk_macie2.types.update_retrieval_configuration
 
 
-class UpdateRevealConfigurationRequest(TypedDict):
+class UpdateRevealConfigurationRequest(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_macie2.types.reveal_configuration.RevealConfiguration"
     ]

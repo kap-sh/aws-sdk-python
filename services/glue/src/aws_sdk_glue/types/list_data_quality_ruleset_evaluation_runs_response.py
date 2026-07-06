@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListDataQualityRulesetEvaluationRunsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.data_quality_ruleset_evaluation_run_list
     import aws_sdk_glue.types.pagination_token
 
 
-class ListDataQualityRulesetEvaluationRunsResponse(TypedDict):
+class ListDataQualityRulesetEvaluationRunsResponse(TypedDict, closed=True):
     runs: NotRequired[
         "aws_sdk_glue.types.data_quality_ruleset_evaluation_run_list.DataQualityRulesetEvaluationRunList"
     ]

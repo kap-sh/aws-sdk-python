@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ListBrokersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__list_of_broker_summary
     import aws_sdk_mq.types.__string
 
 
-class ListBrokersResponse(TypedDict):
+class ListBrokersResponse(TypedDict, closed=True):
     broker_summaries: NotRequired[
         "aws_sdk_mq.types.__list_of_broker_summary.__listOfBrokerSummary"
     ]

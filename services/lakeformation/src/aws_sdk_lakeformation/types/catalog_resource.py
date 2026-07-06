@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#CatalogResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.catalog_id_string
 
 
-class CatalogResource(TypedDict):
+class CatalogResource(TypedDict, closed=True):
     id: NotRequired["aws_sdk_lakeformation.types.catalog_id_string.CatalogIdString"]
     """<p>An identifier for the catalog resource.</p>"""
 

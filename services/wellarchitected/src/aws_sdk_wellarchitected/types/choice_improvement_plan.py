@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ChoiceImprovementPlan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.improvement_plan_url
 
 
-class ChoiceImprovementPlan(TypedDict):
+class ChoiceImprovementPlan(TypedDict, closed=True):
     choice_id: NotRequired["aws_sdk_wellarchitected.types.choice_id.ChoiceId"]
     display_text: NotRequired["aws_sdk_wellarchitected.types.display_text.DisplayText"]
     """<p>The display text for the improvement plan.</p>"""

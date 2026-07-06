@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationQuestionAnswerAnalysisDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_gen_ai_answer_analysis_details
 
 
-class _EvaluationQuestionAnswerAnalysisDetails_GenAI(TypedDict):
+class _EvaluationQuestionAnswerAnalysisDetails_GenAI(TypedDict, closed=True):
     GenAI: "aws_sdk_connect.types.evaluation_gen_ai_answer_analysis_details.EvaluationGenAIAnswerAnalysisDetails"
 
 
-class _EvaluationQuestionAnswerAnalysisDetails_ContactLens(TypedDict):
+class _EvaluationQuestionAnswerAnalysisDetails_ContactLens(TypedDict, closed=True):
     ContactLens: "aws_sdk_connect.types.evaluation_contact_lens_answer_analysis_details.EvaluationContactLensAnswerAnalysisDetails"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_data_exports.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.resource_tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_bcm_data_exports.types.arn.Arn"
     """<p>The unique identifier for the resource.</p>"""
     resource_tags: "aws_sdk_bcm_data_exports.types.resource_tag_list.ResourceTagList"

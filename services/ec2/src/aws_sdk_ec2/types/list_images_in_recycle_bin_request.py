@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ListImagesInRecycleBinRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ListImagesInRecycleBinRequest(TypedDict):
+class ListImagesInRecycleBinRequest(TypedDict, closed=True):
     image_ids: NotRequired["aws_sdk_ec2.types.image_id_string_list.ImageIdStringList"]
     """<p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>"""
     next_token: NotRequired["aws_sdk_ec2.types.string.String"]

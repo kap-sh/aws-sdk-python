@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizerautomation#PreviewResultSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_compute_optimizer_automation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer_automation.types.rule_preview_total
 
 
-class PreviewResultSummary(TypedDict):
+class PreviewResultSummary(TypedDict, closed=True):
     key: "str"
     """<p>The key identifier for this preview result summary.</p>"""
     total: (

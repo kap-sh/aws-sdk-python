@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.kx_environment_name
 
 
-class UpdateKxEnvironmentRequest(TypedDict):
+class UpdateKxEnvironmentRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_finspace.types.id_type.IdType"
     """<p>A unique identifier for the kdb environment.</p>"""
     name: NotRequired["aws_sdk_finspace.types.kx_environment_name.KxEnvironmentName"]

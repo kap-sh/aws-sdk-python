@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GetAccountAuthorizationDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.max_items_type
 
 
-class GetAccountAuthorizationDetailsRequest(TypedDict):
+class GetAccountAuthorizationDetailsRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_iam.types.entity_list_type.entityListType"]
     """<p>A list of entity types used to filter the results. Only the entities that match the types you specify are included in the output. Use the value <code>LocalManagedPolicy</code> to include customer managed policies.</p> <p>The format for this parameter is a comma-separated (if more than one) list of strings. Each string value in the list must be one of the valid values listed below.</p>"""
     max_items: NotRequired["aws_sdk_iam.types.max_items_type.maxItemsType"]

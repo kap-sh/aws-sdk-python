@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#OpenTunnelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.client_access_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.tunnel_id
 
 
-class OpenTunnelResponse(TypedDict):
+class OpenTunnelResponse(TypedDict, closed=True):
     tunnel_id: NotRequired["aws_sdk_iotsecuretunneling.types.tunnel_id.TunnelId"]
     """<p>A unique alpha-numeric tunnel ID.</p>"""
     tunnel_arn: NotRequired["aws_sdk_iotsecuretunneling.types.tunnel_arn.TunnelArn"]

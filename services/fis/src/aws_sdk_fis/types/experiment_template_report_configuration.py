@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateReportConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_template_report_configuration_data_sources
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fis.types.report_configuration_duration
 
 
-class ExperimentTemplateReportConfiguration(TypedDict):
+class ExperimentTemplateReportConfiguration(TypedDict, closed=True):
     outputs: NotRequired[
         "aws_sdk_fis.types.experiment_template_report_configuration_outputs.ExperimentTemplateReportConfigurationOutputs"
     ]

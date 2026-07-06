@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#PurchaseReservedDBInstancesOfferingMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class PurchaseReservedDBInstancesOfferingMessage(TypedDict):
+class PurchaseReservedDBInstancesOfferingMessage(TypedDict, closed=True):
     reserved_db_instances_offering_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The ID of the Reserved DB instance offering to purchase.</p> <p>Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706</p>"""
     reserved_db_instance_id: NotRequired["aws_sdk_rds.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#UpdateElasticsearchDomainConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.elasticsearch_domain_config
 
 
-class UpdateElasticsearchDomainConfigResponse(TypedDict):
+class UpdateElasticsearchDomainConfigResponse(TypedDict, closed=True):
     domain_config: "aws_sdk_elasticsearch_service.types.elasticsearch_domain_config.ElasticsearchDomainConfig"
     """<p>The status of the updated Elasticsearch domain. </p>"""
     dry_run_results: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ArtifactDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.error_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.uri
 
 
-class ArtifactDetails(TypedDict):
+class ArtifactDetails(TypedDict, closed=True):
     output_location: NotRequired["aws_sdk_connecthealth.types.uri.Uri"]
     """<p/>"""
     status: NotRequired[

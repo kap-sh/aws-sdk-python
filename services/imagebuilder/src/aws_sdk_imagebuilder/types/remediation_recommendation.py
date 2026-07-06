@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#RemediationRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class RemediationRecommendation(TypedDict):
+class RemediationRecommendation(TypedDict, closed=True):
     text: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]
     """<p>The recommended course of action to remediate the finding.</p>"""
     url: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

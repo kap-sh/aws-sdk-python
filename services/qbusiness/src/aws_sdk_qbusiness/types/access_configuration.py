@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AccessConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.member_relation
 
 
-class AccessConfiguration(TypedDict):
+class AccessConfiguration(TypedDict, closed=True):
     access_controls: "aws_sdk_qbusiness.types.access_controls.AccessControls"
     """<p>A list of <code>AccessControlList</code> objects.</p>"""
     member_relation: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#DocumentBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.document_source
 
 
-class DocumentBlock(TypedDict):
+class DocumentBlock(TypedDict, closed=True):
     format: "aws_sdk_bedrock_runtime.types.document_format.DocumentFormat"
     """<p>The format of a document, or its extension.</p>"""
     name: "str"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotdeviceadvisor#GetEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotdeviceadvisor.types.endpoint
 
 
-class GetEndpointResponse(TypedDict):
+class GetEndpointResponse(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_iotdeviceadvisor.types.endpoint.Endpoint"]
     """<p>The response of an Device Advisor endpoint.</p>"""
 

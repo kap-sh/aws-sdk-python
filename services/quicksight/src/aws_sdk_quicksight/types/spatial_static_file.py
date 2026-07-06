@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SpatialStaticFile``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.static_file_source
 
 
-class SpatialStaticFile(TypedDict):
+class SpatialStaticFile(TypedDict, closed=True):
     static_file_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"
     """<p>The ID of the spatial static file.</p>"""
     source: NotRequired["aws_sdk_quicksight.types.static_file_source.StaticFileSource"]

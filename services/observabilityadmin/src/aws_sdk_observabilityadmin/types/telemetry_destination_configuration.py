@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.cloudtrail_parameters
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.waf_logging_parameters
 
 
-class TelemetryDestinationConfiguration(TypedDict):
+class TelemetryDestinationConfiguration(TypedDict, closed=True):
     destination_type: NotRequired[
         "aws_sdk_observabilityadmin.types.destination_type.DestinationType"
     ]

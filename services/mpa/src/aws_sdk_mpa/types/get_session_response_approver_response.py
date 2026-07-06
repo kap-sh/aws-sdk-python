@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#GetSessionResponseApproverResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.identity_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class GetSessionResponseApproverResponse(TypedDict):
+class GetSessionResponseApproverResponse(TypedDict, closed=True):
     approver_id: NotRequired["aws_sdk_mpa.types.participant_id.ParticipantId"]
     """<p>ID for the approver.</p>"""
     identity_source_arn: NotRequired["aws_sdk_mpa.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssociateSbomWithPackageVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.version_name
 
 
-class AssociateSbomWithPackageVersionRequest(TypedDict):
+class AssociateSbomWithPackageVersionRequest(TypedDict, closed=True):
     package_name: "aws_sdk_iot.types.package_name.PackageName"
     """<p>The name of the new software package.</p>"""
     version_name: "aws_sdk_iot.types.version_name.VersionName"

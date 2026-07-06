@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#TrustAnchorDetailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rolesanywhere.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.trust_anchor_detail
 
 
-class TrustAnchorDetailResponse(TypedDict):
+class TrustAnchorDetailResponse(TypedDict, closed=True):
     trust_anchor: "aws_sdk_rolesanywhere.types.trust_anchor_detail.TrustAnchorDetail"
     """<p>The state of the trust anchor after a read or write operation. </p>"""
 

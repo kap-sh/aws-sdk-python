@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FieldOptionsCaseRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.parent_child_field_options_mapping_list
 
 
-class FieldOptionsCaseRule(TypedDict):
+class FieldOptionsCaseRule(TypedDict, closed=True):
     parent_field_id: NotRequired["aws_sdk_connectcases.types.field_id.FieldId"]
     """<p>The identifier of the parent field that controls options.</p>"""
     child_field_id: NotRequired["aws_sdk_connectcases.types.field_id.FieldId"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#OAuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.token_url
 
 
-class OAuthConfig(TypedDict):
+class OAuthConfig(TypedDict, closed=True):
     auth_url: "aws_sdk_iot_managed_integrations.types.auth_url.AuthUrl"
     """<p>The authorization URL for the OAuth service, where users are directed to authenticate and authorize access.</p>"""
     token_url: "aws_sdk_iot_managed_integrations.types.token_url.TokenUrl"

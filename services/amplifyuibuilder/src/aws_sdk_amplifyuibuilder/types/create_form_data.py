@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CreateFormData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.tags
 
 
-class CreateFormData(TypedDict):
+class CreateFormData(TypedDict, closed=True):
     name: "aws_sdk_amplifyuibuilder.types.form_name.FormName"
     """<p>The name of the form.</p>"""
     data_type: "aws_sdk_amplifyuibuilder.types.form_data_type_config.FormDataTypeConfig"

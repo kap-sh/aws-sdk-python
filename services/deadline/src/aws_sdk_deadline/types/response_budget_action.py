@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ResponseBudgetAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.threshold_percentage
 
 
-class ResponseBudgetAction(TypedDict):
+class ResponseBudgetAction(TypedDict, closed=True):
     type: "aws_sdk_deadline.types.budget_action_type.BudgetActionType"
     """<p>The action taken on the budget once scheduling stops.</p>"""
     threshold_percentage: (

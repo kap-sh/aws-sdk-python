@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3#SSES3``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 
-class SSES3(TypedDict):
+class SSES3(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#GetDomainStatisticsReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_email.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.overall_volume
 
 
-class GetDomainStatisticsReportResponse(TypedDict):
+class GetDomainStatisticsReportResponse(TypedDict, closed=True):
     overall_volume: "aws_sdk_pinpoint_email.types.overall_volume.OverallVolume"
     """<p>An object that contains deliverability metrics for the domain that you specified. The data in this object is a summary of all of the data that was collected from the <code>StartDate</code> to the <code>EndDate</code>.</p>"""
     daily_volumes: "aws_sdk_pinpoint_email.types.daily_volumes.DailyVolumes"

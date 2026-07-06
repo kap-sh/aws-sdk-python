@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#UpdateTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.string_map
 
 
-class UpdateTemplateResponse(TypedDict):
+class UpdateTemplateResponse(TypedDict, closed=True):
     template_id: NotRequired["str"]
     """<p>The ID of the migration workflow template being updated.</p>"""
     template_arn: NotRequired["str"]

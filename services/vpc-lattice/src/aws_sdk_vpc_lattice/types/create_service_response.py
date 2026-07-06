@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#CreateServiceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.auth_type
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.service_status
 
 
-class CreateServiceResponse(TypedDict):
+class CreateServiceResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_vpc_lattice.types.service_id.ServiceId"]
     """<p>The ID of the service.</p>"""
     arn: NotRequired["aws_sdk_vpc_lattice.types.service_arn.ServiceArn"]

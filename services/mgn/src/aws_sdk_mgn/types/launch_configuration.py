@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#LaunchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.boot_mode
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.target_instance_type_right_sizing_method
 
 
-class LaunchConfiguration(TypedDict):
+class LaunchConfiguration(TypedDict, closed=True):
     source_server_id: NotRequired["aws_sdk_mgn.types.source_server_id.SourceServerID"]
     """<p>Launch configuration Source Server ID.</p>"""
     name: NotRequired["aws_sdk_mgn.types.small_bounded_string.SmallBoundedString"]

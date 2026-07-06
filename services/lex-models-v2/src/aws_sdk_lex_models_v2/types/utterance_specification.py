@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.analytics_channel
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.utterance_understood
 
 
-class UtteranceSpecification(TypedDict):
+class UtteranceSpecification(TypedDict, closed=True):
     bot_alias_id: NotRequired["aws_sdk_lex_models_v2.types.bot_alias_id.BotAliasId"]
     """<p>The identifier of the alias of the bot that the utterance was made to.</p>"""
     bot_version: NotRequired[

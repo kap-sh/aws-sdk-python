@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListMitigationActionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
 
 
-class ListMitigationActionsRequest(TypedDict):
+class ListMitigationActionsRequest(TypedDict, closed=True):
     action_type: NotRequired[
         "aws_sdk_iot.types.mitigation_action_type.MitigationActionType"
     ]

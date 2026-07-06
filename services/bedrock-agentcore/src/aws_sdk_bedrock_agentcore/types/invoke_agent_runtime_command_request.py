@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeAgentRuntimeCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.session_type
 
 
-class InvokeAgentRuntimeCommandRequest(TypedDict):
+class InvokeAgentRuntimeCommandRequest(TypedDict, closed=True):
     content_type: NotRequired["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"]
     """<p>The MIME type of the input data in the request payload. This tells the agent runtime how to interpret the payload data. Common values include application/json for JSON data.</p>"""
     accept: NotRequired["aws_sdk_bedrock_agentcore.types.mime_type.MimeType"]

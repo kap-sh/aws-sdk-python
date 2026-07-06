@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#FileConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appintegrations.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.folder_list
 
 
-class FileConfiguration(TypedDict):
+class FileConfiguration(TypedDict, closed=True):
     folders: "aws_sdk_appintegrations.types.folder_list.FolderList"
     """<p>Identifiers for the source folders to pull all files from recursively.</p>"""
     filters: NotRequired["aws_sdk_appintegrations.types.fields_map.FieldsMap"]

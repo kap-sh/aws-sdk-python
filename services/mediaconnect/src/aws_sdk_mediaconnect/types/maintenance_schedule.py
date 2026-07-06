@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MaintenanceSchedule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.window_maintenance_schedule
 
 
-class _MaintenanceSchedule_Window(TypedDict):
+class _MaintenanceSchedule_Window(TypedDict, closed=True):
     Window: "aws_sdk_mediaconnect.types.window_maintenance_schedule.WindowMaintenanceSchedule"
 
 

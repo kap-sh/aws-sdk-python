@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CreateMembershipRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.tag_map
 
 
-class CreateMembershipRequest(TypedDict):
+class CreateMembershipRequest(TypedDict, closed=True):
     client_token: NotRequired["str"]
     """<note> <p>The <code>clientToken</code> field is an idempotency key used to ensure that repeated attempts for a single action will be ignored by the server during retries. A caller supplied unique ID (typically a UUID) should be provided. </p> </note>"""
     membership_name: "aws_sdk_security_ir.types.membership_name.MembershipName"

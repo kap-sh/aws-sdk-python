@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#AbsoluteTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.timestamp_milliseconds
 
 
-class AbsoluteTimeRange(TypedDict):
+class AbsoluteTimeRange(TypedDict, closed=True):
     start_time: NotRequired[
         "aws_sdk_transcribe.types.timestamp_milliseconds.TimestampMilliseconds"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListImageScanFindingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_scan_findings_filter_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListImageScanFindingsRequest(TypedDict):
+class ListImageScanFindingsRequest(TypedDict, closed=True):
     filters: NotRequired[
         "aws_sdk_imagebuilder.types.image_scan_findings_filter_list.ImageScanFindingsFilterList"
     ]

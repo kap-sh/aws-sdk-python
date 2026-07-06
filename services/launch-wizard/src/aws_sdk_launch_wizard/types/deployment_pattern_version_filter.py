@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#DeploymentPatternVersionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_launch_wizard.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_pattern_version_filter_values
 
 
-class DeploymentPatternVersionFilter(TypedDict):
+class DeploymentPatternVersionFilter(TypedDict, closed=True):
     name: "aws_sdk_launch_wizard.types.deployment_pattern_version_filter_key.DeploymentPatternVersionFilterKey"
     """<p>The name of the filter attribute. Specifies which attribute to filter on when querying deployment pattern versions.</p>"""
     values: "aws_sdk_launch_wizard.types.deployment_pattern_version_filter_values.DeploymentPatternVersionFilterValues"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListFeaturedResultsSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.featured_results_set_summary_items
     import aws_sdk_kendra.types.next_token
 
 
-class ListFeaturedResultsSetsResponse(TypedDict):
+class ListFeaturedResultsSetsResponse(TypedDict, closed=True):
     featured_results_set_summary_items: NotRequired[
         "aws_sdk_kendra.types.featured_results_set_summary_items.FeaturedResultsSetSummaryItems"
     ]

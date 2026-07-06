@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#MixedMeasureMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.schema_name
 
 
-class MixedMeasureMapping(TypedDict):
+class MixedMeasureMapping(TypedDict, closed=True):
     measure_name: NotRequired["aws_sdk_timestream_write.types.schema_name.SchemaName"]
     """<p></p>"""
     source_column: NotRequired["aws_sdk_timestream_write.types.schema_name.SchemaName"]

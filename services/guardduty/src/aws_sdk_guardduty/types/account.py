@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     uid: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Web Services account ID within which the activity took place. This may differ from the account that owns the user identity.</p>"""
     name: NotRequired["aws_sdk_guardduty.types.string.String"]

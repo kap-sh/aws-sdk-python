@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.detective#IndicatorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.flagged_ip_address_detail
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_detective.types.tt_ps_observed_detail
 
 
-class IndicatorDetail(TypedDict):
+class IndicatorDetail(TypedDict, closed=True):
     tt_ps_observed_detail: NotRequired[
         "aws_sdk_detective.types.tt_ps_observed_detail.TTPsObservedDetail"
     ]

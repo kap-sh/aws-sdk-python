@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#ListDbInstancesForClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.next_token
 
 
-class ListDbInstancesForClusterOutput(TypedDict):
+class ListDbInstancesForClusterOutput(TypedDict, closed=True):
     items: "aws_sdk_timestream_influxdb.types.db_instance_for_cluster_summary_list.DbInstanceForClusterSummaryList"
     """<p>A list of Timestream for InfluxDB instance summaries belonging to the cluster.</p>"""
     next_token: NotRequired["aws_sdk_timestream_influxdb.types.next_token.NextToken"]

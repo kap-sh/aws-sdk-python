@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#AdjustmentType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_max_len255
 
 
-class AdjustmentType(TypedDict):
+class AdjustmentType(TypedDict, closed=True):
     adjustment_type: NotRequired[
         "aws_sdk_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
     ]

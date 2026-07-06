@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#IpPermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.ip_protocol
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.port_number
 
 
-class IpPermission(TypedDict):
+class IpPermission(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]
     """<p>A starting value for a range of allowed port numbers.</p> <p>For fleets using Linux builds, only ports <code>22</code> and <code>1026-60000</code> are valid.</p> <p>For fleets using Windows builds, only ports <code>1026-60000</code> are valid.</p>"""
     to_port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]

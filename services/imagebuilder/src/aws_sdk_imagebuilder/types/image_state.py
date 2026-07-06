@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ImageState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.image_status
     import aws_sdk_imagebuilder.types.non_empty_string
 
 
-class ImageState(TypedDict):
+class ImageState(TypedDict, closed=True):
     status: NotRequired["aws_sdk_imagebuilder.types.image_status.ImageStatus"]
     """<p>The status of the image.</p>"""
     reason: NotRequired["aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"]

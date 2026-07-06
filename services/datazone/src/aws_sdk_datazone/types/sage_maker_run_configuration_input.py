@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SageMakerRunConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.tracking_assets
 
 
-class SageMakerRunConfigurationInput(TypedDict):
+class SageMakerRunConfigurationInput(TypedDict, closed=True):
     tracking_assets: "aws_sdk_datazone.types.tracking_assets.TrackingAssets"
     """<p>The tracking assets of the Amazon SageMaker run.</p>"""
 

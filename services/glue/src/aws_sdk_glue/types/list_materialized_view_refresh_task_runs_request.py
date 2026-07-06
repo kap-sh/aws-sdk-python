@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListMaterializedViewRefreshTaskRunsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.token
 
 
-class ListMaterializedViewRefreshTaskRunsRequest(TypedDict):
+class ListMaterializedViewRefreshTaskRunsRequest(TypedDict, closed=True):
     catalog_id: "aws_sdk_glue.types.name_string.NameString"
     """<p>The ID of the Data Catalog where the table resides. If none is supplied, the account ID is used by default.</p>"""
     database_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

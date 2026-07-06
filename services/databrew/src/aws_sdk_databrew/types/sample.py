@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#Sample``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.sample_type
 
 
-class Sample(TypedDict):
+class Sample(TypedDict, closed=True):
     size: NotRequired["aws_sdk_databrew.types.sample_size.SampleSize"]
     """<p>The number of rows in the sample.</p>"""
     type: "aws_sdk_databrew.types.sample_type.SampleType"

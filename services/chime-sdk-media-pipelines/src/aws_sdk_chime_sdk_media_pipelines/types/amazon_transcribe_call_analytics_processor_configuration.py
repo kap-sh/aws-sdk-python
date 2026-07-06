@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#AmazonTranscribeCallAnalyticsProcessorConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.vocabulary_name
 
 
-class AmazonTranscribeCallAnalyticsProcessorConfiguration(TypedDict):
+class AmazonTranscribeCallAnalyticsProcessorConfiguration(TypedDict, closed=True):
     language_code: "aws_sdk_chime_sdk_media_pipelines.types.call_analytics_language_code.CallAnalyticsLanguageCode"
     """<p>The language code in the configuration.</p>"""
     vocabulary_name: NotRequired[

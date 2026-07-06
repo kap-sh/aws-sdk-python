@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ConversionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.large_bounded_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.volume_to_size_map
 
 
-class ConversionProperties(TypedDict):
+class ConversionProperties(TypedDict, closed=True):
     volume_to_conversion_map: NotRequired[
         "aws_sdk_drs.types.volume_to_conversion_map.VolumeToConversionMap"
     ]

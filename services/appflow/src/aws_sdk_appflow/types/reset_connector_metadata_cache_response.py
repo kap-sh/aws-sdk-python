@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ResetConnectorMetadataCacheResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ResetConnectorMetadataCacheResponse(TypedDict):
+class ResetConnectorMetadataCacheResponse(TypedDict, closed=True):
     pass
 
 

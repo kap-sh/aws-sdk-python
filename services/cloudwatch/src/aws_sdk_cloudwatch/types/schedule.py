@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#Schedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.timezone
 
 
-class Schedule(TypedDict):
+class Schedule(TypedDict, closed=True):
     expression: NotRequired["aws_sdk_cloudwatch.types.expression.Expression"]
     """<p>The schedule expression that defines when the mute rule activates. The expression must be between 1 and 256 characters in length.</p> <p>You can use one of two expression formats:</p> <ul> <li> <p> <b>Cron expressions</b> - For recurring mute windows. Format: <code>cron(Minutes Hours Day-of-month Month Day-of-week)</code> </p> <p>Examples:</p> <ul> <li> <p> <code>cron(0 2 * * *)</code> - Activates daily at 2:00 AM</p> </li> <li> <p> <code>cron(0 2 * * SUN)</code> - Activates every Sunday at 2:00 AM for weekly system maintenance</p> </li> <li> <p> <code>cron(0 1 1 * *)</code> - Activates on the first day of each month at 1:00 AM for monthly database maintenance</p> </li> <li> <p> <code>cron(0 18 * * FRI)</code> - Activates every Friday at 6:00 PM</p> </li> <li> <p> <code>cron(0 23 * * *)</code> - Activates every day at 11:00 PM during nightly backup operations</p> </li> </ul> <p>The characters <code>*</code>, <code>-</code>, and <code>,</code> are supported in all fields. English names can be used for the month (JAN-DEC) and day of week (SUN-SAT) fields.</p> </li> <li> <p> <b>At expressions</b> - For one-time mute windows. Format: <code>at(yyyy-MM-ddThh:mm)</code> </p> <p>Examples:</p> <ul> <li> <p> <code>at(2024-05-10T14:00)</code> - Activates once on May 10, 2024 at 2:00 PM during an active incident response session</p> </li> <li> <p> <code>at(2024-12-23T00:00)</code> - Activates once on December 23, 2024 at midnight during annual company shutdown</p> </li> </ul> </li> </ul>"""
     duration: NotRequired["aws_sdk_cloudwatch.types.duration.Duration"]

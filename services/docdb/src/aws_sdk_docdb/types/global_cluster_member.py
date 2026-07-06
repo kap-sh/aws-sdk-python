@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#GlobalClusterMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class GlobalClusterMember(TypedDict):
+class GlobalClusterMember(TypedDict, closed=True):
     db_cluster_arn: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The Amazon Resource Name (ARN) for each Amazon DocumentDB cluster.</p>"""
     readers: NotRequired["aws_sdk_docdb.types.readers_arn_list.ReadersArnList"]

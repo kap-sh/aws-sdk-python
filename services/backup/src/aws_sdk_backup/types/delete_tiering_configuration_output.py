@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DeleteTieringConfigurationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteTieringConfigurationOutput(TypedDict):
+class DeleteTieringConfigurationOutput(TypedDict, closed=True):
     pass
 
 

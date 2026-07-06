@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ListLogAnomalyDetectorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.list_log_anomaly_detectors_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
 
 
-class ListLogAnomalyDetectorsRequest(TypedDict):
+class ListLogAnomalyDetectorsRequest(TypedDict, closed=True):
     filter_log_group_arn: NotRequired[
         "aws_sdk_cloudwatch_logs.types.log_group_arn.LogGroupArn"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ProjectContinuousIntegrationScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.continuous_integration_scan_event
     import aws_sdk_inspector2.types.rule_set_categories
 
 
-class ProjectContinuousIntegrationScanConfiguration(TypedDict):
+class ProjectContinuousIntegrationScanConfiguration(TypedDict, closed=True):
     supported_event: NotRequired[
         "aws_sdk_inspector2.types.continuous_integration_scan_event.ContinuousIntegrationScanEvent"
     ]

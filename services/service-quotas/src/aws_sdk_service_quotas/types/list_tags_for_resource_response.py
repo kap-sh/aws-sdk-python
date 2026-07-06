@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicequotas#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_quotas.types.output_tags
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_service_quotas.types.output_tags.OutputTags"]
     """<p>A complex data type that contains zero or more tag elements.</p>"""
 

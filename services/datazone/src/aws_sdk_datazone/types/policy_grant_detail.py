@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#PolicyGrantDetail``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -19,59 +21,59 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.use_asset_type_policy_grant_detail
 
 
-class _PolicyGrantDetail_createDomainUnit(TypedDict):
+class _PolicyGrantDetail_createDomainUnit(TypedDict, closed=True):
     createDomainUnit: "aws_sdk_datazone.types.create_domain_unit_policy_grant_detail.CreateDomainUnitPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_overrideDomainUnitOwners(TypedDict):
+class _PolicyGrantDetail_overrideDomainUnitOwners(TypedDict, closed=True):
     overrideDomainUnitOwners: "aws_sdk_datazone.types.override_domain_unit_owners_policy_grant_detail.OverrideDomainUnitOwnersPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_addToProjectMemberPool(TypedDict):
+class _PolicyGrantDetail_addToProjectMemberPool(TypedDict, closed=True):
     addToProjectMemberPool: "aws_sdk_datazone.types.add_to_project_member_pool_policy_grant_detail.AddToProjectMemberPoolPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_overrideProjectOwners(TypedDict):
+class _PolicyGrantDetail_overrideProjectOwners(TypedDict, closed=True):
     overrideProjectOwners: "aws_sdk_datazone.types.override_project_owners_policy_grant_detail.OverrideProjectOwnersPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_createGlossary(TypedDict):
+class _PolicyGrantDetail_createGlossary(TypedDict, closed=True):
     createGlossary: "aws_sdk_datazone.types.create_glossary_policy_grant_detail.CreateGlossaryPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_createFormType(TypedDict):
+class _PolicyGrantDetail_createFormType(TypedDict, closed=True):
     createFormType: "aws_sdk_datazone.types.create_form_type_policy_grant_detail.CreateFormTypePolicyGrantDetail"
 
 
-class _PolicyGrantDetail_createAssetType(TypedDict):
+class _PolicyGrantDetail_createAssetType(TypedDict, closed=True):
     createAssetType: "aws_sdk_datazone.types.create_asset_type_policy_grant_detail.CreateAssetTypePolicyGrantDetail"
 
 
-class _PolicyGrantDetail_createProject(TypedDict):
+class _PolicyGrantDetail_createProject(TypedDict, closed=True):
     createProject: "aws_sdk_datazone.types.create_project_policy_grant_detail.CreateProjectPolicyGrantDetail"
 
 
-class _PolicyGrantDetail_createEnvironmentProfile(TypedDict):
+class _PolicyGrantDetail_createEnvironmentProfile(TypedDict, closed=True):
     createEnvironmentProfile: "aws_sdk_datazone.types.create_environment_profile_policy_grant_detail.CreateEnvironmentProfilePolicyGrantDetail"
 
 
-class _PolicyGrantDetail_delegateCreateEnvironmentProfile(TypedDict):
+class _PolicyGrantDetail_delegateCreateEnvironmentProfile(TypedDict, closed=True):
     delegateCreateEnvironmentProfile: "aws_sdk_datazone.types.unit.Unit"
 
 
-class _PolicyGrantDetail_createEnvironment(TypedDict):
+class _PolicyGrantDetail_createEnvironment(TypedDict, closed=True):
     createEnvironment: "aws_sdk_datazone.types.unit.Unit"
 
 
-class _PolicyGrantDetail_createEnvironmentFromBlueprint(TypedDict):
+class _PolicyGrantDetail_createEnvironmentFromBlueprint(TypedDict, closed=True):
     createEnvironmentFromBlueprint: "aws_sdk_datazone.types.unit.Unit"
 
 
-class _PolicyGrantDetail_createProjectFromProjectProfile(TypedDict):
+class _PolicyGrantDetail_createProjectFromProjectProfile(TypedDict, closed=True):
     createProjectFromProjectProfile: "aws_sdk_datazone.types.create_project_from_project_profile_policy_grant_detail.CreateProjectFromProjectProfilePolicyGrantDetail"
 
 
-class _PolicyGrantDetail_useAssetType(TypedDict):
+class _PolicyGrantDetail_useAssetType(TypedDict, closed=True):
     useAssetType: "aws_sdk_datazone.types.use_asset_type_policy_grant_detail.UseAssetTypePolicyGrantDetail"
 
 

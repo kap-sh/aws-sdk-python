@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaigns#AnswerMachineDetectionConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaigns.errors import DeserializationError
 
 
-class AnswerMachineDetectionConfig(TypedDict):
+class AnswerMachineDetectionConfig(TypedDict, closed=True):
     enable_answer_machine_detection: "bool"
     """Enable or disable answering machine detection"""
     await_answer_machine_prompt: NotRequired["bool"]

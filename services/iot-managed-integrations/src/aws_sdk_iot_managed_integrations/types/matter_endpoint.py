@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#MatterEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.endpoint_id
     import aws_sdk_iot_managed_integrations.types.matter_clusters
 
 
-class MatterEndpoint(TypedDict):
+class MatterEndpoint(TypedDict, closed=True):
     id: NotRequired["aws_sdk_iot_managed_integrations.types.endpoint_id.EndpointId"]
     """<p>The Matter endpoint id.</p>"""
     clusters: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#UpdateSyncBlockerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.sync_configuration_type
 
 
-class UpdateSyncBlockerInput(TypedDict):
+class UpdateSyncBlockerInput(TypedDict, closed=True):
     id: "aws_sdk_codestar_connections.types.id.Id"
     """<p>The ID of the sync blocker to be updated.</p>"""
     sync_type: "aws_sdk_codestar_connections.types.sync_configuration_type.SyncConfigurationType"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDataflowGraphRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.python_script
 
 
-class GetDataflowGraphRequest(TypedDict):
+class GetDataflowGraphRequest(TypedDict, closed=True):
     python_script: NotRequired["aws_sdk_glue.types.python_script.PythonScript"]
     """<p>The Python script to transform.</p>"""
 

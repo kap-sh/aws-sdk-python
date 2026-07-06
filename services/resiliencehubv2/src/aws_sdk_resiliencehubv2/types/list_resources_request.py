@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListResourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.next_token
 
 
-class ListResourcesRequest(TypedDict):
+class ListResourcesRequest(TypedDict, closed=True):
     service_arn: "aws_sdk_resiliencehubv2.types.arn.Arn"
     service_function_id: NotRequired["aws_sdk_resiliencehubv2.types.entity_id.EntityId"]
     """<p>Filter resources by service function identifier.</p>"""

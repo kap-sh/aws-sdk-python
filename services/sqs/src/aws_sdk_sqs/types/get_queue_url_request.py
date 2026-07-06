@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#GetQueueUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class GetQueueUrlRequest(TypedDict):
+class GetQueueUrlRequest(TypedDict, closed=True):
     queue_name: "aws_sdk_sqs.types.string.String"
     """<p>(Required) The name of the queue for which you want to fetch the URL. The name can be up to 80 characters long and can include alphanumeric characters, hyphens (-), and underscores (_). Queue URLs and names are case-sensitive.</p>"""
     queue_owner_aws_account_id: NotRequired["aws_sdk_sqs.types.string.String"]

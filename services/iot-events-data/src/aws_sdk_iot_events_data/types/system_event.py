@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#SystemEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.event_type
     import aws_sdk_iot_events_data.types.state_change_configuration
 
 
-class SystemEvent(TypedDict):
+class SystemEvent(TypedDict, closed=True):
     event_type: NotRequired["aws_sdk_iot_events_data.types.event_type.EventType"]
     """<p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information about alarm state changes.</p>"""
     state_change_configuration: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BatchUpdateAutomatedDiscoveryAccountsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_automated_discovery_account_update
 
 
-class BatchUpdateAutomatedDiscoveryAccountsRequest(TypedDict):
+class BatchUpdateAutomatedDiscoveryAccountsRequest(TypedDict, closed=True):
     accounts: NotRequired[
         "aws_sdk_macie2.types.__list_of_automated_discovery_account_update.__listOfAutomatedDiscoveryAccountUpdate"
     ]

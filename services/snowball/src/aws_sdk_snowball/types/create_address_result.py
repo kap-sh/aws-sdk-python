@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#CreateAddressResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class CreateAddressResult(TypedDict):
+class CreateAddressResult(TypedDict, closed=True):
     address_id: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The automatically generated ID for a specific address. You'll use this ID when you create a job to specify which address you want the Snow device for that job shipped to.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kms#DescribeKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kms.types.key_metadata
 
 
-class DescribeKeyResponse(TypedDict):
+class DescribeKeyResponse(TypedDict, closed=True):
     key_metadata: NotRequired["aws_sdk_kms.types.key_metadata.KeyMetadata"]
     """<p>Metadata associated with the key.</p>"""
 

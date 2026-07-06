@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#GetManagedThingCapabilitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.managed_thing_id
 
 
-class GetManagedThingCapabilitiesRequest(TypedDict):
+class GetManagedThingCapabilitiesRequest(TypedDict, closed=True):
     identifier: "aws_sdk_iot_managed_integrations.types.managed_thing_id.ManagedThingId"
     """<p>The id of the device.</p>"""
 

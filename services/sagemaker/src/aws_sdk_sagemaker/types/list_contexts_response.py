@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListContextsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.context_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListContextsResponse(TypedDict):
+class ListContextsResponse(TypedDict, closed=True):
     context_summaries: NotRequired[
         "aws_sdk_sagemaker.types.context_summaries.ContextSummaries"
     ]

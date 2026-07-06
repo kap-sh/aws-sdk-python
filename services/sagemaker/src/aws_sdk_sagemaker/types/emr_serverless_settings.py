@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#EmrServerlessSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.feature_status
     import aws_sdk_sagemaker.types.role_arn
 
 
-class EmrServerlessSettings(TypedDict):
+class EmrServerlessSettings(TypedDict, closed=True):
     execution_role_arn: NotRequired["aws_sdk_sagemaker.types.role_arn.RoleArn"]
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.</p>"""
     status: NotRequired["aws_sdk_sagemaker.types.feature_status.FeatureStatus"]

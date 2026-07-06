@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ListDataSourceSyncJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.data_source_sync_job_history_list
     import aws_sdk_kendra.types.next_token
 
 
-class ListDataSourceSyncJobsResponse(TypedDict):
+class ListDataSourceSyncJobsResponse(TypedDict, closed=True):
     history: NotRequired[
         "aws_sdk_kendra.types.data_source_sync_job_history_list.DataSourceSyncJobHistoryList"
     ]

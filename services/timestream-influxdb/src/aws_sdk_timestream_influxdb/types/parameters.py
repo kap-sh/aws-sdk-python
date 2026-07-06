@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#Parameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.influx_d_bv3_enterprise_parameters
 
 
-class _Parameters_InfluxDBv2(TypedDict):
+class _Parameters_InfluxDBv2(TypedDict, closed=True):
     InfluxDBv2: (
         "aws_sdk_timestream_influxdb.types.influx_d_bv2_parameters.InfluxDBv2Parameters"
     )
 
 
-class _Parameters_InfluxDBv3Core(TypedDict):
+class _Parameters_InfluxDBv3Core(TypedDict, closed=True):
     InfluxDBv3Core: "aws_sdk_timestream_influxdb.types.influx_d_bv3_core_parameters.InfluxDBv3CoreParameters"
 
 
-class _Parameters_InfluxDBv3Enterprise(TypedDict):
+class _Parameters_InfluxDBv3Enterprise(TypedDict, closed=True):
     InfluxDBv3Enterprise: "aws_sdk_timestream_influxdb.types.influx_d_bv3_enterprise_parameters.InfluxDBv3EnterpriseParameters"
 
 

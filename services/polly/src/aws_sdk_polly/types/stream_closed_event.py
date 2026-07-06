@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#StreamClosedEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_polly._protocol.eventstream import HeaderValue, Message
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.request_characters
 
 
-class StreamClosedEvent(TypedDict):
+class StreamClosedEvent(TypedDict, closed=True):
     request_characters: "aws_sdk_polly.types.request_characters.RequestCharacters"
     """<p>The total number of characters synthesized during the streaming session.</p>"""
 

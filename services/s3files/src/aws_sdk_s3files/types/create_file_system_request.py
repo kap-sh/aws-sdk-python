@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#CreateFileSystemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_list
 
 
-class CreateFileSystemRequest(TypedDict):
+class CreateFileSystemRequest(TypedDict, closed=True):
     bucket: "aws_sdk_s3files.types.bucket_arn.BucketArn"
     """<p>The Amazon Resource Name (ARN) of the S3 bucket that will be accessible through the file system. The bucket must exist and be in the same Amazon Web Services Region as the file system.</p>"""
     prefix: NotRequired["str"]

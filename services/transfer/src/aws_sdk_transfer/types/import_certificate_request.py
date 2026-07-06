@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ImportCertificateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.tags
 
 
-class ImportCertificateRequest(TypedDict):
+class ImportCertificateRequest(TypedDict, closed=True):
     usage: "aws_sdk_transfer.types.certificate_usage_type.CertificateUsageType"
     """<p>Specifies how this certificate is used. It can be used in the following ways:</p> <ul> <li> <p> <code>SIGNING</code>: For signing AS2 messages</p> </li> <li> <p> <code>ENCRYPTION</code>: For encrypting AS2 messages</p> </li> <li> <p> <code>TLS</code>: For securing AS2 communications sent over HTTPS</p> </li> </ul>"""
     certificate: "aws_sdk_transfer.types.certificate_body_type.CertificateBodyType"

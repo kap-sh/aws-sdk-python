@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolFunctionPackageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.function_artifact_meta
 
 
-class GetSolFunctionPackageMetadata(TypedDict):
+class GetSolFunctionPackageMetadata(TypedDict, closed=True):
     vnfd: NotRequired["aws_sdk_tnb.types.function_artifact_meta.FunctionArtifactMeta"]
     """<p>Metadata related to the function package descriptor of the function package.</p>"""
     created_at: "datetime.datetime"

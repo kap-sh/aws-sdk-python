@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DataCaptureConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capture_content_type_header
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.sampling_percentage
 
 
-class DataCaptureConfig(TypedDict):
+class DataCaptureConfig(TypedDict, closed=True):
     enable_capture: NotRequired["aws_sdk_sagemaker.types.enable_capture.EnableCapture"]
     """<p>Whether data capture should be enabled or disabled (defaults to enabled).</p>"""
     initial_sampling_percentage: NotRequired[

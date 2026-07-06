@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.elementalinference#ExportDictionaryEntriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elementalinference.types.dictionary_entries_payload
 
 
-class ExportDictionaryEntriesResponse(TypedDict):
+class ExportDictionaryEntriesResponse(TypedDict, closed=True):
     entries: NotRequired[
         "aws_sdk_elementalinference.types.dictionary_entries_payload.DictionaryEntriesPayload"
     ]

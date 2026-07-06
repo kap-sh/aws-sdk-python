@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compiler_options
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.target_platform
 
 
-class OutputConfig(TypedDict):
+class OutputConfig(TypedDict, closed=True):
     s3_output_location: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]
     """<p>Identifies the S3 bucket where you want Amazon SageMaker AI to store the model artifacts. For example, <code>s3://bucket-name/key-name-prefix</code>.</p>"""
     target_device: NotRequired["aws_sdk_sagemaker.types.target_device.TargetDevice"]

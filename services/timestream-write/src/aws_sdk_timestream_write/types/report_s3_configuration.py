@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#ReportS3Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.string_value2048
 
 
-class ReportS3Configuration(TypedDict):
+class ReportS3Configuration(TypedDict, closed=True):
     bucket_name: "aws_sdk_timestream_write.types.s3_bucket_name.S3BucketName"
     """<p></p>"""
     object_key_prefix: NotRequired[

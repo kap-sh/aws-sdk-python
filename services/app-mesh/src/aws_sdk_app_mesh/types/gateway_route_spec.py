@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#GatewayRouteSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.gateway_route_priority
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.http_gateway_route
 
 
-class GatewayRouteSpec(TypedDict):
+class GatewayRouteSpec(TypedDict, closed=True):
     priority: NotRequired[
         "aws_sdk_app_mesh.types.gateway_route_priority.GatewayRoutePriority"
     ]

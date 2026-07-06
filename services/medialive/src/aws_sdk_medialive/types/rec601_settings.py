@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Rec601Settings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class Rec601Settings(TypedDict):
+class Rec601Settings(TypedDict, closed=True):
     pass
 
 

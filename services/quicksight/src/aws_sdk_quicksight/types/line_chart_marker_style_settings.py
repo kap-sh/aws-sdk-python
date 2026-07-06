@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineChartMarkerStyleSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class LineChartMarkerStyleSettings(TypedDict):
+class LineChartMarkerStyleSettings(TypedDict, closed=True):
     marker_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>Configuration option that determines whether to show the markers in the series.</p>"""
     marker_shape: NotRequired[

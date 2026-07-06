@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#PolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.aws_managed_policy
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_type
 
 
-class PolicySummary(TypedDict):
+class PolicySummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.policy_id.PolicyId"]
     r"""<p>The unique identifier (ID) of the policy.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for a policy ID string requires \"p-\" followed by from 8 to 128 lowercase or uppercase letters, digits, or the underscore character (_).</p>"""
     arn: NotRequired["aws_sdk_organizations.types.policy_arn.PolicyArn"]

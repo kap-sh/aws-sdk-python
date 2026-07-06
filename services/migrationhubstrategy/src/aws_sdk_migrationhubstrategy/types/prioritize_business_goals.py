@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#PrioritizeBusinessGoals``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.business_goals
 
 
-class PrioritizeBusinessGoals(TypedDict):
+class PrioritizeBusinessGoals(TypedDict, closed=True):
     business_goals: NotRequired[
         "aws_sdk_migrationhubstrategy.types.business_goals.BusinessGoals"
     ]

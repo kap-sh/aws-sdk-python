@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#UpdateUserRequestItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.user_type
 
 
-class UpdateUserRequestItem(TypedDict):
+class UpdateUserRequestItem(TypedDict, closed=True):
     user_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The user ID.</p>"""
     license_type: NotRequired["aws_sdk_chime.types.license.License"]

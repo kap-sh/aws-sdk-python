@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.xray#PutTelemetryRecordsResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutTelemetryRecordsResult(TypedDict):
+class PutTelemetryRecordsResult(TypedDict, closed=True):
     pass
 
 

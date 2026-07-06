@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateAutomatedDiscoveryConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.auto_enable_mode
     import aws_sdk_macie2.types.automated_discovery_status
 
 
-class UpdateAutomatedDiscoveryConfigurationRequest(TypedDict):
+class UpdateAutomatedDiscoveryConfigurationRequest(TypedDict, closed=True):
     auto_enable_organization_members: NotRequired[
         "aws_sdk_macie2.types.auto_enable_mode.AutoEnableMode"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#PolicyTypeSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.policy_type
     import aws_sdk_organizations.types.policy_type_status
 
 
-class PolicyTypeSummary(TypedDict):
+class PolicyTypeSummary(TypedDict, closed=True):
     type: NotRequired["aws_sdk_organizations.types.policy_type.PolicyType"]
     """<p>The name of the policy type.</p>"""
     status: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CreationDateCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.maximum_days_since_created_value
 
 
-class CreationDateCondition(TypedDict):
+class CreationDateCondition(TypedDict, closed=True):
     maximum_days_since_created: NotRequired[
         "aws_sdk_ec2.types.maximum_days_since_created_value.MaximumDaysSinceCreatedValue"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#CreateAssessmentTargetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.assessment_target_name
 
 
-class CreateAssessmentTargetRequest(TypedDict):
+class CreateAssessmentTargetRequest(TypedDict, closed=True):
     assessment_target_name: (
         "aws_sdk_inspector.types.assessment_target_name.AssessmentTargetName"
     )

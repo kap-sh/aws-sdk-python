@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#RdsLoginAttemptAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.login_attributes
     import aws_sdk_guardduty.types.remote_ip_details
 
 
-class RdsLoginAttemptAction(TypedDict):
+class RdsLoginAttemptAction(TypedDict, closed=True):
     remote_ip_details: NotRequired[
         "aws_sdk_guardduty.types.remote_ip_details.RemoteIpDetails"
     ]

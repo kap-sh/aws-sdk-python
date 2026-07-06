@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#PrincipalOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qapps.types.user_type
 
 
-class PrincipalOutput(TypedDict):
+class PrincipalOutput(TypedDict, closed=True):
     user_id: NotRequired["str"]
     """<p>The unique identifier of the user.</p>"""
     user_type: NotRequired["aws_sdk_qapps.types.user_type.UserType"]

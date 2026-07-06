@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#Receipt``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.instant
     import aws_sdk_connectparticipant.types.participant_id
 
 
-class Receipt(TypedDict):
+class Receipt(TypedDict, closed=True):
     delivered_timestamp: NotRequired["aws_sdk_connectparticipant.types.instant.Instant"]
     """<p>The time when the message was delivered to the recipient.</p>"""
     read_timestamp: NotRequired["aws_sdk_connectparticipant.types.instant.Instant"]

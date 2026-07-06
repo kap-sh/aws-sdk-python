@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#MetricDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.value_key
 
 
-class MetricDefinition(TypedDict):
+class MetricDefinition(TypedDict, closed=True):
     metric_definition_id: "aws_sdk_rum.types.metric_definition_id.MetricDefinitionId"
     """<p>The ID of this metric definition.</p>"""
     name: "aws_sdk_rum.types.metric_name.MetricName"

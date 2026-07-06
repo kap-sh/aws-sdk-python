@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#Selector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.operator
     import aws_sdk_data_pipeline.types.string
 
 
-class Selector(TypedDict):
+class Selector(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_data_pipeline.types.string.string"]
     r"""<p>The name of the field that the operator will be applied to. The field name is the \"key\" portion of the field definition in the pipeline definition syntax that is used by the AWS Data Pipeline API. If the field is not set on the object, the condition fails.</p>"""
     operator: NotRequired["aws_sdk_data_pipeline.types.operator.Operator"]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetReferenceMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.reference_id
     import aws_sdk_omics.types.reference_store_id
 
 
-class GetReferenceMetadataRequest(TypedDict):
+class GetReferenceMetadataRequest(TypedDict, closed=True):
     id: "aws_sdk_omics.types.reference_id.ReferenceId"
     """<p>The reference's ID.</p>"""
     reference_store_id: "aws_sdk_omics.types.reference_store_id.ReferenceStoreId"

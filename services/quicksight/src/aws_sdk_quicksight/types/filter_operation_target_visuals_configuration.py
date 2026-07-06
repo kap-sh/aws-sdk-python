@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FilterOperationTargetVisualsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.same_sheet_target_visual_configuration
 
 
-class FilterOperationTargetVisualsConfiguration(TypedDict):
+class FilterOperationTargetVisualsConfiguration(TypedDict, closed=True):
     same_sheet_target_visual_configuration: NotRequired[
         "aws_sdk_quicksight.types.same_sheet_target_visual_configuration.SameSheetTargetVisualConfiguration"
     ]

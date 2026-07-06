@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#CreateClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.capacity_provider_strategy
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.tags
 
 
-class CreateClusterRequest(TypedDict):
+class CreateClusterRequest(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of your cluster. If you don't specify a name for your cluster, you create a cluster that's named <code>default</code>. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. </p>"""
     tags: NotRequired["aws_sdk_ecs.types.tags.Tags"]

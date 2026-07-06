@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateEksAnywhereSubscriptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.eks_anywhere_subscription
 
 
-class CreateEksAnywhereSubscriptionResponse(TypedDict):
+class CreateEksAnywhereSubscriptionResponse(TypedDict, closed=True):
     subscription: NotRequired[
         "aws_sdk_eks.types.eks_anywhere_subscription.EksAnywhereSubscription"
     ]

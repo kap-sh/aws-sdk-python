@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolResultBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tool_use_id
 
 
-class ToolResultBlock(TypedDict):
+class ToolResultBlock(TypedDict, closed=True):
     tool_use_id: "aws_sdk_bedrock_runtime.types.tool_use_id.ToolUseId"
     """<p>The ID of the tool request that this is the result for. </p>"""
     content: "aws_sdk_bedrock_runtime.types.tool_result_content_blocks.ToolResultContentBlocks"

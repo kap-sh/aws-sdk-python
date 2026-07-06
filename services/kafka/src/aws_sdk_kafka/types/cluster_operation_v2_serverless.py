@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ClusterOperationV2Serverless``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.serverless_connectivity_info
     import aws_sdk_kafka.types.vpc_connection_info_serverless
 
 
-class ClusterOperationV2Serverless(TypedDict):
+class ClusterOperationV2Serverless(TypedDict, closed=True):
     source_cluster_info: NotRequired[
         "aws_sdk_kafka.types.serverless_connectivity_info.ServerlessConnectivityInfo"
     ]

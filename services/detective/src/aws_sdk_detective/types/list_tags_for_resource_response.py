@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.detective#ListTagsForResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_detective.types.tag_map
 
 
-class ListTagsForResourceResponse(TypedDict):
+class ListTagsForResourceResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_detective.types.tag_map.TagMap"]
     """<p>The tag values that are assigned to the behavior graph. The request returns up to 50 tag values.</p>"""
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetInDataProductListingItem``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AssetInDataProductListingItem(TypedDict):
+class AssetInDataProductListingItem(TypedDict, closed=True):
     entity_id: NotRequired["str"]
     """<p>The entity ID of the listing of the asset in a data product.</p>"""
     entity_revision: NotRequired["str"]

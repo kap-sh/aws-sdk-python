@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisSegmentCategories``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_matched_details
 
 
-class RealTimeContactAnalysisSegmentCategories(TypedDict):
+class RealTimeContactAnalysisSegmentCategories(TypedDict, closed=True):
     matched_details: "aws_sdk_connect.types.real_time_contact_analysis_matched_details.RealTimeContactAnalysisMatchedDetails"
     """<p>Map between the name of the matched rule and RealTimeContactAnalysisCategoryDetails.</p>"""
 

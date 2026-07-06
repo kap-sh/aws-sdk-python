@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#RetentionProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_write.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.memory_store_retention_period_in_hours
 
 
-class RetentionProperties(TypedDict):
+class RetentionProperties(TypedDict, closed=True):
     memory_store_retention_period_in_hours: "aws_sdk_timestream_write.types.memory_store_retention_period_in_hours.MemoryStoreRetentionPeriodInHours"
     """<p>The duration for which data must be stored in the memory store. </p>"""
     magnetic_store_retention_period_in_days: "aws_sdk_timestream_write.types.magnetic_store_retention_period_in_days.MagneticStoreRetentionPeriodInDays"

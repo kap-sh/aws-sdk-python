@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rum#GetAppMonitorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rum.types.app_monitor
 
 
-class GetAppMonitorResponse(TypedDict):
+class GetAppMonitorResponse(TypedDict, closed=True):
     app_monitor: NotRequired["aws_sdk_rum.types.app_monitor.AppMonitor"]
     """<p>A structure containing all the configuration information for the app monitor.</p>"""
 

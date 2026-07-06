@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ConnectorProfileProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.amplitude_connector_profile_properties
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.zendesk_connector_profile_properties
 
 
-class ConnectorProfileProperties(TypedDict):
+class ConnectorProfileProperties(TypedDict, closed=True):
     amplitude: NotRequired[
         "aws_sdk_appflow.types.amplitude_connector_profile_properties.AmplitudeConnectorProfileProperties"
     ]

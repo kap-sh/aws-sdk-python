@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeReservedDBInstancesOfferingsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeReservedDBInstancesOfferingsMessage(TypedDict):
+class DescribeReservedDBInstancesOfferingsMessage(TypedDict, closed=True):
     reserved_db_instances_offering_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The offering identifier filter value. Specify this parameter to show only the available offering that matches the specified reservation identifier.</p> <p>Example: <code>438012d3-4052-4cc7-b2e3-8d3372e0e706</code> </p>"""
     db_instance_class: NotRequired["aws_sdk_rds.types.string.String"]

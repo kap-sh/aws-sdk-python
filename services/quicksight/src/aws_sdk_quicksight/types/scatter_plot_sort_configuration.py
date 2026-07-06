@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ScatterPlotSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.items_limit_configuration
 
 
-class ScatterPlotSortConfiguration(TypedDict):
+class ScatterPlotSortConfiguration(TypedDict, closed=True):
     scatter_plot_limit_configuration: NotRequired[
         "aws_sdk_quicksight.types.items_limit_configuration.ItemsLimitConfiguration"
     ]

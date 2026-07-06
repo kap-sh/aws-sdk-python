@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Activation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.activation_description
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.tag_list
 
 
-class Activation(TypedDict):
+class Activation(TypedDict, closed=True):
     activation_id: NotRequired["aws_sdk_ssm.types.activation_id.ActivationId"]
     """<p>The ID created by Systems Manager when you submitted the activation.</p>"""
     description: NotRequired[

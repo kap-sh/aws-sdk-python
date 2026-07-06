@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotImportSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.tag_map
 
 
-class BotImportSpecification(TypedDict):
+class BotImportSpecification(TypedDict, closed=True):
     bot_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The name that Amazon Lex should use for the bot.</p>"""
     role_arn: "aws_sdk_lex_models_v2.types.role_arn.RoleArn"

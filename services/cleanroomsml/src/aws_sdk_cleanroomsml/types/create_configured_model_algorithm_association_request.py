@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateConfiguredModelAlgorithmAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.uuid
 
 
-class CreateConfiguredModelAlgorithmAssociationRequest(TypedDict):
+class CreateConfiguredModelAlgorithmAssociationRequest(TypedDict, closed=True):
     membership_identifier: "aws_sdk_cleanroomsml.types.uuid.UUID"
     """<p>The membership ID of the member who is associating this configured model algorithm.</p>"""
     configured_model_algorithm_arn: "aws_sdk_cleanroomsml.types.configured_model_algorithm_arn.ConfiguredModelAlgorithmArn"

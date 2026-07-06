@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#StartDiscoveryInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartDiscoveryInput(TypedDict):
+class StartDiscoveryInput(TypedDict, closed=True):
     pass
 
 

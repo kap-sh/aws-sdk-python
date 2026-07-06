@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListSuppressedDestinationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.max_items
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class ListSuppressedDestinationsRequest(TypedDict):
+class ListSuppressedDestinationsRequest(TypedDict, closed=True):
     tenant_name: NotRequired["aws_sdk_sesv2.types.tenant_name.TenantName"]
     """<p>The name of the tenant whose suppression list you want to retrieve. If you omit this parameter, the operation targets the account-level suppression list.</p>"""
     reasons: NotRequired[

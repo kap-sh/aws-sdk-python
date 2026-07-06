@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#ScanNameWithFindingNum``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ScanNameWithFindingNum(TypedDict):
+class ScanNameWithFindingNum(TypedDict, closed=True):
     scan_name: NotRequired["str"]
     """<p>The name of the scan.</p>"""
     finding_number: NotRequired["int"]

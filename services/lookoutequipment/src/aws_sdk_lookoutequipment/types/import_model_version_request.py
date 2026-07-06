@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ImportModelVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.tag_list
 
 
-class ImportModelVersionRequest(TypedDict):
+class ImportModelVersionRequest(TypedDict, closed=True):
     source_model_version_arn: (
         "aws_sdk_lookoutequipment.types.model_version_arn.ModelVersionArn"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#UpdateRouterOutputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.maintenance_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.routing_scope
 
 
-class UpdateRouterOutputRequest(TypedDict):
+class UpdateRouterOutputRequest(TypedDict, closed=True):
     arn: "aws_sdk_mediaconnect.types.router_output_arn.RouterOutputArn"
     """<p>The Amazon Resource Name (ARN) of the router output that you want to update.</p>"""
     name: NotRequired["str"]

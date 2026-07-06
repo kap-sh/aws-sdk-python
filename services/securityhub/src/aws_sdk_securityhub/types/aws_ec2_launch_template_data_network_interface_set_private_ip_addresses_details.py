@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails(TypedDict):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails(
+    TypedDict, closed=True
+):
     primary: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary. </p>"""
     private_ip_address: NotRequired[

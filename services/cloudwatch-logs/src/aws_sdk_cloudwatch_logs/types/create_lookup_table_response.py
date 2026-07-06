@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#CreateLookupTableResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class CreateLookupTableResponse(TypedDict):
+class CreateLookupTableResponse(TypedDict, closed=True):
     lookup_table_arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]
     """<p>The ARN of the lookup table that was created.</p>"""
     created_at: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]

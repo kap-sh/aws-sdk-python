@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#GatewayApiKeyCredentialProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.api_key_credential_provider_arn
 
 
-class GatewayApiKeyCredentialProvider(TypedDict):
+class GatewayApiKeyCredentialProvider(TypedDict, closed=True):
     provider_arn: "aws_sdk_bedrock_agentcore_control.types.api_key_credential_provider_arn.ApiKeyCredentialProviderArn"
     """<p>The Amazon Resource Name (ARN) of the API key credential provider. This ARN identifies the provider in Amazon Web Services.</p>"""
     credential_parameter_name: NotRequired[

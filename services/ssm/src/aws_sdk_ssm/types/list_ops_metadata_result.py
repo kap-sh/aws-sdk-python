@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ListOpsMetadataResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.next_token
     import aws_sdk_ssm.types.ops_metadata_list
 
 
-class ListOpsMetadataResult(TypedDict):
+class ListOpsMetadataResult(TypedDict, closed=True):
     ops_metadata_list: NotRequired[
         "aws_sdk_ssm.types.ops_metadata_list.OpsMetadataList"
     ]

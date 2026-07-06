@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetCustomModelDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_deployment_identifier
 
 
-class GetCustomModelDeploymentRequest(TypedDict):
+class GetCustomModelDeploymentRequest(TypedDict, closed=True):
     custom_model_deployment_identifier: "aws_sdk_bedrock.types.custom_model_deployment_identifier.CustomModelDeploymentIdentifier"
     """<p>The Amazon Resource Name (ARN) or name of the custom model deployment to retrieve information about.</p>"""
 

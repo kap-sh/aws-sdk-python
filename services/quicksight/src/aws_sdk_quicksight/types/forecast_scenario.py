@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ForecastScenario``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.what_if_point_scenario
     import aws_sdk_quicksight.types.what_if_range_scenario
 
 
-class ForecastScenario(TypedDict):
+class ForecastScenario(TypedDict, closed=True):
     what_if_point_scenario: NotRequired[
         "aws_sdk_quicksight.types.what_if_point_scenario.WhatIfPointScenario"
     ]

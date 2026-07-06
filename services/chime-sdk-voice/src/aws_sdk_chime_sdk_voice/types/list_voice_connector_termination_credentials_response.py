@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListVoiceConnectorTerminationCredentialsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.sensitive_string_list
 
 
-class ListVoiceConnectorTerminationCredentialsResponse(TypedDict):
+class ListVoiceConnectorTerminationCredentialsResponse(TypedDict, closed=True):
     usernames: NotRequired[
         "aws_sdk_chime_sdk_voice.types.sensitive_string_list.SensitiveStringList"
     ]

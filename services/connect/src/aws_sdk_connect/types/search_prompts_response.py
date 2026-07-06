@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchPromptsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.approximate_total_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.prompt_list
 
 
-class SearchPromptsResponse(TypedDict):
+class SearchPromptsResponse(TypedDict, closed=True):
     prompts: NotRequired["aws_sdk_connect.types.prompt_list.PromptList"]
     """<p>Information about the prompts.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token2500.NextToken2500"]

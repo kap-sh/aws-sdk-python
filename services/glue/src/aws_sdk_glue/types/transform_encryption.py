@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TransformEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.ml_user_data_encryption
     import aws_sdk_glue.types.name_string
 
 
-class TransformEncryption(TypedDict):
+class TransformEncryption(TypedDict, closed=True):
     ml_user_data_encryption: NotRequired[
         "aws_sdk_glue.types.ml_user_data_encryption.MLUserDataEncryption"
     ]

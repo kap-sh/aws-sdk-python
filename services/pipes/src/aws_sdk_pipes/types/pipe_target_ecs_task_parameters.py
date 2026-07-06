@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetEcsTaskParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.tag_list
 
 
-class PipeTargetEcsTaskParameters(TypedDict):
+class PipeTargetEcsTaskParameters(TypedDict, closed=True):
     task_definition_arn: "aws_sdk_pipes.types.arn_or_json_path.ArnOrJsonPath"
     """<p>The ARN of the task definition to use if the event target is an Amazon ECS task. </p>"""
     task_count: NotRequired["aws_sdk_pipes.types.limit_min1.LimitMin1"]

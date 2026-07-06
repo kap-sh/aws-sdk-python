@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#RegisterDelegatedAdministratorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.service_principal
 
 
-class RegisterDelegatedAdministratorRequest(TypedDict):
+class RegisterDelegatedAdministratorRequest(TypedDict, closed=True):
     account_id: "aws_sdk_organizations.types.account_id.AccountId"
     """<p>The account ID number of the member account in the organization to register as a delegated administrator.</p>"""
     service_principal: "aws_sdk_organizations.types.service_principal.ServicePrincipal"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#SlurmRestRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.slurm_rest_mode
 
 
-class SlurmRestRequest(TypedDict):
+class SlurmRestRequest(TypedDict, closed=True):
     mode: "aws_sdk_pcs.types.slurm_rest_mode.SlurmRestMode"
     """<p>The default value for <code>mode</code> is <code>NONE</code>. A value of <code>STANDARD</code> means the Slurm REST API is enabled.</p>"""
 

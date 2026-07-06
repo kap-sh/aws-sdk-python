@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CustomLabel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.geometry
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class CustomLabel(TypedDict):
+class CustomLabel(TypedDict, closed=True):
     name: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The name of the custom label.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

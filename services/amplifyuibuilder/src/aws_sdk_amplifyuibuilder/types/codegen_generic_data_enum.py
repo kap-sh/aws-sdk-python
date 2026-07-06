@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenGenericDataEnum``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.codegen_generic_data_enum_values_list
 
 
-class CodegenGenericDataEnum(TypedDict):
+class CodegenGenericDataEnum(TypedDict, closed=True):
     values: "aws_sdk_amplifyuibuilder.types.codegen_generic_data_enum_values_list.CodegenGenericDataEnumValuesList"
     """<p>The list of enum values in the generic data schema.</p>"""
 

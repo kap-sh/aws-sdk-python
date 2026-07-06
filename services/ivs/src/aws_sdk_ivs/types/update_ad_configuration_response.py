@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#UpdateAdConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.ad_configuration
 
 
-class UpdateAdConfigurationResponse(TypedDict):
+class UpdateAdConfigurationResponse(TypedDict, closed=True):
     ad_configuration: "aws_sdk_ivs.types.ad_configuration.AdConfiguration"
     """<p>Object specifying the updated ad configuration.</p>"""
 

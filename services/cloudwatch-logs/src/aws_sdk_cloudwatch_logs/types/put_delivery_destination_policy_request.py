@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutDeliveryDestinationPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_destination_policy
 
 
-class PutDeliveryDestinationPolicyRequest(TypedDict):
+class PutDeliveryDestinationPolicyRequest(TypedDict, closed=True):
     delivery_destination_name: "aws_sdk_cloudwatch_logs.types.delivery_destination_name.DeliveryDestinationName"
     """<p>The name of the delivery destination to assign this policy to.</p>"""
     delivery_destination_policy: "aws_sdk_cloudwatch_logs.types.delivery_destination_policy.DeliveryDestinationPolicy"

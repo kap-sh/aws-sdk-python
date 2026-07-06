@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#UndetectedSignature``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.u_integer
 
 
-class UndetectedSignature(TypedDict):
+class UndetectedSignature(TypedDict, closed=True):
     page: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>The page where a signature was expected but not found.</p>"""
 

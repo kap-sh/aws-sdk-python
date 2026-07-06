@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListControlsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListControlsResponse(TypedDict):
+class ListControlsResponse(TypedDict, closed=True):
     controls: "aws_sdk_controlcatalog.types.controls.Controls"
     """<p>Returns a list of controls, given as structures of type <i>controlSummary</i>.</p>"""
     next_token: NotRequired[

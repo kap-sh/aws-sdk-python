@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#ConfigurationSetInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.sender_id
 
 
-class ConfigurationSetInformation(TypedDict):
+class ConfigurationSetInformation(TypedDict, closed=True):
     configuration_set_arn: "str"
     """<p>The Resource Name (ARN) of the ConfigurationSet.</p>"""
     configuration_set_name: "aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name.ConfigurationSetName"

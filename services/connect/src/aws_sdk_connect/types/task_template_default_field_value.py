@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TaskTemplateDefaultFieldValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.task_template_field_identifier
     import aws_sdk_connect.types.task_template_field_value
 
 
-class TaskTemplateDefaultFieldValue(TypedDict):
+class TaskTemplateDefaultFieldValue(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_connect.types.task_template_field_identifier.TaskTemplateFieldIdentifier"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#ExportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_simpledbv2.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_simpledbv2.types.requested_at
 
 
-class ExportSummary(TypedDict):
+class ExportSummary(TypedDict, closed=True):
     export_arn: "aws_sdk_simpledbv2.types.export_arn.ExportArn"
     """Unique ARN identifier of the export."""
     export_status: "aws_sdk_simpledbv2.types.export_status.ExportStatus"

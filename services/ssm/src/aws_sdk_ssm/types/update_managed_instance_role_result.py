@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateManagedInstanceRoleResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateManagedInstanceRoleResult(TypedDict):
+class UpdateManagedInstanceRoleResult(TypedDict, closed=True):
     pass
 
 

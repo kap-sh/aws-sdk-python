@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#GetAdministratorAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.administrator
 
 
-class GetAdministratorAccountResponse(TypedDict):
+class GetAdministratorAccountResponse(TypedDict, closed=True):
     administrator: NotRequired["aws_sdk_guardduty.types.administrator.Administrator"]
     """<p>The administrator account details.</p>"""
 

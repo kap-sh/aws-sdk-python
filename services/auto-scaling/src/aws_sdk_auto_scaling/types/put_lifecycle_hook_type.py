@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#PutLifecycleHookType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_max_len255
 
 
-class PutLifecycleHookType(TypedDict):
+class PutLifecycleHookType(TypedDict, closed=True):
     lifecycle_hook_name: NotRequired[
         "aws_sdk_auto_scaling.types.ascii_string_max_len255.AsciiStringMaxLen255"
     ]

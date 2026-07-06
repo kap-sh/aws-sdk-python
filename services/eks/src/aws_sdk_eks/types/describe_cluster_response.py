@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.cluster
 
 
-class DescribeClusterResponse(TypedDict):
+class DescribeClusterResponse(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_eks.types.cluster.Cluster"]
     """<p>The full description of your specified cluster.</p>"""
 

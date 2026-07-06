@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#TransactWriteItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.condition_check
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.update
 
 
-class TransactWriteItem(TypedDict):
+class TransactWriteItem(TypedDict, closed=True):
     condition_check: NotRequired[
         "aws_sdk_dynamodb.types.condition_check.ConditionCheck"
     ]

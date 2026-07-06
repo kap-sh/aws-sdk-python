@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeregisterDBProxyTargetsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
 
-class DeregisterDBProxyTargetsResponse(TypedDict):
+class DeregisterDBProxyTargetsResponse(TypedDict, closed=True):
     pass
 
 

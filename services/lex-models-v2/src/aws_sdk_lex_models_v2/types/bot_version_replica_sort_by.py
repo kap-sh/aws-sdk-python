@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotVersionReplicaSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sort_order
 
 
-class BotVersionReplicaSortBy(TypedDict):
+class BotVersionReplicaSortBy(TypedDict, closed=True):
     attribute: "aws_sdk_lex_models_v2.types.bot_version_replica_sort_attribute.BotVersionReplicaSortAttribute"
     """<p>The attribute of the sort category for the version replicated bots.</p>"""
     order: "aws_sdk_lex_models_v2.types.sort_order.SortOrder"

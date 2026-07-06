@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#GetServiceSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.box_boolean
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string_list
 
 
-class GetServiceSettingsResponse(TypedDict):
+class GetServiceSettingsResponse(TypedDict, closed=True):
     s3_bucket_arn: NotRequired["aws_sdk_license_manager.types.string.String"]
     """<p>Regional S3 bucket path for storing reports, license trail event data, discovery data, and so on.</p>"""
     sns_topic_arn: NotRequired["aws_sdk_license_manager.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#InputVideoGenerator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max32
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_min14_pattern_s3_bmp_bmp_png_png_tga_tga_https_bmp_bmp_png_png_tga_tga
 
 
-class InputVideoGenerator(TypedDict):
+class InputVideoGenerator(TypedDict, closed=True):
     channels: NotRequired[
         "aws_sdk_mediaconvert.types.__integer_min1_max32.__integerMin1Max32"
     ]

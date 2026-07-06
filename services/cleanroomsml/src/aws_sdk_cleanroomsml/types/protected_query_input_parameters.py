@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ProtectedQueryInputParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.result_format
 
 
-class ProtectedQueryInputParameters(TypedDict):
+class ProtectedQueryInputParameters(TypedDict, closed=True):
     sql_parameters: "aws_sdk_cleanroomsml.types.protected_query_sql_parameters.ProtectedQuerySQLParameters"
     compute_configuration: NotRequired[
         "aws_sdk_cleanroomsml.types.compute_configuration.ComputeConfiguration"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ChangeServerLifeCycleStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.source_server_id
 
 
-class ChangeServerLifeCycleStateRequest(TypedDict):
+class ChangeServerLifeCycleStateRequest(TypedDict, closed=True):
     source_server_id: "aws_sdk_mgn.types.source_server_id.SourceServerID"
     """<p>The request to change the source server migration lifecycle state by source server ID.</p>"""
     life_cycle: "aws_sdk_mgn.types.change_server_life_cycle_state_source_server_lifecycle.ChangeServerLifeCycleStateSourceServerLifecycle"

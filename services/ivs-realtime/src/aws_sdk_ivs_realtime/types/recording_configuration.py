@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#RecordingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.composition_recording_hls_configuration
     import aws_sdk_ivs_realtime.types.recording_configuration_format
 
 
-class RecordingConfiguration(TypedDict):
+class RecordingConfiguration(TypedDict, closed=True):
     hls_configuration: NotRequired[
         "aws_sdk_ivs_realtime.types.composition_recording_hls_configuration.CompositionRecordingHlsConfiguration"
     ]

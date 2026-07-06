@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#GetConfiguredTableAssociationAnalysisRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_table_association_analysis_rule
 
 
-class GetConfiguredTableAssociationAnalysisRuleOutput(TypedDict):
+class GetConfiguredTableAssociationAnalysisRuleOutput(TypedDict, closed=True):
     analysis_rule: "aws_sdk_cleanrooms.types.configured_table_association_analysis_rule.ConfiguredTableAssociationAnalysisRule"
     """<p>The analysis rule for the conﬁgured table association. In the console, the <code>ConfiguredTableAssociationAnalysisRule</code> is referred to as the <i>collaboration analysis rule</i>.</p>"""
 

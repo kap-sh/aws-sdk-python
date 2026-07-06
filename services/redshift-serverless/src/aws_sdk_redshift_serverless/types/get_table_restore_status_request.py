@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetTableRestoreStatusRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
 
-class GetTableRestoreStatusRequest(TypedDict):
+class GetTableRestoreStatusRequest(TypedDict, closed=True):
     table_restore_request_id: "str"
     """<p>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</p>"""
 

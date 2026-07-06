@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#GetOnPremisesInstanceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instance_info
 
 
-class GetOnPremisesInstanceOutput(TypedDict):
+class GetOnPremisesInstanceOutput(TypedDict, closed=True):
     instance_info: NotRequired["aws_sdk_codedeploy.types.instance_info.InstanceInfo"]
     """<p> Information about the on-premises instance. </p>"""
 

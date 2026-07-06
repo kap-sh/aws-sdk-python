@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_source
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string
 
 
-class DescribeDataSourceResponse(TypedDict):
+class DescribeDataSourceResponse(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_quicksight.types.data_source.DataSource"]
     """<p>The information on the data source.</p>"""
     request_id: NotRequired["aws_sdk_quicksight.types.string.String"]

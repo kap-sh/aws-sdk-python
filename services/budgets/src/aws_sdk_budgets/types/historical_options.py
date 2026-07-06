@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#HistoricalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_budgets.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.adjustment_period
 
 
-class HistoricalOptions(TypedDict):
+class HistoricalOptions(TypedDict, closed=True):
     budget_adjustment_period: "aws_sdk_budgets.types.adjustment_period.AdjustmentPeriod"
     """<p>The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount. The maximum value depends on the <code>TimeUnit</code> granularity of the budget:</p> <ul> <li> <p>For the <code>DAILY</code> granularity, the maximum value is <code>60</code>.</p> </li> <li> <p>For the <code>MONTHLY</code> granularity, the maximum value is <code>12</code>.</p> </li> <li> <p>For the <code>QUARTERLY</code> granularity, the maximum value is <code>4</code>.</p> </li> <li> <p>For the <code>ANNUALLY</code> granularity, the maximum value is <code>1</code>.</p> </li> </ul>"""
     look_back_available_periods: NotRequired[

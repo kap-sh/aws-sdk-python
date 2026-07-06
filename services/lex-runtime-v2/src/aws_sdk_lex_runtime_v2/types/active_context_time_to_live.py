@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#ActiveContextTimeToLive``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_runtime_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.active_context_turns_to_live
 
 
-class ActiveContextTimeToLive(TypedDict):
+class ActiveContextTimeToLive(TypedDict, closed=True):
     time_to_live_in_seconds: "aws_sdk_lex_runtime_v2.types.active_context_time_to_live_in_seconds.ActiveContextTimeToLiveInSeconds"
     """<p>The number of seconds that the context is active. You can specify between 5 and 86400 seconds (24 hours).</p>"""
     turns_to_live: "aws_sdk_lex_runtime_v2.types.active_context_turns_to_live.ActiveContextTurnsToLive"

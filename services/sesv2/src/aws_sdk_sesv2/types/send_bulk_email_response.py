@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#SendBulkEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.bulk_email_entry_result_list
 
 
-class SendBulkEmailResponse(TypedDict):
+class SendBulkEmailResponse(TypedDict, closed=True):
     bulk_email_entry_results: (
         "aws_sdk_sesv2.types.bulk_email_entry_result_list.BulkEmailEntryResultList"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DriftCheckBaselines``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.drift_check_bias
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.drift_check_model_quality
 
 
-class DriftCheckBaselines(TypedDict):
+class DriftCheckBaselines(TypedDict, closed=True):
     bias: NotRequired["aws_sdk_sagemaker.types.drift_check_bias.DriftCheckBias"]
     """<p>Represents the drift check bias baselines that can be used when the model monitor is set using the model package. </p>"""
     explainability: NotRequired[

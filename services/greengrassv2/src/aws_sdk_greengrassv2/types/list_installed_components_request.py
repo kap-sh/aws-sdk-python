@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#ListInstalledComponentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.core_device_thing_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.next_token_string
 
 
-class ListInstalledComponentsRequest(TypedDict):
+class ListInstalledComponentsRequest(TypedDict, closed=True):
     core_device_thing_name: (
         "aws_sdk_greengrassv2.types.core_device_thing_name.CoreDeviceThingName"
     )

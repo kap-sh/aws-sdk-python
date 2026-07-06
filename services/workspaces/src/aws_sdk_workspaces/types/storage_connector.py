@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#StorageConnector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.storage_connector_type_enum
 
 
-class StorageConnector(TypedDict):
+class StorageConnector(TypedDict, closed=True):
     connector_type: (
         "aws_sdk_workspaces.types.storage_connector_type_enum.StorageConnectorTypeEnum"
     )

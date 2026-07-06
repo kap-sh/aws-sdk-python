@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AcceptMarketplaceRegistrationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AcceptMarketplaceRegistrationOutput(TypedDict):
+class AcceptMarketplaceRegistrationOutput(TypedDict, closed=True):
     pass
 
 

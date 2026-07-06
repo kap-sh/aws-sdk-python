@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#GetPortfolioPreferencesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.application_mode
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.prioritize_business_goals
 
 
-class GetPortfolioPreferencesResponse(TypedDict):
+class GetPortfolioPreferencesResponse(TypedDict, closed=True):
     prioritize_business_goals: NotRequired[
         "aws_sdk_migrationhubstrategy.types.prioritize_business_goals.PrioritizeBusinessGoals"
     ]

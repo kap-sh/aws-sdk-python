@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#Shipment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class Shipment(TypedDict):
+class Shipment(TypedDict, closed=True):
     status: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>Status information for a shipment.</p>"""
     tracking_number: NotRequired["aws_sdk_snowball.types.string.String"]

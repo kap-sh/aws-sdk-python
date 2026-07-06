@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UpdateGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.path_type
 
 
-class UpdateGroupRequest(TypedDict):
+class UpdateGroupRequest(TypedDict, closed=True):
     group_name: "aws_sdk_iam.types.group_name_type.groupNameType"
     r"""<p>Name of the IAM group to update. If you're changing the name of the group, this is the original name.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     new_path: NotRequired["aws_sdk_iam.types.path_type.pathType"]

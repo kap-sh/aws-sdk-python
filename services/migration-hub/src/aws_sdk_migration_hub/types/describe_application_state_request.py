@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#DescribeApplicationStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migration_hub.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.application_id
 
 
-class DescribeApplicationStateRequest(TypedDict):
+class DescribeApplicationStateRequest(TypedDict, closed=True):
     application_id: "aws_sdk_migration_hub.types.application_id.ApplicationId"
     """<p>The configurationId in Application Discovery Service that uniquely identifies the grouped application.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialCircleSymbolStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_circle_radius
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_line_width
 
 
-class GeospatialCircleSymbolStyle(TypedDict):
+class GeospatialCircleSymbolStyle(TypedDict, closed=True):
     fill_color: NotRequired["aws_sdk_quicksight.types.geospatial_color.GeospatialColor"]
     """<p>The color and opacity values for the fill color.</p>"""
     stroke_color: NotRequired[

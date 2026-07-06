@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ActionExecutionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_execution_result
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.output_variables_map
 
 
-class ActionExecutionOutput(TypedDict):
+class ActionExecutionOutput(TypedDict, closed=True):
     output_artifacts: NotRequired[
         "aws_sdk_codepipeline.types.artifact_detail_list.ArtifactDetailList"
     ]

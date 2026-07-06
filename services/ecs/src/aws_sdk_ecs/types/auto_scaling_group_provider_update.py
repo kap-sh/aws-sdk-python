@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#AutoScalingGroupProviderUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.managed_draining
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.managed_termination_protection
 
 
-class AutoScalingGroupProviderUpdate(TypedDict):
+class AutoScalingGroupProviderUpdate(TypedDict, closed=True):
     managed_scaling: NotRequired["aws_sdk_ecs.types.managed_scaling.ManagedScaling"]
     """<p>The managed scaling settings for the Auto Scaling group capacity provider.</p>"""
     managed_termination_protection: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomActionFilterOperation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.filter_operation_target_visuals_configuration
 
 
-class CustomActionFilterOperation(TypedDict):
+class CustomActionFilterOperation(TypedDict, closed=True):
     selected_fields_configuration: "aws_sdk_quicksight.types.filter_operation_selected_fields_configuration.FilterOperationSelectedFieldsConfiguration"
     """<p>The configuration that chooses the fields to be filtered.</p>"""
     target_visuals_configuration: "aws_sdk_quicksight.types.filter_operation_target_visuals_configuration.FilterOperationTargetVisualsConfiguration"

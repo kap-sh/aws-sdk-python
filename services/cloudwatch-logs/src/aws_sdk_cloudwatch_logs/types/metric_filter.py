@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#MetricFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.apply_on_transformed_logs
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class MetricFilter(TypedDict):
+class MetricFilter(TypedDict, closed=True):
     filter_name: NotRequired["aws_sdk_cloudwatch_logs.types.filter_name.FilterName"]
     """<p>The name of the metric filter.</p>"""
     filter_pattern: NotRequired[

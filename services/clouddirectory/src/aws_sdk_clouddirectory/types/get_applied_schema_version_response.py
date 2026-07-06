@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#GetAppliedSchemaVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.arn
 
 
-class GetAppliedSchemaVersionResponse(TypedDict):
+class GetAppliedSchemaVersionResponse(TypedDict, closed=True):
     applied_schema_arn: NotRequired["aws_sdk_clouddirectory.types.arn.Arn"]
     """<p>Current applied schema ARN, including the minor version in use if one was provided.</p>"""
 

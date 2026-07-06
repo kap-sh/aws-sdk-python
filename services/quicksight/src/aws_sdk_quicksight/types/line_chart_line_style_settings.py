@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#LineChartLineStyleSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.line_chart_line_style
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class LineChartLineStyleSettings(TypedDict):
+class LineChartLineStyleSettings(TypedDict, closed=True):
     line_visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>Configuration option that determines whether to show the line for the series.</p>"""
     line_interpolation: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#CreateRepositoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.repository
     import aws_sdk_ecr_public.types.repository_catalog_data
 
 
-class CreateRepositoryResponse(TypedDict):
+class CreateRepositoryResponse(TypedDict, closed=True):
     repository: NotRequired["aws_sdk_ecr_public.types.repository.Repository"]
     """<p>The repository that was created.</p>"""
     catalog_data: NotRequired[

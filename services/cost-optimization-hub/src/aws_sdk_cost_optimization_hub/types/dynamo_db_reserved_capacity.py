@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#DynamoDbReservedCapacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.dynamo_db_reserved_capacity_configuration
     import aws_sdk_cost_optimization_hub.types.reserved_instances_cost_calculation
 
 
-class DynamoDbReservedCapacity(TypedDict):
+class DynamoDbReservedCapacity(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.dynamo_db_reserved_capacity_configuration.DynamoDbReservedCapacityConfiguration"
     ]

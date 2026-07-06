@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#TransferParticipant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.account_id
     import aws_sdk_organizations.types.email
 
 
-class TransferParticipant(TypedDict):
+class TransferParticipant(TypedDict, closed=True):
     management_account_id: NotRequired[
         "aws_sdk_organizations.types.account_id.AccountId"
     ]

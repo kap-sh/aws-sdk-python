@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CodeSigningCertificateChain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.certificate_name
     import aws_sdk_iot.types.inline_document
 
 
-class CodeSigningCertificateChain(TypedDict):
+class CodeSigningCertificateChain(TypedDict, closed=True):
     certificate_name: NotRequired["aws_sdk_iot.types.certificate_name.CertificateName"]
     """<p>The name of the certificate.</p>"""
     inline_document: NotRequired["aws_sdk_iot.types.inline_document.InlineDocument"]

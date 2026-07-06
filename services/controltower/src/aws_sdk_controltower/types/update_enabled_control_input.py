@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#UpdateEnabledControlInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.enabled_control_parameters
 
 
-class UpdateEnabledControlInput(TypedDict):
+class UpdateEnabledControlInput(TypedDict, closed=True):
     parameters: (
         "aws_sdk_controltower.types.enabled_control_parameters.EnabledControlParameters"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#JobFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.filter_values
     import aws_sdk_compute_optimizer.types.job_filter_name
 
 
-class JobFilter(TypedDict):
+class JobFilter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_compute_optimizer.types.job_filter_name.JobFilterName"]
     """<p>The name of the filter.</p> <p>Specify <code>ResourceType</code> to return export jobs of a specific resource type (for example, <code>Ec2Instance</code>).</p> <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g, <code>Complete</code>).</p>"""
     values: NotRequired["aws_sdk_compute_optimizer.types.filter_values.FilterValues"]

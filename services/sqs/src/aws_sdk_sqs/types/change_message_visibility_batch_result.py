@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ChangeMessageVisibilityBatchResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.change_message_visibility_batch_result_entry_list
 
 
-class ChangeMessageVisibilityBatchResult(TypedDict):
+class ChangeMessageVisibilityBatchResult(TypedDict, closed=True):
     successful: "aws_sdk_sqs.types.change_message_visibility_batch_result_entry_list.ChangeMessageVisibilityBatchResultEntryList"
     """<p>A list of <code> <a>ChangeMessageVisibilityBatchResultEntry</a> </code> items.</p>"""
     failed: "aws_sdk_sqs.types.batch_result_error_entry_list.BatchResultErrorEntryList"

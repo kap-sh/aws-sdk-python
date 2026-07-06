@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#Voice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.engine_list
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.voice_name
 
 
-class Voice(TypedDict):
+class Voice(TypedDict, closed=True):
     gender: NotRequired["aws_sdk_polly.types.gender.Gender"]
     """<p>Gender of the voice.</p>"""
     id: NotRequired["aws_sdk_polly.types.voice_id.VoiceId"]

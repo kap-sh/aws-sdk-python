@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.dax#AmazonDAXV3``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_dax._auth._signers
@@ -89,7 +89,7 @@ if TYPE_CHECKING:
     import aws_sdk_dax.types.update_subnet_group_response
 
 
-class DAXClientConfig(TypedDict, total=False):
+class DAXClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

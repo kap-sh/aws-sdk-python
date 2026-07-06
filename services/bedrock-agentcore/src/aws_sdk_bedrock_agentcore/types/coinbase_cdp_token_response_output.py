@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CoinbaseCdpTokenResponseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.coinbase_cdp_payment_jwt_token_type
 
 
-class CoinbaseCdpTokenResponseOutput(TypedDict):
+class CoinbaseCdpTokenResponseOutput(TypedDict, closed=True):
     bearer_token: "aws_sdk_bedrock_agentcore.types.coinbase_cdp_payment_jwt_token_type.CoinbaseCdpPaymentJwtTokenType"
     """<p>Bearer Token for Authorization header.</p>"""
     wallet_auth_token: NotRequired[

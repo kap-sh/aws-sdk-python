@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.bounded_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.positive_integer
 
 
-class RecoveryInstanceDisk(TypedDict):
+class RecoveryInstanceDisk(TypedDict, closed=True):
     internal_device_name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]
     """<p>The internal device name of this disk. This is the name that is visible on the machine itself and not from the EC2 console.</p>"""
     bytes: "aws_sdk_drs.types.positive_integer.PositiveInteger"

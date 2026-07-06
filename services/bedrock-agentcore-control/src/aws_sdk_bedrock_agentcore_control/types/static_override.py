@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#StaticOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.gateway_configuration_bundle_arn
 
 
-class StaticOverride(TypedDict):
+class StaticOverride(TypedDict, closed=True):
     bundle_arn: "aws_sdk_bedrock_agentcore_control.types.gateway_configuration_bundle_arn.GatewayConfigurationBundleArn"
     """<p>The Amazon Resource Name (ARN) of the configuration bundle to apply.</p>"""
     bundle_version: "str"

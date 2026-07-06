@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#MetadataTransferJobStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.error_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.metadata_transfer_job_state
 
 
-class MetadataTransferJobStatus(TypedDict):
+class MetadataTransferJobStatus(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_iottwinmaker.types.metadata_transfer_job_state.MetadataTransferJobState"
     ]

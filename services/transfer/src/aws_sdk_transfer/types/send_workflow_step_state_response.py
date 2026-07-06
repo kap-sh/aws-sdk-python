@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#SendWorkflowStepStateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendWorkflowStepStateResponse(TypedDict):
+class SendWorkflowStepStateResponse(TypedDict, closed=True):
     pass
 
 

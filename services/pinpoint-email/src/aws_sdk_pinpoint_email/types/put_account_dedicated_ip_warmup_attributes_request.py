@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutAccountDedicatedIpWarmupAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
 
 
-class PutAccountDedicatedIpWarmupAttributesRequest(TypedDict):
+class PutAccountDedicatedIpWarmupAttributesRequest(TypedDict, closed=True):
     auto_warmup_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"
     """<p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are associated with your Amazon Pinpoint account in the current AWS Region. Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code> to disable it.</p>"""
 

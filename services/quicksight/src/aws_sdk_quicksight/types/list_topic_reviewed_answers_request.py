@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListTopicReviewedAnswersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
     import aws_sdk_quicksight.types.topic_id
 
 
-class ListTopicReviewedAnswersRequest(TypedDict):
+class ListTopicReviewedAnswersRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that containd the reviewed answers that you want listed.</p>"""
     topic_id: "aws_sdk_quicksight.types.topic_id.TopicId"

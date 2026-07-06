@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IntegrationPartition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.string128
 
 
-class IntegrationPartition(TypedDict):
+class IntegrationPartition(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_glue.types.string128.String128"]
     """<p>The field name used to partition data on the target. Avoid using columns that have unique values for each row (for example, `LastModifiedTimestamp`, `SystemModTimeStamp`) as the partition column. These columns are not suitable for partitioning because they create a large number of small partitions, which can lead to performance issues.</p>"""
     function_spec: NotRequired["aws_sdk_glue.types.string128.String128"]

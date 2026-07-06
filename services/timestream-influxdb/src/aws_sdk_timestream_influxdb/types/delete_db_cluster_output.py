@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#DeleteDbClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.cluster_status
 
 
-class DeleteDbClusterOutput(TypedDict):
+class DeleteDbClusterOutput(TypedDict, closed=True):
     db_cluster_status: NotRequired[
         "aws_sdk_timestream_influxdb.types.cluster_status.ClusterStatus"
     ]

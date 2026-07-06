@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#IdentityCenterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class IdentityCenterConfiguration(TypedDict):
+class IdentityCenterConfiguration(TypedDict, closed=True):
     enable_identity_propagation: NotRequired["aws_sdk_quicksight.types.boolean.Boolean"]
     """<p>A Boolean option that controls whether Trusted Identity Propagation should be used.</p>"""
 

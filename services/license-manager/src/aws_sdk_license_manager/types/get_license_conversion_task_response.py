@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#GetLicenseConversionTaskResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.date_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class GetLicenseConversionTaskResponse(TypedDict):
+class GetLicenseConversionTaskResponse(TypedDict, closed=True):
     license_conversion_task_id: NotRequired[
         "aws_sdk_license_manager.types.license_conversion_task_id.LicenseConversionTaskId"
     ]

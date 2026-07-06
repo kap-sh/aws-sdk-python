@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceentitlementservice#Entitlement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_entitlement_service.types.entitlement_value
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_entitlement_service.types.timestamp
 
 
-class Entitlement(TypedDict):
+class Entitlement(TypedDict, closed=True):
     product_code: NotRequired[
         "aws_sdk_marketplace_entitlement_service.types.product_code.ProductCode"
     ]

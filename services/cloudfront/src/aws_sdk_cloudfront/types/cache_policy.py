@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CachePolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.timestamp
 
 
-class CachePolicy(TypedDict):
+class CachePolicy(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The unique identifier for the cache policy.</p>"""
     last_modified_time: "aws_sdk_cloudfront.types.timestamp.timestamp"

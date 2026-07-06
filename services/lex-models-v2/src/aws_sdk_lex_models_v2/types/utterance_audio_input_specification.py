@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UtteranceAudioInputSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.audio_file_s3_location
 
 
-class UtteranceAudioInputSpecification(TypedDict):
+class UtteranceAudioInputSpecification(TypedDict, closed=True):
     audio_file_s3_location: (
         "aws_sdk_lex_models_v2.types.audio_file_s3_location.AudioFileS3Location"
     )

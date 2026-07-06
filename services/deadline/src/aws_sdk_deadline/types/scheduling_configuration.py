@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#SchedulingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.weighted_balanced_scheduling_configuration
 
 
-class _SchedulingConfiguration_priorityFifo(TypedDict):
+class _SchedulingConfiguration_priorityFifo(TypedDict, closed=True):
     priorityFifo: "aws_sdk_deadline.types.priority_fifo_scheduling_configuration.PriorityFifoSchedulingConfiguration"
 
 
-class _SchedulingConfiguration_priorityBalanced(TypedDict):
+class _SchedulingConfiguration_priorityBalanced(TypedDict, closed=True):
     priorityBalanced: "aws_sdk_deadline.types.priority_balanced_scheduling_configuration.PriorityBalancedSchedulingConfiguration"
 
 
-class _SchedulingConfiguration_weightedBalanced(TypedDict):
+class _SchedulingConfiguration_weightedBalanced(TypedDict, closed=True):
     weightedBalanced: "aws_sdk_deadline.types.weighted_balanced_scheduling_configuration.WeightedBalancedSchedulingConfiguration"
 
 

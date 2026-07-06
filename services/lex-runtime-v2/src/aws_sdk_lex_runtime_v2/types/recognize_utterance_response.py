@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimev2#RecognizeUtteranceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.blob_stream
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_v2.types.session_id
 
 
-class RecognizeUtteranceResponse(TypedDict):
+class RecognizeUtteranceResponse(TypedDict, closed=True):
     input_mode: NotRequired[
         "aws_sdk_lex_runtime_v2.types.non_empty_string.NonEmptyString"
     ]

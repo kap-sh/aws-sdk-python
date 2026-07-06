@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#OtherName``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.string256
 
 
-class OtherName(TypedDict):
+class OtherName(TypedDict, closed=True):
     type_id: "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     """<p>Specifies an OID. </p>"""
     value: "aws_sdk_acm_pca.types.string256.String256"

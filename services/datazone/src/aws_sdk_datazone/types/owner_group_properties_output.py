@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#OwnerGroupPropertiesOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class OwnerGroupPropertiesOutput(TypedDict):
+class OwnerGroupPropertiesOutput(TypedDict, closed=True):
     group_id: NotRequired["str"]
     """<p>The ID of the domain unit owners group.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ListCollaborationConfiguredAudienceModelAssociationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -11,7 +11,9 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.pagination_token
 
 
-class ListCollaborationConfiguredAudienceModelAssociationsOutput(TypedDict):
+class ListCollaborationConfiguredAudienceModelAssociationsOutput(
+    TypedDict, closed=True
+):
     collaboration_configured_audience_model_association_summaries: "aws_sdk_cleanrooms.types.collaboration_configured_audience_model_association_summary_list.CollaborationConfiguredAudienceModelAssociationSummaryList"
     """<p>The metadata of the configured audience model association within a collaboration.</p>"""
     next_token: NotRequired["aws_sdk_cleanrooms.types.pagination_token.PaginationToken"]

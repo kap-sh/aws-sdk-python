@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TaskPropertiesOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.list_task_container_overrides
 
 
-class TaskPropertiesOverride(TypedDict):
+class TaskPropertiesOverride(TypedDict, closed=True):
     containers: NotRequired[
         "aws_sdk_batch.types.list_task_container_overrides.ListTaskContainerOverrides"
     ]

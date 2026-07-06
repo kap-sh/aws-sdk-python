@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ListS3TableIntegrationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.list_s3_table_integrations_max_results
     import aws_sdk_observabilityadmin.types.next_token
 
 
-class ListS3TableIntegrationsInput(TypedDict):
+class ListS3TableIntegrationsInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_observabilityadmin.types.list_s3_table_integrations_max_results.ListS3TableIntegrationsMaxResults"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#CreateKxScalingGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.availability_zone_id
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.timestamp
 
 
-class CreateKxScalingGroupResponse(TypedDict):
+class CreateKxScalingGroupResponse(TypedDict, closed=True):
     environment_id: NotRequired[
         "aws_sdk_finspace.types.kx_environment_id.KxEnvironmentId"
     ]

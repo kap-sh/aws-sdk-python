@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#ExecuteStatementException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
 
 
-class ExecuteStatementException_(TypedDict):
+class ExecuteStatementException_(TypedDict, closed=True):
     message: "aws_sdk_redshift_data.types.string.String"
     """<p>The exception message.</p>"""
     statement_id: "aws_sdk_redshift_data.types.string.String"

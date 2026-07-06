@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signin#DeleteResourcePermissionStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_signin.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_signin.types.statement_id
 
 
-class DeleteResourcePermissionStatementInput(TypedDict):
+class DeleteResourcePermissionStatementInput(TypedDict, closed=True):
     statement_id: "aws_sdk_signin.types.statement_id.StatementId"
     """Unique identifier of the permission statement to delete"""
     client_token: NotRequired["aws_sdk_signin.types.client_token.ClientToken"]

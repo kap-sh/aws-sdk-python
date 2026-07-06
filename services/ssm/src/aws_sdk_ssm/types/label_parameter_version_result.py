@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#LabelParameterVersionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameter_label_list
     import aws_sdk_ssm.types.ps_parameter_version
 
 
-class LabelParameterVersionResult(TypedDict):
+class LabelParameterVersionResult(TypedDict, closed=True):
     invalid_labels: NotRequired[
         "aws_sdk_ssm.types.parameter_label_list.ParameterLabelList"
     ]

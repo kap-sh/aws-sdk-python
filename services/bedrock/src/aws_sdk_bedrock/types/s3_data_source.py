@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#S3DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.s3_uri
 
 
-class S3DataSource(TypedDict):
+class S3DataSource(TypedDict, closed=True):
     s3_uri: "aws_sdk_bedrock.types.s3_uri.S3Uri"
     """<p>The URI of the Amazon S3 data source.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ListOnPremisesInstancesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.tag_filter_list
 
 
-class ListOnPremisesInstancesInput(TypedDict):
+class ListOnPremisesInstancesInput(TypedDict, closed=True):
     registration_status: NotRequired[
         "aws_sdk_codedeploy.types.registration_status.RegistrationStatus"
     ]

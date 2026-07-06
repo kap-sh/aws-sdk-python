@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#InvokedBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.targeted_messages
 
 
-class InvokedBy(TypedDict):
+class InvokedBy(TypedDict, closed=True):
     standard_messages: (
         "aws_sdk_chime_sdk_identity.types.standard_messages.StandardMessages"
     )

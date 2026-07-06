@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticbeanstalk#AssociateEnvironmentOperationsRoleMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_beanstalk._protocol.xml import Element
 from aws_sdk_elastic_beanstalk.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_beanstalk.types.operations_role
 
 
-class AssociateEnvironmentOperationsRoleMessage(TypedDict):
+class AssociateEnvironmentOperationsRoleMessage(TypedDict, closed=True):
     environment_name: "aws_sdk_elastic_beanstalk.types.environment_name.EnvironmentName"
     """<p>The name of the environment to which to set the operations role.</p>"""
     operations_role: "aws_sdk_elastic_beanstalk.types.operations_role.OperationsRole"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#KeyUsage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.boolean
 
 
-class KeyUsage(TypedDict):
+class KeyUsage(TypedDict, closed=True):
     digital_signature: "aws_sdk_acm_pca.types.boolean.Boolean"
     """<p> Key can be used for digital signing.</p>"""
     non_repudiation: "aws_sdk_acm_pca.types.boolean.Boolean"

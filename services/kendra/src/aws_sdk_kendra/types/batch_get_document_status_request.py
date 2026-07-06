@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#BatchGetDocumentStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.index_id
 
 
-class BatchGetDocumentStatusRequest(TypedDict):
+class BatchGetDocumentStatusRequest(TypedDict, closed=True):
     index_id: "aws_sdk_kendra.types.index_id.IndexId"
     r"""<p>The identifier of the index to add documents to. The index ID is returned by the <a href=\"https://docs.aws.amazon.com/kendra/latest/dg/API_CreateIndex.html\">CreateIndex </a> API.</p>"""
     document_info_list: "aws_sdk_kendra.types.document_info_list.DocumentInfoList"

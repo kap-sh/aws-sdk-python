@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#UpgradePublishedSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.version
 
 
-class UpgradePublishedSchemaRequest(TypedDict):
+class UpgradePublishedSchemaRequest(TypedDict, closed=True):
     development_schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"
     """<p>The ARN of the development schema with the changes used for the upgrade.</p>"""
     published_schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"

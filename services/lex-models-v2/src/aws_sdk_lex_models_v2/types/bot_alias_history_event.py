@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotAliasHistoryEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_version
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class BotAliasHistoryEvent(TypedDict):
+class BotAliasHistoryEvent(TypedDict, closed=True):
     bot_version: NotRequired["aws_sdk_lex_models_v2.types.bot_version.BotVersion"]
     """<p>The version of the bot that was used in the event. </p>"""
     start_date: NotRequired["aws_sdk_lex_models_v2.types.timestamp.Timestamp"]

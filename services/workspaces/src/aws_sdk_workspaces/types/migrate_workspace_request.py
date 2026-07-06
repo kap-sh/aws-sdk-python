@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#MigrateWorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_id
 
 
-class MigrateWorkspaceRequest(TypedDict):
+class MigrateWorkspaceRequest(TypedDict, closed=True):
     source_workspace_id: "aws_sdk_workspaces.types.workspace_id.WorkspaceId"
     """<p>The identifier of the WorkSpace to migrate from.</p>"""
     bundle_id: "aws_sdk_workspaces.types.bundle_id.BundleId"

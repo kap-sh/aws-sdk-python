@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListCertificatesByCARequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.page_size
 
 
-class ListCertificatesByCARequest(TypedDict):
+class ListCertificatesByCARequest(TypedDict, closed=True):
     ca_certificate_id: "aws_sdk_iot.types.certificate_id.CertificateId"
     """<p>The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.</p>"""
     page_size: NotRequired["aws_sdk_iot.types.page_size.PageSize"]

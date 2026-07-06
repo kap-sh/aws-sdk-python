@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SslProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class SslProperties(TypedDict):
+class SslProperties(TypedDict, closed=True):
     disable_ssl: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean option to control whether SSL should be disabled.</p>"""
 

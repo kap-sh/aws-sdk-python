@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#InstanceTypeSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.boolean_object
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class InstanceTypeSpecification(TypedDict):
+class InstanceTypeSpecification(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_emr.types.instance_type.InstanceType"]
     """<p>The Amazon EC2 instance type, for example <code>m3.xlarge</code>.</p>"""
     weighted_capacity: NotRequired["aws_sdk_emr.types.whole_number.WholeNumber"]

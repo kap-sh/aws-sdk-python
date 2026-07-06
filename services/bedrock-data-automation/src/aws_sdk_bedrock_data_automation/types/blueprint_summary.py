@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#BlueprintSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_data_automation.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.date_timestamp
 
 
-class BlueprintSummary(TypedDict):
+class BlueprintSummary(TypedDict, closed=True):
     blueprint_arn: "aws_sdk_bedrock_data_automation.types.blueprint_arn.BlueprintArn"
     blueprint_version: NotRequired[
         "aws_sdk_bedrock_data_automation.types.blueprint_version.BlueprintVersion"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BudgetParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.budget
 
 
-class BudgetParameter(TypedDict):
+class BudgetParameter(TypedDict, closed=True):
     type: "aws_sdk_cleanrooms.types.access_budget_type.AccessBudgetType"
     """<p>The type of budget parameter being configured.</p>"""
     budget: "aws_sdk_cleanrooms.types.budget.Budget"

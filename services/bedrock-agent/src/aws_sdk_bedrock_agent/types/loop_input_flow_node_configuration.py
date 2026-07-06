@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#LoopInputFlowNodeConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class LoopInputFlowNodeConfiguration(TypedDict):
+class LoopInputFlowNodeConfiguration(TypedDict, closed=True):
     pass
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DeleteClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class DeleteClusterRequest(TypedDict):
+class DeleteClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_medialive.types.__string.__string"
     """The ID of the cluster."""
 

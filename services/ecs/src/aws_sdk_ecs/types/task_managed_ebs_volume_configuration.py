@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#TaskManagedEBSVolumeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.task_managed_ebs_volume_termination_policy
 
 
-class TaskManagedEBSVolumeConfiguration(TypedDict):
+class TaskManagedEBSVolumeConfiguration(TypedDict, closed=True):
     encrypted: NotRequired["aws_sdk_ecs.types.boxed_boolean.BoxedBoolean"]
     r"""<p>Indicates whether the volume should be encrypted. If you turn on Region-level Amazon EBS encryption by default but set this value as <code>false</code>, the setting is overridden and the volume is encrypted with the KMS key specified for Amazon EBS encryption by default. This parameter maps 1:1 with the <code>Encrypted</code> parameter of the <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html\">CreateVolume API</a> in the <i>Amazon EC2 API Reference</i>.</p>"""
     kms_key_id: NotRequired["aws_sdk_ecs.types.ebskms_key_id.EBSKMSKeyId"]

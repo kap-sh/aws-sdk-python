@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#SearchOrganizationInsightsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.uuid_next_token
 
 
-class SearchOrganizationInsightsRequest(TypedDict):
+class SearchOrganizationInsightsRequest(TypedDict, closed=True):
     account_ids: "aws_sdk_devops_guru.types.search_insights_account_id_list.SearchInsightsAccountIdList"
     """<p>The ID of the Amazon Web Services account. </p>"""
     start_time_range: "aws_sdk_devops_guru.types.start_time_range.StartTimeRange"

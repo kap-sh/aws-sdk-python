@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CapabilityConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.argo_cd_config_response
 
 
-class CapabilityConfigurationResponse(TypedDict):
+class CapabilityConfigurationResponse(TypedDict, closed=True):
     argo_cd: NotRequired[
         "aws_sdk_eks.types.argo_cd_config_response.ArgoCdConfigResponse"
     ]

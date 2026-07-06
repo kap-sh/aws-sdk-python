@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mwaaserverless#ScheduleConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ScheduleConfiguration(TypedDict):
+class ScheduleConfiguration(TypedDict, closed=True):
     cron_expression: NotRequired["str"]
     """<p>A cron expression that defines when the workflow is automatically executed. Uses standard cron syntax.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#UpsolverS3OutputFormatConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.prefix_config
 
 
-class UpsolverS3OutputFormatConfig(TypedDict):
+class UpsolverS3OutputFormatConfig(TypedDict, closed=True):
     file_type: NotRequired["aws_sdk_appflow.types.file_type.FileType"]
     """<p> Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. </p>"""
     prefix_config: "aws_sdk_appflow.types.prefix_config.PrefixConfig"

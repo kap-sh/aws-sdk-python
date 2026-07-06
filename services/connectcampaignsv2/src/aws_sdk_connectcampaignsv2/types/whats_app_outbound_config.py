@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#WhatsAppOutboundConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.arn
 
 
-class WhatsAppOutboundConfig(TypedDict):
+class WhatsAppOutboundConfig(TypedDict, closed=True):
     connect_source_phone_number_arn: "aws_sdk_connectcampaignsv2.types.arn.Arn"
     wisdom_template_arn: "aws_sdk_connectcampaignsv2.types.arn.Arn"
 

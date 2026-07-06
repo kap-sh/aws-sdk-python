@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEfsAccessPointRootDirectoryCreationInfoDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEfsAccessPointRootDirectoryCreationInfoDetails(TypedDict):
+class AwsEfsAccessPointRootDirectoryCreationInfoDetails(TypedDict, closed=True):
     owner_gid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>Specifies the POSIX group ID to apply to the root directory. </p>"""
     owner_uid: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Node``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.crawler_node_details
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.trigger_node_details
 
 
-class Node(TypedDict):
+class Node(TypedDict, closed=True):
     type: NotRequired["aws_sdk_glue.types.node_type.NodeType"]
     """<p>The type of Glue component represented by the node.</p>"""
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

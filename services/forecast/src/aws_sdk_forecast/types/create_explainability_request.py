@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateExplainabilityRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.tags
 
 
-class CreateExplainabilityRequest(TypedDict):
+class CreateExplainabilityRequest(TypedDict, closed=True):
     explainability_name: "aws_sdk_forecast.types.name.Name"
     """<p>A unique name for the Explainability.</p>"""
     resource_arn: "aws_sdk_forecast.types.arn.Arn"

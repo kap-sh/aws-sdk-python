@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeploymentReadyOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.deployment_ready_action
     import aws_sdk_codedeploy.types.duration
 
 
-class DeploymentReadyOption(TypedDict):
+class DeploymentReadyOption(TypedDict, closed=True):
     action_on_timeout: NotRequired[
         "aws_sdk_codedeploy.types.deployment_ready_action.DeploymentReadyAction"
     ]

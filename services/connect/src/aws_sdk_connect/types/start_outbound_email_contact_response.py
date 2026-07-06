@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#StartOutboundEmailContactResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
 
 
-class StartOutboundEmailContactResponse(TypedDict):
+class StartOutboundEmailContactResponse(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p>The identifier of the contact in this instance of Connect Customer. </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetMLDataProcessingJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.ml_resource_definition
 
 
-class GetMLDataProcessingJobOutput(TypedDict):
+class GetMLDataProcessingJobOutput(TypedDict, closed=True):
     status: NotRequired["str"]
     """<p>Status of the data processing job.</p>"""
     id: NotRequired["str"]

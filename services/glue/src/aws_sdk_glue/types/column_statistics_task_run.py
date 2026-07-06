@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnStatisticsTaskRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.account_id
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class ColumnStatisticsTaskRun(TypedDict):
+class ColumnStatisticsTaskRun(TypedDict, closed=True):
     customer_id: NotRequired["aws_sdk_glue.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID.</p>"""
     column_statistics_task_run_id: NotRequired[

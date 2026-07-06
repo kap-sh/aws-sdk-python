@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#DescribeModelVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.model_version
 
 
-class DescribeModelVersionRequest(TypedDict):
+class DescribeModelVersionRequest(TypedDict, closed=True):
     model_name: "aws_sdk_lookoutequipment.types.model_name.ModelName"
     """<p>The name of the machine learning model that this version belongs to.</p>"""
     model_version: "aws_sdk_lookoutequipment.types.model_version.ModelVersion"

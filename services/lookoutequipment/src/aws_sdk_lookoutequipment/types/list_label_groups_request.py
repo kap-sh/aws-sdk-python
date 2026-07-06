@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#ListLabelGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.label_group_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.next_token
 
 
-class ListLabelGroupsRequest(TypedDict):
+class ListLabelGroupsRequest(TypedDict, closed=True):
     label_group_name_begins_with: NotRequired[
         "aws_sdk_lookoutequipment.types.label_group_name.LabelGroupName"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FSxLustreFileSystem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.file_system_id
 
 
-class FSxLustreFileSystem(TypedDict):
+class FSxLustreFileSystem(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_sagemaker.types.file_system_id.FileSystemId"]
     """<p>Amazon FSx for Lustre file system ID.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#PerObjectStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.per_object_sync_status
     import aws_sdk_network_firewall.types.update_token
 
 
-class PerObjectStatus(TypedDict):
+class PerObjectStatus(TypedDict, closed=True):
     sync_status: NotRequired[
         "aws_sdk_network_firewall.types.per_object_sync_status.PerObjectSyncStatus"
     ]

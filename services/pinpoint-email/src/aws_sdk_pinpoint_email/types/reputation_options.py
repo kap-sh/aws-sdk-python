@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#ReputationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
     import aws_sdk_pinpoint_email.types.last_fresh_start
 
 
-class ReputationOptions(TypedDict):
+class ReputationOptions(TypedDict, closed=True):
     reputation_metrics_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"
     """<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>"""
     last_fresh_start: NotRequired[

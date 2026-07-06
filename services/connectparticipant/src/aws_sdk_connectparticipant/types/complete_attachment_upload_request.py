@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#CompleteAttachmentUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectparticipant.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.participant_token
 
 
-class CompleteAttachmentUploadRequest(TypedDict):
+class CompleteAttachmentUploadRequest(TypedDict, closed=True):
     attachment_ids: (
         "aws_sdk_connectparticipant.types.attachment_id_list.AttachmentIdList"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationinsights#DescribeProblemResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_insights.types.problem
     import aws_sdk_application_insights.types.sns_notification_arn
 
 
-class DescribeProblemResponse(TypedDict):
+class DescribeProblemResponse(TypedDict, closed=True):
     problem: NotRequired["aws_sdk_application_insights.types.problem.Problem"]
     """<p>Information about the problem. </p>"""
     sns_notification_arn: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListUserNotificationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.user_id
 
 
-class ListUserNotificationsRequest(TypedDict):
+class ListUserNotificationsRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     r"""<p>The identifier of the Amazon Connect instance. You can <a href=\"https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html\">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

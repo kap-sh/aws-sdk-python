@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntityRecognizerMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.entity_recognizer_evaluation_metrics
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.integer
 
 
-class EntityRecognizerMetadata(TypedDict):
+class EntityRecognizerMetadata(TypedDict, closed=True):
     number_of_trained_documents: NotRequired["aws_sdk_comprehend.types.integer.Integer"]
     """<p> The number of documents in the input data that were used to train the entity recognizer. Typically this is 80 to 90 percent of the input documents.</p>"""
     number_of_test_documents: NotRequired["aws_sdk_comprehend.types.integer.Integer"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.evs#ListEnvironmentHostsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.host_list
     import aws_sdk_evs.types.pagination_token
 
 
-class ListEnvironmentHostsResponse(TypedDict):
+class ListEnvironmentHostsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_evs.types.pagination_token.PaginationToken"]
     """<p>A unique pagination token for next page results. Make the call again using this token to retrieve the next page.</p>"""
     environment_hosts: NotRequired["aws_sdk_evs.types.host_list.HostList"]

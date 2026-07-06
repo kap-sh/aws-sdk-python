@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#BillingGroupMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.creation_date
 
 
-class BillingGroupMetadata(TypedDict):
+class BillingGroupMetadata(TypedDict, closed=True):
     creation_date: NotRequired["aws_sdk_iot.types.creation_date.CreationDate"]
     """<p>The date the billing group was created.</p>"""
 

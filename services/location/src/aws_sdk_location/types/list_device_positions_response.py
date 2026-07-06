@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListDevicePositionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListDevicePositionsResponse(TypedDict):
+class ListDevicePositionsResponse(TypedDict, closed=True):
     entries: "aws_sdk_location.types.list_device_positions_response_entry_list.ListDevicePositionsResponseEntryList"
     """<p>Contains details about each device's last known position.</p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

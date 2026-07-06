@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#EntitiesDetectionJobProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.any_length_string
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.vpc_config
 
 
-class EntitiesDetectionJobProperties(TypedDict):
+class EntitiesDetectionJobProperties(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_comprehend.types.job_id.JobId"]
     """<p>The identifier assigned to the entities detection job.</p>"""
     job_arn: NotRequired["aws_sdk_comprehend.types.comprehend_arn.ComprehendArn"]

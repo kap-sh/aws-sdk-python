@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Parameter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Parameter(TypedDict):
+class Parameter(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the parameter.</p>"""
     type: NotRequired["str"]

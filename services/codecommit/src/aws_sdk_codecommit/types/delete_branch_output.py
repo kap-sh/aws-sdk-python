@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#DeleteBranchOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.branch_info
 
 
-class DeleteBranchOutput(TypedDict):
+class DeleteBranchOutput(TypedDict, closed=True):
     deleted_branch: NotRequired["aws_sdk_codecommit.types.branch_info.BranchInfo"]
     """<p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>"""
 

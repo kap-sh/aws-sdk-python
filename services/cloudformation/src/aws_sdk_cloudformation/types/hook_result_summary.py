@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#HookResultSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.timestamp
 
 
-class HookResultSummary(TypedDict):
+class HookResultSummary(TypedDict, closed=True):
     hook_result_id: NotRequired[
         "aws_sdk_cloudformation.types.hook_invocation_id.HookInvocationId"
     ]

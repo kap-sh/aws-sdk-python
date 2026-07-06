@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#InvalidRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
 from aws_sdk_iotsitewise.errors import DeserializationError, ServiceError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.error_message
 
 
-class InvalidRequestException_(TypedDict):
+class InvalidRequestException_(TypedDict, closed=True):
     message: "aws_sdk_iotsitewise.types.error_message.ErrorMessage"
 
 

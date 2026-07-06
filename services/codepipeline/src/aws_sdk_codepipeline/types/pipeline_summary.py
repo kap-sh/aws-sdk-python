@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.execution_mode
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.timestamp
 
 
-class PipelineSummary(TypedDict):
+class PipelineSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline.</p>"""
     version: NotRequired["aws_sdk_codepipeline.types.pipeline_version.PipelineVersion"]

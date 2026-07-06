@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.geomaps#GetSpritesResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetSpritesResponse(TypedDict):
+class GetSpritesResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>The body of the sprite sheet or JSON offset file (image/png or application/json, depending on input).</p>"""
     content_type: NotRequired["str"]

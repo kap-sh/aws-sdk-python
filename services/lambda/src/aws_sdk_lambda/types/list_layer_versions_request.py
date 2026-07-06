@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListLayerVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.architecture
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class ListLayerVersionsRequest(TypedDict):
+class ListLayerVersionsRequest(TypedDict, closed=True):
     compatible_runtime: NotRequired["aws_sdk_lambda.types.runtime.Runtime"]
     r"""<p>A runtime identifier.</p> <p>The following list includes deprecated runtimes. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels\">Runtime use after deprecation</a>.</p> <p>For a list of all currently supported runtimes, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported\">Supported runtimes</a>.</p>"""
     layer_name: "aws_sdk_lambda.types.layer_name.LayerName"

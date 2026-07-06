@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetBucketsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.account_level_bpa_sync
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class GetBucketsResult(TypedDict):
+class GetBucketsResult(TypedDict, closed=True):
     buckets: NotRequired["aws_sdk_lightsail.types.bucket_list.BucketList"]
     """<p>An array of objects that describe buckets.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ComplianceItemEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.compliance_status
 
 
-class ComplianceItemEntry(TypedDict):
+class ComplianceItemEntry(TypedDict, closed=True):
     id: NotRequired["aws_sdk_ssm.types.compliance_item_id.ComplianceItemId"]
     """<p>The compliance item ID. For example, if the compliance item is a Windows patch, the ID could be the number of the KB article.</p>"""
     title: NotRequired["aws_sdk_ssm.types.compliance_item_title.ComplianceItemTitle"]

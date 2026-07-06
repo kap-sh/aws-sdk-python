@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rum#ConflictException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rum.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     resource_name: "str"
     """<p>The name of the resource that is associated with the error.</p>"""

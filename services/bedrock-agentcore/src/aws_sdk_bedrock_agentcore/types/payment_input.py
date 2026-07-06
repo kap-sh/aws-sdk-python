@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#PaymentInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.crypto_x402_payment_input
 
 
-class _PaymentInput_cryptoX402(TypedDict):
+class _PaymentInput_cryptoX402(TypedDict, closed=True):
     cryptoX402: "aws_sdk_bedrock_agentcore.types.crypto_x402_payment_input.CryptoX402PaymentInput"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#CreateAnonymousWebExperienceUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.url
 
 
-class CreateAnonymousWebExperienceUrlResponse(TypedDict):
+class CreateAnonymousWebExperienceUrlResponse(TypedDict, closed=True):
     anonymous_url: NotRequired["aws_sdk_qbusiness.types.url.Url"]
     """<p>The unique URL for accessing the web experience.</p> <important> <p>This URL can only be used once and must be used within 5 minutes after it's generated.</p> </important>"""
 

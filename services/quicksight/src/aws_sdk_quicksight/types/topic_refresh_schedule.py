@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TopicRefreshSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_schedule_type
 
 
-class TopicRefreshSchedule(TypedDict):
+class TopicRefreshSchedule(TypedDict, closed=True):
     is_enabled: "aws_sdk_quicksight.types.nullable_boolean.NullableBoolean"
     """<p>A Boolean value that controls whether to schedule is enabled.</p>"""
     based_on_spice_schedule: "aws_sdk_quicksight.types.boolean.Boolean"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ModuleParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.rate_limiter_module_parameters
 
 
-class _ModuleParameters_noBid(TypedDict):
+class _ModuleParameters_noBid(TypedDict, closed=True):
     noBid: "aws_sdk_rtbfabric.types.no_bid_module_parameters.NoBidModuleParameters"
 
 
-class _ModuleParameters_openRtbAttribute(TypedDict):
+class _ModuleParameters_openRtbAttribute(TypedDict, closed=True):
     openRtbAttribute: "aws_sdk_rtbfabric.types.open_rtb_attribute_module_parameters.OpenRtbAttributeModuleParameters"
 
 
-class _ModuleParameters_rateLimiter(TypedDict):
+class _ModuleParameters_rateLimiter(TypedDict, closed=True):
     rateLimiter: "aws_sdk_rtbfabric.types.rate_limiter_module_parameters.RateLimiterModuleParameters"
 
 

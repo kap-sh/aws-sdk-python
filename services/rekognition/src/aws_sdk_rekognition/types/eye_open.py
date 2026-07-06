@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#EyeOpen``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.boolean
     import aws_sdk_rekognition.types.percent
 
 
-class EyeOpen(TypedDict):
+class EyeOpen(TypedDict, closed=True):
     value: "aws_sdk_rekognition.types.boolean.Boolean"
     """<p>Boolean value that indicates whether the eyes on the face are open.</p>"""
     confidence: NotRequired["aws_sdk_rekognition.types.percent.Percent"]

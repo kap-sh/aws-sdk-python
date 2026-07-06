@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#CreateComponentVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.client_token_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.tag_map
 
 
-class CreateComponentVersionRequest(TypedDict):
+class CreateComponentVersionRequest(TypedDict, closed=True):
     inline_recipe: NotRequired["aws_sdk_greengrassv2.types.recipe_blob.RecipeBlob"]
     """<p>The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.</p> <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>"""
     lambda_function: NotRequired[

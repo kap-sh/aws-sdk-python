@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteAuditSuppressionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.resource_identifier
 
 
-class DeleteAuditSuppressionRequest(TypedDict):
+class DeleteAuditSuppressionRequest(TypedDict, closed=True):
     check_name: "aws_sdk_iot.types.audit_check_name.AuditCheckName"
     resource_identifier: "aws_sdk_iot.types.resource_identifier.ResourceIdentifier"
 

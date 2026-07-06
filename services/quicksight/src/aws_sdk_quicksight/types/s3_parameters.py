@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#S3Parameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.role_arn
 
 
-class S3Parameters(TypedDict):
+class S3Parameters(TypedDict, closed=True):
     manifest_file_location: (
         "aws_sdk_quicksight.types.manifest_file_location.ManifestFileLocation"
     )

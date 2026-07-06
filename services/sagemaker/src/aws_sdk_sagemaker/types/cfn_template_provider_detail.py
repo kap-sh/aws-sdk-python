@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CfnTemplateProviderDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.cfn_stack_detail
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_arn
 
 
-class CfnTemplateProviderDetail(TypedDict):
+class CfnTemplateProviderDetail(TypedDict, closed=True):
     template_name: NotRequired[
         "aws_sdk_sagemaker.types.cfn_template_name.CfnTemplateName"
     ]

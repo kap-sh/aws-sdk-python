@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ListSignalingChannelsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.channel_name_condition
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.next_token
 
 
-class ListSignalingChannelsInput(TypedDict):
+class ListSignalingChannelsInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_kinesis_video.types.list_streams_input_limit.ListStreamsInputLimit"
     ]

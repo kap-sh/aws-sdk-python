@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#EncryptionSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.file_password
     import aws_sdk_lex_models_v2.types.kms_key_arn
 
 
-class EncryptionSetting(TypedDict):
+class EncryptionSetting(TypedDict, closed=True):
     kms_key_arn: NotRequired["aws_sdk_lex_models_v2.types.kms_key_arn.KmsKeyArn"]
     """<p>The KMS key ARN used to encrypt the metadata associated with the bot recommendation.</p>"""
     bot_locale_export_password: NotRequired[

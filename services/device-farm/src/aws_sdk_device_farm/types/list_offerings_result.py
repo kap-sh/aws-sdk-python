@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ListOfferingsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.offerings
     import aws_sdk_device_farm.types.pagination_token
 
 
-class ListOfferingsResult(TypedDict):
+class ListOfferingsResult(TypedDict, closed=True):
     offerings: NotRequired["aws_sdk_device_farm.types.offerings.Offerings"]
     """<p>A value that represents the list offering results.</p>"""
     next_token: NotRequired[

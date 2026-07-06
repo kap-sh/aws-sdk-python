@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#PutDetectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.tag_list
 
 
-class PutDetectorRequest(TypedDict):
+class PutDetectorRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The detector ID. </p>"""
     description: NotRequired["aws_sdk_frauddetector.types.description.description"]

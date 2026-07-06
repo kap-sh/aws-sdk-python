@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateWirelessDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.description
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_name
 
 
-class UpdateWirelessDeviceRequest(TypedDict):
+class UpdateWirelessDeviceRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_device_id.WirelessDeviceId"
     """<p>The ID of the resource to update.</p>"""
     destination_name: NotRequired[

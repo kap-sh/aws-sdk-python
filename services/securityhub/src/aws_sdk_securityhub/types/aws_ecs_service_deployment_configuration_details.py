@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsServiceDeploymentConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details
     import aws_sdk_securityhub.types.integer
 
 
-class AwsEcsServiceDeploymentConfigurationDetails(TypedDict):
+class AwsEcsServiceDeploymentConfigurationDetails(TypedDict, closed=True):
     deployment_circuit_breaker: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_service_deployment_configuration_deployment_circuit_breaker_details.AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails"
     ]

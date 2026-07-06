@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.tag_list
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     recommendation_id: NotRequired["str"]
     """<p>The ID for the recommendation.</p>"""
     account_id: NotRequired["str"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sustainability#GetEstimatedCarbonEmissionsDimensionValuesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sustainability.types.dimension_entry_list
     import aws_sdk_sustainability.types.next_token
 
 
-class GetEstimatedCarbonEmissionsDimensionValuesResponse(TypedDict):
+class GetEstimatedCarbonEmissionsDimensionValuesResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_sustainability.types.dimension_entry_list.DimensionEntryList"
     ]

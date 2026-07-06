@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#UpdateContributorInsightsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.table_arn
 
 
-class UpdateContributorInsightsInput(TypedDict):
+class UpdateContributorInsightsInput(TypedDict, closed=True):
     table_name: "aws_sdk_dynamodb.types.table_arn.TableArn"
     """<p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>"""
     index_name: NotRequired["aws_sdk_dynamodb.types.index_name.IndexName"]

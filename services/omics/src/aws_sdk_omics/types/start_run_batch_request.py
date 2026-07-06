@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#StartRunBatchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tag_map
 
 
-class StartRunBatchRequest(TypedDict):
+class StartRunBatchRequest(TypedDict, closed=True):
     batch_name: NotRequired["aws_sdk_omics.types.batch_name.BatchName"]
     """<p>An optional user-friendly name for the run batch.</p>"""
     request_id: "aws_sdk_omics.types.batch_request_id.BatchRequestId"

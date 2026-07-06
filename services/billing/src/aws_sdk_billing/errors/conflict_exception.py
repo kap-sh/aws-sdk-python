@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError, ServiceError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.resource_type
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "aws_sdk_billing.types.error_message.ErrorMessage"
     resource_id: "aws_sdk_billing.types.resource_id.ResourceId"
     """<p> The identifier for the service resource associated with the request. </p>"""

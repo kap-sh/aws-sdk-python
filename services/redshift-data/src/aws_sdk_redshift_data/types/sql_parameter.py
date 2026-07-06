@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#SqlParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.parameter_value
 
 
-class SqlParameter(TypedDict):
+class SqlParameter(TypedDict, closed=True):
     name: "aws_sdk_redshift_data.types.parameter_name.ParameterName"
     """<p>The name of the parameter.</p>"""
     value: "aws_sdk_redshift_data.types.parameter_value.ParameterValue"

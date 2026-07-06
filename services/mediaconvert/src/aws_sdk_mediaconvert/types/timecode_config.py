@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#TimecodeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern010920405090509092
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.timecode_source
 
 
-class TimecodeConfig(TypedDict):
+class TimecodeConfig(TypedDict, closed=True):
     anchor: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern010920405090509092.__stringPattern010920405090509092"
     ]

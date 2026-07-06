@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#CreateForecastExportJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.tags
 
 
-class CreateForecastExportJobRequest(TypedDict):
+class CreateForecastExportJobRequest(TypedDict, closed=True):
     forecast_export_job_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name for the forecast export job.</p>"""
     forecast_arn: "aws_sdk_forecast.types.arn.Arn"

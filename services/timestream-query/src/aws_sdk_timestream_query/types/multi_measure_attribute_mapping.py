@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamquery#MultiMeasureAttributeMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_timestream_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_query.types.schema_name
 
 
-class MultiMeasureAttributeMapping(TypedDict):
+class MultiMeasureAttributeMapping(TypedDict, closed=True):
     source_column: "aws_sdk_timestream_query.types.schema_name.SchemaName"
     """<p>Source column from where the attribute value is to be read.</p>"""
     target_multi_measure_attribute_name: NotRequired[

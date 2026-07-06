@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PredefinedMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class PredefinedMetricSpecification(TypedDict):
+class PredefinedMetricSpecification(TypedDict, closed=True):
     predefined_metric_type: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The metric type. You can only apply SageMaker metric types to SageMaker endpoints.</p>"""
 

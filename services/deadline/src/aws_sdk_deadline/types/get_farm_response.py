@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetFarmResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.updated_by
 
 
-class GetFarmResponse(TypedDict):
+class GetFarmResponse(TypedDict, closed=True):
     farm_id: "aws_sdk_deadline.types.farm_id.FarmId"
     """<p>The farm ID of the farm to get.</p>"""
     display_name: "aws_sdk_deadline.types.resource_name.ResourceName"

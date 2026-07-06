@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoice#VoiceMessageContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.call_instructions_message_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice.types.ssml_message_type
 
 
-class VoiceMessageContent(TypedDict):
+class VoiceMessageContent(TypedDict, closed=True):
     call_instructions_message: NotRequired[
         "aws_sdk_pinpoint_sms_voice.types.call_instructions_message_type.CallInstructionsMessageType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourceDataSyncS3Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_s3_region
 
 
-class ResourceDataSyncS3Destination(TypedDict):
+class ResourceDataSyncS3Destination(TypedDict, closed=True):
     bucket_name: "aws_sdk_ssm.types.resource_data_sync_s3_bucket_name.ResourceDataSyncS3BucketName"
     """<p>The name of the S3 bucket where the aggregated data is stored.</p>"""
     prefix: NotRequired[

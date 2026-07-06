@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#IngestionJobStatistics``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class IngestionJobStatistics(TypedDict):
+class IngestionJobStatistics(TypedDict, closed=True):
     number_of_documents_scanned: "int"
     """<p>The total number of source documents that were scanned. Includes new, updated, and unchanged documents.</p>"""
     number_of_metadata_documents_scanned: "int"

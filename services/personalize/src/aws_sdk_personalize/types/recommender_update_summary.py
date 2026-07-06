@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#RecommenderUpdateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.date
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.status
 
 
-class RecommenderUpdateSummary(TypedDict):
+class RecommenderUpdateSummary(TypedDict, closed=True):
     recommender_config: NotRequired[
         "aws_sdk_personalize.types.recommender_config.RecommenderConfig"
     ]

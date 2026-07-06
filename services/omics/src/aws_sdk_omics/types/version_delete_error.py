@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#VersionDeleteError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.version_name
 
 
-class VersionDeleteError(TypedDict):
+class VersionDeleteError(TypedDict, closed=True):
     version_name: "aws_sdk_omics.types.version_name.VersionName"
     """<p> The name given to an annotation store version. </p>"""
     message: "str"

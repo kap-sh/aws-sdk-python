@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#IntentClosingSetting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boxed_boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.response_specification
 
 
-class IntentClosingSetting(TypedDict):
+class IntentClosingSetting(TypedDict, closed=True):
     closing_response: NotRequired[
         "aws_sdk_lex_models_v2.types.response_specification.ResponseSpecification"
     ]

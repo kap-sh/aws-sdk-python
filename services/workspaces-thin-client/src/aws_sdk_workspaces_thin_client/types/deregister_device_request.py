@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#DeregisterDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.target_device_status
 
 
-class DeregisterDeviceRequest(TypedDict):
+class DeregisterDeviceRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.device_id.DeviceId"
     """<p>The ID of the device to deregister.</p>"""
     target_device_status: NotRequired[

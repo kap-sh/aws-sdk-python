@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteVehicleIncident``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_vehicle_incident_severity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.timestamp_with_timezone_offset
 
 
-class RouteVehicleIncident(TypedDict):
+class RouteVehicleIncident(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_geo_routes.types.sensitive_string.SensitiveString"
     ]

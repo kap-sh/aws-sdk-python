@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateUserHierarchyGroupNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.instance_id
 
 
-class UpdateUserHierarchyGroupNameRequest(TypedDict):
+class UpdateUserHierarchyGroupNameRequest(TypedDict, closed=True):
     name: "aws_sdk_connect.types.hierarchy_group_name.HierarchyGroupName"
     """<p>The name of the hierarchy group. Must not be more than 100 characters.</p>"""
     hierarchy_group_id: "aws_sdk_connect.types.hierarchy_group_id.HierarchyGroupId"

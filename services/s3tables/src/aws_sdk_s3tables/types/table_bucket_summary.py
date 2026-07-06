@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#TableBucketSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_bucket_type
 
 
-class TableBucketSummary(TypedDict):
+class TableBucketSummary(TypedDict, closed=True):
     arn: "aws_sdk_s3tables.types.table_bucket_arn.TableBucketARN"
     """<p>The Amazon Resource Name (ARN) of the table bucket.</p>"""
     name: "aws_sdk_s3tables.types.table_bucket_name.TableBucketName"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CampaignHook``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.mode
 
 
-class CampaignHook(TypedDict):
+class CampaignHook(TypedDict, closed=True):
     lambda_function_name: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The name or Amazon Resource Name (ARN) of the AWS Lambda function that Amazon Pinpoint invokes to customize a segment for a campaign.</p>"""
     mode: NotRequired["aws_sdk_pinpoint.types.mode.Mode"]

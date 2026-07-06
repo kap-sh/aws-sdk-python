@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DomainEndpointOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.tls_security_policy
 
 
-class DomainEndpointOptions(TypedDict):
+class DomainEndpointOptions(TypedDict, closed=True):
     enforce_https: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>True to require that all traffic to the domain arrive over HTTPS.</p>"""
     tls_security_policy: NotRequired[

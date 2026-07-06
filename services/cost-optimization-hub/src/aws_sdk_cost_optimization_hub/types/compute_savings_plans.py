@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ComputeSavingsPlans``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.compute_savings_plans_configuration
     import aws_sdk_cost_optimization_hub.types.savings_plans_cost_calculation
 
 
-class ComputeSavingsPlans(TypedDict):
+class ComputeSavingsPlans(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_cost_optimization_hub.types.compute_savings_plans_configuration.ComputeSavingsPlansConfiguration"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpcPeeringConnectionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_vpc_peering_connection_status_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2VpcPeeringConnectionDetails(TypedDict):
+class AwsEc2VpcPeeringConnectionDetails(TypedDict, closed=True):
     accepter_vpc_info: NotRequired[
         "aws_sdk_securityhub.types.aws_ec2_vpc_peering_connection_vpc_info_details.AwsEc2VpcPeeringConnectionVpcInfoDetails"
     ]

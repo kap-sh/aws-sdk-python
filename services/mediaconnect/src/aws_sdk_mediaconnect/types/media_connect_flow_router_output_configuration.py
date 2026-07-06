@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaConnectFlowRouterOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.flow_transit_encryption
 
 
-class MediaConnectFlowRouterOutputConfiguration(TypedDict):
+class MediaConnectFlowRouterOutputConfiguration(TypedDict, closed=True):
     flow_arn: NotRequired["aws_sdk_mediaconnect.types.flow_arn.FlowArn"]
     """<p>The ARN of the flow to connect to this router output.</p>"""
     flow_source_arn: NotRequired[

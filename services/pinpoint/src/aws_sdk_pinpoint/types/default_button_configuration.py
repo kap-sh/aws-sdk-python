@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#DefaultButtonConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.button_action
 
 
-class DefaultButtonConfiguration(TypedDict):
+class DefaultButtonConfiguration(TypedDict, closed=True):
     background_color: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The background color of the button.</p>"""
     border_radius: NotRequired["aws_sdk_pinpoint.types.__integer.__integer"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#AuthorizerConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.custom_jwt_authorizer_configuration
 
 
-class _AuthorizerConfiguration_customJWTAuthorizer(TypedDict):
+class _AuthorizerConfiguration_customJWTAuthorizer(TypedDict, closed=True):
     customJWTAuthorizer: "aws_sdk_bedrock_agentcore_control.types.custom_jwt_authorizer_configuration.CustomJWTAuthorizerConfiguration"
 
 

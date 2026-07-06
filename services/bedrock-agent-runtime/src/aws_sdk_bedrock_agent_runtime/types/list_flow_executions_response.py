@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ListFlowExecutionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.next_token
 
 
-class ListFlowExecutionsResponse(TypedDict):
+class ListFlowExecutionsResponse(TypedDict, closed=True):
     flow_execution_summaries: "aws_sdk_bedrock_agent_runtime.types.flow_execution_summaries.FlowExecutionSummaries"
     """<p>A list of flow execution summaries. Each summary includes the execution ARN, flow identifier, flow alias identifier, flow version, status, and timestamps.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agent_runtime.types.next_token.NextToken"]

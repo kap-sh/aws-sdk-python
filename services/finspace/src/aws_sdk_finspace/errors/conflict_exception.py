@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#ConflictException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_finspace.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.error_message2
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_finspace.types.error_message2.ErrorMessage2"]
     reason: NotRequired["aws_sdk_finspace.types.error_message2.ErrorMessage2"]
     """<p>The reason for the conflict exception.</p>"""

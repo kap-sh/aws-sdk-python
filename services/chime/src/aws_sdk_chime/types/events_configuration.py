@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#EventsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.sensitive_string
     import aws_sdk_chime.types.string
 
 
-class EventsConfiguration(TypedDict):
+class EventsConfiguration(TypedDict, closed=True):
     bot_id: NotRequired["aws_sdk_chime.types.string.String"]
     """<p>The bot ID.</p>"""
     outbound_events_https_endpoint: NotRequired[

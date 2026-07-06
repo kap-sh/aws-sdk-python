@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListTrackersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.token
 
 
-class ListTrackersResponse(TypedDict):
+class ListTrackersResponse(TypedDict, closed=True):
     entries: "aws_sdk_location.types.list_trackers_response_entry_list.ListTrackersResponseEntryList"
     """<p>Contains tracker resources in your Amazon Web Services account. Details include tracker name, description and timestamps for when the tracker was created and last updated.</p>"""
     next_token: NotRequired["aws_sdk_location.types.token.Token"]

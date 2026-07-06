@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#BatchGetReportGroupsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.report_group_arns
     import aws_sdk_codebuild.types.report_groups
 
 
-class BatchGetReportGroupsOutput(TypedDict):
+class BatchGetReportGroupsOutput(TypedDict, closed=True):
     report_groups: NotRequired["aws_sdk_codebuild.types.report_groups.ReportGroups"]
     """<p> The array of report groups returned by <code>BatchGetReportGroups</code>. </p>"""
     report_groups_not_found: NotRequired[

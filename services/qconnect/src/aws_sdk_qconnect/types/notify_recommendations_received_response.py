@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#NotifyRecommendationsReceivedResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.notify_recommendations_received_error_list
     import aws_sdk_qconnect.types.recommendation_id_list
 
 
-class NotifyRecommendationsReceivedResponse(TypedDict):
+class NotifyRecommendationsReceivedResponse(TypedDict, closed=True):
     recommendation_ids: NotRequired[
         "aws_sdk_qconnect.types.recommendation_id_list.RecommendationIdList"
     ]

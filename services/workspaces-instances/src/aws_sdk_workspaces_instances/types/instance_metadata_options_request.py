@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#InstanceMetadataOptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.http_endpoint_enum
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.instance_metadata_tags_enum
 
 
-class InstanceMetadataOptionsRequest(TypedDict):
+class InstanceMetadataOptionsRequest(TypedDict, closed=True):
     http_endpoint: NotRequired[
         "aws_sdk_workspaces_instances.types.http_endpoint_enum.HttpEndpointEnum"
     ]

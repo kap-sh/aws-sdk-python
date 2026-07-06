@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#PutAccountSettingDefaultResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.setting
 
 
-class PutAccountSettingDefaultResponse(TypedDict):
+class PutAccountSettingDefaultResponse(TypedDict, closed=True):
     setting: NotRequired["aws_sdk_ecs.types.setting.Setting"]
     """<p>The current setting for a resource.</p>"""
 

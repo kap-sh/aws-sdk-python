@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ExtendedS3DestinationDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_firehose.errors import DeserializationError
 
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.s3_destination_description
 
 
-class ExtendedS3DestinationDescription(TypedDict):
+class ExtendedS3DestinationDescription(TypedDict, closed=True):
     role_arn: "aws_sdk_firehose.types.role_arn.RoleARN"
     r"""<p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     bucket_arn: "aws_sdk_firehose.types.bucket_arn.BucketARN"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ListServicePrincipalNamesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.next_token
     import aws_sdk_pca_connector_ad.types.service_principal_name_list
 
 
-class ListServicePrincipalNamesResponse(TypedDict):
+class ListServicePrincipalNamesResponse(TypedDict, closed=True):
     service_principal_names: NotRequired[
         "aws_sdk_pca_connector_ad.types.service_principal_name_list.ServicePrincipalNameList"
     ]

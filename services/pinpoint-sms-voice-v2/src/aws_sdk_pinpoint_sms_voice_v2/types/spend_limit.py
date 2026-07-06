@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#SpendLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pinpoint_sms_voice_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.spend_limit_name
 
 
-class SpendLimit(TypedDict):
+class SpendLimit(TypedDict, closed=True):
     name: "aws_sdk_pinpoint_sms_voice_v2.types.spend_limit_name.SpendLimitName"
     """<p>The name for the SpendLimit.</p>"""
     enforced_limit: "int"

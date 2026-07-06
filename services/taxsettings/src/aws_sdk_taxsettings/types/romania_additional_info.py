@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#RomaniaAdditionalInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.tax_registration_number_type
 
 
-class RomaniaAdditionalInfo(TypedDict):
+class RomaniaAdditionalInfo(TypedDict, closed=True):
     tax_registration_number_type: "aws_sdk_taxsettings.types.tax_registration_number_type.TaxRegistrationNumberType"
     """<p> The tax registration number type. The value can be <code>TaxRegistrationNumber</code> or <code>LocalRegistrationNumber</code>. </p>"""
 

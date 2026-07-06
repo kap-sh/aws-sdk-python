@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListMembersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.members
     import aws_sdk_guardduty.types.string
 
 
-class ListMembersResponse(TypedDict):
+class ListMembersResponse(TypedDict, closed=True):
     members: NotRequired["aws_sdk_guardduty.types.members.Members"]
     """<p>A list of members.</p> <note> <p>The values for <code>email</code> and <code>invitedAt</code> are available only if the member accounts are added by invitation.</p> </note>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

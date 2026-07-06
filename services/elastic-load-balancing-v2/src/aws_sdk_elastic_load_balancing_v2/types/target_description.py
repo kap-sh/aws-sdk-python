@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#TargetDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_load_balancing_v2.types.zone_name
 
 
-class TargetDescription(TypedDict):
+class TargetDescription(TypedDict, closed=True):
     id: NotRequired["aws_sdk_elastic_load_balancing_v2.types.target_id.TargetId"]
     """<p>The ID of the target. If the target type of the target group is <code>instance</code>, specify an instance ID. If the target type is <code>ip</code>, specify an IP address. If the target type is <code>lambda</code>, specify the ARN of the Lambda function. If the target type is <code>alb</code>, specify the ARN of the Application Load Balancer target. </p>"""
     port: NotRequired["aws_sdk_elastic_load_balancing_v2.types.port.Port"]

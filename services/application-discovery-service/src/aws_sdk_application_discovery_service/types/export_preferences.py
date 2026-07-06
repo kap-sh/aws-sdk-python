@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#ExportPreferences``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.ec2_recommendations_export_preferences
 
 
-class _ExportPreferences_ec2RecommendationsPreferences(TypedDict):
+class _ExportPreferences_ec2RecommendationsPreferences(TypedDict, closed=True):
     ec2RecommendationsPreferences: "aws_sdk_application_discovery_service.types.ec2_recommendations_export_preferences.Ec2RecommendationsExportPreferences"
 
 

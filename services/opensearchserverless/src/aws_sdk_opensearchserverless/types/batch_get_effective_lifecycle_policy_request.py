@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#BatchGetEffectiveLifecyclePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_opensearchserverless.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.lifecycle_policy_resource_identifiers
 
 
-class BatchGetEffectiveLifecyclePolicyRequest(TypedDict):
+class BatchGetEffectiveLifecyclePolicyRequest(TypedDict, closed=True):
     resource_identifiers: "aws_sdk_opensearchserverless.types.lifecycle_policy_resource_identifiers.LifecyclePolicyResourceIdentifiers"
     """<p>The unique identifiers of policy types and resource names.</p>"""
 

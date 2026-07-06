@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#PipeTargetParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.input_template
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_target_timestream_parameters
 
 
-class PipeTargetParameters(TypedDict):
+class PipeTargetParameters(TypedDict, closed=True):
     input_template: NotRequired["aws_sdk_pipes.types.input_template.InputTemplate"]
     r"""<p>Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see <a href=\"http://www.rfc-editor.org/rfc/rfc7159.txt\">The JavaScript Object Notation (JSON) Data Interchange Format</a>.</p> <p>To remove an input template, specify an empty string.</p>"""
     lambda_function_parameters: NotRequired[

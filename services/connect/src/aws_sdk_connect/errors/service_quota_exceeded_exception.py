@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ServiceQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.service_quota_exceeded_exception_reason
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_connect.types.message.Message"]
     reason: NotRequired[
         "aws_sdk_connect.types.service_quota_exceeded_exception_reason.ServiceQuotaExceededExceptionReason"

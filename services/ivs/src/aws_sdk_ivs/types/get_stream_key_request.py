@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetStreamKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.stream_key_arn
 
 
-class GetStreamKeyRequest(TypedDict):
+class GetStreamKeyRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs.types.stream_key_arn.StreamKeyArn"
     """<p>ARN for the stream key to be retrieved.</p>"""
 

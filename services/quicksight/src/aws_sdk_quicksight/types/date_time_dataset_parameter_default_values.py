@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DateTimeDatasetParameterDefaultValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_dataset_parameter_value_list
 
 
-class DateTimeDatasetParameterDefaultValues(TypedDict):
+class DateTimeDatasetParameterDefaultValues(TypedDict, closed=True):
     static_values: NotRequired[
         "aws_sdk_quicksight.types.date_time_dataset_parameter_value_list.DateTimeDatasetParameterValueList"
     ]

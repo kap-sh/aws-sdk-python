@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#RotateTunnelAccessTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsecuretunneling.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.tunnel_id
 
 
-class RotateTunnelAccessTokenRequest(TypedDict):
+class RotateTunnelAccessTokenRequest(TypedDict, closed=True):
     tunnel_id: "aws_sdk_iotsecuretunneling.types.tunnel_id.TunnelId"
     """<p>The tunnel for which you want to rotate the access tokens.</p>"""
     client_mode: "aws_sdk_iotsecuretunneling.types.client_mode.ClientMode"

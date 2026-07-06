@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#GetDeviceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.device_id
 
 
-class GetDeviceRequest(TypedDict):
+class GetDeviceRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.device_id.DeviceId"
     """<p>The ID of the device for which to return information.</p>"""
 

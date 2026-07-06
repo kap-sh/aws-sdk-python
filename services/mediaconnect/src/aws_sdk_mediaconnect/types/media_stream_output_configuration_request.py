@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#MediaStreamOutputConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_destination_configuration_request
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.encoding_parameters_request
 
 
-class MediaStreamOutputConfigurationRequest(TypedDict):
+class MediaStreamOutputConfigurationRequest(TypedDict, closed=True):
     destination_configurations: NotRequired[
         "aws_sdk_mediaconnect.types.__list_of_destination_configuration_request.__listOfDestinationConfigurationRequest"
     ]

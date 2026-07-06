@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#Hit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.exprs
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class Hit(TypedDict):
+class Hit(TypedDict, closed=True):
     id: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The document ID of a document that matches the search request.</p>"""
     fields: NotRequired["aws_sdk_cloudsearch_domain.types.fields.Fields"]

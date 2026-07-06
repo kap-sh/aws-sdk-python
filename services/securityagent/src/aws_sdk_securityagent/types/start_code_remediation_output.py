@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#StartCodeRemediationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StartCodeRemediationOutput(TypedDict):
+class StartCodeRemediationOutput(TypedDict, closed=True):
     pass
 
 

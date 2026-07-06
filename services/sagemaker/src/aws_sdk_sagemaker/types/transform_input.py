@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TransformInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.compression_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.transform_data_source
 
 
-class TransformInput(TypedDict):
+class TransformInput(TypedDict, closed=True):
     data_source: NotRequired[
         "aws_sdk_sagemaker.types.transform_data_source.TransformDataSource"
     ]

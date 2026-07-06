@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetLoadBalancerTlsCertificatesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.load_balancer_tls_certificate_list
 
 
-class GetLoadBalancerTlsCertificatesResult(TypedDict):
+class GetLoadBalancerTlsCertificatesResult(TypedDict, closed=True):
     tls_certificates: NotRequired[
         "aws_sdk_lightsail.types.load_balancer_tls_certificate_list.LoadBalancerTlsCertificateList"
     ]

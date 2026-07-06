@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#FailoverRouterInputProtocolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.srt_listener_router_input_configuration
 
 
-class _FailoverRouterInputProtocolConfiguration_Rist(TypedDict):
+class _FailoverRouterInputProtocolConfiguration_Rist(TypedDict, closed=True):
     Rist: "aws_sdk_mediaconnect.types.rist_router_input_configuration.RistRouterInputConfiguration"
 
 
-class _FailoverRouterInputProtocolConfiguration_SrtListener(TypedDict):
+class _FailoverRouterInputProtocolConfiguration_SrtListener(TypedDict, closed=True):
     SrtListener: "aws_sdk_mediaconnect.types.srt_listener_router_input_configuration.SrtListenerRouterInputConfiguration"
 
 
-class _FailoverRouterInputProtocolConfiguration_SrtCaller(TypedDict):
+class _FailoverRouterInputProtocolConfiguration_SrtCaller(TypedDict, closed=True):
     SrtCaller: "aws_sdk_mediaconnect.types.srt_caller_router_input_configuration.SrtCallerRouterInputConfiguration"
 
 
-class _FailoverRouterInputProtocolConfiguration_Rtp(TypedDict):
+class _FailoverRouterInputProtocolConfiguration_Rtp(TypedDict, closed=True):
     Rtp: "aws_sdk_mediaconnect.types.rtp_router_input_configuration.RtpRouterInputConfiguration"
 
 

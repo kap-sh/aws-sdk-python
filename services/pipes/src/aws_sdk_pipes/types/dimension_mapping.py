@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#DimensionMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.dimension_value_type
 
 
-class DimensionMapping(TypedDict):
+class DimensionMapping(TypedDict, closed=True):
     dimension_value: "aws_sdk_pipes.types.dimension_value.DimensionValue"
     """<p>Dynamic path to the dimension value in the source event.</p>"""
     dimension_value_type: "aws_sdk_pipes.types.dimension_value_type.DimensionValueType"

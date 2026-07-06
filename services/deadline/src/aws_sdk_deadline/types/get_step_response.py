@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#GetStepResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -27,7 +27,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.updated_by
 
 
-class GetStepResponse(TypedDict):
+class GetStepResponse(TypedDict, closed=True):
     step_id: "aws_sdk_deadline.types.step_id.StepId"
     """<p>The step ID.</p>"""
     name: "aws_sdk_deadline.types.step_name.StepName"

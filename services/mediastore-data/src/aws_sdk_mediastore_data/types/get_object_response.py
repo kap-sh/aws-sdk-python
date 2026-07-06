@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastoredata#GetObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.content_range_pattern
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore_data.types.time_stamp
 
 
-class GetObjectResponse(TypedDict):
+class GetObjectResponse(TypedDict, closed=True):
     body: "aws_sdk_mediastore_data.types.payload_blob.PayloadBlob"
     """<p>The bytes of the object. </p>"""
     cache_control: NotRequired[

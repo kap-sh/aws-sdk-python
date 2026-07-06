@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetCommandRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.command_id
 
 
-class GetCommandRequest(TypedDict):
+class GetCommandRequest(TypedDict, closed=True):
     command_id: "aws_sdk_iot.types.command_id.CommandId"
     """<p>The unique identifier of the command for which you want to retrieve information.</p>"""
 

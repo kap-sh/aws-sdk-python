@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#Featurization``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.name
 
 
-class Featurization(TypedDict):
+class Featurization(TypedDict, closed=True):
     attribute_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the schema attribute that specifies the data field to be featurized. Amazon Forecast supports the target field of the <code>TARGET_TIME_SERIES</code> and the <code>RELATED_TIME_SERIES</code> datasets. For example, for the <code>RETAIL</code> domain, the target is <code>demand</code>, and for the <code>CUSTOM</code> domain, the target is <code>target_value</code>. For more information, see <a>howitworks-missing-values</a>.</p>"""
     featurization_pipeline: NotRequired[

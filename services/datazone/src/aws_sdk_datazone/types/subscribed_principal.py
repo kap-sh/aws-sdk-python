@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SubscribedPrincipal``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.subscribed_user
 
 
-class _SubscribedPrincipal_project(TypedDict):
+class _SubscribedPrincipal_project(TypedDict, closed=True):
     project: "aws_sdk_datazone.types.subscribed_project.SubscribedProject"
 
 
-class _SubscribedPrincipal_user(TypedDict):
+class _SubscribedPrincipal_user(TypedDict, closed=True):
     user: "aws_sdk_datazone.types.subscribed_user.SubscribedUser"
 
 
-class _SubscribedPrincipal_group(TypedDict):
+class _SubscribedPrincipal_group(TypedDict, closed=True):
     group: "aws_sdk_datazone.types.subscribed_group.SubscribedGroup"
 
 
-class _SubscribedPrincipal_iam(TypedDict):
+class _SubscribedPrincipal_iam(TypedDict, closed=True):
     iam: "aws_sdk_datazone.types.subscribed_iam_principal.SubscribedIamPrincipal"
 
 

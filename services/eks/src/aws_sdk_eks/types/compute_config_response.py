@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ComputeConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class ComputeConfigResponse(TypedDict):
+class ComputeConfigResponse(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_eks.types.boxed_boolean.BoxedBoolean"]
     """<p>Indicates if the compute capability is enabled on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.</p>"""
     node_pools: NotRequired["aws_sdk_eks.types.string_list.StringList"]

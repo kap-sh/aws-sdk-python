@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#PutSuppressedDestinationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutSuppressedDestinationResponse(TypedDict):
+class PutSuppressedDestinationResponse(TypedDict, closed=True):
     pass
 
 

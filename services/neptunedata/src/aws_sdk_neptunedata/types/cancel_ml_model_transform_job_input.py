@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelMLModelTransformJobInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CancelMLModelTransformJobInput(TypedDict):
+class CancelMLModelTransformJobInput(TypedDict, closed=True):
     id: "str"
     """<p>The unique ID of the model transform job to be canceled.</p>"""
     neptune_iam_role_arn: NotRequired["str"]

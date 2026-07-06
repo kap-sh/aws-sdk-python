@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlayerConnectionEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.ip_address
     import aws_sdk_gamelift.types.port_number
 
 
-class PlayerConnectionEndpoint(TypedDict):
+class PlayerConnectionEndpoint(TypedDict, closed=True):
     ip_address: NotRequired["aws_sdk_gamelift.types.ip_address.IpAddress"]
     """<p>IP address for connecting to the game session. When player gateway is enabled, this is a player gateway IP address. When player gateway is disabled, this is the game server IP address.</p>"""
     port: NotRequired["aws_sdk_gamelift.types.port_number.PortNumber"]

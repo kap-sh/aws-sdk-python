@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ForgotPasswordRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.username_type
 
 
-class ForgotPasswordRequest(TypedDict):
+class ForgotPasswordRequest(TypedDict, closed=True):
     client_id: "aws_sdk_cognito_identity_provider.types.client_id_type.ClientIdType"
     """<p>The ID of the user pool app client associated with the current signed-in user.</p>"""
     secret_hash: NotRequired[

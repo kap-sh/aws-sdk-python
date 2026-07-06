@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ExportBackupPlanTemplateOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class ExportBackupPlanTemplateOutput(TypedDict):
+class ExportBackupPlanTemplateOutput(TypedDict, closed=True):
     backup_plan_template_json: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The body of a backup plan template in JSON format.</p> <note> <p>This is a signed JSON document that cannot be modified before being passed to <code>GetBackupPlanFromJSON.</code> </p> </note>"""
 

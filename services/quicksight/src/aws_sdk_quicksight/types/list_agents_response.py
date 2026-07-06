@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ListAgentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.agent_summaries
 
 
-class ListAgentsResponse(TypedDict):
+class ListAgentsResponse(TypedDict, closed=True):
     request_id: NotRequired["str"]
     """<p>The Amazon Web Services request ID for this operation.</p>"""
     agent_summaries: "aws_sdk_quicksight.types.agent_summaries.AgentSummaries"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#ImageGenerationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.width_pixels
 
 
-class ImageGenerationConfiguration(TypedDict):
+class ImageGenerationConfiguration(TypedDict, closed=True):
     status: "aws_sdk_kinesis_video.types.configuration_status.ConfigurationStatus"
     """<p>Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.</p>"""
     image_selector_type: (

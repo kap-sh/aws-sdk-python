@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#Rule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.transcript_filter
 
 
-class _Rule_NonTalkTimeFilter(TypedDict):
+class _Rule_NonTalkTimeFilter(TypedDict, closed=True):
     NonTalkTimeFilter: "aws_sdk_transcribe.types.non_talk_time_filter.NonTalkTimeFilter"
 
 
-class _Rule_InterruptionFilter(TypedDict):
+class _Rule_InterruptionFilter(TypedDict, closed=True):
     InterruptionFilter: (
         "aws_sdk_transcribe.types.interruption_filter.InterruptionFilter"
     )
 
 
-class _Rule_TranscriptFilter(TypedDict):
+class _Rule_TranscriptFilter(TypedDict, closed=True):
     TranscriptFilter: "aws_sdk_transcribe.types.transcript_filter.TranscriptFilter"
 
 
-class _Rule_SentimentFilter(TypedDict):
+class _Rule_SentimentFilter(TypedDict, closed=True):
     SentimentFilter: "aws_sdk_transcribe.types.sentiment_filter.SentimentFilter"
 
 

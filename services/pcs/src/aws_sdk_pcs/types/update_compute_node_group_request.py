@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#UpdateComputeNodeGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.update_compute_node_group_slurm_configuration_request
 
 
-class UpdateComputeNodeGroupRequest(TypedDict):
+class UpdateComputeNodeGroupRequest(TypedDict, closed=True):
     cluster_identifier: "aws_sdk_pcs.types.cluster_identifier.ClusterIdentifier"
     """<p>The name or ID of the cluster of the compute node group.</p>"""
     compute_node_group_identifier: (

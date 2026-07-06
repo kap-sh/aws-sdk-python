@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#EstimateTemplateCostOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.url
 
 
-class EstimateTemplateCostOutput(TypedDict):
+class EstimateTemplateCostOutput(TypedDict, closed=True):
     url: NotRequired["aws_sdk_cloudformation.types.url.Url"]
     """<p>An Amazon Web Services Simple Monthly Calculator URL with a query string that describes the resources required to run the template.</p>"""
 

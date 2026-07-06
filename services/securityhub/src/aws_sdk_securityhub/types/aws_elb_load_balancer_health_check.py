@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbLoadBalancerHealthCheck``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.integer
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElbLoadBalancerHealthCheck(TypedDict):
+class AwsElbLoadBalancerHealthCheck(TypedDict, closed=True):
     healthy_threshold: NotRequired["aws_sdk_securityhub.types.integer.Integer"]
     """<p>The number of consecutive health check successes required before the instance is moved to the Healthy state.</p>"""
     interval: NotRequired["aws_sdk_securityhub.types.integer.Integer"]

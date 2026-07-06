@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#EndpointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.ip_address_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_string
 
 
-class EndpointConfiguration(TypedDict):
+class EndpointConfiguration(TypedDict, closed=True):
     types: NotRequired[
         "aws_sdk_api_gateway.types.list_of_endpoint_type.ListOfEndpointType"
     ]

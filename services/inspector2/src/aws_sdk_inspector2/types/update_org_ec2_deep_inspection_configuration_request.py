@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateOrgEc2DeepInspectionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.path_list
 
 
-class UpdateOrgEc2DeepInspectionConfigurationRequest(TypedDict):
+class UpdateOrgEc2DeepInspectionConfigurationRequest(TypedDict, closed=True):
     org_package_paths: "aws_sdk_inspector2.types.path_list.PathList"
     """<p>The Amazon Inspector deep inspection custom paths you are adding for your organization.</p>"""
 

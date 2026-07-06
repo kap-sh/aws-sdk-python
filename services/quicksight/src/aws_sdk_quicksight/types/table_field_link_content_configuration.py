@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldLinkContentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_field_custom_icon_content
     import aws_sdk_quicksight.types.table_field_custom_text_content
 
 
-class TableFieldLinkContentConfiguration(TypedDict):
+class TableFieldLinkContentConfiguration(TypedDict, closed=True):
     custom_text_content: NotRequired[
         "aws_sdk_quicksight.types.table_field_custom_text_content.TableFieldCustomTextContent"
     ]

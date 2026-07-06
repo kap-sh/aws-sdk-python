@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#ListPredictorBacktestExportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.next_token
     import aws_sdk_forecast.types.predictor_backtest_export_jobs
 
 
-class ListPredictorBacktestExportJobsResponse(TypedDict):
+class ListPredictorBacktestExportJobsResponse(TypedDict, closed=True):
     predictor_backtest_export_jobs: NotRequired[
         "aws_sdk_forecast.types.predictor_backtest_export_jobs.PredictorBacktestExportJobs"
     ]

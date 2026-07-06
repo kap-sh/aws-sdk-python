@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.configuration_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.error_message
 
 
-class ConfigurationDetails(TypedDict):
+class ConfigurationDetails(TypedDict, closed=True):
     configuration_status: NotRequired[
         "aws_sdk_iot.types.configuration_status.ConfigurationStatus"
     ]

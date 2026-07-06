@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#PutGatewayResponseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.gateway_response_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class PutGatewayResponseRequest(TypedDict):
+class PutGatewayResponseRequest(TypedDict, closed=True):
     rest_api_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The string identifier of the associated RestApi.</p>"""
     response_type: "aws_sdk_api_gateway.types.gateway_response_type.GatewayResponseType"

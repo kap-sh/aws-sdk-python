@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListTargetedSentimentDetectionJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.max_results_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.targeted_sentiment_detection_job_filter
 
 
-class ListTargetedSentimentDetectionJobsRequest(TypedDict):
+class ListTargetedSentimentDetectionJobsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_comprehend.types.targeted_sentiment_detection_job_filter.TargetedSentimentDetectionJobFilter"
     ]

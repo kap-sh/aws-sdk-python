@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ModifyStrategyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.modify_consolidation_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.modify_self_managed_configuration
 
 
-class ModifyStrategyConfiguration(TypedDict):
+class ModifyStrategyConfiguration(TypedDict, closed=True):
     extraction: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.modify_extraction_configuration.ModifyExtractionConfiguration"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ChoiceContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.choice_content_display_text
     import aws_sdk_wellarchitected.types.choice_content_url
 
 
-class ChoiceContent(TypedDict):
+class ChoiceContent(TypedDict, closed=True):
     display_text: NotRequired[
         "aws_sdk_wellarchitected.types.choice_content_display_text.ChoiceContentDisplayText"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePresignedMlflowAppUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mlflow_app_url
 
 
-class CreatePresignedMlflowAppUrlResponse(TypedDict):
+class CreatePresignedMlflowAppUrlResponse(TypedDict, closed=True):
     authorized_url: NotRequired["aws_sdk_sagemaker.types.mlflow_app_url.MlflowAppUrl"]
     """<p>A presigned URL with an authorization token.</p>"""
 

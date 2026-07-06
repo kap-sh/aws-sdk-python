@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateContextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.context_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.list_lineage_entity_parameter_key
 
 
-class UpdateContextRequest(TypedDict):
+class UpdateContextRequest(TypedDict, closed=True):
     context_name: NotRequired["aws_sdk_sagemaker.types.context_name.ContextName"]
     """<p>The name of the context to update.</p>"""
     description: NotRequired[

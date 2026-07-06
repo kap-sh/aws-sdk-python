@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#FulfillmentUpdatesSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.fulfillment_update_response_specification
 
 
-class FulfillmentUpdatesSpecification(TypedDict):
+class FulfillmentUpdatesSpecification(TypedDict, closed=True):
     active: "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"
     """<p>Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.</p> <p>If the <code>active</code> field is set to true, the <code>startResponse</code>, <code>updateResponse</code>, and <code>timeoutInSeconds</code> fields are required.</p>"""
     start_response: NotRequired[

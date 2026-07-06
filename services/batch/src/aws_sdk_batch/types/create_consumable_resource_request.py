@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CreateConsumableResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.long
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.tagris_tags_map
 
 
-class CreateConsumableResourceRequest(TypedDict):
+class CreateConsumableResourceRequest(TypedDict, closed=True):
     consumable_resource_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name of the consumable resource. Must be unique.</p>"""
     total_quantity: NotRequired["aws_sdk_batch.types.long.Long"]

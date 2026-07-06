@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationCodeGenerationSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.segment_id
 
 
-class NetworkMigrationCodeGenerationSegment(TypedDict):
+class NetworkMigrationCodeGenerationSegment(TypedDict, closed=True):
     job_id: NotRequired[
         "aws_sdk_mgn.types.network_migration_job_id.NetworkMigrationJobID"
     ]

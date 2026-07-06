@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DownlinkQueueMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.iso_date_time_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.transmit_mode
 
 
-class DownlinkQueueMessage(TypedDict):
+class DownlinkQueueMessage(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_iot_wireless.types.message_id.MessageId"]
     """<p> The message ID assigned by IoT Wireless to each downlink message, which helps identify the message.</p>"""
     transmit_mode: NotRequired["aws_sdk_iot_wireless.types.transmit_mode.TransmitMode"]

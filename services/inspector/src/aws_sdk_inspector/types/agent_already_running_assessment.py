@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#AgentAlreadyRunningAssessment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.arn
 
 
-class AgentAlreadyRunningAssessment(TypedDict):
+class AgentAlreadyRunningAssessment(TypedDict, closed=True):
     agent_id: "aws_sdk_inspector.types.agent_id.AgentId"
     """<p>ID of the agent that is running on an EC2 instance that is already participating in another started assessment run.</p>"""
     assessment_run_arn: "aws_sdk_inspector.types.arn.Arn"

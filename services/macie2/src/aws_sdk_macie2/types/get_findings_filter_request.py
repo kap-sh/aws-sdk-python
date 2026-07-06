@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#GetFindingsFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class GetFindingsFilterRequest(TypedDict):
+class GetFindingsFilterRequest(TypedDict, closed=True):
     id: "aws_sdk_macie2.types.__string.__string"
     """<p>The unique identifier for the Amazon Macie resource that the request applies to.</p>"""
 

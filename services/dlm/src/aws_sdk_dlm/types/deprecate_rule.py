@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dlm#DeprecateRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dlm.types.count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dlm.types.retention_interval_unit_values
 
 
-class DeprecateRule(TypedDict):
+class DeprecateRule(TypedDict, closed=True):
     count: NotRequired["aws_sdk_dlm.types.count.Count"]
     """<p>If the schedule has a count-based retention rule, this parameter specifies the number of oldest AMIs to deprecate. The count must be less than or equal to the schedule's retention count, and it can't be greater than 1000.</p>"""
     interval: NotRequired["aws_sdk_dlm.types.interval.Interval"]

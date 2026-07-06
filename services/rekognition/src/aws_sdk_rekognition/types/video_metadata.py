@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#VideoMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.video_color_range
 
 
-class VideoMetadata(TypedDict):
+class VideoMetadata(TypedDict, closed=True):
     codec: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>Type of compression used in the analyzed video. </p>"""
     duration_millis: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]

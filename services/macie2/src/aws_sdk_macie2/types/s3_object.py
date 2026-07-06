@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#S3Object``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.storage_class
 
 
-class S3Object(TypedDict):
+class S3Object(TypedDict, closed=True):
     bucket_arn: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the bucket that contains the object.</p>"""
     e_tag: NotRequired["aws_sdk_macie2.types.__string.__string"]

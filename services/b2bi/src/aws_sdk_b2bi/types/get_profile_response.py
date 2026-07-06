@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#GetProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.resource_arn
 
 
-class GetProfileResponse(TypedDict):
+class GetProfileResponse(TypedDict, closed=True):
     profile_id: "aws_sdk_b2bi.types.profile_id.ProfileId"
     """<p>Returns the unique, system-generated identifier for the profile.</p>"""
     profile_arn: "aws_sdk_b2bi.types.resource_arn.ResourceArn"

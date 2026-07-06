@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluatorStatistics``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EvaluatorStatistics(TypedDict):
+class EvaluatorStatistics(TypedDict, closed=True):
     average_score: NotRequired["float"]
     """<p>The average score across all evaluated sessions for this evaluator.</p>"""
 

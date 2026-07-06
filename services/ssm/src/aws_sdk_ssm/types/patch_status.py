@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#PatchStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.date_time
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_deployment_status
 
 
-class PatchStatus(TypedDict):
+class PatchStatus(TypedDict, closed=True):
     deployment_status: NotRequired[
         "aws_sdk_ssm.types.patch_deployment_status.PatchDeploymentStatus"
     ]

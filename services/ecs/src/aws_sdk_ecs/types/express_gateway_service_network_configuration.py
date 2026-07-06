@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExpressGatewayServiceNetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class ExpressGatewayServiceNetworkConfiguration(TypedDict):
+class ExpressGatewayServiceNetworkConfiguration(TypedDict, closed=True):
     security_groups: NotRequired["aws_sdk_ecs.types.string_list.StringList"]
     """<p>The IDs of the security groups associated with the Express service.</p>"""
     subnets: NotRequired["aws_sdk_ecs.types.string_list.StringList"]

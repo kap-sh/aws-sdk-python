@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#RegionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.region
     import aws_sdk_observabilityadmin.types.resource_arn
 
 
-class RegionStatus(TypedDict):
+class RegionStatus(TypedDict, closed=True):
     region: NotRequired["aws_sdk_observabilityadmin.types.region.Region"]
     """<p> The Amazon Web Services Region code (for example, <code>eu-west-1</code> or <code>us-west-2</code>) that this status applies to. </p>"""
     status: NotRequired["str"]

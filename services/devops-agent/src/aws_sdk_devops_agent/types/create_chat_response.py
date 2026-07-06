@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#CreateChatResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.resource_id
 
 
-class CreateChatResponse(TypedDict):
+class CreateChatResponse(TypedDict, closed=True):
     execution_id: "aws_sdk_devops_agent.types.resource_id.ResourceId"
     """<p>The unique identifier for the created execution</p>"""
     created_at: "datetime.datetime"

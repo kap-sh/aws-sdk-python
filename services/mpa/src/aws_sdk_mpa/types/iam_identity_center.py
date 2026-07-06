@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#IamIdentityCenter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class IamIdentityCenter(TypedDict):
+class IamIdentityCenter(TypedDict, closed=True):
     instance_arn: "aws_sdk_mpa.types.idc_instance_arn.IdcInstanceArn"
     """<p>Amazon Resource Name (ARN) for the IAM Identity Center instance.</p>"""
     region: "aws_sdk_mpa.types.string.String"

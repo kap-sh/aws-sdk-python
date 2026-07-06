@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CertificateSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.certificate_principal
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.timestamp
 
 
-class CertificateSummary(TypedDict):
+class CertificateSummary(TypedDict, closed=True):
     thumbprint: NotRequired[
         "aws_sdk_workspaces_web.types.certificate_thumbprint.CertificateThumbprint"
     ]

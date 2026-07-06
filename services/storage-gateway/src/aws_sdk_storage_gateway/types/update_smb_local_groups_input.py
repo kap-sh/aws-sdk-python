@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateSMBLocalGroupsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.smb_local_groups
 
 
-class UpdateSMBLocalGroupsInput(TypedDict):
+class UpdateSMBLocalGroupsInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     smb_local_groups: "aws_sdk_storage_gateway.types.smb_local_groups.SMBLocalGroups"
     """<p>A list of Active Directory users and groups that you want to grant special permissions for SMB file shares on the gateway.</p>"""

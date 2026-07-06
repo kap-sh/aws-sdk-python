@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#PardotConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.access_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.refresh_token
 
 
-class PardotConnectorProfileCredentials(TypedDict):
+class PardotConnectorProfileCredentials(TypedDict, closed=True):
     access_token: NotRequired["aws_sdk_appflow.types.access_token.AccessToken"]
     """<p>The credentials used to access protected Salesforce Pardot resources.</p>"""
     refresh_token: NotRequired["aws_sdk_appflow.types.refresh_token.RefreshToken"]

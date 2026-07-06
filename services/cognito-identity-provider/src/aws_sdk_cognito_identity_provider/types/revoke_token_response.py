@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#RevokeTokenResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RevokeTokenResponse(TypedDict):
+class RevokeTokenResponse(TypedDict, closed=True):
     pass
 
 

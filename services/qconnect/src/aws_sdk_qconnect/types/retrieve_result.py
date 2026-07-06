@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#RetrieveResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class RetrieveResult(TypedDict):
+class RetrieveResult(TypedDict, closed=True):
     association_id: "aws_sdk_qconnect.types.uuid.Uuid"
     """<p>The identifier of the assistant association for the retrieved result.</p>"""
     source_id: "aws_sdk_qconnect.types.sensitive_string.SensitiveString"

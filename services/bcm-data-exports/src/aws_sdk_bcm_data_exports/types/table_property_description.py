@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#TablePropertyDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.generic_string
     import aws_sdk_bcm_data_exports.types.generic_string_list
 
 
-class TablePropertyDescription(TypedDict):
+class TablePropertyDescription(TypedDict, closed=True):
     name: NotRequired["aws_sdk_bcm_data_exports.types.generic_string.GenericString"]
     """<p>The name of the table.</p>"""
     valid_values: NotRequired[

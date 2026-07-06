@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeProtectedResourceOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class DescribeProtectedResourceOutput(TypedDict):
+class DescribeProtectedResourceOutput(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]
     """<p>An ARN that uniquely identifies a resource. The format of the ARN depends on the resource type.</p>"""
     resource_type: NotRequired["aws_sdk_backup.types.resource_type.ResourceType"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResumeWorkflowRunRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.node_id_list
 
 
-class ResumeWorkflowRunRequest(TypedDict):
+class ResumeWorkflowRunRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the workflow to resume.</p>"""
     run_id: "aws_sdk_glue.types.id_string.IdString"

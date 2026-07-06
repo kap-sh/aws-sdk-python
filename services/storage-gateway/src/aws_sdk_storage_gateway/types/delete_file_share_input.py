@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DeleteFileShareInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.file_share_arn
 
 
-class DeleteFileShareInput(TypedDict):
+class DeleteFileShareInput(TypedDict, closed=True):
     file_share_arn: "aws_sdk_storage_gateway.types.file_share_arn.FileShareARN"
     """<p>The Amazon Resource Name (ARN) of the file share to be deleted.</p>"""
     force_delete: "aws_sdk_storage_gateway.types.boolean2.Boolean2"

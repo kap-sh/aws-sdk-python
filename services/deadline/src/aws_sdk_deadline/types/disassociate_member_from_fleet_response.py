@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#DisassociateMemberFromFleetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateMemberFromFleetResponse(TypedDict):
+class DisassociateMemberFromFleetResponse(TypedDict, closed=True):
     pass
 
 

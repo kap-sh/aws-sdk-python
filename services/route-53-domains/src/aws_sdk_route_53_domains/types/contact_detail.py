@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ContactDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.address_line
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.zip_code
 
 
-class ContactDetail(TypedDict):
+class ContactDetail(TypedDict, closed=True):
     first_name: NotRequired["aws_sdk_route_53_domains.types.contact_name.ContactName"]
     """<p>First name of contact.</p>"""
     last_name: NotRequired["aws_sdk_route_53_domains.types.contact_name.ContactName"]

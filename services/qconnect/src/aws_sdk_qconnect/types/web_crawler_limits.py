@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#WebCrawlerLimits``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class WebCrawlerLimits(TypedDict):
+class WebCrawlerLimits(TypedDict, closed=True):
     rate_limit: NotRequired["int"]
     """<p>Rate of web URLs retrieved per minute.</p>"""
 

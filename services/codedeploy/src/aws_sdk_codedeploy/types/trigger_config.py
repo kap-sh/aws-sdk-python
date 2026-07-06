@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#TriggerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.trigger_event_type_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.trigger_target_arn
 
 
-class TriggerConfig(TypedDict):
+class TriggerConfig(TypedDict, closed=True):
     trigger_name: NotRequired["aws_sdk_codedeploy.types.trigger_name.TriggerName"]
     """<p>The name of the notification trigger.</p>"""
     trigger_target_arn: NotRequired[

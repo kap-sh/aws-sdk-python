@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StartAnalysisReportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.analysis_report_id
 
 
-class StartAnalysisReportResponse(TypedDict):
+class StartAnalysisReportResponse(TypedDict, closed=True):
     analysis_report_id: (
         "aws_sdk_network_firewall.types.analysis_report_id.AnalysisReportId"
     )

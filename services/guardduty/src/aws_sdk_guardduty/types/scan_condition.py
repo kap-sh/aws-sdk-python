@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScanCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.map_equals
 
 
-class ScanCondition(TypedDict):
+class ScanCondition(TypedDict, closed=True):
     map_equals: NotRequired["aws_sdk_guardduty.types.map_equals.MapEquals"]
     """<p>Represents an <i>mapEqual</i> <b/> condition to be applied to a single field when triggering for malware scan.</p>"""
 

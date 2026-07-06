@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupSelection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_backup.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.resource_arns
 
 
-class BackupSelection(TypedDict):
+class BackupSelection(TypedDict, closed=True):
     selection_name: "aws_sdk_backup.types.backup_selection_name.BackupSelectionName"
     """<p>The display name of a resource selection document. Must contain 1 to 50 alphanumeric or '-_.' characters.</p>"""
     iam_role_arn: "aws_sdk_backup.types.iam_role_arn.IAMRoleArn"

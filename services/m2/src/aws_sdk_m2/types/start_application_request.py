@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.m2#StartApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
 
 
-class StartApplicationRequest(TypedDict):
+class StartApplicationRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the application you want to start.</p>"""
 

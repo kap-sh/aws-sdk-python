@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.braket#ActionMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
 
-class ActionMetadata(TypedDict):
+class ActionMetadata(TypedDict, closed=True):
     action_type: "str"
     """<p>The type of action associated with the quantum task.</p>"""
     program_count: NotRequired["int"]

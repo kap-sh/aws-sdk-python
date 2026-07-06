@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourcesCount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.trends_value_count
 
 
-class ResourcesCount(TypedDict):
+class ResourcesCount(TypedDict, closed=True):
     all_resources: NotRequired[
         "aws_sdk_securityhub.types.trends_value_count.TrendsValueCount"
     ]

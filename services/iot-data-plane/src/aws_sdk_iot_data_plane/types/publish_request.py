@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#PublishRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.content_type
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.topic
 
 
-class PublishRequest(TypedDict):
+class PublishRequest(TypedDict, closed=True):
     topic: "aws_sdk_iot_data_plane.types.topic.Topic"
     """<p>The name of the MQTT topic.</p>"""
     qos: "aws_sdk_iot_data_plane.types.qos.Qos"

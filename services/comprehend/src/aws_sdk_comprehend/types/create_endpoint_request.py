@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#CreateEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehend.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.tag_list
 
 
-class CreateEndpointRequest(TypedDict):
+class CreateEndpointRequest(TypedDict, closed=True):
     endpoint_name: (
         "aws_sdk_comprehend.types.comprehend_endpoint_name.ComprehendEndpointName"
     )

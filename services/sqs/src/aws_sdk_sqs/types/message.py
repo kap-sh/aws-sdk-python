@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#Message``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.message_body_attribute_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class Message(TypedDict):
+class Message(TypedDict, closed=True):
     message_id: NotRequired["aws_sdk_sqs.types.string.String"]
     """<p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all Amazon Web Services accounts for an extended period of time.</p>"""
     receipt_handle: NotRequired["aws_sdk_sqs.types.string.String"]

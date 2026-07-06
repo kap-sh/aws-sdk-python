@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateConnectorV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.provider_update_configuration
 
 
-class UpdateConnectorV2Request(TypedDict):
+class UpdateConnectorV2Request(TypedDict, closed=True):
     connector_id: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The UUID of the connectorV2 to identify connectorV2 resource.</p>"""
     description: NotRequired[

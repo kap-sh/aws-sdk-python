@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UntagOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.group_arn_v2
     import aws_sdk_resource_groups.types.tag_key_list
 
 
-class UntagOutput(TypedDict):
+class UntagOutput(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_resource_groups.types.group_arn_v2.GroupArnV2"]
     """<p>The Amazon resource name (ARN) of the resource group from which tags have been removed.</p>"""
     keys: NotRequired["aws_sdk_resource_groups.types.tag_key_list.TagKeyList"]

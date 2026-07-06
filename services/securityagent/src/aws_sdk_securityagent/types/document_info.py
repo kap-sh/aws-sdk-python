@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#DocumentInfo``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DocumentInfo(TypedDict):
+class DocumentInfo(TypedDict, closed=True):
     s3_location: NotRequired["str"]
     """<p>The Amazon S3 location of the document.</p>"""
     artifact_id: NotRequired["str"]

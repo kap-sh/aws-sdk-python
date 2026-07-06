@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#RestartChannelPipelinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_channel_pipeline_id_to_restart
     import aws_sdk_medialive.types.__string
 
 
-class RestartChannelPipelinesRequest(TypedDict):
+class RestartChannelPipelinesRequest(TypedDict, closed=True):
     channel_id: "aws_sdk_medialive.types.__string.__string"
     """ID of channel"""
     pipeline_ids: NotRequired[

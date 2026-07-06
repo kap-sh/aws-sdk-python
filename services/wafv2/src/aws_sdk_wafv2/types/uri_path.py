@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#UriPath``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UriPath(TypedDict):
+class UriPath(TypedDict, closed=True):
     pass
 
 

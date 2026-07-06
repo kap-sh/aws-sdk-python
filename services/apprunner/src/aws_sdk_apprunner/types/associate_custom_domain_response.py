@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#AssociateCustomDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.vpc_dns_target_list
 
 
-class AssociateCustomDomainResponse(TypedDict):
+class AssociateCustomDomainResponse(TypedDict, closed=True):
     dns_target: "aws_sdk_apprunner.types.string.String"
     """<p>The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name.</p>"""
     service_arn: "aws_sdk_apprunner.types.app_runner_resource_arn.AppRunnerResourceArn"

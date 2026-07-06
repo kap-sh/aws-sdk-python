@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#DeleteComputeNodeGroupResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteComputeNodeGroupResponse(TypedDict):
+class DeleteComputeNodeGroupResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#ValidationException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connecthealth._protocol.eventstream import HeaderValue, Message
 from aws_sdk_connecthealth.errors import ServiceError
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

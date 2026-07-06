@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#ApplicationPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.management_preference
 
 
-class ApplicationPreferences(TypedDict):
+class ApplicationPreferences(TypedDict, closed=True):
     management_preference: NotRequired[
         "aws_sdk_migrationhubstrategy.types.management_preference.ManagementPreference"
     ]

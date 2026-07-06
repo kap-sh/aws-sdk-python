@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#EventPayload``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EventPayload(TypedDict):
+class EventPayload(TypedDict, closed=True):
     content_type: NotRequired["str"]
     """<p>The type of content in the event payload.</p>"""
     data: NotRequired["str"]

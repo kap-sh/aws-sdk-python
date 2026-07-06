@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#QuotaSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.integer
     import aws_sdk_api_gateway.types.quota_period_type
 
 
-class QuotaSettings(TypedDict):
+class QuotaSettings(TypedDict, closed=True):
     limit: "aws_sdk_api_gateway.types.integer.Integer"
     """<p>The target maximum number of requests that can be made in a given time period.</p>"""
     offset: "aws_sdk_api_gateway.types.integer.Integer"

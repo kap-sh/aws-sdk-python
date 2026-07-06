@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#CreateNetworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
     import aws_sdk_wickr.types.network_id
 
 
-class CreateNetworkResponse(TypedDict):
+class CreateNetworkResponse(TypedDict, closed=True):
     network_id: NotRequired["aws_sdk_wickr.types.network_id.NetworkId"]
     """<p>The unique identifier assigned to the newly created network.</p>"""
     network_name: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

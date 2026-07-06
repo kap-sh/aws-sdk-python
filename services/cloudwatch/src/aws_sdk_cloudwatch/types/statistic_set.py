@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#StatisticSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.datapoint_value
 
 
-class StatisticSet(TypedDict):
+class StatisticSet(TypedDict, closed=True):
     sample_count: NotRequired["aws_sdk_cloudwatch.types.datapoint_value.DatapointValue"]
     """<p>The number of samples used for the statistic set.</p>"""
     sum: NotRequired["aws_sdk_cloudwatch.types.datapoint_value.DatapointValue"]

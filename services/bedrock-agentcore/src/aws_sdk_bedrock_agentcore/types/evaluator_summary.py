@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluatorSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluator_statistics
 
 
-class EvaluatorSummary(TypedDict):
+class EvaluatorSummary(TypedDict, closed=True):
     evaluator_id: NotRequired["str"]
     """<p>The unique identifier of the evaluator.</p>"""
     statistics: NotRequired[

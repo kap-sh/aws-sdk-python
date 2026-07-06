@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CognitoOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.user_pool_id
 
 
-class CognitoOptions(TypedDict):
+class CognitoOptions(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>Whether to enable or disable Amazon Cognito authentication for OpenSearch Dashboards.</p>"""
     user_pool_id: NotRequired["aws_sdk_opensearch.types.user_pool_id.UserPoolId"]

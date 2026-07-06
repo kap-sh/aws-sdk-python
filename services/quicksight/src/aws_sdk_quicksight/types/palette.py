@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Palette``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
 
 
-class Palette(TypedDict):
+class Palette(TypedDict, closed=True):
     foreground: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]
     """<p>The foreground color.</p>"""
     background: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]

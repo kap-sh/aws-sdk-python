@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DeleteTopicRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.rule_name
 
 
-class DeleteTopicRuleRequest(TypedDict):
+class DeleteTopicRuleRequest(TypedDict, closed=True):
     rule_name: "aws_sdk_iot.types.rule_name.RuleName"
     """<p>The name of the rule.</p>"""
 

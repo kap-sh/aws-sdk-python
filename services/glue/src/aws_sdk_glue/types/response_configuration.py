@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResponseConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.json_path_string
 
 
-class ResponseConfiguration(TypedDict):
+class ResponseConfiguration(TypedDict, closed=True):
     result_path: "aws_sdk_glue.types.json_path_string.JsonPathString"
     """<p>The JSON path expression that identifies where the actual result data is located within the API response.</p>"""
     error_path: NotRequired["aws_sdk_glue.types.json_path_string.JsonPathString"]

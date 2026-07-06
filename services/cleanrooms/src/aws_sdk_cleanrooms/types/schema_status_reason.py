@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SchemaStatusReason``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.schema_status_reason_code
 
 
-class SchemaStatusReason(TypedDict):
+class SchemaStatusReason(TypedDict, closed=True):
     code: "aws_sdk_cleanrooms.types.schema_status_reason_code.SchemaStatusReasonCode"
     """<p>The schema status reason code.</p>"""
     message: "str"

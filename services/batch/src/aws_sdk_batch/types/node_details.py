@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#NodeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.boolean
     import aws_sdk_batch.types.integer
 
 
-class NodeDetails(TypedDict):
+class NodeDetails(TypedDict, closed=True):
     node_index: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The node index for the node. Node index numbering starts at zero. This index is also available on the node with the <code>AWS_BATCH_JOB_NODE_INDEX</code> environment variable.</p>"""
     is_main_node: NotRequired["aws_sdk_batch.types.boolean.Boolean"]

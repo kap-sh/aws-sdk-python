@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#ShareInvitationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.aws_account_id
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_name
 
 
-class ShareInvitationSummary(TypedDict):
+class ShareInvitationSummary(TypedDict, closed=True):
     share_invitation_id: NotRequired[
         "aws_sdk_wellarchitected.types.share_invitation_id.ShareInvitationId"
     ]

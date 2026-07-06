@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#UpdateSubscriberNotificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.uuid
 
 
-class UpdateSubscriberNotificationRequest(TypedDict):
+class UpdateSubscriberNotificationRequest(TypedDict, closed=True):
     subscriber_id: "aws_sdk_securitylake.types.uuid.UUID"
     """<p>The subscription ID for which the subscription notification is specified.</p>"""
     configuration: "aws_sdk_securitylake.types.notification_configuration.NotificationConfiguration"

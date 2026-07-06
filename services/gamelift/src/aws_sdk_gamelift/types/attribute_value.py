@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#AttributeValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.double_object
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.player_attribute_string_list
 
 
-class AttributeValue(TypedDict):
+class AttributeValue(TypedDict, closed=True):
     s: NotRequired[
         "aws_sdk_gamelift.types.player_attribute_string.PlayerAttributeString"
     ]

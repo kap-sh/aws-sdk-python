@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.validation_exception_reason
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_drs.types.large_bounded_string.LargeBoundedString"]
     code: NotRequired["aws_sdk_drs.types.large_bounded_string.LargeBoundedString"]
     reason: NotRequired[

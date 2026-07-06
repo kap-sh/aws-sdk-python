@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#MonetaryAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.currency_code
     import aws_sdk_device_farm.types.double
 
 
-class MonetaryAmount(TypedDict):
+class MonetaryAmount(TypedDict, closed=True):
     amount: NotRequired["aws_sdk_device_farm.types.double.Double"]
     """<p>The numerical amount of an offering or transaction.</p>"""
     currency_code: NotRequired["aws_sdk_device_farm.types.currency_code.CurrencyCode"]

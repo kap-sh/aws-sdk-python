@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#AcceptConnectionProposalResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_interconnect.types.connection
 
 
-class AcceptConnectionProposalResponse(TypedDict):
+class AcceptConnectionProposalResponse(TypedDict, closed=True):
     connection: NotRequired["aws_sdk_interconnect.types.connection.Connection"]
     """<p>The created <a>Connection</a> object.</p>"""
 

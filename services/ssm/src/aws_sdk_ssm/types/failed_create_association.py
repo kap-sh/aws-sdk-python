@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#FailedCreateAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.batch_error_message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.fault
 
 
-class FailedCreateAssociation(TypedDict):
+class FailedCreateAssociation(TypedDict, closed=True):
     entry: NotRequired[
         "aws_sdk_ssm.types.create_association_batch_request_entry.CreateAssociationBatchRequestEntry"
     ]

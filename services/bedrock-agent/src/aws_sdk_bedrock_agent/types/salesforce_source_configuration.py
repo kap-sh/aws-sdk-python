@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#SalesforceSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.secret_arn
 
 
-class SalesforceSourceConfiguration(TypedDict):
+class SalesforceSourceConfiguration(TypedDict, closed=True):
     host_url: "aws_sdk_bedrock_agent.types.https_url.HttpsUrl"
     """<p>The Salesforce host URL or instance URL.</p>"""
     auth_type: "aws_sdk_bedrock_agent.types.salesforce_auth_type.SalesforceAuthType"

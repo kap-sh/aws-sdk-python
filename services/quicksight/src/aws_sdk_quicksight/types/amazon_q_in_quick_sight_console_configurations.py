@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AmazonQInQuickSightConsoleConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_qn_a_configurations
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.generative_authoring_configurations
 
 
-class AmazonQInQuickSightConsoleConfigurations(TypedDict):
+class AmazonQInQuickSightConsoleConfigurations(TypedDict, closed=True):
     data_qn_a: NotRequired[
         "aws_sdk_quicksight.types.data_qn_a_configurations.DataQnAConfigurations"
     ]

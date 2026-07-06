@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeDomainConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.reserved_domain_configuration_name
 
 
-class DescribeDomainConfigurationRequest(TypedDict):
+class DescribeDomainConfigurationRequest(TypedDict, closed=True):
     domain_configuration_name: "aws_sdk_iot.types.reserved_domain_configuration_name.ReservedDomainConfigurationName"
     """<p>The name of the domain configuration.</p>"""
 

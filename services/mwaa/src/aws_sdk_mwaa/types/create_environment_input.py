@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#CreateEnvironmentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.weekly_maintenance_window_start
 
 
-class CreateEnvironmentInput(TypedDict):
+class CreateEnvironmentInput(TypedDict, closed=True):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
     execution_role_arn: "aws_sdk_mwaa.types.iam_role_arn.IamRoleArn"

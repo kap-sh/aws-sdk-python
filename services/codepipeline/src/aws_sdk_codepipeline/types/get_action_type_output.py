@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#GetActionTypeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.action_type_declaration
 
 
-class GetActionTypeOutput(TypedDict):
+class GetActionTypeOutput(TypedDict, closed=True):
     action_type: NotRequired[
         "aws_sdk_codepipeline.types.action_type_declaration.ActionTypeDeclaration"
     ]

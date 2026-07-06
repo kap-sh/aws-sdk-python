@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#KeySigningKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.time_stamp
 
 
-class KeySigningKey(TypedDict):
+class KeySigningKey(TypedDict, closed=True):
     name: NotRequired["aws_sdk_route_53.types.signing_key_name.SigningKeyName"]
     """<p>A string used to identify a key-signing key (KSK). <code>Name</code> can include numbers, letters, and underscores (_). <code>Name</code> must be unique for each key-signing key in the same hosted zone.</p>"""
     kms_arn: NotRequired["aws_sdk_route_53.types.signing_key_string.SigningKeyString"]

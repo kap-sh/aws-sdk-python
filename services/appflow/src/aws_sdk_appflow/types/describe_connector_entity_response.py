@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DescribeConnectorEntityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_entity_field_list
 
 
-class DescribeConnectorEntityResponse(TypedDict):
+class DescribeConnectorEntityResponse(TypedDict, closed=True):
     connector_entity_fields: (
         "aws_sdk_appflow.types.connector_entity_field_list.ConnectorEntityFieldList"
     )

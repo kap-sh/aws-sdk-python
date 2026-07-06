@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DefaultTextAreaControlOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.text_area_control_delimiter
     import aws_sdk_quicksight.types.text_area_control_display_options
 
 
-class DefaultTextAreaControlOptions(TypedDict):
+class DefaultTextAreaControlOptions(TypedDict, closed=True):
     delimiter: NotRequired[
         "aws_sdk_quicksight.types.text_area_control_delimiter.TextAreaControlDelimiter"
     ]

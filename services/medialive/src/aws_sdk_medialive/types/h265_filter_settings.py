@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#H265FilterSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.bandwidth_reduction_filter_settings
     import aws_sdk_medialive.types.temporal_filter_settings
 
 
-class H265FilterSettings(TypedDict):
+class H265FilterSettings(TypedDict, closed=True):
     temporal_filter_settings: NotRequired[
         "aws_sdk_medialive.types.temporal_filter_settings.TemporalFilterSettings"
     ]

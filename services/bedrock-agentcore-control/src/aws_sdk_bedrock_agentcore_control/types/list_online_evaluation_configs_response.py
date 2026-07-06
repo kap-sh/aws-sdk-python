@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListOnlineEvaluationConfigsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.online_evaluation_config_summary_list
 
 
-class ListOnlineEvaluationConfigsResponse(TypedDict):
+class ListOnlineEvaluationConfigsResponse(TypedDict, closed=True):
     online_evaluation_configs: "aws_sdk_bedrock_agentcore_control.types.online_evaluation_config_summary_list.OnlineEvaluationConfigSummaryList"
     """<p> The list of online evaluation configuration summaries containing basic information about each configuration. </p>"""
     next_token: NotRequired["str"]

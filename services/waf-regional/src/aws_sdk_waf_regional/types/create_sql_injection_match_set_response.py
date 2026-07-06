@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#CreateSqlInjectionMatchSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.change_token
     import aws_sdk_waf_regional.types.sql_injection_match_set
 
 
-class CreateSqlInjectionMatchSetResponse(TypedDict):
+class CreateSqlInjectionMatchSetResponse(TypedDict, closed=True):
     sql_injection_match_set: NotRequired[
         "aws_sdk_waf_regional.types.sql_injection_match_set.SqlInjectionMatchSet"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TimestreamAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestream_timestamp
 
 
-class TimestreamAction(TypedDict):
+class TimestreamAction(TypedDict, closed=True):
     role_arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the role that grants permission to write to the Amazon Timestream database table.</p>"""
     database_name: "aws_sdk_iot.types.timestream_database_name.TimestreamDatabaseName"

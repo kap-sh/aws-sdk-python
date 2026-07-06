@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.address_id
 
 
-class DescribeAddressRequest(TypedDict):
+class DescribeAddressRequest(TypedDict, closed=True):
     address_id: "aws_sdk_snowball.types.address_id.AddressId"
     """<p>The automatically generated ID for a specific address.</p>"""
 

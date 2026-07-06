@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ImportDataRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.import_trigger
 
 
-class ImportDataRule(TypedDict):
+class ImportDataRule(TypedDict, closed=True):
     prefix: "str"
     """<p>The S3 key prefix that scopes this import rule. Only objects with keys beginning with this prefix are subject to the rule.</p>"""
     trigger: "aws_sdk_s3files.types.import_trigger.ImportTrigger"

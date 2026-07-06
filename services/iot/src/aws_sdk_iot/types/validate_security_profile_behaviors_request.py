@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ValidateSecurityProfileBehaviorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.behaviors
 
 
-class ValidateSecurityProfileBehaviorsRequest(TypedDict):
+class ValidateSecurityProfileBehaviorsRequest(TypedDict, closed=True):
     behaviors: "aws_sdk_iot.types.behaviors.Behaviors"
     """<p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#ServerCertificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_list_type
 
 
-class ServerCertificate(TypedDict):
+class ServerCertificate(TypedDict, closed=True):
     server_certificate_metadata: (
         "aws_sdk_iam.types.server_certificate_metadata.ServerCertificateMetadata"
     )

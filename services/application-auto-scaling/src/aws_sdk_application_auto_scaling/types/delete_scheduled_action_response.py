@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#DeleteScheduledActionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteScheduledActionResponse(TypedDict):
+class DeleteScheduledActionResponse(TypedDict, closed=True):
     pass
 
 

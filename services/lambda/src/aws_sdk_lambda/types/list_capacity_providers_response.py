@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#ListCapacityProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class ListCapacityProvidersResponse(TypedDict):
+class ListCapacityProvidersResponse(TypedDict, closed=True):
     capacity_providers: (
         "aws_sdk_lambda.types.capacity_providers_list.CapacityProvidersList"
     )

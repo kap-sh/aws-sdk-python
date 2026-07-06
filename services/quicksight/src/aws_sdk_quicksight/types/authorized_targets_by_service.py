@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AuthorizedTargetsByService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.authorized_targets_list
     import aws_sdk_quicksight.types.service_type
 
 
-class AuthorizedTargetsByService(TypedDict):
+class AuthorizedTargetsByService(TypedDict, closed=True):
     service: NotRequired["aws_sdk_quicksight.types.service_type.ServiceType"]
     """<p>The name of the Amazon Web Services service.</p>"""
     authorized_targets: NotRequired[

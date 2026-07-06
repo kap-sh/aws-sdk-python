@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#UpdateStreamGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.location_configurations
 
 
-class UpdateStreamGroupInput(TypedDict):
+class UpdateStreamGroupInput(TypedDict, closed=True):
     identifier: "aws_sdk_gameliftstreams.types.identifier.Identifier"
     r"""<p>An <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html\">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>"""
     location_configurations: NotRequired[

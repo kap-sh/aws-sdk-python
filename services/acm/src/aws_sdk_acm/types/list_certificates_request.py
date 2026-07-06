@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#ListCertificatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_statuses
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.sort_order
 
 
-class ListCertificatesRequest(TypedDict):
+class ListCertificatesRequest(TypedDict, closed=True):
     certificate_statuses: NotRequired[
         "aws_sdk_acm.types.certificate_statuses.CertificateStatuses"
     ]

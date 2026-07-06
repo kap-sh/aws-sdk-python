@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowSQLTransformationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_sql_query
 
 
-class DataIntegrationFlowSQLTransformationConfiguration(TypedDict):
+class DataIntegrationFlowSQLTransformationConfiguration(TypedDict, closed=True):
     query: "aws_sdk_supplychain.types.data_integration_flow_sql_query.DataIntegrationFlowSQLQuery"
     """<p>The transformation SQL query body based on SparkSQL.</p>"""
 

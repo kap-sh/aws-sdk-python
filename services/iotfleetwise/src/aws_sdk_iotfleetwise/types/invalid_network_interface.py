@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#InvalidNetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.interface_id
     import aws_sdk_iotfleetwise.types.network_interface_failure_reason
 
 
-class InvalidNetworkInterface(TypedDict):
+class InvalidNetworkInterface(TypedDict, closed=True):
     interface_id: NotRequired["aws_sdk_iotfleetwise.types.interface_id.InterfaceId"]
     """<p>The ID of the interface that isn't valid.</p>"""
     reason: NotRequired[

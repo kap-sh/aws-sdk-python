@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#UngroupResourcesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_arn_list
 
 
-class UngroupResourcesInput(TypedDict):
+class UngroupResourcesInput(TypedDict, closed=True):
     group: "aws_sdk_resource_groups.types.group_string_v2.GroupStringV2"
     """<p>The name or the Amazon resource name (ARN) of the resource group from which to remove the resources.</p>"""
     resource_arns: "aws_sdk_resource_groups.types.resource_arn_list.ResourceArnList"

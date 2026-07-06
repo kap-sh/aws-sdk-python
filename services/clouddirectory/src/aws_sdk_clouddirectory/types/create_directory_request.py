@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#CreateDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.directory_name
 
 
-class CreateDirectoryRequest(TypedDict):
+class CreateDirectoryRequest(TypedDict, closed=True):
     name: "aws_sdk_clouddirectory.types.directory_name.DirectoryName"
     """<p>The name of the <a>Directory</a>. Should be unique per account, per region.</p>"""
     schema_arn: "aws_sdk_clouddirectory.types.arn.Arn"

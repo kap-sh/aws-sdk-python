@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#RepositoryInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.source_repository_name_string
 
 
-class RepositoryInput(TypedDict):
+class RepositoryInput(TypedDict, closed=True):
     repository_name: "aws_sdk_codecatalyst.types.source_repository_name_string.SourceRepositoryNameString"
     """<p>The name of the source repository.</p>"""
     branch_name: NotRequired[

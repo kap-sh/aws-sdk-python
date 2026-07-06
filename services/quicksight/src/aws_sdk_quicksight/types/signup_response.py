@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SignupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
     import aws_sdk_quicksight.types.string
 
 
-class SignupResponse(TypedDict):
+class SignupResponse(TypedDict, closed=True):
     iam_user: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean that is <code>TRUE</code> if the Amazon Quick Sight uses IAM as an authentication method.</p>"""
     user_login_name: NotRequired["aws_sdk_quicksight.types.string.String"]

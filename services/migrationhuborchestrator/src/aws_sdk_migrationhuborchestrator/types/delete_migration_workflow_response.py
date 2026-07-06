@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#DeleteMigrationWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_id
     import aws_sdk_migrationhuborchestrator.types.migration_workflow_status_enum
 
 
-class DeleteMigrationWorkflowResponse(TypedDict):
+class DeleteMigrationWorkflowResponse(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_migrationhuborchestrator.types.migration_workflow_id.MigrationWorkflowId"
     ]

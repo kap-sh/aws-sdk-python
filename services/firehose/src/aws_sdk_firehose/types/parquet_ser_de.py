@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#ParquetSerDe``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.block_size_bytes
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_firehose.types.parquet_writer_version
 
 
-class ParquetSerDe(TypedDict):
+class ParquetSerDe(TypedDict, closed=True):
     block_size_bytes: NotRequired[
         "aws_sdk_firehose.types.block_size_bytes.BlockSizeBytes"
     ]

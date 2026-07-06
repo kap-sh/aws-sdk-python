@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateApplicationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.tag_list
 
 
-class CreateApplicationRequest(TypedDict):
+class CreateApplicationRequest(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_opensearch.types.client_token.ClientToken"]
     """<p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>"""
     name: "aws_sdk_opensearch.types.application_name.ApplicationName"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#PropagatingVgw``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class PropagatingVgw(TypedDict):
+class PropagatingVgw(TypedDict, closed=True):
     gateway_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID of the virtual private gateway.</p>"""
 

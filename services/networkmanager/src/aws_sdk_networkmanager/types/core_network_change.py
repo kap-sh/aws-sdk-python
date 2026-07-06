@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#CoreNetworkChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.change_action
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_change_values
 
 
-class CoreNetworkChange(TypedDict):
+class CoreNetworkChange(TypedDict, closed=True):
     type: NotRequired["aws_sdk_networkmanager.types.change_type.ChangeType"]
     """<p>The type of change.</p>"""
     action: NotRequired["aws_sdk_networkmanager.types.change_action.ChangeAction"]

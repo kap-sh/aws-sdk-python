@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteSpanDynamicSpeedDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.duration_seconds
     import aws_sdk_geo_routes.types.speed_kilometers_per_hour
 
 
-class RouteSpanDynamicSpeedDetails(TypedDict):
+class RouteSpanDynamicSpeedDetails(TypedDict, closed=True):
     best_case_speed: (
         "aws_sdk_geo_routes.types.speed_kilometers_per_hour.SpeedKilometersPerHour"
     )

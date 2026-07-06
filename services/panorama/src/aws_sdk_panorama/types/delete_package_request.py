@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#DeletePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.boolean
     import aws_sdk_panorama.types.node_package_id
 
 
-class DeletePackageRequest(TypedDict):
+class DeletePackageRequest(TypedDict, closed=True):
     package_id: "aws_sdk_panorama.types.node_package_id.NodePackageId"
     """<p>The package's ID.</p>"""
     force_delete: "aws_sdk_panorama.types.boolean.Boolean"

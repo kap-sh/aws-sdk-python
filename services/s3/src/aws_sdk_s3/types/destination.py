@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.storage_class
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"
     """<p> The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.</p>"""
     account: NotRequired["aws_sdk_s3.types.account_id.AccountId"]

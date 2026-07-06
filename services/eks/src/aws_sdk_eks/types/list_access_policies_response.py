@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ListAccessPoliciesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.access_policies_list
     import aws_sdk_eks.types.string
 
 
-class ListAccessPoliciesResponse(TypedDict):
+class ListAccessPoliciesResponse(TypedDict, closed=True):
     access_policies: NotRequired[
         "aws_sdk_eks.types.access_policies_list.AccessPoliciesList"
     ]

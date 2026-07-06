@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#GetOrderOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.order
 
 
-class GetOrderOutput(TypedDict):
+class GetOrderOutput(TypedDict, closed=True):
     order: NotRequired["aws_sdk_outposts.types.order.Order"]
 
 

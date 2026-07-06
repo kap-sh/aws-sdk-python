@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListServiceTemplateVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_template_version_summary_list
 
 
-class ListServiceTemplateVersionsOutput(TypedDict):
+class ListServiceTemplateVersionsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next major or minor version in the array of major or minor versions of a service template, after the current requested list of service major or minor versions.</p>"""
     template_versions: "aws_sdk_proton.types.service_template_version_summary_list.ServiceTemplateVersionSummaryList"

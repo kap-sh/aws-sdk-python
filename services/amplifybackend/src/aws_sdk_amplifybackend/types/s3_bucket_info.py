@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#S3BucketInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
 
 
-class S3BucketInfo(TypedDict):
+class S3BucketInfo(TypedDict, closed=True):
     creation_date: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>The creation date of the S3 bucket.</p>"""
     name: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]

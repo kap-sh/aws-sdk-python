@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalogappregistry#ResourceGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog_appregistry.types.string
 
 
-class ResourceGroup(TypedDict):
+class ResourceGroup(TypedDict, closed=True):
     state: NotRequired[
         "aws_sdk_service_catalog_appregistry.types.resource_group_state.ResourceGroupState"
     ]

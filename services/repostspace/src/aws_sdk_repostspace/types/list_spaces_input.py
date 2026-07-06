@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.repostspace#ListSpacesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_repostspace.types.list_spaces_limit
 
 
-class ListSpacesInput(TypedDict):
+class ListSpacesInput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.</p>"""
     max_results: "aws_sdk_repostspace.types.list_spaces_limit.ListSpacesLimit"

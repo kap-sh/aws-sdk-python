@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#ListFlowExecutionMessagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotthingsgraph.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotthingsgraph.types.next_token
 
 
-class ListFlowExecutionMessagesRequest(TypedDict):
+class ListFlowExecutionMessagesRequest(TypedDict, closed=True):
     flow_execution_id: "aws_sdk_iotthingsgraph.types.flow_execution_id.FlowExecutionId"
     """<p>The ID of the flow execution.</p>"""
     next_token: NotRequired["aws_sdk_iotthingsgraph.types.next_token.NextToken"]

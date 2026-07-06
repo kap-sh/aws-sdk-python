@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateModelPackageGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateModelPackageGroupInput(TypedDict):
+class CreateModelPackageGroupInput(TypedDict, closed=True):
     model_package_group_name: NotRequired[
         "aws_sdk_sagemaker.types.entity_name.EntityName"
     ]

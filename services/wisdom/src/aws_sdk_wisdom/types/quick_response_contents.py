@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wisdom#QuickResponseContents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wisdom.types.quick_response_content_provider
 
 
-class QuickResponseContents(TypedDict):
+class QuickResponseContents(TypedDict, closed=True):
     plain_text: NotRequired[
         "aws_sdk_wisdom.types.quick_response_content_provider.QuickResponseContentProvider"
     ]

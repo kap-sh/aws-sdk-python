@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GetFlowExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_alias_identifier
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.flow_identifier
 
 
-class GetFlowExecutionRequest(TypedDict):
+class GetFlowExecutionRequest(TypedDict, closed=True):
     flow_identifier: (
         "aws_sdk_bedrock_agent_runtime.types.flow_identifier.FlowIdentifier"
     )

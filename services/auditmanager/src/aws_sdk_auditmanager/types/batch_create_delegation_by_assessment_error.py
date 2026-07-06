@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#BatchCreateDelegationByAssessmentError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.create_delegation_request
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.error_message
 
 
-class BatchCreateDelegationByAssessmentError(TypedDict):
+class BatchCreateDelegationByAssessmentError(TypedDict, closed=True):
     create_delegation_request: NotRequired[
         "aws_sdk_auditmanager.types.create_delegation_request.CreateDelegationRequest"
     ]

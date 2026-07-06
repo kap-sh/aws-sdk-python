@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribePlacementGroupsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.placement_group_list
 
 
-class DescribePlacementGroupsResult(TypedDict):
+class DescribePlacementGroupsResult(TypedDict, closed=True):
     placement_groups: NotRequired[
         "aws_sdk_ec2.types.placement_group_list.PlacementGroupList"
     ]

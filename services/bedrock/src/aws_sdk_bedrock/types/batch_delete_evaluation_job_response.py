@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#BatchDeleteEvaluationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.batch_delete_evaluation_job_items
 
 
-class BatchDeleteEvaluationJobResponse(TypedDict):
+class BatchDeleteEvaluationJobResponse(TypedDict, closed=True):
     errors: "aws_sdk_bedrock.types.batch_delete_evaluation_job_errors.BatchDeleteEvaluationJobErrors"
     """<p>A JSON object containing the HTTP status codes and the ARNs of evaluation jobs that failed to be deleted.</p>"""
     evaluation_jobs: "aws_sdk_bedrock.types.batch_delete_evaluation_job_items.BatchDeleteEvaluationJobItems"

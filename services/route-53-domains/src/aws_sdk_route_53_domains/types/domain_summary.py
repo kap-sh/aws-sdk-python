@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#DomainSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.timestamp
 
 
-class DomainSummary(TypedDict):
+class DomainSummary(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
     """<p>The name of the domain that the summary information applies to.</p>"""
     auto_renew: NotRequired["aws_sdk_route_53_domains.types.boolean.Boolean"]

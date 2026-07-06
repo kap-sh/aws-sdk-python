@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessSkillS3Source``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_skill_s3_uri
 
 
-class HarnessSkillS3Source(TypedDict):
+class HarnessSkillS3Source(TypedDict, closed=True):
     uri: "aws_sdk_bedrock_agentcore.types.harness_skill_s3_uri.HarnessSkillS3Uri"
     """<p>The S3 URI pointing to the skill directory (e.g., s3://bucket/skills/my-skill/).</p>"""
 

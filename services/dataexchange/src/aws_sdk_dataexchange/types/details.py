@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#Details``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.import_asset_from_signed_url_job_error_details
     import aws_sdk_dataexchange.types.list_of_asset_source_entry
 
 
-class Details(TypedDict):
+class Details(TypedDict, closed=True):
     import_asset_from_signed_url_job_error_details: NotRequired[
         "aws_sdk_dataexchange.types.import_asset_from_signed_url_job_error_details.ImportAssetFromSignedUrlJobErrorDetails"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListAliasesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.routing_strategy_type
 
 
-class ListAliasesInput(TypedDict):
+class ListAliasesInput(TypedDict, closed=True):
     routing_strategy_type: NotRequired[
         "aws_sdk_gamelift.types.routing_strategy_type.RoutingStrategyType"
     ]

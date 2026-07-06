@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DBClusterMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DBClusterMessage(TypedDict):
+class DBClusterMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>A pagination token that can be used in a later <code>DescribeDBClusters</code> request.</p>"""
     db_clusters: NotRequired["aws_sdk_rds.types.db_cluster_list.DBClusterList"]

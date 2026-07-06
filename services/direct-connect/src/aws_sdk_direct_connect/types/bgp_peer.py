@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#BGPPeer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.address_family
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.long_asn
 
 
-class BGPPeer(TypedDict):
+class BGPPeer(TypedDict, closed=True):
     bgp_peer_id: NotRequired["aws_sdk_direct_connect.types.bgp_peer_id.BGPPeerId"]
     """<p>The ID of the BGP peer.</p>"""
     asn: "aws_sdk_direct_connect.types.asn.ASN"

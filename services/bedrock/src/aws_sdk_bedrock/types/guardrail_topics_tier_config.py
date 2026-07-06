@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailTopicsTierConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_topics_tier_name
 
 
-class GuardrailTopicsTierConfig(TypedDict):
+class GuardrailTopicsTierConfig(TypedDict, closed=True):
     tier_name: (
         "aws_sdk_bedrock.types.guardrail_topics_tier_name.GuardrailTopicsTierName"
     )

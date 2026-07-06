@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#PutAuditEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail_data.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail_data.types.external_id
 
 
-class PutAuditEventsRequest(TypedDict):
+class PutAuditEventsRequest(TypedDict, closed=True):
     audit_events: "aws_sdk_cloudtrail_data.types.audit_events.AuditEvents"
     """<p>The JSON payload of events that you want to ingest. You can also point to the JSON event payload in a file.</p>"""
     channel_arn: "aws_sdk_cloudtrail_data.types.channel_arn.ChannelArn"

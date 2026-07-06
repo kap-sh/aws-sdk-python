@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#WavSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
     import aws_sdk_medialive.types.wav_coding_mode
 
 
-class WavSettings(TypedDict):
+class WavSettings(TypedDict, closed=True):
     bit_depth: NotRequired["aws_sdk_medialive.types.__double.__double"]
     """Bits per sample."""
     coding_mode: NotRequired["aws_sdk_medialive.types.wav_coding_mode.WavCodingMode"]

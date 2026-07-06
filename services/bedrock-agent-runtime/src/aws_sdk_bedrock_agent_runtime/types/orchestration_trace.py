@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#OrchestrationTrace``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -15,25 +17,25 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.rationale
 
 
-class _OrchestrationTrace_rationale(TypedDict):
+class _OrchestrationTrace_rationale(TypedDict, closed=True):
     rationale: "aws_sdk_bedrock_agent_runtime.types.rationale.Rationale"
 
 
-class _OrchestrationTrace_invocationInput(TypedDict):
+class _OrchestrationTrace_invocationInput(TypedDict, closed=True):
     invocationInput: (
         "aws_sdk_bedrock_agent_runtime.types.invocation_input.InvocationInput"
     )
 
 
-class _OrchestrationTrace_observation(TypedDict):
+class _OrchestrationTrace_observation(TypedDict, closed=True):
     observation: "aws_sdk_bedrock_agent_runtime.types.observation.Observation"
 
 
-class _OrchestrationTrace_modelInvocationInput(TypedDict):
+class _OrchestrationTrace_modelInvocationInput(TypedDict, closed=True):
     modelInvocationInput: "aws_sdk_bedrock_agent_runtime.types.model_invocation_input.ModelInvocationInput"
 
 
-class _OrchestrationTrace_modelInvocationOutput(TypedDict):
+class _OrchestrationTrace_modelInvocationOutput(TypedDict, closed=True):
     modelInvocationOutput: "aws_sdk_bedrock_agent_runtime.types.orchestration_model_invocation_output.OrchestrationModelInvocationOutput"
 
 

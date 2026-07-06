@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#DeleteWebhookResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.webhook
 
 
-class DeleteWebhookResult(TypedDict):
+class DeleteWebhookResult(TypedDict, closed=True):
     webhook: "aws_sdk_amplify.types.webhook.Webhook"
     """<p>Describes a webhook that connects repository events to an Amplify app. </p>"""
 

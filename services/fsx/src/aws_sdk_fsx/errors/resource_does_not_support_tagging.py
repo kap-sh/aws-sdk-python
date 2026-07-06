@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#ResourceDoesNotSupportTagging``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fsx.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.resource_arn
 
 
-class ResourceDoesNotSupportTagging_(TypedDict):
+class ResourceDoesNotSupportTagging_(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_fsx.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) of the resource that doesn't support tagging.</p>"""
     message: NotRequired["aws_sdk_fsx.types.error_message.ErrorMessage"]

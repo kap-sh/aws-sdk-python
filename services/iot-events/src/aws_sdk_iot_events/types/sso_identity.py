@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#SSOIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.sso_reference_id
 
 
-class SSOIdentity(TypedDict):
+class SSOIdentity(TypedDict, closed=True):
     identity_store_id: "aws_sdk_iot_events.types.identity_store_id.IdentityStoreId"
     """<p>The ID of the AWS SSO identity store.</p>"""
     user_id: NotRequired["aws_sdk_iot_events.types.sso_reference_id.SSOReferenceId"]

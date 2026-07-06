@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#TemplateParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.parameter_value
 
 
-class TemplateParameter(TypedDict):
+class TemplateParameter(TypedDict, closed=True):
     parameter_key: NotRequired[
         "aws_sdk_cloudformation.types.parameter_key.ParameterKey"
     ]

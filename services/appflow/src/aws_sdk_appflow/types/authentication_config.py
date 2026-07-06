@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#AuthenticationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth2_defaults
 
 
-class AuthenticationConfig(TypedDict):
+class AuthenticationConfig(TypedDict, closed=True):
     is_basic_auth_supported: "aws_sdk_appflow.types.boolean.Boolean"
     """<p>Indicates whether basic authentication is supported by the connector.</p>"""
     is_api_key_auth_supported: "aws_sdk_appflow.types.boolean.Boolean"

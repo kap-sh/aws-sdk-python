@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetStringComparisonFilterCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_string_filter_value
 
 
-class DataSetStringComparisonFilterCondition(TypedDict):
+class DataSetStringComparisonFilterCondition(TypedDict, closed=True):
     operator: "aws_sdk_quicksight.types.data_set_string_comparison_filter_operator.DataSetStringComparisonFilterOperator"
     """<p>The comparison operator to use, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>, <code>ENDS_WITH</code>, or their negations.</p>"""
     value: NotRequired[

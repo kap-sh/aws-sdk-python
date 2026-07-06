@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#AppliedExtension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.parameter_value_map
 
 
-class AppliedExtension(TypedDict):
+class AppliedExtension(TypedDict, closed=True):
     extension_id: NotRequired["aws_sdk_appconfig.types.id.Id"]
     """<p>The system-generated ID of the extension.</p>"""
     extension_association_id: NotRequired["aws_sdk_appconfig.types.id.Id"]

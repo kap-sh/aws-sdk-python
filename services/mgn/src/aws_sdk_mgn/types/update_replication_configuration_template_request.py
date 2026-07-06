@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#UpdateReplicationConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.tags_map
 
 
-class UpdateReplicationConfigurationTemplateRequest(TypedDict):
+class UpdateReplicationConfigurationTemplateRequest(TypedDict, closed=True):
     replication_configuration_template_id: "aws_sdk_mgn.types.replication_configuration_template_id.ReplicationConfigurationTemplateID"
     """<p>Update replication configuration template template ID request.</p>"""
     arn: NotRequired["aws_sdk_mgn.types.arn.ARN"]

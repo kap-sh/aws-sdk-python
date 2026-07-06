@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#NumericRangeFilterValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.double
     import aws_sdk_quicksight.types.parameter_name
 
 
-class NumericRangeFilterValue(TypedDict):
+class NumericRangeFilterValue(TypedDict, closed=True):
     static_value: NotRequired["aws_sdk_quicksight.types.double.Double"]
     """<p>The static value of the numeric range filter.</p>"""
     parameter: NotRequired["aws_sdk_quicksight.types.parameter_name.ParameterName"]

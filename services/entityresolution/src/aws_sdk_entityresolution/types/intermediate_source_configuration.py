@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IntermediateSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_entityresolution.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.s3_path
 
 
-class IntermediateSourceConfiguration(TypedDict):
+class IntermediateSourceConfiguration(TypedDict, closed=True):
     intermediate_s3_path: "aws_sdk_entityresolution.types.s3_path.S3Path"
     """<p>The Amazon S3 location (bucket and prefix). For example: <code>s3://provider_bucket/DOC-EXAMPLE-BUCKET</code> </p>"""
 

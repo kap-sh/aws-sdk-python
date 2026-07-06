@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#DatabasePreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.database_management_preference
     import aws_sdk_migrationhubstrategy.types.database_migration_preference
 
 
-class DatabasePreferences(TypedDict):
+class DatabasePreferences(TypedDict, closed=True):
     database_management_preference: NotRequired[
         "aws_sdk_migrationhubstrategy.types.database_management_preference.DatabaseManagementPreference"
     ]

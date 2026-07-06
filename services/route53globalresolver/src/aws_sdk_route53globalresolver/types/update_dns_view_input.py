@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#UpdateDNSViewInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.dns_sec_validation_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_name
 
 
-class UpdateDNSViewInput(TypedDict):
+class UpdateDNSViewInput(TypedDict, closed=True):
     dns_view_id: "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     """<p>The unique identifier of the DNS view to update.</p>"""
     name: NotRequired["aws_sdk_route53globalresolver.types.resource_name.ResourceName"]

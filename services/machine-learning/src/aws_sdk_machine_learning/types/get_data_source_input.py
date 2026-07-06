@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#GetDataSourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.verbose
 
 
-class GetDataSourceInput(TypedDict):
+class GetDataSourceInput(TypedDict, closed=True):
     data_source_id: "aws_sdk_machine_learning.types.entity_id.EntityId"
     """<p>The ID assigned to the <code>DataSource</code> at creation.</p>"""
     verbose: "aws_sdk_machine_learning.types.verbose.Verbose"

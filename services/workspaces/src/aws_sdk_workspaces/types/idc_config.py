@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#IDCConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.arn
 
 
-class IDCConfig(TypedDict):
+class IDCConfig(TypedDict, closed=True):
     instance_arn: NotRequired["aws_sdk_workspaces.types.arn.ARN"]
     """<p>The Amazon Resource Name (ARN) of the identity center instance.</p>"""
     application_arn: NotRequired["aws_sdk_workspaces.types.arn.ARN"]

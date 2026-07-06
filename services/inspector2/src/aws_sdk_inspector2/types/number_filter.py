@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#NumberFilter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class NumberFilter(TypedDict):
+class NumberFilter(TypedDict, closed=True):
     upper_inclusive: NotRequired["float"]
     """<p>The highest number to be included in the filter.</p>"""
     lower_inclusive: NotRequired["float"]

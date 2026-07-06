@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#InputIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.iot_events_input_identifier
     import aws_sdk_iot_events.types.iot_site_wise_input_identifier
 
 
-class InputIdentifier(TypedDict):
+class InputIdentifier(TypedDict, closed=True):
     iot_events_input_identifier: NotRequired[
         "aws_sdk_iot_events.types.iot_events_input_identifier.IotEventsInputIdentifier"
     ]

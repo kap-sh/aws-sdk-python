@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#AttachmentItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.artifact_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.content_type
 
 
-class AttachmentItem(TypedDict):
+class AttachmentItem(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_connectparticipant.types.content_type.ContentType"
     ]

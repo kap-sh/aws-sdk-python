@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#CreateRealtimeEndpointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.entity_id
     import aws_sdk_machine_learning.types.realtime_endpoint_info
 
 
-class CreateRealtimeEndpointOutput(TypedDict):
+class CreateRealtimeEndpointOutput(TypedDict, closed=True):
     ml_model_id: NotRequired["aws_sdk_machine_learning.types.entity_id.EntityId"]
     """<p>A user-supplied ID that uniquely identifies the <code>MLModel</code>. This value should be identical to the value of the <code>MLModelId</code> in the request.</p>"""
     realtime_endpoint_info: NotRequired[

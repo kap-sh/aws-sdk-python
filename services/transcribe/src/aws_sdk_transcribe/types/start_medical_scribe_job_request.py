@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#StartMedicalScribeJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.transcription_job_name
 
 
-class StartMedicalScribeJobRequest(TypedDict):
+class StartMedicalScribeJobRequest(TypedDict, closed=True):
     medical_scribe_job_name: (
         "aws_sdk_transcribe.types.transcription_job_name.TranscriptionJobName"
     )

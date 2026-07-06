@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#DisassociateTrackerConsumerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateTrackerConsumerResponse(TypedDict):
+class DisassociateTrackerConsumerResponse(TypedDict, closed=True):
     pass
 
 

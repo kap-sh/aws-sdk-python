@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#NodeProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.integer
     import aws_sdk_batch.types.node_range_properties
 
 
-class NodeProperties(TypedDict):
+class NodeProperties(TypedDict, closed=True):
     num_nodes: NotRequired["aws_sdk_batch.types.integer.Integer"]
     """<p>The number of nodes that are associated with a multi-node parallel job.</p>"""
     main_node: NotRequired["aws_sdk_batch.types.integer.Integer"]

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#AutoStartConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AutoStartConfig(TypedDict):
+class AutoStartConfig(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables the application to automatically start on job submission. Defaults to true.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#Lightsail_20161128``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_lightsail._auth._signers
@@ -435,7 +435,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.viewer_minimum_tls_protocol_version_enum
 
 
-class LightsailClientConfig(TypedDict, total=False):
+class LightsailClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

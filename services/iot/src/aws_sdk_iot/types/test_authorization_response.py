@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TestAuthorizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.auth_results
 
 
-class TestAuthorizationResponse(TypedDict):
+class TestAuthorizationResponse(TypedDict, closed=True):
     auth_results: NotRequired["aws_sdk_iot.types.auth_results.AuthResults"]
     """<p>The authentication results.</p>"""
 

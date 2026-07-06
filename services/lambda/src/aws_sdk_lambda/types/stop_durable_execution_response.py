@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#StopDurableExecutionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.execution_timestamp
 
 
-class StopDurableExecutionResponse(TypedDict):
+class StopDurableExecutionResponse(TypedDict, closed=True):
     stop_timestamp: "aws_sdk_lambda.types.execution_timestamp.ExecutionTimestamp"
     """<p>The timestamp when the execution was stopped (ISO 8601 format).</p>"""
 

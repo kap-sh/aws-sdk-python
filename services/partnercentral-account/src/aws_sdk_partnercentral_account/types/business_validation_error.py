@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#BusinessValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.business_validation_code
 
 
-class BusinessValidationError(TypedDict):
+class BusinessValidationError(TypedDict, closed=True):
     message: "str"
     """<p>A description of the business validation error.</p>"""
     code: "aws_sdk_partnercentral_account.types.business_validation_code.BusinessValidationCode"

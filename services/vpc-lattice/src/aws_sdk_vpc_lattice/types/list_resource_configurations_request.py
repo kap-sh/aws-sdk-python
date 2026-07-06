@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ListResourceConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.domain_verification_identifier
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.resource_gateway_identifier
 
 
-class ListResourceConfigurationsRequest(TypedDict):
+class ListResourceConfigurationsRequest(TypedDict, closed=True):
     resource_gateway_identifier: NotRequired[
         "aws_sdk_vpc_lattice.types.resource_gateway_identifier.ResourceGatewayIdentifier"
     ]

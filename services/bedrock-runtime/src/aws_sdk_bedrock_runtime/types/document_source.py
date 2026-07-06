@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#DocumentSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError, SerializationError
 
@@ -9,19 +11,19 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.s3_location
 
 
-class _DocumentSource_bytes(TypedDict):
+class _DocumentSource_bytes(TypedDict, closed=True):
     bytes: "bytes"
 
 
-class _DocumentSource_s3Location(TypedDict):
+class _DocumentSource_s3Location(TypedDict, closed=True):
     s3Location: "aws_sdk_bedrock_runtime.types.s3_location.S3Location"
 
 
-class _DocumentSource_text(TypedDict):
+class _DocumentSource_text(TypedDict, closed=True):
     text: "str"
 
 
-class _DocumentSource_content(TypedDict):
+class _DocumentSource_content(TypedDict, closed=True):
     content: (
         "aws_sdk_bedrock_runtime.types.document_content_blocks.DocumentContentBlocks"
     )

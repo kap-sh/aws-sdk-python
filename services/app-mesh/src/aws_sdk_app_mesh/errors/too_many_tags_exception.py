@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TooManyTagsException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import ServiceError
 
 
-class TooManyTagsException_(TypedDict):
+class TooManyTagsException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

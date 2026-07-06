@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeMitigationActionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.mitigation_action_name
 
 
-class DescribeMitigationActionRequest(TypedDict):
+class DescribeMitigationActionRequest(TypedDict, closed=True):
     action_name: "aws_sdk_iot.types.mitigation_action_name.MitigationActionName"
     """<p>The friendly name that uniquely identifies the mitigation action.</p>"""
 

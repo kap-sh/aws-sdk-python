@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ExpectedCustomerSpend``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.payment_frequency
 
 
-class ExpectedCustomerSpend(TypedDict):
+class ExpectedCustomerSpend(TypedDict, closed=True):
     amount: "aws_sdk_partnercentral_selling.types.amount.Amount"
     """<p>Represents the estimated monthly revenue that the partner expects to earn from the opportunity. This helps in forecasting financial returns.</p>"""
     currency_code: "aws_sdk_partnercentral_selling.types.currency_code.CurrencyCode"

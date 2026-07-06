@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ServiceUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.string
 
 
-class ServiceUnavailableException_(TypedDict):
+class ServiceUnavailableException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime_sdk_voice.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_chime_sdk_voice.types.string.String"]
 

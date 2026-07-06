@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#BucketCorsRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
 
 
-class BucketCorsRule(TypedDict):
+class BucketCorsRule(TypedDict, closed=True):
     id: NotRequired["aws_sdk_lightsail.types.bucket_cors_rule_id.BucketCorsRuleId"]
     """<p>A unique identifier for the CORS rule. The ID value can be up to 255 characters long. The IDs help you find a rule in the configuration.</p>"""
     allowed_methods: (

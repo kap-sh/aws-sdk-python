@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchDeleteDevicePositionHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.batch_delete_device_position_history_error_list
 
 
-class BatchDeleteDevicePositionHistoryResponse(TypedDict):
+class BatchDeleteDevicePositionHistoryResponse(TypedDict, closed=True):
     errors: "aws_sdk_location.types.batch_delete_device_position_history_error_list.BatchDeleteDevicePositionHistoryErrorList"
     """<p>Contains error details for each device history that failed to delete.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#InitialCapacityConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.worker_counts
     import aws_sdk_emr_serverless.types.worker_resource_config
 
 
-class InitialCapacityConfig(TypedDict):
+class InitialCapacityConfig(TypedDict, closed=True):
     worker_count: "aws_sdk_emr_serverless.types.worker_counts.WorkerCounts"
     """<p>The number of workers in the initial capacity configuration.</p>"""
     worker_configuration: NotRequired[

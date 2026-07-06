@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InvalidOutputFolder``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
 
-class InvalidOutputFolder_(TypedDict):
+class InvalidOutputFolder_(TypedDict, closed=True):
     pass
 
 

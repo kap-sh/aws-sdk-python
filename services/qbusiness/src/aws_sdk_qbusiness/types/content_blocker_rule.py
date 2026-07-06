@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ContentBlockerRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.system_message_override
 
 
-class ContentBlockerRule(TypedDict):
+class ContentBlockerRule(TypedDict, closed=True):
     system_message_override: NotRequired[
         "aws_sdk_qbusiness.types.system_message_override.SystemMessageOverride"
     ]

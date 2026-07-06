@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetWorkflowResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.workflow_type
 
 
-class GetWorkflowResponse(TypedDict):
+class GetWorkflowResponse(TypedDict, closed=True):
     workflow_id: NotRequired["aws_sdk_customer_profiles.types.uuid.uuid"]
     """<p>Unique identifier for the workflow.</p>"""
     workflow_type: NotRequired[

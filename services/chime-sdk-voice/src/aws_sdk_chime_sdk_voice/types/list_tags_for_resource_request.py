@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_chime_sdk_voice.types.arn.Arn"
     """<p>The resource ARN.</p>"""
 

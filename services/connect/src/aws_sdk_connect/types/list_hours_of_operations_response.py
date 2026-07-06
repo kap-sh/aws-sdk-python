@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListHoursOfOperationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.hours_of_operation_summary_list
     import aws_sdk_connect.types.next_token
 
 
-class ListHoursOfOperationsResponse(TypedDict):
+class ListHoursOfOperationsResponse(TypedDict, closed=True):
     hours_of_operation_summary_list: NotRequired[
         "aws_sdk_connect.types.hours_of_operation_summary_list.HoursOfOperationSummaryList"
     ]

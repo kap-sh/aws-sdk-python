@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#ZonalConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.minimum_healthy_hosts_per_zone
     import aws_sdk_codedeploy.types.wait_time_in_seconds
 
 
-class ZonalConfig(TypedDict):
+class ZonalConfig(TypedDict, closed=True):
     first_zone_monitor_duration_in_seconds: NotRequired[
         "aws_sdk_codedeploy.types.wait_time_in_seconds.WaitTimeInSeconds"
     ]

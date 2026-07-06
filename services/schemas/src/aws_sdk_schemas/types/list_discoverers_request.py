@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#ListDiscoverersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__integer
     import aws_sdk_schemas.types.__string
 
 
-class ListDiscoverersRequest(TypedDict):
+class ListDiscoverersRequest(TypedDict, closed=True):
     discoverer_id_prefix: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>Specifying this limits the results to only those discoverer IDs that start with the specified prefix.</p>"""
     limit: NotRequired["aws_sdk_schemas.types.__integer.__integer"]

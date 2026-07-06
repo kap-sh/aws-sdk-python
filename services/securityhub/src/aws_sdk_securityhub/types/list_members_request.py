@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListMembersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.next_token
 
 
-class ListMembersRequest(TypedDict):
+class ListMembersRequest(TypedDict, closed=True):
     only_associated: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p>Specifies which member accounts to include in the response based on their relationship status with the administrator account. The default value is <code>TRUE</code>.</p> <p>If <code>OnlyAssociated</code> is set to <code>TRUE</code>, the response includes member accounts whose relationship status with the administrator account is set to <code>ENABLED</code>.</p> <p>If <code>OnlyAssociated</code> is set to <code>FALSE</code>, the response includes all existing member accounts. </p>"""
     max_results: NotRequired[

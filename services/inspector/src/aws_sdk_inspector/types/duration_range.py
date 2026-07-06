@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DurationRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.assessment_run_duration
 
 
-class DurationRange(TypedDict):
+class DurationRange(TypedDict, closed=True):
     min_seconds: NotRequired[
         "aws_sdk_inspector.types.assessment_run_duration.AssessmentRunDuration"
     ]

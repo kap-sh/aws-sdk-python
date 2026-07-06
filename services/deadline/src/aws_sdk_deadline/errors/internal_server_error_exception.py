@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#InternalServerErrorException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class InternalServerErrorException_(TypedDict):
+class InternalServerErrorException_(TypedDict, closed=True):
     message: "aws_sdk_deadline.types.string.String"
     retry_after_seconds: NotRequired["aws_sdk_deadline.types.integer.Integer"]
     """<p>The number of seconds a client should wait before retrying the request.</p>"""

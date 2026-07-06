@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#ListPresetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_preset
     import aws_sdk_mediaconvert.types.__string
 
 
-class ListPresetsResponse(TypedDict):
+class ListPresetsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """Use this string to request the next batch of presets."""
     presets: NotRequired["aws_sdk_mediaconvert.types.__list_of_preset.__listOfPreset"]

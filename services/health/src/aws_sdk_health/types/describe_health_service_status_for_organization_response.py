@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.health#DescribeHealthServiceStatusForOrganizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.health_service_access_status_for_organization
 
 
-class DescribeHealthServiceStatusForOrganizationResponse(TypedDict):
+class DescribeHealthServiceStatusForOrganizationResponse(TypedDict, closed=True):
     health_service_access_status_for_organization: NotRequired[
         "aws_sdk_health.types.health_service_access_status_for_organization.healthServiceAccessStatusForOrganization"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#Queue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.type
 
 
-class Queue(TypedDict):
+class Queue(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]
     """An identifier for this resource that is unique within all of AWS."""
     concurrent_jobs: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]

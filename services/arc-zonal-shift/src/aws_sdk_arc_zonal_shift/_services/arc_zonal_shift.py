@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.arczonalshift#PercDataPlane``."""
 
 import warnings
-from typing import Any, Iterable, Optional, TypedDict
+from typing import Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 from aws_sdk_arc_zonal_shift._auth._identity import Credentials
@@ -39,7 +39,7 @@ from aws_sdk_arc_zonal_shift._services._pipeline import (
 )
 
 
-class ARCZonalShiftClientConfig(TypedDict, total=False):
+class ARCZonalShiftClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

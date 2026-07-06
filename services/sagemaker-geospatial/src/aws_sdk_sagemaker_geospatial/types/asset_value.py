@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#AssetValue``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AssetValue(TypedDict):
+class AssetValue(TypedDict, closed=True):
     href: NotRequired["str"]
     """<p>Link to the asset object.</p>"""
 

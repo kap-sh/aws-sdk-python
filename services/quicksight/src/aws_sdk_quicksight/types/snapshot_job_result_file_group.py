@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotJobResultFileGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_file_list
     import aws_sdk_quicksight.types.snapshot_job_s3_result_list
 
 
-class SnapshotJobResultFileGroup(TypedDict):
+class SnapshotJobResultFileGroup(TypedDict, closed=True):
     files: NotRequired["aws_sdk_quicksight.types.snapshot_file_list.SnapshotFileList"]
     """<p> A list of <code>SnapshotFile</code> objects.</p>"""
     s3_results: NotRequired[

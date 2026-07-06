@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#PortRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.port
@@ -11,6 +13,7 @@ PortRange = TypedDict(
         "from": "aws_sdk_finspace.types.port.Port",
         "to": "aws_sdk_finspace.types.port.Port",
     },
+    closed=True,
 )
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.interconnect#ListConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_interconnect.types.connection_summaries_list
     import aws_sdk_interconnect.types.next_token
 
 
-class ListConnectionsResponse(TypedDict):
+class ListConnectionsResponse(TypedDict, closed=True):
     connections: NotRequired[
         "aws_sdk_interconnect.types.connection_summaries_list.ConnectionSummariesList"
     ]

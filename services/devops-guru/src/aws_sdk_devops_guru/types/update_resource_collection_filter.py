@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateResourceCollectionFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.update_cloud_formation_collection_filter
     import aws_sdk_devops_guru.types.update_tag_collection_filters
 
 
-class UpdateResourceCollectionFilter(TypedDict):
+class UpdateResourceCollectionFilter(TypedDict, closed=True):
     cloud_formation: NotRequired[
         "aws_sdk_devops_guru.types.update_cloud_formation_collection_filter.UpdateCloudFormationCollectionFilter"
     ]

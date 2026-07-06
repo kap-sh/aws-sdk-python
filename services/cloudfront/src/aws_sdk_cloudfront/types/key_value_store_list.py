@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#KeyValueStoreList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class KeyValueStoreList(TypedDict):
+class KeyValueStoreList(TypedDict, closed=True):
     next_marker: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>The next marker associated with the key value store list.</p>"""
     max_items: "aws_sdk_cloudfront.types.integer.integer"

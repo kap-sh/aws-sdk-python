@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#SlotTypeStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.count
 
 
-class SlotTypeStatistics(TypedDict):
+class SlotTypeStatistics(TypedDict, closed=True):
     discovered_slot_type_count: NotRequired["aws_sdk_lex_models_v2.types.count.Count"]
     """<p>The number of recommended slot types associated with the bot recommendation.</p>"""
 

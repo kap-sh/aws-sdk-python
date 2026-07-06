@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#Http``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_integer
     import aws_sdk_xray.types.string
 
 
-class Http(TypedDict):
+class Http(TypedDict, closed=True):
     http_url: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The request URL.</p>"""
     http_status: NotRequired["aws_sdk_xray.types.nullable_integer.NullableInteger"]

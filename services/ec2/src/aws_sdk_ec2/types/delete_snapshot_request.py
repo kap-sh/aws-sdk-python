@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DeleteSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.snapshot_id
 
 
-class DeleteSnapshotRequest(TypedDict):
+class DeleteSnapshotRequest(TypedDict, closed=True):
     snapshot_id: NotRequired["aws_sdk_ec2.types.snapshot_id.SnapshotId"]
     """<p>The ID of the EBS snapshot.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ApiConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.no_api_render_config
 
 
-class _ApiConfiguration_graphQLConfig(TypedDict):
+class _ApiConfiguration_graphQLConfig(TypedDict, closed=True):
     graphQLConfig: (
         "aws_sdk_amplifyuibuilder.types.graph_ql_render_config.GraphQLRenderConfig"
     )
 
 
-class _ApiConfiguration_dataStoreConfig(TypedDict):
+class _ApiConfiguration_dataStoreConfig(TypedDict, closed=True):
     dataStoreConfig: (
         "aws_sdk_amplifyuibuilder.types.data_store_render_config.DataStoreRenderConfig"
     )
 
 
-class _ApiConfiguration_noApiConfig(TypedDict):
+class _ApiConfiguration_noApiConfig(TypedDict, closed=True):
     noApiConfig: "aws_sdk_amplifyuibuilder.types.no_api_render_config.NoApiRenderConfig"
 
 

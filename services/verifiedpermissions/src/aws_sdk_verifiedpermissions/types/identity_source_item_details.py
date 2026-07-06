@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#IdentitySourceItemDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.client_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.user_pool_arn
 
 
-class IdentitySourceItemDetails(TypedDict):
+class IdentitySourceItemDetails(TypedDict, closed=True):
     client_ids: NotRequired["aws_sdk_verifiedpermissions.types.client_ids.ClientIds"]
     """<p>The application client IDs associated with the specified Amazon Cognito user pool that are enabled for this identity source.</p>"""
     user_pool_arn: NotRequired[

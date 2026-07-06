@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateAccountLinkInvitationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.client_token
 
 
-class CreateAccountLinkInvitationRequest(TypedDict):
+class CreateAccountLinkInvitationRequest(TypedDict, closed=True):
     target_account_id: "aws_sdk_workspaces.types.aws_account.AwsAccount"
     """<p>The identifier of the target account.</p>"""
     client_token: NotRequired["aws_sdk_workspaces.types.client_token.ClientToken"]

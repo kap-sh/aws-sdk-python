@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: "str"
     """<p>The identifier of the resource that was not found.</p>"""

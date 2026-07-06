@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#ListFilteredTransactionEventsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.transaction_event_list
 
 
-class ListFilteredTransactionEventsOutput(TypedDict):
+class ListFilteredTransactionEventsOutput(TypedDict, closed=True):
     events: "aws_sdk_managedblockchain_query.types.transaction_event_list.TransactionEventList"
     """<p>The transaction events returned by the request.</p>"""
     next_token: NotRequired[

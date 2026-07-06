@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#GetRetentionSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.iso8601_timestamp
     import aws_sdk_chime.types.retention_settings
 
 
-class GetRetentionSettingsResponse(TypedDict):
+class GetRetentionSettingsResponse(TypedDict, closed=True):
     retention_settings: NotRequired[
         "aws_sdk_chime.types.retention_settings.RetentionSettings"
     ]

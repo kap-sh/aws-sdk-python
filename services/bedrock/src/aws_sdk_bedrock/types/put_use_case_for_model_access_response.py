@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#PutUseCaseForModelAccessResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutUseCaseForModelAccessResponse(TypedDict):
+class PutUseCaseForModelAccessResponse(TypedDict, closed=True):
     pass
 
 

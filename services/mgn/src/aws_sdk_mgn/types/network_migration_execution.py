@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#NetworkMigrationExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.tags_map
 
 
-class NetworkMigrationExecution(TypedDict):
+class NetworkMigrationExecution(TypedDict, closed=True):
     network_migration_definition_id: NotRequired[
         "aws_sdk_mgn.types.network_migration_definition_id.NetworkMigrationDefinitionID"
     ]

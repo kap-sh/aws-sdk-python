@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DisassociateSbomFromPackageVersionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateSbomFromPackageVersionResponse(TypedDict):
+class DisassociateSbomFromPackageVersionResponse(TypedDict, closed=True):
     pass
 
 

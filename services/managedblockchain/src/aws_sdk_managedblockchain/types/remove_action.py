@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#RemoveAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_managedblockchain.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class RemoveAction(TypedDict):
+class RemoveAction(TypedDict, closed=True):
     member_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p>The unique identifier of the member to remove.</p>"""
 

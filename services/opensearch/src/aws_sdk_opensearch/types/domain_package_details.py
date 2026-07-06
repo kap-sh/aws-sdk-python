@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DomainPackageDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.reference_path
 
 
-class DomainPackageDetails(TypedDict):
+class DomainPackageDetails(TypedDict, closed=True):
     package_id: NotRequired["aws_sdk_opensearch.types.package_id.PackageID"]
     """<p>Internal ID of the package.</p>"""
     package_name: NotRequired["aws_sdk_opensearch.types.package_name.PackageName"]

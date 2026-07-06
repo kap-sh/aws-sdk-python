@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#IsVpcPeeredResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
 
 
-class IsVpcPeeredResult(TypedDict):
+class IsVpcPeeredResult(TypedDict, closed=True):
     is_peered: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>Returns <code>true</code> if the Lightsail VPC is peered; otherwise, <code>false</code>.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehendmedical#InferSNOMEDCTResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_comprehendmedical.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehendmedical.types.string
 
 
-class InferSNOMEDCTResponse(TypedDict):
+class InferSNOMEDCTResponse(TypedDict, closed=True):
     entities: "aws_sdk_comprehendmedical.types.snomedct_entity_list.SNOMEDCTEntityList"
     """<p> The collection of medical concept entities extracted from the input text and their associated information. For each entity, the response provides the entity text, the entity category, where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the detection and analysis. Attributes and traits of the entity are also returned. </p>"""
     pagination_token: NotRequired["aws_sdk_comprehendmedical.types.string.String"]

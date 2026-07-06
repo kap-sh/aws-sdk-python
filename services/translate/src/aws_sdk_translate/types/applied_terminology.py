@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.translate#AppliedTerminology``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.resource_name
     import aws_sdk_translate.types.term_list
 
 
-class AppliedTerminology(TypedDict):
+class AppliedTerminology(TypedDict, closed=True):
     name: NotRequired["aws_sdk_translate.types.resource_name.ResourceName"]
     """<p>The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.</p>"""
     terms: NotRequired["aws_sdk_translate.types.term_list.TermList"]

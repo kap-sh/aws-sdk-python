@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#StartBackupJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class StartBackupJobOutput(TypedDict):
+class StartBackupJobOutput(TypedDict, closed=True):
     backup_job_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a request to Backup to back up a resource.</p>"""
     recovery_point_arn: NotRequired["aws_sdk_backup.types.arn.ARN"]

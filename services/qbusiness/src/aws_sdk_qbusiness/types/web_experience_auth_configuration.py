@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#WebExperienceAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.saml_configuration
 
 
-class _WebExperienceAuthConfiguration_samlConfiguration(TypedDict):
+class _WebExperienceAuthConfiguration_samlConfiguration(TypedDict, closed=True):
     samlConfiguration: "aws_sdk_qbusiness.types.saml_configuration.SamlConfiguration"
 
 

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ClusterForImageFilterCriteria``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
 
-class ClusterForImageFilterCriteria(TypedDict):
+class ClusterForImageFilterCriteria(TypedDict, closed=True):
     resource_id: "str"
     """<p>The resource Id to be used in the filter criteria.</p>"""
 

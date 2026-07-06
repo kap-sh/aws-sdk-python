@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Connection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.aws_device
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.vlan
 
 
-class Connection(TypedDict):
+class Connection(TypedDict, closed=True):
     owner_account: NotRequired[
         "aws_sdk_direct_connect.types.owner_account.OwnerAccount"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#RegisterMemberToAddressListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.address_list_id
 
 
-class RegisterMemberToAddressListRequest(TypedDict):
+class RegisterMemberToAddressListRequest(TypedDict, closed=True):
     address_list_id: "aws_sdk_mailmanager.types.address_list_id.AddressListId"
     """<p>The unique identifier of the address list where the address should be added.</p>"""
     address: "aws_sdk_mailmanager.types.address.Address"

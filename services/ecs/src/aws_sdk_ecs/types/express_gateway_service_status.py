@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ExpressGatewayServiceStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.express_gateway_service_status_code
     import aws_sdk_ecs.types.string
 
 
-class ExpressGatewayServiceStatus(TypedDict):
+class ExpressGatewayServiceStatus(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_ecs.types.express_gateway_service_status_code.ExpressGatewayServiceStatusCode"
     ]

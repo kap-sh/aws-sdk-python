@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#AccessDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AccessDetails(TypedDict):
+class AccessDetails(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>A description of the access privileges or permissions granted by this benefit.</p>"""
 

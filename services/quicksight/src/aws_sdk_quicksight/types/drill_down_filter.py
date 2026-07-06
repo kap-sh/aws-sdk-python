@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DrillDownFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.category_drill_down_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.time_range_drill_down_filter
 
 
-class DrillDownFilter(TypedDict):
+class DrillDownFilter(TypedDict, closed=True):
     numeric_equality_filter: NotRequired[
         "aws_sdk_quicksight.types.numeric_equality_drill_down_filter.NumericEqualityDrillDownFilter"
     ]

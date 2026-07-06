@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#MpaTeamAssociation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.mpa_team_arn
 
 
-class MpaTeamAssociation(TypedDict):
+class MpaTeamAssociation(TypedDict, closed=True):
     action: "aws_sdk_payment_cryptography.types.mpa_operation.MpaOperation"
     """<p>The protected operation associated with the MPA team.</p>"""
     mpa_team_arn: "aws_sdk_payment_cryptography.types.mpa_team_arn.MpaTeamArn"

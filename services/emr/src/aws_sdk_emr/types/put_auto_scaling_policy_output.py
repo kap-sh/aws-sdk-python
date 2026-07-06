@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PutAutoScalingPolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.arn_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.instance_group_id
 
 
-class PutAutoScalingPolicyOutput(TypedDict):
+class PutAutoScalingPolicyOutput(TypedDict, closed=True):
     cluster_id: NotRequired["aws_sdk_emr.types.cluster_id.ClusterId"]
     """<p>Specifies the ID of a cluster. The instance group to which the automatic scaling policy is applied is within this cluster.</p>"""
     instance_group_id: NotRequired[

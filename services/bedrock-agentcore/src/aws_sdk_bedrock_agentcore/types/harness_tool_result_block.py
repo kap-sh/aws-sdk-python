@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessToolResultBlock``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_tool_use_type
 
 
-class HarnessToolResultBlock(TypedDict):
+class HarnessToolResultBlock(TypedDict, closed=True):
     tool_use_id: "aws_sdk_bedrock_agentcore.types.harness_tool_use_id.HarnessToolUseId"
     """<p>The tool use ID that this result corresponds to.</p>"""
     content: "aws_sdk_bedrock_agentcore.types.harness_tool_result_content_blocks.HarnessToolResultContentBlocks"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeploymentAlarms``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string_list
 
 
-class DeploymentAlarms(TypedDict):
+class DeploymentAlarms(TypedDict, closed=True):
     alarm_names: "aws_sdk_ecs.types.string_list.StringList"
     r"""<p>One or more CloudWatch alarm names. Use a \",\" to separate the alarms.</p>"""
     rollback: "aws_sdk_ecs.types.boolean.Boolean"

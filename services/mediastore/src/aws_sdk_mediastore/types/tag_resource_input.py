@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediastore#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediastore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediastore.types.tag_list
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource: "aws_sdk_mediastore.types.container_arn.ContainerARN"
     """<p>The Amazon Resource Name (ARN) for the container. </p>"""
     tags: "aws_sdk_mediastore.types.tag_list.TagList"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35InputScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.scte35_input_mode
 
 
-class Scte35InputScheduleActionSettings(TypedDict):
+class Scte35InputScheduleActionSettings(TypedDict, closed=True):
     input_attachment_name_reference: NotRequired[
         "aws_sdk_medialive.types.__string.__string"
     ]

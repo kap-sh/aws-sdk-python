@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CreateFieldRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_type
 
 
-class CreateFieldRequest(TypedDict):
+class CreateFieldRequest(TypedDict, closed=True):
     domain_id: "aws_sdk_connectcases.types.domain_id.DomainId"
     """<p>The unique identifier of the Cases domain. </p>"""
     name: "aws_sdk_connectcases.types.field_name.FieldName"

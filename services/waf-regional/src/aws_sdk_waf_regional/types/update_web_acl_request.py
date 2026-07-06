@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#UpdateWebACLRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.web_acl_updates
 
 
-class UpdateWebACLRequest(TypedDict):
+class UpdateWebACLRequest(TypedDict, closed=True):
     web_acl_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>WebACLId</code> of the <a>WebACL</a> that you want to update. <code>WebACLId</code> is returned by <a>CreateWebACL</a> and by <a>ListWebACLs</a>.</p>"""
     change_token: "aws_sdk_waf_regional.types.change_token.ChangeToken"

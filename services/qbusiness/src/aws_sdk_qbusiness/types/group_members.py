@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#GroupMembers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.member_groups
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.s3
 
 
-class GroupMembers(TypedDict):
+class GroupMembers(TypedDict, closed=True):
     member_groups: NotRequired["aws_sdk_qbusiness.types.member_groups.MemberGroups"]
     r"""<p>A list of sub groups that belong to a group. For example, the sub groups \"Research\", \"Engineering\", and \"Sales and Marketing\" all belong to the group \"Company\".</p>"""
     member_users: NotRequired["aws_sdk_qbusiness.types.member_users.MemberUsers"]

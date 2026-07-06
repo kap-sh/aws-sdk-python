@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DistillationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.teacher_model_config
 
 
-class DistillationConfig(TypedDict):
+class DistillationConfig(TypedDict, closed=True):
     teacher_model_config: (
         "aws_sdk_bedrock.types.teacher_model_config.TeacherModelConfig"
     )

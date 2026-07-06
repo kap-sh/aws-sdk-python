@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdataexports#UpdateExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_data_exports.types.arn
 
 
-class UpdateExportResponse(TypedDict):
+class UpdateExportResponse(TypedDict, closed=True):
     export_arn: NotRequired["aws_sdk_bcm_data_exports.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for this export.</p>"""
 

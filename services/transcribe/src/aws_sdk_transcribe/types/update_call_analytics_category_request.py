@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#UpdateCallAnalyticsCategoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.rule_list
 
 
-class UpdateCallAnalyticsCategoryRequest(TypedDict):
+class UpdateCallAnalyticsCategoryRequest(TypedDict, closed=True):
     category_name: "aws_sdk_transcribe.types.category_name.CategoryName"
     """<p>The name of the Call Analytics category you want to update. Category names are case sensitive.</p>"""
     rules: "aws_sdk_transcribe.types.rule_list.RuleList"

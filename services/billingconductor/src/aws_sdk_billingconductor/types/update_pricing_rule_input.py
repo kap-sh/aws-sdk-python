@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#UpdatePricingRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.update_tiering_input
 
 
-class UpdatePricingRuleInput(TypedDict):
+class UpdatePricingRuleInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.pricing_rule_arn.PricingRuleArn"
     """<p> The Amazon Resource Name (ARN) of the pricing rule to update. </p>"""
     name: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#MessageTemplateContentProvider``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.whats_app_message_template_content
 
 
-class _MessageTemplateContentProvider_email(TypedDict):
+class _MessageTemplateContentProvider_email(TypedDict, closed=True):
     email: "aws_sdk_qconnect.types.email_message_template_content.EmailMessageTemplateContent"
 
 
-class _MessageTemplateContentProvider_sms(TypedDict):
+class _MessageTemplateContentProvider_sms(TypedDict, closed=True):
     sms: "aws_sdk_qconnect.types.sms_message_template_content.SMSMessageTemplateContent"
 
 
-class _MessageTemplateContentProvider_whatsApp(TypedDict):
+class _MessageTemplateContentProvider_whatsApp(TypedDict, closed=True):
     whatsApp: "aws_sdk_qconnect.types.whats_app_message_template_content.WhatsAppMessageTemplateContent"
 
 
-class _MessageTemplateContentProvider_push(TypedDict):
+class _MessageTemplateContentProvider_push(TypedDict, closed=True):
     push: "aws_sdk_qconnect.types.push_message_template_content.PushMessageTemplateContent"
 
 

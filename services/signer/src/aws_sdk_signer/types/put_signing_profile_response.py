@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.signer#PutSigningProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_signer.types.string
 
 
-class PutSigningProfileResponse(TypedDict):
+class PutSigningProfileResponse(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_signer.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the signing profile created.</p>"""
     profile_version: NotRequired["aws_sdk_signer.types.profile_version.ProfileVersion"]

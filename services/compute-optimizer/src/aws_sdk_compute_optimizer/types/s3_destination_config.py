@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#S3DestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.destination_bucket
     import aws_sdk_compute_optimizer.types.destination_key_prefix
 
 
-class S3DestinationConfig(TypedDict):
+class S3DestinationConfig(TypedDict, closed=True):
     bucket: NotRequired[
         "aws_sdk_compute_optimizer.types.destination_bucket.DestinationBucket"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codedeploy#DeploymentOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codedeploy.types.instance_count
 
 
-class DeploymentOverview(TypedDict):
+class DeploymentOverview(TypedDict, closed=True):
     pending: "aws_sdk_codedeploy.types.instance_count.InstanceCount"
     """<p>The number of instances in the deployment in a pending state.</p>"""
     in_progress: "aws_sdk_codedeploy.types.instance_count.InstanceCount"

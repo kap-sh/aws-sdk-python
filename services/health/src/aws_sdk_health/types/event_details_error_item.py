@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.health#EventDetailsErrorItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_health.types.event_arn
     import aws_sdk_health.types.string
 
 
-class EventDetailsErrorItem(TypedDict):
+class EventDetailsErrorItem(TypedDict, closed=True):
     event_arn: NotRequired["aws_sdk_health.types.event_arn.eventArn"]
     """<p>The unique identifier for the event. The event ARN has the <code>arn:aws:health:<i>event-region</i>::event/<i>SERVICE</i>/<i>EVENT_TYPE_CODE</i>/<i>EVENT_TYPE_PLUS_ID</i> </code> format.</p> <p>For example, an event ARN might look like the following:</p> <p> <code>arn:aws:health:us-east-1::event/EC2/EC2_INSTANCE_RETIREMENT_SCHEDULED/EC2_INSTANCE_RETIREMENT_SCHEDULED_ABC123-DEF456</code> </p>"""
     error_name: NotRequired["aws_sdk_health.types.string.string"]

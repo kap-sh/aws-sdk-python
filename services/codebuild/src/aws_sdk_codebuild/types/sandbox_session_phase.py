@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#SandboxSessionPhase``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.phase_contexts
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_long
 
 
-class SandboxSessionPhase(TypedDict):
+class SandboxSessionPhase(TypedDict, closed=True):
     phase_type: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The name of the sandbox phase.</p>"""
     phase_status: NotRequired["aws_sdk_codebuild.types.status_type.StatusType"]

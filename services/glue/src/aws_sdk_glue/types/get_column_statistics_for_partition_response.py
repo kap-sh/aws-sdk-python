@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetColumnStatisticsForPartitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_errors
     import aws_sdk_glue.types.column_statistics_list
 
 
-class GetColumnStatisticsForPartitionResponse(TypedDict):
+class GetColumnStatisticsForPartitionResponse(TypedDict, closed=True):
     column_statistics_list: NotRequired[
         "aws_sdk_glue.types.column_statistics_list.ColumnStatisticsList"
     ]

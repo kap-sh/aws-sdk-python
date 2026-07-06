@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#DisableNotificationsAccessForOrganizationResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisableNotificationsAccessForOrganizationResponse(TypedDict):
+class DisableNotificationsAccessForOrganizationResponse(TypedDict, closed=True):
     pass
 
 

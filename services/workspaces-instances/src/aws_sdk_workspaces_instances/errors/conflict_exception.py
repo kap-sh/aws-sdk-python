@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ConflictException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError, ServiceError
 
 
-class ConflictException_(TypedDict):
+class ConflictException_(TypedDict, closed=True):
     message: "str"
     """<p>Description of the conflict encountered.</p>"""
     resource_id: "str"

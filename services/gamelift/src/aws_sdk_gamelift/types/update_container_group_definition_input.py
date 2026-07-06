@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#UpdateContainerGroupDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_group_definition_name_or_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.support_container_definition_input_list
 
 
-class UpdateContainerGroupDefinitionInput(TypedDict):
+class UpdateContainerGroupDefinitionInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.container_group_definition_name_or_arn.ContainerGroupDefinitionNameOrArn"
     ]

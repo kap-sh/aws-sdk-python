@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateParticipantResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.participant_id
     import aws_sdk_connect.types.participant_token_credentials
 
 
-class CreateParticipantResponse(TypedDict):
+class CreateParticipantResponse(TypedDict, closed=True):
     participant_credentials: NotRequired[
         "aws_sdk_connect.types.participant_token_credentials.ParticipantTokenCredentials"
     ]

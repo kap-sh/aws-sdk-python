@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#GenerateServiceLastAccessedDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.arn_type
 
 
-class GenerateServiceLastAccessedDetailsRequest(TypedDict):
+class GenerateServiceLastAccessedDetailsRequest(TypedDict, closed=True):
     arn: "aws_sdk_iam.types.arn_type.arnType"
     """<p>The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an Amazon Web Services service.</p>"""
     granularity: NotRequired[

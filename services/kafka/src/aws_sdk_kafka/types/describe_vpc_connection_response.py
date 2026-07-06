@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#DescribeVpcConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connection_state
 
 
-class DescribeVpcConnectionResponse(TypedDict):
+class DescribeVpcConnectionResponse(TypedDict, closed=True):
     vpc_connection_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) that uniquely identifies a MSK VPC connection.</p>"""
     target_cluster_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]

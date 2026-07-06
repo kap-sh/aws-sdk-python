@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.billing#BillingViewHealthStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billing.types.billing_view_status
     import aws_sdk_billing.types.billing_view_status_reasons
 
 
-class BillingViewHealthStatus(TypedDict):
+class BillingViewHealthStatus(TypedDict, closed=True):
     status_code: NotRequired[
         "aws_sdk_billing.types.billing_view_status.BillingViewStatus"
     ]

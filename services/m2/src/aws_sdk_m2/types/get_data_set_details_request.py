@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.m2#GetDataSetDetailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_m2.types.identifier
     import aws_sdk_m2.types.string200
 
 
-class GetDataSetDetailsRequest(TypedDict):
+class GetDataSetDetailsRequest(TypedDict, closed=True):
     application_id: "aws_sdk_m2.types.identifier.Identifier"
     """<p>The unique identifier of the application that this data set is associated with.</p>"""
     data_set_name: "aws_sdk_m2.types.string200.String200"

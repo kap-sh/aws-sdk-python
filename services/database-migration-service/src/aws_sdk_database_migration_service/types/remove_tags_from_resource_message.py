@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#RemoveTagsFromResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class RemoveTagsFromResourceMessage(TypedDict):
+class RemoveTagsFromResourceMessage(TypedDict, closed=True):
     resource_arn: "aws_sdk_database_migration_service.types.string.String"
     """<p>An DMS resource from which you want to remove tag(s). The value for this parameter is an Amazon Resource Name (ARN).</p>"""
     tag_keys: "aws_sdk_database_migration_service.types.key_list.KeyList"

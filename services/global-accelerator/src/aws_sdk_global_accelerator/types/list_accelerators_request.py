@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#ListAcceleratorsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
     import aws_sdk_global_accelerator.types.max_results
 
 
-class ListAcceleratorsRequest(TypedDict):
+class ListAcceleratorsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_global_accelerator.types.max_results.MaxResults"]
     """<p>The number of Global Accelerator objects that you want to return with this call. The default value is 10.</p>"""
     next_token: NotRequired[

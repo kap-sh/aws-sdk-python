@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#CreateAssessmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auditmanager.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.uuid
 
 
-class CreateAssessmentRequest(TypedDict):
+class CreateAssessmentRequest(TypedDict, closed=True):
     name: "aws_sdk_auditmanager.types.assessment_name.AssessmentName"
     """<p> The name of the assessment to be created. </p>"""
     description: NotRequired[

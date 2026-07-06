@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#CreateMultiRegionClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_memorydb.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.tag_list
 
 
-class CreateMultiRegionClusterRequest(TypedDict):
+class CreateMultiRegionClusterRequest(TypedDict, closed=True):
     multi_region_cluster_name_suffix: "aws_sdk_memorydb.types.string.String"
     r"""<p>A suffix to be added to the Multi-Region cluster name. Amazon MemoryDB automatically applies a prefix to the Multi-Region cluster Name when it is created. Each Amazon Region has its own prefix. For instance, a Multi-Region cluster Name created in the US-West-1 region will begin with \"virxk\", along with the suffix name you provide. The suffix guarantees uniqueness of the Multi-Region cluster name across multiple regions.</p>"""
     description: NotRequired["aws_sdk_memorydb.types.string.String"]

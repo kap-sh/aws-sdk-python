@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.result
     import aws_sdk_codepipeline.types.rule_declaration_list
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     result: NotRequired["aws_sdk_codepipeline.types.result.Result"]
     """<p>The action to be done when the condition is met. For example, rolling back an execution for a failure condition.</p>"""
     rules: NotRequired[

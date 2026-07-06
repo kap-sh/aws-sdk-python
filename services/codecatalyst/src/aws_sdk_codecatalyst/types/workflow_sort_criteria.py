@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#WorkflowSortCriteria``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class WorkflowSortCriteria(TypedDict):
+class WorkflowSortCriteria(TypedDict, closed=True):
     pass
 
 

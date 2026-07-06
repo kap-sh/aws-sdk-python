@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ValidationException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class ValidationException_(TypedDict):
+class ValidationException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_ssm.types.string.String"]
     reason_code: NotRequired["aws_sdk_ssm.types.string.String"]
     """<p>The reason code for the invalid request.</p>"""

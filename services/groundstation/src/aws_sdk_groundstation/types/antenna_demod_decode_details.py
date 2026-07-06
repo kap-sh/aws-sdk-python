@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#AntennaDemodDecodeDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AntennaDemodDecodeDetails(TypedDict):
+class AntennaDemodDecodeDetails(TypedDict, closed=True):
     output_node: NotRequired["str"]
     """<p>Name of an antenna demod decode output node used in a contact.</p>"""
 

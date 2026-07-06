@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#ListNotificationConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.max_results
     import aws_sdk_iot_managed_integrations.types.next_token
 
 
-class ListNotificationConfigurationsRequest(TypedDict):
+class ListNotificationConfigurationsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_iot_managed_integrations.types.max_results.MaxResults"
     ]

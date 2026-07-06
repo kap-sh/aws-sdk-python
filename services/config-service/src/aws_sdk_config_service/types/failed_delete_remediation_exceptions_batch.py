@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#FailedDeleteRemediationExceptionsBatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.remediation_exception_resource_keys
     import aws_sdk_config_service.types.string
 
 
-class FailedDeleteRemediationExceptionsBatch(TypedDict):
+class FailedDeleteRemediationExceptionsBatch(TypedDict, closed=True):
     failure_message: NotRequired["aws_sdk_config_service.types.string.String"]
     """<p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>"""
     failed_items: NotRequired[

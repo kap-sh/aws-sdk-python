@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#VideoSegmentationConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
 
-class VideoSegmentationConfiguration(TypedDict):
+class VideoSegmentationConfiguration(TypedDict, closed=True):
     fixed_length_duration: "int"
     """<p>The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.</p>"""
 

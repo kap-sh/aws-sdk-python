@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#ImportFirewallDomainsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_domain_list_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.status_message
 
 
-class ImportFirewallDomainsResponse(TypedDict):
+class ImportFirewallDomainsResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The Id of the firewall domain list that DNS Firewall just updated.</p>"""
     name: NotRequired["aws_sdk_route53resolver.types.name.Name"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CustomAuthenticationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property_list
 
 
-class CustomAuthenticationProperties(TypedDict):
+class CustomAuthenticationProperties(TypedDict, closed=True):
     authentication_parameters: (
         "aws_sdk_glue.types.connector_property_list.ConnectorPropertyList"
     )

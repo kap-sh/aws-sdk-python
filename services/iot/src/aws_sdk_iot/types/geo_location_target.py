@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GeoLocationTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.target_field_name
     import aws_sdk_iot.types.target_field_order
 
 
-class GeoLocationTarget(TypedDict):
+class GeoLocationTarget(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iot.types.target_field_name.TargetFieldName"]
     """<p>The <code>name</code> of the geolocation target field. If the target field is part of a named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>"""
     order: NotRequired["aws_sdk_iot.types.target_field_order.TargetFieldOrder"]

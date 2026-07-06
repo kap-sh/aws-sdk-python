@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetCommentReactionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.next_token
 
 
-class GetCommentReactionsInput(TypedDict):
+class GetCommentReactionsInput(TypedDict, closed=True):
     comment_id: "aws_sdk_codecommit.types.comment_id.CommentId"
     """<p>The ID of the comment for which you want to get reactions information.</p>"""
     reaction_user_arn: NotRequired["aws_sdk_codecommit.types.arn.Arn"]

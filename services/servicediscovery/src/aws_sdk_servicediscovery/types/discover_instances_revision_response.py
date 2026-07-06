@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#DiscoverInstancesRevisionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.revision
 
 
-class DiscoverInstancesRevisionResponse(TypedDict):
+class DiscoverInstancesRevisionResponse(TypedDict, closed=True):
     instances_revision: NotRequired["aws_sdk_servicediscovery.types.revision.Revision"]
     """<p>The increasing revision associated to the response Instances list. If a new instance is registered or deregistered, the <code>InstancesRevision</code> updates. The health status updates don't update <code>InstancesRevision</code>.</p>"""
 

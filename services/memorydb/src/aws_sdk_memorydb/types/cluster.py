@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Cluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.acl_name
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class Cluster(TypedDict):
+class Cluster(TypedDict, closed=True):
     name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The user-supplied name of the cluster. This identifier is a unique key that identifies a cluster.</p>"""
     description: NotRequired["aws_sdk_memorydb.types.string.String"]

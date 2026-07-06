@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#WafOverrideAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.waf_override_action_type
 
 
-class WafOverrideAction(TypedDict):
+class WafOverrideAction(TypedDict, closed=True):
     type: "aws_sdk_waf.types.waf_override_action_type.WafOverrideActionType"
     """<p> <code>COUNT</code> overrides the action specified by the individual rule within a <code>RuleGroup</code> . If set to <code>NONE</code>, the rule's action will take place.</p>"""
 

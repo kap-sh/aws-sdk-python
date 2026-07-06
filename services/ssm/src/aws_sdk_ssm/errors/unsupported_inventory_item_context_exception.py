@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UnsupportedInventoryItemContextException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.string
 
 
-class UnsupportedInventoryItemContextException_(TypedDict):
+class UnsupportedInventoryItemContextException_(TypedDict, closed=True):
     type_name: NotRequired[
         "aws_sdk_ssm.types.inventory_item_type_name.InventoryItemTypeName"
     ]

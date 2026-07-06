@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#StartResourceStateUpdateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.role_name_or_arn
 
 
-class StartResourceStateUpdateRequest(TypedDict):
+class StartResourceStateUpdateRequest(TypedDict, closed=True):
     resource_arn: (
         "aws_sdk_imagebuilder.types.image_build_version_arn.ImageBuildVersionArn"
     )

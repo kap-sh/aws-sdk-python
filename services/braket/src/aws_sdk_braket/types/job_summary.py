@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#JobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.tags_map
 
 
-class JobSummary(TypedDict):
+class JobSummary(TypedDict, closed=True):
     status: "aws_sdk_braket.types.job_primary_status.JobPrimaryStatus"
     """<p>The status of the Amazon Braket hybrid job.</p>"""
     job_arn: "aws_sdk_braket.types.job_arn.JobArn"

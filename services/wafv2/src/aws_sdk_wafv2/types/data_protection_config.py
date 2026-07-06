@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DataProtectionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.data_protections
 
 
-class DataProtectionConfig(TypedDict):
+class DataProtectionConfig(TypedDict, closed=True):
     data_protections: "aws_sdk_wafv2.types.data_protections.DataProtections"
     """<p>An array of data protection configurations for specific web request field types. This is defined for each web ACL. WAF applies the specified protection to all web requests that the web ACL inspects. </p>"""
 

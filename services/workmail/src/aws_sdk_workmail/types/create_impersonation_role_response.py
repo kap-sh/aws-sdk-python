@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateImpersonationRoleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workmail.types.impersonation_role_id
 
 
-class CreateImpersonationRoleResponse(TypedDict):
+class CreateImpersonationRoleResponse(TypedDict, closed=True):
     impersonation_role_id: NotRequired[
         "aws_sdk_workmail.types.impersonation_role_id.ImpersonationRoleId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#ProjectSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.delivery_models
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.expected_customer_spend_list
 
 
-class ProjectSummary(TypedDict):
+class ProjectSummary(TypedDict, closed=True):
     delivery_models: NotRequired[
         "aws_sdk_partnercentral_selling.types.delivery_models.DeliveryModels"
     ]

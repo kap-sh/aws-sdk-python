@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ListConfigurationRecordersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.next_token
 
 
-class ListConfigurationRecordersResponse(TypedDict):
+class ListConfigurationRecordersResponse(TypedDict, closed=True):
     configuration_recorder_summaries: "aws_sdk_config_service.types.configuration_recorder_summaries.ConfigurationRecorderSummaries"
     """<p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>"""
     next_token: NotRequired["aws_sdk_config_service.types.next_token.NextToken"]

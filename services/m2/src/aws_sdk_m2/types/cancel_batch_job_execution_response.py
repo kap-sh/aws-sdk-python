@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.m2#CancelBatchJobExecutionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelBatchJobExecutionResponse(TypedDict):
+class CancelBatchJobExecutionResponse(TypedDict, closed=True):
     pass
 
 

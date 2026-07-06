@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#DeleteCustomActionTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.version
 
 
-class DeleteCustomActionTypeInput(TypedDict):
+class DeleteCustomActionTypeInput(TypedDict, closed=True):
     category: "aws_sdk_codepipeline.types.action_category.ActionCategory"
     """<p>The category of the custom action that you want to delete, such as source or deploy.</p>"""
     provider: "aws_sdk_codepipeline.types.action_provider.ActionProvider"

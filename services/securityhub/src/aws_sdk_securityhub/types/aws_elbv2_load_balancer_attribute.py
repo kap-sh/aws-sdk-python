@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsElbv2LoadBalancerAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsElbv2LoadBalancerAttribute(TypedDict):
+class AwsElbv2LoadBalancerAttribute(TypedDict, closed=True):
     key: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the load balancer attribute.</p>"""
     value: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

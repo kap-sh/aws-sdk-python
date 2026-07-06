@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#PutInboundDmarcSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutInboundDmarcSettingsResponse(TypedDict):
+class PutInboundDmarcSettingsResponse(TypedDict, closed=True):
     pass
 
 

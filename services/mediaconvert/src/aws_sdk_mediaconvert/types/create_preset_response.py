@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CreatePresetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.preset
 
 
-class CreatePresetResponse(TypedDict):
+class CreatePresetResponse(TypedDict, closed=True):
     preset: NotRequired["aws_sdk_mediaconvert.types.preset.Preset"]
     """A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process."""
 

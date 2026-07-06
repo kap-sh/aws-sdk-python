@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationcostprofiler#ListReportDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_applicationcostprofiler.types.integer
     import aws_sdk_applicationcostprofiler.types.token
 
 
-class ListReportDefinitionsRequest(TypedDict):
+class ListReportDefinitionsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_applicationcostprofiler.types.token.Token"]
     """<p>The token value from a previous call to access the next page of results.</p>"""
     max_results: NotRequired["aws_sdk_applicationcostprofiler.types.integer.Integer"]

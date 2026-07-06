@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteColumnStatisticsForPartitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteColumnStatisticsForPartitionResponse(TypedDict):
+class DeleteColumnStatisticsForPartitionResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InputPredefinedAttributeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.enable_value_validation_on_association
 
 
-class InputPredefinedAttributeConfiguration(TypedDict):
+class InputPredefinedAttributeConfiguration(TypedDict, closed=True):
     enable_value_validation_on_association: "aws_sdk_connect.types.enable_value_validation_on_association.EnableValueValidationOnAssociation"
     """<p>When this parameter is set to true, Connect Customer enforces strict validation on the specific values, if the values are predefined in attributes. The contact will store only valid and predefined values for the predefined attribute key.</p>"""
 

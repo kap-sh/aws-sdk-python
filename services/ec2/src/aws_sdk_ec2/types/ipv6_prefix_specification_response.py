@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Ipv6PrefixSpecificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class Ipv6PrefixSpecificationResponse(TypedDict):
+class Ipv6PrefixSpecificationResponse(TypedDict, closed=True):
     ipv6_prefix: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv6 delegated prefixes assigned to the network interface.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#ListDomainNamesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.engine_type
 
 
-class ListDomainNamesRequest(TypedDict):
+class ListDomainNamesRequest(TypedDict, closed=True):
     engine_type: NotRequired["aws_sdk_opensearch.types.engine_type.EngineType"]
     """<p>Filters the output by domain engine type.</p>"""
 

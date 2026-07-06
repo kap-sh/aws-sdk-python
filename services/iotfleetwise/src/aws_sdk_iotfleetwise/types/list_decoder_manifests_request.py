@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ListDecoderManifestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.next_token
 
 
-class ListDecoderManifestsRequest(TypedDict):
+class ListDecoderManifestsRequest(TypedDict, closed=True):
     model_manifest_arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]
     """<p> The Amazon Resource Name (ARN) of a vehicle model (model manifest) associated with the decoder manifest. </p>"""
     next_token: NotRequired["aws_sdk_iotfleetwise.types.next_token.nextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentResolvedAccount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.aws_region
 
 
-class EnvironmentResolvedAccount(TypedDict):
+class EnvironmentResolvedAccount(TypedDict, closed=True):
     aws_account_id: "aws_sdk_datazone.types.aws_account_id.AwsAccountId"
     """<p>The ID of the resolved account.</p>"""
     region_name: "aws_sdk_datazone.types.aws_region.AwsRegion"

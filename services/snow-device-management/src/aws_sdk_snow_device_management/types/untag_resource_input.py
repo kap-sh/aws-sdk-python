@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#UntagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.tag_keys
 
 
-class UntagResourceInput(TypedDict):
+class UntagResourceInput(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the device or task.</p>"""
     tag_keys: "aws_sdk_snow_device_management.types.tag_keys.TagKeys"

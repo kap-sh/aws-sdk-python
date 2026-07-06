@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Pose``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.degree
 
 
-class Pose(TypedDict):
+class Pose(TypedDict, closed=True):
     roll: NotRequired["aws_sdk_rekognition.types.degree.Degree"]
     """<p>Value representing the face rotation on the roll axis.</p>"""
     yaw: NotRequired["aws_sdk_rekognition.types.degree.Degree"]

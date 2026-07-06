@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeElasticGpusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class DescribeElasticGpusRequest(TypedDict):
+class DescribeElasticGpusRequest(TypedDict, closed=True):
     elastic_gpu_ids: NotRequired["aws_sdk_ec2.types.elastic_gpu_id_set.ElasticGpuIdSet"]
     """<p>The Elastic Graphics accelerator IDs.</p>"""
     dry_run: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]

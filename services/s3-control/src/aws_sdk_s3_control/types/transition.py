@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#Transition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.transition_storage_class
 
 
-class Transition(TypedDict):
+class Transition(TypedDict, closed=True):
     date: NotRequired["aws_sdk_s3_control.types.date.Date"]
     """<p>Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.</p>"""
     days: "aws_sdk_s3_control.types.days.Days"

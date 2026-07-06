@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ExportTaskExecutionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.timestamp
 
 
-class ExportTaskExecutionInfo(TypedDict):
+class ExportTaskExecutionInfo(TypedDict, closed=True):
     creation_time: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]
     """<p>The creation time of the export task, expressed as the number of milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>"""
     completion_time: NotRequired["aws_sdk_cloudwatch_logs.types.timestamp.Timestamp"]

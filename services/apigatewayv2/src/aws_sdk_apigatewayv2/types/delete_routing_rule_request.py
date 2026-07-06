@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#DeleteRoutingRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.__string
 
 
-class DeleteRoutingRuleRequest(TypedDict):
+class DeleteRoutingRuleRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_apigatewayv2.types.__string.__string"
     """<p>The domain name.</p>"""
     domain_name_id: NotRequired["aws_sdk_apigatewayv2.types.__string.__string"]

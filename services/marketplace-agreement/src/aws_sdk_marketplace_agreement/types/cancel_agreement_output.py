@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#CancelAgreementOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelAgreementOutput(TypedDict):
+class CancelAgreementOutput(TypedDict, closed=True):
     pass
 
 

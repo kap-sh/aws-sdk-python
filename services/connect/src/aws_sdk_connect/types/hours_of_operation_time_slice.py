@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#HoursOfOperationTimeSlice``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.minutes_limit60
 
 
-class HoursOfOperationTimeSlice(TypedDict):
+class HoursOfOperationTimeSlice(TypedDict, closed=True):
     hours: "aws_sdk_connect.types.hours24_format.Hours24Format"
     """<p>The hours.</p>"""
     minutes: "aws_sdk_connect.types.minutes_limit60.MinutesLimit60"

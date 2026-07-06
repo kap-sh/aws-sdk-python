@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#Volume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.efs_volume_configuration
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class Volume(TypedDict):
+class Volume(TypedDict, closed=True):
     host: NotRequired["aws_sdk_batch.types.host.Host"]
     """<p>The contents of the <code>host</code> parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.</p> <note> <p>This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.</p> </note>"""
     name: NotRequired["aws_sdk_batch.types.string.String"]

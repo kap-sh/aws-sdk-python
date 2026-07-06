@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#CreateIdentitySourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.token
 
 
-class CreateIdentitySourceRequest(TypedDict):
+class CreateIdentitySourceRequest(TypedDict, closed=True):
     identity_source_parameters: (
         "aws_sdk_mpa.types.identity_source_parameters.IdentitySourceParameters"
     )

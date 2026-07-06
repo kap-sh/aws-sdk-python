@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#ChannelMembershipPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.push_notification_preferences
 
 
-class ChannelMembershipPreferences(TypedDict):
+class ChannelMembershipPreferences(TypedDict, closed=True):
     push_notifications: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.push_notification_preferences.PushNotificationPreferences"
     ]

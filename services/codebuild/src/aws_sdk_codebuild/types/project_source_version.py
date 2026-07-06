@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ProjectSourceVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ProjectSourceVersion(TypedDict):
+class ProjectSourceVersion(TypedDict, closed=True):
     source_identifier: "aws_sdk_codebuild.types.string.String"
     """<p>An identifier for a source in the build project. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length. </p>"""
     source_version: "aws_sdk_codebuild.types.string.String"

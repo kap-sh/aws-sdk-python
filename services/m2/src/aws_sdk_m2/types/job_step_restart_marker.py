@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#JobStepRestartMarker``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.integer
 
 
-class JobStepRestartMarker(TypedDict):
+class JobStepRestartMarker(TypedDict, closed=True):
     from_step: "str"
     """<p>The step name that a batch job was restarted from.</p>"""
     from_proc_step: NotRequired["str"]

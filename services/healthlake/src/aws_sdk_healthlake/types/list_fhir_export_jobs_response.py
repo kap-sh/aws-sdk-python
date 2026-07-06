@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.healthlake#ListFHIRExportJobsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_healthlake.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_healthlake.types.next_token
 
 
-class ListFHIRExportJobsResponse(TypedDict):
+class ListFHIRExportJobsResponse(TypedDict, closed=True):
     export_job_properties_list: (
         "aws_sdk_healthlake.types.export_job_properties_list.ExportJobPropertiesList"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#MetadataModelProperties``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_database_migration_service.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.statement_properties
 
 
-class _MetadataModelProperties_StatementProperties(TypedDict):
+class _MetadataModelProperties_StatementProperties(TypedDict, closed=True):
     StatementProperties: "aws_sdk_database_migration_service.types.statement_properties.StatementProperties"
 
 

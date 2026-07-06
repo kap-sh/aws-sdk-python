@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ContactFlowSearchCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_search_condition_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string_condition
 
 
-class ContactFlowSearchCriteria(TypedDict):
+class ContactFlowSearchCriteria(TypedDict, closed=True):
     or_conditions: NotRequired[
         "aws_sdk_connect.types.contact_flow_search_condition_list.ContactFlowSearchConditionList"
     ]

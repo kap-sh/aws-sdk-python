@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ModelNotReadyException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.non_blank_string
 
 
-class ModelNotReadyException_(TypedDict):
+class ModelNotReadyException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_bedrock_runtime.types.non_blank_string.NonBlankString"
     ]

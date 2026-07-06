@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#PutAppInstanceRetentionSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.app_instance_retention_settings
     import aws_sdk_chime_sdk_identity.types.timestamp
 
 
-class PutAppInstanceRetentionSettingsResponse(TypedDict):
+class PutAppInstanceRetentionSettingsResponse(TypedDict, closed=True):
     app_instance_retention_settings: NotRequired[
         "aws_sdk_chime_sdk_identity.types.app_instance_retention_settings.AppInstanceRetentionSettings"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#DocumentServiceWarning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class DocumentServiceWarning(TypedDict):
+class DocumentServiceWarning(TypedDict, closed=True):
     message: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The description for a warning returned by the document service.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#IdMappingConfig``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class IdMappingConfig(TypedDict):
+class IdMappingConfig(TypedDict, closed=True):
     allow_use_as_dimension_column: "bool"
     """<p>An indicator as to whether you can use your column as a dimension column in the ID mapping table (<code>TRUE</code>) or not (<code>FALSE</code>).</p> <p>Default is <code>FALSE</code>.</p>"""
 

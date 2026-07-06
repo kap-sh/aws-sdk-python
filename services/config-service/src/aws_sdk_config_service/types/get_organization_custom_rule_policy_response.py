@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetOrganizationCustomRulePolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.policy_text
 
 
-class GetOrganizationCustomRulePolicyResponse(TypedDict):
+class GetOrganizationCustomRulePolicyResponse(TypedDict, closed=True):
     policy_text: NotRequired["aws_sdk_config_service.types.policy_text.PolicyText"]
     """<p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>"""
 

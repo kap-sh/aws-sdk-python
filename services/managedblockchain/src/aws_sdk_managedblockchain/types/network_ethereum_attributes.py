@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#NetworkEthereumAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.string
 
 
-class NetworkEthereumAttributes(TypedDict):
+class NetworkEthereumAttributes(TypedDict, closed=True):
     chain_id: NotRequired["aws_sdk_managedblockchain.types.string.String"]
     """<p>The Ethereum <code>CHAIN_ID</code> associated with the Ethereum network. Chain IDs are as follows:</p> <ul> <li> <p>mainnet = <code>1</code> </p> </li> </ul>"""
 

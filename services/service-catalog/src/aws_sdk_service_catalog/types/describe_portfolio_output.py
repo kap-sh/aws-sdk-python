@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#DescribePortfolioOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.budgets
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.tags
 
 
-class DescribePortfolioOutput(TypedDict):
+class DescribePortfolioOutput(TypedDict, closed=True):
     portfolio_detail: NotRequired[
         "aws_sdk_service_catalog.types.portfolio_detail.PortfolioDetail"
     ]

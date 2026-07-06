@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#OrCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tag_condition
 
 
-class _OrCondition_andConditions(TypedDict):
+class _OrCondition_andConditions(TypedDict, closed=True):
     andConditions: "aws_sdk_qconnect.types.and_conditions.AndConditions"
 
 
-class _OrCondition_tagCondition(TypedDict):
+class _OrCondition_tagCondition(TypedDict, closed=True):
     tagCondition: "aws_sdk_qconnect.types.tag_condition.TagCondition"
 
 

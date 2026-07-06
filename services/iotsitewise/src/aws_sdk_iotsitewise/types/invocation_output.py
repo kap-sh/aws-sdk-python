@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#InvocationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise._protocol.eventstream import HeaderValue, Message
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.string
 
 
-class InvocationOutput(TypedDict):
+class InvocationOutput(TypedDict, closed=True):
     message: NotRequired["aws_sdk_iotsitewise.types.string.String"]
     """<p>The text message of the SiteWise Assistant's response.</p>"""
     citations: NotRequired["aws_sdk_iotsitewise.types.citations.Citations"]

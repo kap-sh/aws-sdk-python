@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisPointOfInterest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_transcript_items_with_character_offsets
 
 
-class RealTimeContactAnalysisPointOfInterest(TypedDict):
+class RealTimeContactAnalysisPointOfInterest(TypedDict, closed=True):
     transcript_items: NotRequired[
         "aws_sdk_connect.types.real_time_contact_analysis_transcript_items_with_character_offsets.RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets"
     ]

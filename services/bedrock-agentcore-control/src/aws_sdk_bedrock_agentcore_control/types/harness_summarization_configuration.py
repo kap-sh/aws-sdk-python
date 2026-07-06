@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#HarnessSummarizationConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class HarnessSummarizationConfiguration(TypedDict):
+class HarnessSummarizationConfiguration(TypedDict, closed=True):
     summary_ratio: NotRequired["float"]
     """<p>The ratio of content to summarize.</p>"""
     preserve_recent_messages: NotRequired["int"]

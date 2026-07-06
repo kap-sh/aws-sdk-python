@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#GetRepositorySyncStatusOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.repository_sync_attempt
 
 
-class GetRepositorySyncStatusOutput(TypedDict):
+class GetRepositorySyncStatusOutput(TypedDict, closed=True):
     latest_sync: "aws_sdk_codestar_connections.types.repository_sync_attempt.RepositorySyncAttempt"
     """<p>The status of the latest sync returned for a specified repository and branch.</p>"""
 

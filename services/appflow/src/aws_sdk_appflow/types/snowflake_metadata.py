@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SnowflakeMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.region_list
 
 
-class SnowflakeMetadata(TypedDict):
+class SnowflakeMetadata(TypedDict, closed=True):
     supported_regions: NotRequired["aws_sdk_appflow.types.region_list.RegionList"]
     """<p> Specifies the supported Amazon Web Services Regions when using Snowflake. </p>"""
 

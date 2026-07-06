@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NodeInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_package_version
 
 
-class NodeInstance(TypedDict):
+class NodeInstance(TypedDict, closed=True):
     node_instance_id: "aws_sdk_panorama.types.node_instance_id.NodeInstanceId"
     """<p>The instance's ID.</p>"""
     node_id: NotRequired["aws_sdk_panorama.types.node_id.NodeId"]

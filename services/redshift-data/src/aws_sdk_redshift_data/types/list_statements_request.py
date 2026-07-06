@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#ListStatementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.cluster_identifier_string
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.workgroup_name_string
 
 
-class ListStatementsRequest(TypedDict):
+class ListStatementsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_redshift_data.types.string.String"]
     """<p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>"""
     max_results: "aws_sdk_redshift_data.types.list_statements_limit.ListStatementsLimit"

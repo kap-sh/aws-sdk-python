@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#AssociateBudgetWithResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.id
 
 
-class AssociateBudgetWithResourceInput(TypedDict):
+class AssociateBudgetWithResourceInput(TypedDict, closed=True):
     budget_name: "aws_sdk_service_catalog.types.budget_name.BudgetName"
     """<p>The name of the budget you want to associate.</p>"""
     resource_id: "aws_sdk_service_catalog.types.id.Id"

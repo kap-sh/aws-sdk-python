@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ReferenceSummary``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError, SerializationError
 
@@ -14,49 +16,49 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.url_reference
 
 
-class _ReferenceSummary_Url(TypedDict):
+class _ReferenceSummary_Url(TypedDict, closed=True):
     Url: "aws_sdk_connect.types.url_reference.UrlReference"
 
 
-class _ReferenceSummary_Attachment(TypedDict):
+class _ReferenceSummary_Attachment(TypedDict, closed=True):
     Attachment: "aws_sdk_connect.types.attachment_reference.AttachmentReference"
 
 
-class _ReferenceSummary_EmailMessage(TypedDict):
+class _ReferenceSummary_EmailMessage(TypedDict, closed=True):
     EmailMessage: "aws_sdk_connect.types.email_message_reference.EmailMessageReference"
 
 
-class _ReferenceSummary_EmailMessageRedacted(TypedDict):
+class _ReferenceSummary_EmailMessageRedacted(TypedDict, closed=True):
     EmailMessageRedacted: (
         "aws_sdk_connect.types.email_message_reference.EmailMessageReference"
     )
 
 
-class _ReferenceSummary_EmailMessagePlainText(TypedDict):
+class _ReferenceSummary_EmailMessagePlainText(TypedDict, closed=True):
     EmailMessagePlainText: (
         "aws_sdk_connect.types.email_message_reference.EmailMessageReference"
     )
 
 
-class _ReferenceSummary_EmailMessagePlainTextRedacted(TypedDict):
+class _ReferenceSummary_EmailMessagePlainTextRedacted(TypedDict, closed=True):
     EmailMessagePlainTextRedacted: (
         "aws_sdk_connect.types.email_message_reference.EmailMessageReference"
     )
 
 
-class _ReferenceSummary_String(TypedDict):
+class _ReferenceSummary_String(TypedDict, closed=True):
     String: "aws_sdk_connect.types.string_reference.StringReference"
 
 
-class _ReferenceSummary_Number(TypedDict):
+class _ReferenceSummary_Number(TypedDict, closed=True):
     Number: "aws_sdk_connect.types.number_reference.NumberReference"
 
 
-class _ReferenceSummary_Date(TypedDict):
+class _ReferenceSummary_Date(TypedDict, closed=True):
     Date: "aws_sdk_connect.types.date_reference.DateReference"
 
 
-class _ReferenceSummary_Email(TypedDict):
+class _ReferenceSummary_Email(TypedDict, closed=True):
     Email: "aws_sdk_connect.types.email_reference.EmailReference"
 
 

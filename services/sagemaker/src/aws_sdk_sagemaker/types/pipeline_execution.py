@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PipelineExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parallelism_configuration
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.user_context
 
 
-class PipelineExecution(TypedDict):
+class PipelineExecution(TypedDict, closed=True):
     pipeline_arn: NotRequired["aws_sdk_sagemaker.types.pipeline_arn.PipelineArn"]
     """<p>The Amazon Resource Name (ARN) of the pipeline that was executed.</p>"""
     pipeline_execution_arn: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#CreateChallengeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.tags
 
 
-class CreateChallengeRequest(TypedDict):
+class CreateChallengeRequest(TypedDict, closed=True):
     connector_arn: "aws_sdk_pca_connector_scep.types.connector_arn.ConnectorArn"
     """<p>The Amazon Resource Name (ARN) of the connector that you want to create a challenge for.</p>"""
     client_token: NotRequired[

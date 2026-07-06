@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#FaqStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.indexed_question_answers_count
 
 
-class FaqStatistics(TypedDict):
+class FaqStatistics(TypedDict, closed=True):
     indexed_question_answers_count: "aws_sdk_kendra.types.indexed_question_answers_count.IndexedQuestionAnswersCount"
     """<p>The total number of FAQ questions and answers for an index.</p>"""
 

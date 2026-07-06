@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.collection_id
 
 
-class DeleteCollectionRequest(TypedDict):
+class DeleteCollectionRequest(TypedDict, closed=True):
     collection_id: "aws_sdk_rekognition.types.collection_id.CollectionId"
     """<p>ID of the collection to delete.</p>"""
 

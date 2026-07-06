@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#CostCategoryValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.values
 
 
-class CostCategoryValues(TypedDict):
+class CostCategoryValues(TypedDict, closed=True):
     key: "aws_sdk_billing.types.cost_category_name.CostCategoryName"
     """<p> The unique name of the Cost Category. </p>"""
     values: "aws_sdk_billing.types.values.Values"

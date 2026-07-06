@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GetIndexingRulesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.indexing_rule_list
     import aws_sdk_xray.types.string
 
 
-class GetIndexingRulesResult(TypedDict):
+class GetIndexingRulesResult(TypedDict, closed=True):
     indexing_rules: NotRequired[
         "aws_sdk_xray.types.indexing_rule_list.IndexingRuleList"
     ]

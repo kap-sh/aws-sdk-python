@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#Ipv6PrefixSpecificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.ipv6_prefix
 
 
-class Ipv6PrefixSpecificationRequest(TypedDict):
+class Ipv6PrefixSpecificationRequest(TypedDict, closed=True):
     ipv6_prefix: NotRequired[
         "aws_sdk_workspaces_instances.types.ipv6_prefix.Ipv6Prefix"
     ]

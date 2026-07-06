@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#VerifyTargetDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.target_domain_status
 
 
-class VerifyTargetDomainOutput(TypedDict):
+class VerifyTargetDomainOutput(TypedDict, closed=True):
     target_domain_id: NotRequired[
         "aws_sdk_securityagent.types.target_domain_id.TargetDomainId"
     ]

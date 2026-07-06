@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#DataflowEndpoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.endpoint_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.socket_address
 
 
-class DataflowEndpoint(TypedDict):
+class DataflowEndpoint(TypedDict, closed=True):
     name: NotRequired["aws_sdk_groundstation.types.safe_name.SafeName"]
     """<p>Name of a dataflow endpoint.</p>"""
     address: NotRequired["aws_sdk_groundstation.types.socket_address.SocketAddress"]

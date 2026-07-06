@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ModelMetadataFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_metadata_filter_type
     import aws_sdk_sagemaker.types.string256
 
 
-class ModelMetadataFilter(TypedDict):
+class ModelMetadataFilter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_sagemaker.types.model_metadata_filter_type.ModelMetadataFilterType"
     ]

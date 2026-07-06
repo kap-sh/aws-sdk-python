@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PutBucketVersioningRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.versioning_configuration
 
 
-class PutBucketVersioningRequest(TypedDict):
+class PutBucketVersioningRequest(TypedDict, closed=True):
     account_id: "aws_sdk_s3_control.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>"""
     bucket: "aws_sdk_s3_control.types.bucket_name.BucketName"

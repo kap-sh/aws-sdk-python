@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#DescribeUsersMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.user_id
 
 
-class DescribeUsersMessage(TypedDict):
+class DescribeUsersMessage(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_elasticache.types.engine_type.EngineType"]
     """<p>The engine. </p>"""
     user_id: NotRequired["aws_sdk_elasticache.types.user_id.UserId"]

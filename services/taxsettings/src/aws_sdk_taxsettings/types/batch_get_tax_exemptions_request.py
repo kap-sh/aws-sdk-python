@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#BatchGetTaxExemptionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.account_ids
 
 
-class BatchGetTaxExemptionsRequest(TypedDict):
+class BatchGetTaxExemptionsRequest(TypedDict, closed=True):
     account_ids: "aws_sdk_taxsettings.types.account_ids.AccountIds"
     """<p> List of unique account identifiers. </p>"""
 

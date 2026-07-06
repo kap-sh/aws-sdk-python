@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListSandboxesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.page_size
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class ListSandboxesInput(TypedDict):
+class ListSandboxesInput(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_codebuild.types.page_size.PageSize"]
     """<p>The maximum number of sandbox records to be retrieved.</p>"""
     sort_order: NotRequired["aws_sdk_codebuild.types.sort_order_type.SortOrderType"]

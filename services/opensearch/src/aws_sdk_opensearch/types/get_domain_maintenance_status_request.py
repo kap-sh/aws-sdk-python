@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#GetDomainMaintenanceStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.domain_name
     import aws_sdk_opensearch.types.request_id
 
 
-class GetDomainMaintenanceStatusRequest(TypedDict):
+class GetDomainMaintenanceStatusRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>The name of the domain.</p>"""
     maintenance_id: "aws_sdk_opensearch.types.request_id.RequestId"

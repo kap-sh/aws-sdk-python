@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DescribeJobLogItemsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.job_logs
     import aws_sdk_mgn.types.pagination_token
 
 
-class DescribeJobLogItemsResponse(TypedDict):
+class DescribeJobLogItemsResponse(TypedDict, closed=True):
     items: NotRequired["aws_sdk_mgn.types.job_logs.JobLogs"]
     """<p>Request to describe Job log response items.</p>"""
     next_token: NotRequired["aws_sdk_mgn.types.pagination_token.PaginationToken"]

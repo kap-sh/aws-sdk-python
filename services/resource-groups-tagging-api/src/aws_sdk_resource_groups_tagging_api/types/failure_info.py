@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroupstaggingapi#FailureInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups_tagging_api.types.status_code
 
 
-class FailureInfo(TypedDict):
+class FailureInfo(TypedDict, closed=True):
     status_code: "aws_sdk_resource_groups_tagging_api.types.status_code.StatusCode"
     """<p>The HTTP status code of the common error.</p>"""
     error_code: NotRequired[

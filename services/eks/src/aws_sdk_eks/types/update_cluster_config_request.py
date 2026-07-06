@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateClusterConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boxed_boolean
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.zonal_shift_config_request
 
 
-class UpdateClusterConfigRequest(TypedDict):
+class UpdateClusterConfigRequest(TypedDict, closed=True):
     name: "aws_sdk_eks.types.string.String"
     """<p>The name of the Amazon EKS cluster to update.</p>"""
     resources_vpc_config: NotRequired[

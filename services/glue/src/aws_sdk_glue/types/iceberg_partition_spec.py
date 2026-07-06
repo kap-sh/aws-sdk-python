@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergPartitionSpec``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.integer
 
 
-class IcebergPartitionSpec(TypedDict):
+class IcebergPartitionSpec(TypedDict, closed=True):
     fields: "aws_sdk_glue.types.iceberg_partition_spec_field_list.IcebergPartitionSpecFieldList"
     """<p>The list of partition fields that define how the table data should be partitioned, including source fields and their transformations.</p>"""
     spec_id: "aws_sdk_glue.types.integer.Integer"

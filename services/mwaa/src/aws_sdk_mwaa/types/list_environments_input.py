@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#ListEnvironmentsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.next_token
 
 
-class ListEnvironmentsInput(TypedDict):
+class ListEnvironmentsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_mwaa.types.next_token.NextToken"]
     """<p>Retrieves the next page of the results.</p>"""
     max_results: NotRequired["int"]

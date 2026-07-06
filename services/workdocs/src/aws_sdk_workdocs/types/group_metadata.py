@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#GroupMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.group_name_type
     import aws_sdk_workdocs.types.id_type
 
 
-class GroupMetadata(TypedDict):
+class GroupMetadata(TypedDict, closed=True):
     id: NotRequired["aws_sdk_workdocs.types.id_type.IdType"]
     """<p>The ID of the user group.</p>"""
     name: NotRequired["aws_sdk_workdocs.types.group_name_type.GroupNameType"]

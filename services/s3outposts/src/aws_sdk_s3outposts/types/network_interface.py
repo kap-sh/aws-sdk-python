@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.s3outposts#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3outposts.types.network_interface_id
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     network_interface_id: NotRequired[
         "aws_sdk_s3outposts.types.network_interface_id.NetworkInterfaceId"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GridLayoutScreenCanvasSizeOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.resize_option
 
 
-class GridLayoutScreenCanvasSizeOptions(TypedDict):
+class GridLayoutScreenCanvasSizeOptions(TypedDict, closed=True):
     resize_option: "aws_sdk_quicksight.types.resize_option.ResizeOption"
     """<p>This value determines the layout behavior when the viewport is resized.</p> <ul> <li> <p> <code>FIXED</code>: A fixed width will be used when optimizing the layout. In the Quick Sight console, this option is called <code>Classic</code>.</p> </li> <li> <p> <code>RESPONSIVE</code>: The width of the canvas will be responsive and optimized to the view port. In the Quick Sight console, this option is called <code>Tiled</code>.</p> </li> </ul>"""
     optimized_view_port_width: NotRequired[

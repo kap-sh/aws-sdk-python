@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#UnusedAccessFindingsStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.account_aggregations
     import aws_sdk_accessanalyzer.types.unused_access_type_statistics_list
 
 
-class UnusedAccessFindingsStatistics(TypedDict):
+class UnusedAccessFindingsStatistics(TypedDict, closed=True):
     unused_access_type_statistics: NotRequired[
         "aws_sdk_accessanalyzer.types.unused_access_type_statistics_list.UnusedAccessTypeStatisticsList"
     ]

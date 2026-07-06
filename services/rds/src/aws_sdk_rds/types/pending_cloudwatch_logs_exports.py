@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#PendingCloudwatchLogsExports``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.log_type_list
 
 
-class PendingCloudwatchLogsExports(TypedDict):
+class PendingCloudwatchLogsExports(TypedDict, closed=True):
     log_types_to_enable: NotRequired["aws_sdk_rds.types.log_type_list.LogTypeList"]
     """<p>Log types that are in the process of being deactivated. After they are deactivated, these log types aren't exported to CloudWatch Logs.</p>"""
     log_types_to_disable: NotRequired["aws_sdk_rds.types.log_type_list.LogTypeList"]

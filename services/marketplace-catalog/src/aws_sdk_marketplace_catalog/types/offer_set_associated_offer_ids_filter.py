@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#OfferSetAssociatedOfferIdsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.offer_set_associated_offer_ids_filter_value_list
 
 
-class OfferSetAssociatedOfferIdsFilter(TypedDict):
+class OfferSetAssociatedOfferIdsFilter(TypedDict, closed=True):
     value_list: NotRequired[
         "aws_sdk_marketplace_catalog.types.offer_set_associated_offer_ids_filter_value_list.OfferSetAssociatedOfferIdsFilterValueList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#UpdateResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.resource_arn_string
 
 
-class UpdateResourceRequest(TypedDict):
+class UpdateResourceRequest(TypedDict, closed=True):
     role_arn: "aws_sdk_lakeformation.types.iam_role_arn.IAMRoleArn"
     """<p>The new role to use for the given resource registered in Lake Formation.</p>"""
     resource_arn: "aws_sdk_lakeformation.types.resource_arn_string.ResourceArnString"

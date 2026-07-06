@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteCatalogRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
 
 
-class DeleteCatalogRequest(TypedDict):
+class DeleteCatalogRequest(TypedDict, closed=True):
     catalog_id: "aws_sdk_glue.types.catalog_id_string.CatalogIdString"
     """<p>The ID of the catalog.</p>"""
 

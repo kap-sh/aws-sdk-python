@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#ItemValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.url
 
 
-class _ItemValue_arn(TypedDict):
+class _ItemValue_arn(TypedDict, closed=True):
     arn: "aws_sdk_ssm_incidents.types.arn.Arn"
 
 
-class _ItemValue_url(TypedDict):
+class _ItemValue_url(TypedDict, closed=True):
     url: "aws_sdk_ssm_incidents.types.url.Url"
 
 
-class _ItemValue_metricDefinition(TypedDict):
+class _ItemValue_metricDefinition(TypedDict, closed=True):
     metricDefinition: "aws_sdk_ssm_incidents.types.metric_definition.MetricDefinition"
 
 
-class _ItemValue_pagerDutyIncidentDetail(TypedDict):
+class _ItemValue_pagerDutyIncidentDetail(TypedDict, closed=True):
     pagerDutyIncidentDetail: (
         "aws_sdk_ssm_incidents.types.pager_duty_incident_detail.PagerDutyIncidentDetail"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#DescribeSentimentDetectionJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.sentiment_detection_job_properties
 
 
-class DescribeSentimentDetectionJobResponse(TypedDict):
+class DescribeSentimentDetectionJobResponse(TypedDict, closed=True):
     sentiment_detection_job_properties: NotRequired[
         "aws_sdk_comprehend.types.sentiment_detection_job_properties.SentimentDetectionJobProperties"
     ]

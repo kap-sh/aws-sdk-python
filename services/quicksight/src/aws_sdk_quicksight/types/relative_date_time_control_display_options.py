@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#RelativeDateTimeControlDisplayOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_format
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.sheet_control_info_icon_label_options
 
 
-class RelativeDateTimeControlDisplayOptions(TypedDict):
+class RelativeDateTimeControlDisplayOptions(TypedDict, closed=True):
     title_options: NotRequired["aws_sdk_quicksight.types.label_options.LabelOptions"]
     """<p>The options to configure the title visibility, name, and font size.</p>"""
     date_time_format: NotRequired[

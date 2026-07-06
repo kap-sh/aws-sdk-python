@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateStandbyWorkspacesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.failed_create_standby_workspaces_request_list
     import aws_sdk_workspaces.types.pending_create_standby_workspaces_request_list
 
 
-class CreateStandbyWorkspacesResult(TypedDict):
+class CreateStandbyWorkspacesResult(TypedDict, closed=True):
     failed_standby_requests: NotRequired[
         "aws_sdk_workspaces.types.failed_create_standby_workspaces_request_list.FailedCreateStandbyWorkspacesRequestList"
     ]

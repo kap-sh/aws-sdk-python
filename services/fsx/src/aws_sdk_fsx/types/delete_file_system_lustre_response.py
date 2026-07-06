@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteFileSystemLustreResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.backup_id
     import aws_sdk_fsx.types.tags
 
 
-class DeleteFileSystemLustreResponse(TypedDict):
+class DeleteFileSystemLustreResponse(TypedDict, closed=True):
     final_backup_id: NotRequired["aws_sdk_fsx.types.backup_id.BackupId"]
     """<p>The ID of the final backup for this file system.</p>"""
     final_backup_tags: NotRequired["aws_sdk_fsx.types.tags.Tags"]

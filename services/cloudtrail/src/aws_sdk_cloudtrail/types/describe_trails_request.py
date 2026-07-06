@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#DescribeTrailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.boolean
     import aws_sdk_cloudtrail.types.trail_name_list
 
 
-class DescribeTrailsRequest(TypedDict):
+class DescribeTrailsRequest(TypedDict, closed=True):
     trail_name_list: NotRequired[
         "aws_sdk_cloudtrail.types.trail_name_list.TrailNameList"
     ]

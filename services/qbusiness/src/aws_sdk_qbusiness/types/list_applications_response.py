@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ListApplicationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.applications
     import aws_sdk_qbusiness.types.next_token
 
 
-class ListApplicationsResponse(TypedDict):
+class ListApplicationsResponse(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_qbusiness.types.next_token.NextToken"]
     """<p>If the response is truncated, Amazon Q Business returns this token. You can use this token in a subsequent request to retrieve the next set of applications.</p>"""
     applications: NotRequired["aws_sdk_qbusiness.types.applications.Applications"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsGuardDutyDetectorDataSourcesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_guard_duty_detector_data_sources_cloud_trail_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_guard_duty_detector_data_sources_s3_logs_details
 
 
-class AwsGuardDutyDetectorDataSourcesDetails(TypedDict):
+class AwsGuardDutyDetectorDataSourcesDetails(TypedDict, closed=True):
     cloud_trail: NotRequired[
         "aws_sdk_securityhub.types.aws_guard_duty_detector_data_sources_cloud_trail_details.AwsGuardDutyDetectorDataSourcesCloudTrailDetails"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#ListCertificatesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.certificates_info
     import aws_sdk_directory_service.types.next_token
 
 
-class ListCertificatesResult(TypedDict):
+class ListCertificatesResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_directory_service.types.next_token.NextToken"]
     """<p>Indicates whether another page of certificates is available when the number of available certificates exceeds the page limit.</p>"""
     certificates_info: NotRequired[

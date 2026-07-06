@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#PutStoredQueryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.tags_list
 
 
-class PutStoredQueryRequest(TypedDict):
+class PutStoredQueryRequest(TypedDict, closed=True):
     stored_query: "aws_sdk_config_service.types.stored_query.StoredQuery"
     """<p>A list of <code>StoredQuery</code> objects. The mandatory fields are <code>QueryName</code> and <code>Expression</code>.</p> <note> <p>When you are creating a query, you must provide a query name and an expression. When you are updating a query, you must provide a query name but updating the description is optional.</p> </note>"""
     tags: NotRequired["aws_sdk_config_service.types.tags_list.TagsList"]

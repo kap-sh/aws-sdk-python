@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListRealtimeContactAnalysisSegmentsV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.realtime_contact_analysis_segments
 
 
-class ListRealtimeContactAnalysisSegmentsV2Response(TypedDict):
+class ListRealtimeContactAnalysisSegmentsV2Response(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.real_time_contact_analysis_supported_channel.RealTimeContactAnalysisSupportedChannel"
     """<p>The channel of the contact. </p> <important> <p>Only <code>CHAT</code> is supported. This API does not support <code>VOICE</code>. If you attempt to use it for the VOICE channel, an <code>InvalidRequestException</code> error occurs.</p> </important>"""
     status: "aws_sdk_connect.types.real_time_contact_analysis_status.RealTimeContactAnalysisStatus"

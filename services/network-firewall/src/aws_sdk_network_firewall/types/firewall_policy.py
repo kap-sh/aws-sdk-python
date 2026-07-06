@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#FirewallPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.stateless_rule_group_references
 
 
-class FirewallPolicy(TypedDict):
+class FirewallPolicy(TypedDict, closed=True):
     stateless_rule_group_references: NotRequired[
         "aws_sdk_network_firewall.types.stateless_rule_group_references.StatelessRuleGroupReferences"
     ]

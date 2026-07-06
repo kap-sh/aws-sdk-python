@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#ListJobsByPipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.ascending
     import aws_sdk_elastic_transcoder.types.id
 
 
-class ListJobsByPipelineRequest(TypedDict):
+class ListJobsByPipelineRequest(TypedDict, closed=True):
     pipeline_id: "aws_sdk_elastic_transcoder.types.id.Id"
     """<p>The ID of the pipeline for which you want to get job information.</p>"""
     ascending: NotRequired["aws_sdk_elastic_transcoder.types.ascending.Ascending"]

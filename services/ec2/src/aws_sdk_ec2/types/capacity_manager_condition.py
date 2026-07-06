@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CapacityManagerCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.dimension_condition
 
 
-class CapacityManagerCondition(TypedDict):
+class CapacityManagerCondition(TypedDict, closed=True):
     dimension_condition: NotRequired[
         "aws_sdk_ec2.types.dimension_condition.DimensionCondition"
     ]

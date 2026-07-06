@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.autoscaling#MetricGranularityType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_auto_scaling._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_auto_scaling.types.xml_string_max_len255
 
 
-class MetricGranularityType(TypedDict):
+class MetricGranularityType(TypedDict, closed=True):
     granularity: NotRequired[
         "aws_sdk_auto_scaling.types.xml_string_max_len255.XmlStringMaxLen255"
     ]

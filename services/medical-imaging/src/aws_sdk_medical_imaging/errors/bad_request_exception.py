@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#BadRequestException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_medical_imaging.errors import DeserializationError, ServiceError
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     message: "str"
 
 

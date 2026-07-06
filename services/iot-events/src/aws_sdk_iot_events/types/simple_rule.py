@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#SimpleRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.threshold
 
 
-class SimpleRule(TypedDict):
+class SimpleRule(TypedDict, closed=True):
     input_property: "aws_sdk_iot_events.types.input_property.InputProperty"
     """<p>The value on the left side of the comparison operator. You can specify an AWS IoT Events input attribute as an input property.</p>"""
     comparison_operator: (

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TaskStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.canceled_checks_count
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.waiting_for_data_collection_checks_count
 
 
-class TaskStatistics(TypedDict):
+class TaskStatistics(TypedDict, closed=True):
     total_checks: NotRequired["aws_sdk_iot.types.total_checks_count.TotalChecksCount"]
     """<p>The number of checks in this audit.</p>"""
     in_progress_checks: NotRequired[

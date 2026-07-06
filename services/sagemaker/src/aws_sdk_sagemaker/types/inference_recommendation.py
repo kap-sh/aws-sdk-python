@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#InferenceRecommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.endpoint_output_configuration
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string
 
 
-class InferenceRecommendation(TypedDict):
+class InferenceRecommendation(TypedDict, closed=True):
     recommendation_id: NotRequired["aws_sdk_sagemaker.types.string.String"]
     """<p>The recommendation ID which uniquely identifies each recommendation.</p>"""
     metrics: NotRequired[

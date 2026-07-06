@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#FeesBreakdownAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
 
 
-class FeesBreakdownAmount(TypedDict):
+class FeesBreakdownAmount(TypedDict, closed=True):
     description: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p> The list of fees information. </p>"""
     amount: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]

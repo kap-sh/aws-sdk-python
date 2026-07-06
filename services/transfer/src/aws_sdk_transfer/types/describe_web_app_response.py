@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeWebAppResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_web_app
 
 
-class DescribeWebAppResponse(TypedDict):
+class DescribeWebAppResponse(TypedDict, closed=True):
     web_app: "aws_sdk_transfer.types.described_web_app.DescribedWebApp"
     """<p>Returns a structure that contains the details of the web app.</p>"""
 

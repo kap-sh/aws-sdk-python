@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Substring``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
 
-class Substring(TypedDict):
+class Substring(TypedDict, closed=True):
     start: "int"
     """<p>The start index of the substring, starting from 0.</p>"""
     length: "int"

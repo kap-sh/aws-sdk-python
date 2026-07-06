@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#ListRegionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.token
 
 
-class ListRegionsRequest(TypedDict):
+class ListRegionsRequest(TypedDict, closed=True):
     instance_arn: "aws_sdk_sso_admin.types.instance_arn.InstanceArn"
     """<p>The Amazon Resource Name (ARN) of the IAM Identity Center instance.</p>"""
     max_results: NotRequired["aws_sdk_sso_admin.types.max_results.MaxResults"]

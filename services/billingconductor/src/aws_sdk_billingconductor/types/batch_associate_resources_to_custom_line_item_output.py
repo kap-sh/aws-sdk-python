@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#BatchAssociateResourcesToCustomLineItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.associate_resources_response_list
 
 
-class BatchAssociateResourcesToCustomLineItemOutput(TypedDict):
+class BatchAssociateResourcesToCustomLineItemOutput(TypedDict, closed=True):
     successfully_associated_resources: NotRequired[
         "aws_sdk_billingconductor.types.associate_resources_response_list.AssociateResourcesResponseList"
     ]

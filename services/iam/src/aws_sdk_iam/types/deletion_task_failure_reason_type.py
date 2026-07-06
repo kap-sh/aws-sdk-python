@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#DeletionTaskFailureReasonType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.role_usage_list_type
 
 
-class DeletionTaskFailureReasonType(TypedDict):
+class DeletionTaskFailureReasonType(TypedDict, closed=True):
     reason: NotRequired["aws_sdk_iam.types.reason_type.ReasonType"]
     """<p>A short description of the reason that the service-linked role deletion failed.</p>"""
     role_usage_list: NotRequired[

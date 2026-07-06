@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#CreateDetectorVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.tag_list
 
 
-class CreateDetectorVersionRequest(TypedDict):
+class CreateDetectorVersionRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_frauddetector.types.identifier.identifier"
     """<p>The ID of the detector under which you want to create a new version.</p>"""
     description: NotRequired["aws_sdk_frauddetector.types.description.description"]

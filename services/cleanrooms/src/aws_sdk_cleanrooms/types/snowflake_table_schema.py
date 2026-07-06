@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SnowflakeTableSchema``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.snowflake_table_schema_list
 
 
-class _SnowflakeTableSchema_v1(TypedDict):
+class _SnowflakeTableSchema_v1(TypedDict, closed=True):
     v1: "aws_sdk_cleanrooms.types.snowflake_table_schema_list.SnowflakeTableSchemaList"
 
 

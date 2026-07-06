@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ConditionalSplitActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.wait_time
 
 
-class ConditionalSplitActivity(TypedDict):
+class ConditionalSplitActivity(TypedDict, closed=True):
     condition: NotRequired["aws_sdk_pinpoint.types.condition.Condition"]
     """<p>The conditions that define the paths for the activity, and the relationship between the conditions.</p>"""
     evaluation_wait_time: NotRequired["aws_sdk_pinpoint.types.wait_time.WaitTime"]

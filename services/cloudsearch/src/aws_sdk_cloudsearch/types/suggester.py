@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#Suggester``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.standard_name
 
 
-class Suggester(TypedDict):
+class Suggester(TypedDict, closed=True):
     suggester_name: "aws_sdk_cloudsearch.types.standard_name.StandardName"
     document_suggester_options: (
         "aws_sdk_cloudsearch.types.document_suggester_options.DocumentSuggesterOptions"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateMembershipPaymentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_job_compute_payment_config
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.membership_query_compute_payment_config
 
 
-class UpdateMembershipPaymentConfiguration(TypedDict):
+class UpdateMembershipPaymentConfiguration(TypedDict, closed=True):
     query_compute: NotRequired[
         "aws_sdk_cleanrooms.types.membership_query_compute_payment_config.MembershipQueryComputePaymentConfig"
     ]

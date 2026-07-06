@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#HyperParameterTuningJobObjective``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hyper_parameter_tuning_job_objective_type
     import aws_sdk_sagemaker.types.metric_name
 
 
-class HyperParameterTuningJobObjective(TypedDict):
+class HyperParameterTuningJobObjective(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_sagemaker.types.hyper_parameter_tuning_job_objective_type.HyperParameterTuningJobObjectiveType"
     ]

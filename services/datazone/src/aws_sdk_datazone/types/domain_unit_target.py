@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DomainUnitTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_unit_id
 
 
-class DomainUnitTarget(TypedDict):
+class DomainUnitTarget(TypedDict, closed=True):
     domain_unit_id: "aws_sdk_datazone.types.domain_unit_id.DomainUnitId"
     """<p>The ID of the domain unit.</p>"""
     include_child_domain_units: NotRequired["bool"]

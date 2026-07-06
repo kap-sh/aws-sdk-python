@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#ExtensionsV3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pca_connector_ad.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_ad.types.key_usage
 
 
-class ExtensionsV3(TypedDict):
+class ExtensionsV3(TypedDict, closed=True):
     key_usage: "aws_sdk_pca_connector_ad.types.key_usage.KeyUsage"
     """<p>The key usage extension defines the purpose (e.g., encipherment, signature, certificate signing) of the key contained in the certificate.</p>"""
     application_policies: NotRequired[

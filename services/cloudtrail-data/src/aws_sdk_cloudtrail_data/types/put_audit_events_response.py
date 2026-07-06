@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#PutAuditEventsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudtrail_data.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail_data.types.result_error_entries
 
 
-class PutAuditEventsResponse(TypedDict):
+class PutAuditEventsResponse(TypedDict, closed=True):
     successful: "aws_sdk_cloudtrail_data.types.audit_event_result_entries.AuditEventResultEntries"
     """<p>Lists events in the provided event payload that were successfully ingested into CloudTrail.</p>"""
     failed: "aws_sdk_cloudtrail_data.types.result_error_entries.ResultErrorEntries"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#GetDurableExecutionStateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.checkpoint_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.string
 
 
-class GetDurableExecutionStateRequest(TypedDict):
+class GetDurableExecutionStateRequest(TypedDict, closed=True):
     durable_execution_arn: (
         "aws_sdk_lambda.types.durable_execution_arn.DurableExecutionArn"
     )

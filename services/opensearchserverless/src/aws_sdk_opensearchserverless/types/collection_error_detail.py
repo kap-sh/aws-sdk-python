@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#CollectionErrorDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearchserverless.types.collection_id
     import aws_sdk_opensearchserverless.types.collection_name
 
 
-class CollectionErrorDetail(TypedDict):
+class CollectionErrorDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_opensearchserverless.types.collection_id.CollectionId"]
     """<p>If the request contains collection IDs, the response includes the IDs provided in the request.</p>"""
     name: NotRequired[

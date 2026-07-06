@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ResendOperationAuthorizationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.operation_id
 
 
-class ResendOperationAuthorizationRequest(TypedDict):
+class ResendOperationAuthorizationRequest(TypedDict, closed=True):
     operation_id: "aws_sdk_route_53_domains.types.operation_id.OperationId"
     """<p> Operation ID. </p>"""
 

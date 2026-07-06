@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#OverrideAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.count_action
     import aws_sdk_wafv2.types.none_action
 
 
-class OverrideAction(TypedDict):
+class OverrideAction(TypedDict, closed=True):
     count: NotRequired["aws_sdk_wafv2.types.count_action.CountAction"]
     """<p>Override the rule group evaluation result to count only. </p> <note> <p>This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with <code>Count</code> action, in your rule group reference statement settings. </p> </note>"""
     none: NotRequired["aws_sdk_wafv2.types.none_action.NoneAction"]

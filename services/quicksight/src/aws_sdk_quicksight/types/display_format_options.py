@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DisplayFormatOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.topic_numeric_separator_symbol
 
 
-class DisplayFormatOptions(TypedDict):
+class DisplayFormatOptions(TypedDict, closed=True):
     use_blank_cell_format: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>A Boolean value that indicates whether to use blank cell format.</p>"""
     blank_cell_format: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DateTimeDefaultValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_default_value_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.rolling_date_configuration
 
 
-class DateTimeDefaultValues(TypedDict):
+class DateTimeDefaultValues(TypedDict, closed=True):
     dynamic_value: NotRequired[
         "aws_sdk_quicksight.types.dynamic_default_value.DynamicDefaultValue"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#NotifyWorkersFailureStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.customer_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.string
 
 
-class NotifyWorkersFailureStatus(TypedDict):
+class NotifyWorkersFailureStatus(TypedDict, closed=True):
     notify_workers_failure_code: NotRequired[
         "aws_sdk_mturk.types.notify_workers_failure_code.NotifyWorkersFailureCode"
     ]

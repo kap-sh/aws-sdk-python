@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ResamplingConfigInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.string_list_input
 
 
-class ResamplingConfigInput(TypedDict):
+class ResamplingConfigInput(TypedDict, closed=True):
     output_resolution: "aws_sdk_sagemaker_geospatial.types.output_resolution_resampling_input.OutputResolutionResamplingInput"
     """<p>The structure representing output resolution (in target georeferenced units) of the result of resampling operation.</p>"""
     algorithm_name: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#DeleteBillingViewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.billing_view_arn
 
 
-class DeleteBillingViewResponse(TypedDict):
+class DeleteBillingViewResponse(TypedDict, closed=True):
     arn: "aws_sdk_billing.types.billing_view_arn.BillingViewArn"
     """<p> The Amazon Resource Name (ARN) that can be used to uniquely identify the billing view. </p>"""
 

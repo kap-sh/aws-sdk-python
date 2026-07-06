@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AssetPermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.permissions
 
 
-class AssetPermission(TypedDict):
+class AssetPermission(TypedDict, closed=True):
     asset_id: "aws_sdk_datazone.types.asset_id.AssetId"
     """<p>The asset ID as part of the asset permissions.</p>"""
     permissions: "aws_sdk_datazone.types.permissions.Permissions"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DeleteDBInstanceAutomatedBackupMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DeleteDBInstanceAutomatedBackupMessage(TypedDict):
+class DeleteDBInstanceAutomatedBackupMessage(TypedDict, closed=True):
     dbi_resource_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier for the source DB instance, which can't be changed and which is unique to an Amazon Web Services Region.</p>"""
     db_instance_automated_backups_arn: NotRequired["aws_sdk_rds.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#QueryGenerationContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.curated_queries
     import aws_sdk_bedrock_agent.types.query_generation_tables
 
 
-class QueryGenerationContext(TypedDict):
+class QueryGenerationContext(TypedDict, closed=True):
     tables: NotRequired[
         "aws_sdk_bedrock_agent.types.query_generation_tables.QueryGenerationTables"
     ]

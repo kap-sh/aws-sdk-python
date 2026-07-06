@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ConditionalFormattingSolidColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
 
 
-class ConditionalFormattingSolidColor(TypedDict):
+class ConditionalFormattingSolidColor(TypedDict, closed=True):
     expression: "aws_sdk_quicksight.types.expression.Expression"
     """<p>The expression that determines the formatting configuration for solid color.</p>"""
     color: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#DeleteCustomVerificationEmailTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.template_name
 
 
-class DeleteCustomVerificationEmailTemplateRequest(TypedDict):
+class DeleteCustomVerificationEmailTemplateRequest(TypedDict, closed=True):
     template_name: "aws_sdk_ses.types.template_name.TemplateName"
     """<p>The name of the custom verification email template to delete.</p>"""
 

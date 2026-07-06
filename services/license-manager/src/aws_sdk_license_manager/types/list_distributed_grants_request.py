@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ListDistributedGrantsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.arn_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.string
 
 
-class ListDistributedGrantsRequest(TypedDict):
+class ListDistributedGrantsRequest(TypedDict, closed=True):
     grant_arns: NotRequired["aws_sdk_license_manager.types.arn_list.ArnList"]
     """<p>Amazon Resource Names (ARNs) of the grants.</p>"""
     filters: NotRequired["aws_sdk_license_manager.types.filter_list.FilterList"]

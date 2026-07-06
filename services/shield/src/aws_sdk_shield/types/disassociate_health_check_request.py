@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#DisassociateHealthCheckRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.protection_id
 
 
-class DisassociateHealthCheckRequest(TypedDict):
+class DisassociateHealthCheckRequest(TypedDict, closed=True):
     protection_id: "aws_sdk_shield.types.protection_id.ProtectionId"
     """<p>The unique identifier (ID) for the <a>Protection</a> object to remove the health check association from. </p>"""
     health_check_arn: "aws_sdk_shield.types.health_check_arn.HealthCheckArn"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ComputeNodeGroupConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ComputeNodeGroupConfiguration(TypedDict):
+class ComputeNodeGroupConfiguration(TypedDict, closed=True):
     compute_node_group_id: NotRequired["str"]
     """<p>The compute node group ID for the compute node group configuration.</p>"""
 

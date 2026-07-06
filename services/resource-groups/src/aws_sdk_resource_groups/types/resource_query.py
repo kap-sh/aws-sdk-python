@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#ResourceQuery``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resource_groups.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.query_type
 
 
-class ResourceQuery(TypedDict):
+class ResourceQuery(TypedDict, closed=True):
     type: "aws_sdk_resource_groups.types.query_type.QueryType"
     """<p>The type of the query to perform. This can have one of two values:</p> <ul> <li> <p> <i> <code>CLOUDFORMATION_STACK_1_0:</code> </i> Specifies that you want the group to contain the members of an CloudFormation stack. The <code>Query</code> contains a <code>StackIdentifier</code> element with an Amazon resource name (ARN) for a CloudFormation stack.</p> </li> <li> <p> <i> <code>TAG_FILTERS_1_0:</code> </i> Specifies that you want the group to include resource that have tags that match the query. </p> </li> </ul>"""
     query: "aws_sdk_resource_groups.types.query.Query"

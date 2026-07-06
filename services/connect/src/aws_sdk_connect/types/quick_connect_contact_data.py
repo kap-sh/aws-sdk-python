@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#QuickConnectContactData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class QuickConnectContactData(TypedDict):
+class QuickConnectContactData(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p> The contact ID for quick connect contact data. </p>"""
     initiation_timestamp: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

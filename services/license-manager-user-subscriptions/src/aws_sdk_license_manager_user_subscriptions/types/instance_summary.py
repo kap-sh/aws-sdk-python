@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#InstanceSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.string_list
 
 
-class InstanceSummary(TypedDict):
+class InstanceSummary(TypedDict, closed=True):
     instance_id: "str"
     """<p>The ID of the EC2 instance, which provides user-based subscriptions.</p>"""
     status: "str"

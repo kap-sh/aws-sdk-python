@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#CreateVirtualMFADeviceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.virtual_mfa_device
 
 
-class CreateVirtualMFADeviceResponse(TypedDict):
+class CreateVirtualMFADeviceResponse(TypedDict, closed=True):
     virtual_mfa_device: "aws_sdk_iam.types.virtual_mfa_device.VirtualMFADevice"
     """<p>A structure containing details about the new virtual MFA device.</p>"""
 

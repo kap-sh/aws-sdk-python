@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Ec2LaunchTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.ec2_instance_uids
     import aws_sdk_guardduty.types.launch_template_version
 
 
-class Ec2LaunchTemplate(TypedDict):
+class Ec2LaunchTemplate(TypedDict, closed=True):
     ec2_instance_uids: NotRequired[
         "aws_sdk_guardduty.types.ec2_instance_uids.Ec2InstanceUids"
     ]

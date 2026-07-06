@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ListClustersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.cluster_list_entry_list
     import aws_sdk_snowball.types.string
 
 
-class ListClustersResult(TypedDict):
+class ListClustersResult(TypedDict, closed=True):
     cluster_list_entries: NotRequired[
         "aws_sdk_snowball.types.cluster_list_entry_list.ClusterListEntryList"
     ]

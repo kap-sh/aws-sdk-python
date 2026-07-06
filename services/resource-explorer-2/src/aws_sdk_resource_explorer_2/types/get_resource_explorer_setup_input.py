@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#GetResourceExplorerSetupInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
 
-class GetResourceExplorerSetupInput(TypedDict):
+class GetResourceExplorerSetupInput(TypedDict, closed=True):
     task_id: "str"
     """<p>The unique identifier of the setup task to retrieve status information for. This ID is returned by <code>CreateResourceExplorerSetup</code> or <code>DeleteResourceExplorerSetup</code> operations.</p>"""
     max_results: NotRequired["int"]

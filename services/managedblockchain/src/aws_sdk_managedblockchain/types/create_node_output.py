@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#CreateNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class CreateNodeOutput(TypedDict):
+class CreateNodeOutput(TypedDict, closed=True):
     node_id: NotRequired[
         "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     ]

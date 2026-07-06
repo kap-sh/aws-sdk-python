@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeRecoveryPointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_vault_name
 
 
-class DescribeRecoveryPointInput(TypedDict):
+class DescribeRecoveryPointInput(TypedDict, closed=True):
     backup_vault_name: "aws_sdk_backup.types.backup_vault_name.BackupVaultName"
     """<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the account used to create them and the Amazon Web Services Region where they are created.</p>"""
     recovery_point_arn: "aws_sdk_backup.types.arn.ARN"

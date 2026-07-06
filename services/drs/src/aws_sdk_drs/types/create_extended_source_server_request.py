@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#CreateExtendedSourceServerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class CreateExtendedSourceServerRequest(TypedDict):
+class CreateExtendedSourceServerRequest(TypedDict, closed=True):
     source_server_arn: "aws_sdk_drs.types.source_server_arn.SourceServerARN"
     """<p>This defines the ARN of the source server in staging Account based on which you want to create an extended source server.</p>"""
     tags: NotRequired["aws_sdk_drs.types.tags_map.TagsMap"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FieldGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_list
 
 
-class FieldGroup(TypedDict):
+class FieldGroup(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>Name of the field group.</p>"""
     fields: "aws_sdk_connectcases.types.field_list.FieldList"

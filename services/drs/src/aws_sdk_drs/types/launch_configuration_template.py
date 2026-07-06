@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#LaunchConfigurationTemplate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.target_instance_type_right_sizing_method
 
 
-class LaunchConfigurationTemplate(TypedDict):
+class LaunchConfigurationTemplate(TypedDict, closed=True):
     launch_configuration_template_id: NotRequired[
         "aws_sdk_drs.types.launch_configuration_template_id.LaunchConfigurationTemplateID"
     ]

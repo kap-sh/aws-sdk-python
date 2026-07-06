@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateBatchInferenceJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.arn
 
 
-class CreateBatchInferenceJobResponse(TypedDict):
+class CreateBatchInferenceJobResponse(TypedDict, closed=True):
     batch_inference_job_arn: NotRequired["aws_sdk_personalize.types.arn.Arn"]
     """<p>The ARN of the batch inference job.</p>"""
 

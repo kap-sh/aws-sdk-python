@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CompareFacesMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.compared_face
     import aws_sdk_rekognition.types.percent
 
 
-class CompareFacesMatch(TypedDict):
+class CompareFacesMatch(TypedDict, closed=True):
     similarity: NotRequired["aws_sdk_rekognition.types.percent.Percent"]
     """<p>Level of confidence that the faces match.</p>"""
     face: NotRequired["aws_sdk_rekognition.types.compared_face.ComparedFace"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#Handshake``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.action_type
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.timestamp
 
 
-class Handshake(TypedDict):
+class Handshake(TypedDict, closed=True):
     id: NotRequired["aws_sdk_organizations.types.handshake_id.HandshakeId"]
     r"""<p>ID for the handshake.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
     arn: NotRequired["aws_sdk_organizations.types.handshake_arn.HandshakeArn"]

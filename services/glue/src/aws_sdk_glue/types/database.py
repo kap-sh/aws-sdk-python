@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Database``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.uri
 
 
-class Database(TypedDict):
+class Database(TypedDict, closed=True):
     name: "aws_sdk_glue.types.name_string.NameString"
     """<p>The name of the database. For Hive compatibility, this is folded to lowercase when it is stored.</p>"""
     description: NotRequired["aws_sdk_glue.types.description_string.DescriptionString"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#A2aDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.agent_card_definition
 
 
-class A2aDescriptor(TypedDict):
+class A2aDescriptor(TypedDict, closed=True):
     agent_card: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.agent_card_definition.AgentCardDefinition"
     ]

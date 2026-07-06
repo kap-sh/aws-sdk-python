@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#CreateMultiRegionClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.multi_region_cluster
 
 
-class CreateMultiRegionClusterResponse(TypedDict):
+class CreateMultiRegionClusterResponse(TypedDict, closed=True):
     multi_region_cluster: NotRequired[
         "aws_sdk_memorydb.types.multi_region_cluster.MultiRegionCluster"
     ]

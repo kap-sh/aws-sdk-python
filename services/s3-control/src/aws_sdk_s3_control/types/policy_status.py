@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#PolicyStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.is_public
 
 
-class PolicyStatus(TypedDict):
+class PolicyStatus(TypedDict, closed=True):
     is_public: "aws_sdk_s3_control.types.is_public.IsPublic"
     """<p></p>"""
 

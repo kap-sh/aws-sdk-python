@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#GetConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.connection_id
     import aws_sdk_datazone.types.domain_id
 
 
-class GetConnectionInput(TypedDict):
+class GetConnectionInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where we get the connection.</p>"""
     identifier: "aws_sdk_datazone.types.connection_id.ConnectionId"

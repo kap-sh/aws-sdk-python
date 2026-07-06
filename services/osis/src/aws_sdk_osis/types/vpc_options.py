@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#VpcOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.vpc_endpoint_management
 
 
-class VpcOptions(TypedDict):
+class VpcOptions(TypedDict, closed=True):
     subnet_ids: "aws_sdk_osis.types.subnet_ids.SubnetIds"
     """<p>A list of subnet IDs associated with the VPC endpoint.</p>"""
     security_group_ids: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#IdpAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class IdpAuthConfiguration(TypedDict):
+class IdpAuthConfiguration(TypedDict, closed=True):
     issuer_url: "str"
     """<p>The OIDC issuer URL of the external Identity Provider</p>"""
     client_id: "str"

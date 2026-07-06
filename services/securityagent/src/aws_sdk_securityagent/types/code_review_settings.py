@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CodeReviewSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
 
-class CodeReviewSettings(TypedDict):
+class CodeReviewSettings(TypedDict, closed=True):
     controls_scanning: "bool"
     """<p>Indicates whether controls scanning is enabled for code reviews.</p>"""
     general_purpose_scanning: "bool"

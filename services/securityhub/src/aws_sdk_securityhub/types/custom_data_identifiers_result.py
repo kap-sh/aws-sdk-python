@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#CustomDataIdentifiersResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.custom_data_identifiers_detections_list
     import aws_sdk_securityhub.types.long
 
 
-class CustomDataIdentifiersResult(TypedDict):
+class CustomDataIdentifiersResult(TypedDict, closed=True):
     detections: NotRequired[
         "aws_sdk_securityhub.types.custom_data_identifiers_detections_list.CustomDataIdentifiersDetectionsList"
     ]

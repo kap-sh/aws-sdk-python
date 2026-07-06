@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#EnableAllFeaturesRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EnableAllFeaturesRequest(TypedDict):
+class EnableAllFeaturesRequest(TypedDict, closed=True):
     pass
 
 

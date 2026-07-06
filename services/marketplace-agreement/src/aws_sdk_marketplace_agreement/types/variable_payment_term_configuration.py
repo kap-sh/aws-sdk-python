@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#VariablePaymentTermConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.payment_request_approval_strategy
 
 
-class VariablePaymentTermConfiguration(TypedDict):
+class VariablePaymentTermConfiguration(TypedDict, closed=True):
     payment_request_approval_strategy: "aws_sdk_marketplace_agreement.types.payment_request_approval_strategy.PaymentRequestApprovalStrategy"
     """<p>Defines the strategy for approving payment requests. Values include <code>AUTO_APPROVE_ON_EXPIRATION</code> and <code>WAIT_FOR_APPROVAL</code> </p>"""
     expiration_duration: NotRequired[

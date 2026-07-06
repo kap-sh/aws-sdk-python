@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#RegistrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.template_name
 
 
-class RegistrationConfig(TypedDict):
+class RegistrationConfig(TypedDict, closed=True):
     template_body: NotRequired["aws_sdk_iot.types.template_body.TemplateBody"]
     """<p>The template body.</p>"""
     role_arn: NotRequired["aws_sdk_iot.types.role_arn.RoleArn"]

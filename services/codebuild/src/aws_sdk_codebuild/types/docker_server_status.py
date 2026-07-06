@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#DockerServerStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.string
 
 
-class DockerServerStatus(TypedDict):
+class DockerServerStatus(TypedDict, closed=True):
     status: NotRequired["aws_sdk_codebuild.types.string.String"]
     """<p>The status of the docker server.</p>"""
     message: NotRequired["aws_sdk_codebuild.types.string.String"]

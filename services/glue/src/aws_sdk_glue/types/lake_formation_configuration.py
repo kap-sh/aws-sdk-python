@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#LakeFormationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.account_id
     import aws_sdk_glue.types.nullable_boolean
 
 
-class LakeFormationConfiguration(TypedDict):
+class LakeFormationConfiguration(TypedDict, closed=True):
     use_lake_formation_credentials: NotRequired[
         "aws_sdk_glue.types.nullable_boolean.NullableBoolean"
     ]

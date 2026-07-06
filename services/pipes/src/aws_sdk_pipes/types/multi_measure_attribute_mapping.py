@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#MultiMeasureAttributeMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pipes.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.multi_measure_attribute_name
 
 
-class MultiMeasureAttributeMapping(TypedDict):
+class MultiMeasureAttributeMapping(TypedDict, closed=True):
     measure_value: "aws_sdk_pipes.types.measure_value.MeasureValue"
     """<p>Dynamic path to the measurement attribute in the source event.</p>"""
     measure_value_type: "aws_sdk_pipes.types.measure_value_type.MeasureValueType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#InvokeResponseStreamUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.blob
 
 
-class InvokeResponseStreamUpdate(TypedDict):
+class InvokeResponseStreamUpdate(TypedDict, closed=True):
     payload: NotRequired["aws_sdk_lambda.types.blob.Blob"]
     """<p>Data returned by your Lambda function.</p>"""
 

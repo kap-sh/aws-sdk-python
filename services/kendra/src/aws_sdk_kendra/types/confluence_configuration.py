@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ConfluenceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.url
 
 
-class ConfluenceConfiguration(TypedDict):
+class ConfluenceConfiguration(TypedDict, closed=True):
     server_url: "aws_sdk_kendra.types.url.Url"
     """<p>The URL of your Confluence instance. Use the full URL of the server. For example, <i>https://server.example.com:port/</i>. You can also use an IP address, for example, <i>https://192.168.1.113/</i>.</p>"""
     secret_arn: "aws_sdk_kendra.types.secret_arn.SecretArn"

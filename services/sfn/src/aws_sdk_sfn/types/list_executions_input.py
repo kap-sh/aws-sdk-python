@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ListExecutionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.page_size
 
 
-class ListExecutionsInput(TypedDict):
+class ListExecutionsInput(TypedDict, closed=True):
     state_machine_arn: NotRequired["aws_sdk_sfn.types.arn.Arn"]
     r"""<p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p> <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p> <p>You can also return a list of executions associated with a specific <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html\">alias</a> or <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html\">version</a>, by specifying an alias ARN or a version ARN in the <code>stateMachineArn</code> parameter.</p>"""
     status_filter: NotRequired["aws_sdk_sfn.types.execution_status.ExecutionStatus"]

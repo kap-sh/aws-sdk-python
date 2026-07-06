@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#UpdateLongTermPricingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.long_term_pricing_id
 
 
-class UpdateLongTermPricingRequest(TypedDict):
+class UpdateLongTermPricingRequest(TypedDict, closed=True):
     long_term_pricing_id: (
         "aws_sdk_snowball.types.long_term_pricing_id.LongTermPricingId"
     )

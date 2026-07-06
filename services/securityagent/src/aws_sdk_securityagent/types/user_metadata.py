@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#UserMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.sensitive_email
 
 
-class UserMetadata(TypedDict):
+class UserMetadata(TypedDict, closed=True):
     username: "str"
     """<p>The username of the user.</p>"""
     email: "aws_sdk_securityagent.types.sensitive_email.SensitiveEmail"

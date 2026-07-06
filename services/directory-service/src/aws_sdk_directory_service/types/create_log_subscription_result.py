@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateLogSubscriptionResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateLogSubscriptionResult(TypedDict):
+class CreateLogSubscriptionResult(TypedDict, closed=True):
     pass
 
 

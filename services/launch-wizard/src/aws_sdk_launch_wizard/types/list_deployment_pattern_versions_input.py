@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ListDeploymentPatternVersionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_launch_wizard.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.workload_name
 
 
-class ListDeploymentPatternVersionsInput(TypedDict):
+class ListDeploymentPatternVersionsInput(TypedDict, closed=True):
     workload_name: "aws_sdk_launch_wizard.types.workload_name.WorkloadName"
     r"""<p>The name of the workload. You can use the <a href=\"https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_ListWorkloads.html\"> <code>ListWorkloads</code> </a> operation to discover supported values for this parameter.</p>"""
     deployment_pattern_name: (

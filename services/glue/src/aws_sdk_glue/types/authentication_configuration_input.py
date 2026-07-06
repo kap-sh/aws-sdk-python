@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AuthenticationConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.authentication_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.secret_arn
 
 
-class AuthenticationConfigurationInput(TypedDict):
+class AuthenticationConfigurationInput(TypedDict, closed=True):
     authentication_type: NotRequired[
         "aws_sdk_glue.types.authentication_type.AuthenticationType"
     ]

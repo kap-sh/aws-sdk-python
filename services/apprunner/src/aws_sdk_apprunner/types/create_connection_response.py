@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#CreateConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.connection
 
 
-class CreateConnectionResponse(TypedDict):
+class CreateConnectionResponse(TypedDict, closed=True):
     connection: "aws_sdk_apprunner.types.connection.Connection"
     """<p>A description of the App Runner connection that's created by this request.</p>"""
 

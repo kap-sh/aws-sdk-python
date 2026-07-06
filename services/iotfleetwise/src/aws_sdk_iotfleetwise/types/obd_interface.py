@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#ObdInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.obd_standard
 
 
-class ObdInterface(TypedDict):
+class ObdInterface(TypedDict, closed=True):
     name: "aws_sdk_iotfleetwise.types.obd_interface_name.ObdInterfaceName"
     """<p>The name of the interface.</p>"""
     request_message_id: (

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#DescribeClusterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_snowball.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.cluster_id
 
 
-class DescribeClusterRequest(TypedDict):
+class DescribeClusterRequest(TypedDict, closed=True):
     cluster_id: "aws_sdk_snowball.types.cluster_id.ClusterId"
     """<p>The automatically generated ID for a cluster.</p>"""
 

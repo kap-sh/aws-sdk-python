@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#GetObjectTypeAttributeStatisticsPercentiles``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.double
 
 
-class GetObjectTypeAttributeStatisticsPercentiles(TypedDict):
+class GetObjectTypeAttributeStatisticsPercentiles(TypedDict, closed=True):
     p5: "aws_sdk_customer_profiles.types.double.Double"
     """<p>The 5th percentile value of the attribute.</p>"""
     p25: "aws_sdk_customer_profiles.types.double.Double"

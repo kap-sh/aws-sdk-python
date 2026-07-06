@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RetrieveAndGenerateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.retrieve_and_generate_type
 
 
-class RetrieveAndGenerateConfiguration(TypedDict):
+class RetrieveAndGenerateConfiguration(TypedDict, closed=True):
     type: "aws_sdk_bedrock.types.retrieve_and_generate_type.RetrieveAndGenerateType"
     """<p>The type of resource that contains your data for retrieving information and generating responses.</p> <p>If you choose to use <code>EXTERNAL_SOURCES</code>, then currently only Claude 3 Sonnet models for knowledge bases are supported.</p>"""
     knowledge_base_configuration: NotRequired[

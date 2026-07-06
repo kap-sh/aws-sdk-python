@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CustomizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.rft_config
 
 
-class _CustomizationConfig_distillationConfig(TypedDict):
+class _CustomizationConfig_distillationConfig(TypedDict, closed=True):
     distillationConfig: "aws_sdk_bedrock.types.distillation_config.DistillationConfig"
 
 
-class _CustomizationConfig_rftConfig(TypedDict):
+class _CustomizationConfig_rftConfig(TypedDict, closed=True):
     rftConfig: "aws_sdk_bedrock.types.rft_config.RFTConfig"
 
 

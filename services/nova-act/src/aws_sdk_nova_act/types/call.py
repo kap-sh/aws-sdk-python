@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#Call``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.sensitive_document
 
 
-class Call(TypedDict):
+class Call(TypedDict, closed=True):
     call_id: "aws_sdk_nova_act.types.call_id.CallId"
     """<p>A unique identifier for this tool call, used to match results back to requests.</p>"""
     input: "aws_sdk_nova_act.types.sensitive_document.SensitiveDocument"

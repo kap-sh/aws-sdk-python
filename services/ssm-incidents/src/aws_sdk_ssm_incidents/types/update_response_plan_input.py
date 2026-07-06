@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#UpdateResponsePlanInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.tag_map_update
 
 
-class UpdateResponsePlanInput(TypedDict):
+class UpdateResponsePlanInput(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_ssm_incidents.types.client_token.ClientToken"]
     """<p>A token ensuring that the operation is called only once with the specified details.</p>"""
     arn: "aws_sdk_ssm_incidents.types.arn.Arn"

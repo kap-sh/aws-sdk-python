@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#AssociateEnclaveCertificateIamRoleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.role_id
 
 
-class AssociateEnclaveCertificateIamRoleRequest(TypedDict):
+class AssociateEnclaveCertificateIamRoleRequest(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_ec2.types.certificate_id.CertificateId"]
     """<p>The ARN of the ACM certificate with which to associate the IAM role.</p>"""
     role_arn: NotRequired["aws_sdk_ec2.types.role_id.RoleId"]

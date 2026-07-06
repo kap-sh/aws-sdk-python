@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#EmailRecipients``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.recipient_details
 
 
-class EmailRecipients(TypedDict):
+class EmailRecipients(TypedDict, closed=True):
     to: NotRequired["aws_sdk_iot_events.types.recipient_details.RecipientDetails"]
     """<p>Specifies one or more recipients who receive the email.</p>"""
 

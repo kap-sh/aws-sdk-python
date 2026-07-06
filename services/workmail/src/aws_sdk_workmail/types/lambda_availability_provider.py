@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#LambdaAvailabilityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.lambda_arn
 
 
-class LambdaAvailabilityProvider(TypedDict):
+class LambdaAvailabilityProvider(TypedDict, closed=True):
     lambda_arn: "aws_sdk_workmail.types.lambda_arn.LambdaArn"
     """<p>The Amazon Resource Name (ARN) of the Lambda that acts as the availability provider.</p>"""
 

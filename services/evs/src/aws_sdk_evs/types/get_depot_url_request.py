@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.evs#GetDepotUrlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_evs.types.environment_id
 
 
-class GetDepotUrlRequest(TypedDict):
+class GetDepotUrlRequest(TypedDict, closed=True):
     environment_id: "aws_sdk_evs.types.environment_id.EnvironmentId"
     """<p>The unique ID of the Amazon EVS environment to get the depot URL for.</p>"""
     rotate: NotRequired["bool"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SharedColumnSemanticMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.column_semantic_property_list
 
 
-class SharedColumnSemanticMetadata(TypedDict):
+class SharedColumnSemanticMetadata(TypedDict, closed=True):
     column_names: NotRequired[
         "aws_sdk_quicksight.types.column_name_list.ColumnNameList"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DeleteStreamProcessorResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteStreamProcessorResponse(TypedDict):
+class DeleteStreamProcessorResponse(TypedDict, closed=True):
     pass
 
 

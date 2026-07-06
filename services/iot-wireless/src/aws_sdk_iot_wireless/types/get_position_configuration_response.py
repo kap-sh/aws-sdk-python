@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetPositionConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.destination_name
     import aws_sdk_iot_wireless.types.position_solver_details
 
 
-class GetPositionConfigurationResponse(TypedDict):
+class GetPositionConfigurationResponse(TypedDict, closed=True):
     solvers: NotRequired[
         "aws_sdk_iot_wireless.types.position_solver_details.PositionSolverDetails"
     ]

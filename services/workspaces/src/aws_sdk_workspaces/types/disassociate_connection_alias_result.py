@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DisassociateConnectionAliasResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateConnectionAliasResult(TypedDict):
+class DisassociateConnectionAliasResult(TypedDict, closed=True):
     pass
 
 

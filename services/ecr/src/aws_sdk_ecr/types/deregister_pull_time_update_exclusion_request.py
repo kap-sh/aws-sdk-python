@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DeregisterPullTimeUpdateExclusionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.principal_arn
 
 
-class DeregisterPullTimeUpdateExclusionRequest(TypedDict):
+class DeregisterPullTimeUpdateExclusionRequest(TypedDict, closed=True):
     principal_arn: "aws_sdk_ecr.types.principal_arn.PrincipalArn"
     """<p>The ARN of the IAM principal to remove from the pull time update exclusion list.</p>"""
 

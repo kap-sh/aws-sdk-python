@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.serverlessapplicationrepository#RollbackConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_serverlessapplicationrepository.types.__integer
     import aws_sdk_serverlessapplicationrepository.types.__list_of_rollback_trigger
 
 
-class RollbackConfiguration(TypedDict):
+class RollbackConfiguration(TypedDict, closed=True):
     monitoring_time_in_minutes: NotRequired[
         "aws_sdk_serverlessapplicationrepository.types.__integer.__integer"
     ]

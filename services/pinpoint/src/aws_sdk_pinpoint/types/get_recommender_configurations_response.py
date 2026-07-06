@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#GetRecommenderConfigurationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.list_recommender_configurations_response
 
 
-class GetRecommenderConfigurationsResponse(TypedDict):
+class GetRecommenderConfigurationsResponse(TypedDict, closed=True):
     list_recommender_configurations_response: NotRequired[
         "aws_sdk_pinpoint.types.list_recommender_configurations_response.ListRecommenderConfigurationsResponse"
     ]

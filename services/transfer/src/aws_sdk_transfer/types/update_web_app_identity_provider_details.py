@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#UpdateWebAppIdentityProviderDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.update_web_app_identity_center_config
 
 
-class _UpdateWebAppIdentityProviderDetails_IdentityCenterConfig(TypedDict):
+class _UpdateWebAppIdentityProviderDetails_IdentityCenterConfig(TypedDict, closed=True):
     IdentityCenterConfig: "aws_sdk_transfer.types.update_web_app_identity_center_config.UpdateWebAppIdentityCenterConfig"
 
 

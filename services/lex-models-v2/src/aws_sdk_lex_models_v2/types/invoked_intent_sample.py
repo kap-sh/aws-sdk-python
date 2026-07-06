@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#InvokedIntentSample``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.name
 
 
-class InvokedIntentSample(TypedDict):
+class InvokedIntentSample(TypedDict, closed=True):
     intent_name: NotRequired["aws_sdk_lex_models_v2.types.name.Name"]
     """<p>The name of an intent that was invoked.</p>"""
 

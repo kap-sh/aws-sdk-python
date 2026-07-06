@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#DeleteIngressPointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ingress_point_id
 
 
-class DeleteIngressPointRequest(TypedDict):
+class DeleteIngressPointRequest(TypedDict, closed=True):
     ingress_point_id: "aws_sdk_mailmanager.types.ingress_point_id.IngressPointId"
     """<p>The identifier of the ingress endpoint resource that you want to delete.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#FlywheelModelEvaluationMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.double
 
 
-class FlywheelModelEvaluationMetrics(TypedDict):
+class FlywheelModelEvaluationMetrics(TypedDict, closed=True):
     average_f1_score: NotRequired["aws_sdk_comprehend.types.double.Double"]
     """<p>The average F1 score from the evaluation metrics.</p>"""
     average_precision: NotRequired["aws_sdk_comprehend.types.double.Double"]

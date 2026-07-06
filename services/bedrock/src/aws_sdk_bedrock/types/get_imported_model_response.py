@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetImportedModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_units
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class GetImportedModelResponse(TypedDict):
+class GetImportedModelResponse(TypedDict, closed=True):
     model_arn: NotRequired["aws_sdk_bedrock.types.imported_model_arn.ImportedModelArn"]
     """<p>The Amazon Resource Name (ARN) associated with this imported model.</p>"""
     model_name: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateKeyRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.failed_key_registration_entries
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.successful_key_registration_entries
 
 
-class UpdateKeyRegistrationResponse(TypedDict):
+class UpdateKeyRegistrationResponse(TypedDict, closed=True):
     failed_key_registration: NotRequired[
         "aws_sdk_quicksight.types.failed_key_registration_entries.FailedKeyRegistrationEntries"
     ]

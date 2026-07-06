@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#EvaluationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.resource_count
 
 
-class EvaluationResult(TypedDict):
+class EvaluationResult(TypedDict, closed=True):
     compliance_status: NotRequired[
         "aws_sdk_fms.types.policy_compliance_status_type.PolicyComplianceStatusType"
     ]

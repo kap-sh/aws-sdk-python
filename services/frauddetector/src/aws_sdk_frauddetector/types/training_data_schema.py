@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#TrainingDataSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_frauddetector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.list_of_strings
 
 
-class TrainingDataSchema(TypedDict):
+class TrainingDataSchema(TypedDict, closed=True):
     model_variables: "aws_sdk_frauddetector.types.list_of_strings.ListOfStrings"
     """<p>The training data schema variables.</p>"""
     label_schema: NotRequired["aws_sdk_frauddetector.types.label_schema.LabelSchema"]

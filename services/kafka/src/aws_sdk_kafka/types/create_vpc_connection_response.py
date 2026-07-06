@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#CreateVpcConnectionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__list_of__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafka.types.vpc_connection_state
 
 
-class CreateVpcConnectionResponse(TypedDict):
+class CreateVpcConnectionResponse(TypedDict, closed=True):
     vpc_connection_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The VPC connection ARN.</p>"""
     state: NotRequired["aws_sdk_kafka.types.vpc_connection_state.VpcConnectionState"]

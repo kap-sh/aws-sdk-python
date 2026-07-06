@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DevEndpointCustomLibraries``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
 
 
-class DevEndpointCustomLibraries(TypedDict):
+class DevEndpointCustomLibraries(TypedDict, closed=True):
     extra_python_libs_s3_path: NotRequired[
         "aws_sdk_glue.types.generic_string.GenericString"
     ]

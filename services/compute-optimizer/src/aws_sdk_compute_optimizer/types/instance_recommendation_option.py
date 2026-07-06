@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#InstanceRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.gpu_info
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class InstanceRecommendationOption(TypedDict):
+class InstanceRecommendationOption(TypedDict, closed=True):
     instance_type: NotRequired[
         "aws_sdk_compute_optimizer.types.instance_type.InstanceType"
     ]

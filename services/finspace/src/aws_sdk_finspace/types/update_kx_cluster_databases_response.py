@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxClusterDatabasesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateKxClusterDatabasesResponse(TypedDict):
+class UpdateKxClusterDatabasesResponse(TypedDict, closed=True):
     pass
 
 

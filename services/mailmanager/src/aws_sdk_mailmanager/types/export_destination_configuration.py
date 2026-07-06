@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#ExportDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.s3_export_destination_configuration
 
 
-class _ExportDestinationConfiguration_S3(TypedDict):
+class _ExportDestinationConfiguration_S3(TypedDict, closed=True):
     S3: "aws_sdk_mailmanager.types.s3_export_destination_configuration.S3ExportDestinationConfiguration"
 
 

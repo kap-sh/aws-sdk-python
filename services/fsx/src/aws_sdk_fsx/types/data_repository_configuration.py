@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DataRepositoryConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.archive_path
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.megabytes
 
 
-class DataRepositoryConfiguration(TypedDict):
+class DataRepositoryConfiguration(TypedDict, closed=True):
     lifecycle: NotRequired[
         "aws_sdk_fsx.types.data_repository_lifecycle.DataRepositoryLifecycle"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MlflowDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mlflow_experiment_id
     import aws_sdk_sagemaker.types.mlflow_run_id
 
 
-class MlflowDetails(TypedDict):
+class MlflowDetails(TypedDict, closed=True):
     mlflow_experiment_id: NotRequired[
         "aws_sdk_sagemaker.types.mlflow_experiment_id.MlflowExperimentId"
     ]

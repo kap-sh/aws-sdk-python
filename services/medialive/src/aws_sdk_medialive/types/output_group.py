@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#OutputGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_output
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.output_group_settings
 
 
-class OutputGroup(TypedDict):
+class OutputGroup(TypedDict, closed=True):
     name: NotRequired["aws_sdk_medialive.types.__string_max32.__stringMax32"]
     """Custom output group name optionally defined by the user."""
     output_group_settings: NotRequired[

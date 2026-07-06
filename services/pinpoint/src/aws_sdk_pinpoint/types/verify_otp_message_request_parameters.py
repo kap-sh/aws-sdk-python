@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#VerifyOTPMessageRequestParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class VerifyOTPMessageRequestParameters(TypedDict):
+class VerifyOTPMessageRequestParameters(TypedDict, closed=True):
     destination_identity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The destination identity to send OTP to.</p>"""
     otp: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

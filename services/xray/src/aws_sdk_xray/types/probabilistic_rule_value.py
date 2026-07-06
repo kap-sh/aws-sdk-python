@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ProbabilisticRuleValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_double
 
 
-class ProbabilisticRuleValue(TypedDict):
+class ProbabilisticRuleValue(TypedDict, closed=True):
     desired_sampling_percentage: "aws_sdk_xray.types.nullable_double.NullableDouble"
     """<p> Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data. </p>"""
     actual_sampling_percentage: NotRequired[

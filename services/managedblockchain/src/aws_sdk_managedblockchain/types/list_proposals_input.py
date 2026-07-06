@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#ListProposalsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.pagination_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.resource_id_string
 
 
-class ListProposalsInput(TypedDict):
+class ListProposalsInput(TypedDict, closed=True):
     network_id: "aws_sdk_managedblockchain.types.resource_id_string.ResourceIdString"
     """<p> The unique identifier of the network. </p>"""
     max_results: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ConnectorDefinitionVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__list_of_connector
 
 
-class ConnectorDefinitionVersion(TypedDict):
+class ConnectorDefinitionVersion(TypedDict, closed=True):
     connectors: NotRequired[
         "aws_sdk_greengrass.types.__list_of_connector.__listOfConnector"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListSupportedInstanceTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.string
 
 
-class ListSupportedInstanceTypesInput(TypedDict):
+class ListSupportedInstanceTypesInput(TypedDict, closed=True):
     release_label: NotRequired["aws_sdk_emr.types.string.String"]
     r"""<p>The Amazon EMR release label determines the <a href=\"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-app-versions-6.x.html\">versions of open-source application packages</a> that Amazon EMR has installed on the cluster. Release labels are in the format <code>emr-x.x.x</code>, where x.x.x is an Amazon EMR release number such as <code>emr-6.10.0</code>. For more information about Amazon EMR releases and their included application versions and features, see the <i> <a href=\"https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html\">Amazon EMR Release Guide</a> </i>.</p>"""
     marker: NotRequired["aws_sdk_emr.types.string.String"]

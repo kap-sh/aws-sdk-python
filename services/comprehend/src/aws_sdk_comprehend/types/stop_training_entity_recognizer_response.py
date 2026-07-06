@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#StopTrainingEntityRecognizerResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopTrainingEntityRecognizerResponse(TypedDict):
+class StopTrainingEntityRecognizerResponse(TypedDict, closed=True):
     pass
 
 

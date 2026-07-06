@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_pool_tags_type
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_cognito_identity.types.arn_string.ARNString"
     """<p>The Amazon Resource Name (ARN) of the identity pool.</p>"""
     tags: "aws_sdk_cognito_identity.types.identity_pool_tags_type.IdentityPoolTagsType"

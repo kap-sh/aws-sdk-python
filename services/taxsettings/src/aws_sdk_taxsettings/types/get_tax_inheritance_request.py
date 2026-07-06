@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#GetTaxInheritanceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetTaxInheritanceRequest(TypedDict):
+class GetTaxInheritanceRequest(TypedDict, closed=True):
     pass
 
 

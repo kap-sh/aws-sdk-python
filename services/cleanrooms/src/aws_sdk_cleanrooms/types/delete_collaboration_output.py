@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DeleteCollaborationOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCollaborationOutput(TypedDict):
+class DeleteCollaborationOutput(TypedDict, closed=True):
     pass
 
 

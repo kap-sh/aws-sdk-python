@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#GetDomainVerificationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.domain_verification_identifier
 
 
-class GetDomainVerificationRequest(TypedDict):
+class GetDomainVerificationRequest(TypedDict, closed=True):
     domain_verification_identifier: "aws_sdk_vpc_lattice.types.domain_verification_identifier.DomainVerificationIdentifier"
     """<p> The ID or ARN of the domain verification to retrieve. </p>"""
 

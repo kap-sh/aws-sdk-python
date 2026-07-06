@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#ProtectedJobSingleMemberOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.account_id
 
 
-class ProtectedJobSingleMemberOutput(TypedDict):
+class ProtectedJobSingleMemberOutput(TypedDict, closed=True):
     account_id: "aws_sdk_cleanrooms.types.account_id.AccountId"
     """<p>The Amazon Web Services account ID of the member in the collaboration who can receive results from analyses.</p>"""
 

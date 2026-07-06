@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#Adapter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.adapter_version
 
 
-class Adapter(TypedDict):
+class Adapter(TypedDict, closed=True):
     adapter_id: "aws_sdk_textract.types.adapter_id.AdapterId"
     """<p>A unique identifier for the adapter resource.</p>"""
     pages: NotRequired["aws_sdk_textract.types.adapter_pages.AdapterPages"]

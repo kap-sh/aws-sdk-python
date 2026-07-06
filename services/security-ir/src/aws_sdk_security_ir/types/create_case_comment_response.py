@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#CreateCaseCommentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.comment_id
 
 
-class CreateCaseCommentResponse(TypedDict):
+class CreateCaseCommentResponse(TypedDict, closed=True):
     comment_id: "aws_sdk_security_ir.types.comment_id.CommentId"
     """<p>Response element indicating the new comment ID.</p>"""
 

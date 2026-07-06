@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#BaseException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.error_message
 
 
-class BaseException_(TypedDict):
+class BaseException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_elasticsearch_service.types.error_message.ErrorMessage"
     ]

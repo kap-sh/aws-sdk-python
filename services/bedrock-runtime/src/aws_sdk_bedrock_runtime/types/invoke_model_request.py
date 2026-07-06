@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InvokeModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.body
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.trace
 
 
-class InvokeModelRequest(TypedDict):
+class InvokeModelRequest(TypedDict, closed=True):
     body: NotRequired["aws_sdk_bedrock_runtime.types.body.Body"]
     r"""<p>The prompt and inference parameters in the format specified in the <code>contentType</code> in the header. You must provide the body in JSON format. To see the format and content of the request and response bodies for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>. For more information, see <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/api-methods-run.html\">Run inference</a> in the Bedrock User Guide.</p>"""
     content_type: NotRequired["aws_sdk_bedrock_runtime.types.mime_type.MimeType"]

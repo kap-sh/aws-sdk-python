@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#ListCustomLineItemFlatChargeDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.custom_line_item_charge_value
 
 
-class ListCustomLineItemFlatChargeDetails(TypedDict):
+class ListCustomLineItemFlatChargeDetails(TypedDict, closed=True):
     charge_value: "aws_sdk_billingconductor.types.custom_line_item_charge_value.CustomLineItemChargeValue"
     """<p> The custom line item's fixed charge value in USD. </p>"""
 

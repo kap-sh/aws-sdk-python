@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#CreateProtectConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.client_token
     import aws_sdk_pinpoint_sms_voice_v2.types.tag_list
 
 
-class CreateProtectConfigurationRequest(TypedDict):
+class CreateProtectConfigurationRequest(TypedDict, closed=True):
     client_token: NotRequired[
         "aws_sdk_pinpoint_sms_voice_v2.types.client_token.ClientToken"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#Principal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.read_access_type
 
 
-class Principal(TypedDict):
+class Principal(TypedDict, closed=True):
     name: "aws_sdk_kendra.types.principal_name.PrincipalName"
     """<p>The name of the user or group.</p>"""
     type: "aws_sdk_kendra.types.principal_type.PrincipalType"

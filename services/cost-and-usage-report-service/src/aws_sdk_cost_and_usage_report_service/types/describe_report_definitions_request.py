@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#DescribeReportDefinitionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.generic_string
     import aws_sdk_cost_and_usage_report_service.types.max_results
 
 
-class DescribeReportDefinitionsRequest(TypedDict):
+class DescribeReportDefinitionsRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_cost_and_usage_report_service.types.max_results.MaxResults"
     ]

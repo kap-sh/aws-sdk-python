@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#ListQueuedMessagesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_device_type
 
 
-class ListQueuedMessagesRequest(TypedDict):
+class ListQueuedMessagesRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.wireless_device_id.WirelessDeviceId"
     """<p>The ID of a given wireless device which the downlink message packets are being sent.</p>"""
     next_token: NotRequired["aws_sdk_iot_wireless.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#PluginSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.ip_address
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.plugin_version
 
 
-class PluginSummary(TypedDict):
+class PluginSummary(TypedDict, closed=True):
     plugin_id: NotRequired["aws_sdk_migrationhuborchestrator.types.plugin_id.PluginId"]
     """<p>The ID of the plugin.</p>"""
     hostname: NotRequired["str"]

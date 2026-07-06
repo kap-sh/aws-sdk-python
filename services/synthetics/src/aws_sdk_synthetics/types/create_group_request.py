@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#CreateGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_synthetics.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_synthetics.types.tag_map
 
 
-class CreateGroupRequest(TypedDict):
+class CreateGroupRequest(TypedDict, closed=True):
     name: "aws_sdk_synthetics.types.group_name.GroupName"
     """<p>The name for the group. It can include any Unicode characters.</p> <p>The names for all groups in your account, across all Regions, must be unique.</p>"""
     tags: NotRequired["aws_sdk_synthetics.types.tag_map.TagMap"]

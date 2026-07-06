@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#TGWOnDeviceServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.storage_limit
     import aws_sdk_snowball.types.storage_unit
 
 
-class TGWOnDeviceServiceConfiguration(TypedDict):
+class TGWOnDeviceServiceConfiguration(TypedDict, closed=True):
     storage_limit: "aws_sdk_snowball.types.storage_limit.StorageLimit"
     """<p>The maximum number of virtual tapes to store on one Snow Family device. Due to physical resource limitations, this value must be set to 80 for Snowball Edge.</p>"""
     storage_unit: NotRequired["aws_sdk_snowball.types.storage_unit.StorageUnit"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateStandardsControlRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.control_status
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class UpdateStandardsControlRequest(TypedDict):
+class UpdateStandardsControlRequest(TypedDict, closed=True):
     standards_control_arn: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The ARN of the security standard control to enable or disable.</p>"""
     control_status: NotRequired[

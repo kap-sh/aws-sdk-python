@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentReportConfigurationOutputs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.experiment_report_configuration_outputs_s3_configuration
 
 
-class ExperimentReportConfigurationOutputs(TypedDict):
+class ExperimentReportConfigurationOutputs(TypedDict, closed=True):
     s3_configuration: NotRequired[
         "aws_sdk_fis.types.experiment_report_configuration_outputs_s3_configuration.ExperimentReportConfigurationOutputsS3Configuration"
     ]

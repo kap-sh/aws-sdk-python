@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ExecutionContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.context_type
 
 
-class ExecutionContext(TypedDict):
+class ExecutionContext(TypedDict, closed=True):
     context_type: NotRequired["aws_sdk_securityagent.types.context_type.ContextType"]
     """<p>The type of context. Valid values include ERROR, CLIENT_ERROR, WARNING, and INFO.</p>"""
     context: NotRequired["str"]

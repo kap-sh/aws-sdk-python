@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#PutObjectAclRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.request_payer
 
 
-class PutObjectAclRequest(TypedDict):
+class PutObjectAclRequest(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_s3.types.object_canned_acl.ObjectCannedACL"]
     r"""<p>The canned ACL to apply to the object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL\">Canned ACL</a>.</p>"""
     access_control_policy: NotRequired[

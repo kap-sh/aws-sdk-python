@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#AbpV1_1``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.dev_addr
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.session_keys_abp_v1_1
 
 
-class AbpV1_1(TypedDict):
+class AbpV1_1(TypedDict, closed=True):
     dev_addr: NotRequired["aws_sdk_iot_wireless.types.dev_addr.DevAddr"]
     """<p>The DevAddr value.</p>"""
     session_keys: NotRequired[

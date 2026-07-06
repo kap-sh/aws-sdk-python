@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CisDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
 
 
-class CisDateFilter(TypedDict):
+class CisDateFilter(TypedDict, closed=True):
     earliest_scan_start_time: NotRequired["datetime.datetime"]
     """<p>The CIS date filter's earliest scan start time.</p>"""
     latest_scan_start_time: NotRequired["datetime.datetime"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ServiceUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError, ServiceError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.error_message
 
 
-class ServiceUnavailableException_(TypedDict):
+class ServiceUnavailableException_(TypedDict, closed=True):
     message: "aws_sdk_iotsitewise.types.error_message.ErrorMessage"
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetLoadBalancerResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.load_balancer
 
 
-class GetLoadBalancerResult(TypedDict):
+class GetLoadBalancerResult(TypedDict, closed=True):
     load_balancer: NotRequired["aws_sdk_lightsail.types.load_balancer.LoadBalancer"]
     """<p>An object containing information about your load balancer.</p>"""
 

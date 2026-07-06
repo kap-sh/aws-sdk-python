@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#ExecutionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.accounts_cleanup
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.video_capture
 
 
-class ExecutionConfiguration(TypedDict):
+class ExecutionConfiguration(TypedDict, closed=True):
     job_timeout_minutes: NotRequired[
         "aws_sdk_device_farm.types.job_timeout_minutes.JobTimeoutMinutes"
     ]

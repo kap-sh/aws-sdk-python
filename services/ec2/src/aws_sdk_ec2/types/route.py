@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#Route``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class Route(TypedDict):
+class Route(TypedDict, closed=True):
     destination_cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The IPv4 CIDR block used for the destination match.</p>"""
     destination_ipv6_cidr_block: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#TooManyTagsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mpa.errors import DeserializationError, ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class TooManyTagsException_(TypedDict):
+class TooManyTagsException_(TypedDict, closed=True):
     message: "aws_sdk_mpa.types.string.String"
     """<p>Message for the <code>TooManyTagsException</code> error.</p>"""
     resource_name: NotRequired["aws_sdk_mpa.types.string.String"]

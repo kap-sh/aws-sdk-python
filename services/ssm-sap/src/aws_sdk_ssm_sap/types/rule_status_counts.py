@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#RuleStatusCounts``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class RuleStatusCounts(TypedDict):
+class RuleStatusCounts(TypedDict, closed=True):
     failed: NotRequired["int"]
     """<p>The number of rules that failed.</p>"""
     warning: NotRequired["int"]

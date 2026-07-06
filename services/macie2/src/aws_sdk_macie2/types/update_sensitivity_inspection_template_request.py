@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateSensitivityInspectionTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.sensitivity_inspection_template_includes
 
 
-class UpdateSensitivityInspectionTemplateRequest(TypedDict):
+class UpdateSensitivityInspectionTemplateRequest(TypedDict, closed=True):
     description: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>A custom description of the template. The description can contain as many as 200 characters.</p>"""
     excludes: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#SyncState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.attachment
     import aws_sdk_network_firewall.types.sync_state_config
 
 
-class SyncState(TypedDict):
+class SyncState(TypedDict, closed=True):
     attachment: NotRequired["aws_sdk_network_firewall.types.attachment.Attachment"]
     """<p>The configuration and status for a single firewall subnet. For each configured subnet, Network Firewall creates the attachment by instantiating the firewall endpoint in the subnet so that it's ready to take traffic. </p>"""
     config: NotRequired[

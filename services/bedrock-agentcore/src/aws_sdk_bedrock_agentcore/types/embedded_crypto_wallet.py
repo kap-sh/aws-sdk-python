@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EmbeddedCryptoWallet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.linked_account_list
 
 
-class EmbeddedCryptoWallet(TypedDict):
+class EmbeddedCryptoWallet(TypedDict, closed=True):
     network: "aws_sdk_bedrock_agentcore.types.crypto_wallet_network.CryptoWalletNetwork"
     """<p>The blockchain network for this embedded crypto wallet. Supported networks: ETHEREUM, SOLANA.</p>"""
     linked_accounts: (

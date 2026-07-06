@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#FilterCriterion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.value_list
 
 
-class FilterCriterion(TypedDict):
+class FilterCriterion(TypedDict, closed=True):
     path: "str"
     """<p>The path to filter.</p>"""
     values: "aws_sdk_rtbfabric.types.value_list.ValueList"

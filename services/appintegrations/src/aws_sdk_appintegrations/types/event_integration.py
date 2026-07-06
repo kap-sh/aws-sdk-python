@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#EventIntegration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.tag_map
 
 
-class EventIntegration(TypedDict):
+class EventIntegration(TypedDict, closed=True):
     event_integration_arn: NotRequired["aws_sdk_appintegrations.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the event integration.</p>"""
     name: NotRequired["aws_sdk_appintegrations.types.name.Name"]

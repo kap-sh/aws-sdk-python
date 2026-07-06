@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12ValidationRule``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError, SerializationError
 
@@ -10,17 +12,17 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_element_requirement_validation_rule
 
 
-class _X12ValidationRule_codeListValidationRule(TypedDict):
+class _X12ValidationRule_codeListValidationRule(TypedDict, closed=True):
     codeListValidationRule: (
         "aws_sdk_b2bi.types.x12_code_list_validation_rule.X12CodeListValidationRule"
     )
 
 
-class _X12ValidationRule_elementLengthValidationRule(TypedDict):
+class _X12ValidationRule_elementLengthValidationRule(TypedDict, closed=True):
     elementLengthValidationRule: "aws_sdk_b2bi.types.x12_element_length_validation_rule.X12ElementLengthValidationRule"
 
 
-class _X12ValidationRule_elementRequirementValidationRule(TypedDict):
+class _X12ValidationRule_elementRequirementValidationRule(TypedDict, closed=True):
     elementRequirementValidationRule: "aws_sdk_b2bi.types.x12_element_requirement_validation_rule.X12ElementRequirementValidationRule"
 
 

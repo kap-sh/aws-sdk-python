@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListLoaderJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.positive_integer
 
 
-class ListLoaderJobsInput(TypedDict):
+class ListLoaderJobsInput(TypedDict, closed=True):
     limit: NotRequired["aws_sdk_neptunedata.types.positive_integer.PositiveInteger"]
     """<p>The number of load IDs to list. Must be a positive integer greater than zero and not more than <code>100</code> (which is the default).</p>"""
     include_queued_loads: NotRequired["bool"]

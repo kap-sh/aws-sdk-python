@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#RdsCustomClusterConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class RdsCustomClusterConfiguration(TypedDict):
+class RdsCustomClusterConfiguration(TypedDict, closed=True):
     interconnect_subnet_id: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>Reserved for future use.</p>"""
     transit_gateway_multicast_domain_id: NotRequired["aws_sdk_rds.types.string.String"]

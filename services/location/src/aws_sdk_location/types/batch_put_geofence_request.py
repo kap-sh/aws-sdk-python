@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#BatchPutGeofenceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.resource_name
 
 
-class BatchPutGeofenceRequest(TypedDict):
+class BatchPutGeofenceRequest(TypedDict, closed=True):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The geofence collection storing the geofences.</p>"""
     entries: "aws_sdk_location.types.batch_put_geofence_request_entry_list.BatchPutGeofenceRequestEntryList"

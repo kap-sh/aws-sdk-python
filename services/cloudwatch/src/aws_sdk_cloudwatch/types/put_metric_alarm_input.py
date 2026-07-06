@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutMetricAlarmInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.treat_missing_data
 
 
-class PutMetricAlarmInput(TypedDict):
+class PutMetricAlarmInput(TypedDict, closed=True):
     alarm_name: NotRequired["aws_sdk_cloudwatch.types.alarm_name.AlarmName"]
     """<p>The name for the alarm. This name must be unique within the Region.</p> <p>The name must contain only UTF-8 characters, and can't contain ASCII control characters</p>"""
     alarm_description: NotRequired[

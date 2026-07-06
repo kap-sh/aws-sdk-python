@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#CopySnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.snapshot
 
 
-class CopySnapshotResponse(TypedDict):
+class CopySnapshotResponse(TypedDict, closed=True):
     snapshot: NotRequired["aws_sdk_memorydb.types.snapshot.Snapshot"]
     """<p>Represents a copy of an entire cluster as of the time when the snapshot was taken.</p>"""
 

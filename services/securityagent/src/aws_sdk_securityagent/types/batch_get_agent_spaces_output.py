@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetAgentSpacesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityagent.types.agent_space_id_list
     import aws_sdk_securityagent.types.agent_space_list
 
 
-class BatchGetAgentSpacesOutput(TypedDict):
+class BatchGetAgentSpacesOutput(TypedDict, closed=True):
     agent_spaces: NotRequired[
         "aws_sdk_securityagent.types.agent_space_list.AgentSpaceList"
     ]

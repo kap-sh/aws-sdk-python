@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#EntryDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.entry_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.network_acl_entry
 
 
-class EntryDescription(TypedDict):
+class EntryDescription(TypedDict, closed=True):
     entry_detail: NotRequired["aws_sdk_fms.types.network_acl_entry.NetworkAclEntry"]
     """<p>Describes a rule in a network ACL.</p> <p>Each network ACL has a set of numbered ingress rules and a separate set of numbered egress rules. When determining whether a packet should be allowed in or out of a subnet associated with the network ACL, Amazon Web Services processes the entries in the network ACL according to the rule numbers, in ascending order. </p> <p>When you manage an individual network ACL, you explicitly specify the rule numbers. When you specify the network ACL rules in a Firewall Manager policy, you provide the rules to run first, in the order that you want them to run, and the rules to run last, in the order that you want them to run. Firewall Manager assigns the rule numbers for you when you save the network ACL policy specification.</p>"""
     entry_rule_number: "aws_sdk_fms.types.integer_object_minimum0.IntegerObjectMinimum0"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#UserStorageMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.size_type
     import aws_sdk_workdocs.types.storage_rule_type
 
 
-class UserStorageMetadata(TypedDict):
+class UserStorageMetadata(TypedDict, closed=True):
     storage_utilized_in_bytes: NotRequired["aws_sdk_workdocs.types.size_type.SizeType"]
     """<p>The amount of storage used, in bytes.</p>"""
     storage_rule: NotRequired[

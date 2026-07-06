@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DisassociateFromAdministratorAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.detector_id
 
 
-class DisassociateFromAdministratorAccountRequest(TypedDict):
+class DisassociateFromAdministratorAccountRequest(TypedDict, closed=True):
     detector_id: "aws_sdk_guardduty.types.detector_id.DetectorId"
     """<p>The unique ID of the detector of the GuardDuty member account.</p>"""
 

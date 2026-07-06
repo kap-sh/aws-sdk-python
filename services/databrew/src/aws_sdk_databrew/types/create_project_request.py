@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#CreateProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.tag_map
 
 
-class CreateProjectRequest(TypedDict):
+class CreateProjectRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_databrew.types.dataset_name.DatasetName"
     """<p>The name of an existing dataset to associate this project with.</p>"""
     name: "aws_sdk_databrew.types.project_name.ProjectName"

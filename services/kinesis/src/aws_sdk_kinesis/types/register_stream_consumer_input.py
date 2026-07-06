@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#RegisterStreamConsumerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.tag_map
 
 
-class RegisterStreamConsumerInput(TypedDict):
+class RegisterStreamConsumerInput(TypedDict, closed=True):
     stream_arn: "aws_sdk_kinesis.types.stream_arn.StreamARN"
     r"""<p>The ARN of the Kinesis data stream that you want to register the consumer with. For more info, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>"""
     consumer_name: "aws_sdk_kinesis.types.consumer_name.ConsumerName"

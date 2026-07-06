@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.simpledbv2#ListExportsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_simpledbv2.types.domain_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_simpledbv2.types.next_token
 
 
-class ListExportsRequest(TypedDict):
+class ListExportsRequest(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_simpledbv2.types.domain_name.DomainName"]
     """The name of the domain to filter exports. If not provided, exports for all the domains will be listed."""
     max_results: NotRequired["aws_sdk_simpledbv2.types.max_results.MaxResults"]

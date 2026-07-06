@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chime#RedactRoomMessageResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RedactRoomMessageResponse(TypedDict):
+class RedactRoomMessageResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#OperationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.app_runner_resource_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.uuid
 
 
-class OperationSummary(TypedDict):
+class OperationSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_apprunner.types.uuid.UUID"]
     """<p>A unique ID of this operation. It's unique in the scope of the App Runner service.</p>"""
     type: NotRequired["aws_sdk_apprunner.types.operation_type.OperationType"]

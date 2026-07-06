@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#KubernetesAuditLogsConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.data_source_status
 
 
-class KubernetesAuditLogsConfigurationResult(TypedDict):
+class KubernetesAuditLogsConfigurationResult(TypedDict, closed=True):
     status: NotRequired["aws_sdk_guardduty.types.data_source_status.DataSourceStatus"]
     """<p>A value that describes whether Kubernetes audit logs are enabled as a data source.</p>"""
 

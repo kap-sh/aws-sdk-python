@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CreatePlatformEndpointInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class CreatePlatformEndpointInput(TypedDict):
+class CreatePlatformEndpointInput(TypedDict, closed=True):
     platform_application_arn: "aws_sdk_sns.types.string.String"
     """<p> <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>"""
     token: "aws_sdk_sns.types.string.String"

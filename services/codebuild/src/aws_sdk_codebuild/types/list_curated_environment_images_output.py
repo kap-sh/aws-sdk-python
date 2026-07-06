@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#ListCuratedEnvironmentImagesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.environment_platforms
 
 
-class ListCuratedEnvironmentImagesOutput(TypedDict):
+class ListCuratedEnvironmentImagesOutput(TypedDict, closed=True):
     platforms: NotRequired[
         "aws_sdk_codebuild.types.environment_platforms.EnvironmentPlatforms"
     ]

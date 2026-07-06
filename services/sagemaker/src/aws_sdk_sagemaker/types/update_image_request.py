@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.image_delete_property_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.role_arn
 
 
-class UpdateImageRequest(TypedDict):
+class UpdateImageRequest(TypedDict, closed=True):
     delete_properties: NotRequired[
         "aws_sdk_sagemaker.types.image_delete_property_list.ImageDeletePropertyList"
     ]

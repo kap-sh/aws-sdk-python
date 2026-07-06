@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#SynthesizeSpeechOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.audio_stream
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.request_characters
 
 
-class SynthesizeSpeechOutput(TypedDict):
+class SynthesizeSpeechOutput(TypedDict, closed=True):
     audio_stream: "aws_sdk_polly.types.audio_stream.AudioStream"
     """<p> Stream containing the synthesized speech. </p>"""
     content_type: NotRequired["aws_sdk_polly.types.content_type.ContentType"]

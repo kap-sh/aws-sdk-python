@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ChangeResourceRecordSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.change_info
 
 
-class ChangeResourceRecordSetsResponse(TypedDict):
+class ChangeResourceRecordSetsResponse(TypedDict, closed=True):
     change_info: "aws_sdk_route_53.types.change_info.ChangeInfo"
     r"""<p>A complex type that contains information about changes made to your hosted zone.</p> <p>This element contains an ID that you use when performing a <a href=\"https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html\">GetChange</a> action to get detailed information about the change.</p>"""
 

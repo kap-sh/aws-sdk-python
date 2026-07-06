@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#CreateParticipantTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.participant_token
 
 
-class CreateParticipantTokenResponse(TypedDict):
+class CreateParticipantTokenResponse(TypedDict, closed=True):
     participant_token: NotRequired[
         "aws_sdk_ivs_realtime.types.participant_token.ParticipantToken"
     ]

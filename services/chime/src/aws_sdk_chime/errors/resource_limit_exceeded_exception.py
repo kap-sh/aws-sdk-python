@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chime#ResourceLimitExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime.types.string
 
 
-class ResourceLimitExceededException_(TypedDict):
+class ResourceLimitExceededException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_chime.types.error_code.ErrorCode"]
     message: NotRequired["aws_sdk_chime.types.string.String"]
 

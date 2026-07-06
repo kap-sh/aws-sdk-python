@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billing#DimensionValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billing.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billing.types.values
 
 
-class DimensionValues(TypedDict):
+class DimensionValues(TypedDict, closed=True):
     key: "aws_sdk_billing.types.dimension.Dimension"
     """<p> The names of the metadata types that you can use to filter and group your results. </p>"""
     values: "aws_sdk_billing.types.values.Values"

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListAutomaticTapeCreationPoliciesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.automatic_tape_creation_policy_infos
 
 
-class ListAutomaticTapeCreationPoliciesOutput(TypedDict):
+class ListAutomaticTapeCreationPoliciesOutput(TypedDict, closed=True):
     automatic_tape_creation_policy_infos: NotRequired[
         "aws_sdk_storage_gateway.types.automatic_tape_creation_policy_infos.AutomaticTapeCreationPolicyInfos"
     ]

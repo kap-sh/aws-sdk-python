@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateMatchmakingRuleSetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.matchmaking_id_string_model
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.tag_list
 
 
-class CreateMatchmakingRuleSetInput(TypedDict):
+class CreateMatchmakingRuleSetInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_id_string_model.MatchmakingIdStringModel"
     ]

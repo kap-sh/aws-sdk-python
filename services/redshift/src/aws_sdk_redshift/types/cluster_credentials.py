@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ClusterCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.t_stamp
 
 
-class ClusterCredentials(TypedDict):
+class ClusterCredentials(TypedDict, closed=True):
     db_user: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>A database user name that is authorized to log on to the database <code>DbName</code> using the password <code>DbPassword</code>. If the specified DbUser exists in the database, the new user name has the same database permissions as the the user named in DbUser. By default, the user is added to PUBLIC. If the <code>DbGroups</code> parameter is specifed, <code>DbUser</code> is added to the listed groups for any sessions created using these credentials.</p>"""
     db_password: NotRequired["aws_sdk_redshift.types.sensitive_string.SensitiveString"]

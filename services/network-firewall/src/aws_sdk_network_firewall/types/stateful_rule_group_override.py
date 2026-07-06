@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#StatefulRuleGroupOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.override_action
 
 
-class StatefulRuleGroupOverride(TypedDict):
+class StatefulRuleGroupOverride(TypedDict, closed=True):
     action: NotRequired["aws_sdk_network_firewall.types.override_action.OverrideAction"]
     """<p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#HealthCheckConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.boolean
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.unhealthy_threshold_count
 
 
-class HealthCheckConfig(TypedDict):
+class HealthCheckConfig(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_vpc_lattice.types.boolean.Boolean"]
     """<p>Indicates whether health checking is enabled.</p>"""
     protocol: NotRequired[

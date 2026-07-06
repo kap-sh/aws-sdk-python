@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteInferenceComponentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.inference_component_name
 
 
-class DeleteInferenceComponentInput(TypedDict):
+class DeleteInferenceComponentInput(TypedDict, closed=True):
     inference_component_name: NotRequired[
         "aws_sdk_sagemaker.types.inference_component_name.InferenceComponentName"
     ]

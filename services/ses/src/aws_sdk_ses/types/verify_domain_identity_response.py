@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#VerifyDomainIdentityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.verification_token
 
 
-class VerifyDomainIdentityResponse(TypedDict):
+class VerifyDomainIdentityResponse(TypedDict, closed=True):
     verification_token: "aws_sdk_ses.types.verification_token.VerificationToken"
     r"""<p>A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.</p> <p>As Amazon SES searches for the TXT record, the domain's verification status is \"Pending\". When Amazon SES detects the record, the domain's verification status changes to \"Success\". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to \"Failed.\" In that case, to verify the domain, you must restart the verification process from the beginning. The domain's verification status also changes to \"Success\" when it is DKIM verified.</p>"""
 

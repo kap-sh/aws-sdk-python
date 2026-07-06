@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#CreatePartnerInputRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.tags
 
 
-class CreatePartnerInputRequest(TypedDict):
+class CreatePartnerInputRequest(TypedDict, closed=True):
     input_id: "aws_sdk_medialive.types.__string.__string"
     """Unique ID of the input."""
     request_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

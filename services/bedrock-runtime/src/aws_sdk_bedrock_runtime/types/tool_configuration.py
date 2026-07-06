@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ToolConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.tools
 
 
-class ToolConfiguration(TypedDict):
+class ToolConfiguration(TypedDict, closed=True):
     tools: "aws_sdk_bedrock_runtime.types.tools.Tools"
     """<p>An array of tools that you want to pass to a model. </p>"""
     tool_choice: NotRequired["aws_sdk_bedrock_runtime.types.tool_choice.ToolChoice"]

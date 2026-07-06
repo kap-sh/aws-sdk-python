@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#MedicalScribeSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_name
 
 
-class MedicalScribeSettings(TypedDict):
+class MedicalScribeSettings(TypedDict, closed=True):
     show_speaker_labels: NotRequired["aws_sdk_transcribe.types.boolean.Boolean"]
     r"""<p>Enables speaker partitioning (diarization) in your Medical Scribe output. Speaker partitioning labels the speech from individual speakers in your media file.</p> <p>If you enable <code>ShowSpeakerLabels</code> in your request, you must also include <code>MaxSpeakerLabels</code>.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/transcribe/latest/dg/diarization.html\">Partitioning speakers (diarization)</a>.</p>"""
     max_speaker_labels: NotRequired["aws_sdk_transcribe.types.max_speakers.MaxSpeakers"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#Capacity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity_units
 
 
-class Capacity(TypedDict):
+class Capacity(TypedDict, closed=True):
     read_capacity_units: NotRequired[
         "aws_sdk_dynamodb.types.consumed_capacity_units.ConsumedCapacityUnits"
     ]

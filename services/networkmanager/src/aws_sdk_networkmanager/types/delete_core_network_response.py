@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#DeleteCoreNetworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network
 
 
-class DeleteCoreNetworkResponse(TypedDict):
+class DeleteCoreNetworkResponse(TypedDict, closed=True):
     core_network: NotRequired["aws_sdk_networkmanager.types.core_network.CoreNetwork"]
     """<p>Information about the deleted core network.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#GetDataLakeOrganizationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securitylake.types.data_lake_auto_enable_new_account_configuration_list
 
 
-class GetDataLakeOrganizationConfigurationResponse(TypedDict):
+class GetDataLakeOrganizationConfigurationResponse(TypedDict, closed=True):
     auto_enable_new_account: NotRequired[
         "aws_sdk_securitylake.types.data_lake_auto_enable_new_account_configuration_list.DataLakeAutoEnableNewAccountConfigurationList"
     ]

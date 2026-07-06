@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#GetListingInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.listing_id
 
 
-class GetListingInput(TypedDict):
+class GetListingInput(TypedDict, closed=True):
     listing_id: "aws_sdk_marketplace_discovery.types.listing_id.ListingId"
     """<p>The unique identifier of the listing to retrieve.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#ListFileSystemsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3files.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3files.types.tag_value
 
 
-class ListFileSystemsDescription(TypedDict):
+class ListFileSystemsDescription(TypedDict, closed=True):
     creation_time: "datetime.datetime"
     """<p>The time when the file system was created.</p>"""
     file_system_arn: "aws_sdk_s3files.types.file_system_arn.FileSystemArn"

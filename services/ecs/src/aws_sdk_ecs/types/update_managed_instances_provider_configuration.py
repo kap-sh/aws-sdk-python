@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#UpdateManagedInstancesProviderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class UpdateManagedInstancesProviderConfiguration(TypedDict):
+class UpdateManagedInstancesProviderConfiguration(TypedDict, closed=True):
     infrastructure_role_arn: "aws_sdk_ecs.types.string.String"
     r"""<p>The updated Amazon Resource Name (ARN) of the infrastructure role. The new role must have the necessary permissions to manage instances and access required Amazon Web Services services.</p> <p>For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/infrastructure_IAM_role.html\">Amazon ECS infrastructure IAM role</a> in the <i>Amazon ECS Developer Guide</i>.</p>"""
     instance_launch_template: (

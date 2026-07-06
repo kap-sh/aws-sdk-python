@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GuardrailPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.non_empty_string
 
 
-class GuardrailPolicyResult(TypedDict):
+class GuardrailPolicyResult(TypedDict, closed=True):
     policy_type: "aws_sdk_qconnect.types.guardrail_policy_type.GuardrailPolicyType"
     """<p>The type of guardrail policy that was evaluated.</p>"""
     action: "aws_sdk_qconnect.types.guardrail_action.GuardrailAction"

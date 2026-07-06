@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListBucketIntelligentTieringConfigurationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.token
 
 
-class ListBucketIntelligentTieringConfigurationsOutput(TypedDict):
+class ListBucketIntelligentTieringConfigurationsOutput(TypedDict, closed=True):
     is_truncated: NotRequired["aws_sdk_s3.types.is_truncated.IsTruncated"]
     """<p>Indicates whether the returned list of analytics configurations is complete. A value of <code>true</code> indicates that the list is not complete and the <code>NextContinuationToken</code> will be provided for a subsequent request.</p>"""
     continuation_token: NotRequired["aws_sdk_s3.types.token.Token"]

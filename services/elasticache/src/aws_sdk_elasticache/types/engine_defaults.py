@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#EngineDefaults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class EngineDefaults(TypedDict):
+class EngineDefaults(TypedDict, closed=True):
     cache_parameter_group_family: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>Specifies the name of the cache parameter group family to which the engine default parameters apply.</p> <p>Valid values are: <code>memcached1.4</code> | <code>memcached1.5</code> | <code>memcached1.6</code> | <code>redis2.6</code> | <code>redis2.8</code> | <code>redis3.2</code> | <code>redis4.0</code> | <code>redis5.0</code> | <code>redis6.0</code> | <code>redis6.x</code> | <code>redis7</code> </p>"""
     marker: NotRequired["aws_sdk_elasticache.types.string.String"]

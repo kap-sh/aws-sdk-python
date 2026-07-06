@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListServicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_proton.types.max_page_results
     import aws_sdk_proton.types.next_token
 
 
-class ListServicesInput(TypedDict):
+class ListServicesInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next service in the array of services, after the list of services that was previously requested.</p>"""
     max_results: NotRequired["aws_sdk_proton.types.max_page_results.MaxPageResults"]

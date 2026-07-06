@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestSetTurnRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.turn_specification
 
 
-class TestSetTurnRecord(TypedDict):
+class TestSetTurnRecord(TypedDict, closed=True):
     record_number: "aws_sdk_lex_models_v2.types.record_number.RecordNumber"
     """<p>The record number associated with the turn.</p>"""
     conversation_id: NotRequired[

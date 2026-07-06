@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#MasteringDisplayColorVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
     import aws_sdk_mediaconvert.types.__long
 
 
-class MasteringDisplayColorVolume(TypedDict):
+class MasteringDisplayColorVolume(TypedDict, closed=True):
     blue_primary_x: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """Blue primary chromaticity x coordinate, in units of 0.00002."""
     blue_primary_y: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#AddPermissionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.topic_arn
 
 
-class AddPermissionInput(TypedDict):
+class AddPermissionInput(TypedDict, closed=True):
     topic_arn: "aws_sdk_sns.types.topic_arn.topicARN"
     """<p>The ARN of the topic whose access control policy you wish to modify.</p>"""
     label: "aws_sdk_sns.types.label.label"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AssociateTargetsWithJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.namespace_id
 
 
-class AssociateTargetsWithJobRequest(TypedDict):
+class AssociateTargetsWithJobRequest(TypedDict, closed=True):
     targets: "aws_sdk_iot.types.job_targets.JobTargets"
     """<p>A list of thing group ARNs that define the targets of the job.</p>"""
     job_id: "aws_sdk_iot.types.job_id.JobId"

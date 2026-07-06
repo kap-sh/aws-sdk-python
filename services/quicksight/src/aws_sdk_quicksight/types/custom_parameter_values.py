@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#CustomParameterValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.date_time_default_value_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.string_default_value_list
 
 
-class CustomParameterValues(TypedDict):
+class CustomParameterValues(TypedDict, closed=True):
     string_values: NotRequired[
         "aws_sdk_quicksight.types.string_default_value_list.StringDefaultValueList"
     ]

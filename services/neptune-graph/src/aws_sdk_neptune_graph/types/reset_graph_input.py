@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#ResetGraphInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.graph_identifier
 
 
-class ResetGraphInput(TypedDict):
+class ResetGraphInput(TypedDict, closed=True):
     graph_identifier: "aws_sdk_neptune_graph.types.graph_identifier.GraphIdentifier"
     """<p>ID of the graph to reset.</p>"""
     skip_snapshot: "bool"

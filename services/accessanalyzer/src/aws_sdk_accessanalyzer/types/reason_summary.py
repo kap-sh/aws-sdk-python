@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#ReasonSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ReasonSummary(TypedDict):
+class ReasonSummary(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>A description of the reasoning of a result of checking for access.</p>"""
     statement_index: NotRequired["int"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ResetJobBookmarkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.job_bookmark_entry
 
 
-class ResetJobBookmarkResponse(TypedDict):
+class ResetJobBookmarkResponse(TypedDict, closed=True):
     job_bookmark_entry: NotRequired[
         "aws_sdk_glue.types.job_bookmark_entry.JobBookmarkEntry"
     ]

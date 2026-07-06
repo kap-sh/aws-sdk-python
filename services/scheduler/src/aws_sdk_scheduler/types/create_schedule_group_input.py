@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.scheduler#CreateScheduleGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_scheduler.types.client_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_scheduler.types.tag_list
 
 
-class CreateScheduleGroupInput(TypedDict):
+class CreateScheduleGroupInput(TypedDict, closed=True):
     name: "aws_sdk_scheduler.types.schedule_group_name.ScheduleGroupName"
     """<p>The name of the schedule group that you are creating.</p>"""
     tags: NotRequired["aws_sdk_scheduler.types.tag_list.TagList"]

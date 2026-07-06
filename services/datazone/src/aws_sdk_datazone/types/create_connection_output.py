@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateConnectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class CreateConnectionOutput(TypedDict):
+class CreateConnectionOutput(TypedDict, closed=True):
     connection_id: "aws_sdk_datazone.types.connection_id.ConnectionId"
     """<p>The ID of the connection.</p>"""
     configurations: NotRequired["aws_sdk_datazone.types.configurations.Configurations"]

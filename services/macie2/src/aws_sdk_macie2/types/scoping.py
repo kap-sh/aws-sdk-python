@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Scoping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.job_scoping_block
 
 
-class Scoping(TypedDict):
+class Scoping(TypedDict, closed=True):
     excludes: NotRequired["aws_sdk_macie2.types.job_scoping_block.JobScopingBlock"]
     """<p>The property- and tag-based conditions that determine which objects to exclude from the analysis.</p>"""
     includes: NotRequired["aws_sdk_macie2.types.job_scoping_block.JobScopingBlock"]

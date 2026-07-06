@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListPlatformApplicationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class ListPlatformApplicationsInput(TypedDict):
+class ListPlatformApplicationsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sns.types.string.String"]
     """<p> <code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>"""
 

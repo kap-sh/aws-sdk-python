@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#QuestionMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.best_practices
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.risk
 
 
-class QuestionMetric(TypedDict):
+class QuestionMetric(TypedDict, closed=True):
     question_id: NotRequired["aws_sdk_wellarchitected.types.question_id.QuestionId"]
     risk: NotRequired["aws_sdk_wellarchitected.types.risk.Risk"]
     best_practices: NotRequired[

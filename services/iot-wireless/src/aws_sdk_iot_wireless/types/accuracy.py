@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#Accuracy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.horizontal_accuracy
     import aws_sdk_iot_wireless.types.vertical_accuracy
 
 
-class Accuracy(TypedDict):
+class Accuracy(TypedDict, closed=True):
     horizontal_accuracy: NotRequired[
         "aws_sdk_iot_wireless.types.horizontal_accuracy.HorizontalAccuracy"
     ]

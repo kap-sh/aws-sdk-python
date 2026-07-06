@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#NewRelicServiceAuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.new_relic_api_key_config
 
 
-class _NewRelicServiceAuthorizationConfig_apiKey(TypedDict):
+class _NewRelicServiceAuthorizationConfig_apiKey(TypedDict, closed=True):
     apiKey: "aws_sdk_devops_agent.types.new_relic_api_key_config.NewRelicApiKeyConfig"
 
 

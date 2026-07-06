@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TextGenerationResolvedAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.base_model_name
 
 
-class TextGenerationResolvedAttributes(TypedDict):
+class TextGenerationResolvedAttributes(TypedDict, closed=True):
     base_model_name: NotRequired[
         "aws_sdk_sagemaker.types.base_model_name.BaseModelName"
     ]

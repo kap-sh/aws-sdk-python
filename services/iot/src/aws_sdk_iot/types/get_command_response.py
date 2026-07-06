@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#GetCommandResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean_wrapper_object
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class GetCommandResponse(TypedDict):
+class GetCommandResponse(TypedDict, closed=True):
     command_id: NotRequired["aws_sdk_iot.types.command_id.CommandId"]
     """<p>The unique identifier of the command.</p>"""
     command_arn: NotRequired["aws_sdk_iot.types.command_arn.CommandArn"]

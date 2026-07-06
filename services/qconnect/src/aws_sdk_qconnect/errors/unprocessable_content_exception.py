@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#UnprocessableContentException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qconnect.errors import ServiceError
 
 
-class UnprocessableContentException_(TypedDict):
+class UnprocessableContentException_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

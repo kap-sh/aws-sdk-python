@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListAuditTasksRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_task_status
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class ListAuditTasksRequest(TypedDict):
+class ListAuditTasksRequest(TypedDict, closed=True):
     start_time: "aws_sdk_iot.types.timestamp.Timestamp"
     r"""<p>The beginning of the time period. Audit information is retained for a limited time (90 days). Requesting a start time prior to what is retained results in an \"InvalidRequestException\".</p>"""
     end_time: "aws_sdk_iot.types.timestamp.Timestamp"

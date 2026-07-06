@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#S3OutputFormatConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.aggregation_config
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.prefix_config
 
 
-class S3OutputFormatConfig(TypedDict):
+class S3OutputFormatConfig(TypedDict, closed=True):
     file_type: NotRequired["aws_sdk_appflow.types.file_type.FileType"]
     """<p> Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket. </p>"""
     prefix_config: NotRequired["aws_sdk_appflow.types.prefix_config.PrefixConfig"]

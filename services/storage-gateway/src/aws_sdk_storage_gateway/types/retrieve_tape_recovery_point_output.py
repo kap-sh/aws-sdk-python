@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#RetrieveTapeRecoveryPointOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tape_arn
 
 
-class RetrieveTapeRecoveryPointOutput(TypedDict):
+class RetrieveTapeRecoveryPointOutput(TypedDict, closed=True):
     tape_arn: NotRequired["aws_sdk_storage_gateway.types.tape_arn.TapeARN"]
     """<p>The Amazon Resource Name (ARN) of the virtual tape for which the recovery point was retrieved.</p>"""
 

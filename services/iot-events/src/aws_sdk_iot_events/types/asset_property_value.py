@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#AssetPropertyValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_property_quality
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.asset_property_variant
 
 
-class AssetPropertyValue(TypedDict):
+class AssetPropertyValue(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_iot_events.types.asset_property_variant.AssetPropertyVariant"
     ]

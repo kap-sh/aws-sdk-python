@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceTypeInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.virtualization_type_list
 
 
-class InstanceTypeInfo(TypedDict):
+class InstanceTypeInfo(TypedDict, closed=True):
     instance_type: NotRequired["aws_sdk_ec2.types.instance_type.InstanceType"]
     r"""<p>The instance type. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>"""
     current_generation: NotRequired[

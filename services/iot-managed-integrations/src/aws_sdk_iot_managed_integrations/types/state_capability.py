@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#StateCapability``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.schema_versioned_id
 
 
-class StateCapability(TypedDict):
+class StateCapability(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.schema_versioned_id.SchemaVersionedId"
     """<p>The id of the managed thing in the capability report.</p>"""
     name: "aws_sdk_iot_managed_integrations.types.capability_name.CapabilityName"

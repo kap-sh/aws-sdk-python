@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeScheduledAuditResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_frequency
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.target_audit_check_names
 
 
-class DescribeScheduledAuditResponse(TypedDict):
+class DescribeScheduledAuditResponse(TypedDict, closed=True):
     frequency: NotRequired["aws_sdk_iot.types.audit_frequency.AuditFrequency"]
     """<p>How often the scheduled audit takes place, either one of <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system.</p>"""
     day_of_month: NotRequired["aws_sdk_iot.types.day_of_month.DayOfMonth"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#HandshakeParty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_organizations.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_organizations.types.handshake_party_type
 
 
-class HandshakeParty(TypedDict):
+class HandshakeParty(TypedDict, closed=True):
     id: "aws_sdk_organizations.types.handshake_party_id.HandshakePartyId"
     r"""<p>ID for the participant: Acccount ID, organization ID, or email address.</p> <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> for handshake ID string requires \"h-\" followed by from 8 to 32 lowercase letters or digits.</p>"""
     type: "aws_sdk_organizations.types.handshake_party_type.HandshakePartyType"

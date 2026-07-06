@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DescribeSharedDirectoriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.next_token
 
 
-class DescribeSharedDirectoriesRequest(TypedDict):
+class DescribeSharedDirectoriesRequest(TypedDict, closed=True):
     owner_directory_id: "aws_sdk_directory_service.types.directory_id.DirectoryId"
     """<p>Returns the identifier of the directory in the directory owner account. </p>"""
     shared_directory_ids: NotRequired[

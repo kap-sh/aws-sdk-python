@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#StepInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhuborchestrator.errors import (
     DeserializationError,
@@ -13,19 +15,19 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhuborchestrator.types.string_value
 
 
-class _StepInput_integerValue(TypedDict):
+class _StepInput_integerValue(TypedDict, closed=True):
     integerValue: "int"
 
 
-class _StepInput_stringValue(TypedDict):
+class _StepInput_stringValue(TypedDict, closed=True):
     stringValue: "aws_sdk_migrationhuborchestrator.types.string_value.StringValue"
 
 
-class _StepInput_listOfStringsValue(TypedDict):
+class _StepInput_listOfStringsValue(TypedDict, closed=True):
     listOfStringsValue: "aws_sdk_migrationhuborchestrator.types.string_list.StringList"
 
 
-class _StepInput_mapOfStringValue(TypedDict):
+class _StepInput_mapOfStringValue(TypedDict, closed=True):
     mapOfStringValue: "aws_sdk_migrationhuborchestrator.types.string_map.StringMap"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ResourcesMapFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.map_filter
     import aws_sdk_securityhub.types.resources_map_field
 
 
-class ResourcesMapFilter(TypedDict):
+class ResourcesMapFilter(TypedDict, closed=True):
     field_name: NotRequired[
         "aws_sdk_securityhub.types.resources_map_field.ResourcesMapField"
     ]

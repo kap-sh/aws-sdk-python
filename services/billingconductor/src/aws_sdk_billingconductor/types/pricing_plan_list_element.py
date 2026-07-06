@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#PricingPlanListElement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.instant
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.pricing_plan_name
 
 
-class PricingPlanListElement(TypedDict):
+class PricingPlanListElement(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_billingconductor.types.pricing_plan_name.PricingPlanName"
     ]

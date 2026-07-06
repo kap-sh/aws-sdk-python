@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListConfigurationBundlesRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListConfigurationBundlesRequest(TypedDict):
+class ListConfigurationBundlesRequest(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>"""
     max_results: NotRequired["int"]

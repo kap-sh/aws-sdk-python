@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPIOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.comparison_configuration
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.trend_arrow_options
 
 
-class KPIOptions(TypedDict):
+class KPIOptions(TypedDict, closed=True):
     progress_bar: NotRequired[
         "aws_sdk_quicksight.types.progress_bar_options.ProgressBarOptions"
     ]

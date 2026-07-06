@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DialogState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.dialog_action
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.string_map
 
 
-class DialogState(TypedDict):
+class DialogState(TypedDict, closed=True):
     dialog_action: NotRequired["aws_sdk_lex_models_v2.types.dialog_action.DialogAction"]
     intent: NotRequired["aws_sdk_lex_models_v2.types.intent_override.IntentOverride"]
     session_attributes: NotRequired["aws_sdk_lex_models_v2.types.string_map.StringMap"]

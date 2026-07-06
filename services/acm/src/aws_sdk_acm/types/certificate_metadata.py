@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CertificateMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.acm_certificate_metadata
 
 
-class _CertificateMetadata_AcmCertificateMetadata(TypedDict):
+class _CertificateMetadata_AcmCertificateMetadata(TypedDict, closed=True):
     AcmCertificateMetadata: (
         "aws_sdk_acm.types.acm_certificate_metadata.AcmCertificateMetadata"
     )

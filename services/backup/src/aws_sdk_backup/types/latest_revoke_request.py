@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#LatestRevokeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.mpa_revoke_session_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class LatestRevokeRequest(TypedDict):
+class LatestRevokeRequest(TypedDict, closed=True):
     mpa_session_arn: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The ARN of the MPA session associated with this revoke request.</p>"""
     status: NotRequired[

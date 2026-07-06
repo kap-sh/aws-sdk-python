@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#GetRasterDataCollectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.data_collection_arn
 
 
-class GetRasterDataCollectionInput(TypedDict):
+class GetRasterDataCollectionInput(TypedDict, closed=True):
     arn: "aws_sdk_sagemaker_geospatial.types.data_collection_arn.DataCollectionArn"
     """<p>The Amazon Resource Name (ARN) of the raster data collection.</p>"""
 

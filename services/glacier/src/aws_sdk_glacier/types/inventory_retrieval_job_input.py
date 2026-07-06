@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#InventoryRetrievalJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class InventoryRetrievalJobInput(TypedDict):
+class InventoryRetrievalJobInput(TypedDict, closed=True):
     start_date: NotRequired["aws_sdk_glacier.types.string.string"]
     """<p>The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example <code>2013-03-20T17:03:43Z</code>.</p>"""
     end_date: NotRequired["aws_sdk_glacier.types.string.string"]

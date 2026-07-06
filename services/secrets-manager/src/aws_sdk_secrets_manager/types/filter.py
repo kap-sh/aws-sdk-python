@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.filter_name_string_type
     import aws_sdk_secrets_manager.types.filter_values_string_list
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_secrets_manager.types.filter_name_string_type.FilterNameStringType"
     ]

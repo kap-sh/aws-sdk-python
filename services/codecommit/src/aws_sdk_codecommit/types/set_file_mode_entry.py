@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#SetFileModeEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class SetFileModeEntry(TypedDict):
+class SetFileModeEntry(TypedDict, closed=True):
     file_path: "aws_sdk_codecommit.types.path.Path"
     """<p>The full path to the file, including the name of the file.</p>"""
     file_mode: "aws_sdk_codecommit.types.file_mode_type_enum.FileModeTypeEnum"

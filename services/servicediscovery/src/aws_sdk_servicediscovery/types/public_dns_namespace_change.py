@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#PublicDnsNamespaceChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.public_dns_namespace_properties_change
     import aws_sdk_servicediscovery.types.resource_description
 
 
-class PublicDnsNamespaceChange(TypedDict):
+class PublicDnsNamespaceChange(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_servicediscovery.types.resource_description.ResourceDescription"
     ]

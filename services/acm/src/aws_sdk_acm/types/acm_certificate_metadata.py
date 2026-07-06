@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#AcmCertificateMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_export
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.validation_method
 
 
-class AcmCertificateMetadata(TypedDict):
+class AcmCertificateMetadata(TypedDict, closed=True):
     created_at: NotRequired["aws_sdk_acm.types.t_stamp.TStamp"]
     """<p>The time at which the certificate was requested.</p>"""
     exported: NotRequired["aws_sdk_acm.types.nullable_boolean.NullableBoolean"]

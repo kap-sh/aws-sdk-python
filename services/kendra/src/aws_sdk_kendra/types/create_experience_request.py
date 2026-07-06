@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateExperienceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.role_arn
 
 
-class CreateExperienceRequest(TypedDict):
+class CreateExperienceRequest(TypedDict, closed=True):
     name: "aws_sdk_kendra.types.experience_name.ExperienceName"
     """<p>A name for your Amazon Kendra experience.</p>"""
     index_id: "aws_sdk_kendra.types.index_id.IndexId"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#AnnotationValue``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_xray.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class _AnnotationValue_NumberValue(TypedDict):
+class _AnnotationValue_NumberValue(TypedDict, closed=True):
     NumberValue: "aws_sdk_xray.types.nullable_double.NullableDouble"
 
 
-class _AnnotationValue_BooleanValue(TypedDict):
+class _AnnotationValue_BooleanValue(TypedDict, closed=True):
     BooleanValue: "aws_sdk_xray.types.nullable_boolean.NullableBoolean"
 
 
-class _AnnotationValue_StringValue(TypedDict):
+class _AnnotationValue_StringValue(TypedDict, closed=True):
     StringValue: "aws_sdk_xray.types.string.String"
 
 

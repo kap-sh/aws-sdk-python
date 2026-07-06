@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#UpdateMapRunInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.tolerated_failure_percentage
 
 
-class UpdateMapRunInput(TypedDict):
+class UpdateMapRunInput(TypedDict, closed=True):
     map_run_arn: "aws_sdk_sfn.types.long_arn.LongArn"
     """<p>The Amazon Resource Name (ARN) of a Map Run.</p>"""
     max_concurrency: NotRequired["aws_sdk_sfn.types.max_concurrency.MaxConcurrency"]

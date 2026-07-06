@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#SourceCloudProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.account_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.outpost_arn
 
 
-class SourceCloudProperties(TypedDict):
+class SourceCloudProperties(TypedDict, closed=True):
     origin_account_id: NotRequired["aws_sdk_drs.types.account_id.AccountID"]
     """<p>AWS Account ID for an EC2-originated Source Server.</p>"""
     origin_region: NotRequired["aws_sdk_drs.types.aws_region.AwsRegion"]

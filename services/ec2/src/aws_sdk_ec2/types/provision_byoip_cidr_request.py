@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ProvisionByoipCidrRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_specification_list
 
 
-class ProvisionByoipCidrRequest(TypedDict):
+class ProvisionByoipCidrRequest(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've brought to this or another Region.</p>"""
     cidr_authorization_context: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#JWTOptionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class JWTOptionsOutput(TypedDict):
+class JWTOptionsOutput(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_opensearch.types.boolean.Boolean"]
     """<p>True if JWT use is enabled.</p>"""
     subject_key: NotRequired["aws_sdk_opensearch.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#ViewFrame``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.start_row_index
 
 
-class ViewFrame(TypedDict):
+class ViewFrame(TypedDict, closed=True):
     start_column_index: "aws_sdk_databrew.types.start_column_index.StartColumnIndex"
     """<p>The starting index for the range of columns to return in the view frame.</p>"""
     column_range: NotRequired["aws_sdk_databrew.types.column_range.ColumnRange"]

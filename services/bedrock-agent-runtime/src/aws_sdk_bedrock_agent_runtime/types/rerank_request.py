@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RerankRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.reranking_configuration
 
 
-class RerankRequest(TypedDict):
+class RerankRequest(TypedDict, closed=True):
     queries: "aws_sdk_bedrock_agent_runtime.types.rerank_queries_list.RerankQueriesList"
     """<p>An array of objects, each of which contains information about a query to submit to the reranker model.</p>"""
     sources: "aws_sdk_bedrock_agent_runtime.types.rerank_sources_list.RerankSourcesList"

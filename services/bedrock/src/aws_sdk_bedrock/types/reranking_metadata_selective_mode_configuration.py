@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RerankingMetadataSelectiveModeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.fields_for_reranking
 
 
-class _RerankingMetadataSelectiveModeConfiguration_fieldsToInclude(TypedDict):
+class _RerankingMetadataSelectiveModeConfiguration_fieldsToInclude(
+    TypedDict, closed=True
+):
     fieldsToInclude: "aws_sdk_bedrock.types.fields_for_reranking.FieldsForReranking"
 
 
-class _RerankingMetadataSelectiveModeConfiguration_fieldsToExclude(TypedDict):
+class _RerankingMetadataSelectiveModeConfiguration_fieldsToExclude(
+    TypedDict, closed=True
+):
     fieldsToExclude: "aws_sdk_bedrock.types.fields_for_reranking.FieldsForReranking"
 
 

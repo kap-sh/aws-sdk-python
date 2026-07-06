@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#MetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.predefined_metric_specification
 
 
-class _MetricSpecification_Predefined(TypedDict):
+class _MetricSpecification_Predefined(TypedDict, closed=True):
     Predefined: "aws_sdk_sagemaker.types.predefined_metric_specification.PredefinedMetricSpecification"
 
 
-class _MetricSpecification_Customized(TypedDict):
+class _MetricSpecification_Customized(TypedDict, closed=True):
     Customized: "aws_sdk_sagemaker.types.customized_metric_specification.CustomizedMetricSpecification"
 
 

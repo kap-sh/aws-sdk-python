@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CaptureOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.capture_mode
 
 
-class CaptureOption(TypedDict):
+class CaptureOption(TypedDict, closed=True):
     capture_mode: NotRequired["aws_sdk_sagemaker.types.capture_mode.CaptureMode"]
     """<p>Specify the boundary of data to capture.</p>"""
 

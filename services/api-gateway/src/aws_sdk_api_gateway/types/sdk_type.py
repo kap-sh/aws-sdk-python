@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#SdkType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_sdk_configuration_property
     import aws_sdk_api_gateway.types.string
 
 
-class SdkType(TypedDict):
+class SdkType(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier of an SdkType instance.</p>"""
     friendly_name: NotRequired["aws_sdk_api_gateway.types.string.String"]

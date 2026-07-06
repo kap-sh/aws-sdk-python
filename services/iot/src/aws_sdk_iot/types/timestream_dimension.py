@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#TimestreamDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestream_dimension_value
 
 
-class TimestreamDimension(TypedDict):
+class TimestreamDimension(TypedDict, closed=True):
     name: "aws_sdk_iot.types.timestream_dimension_name.TimestreamDimensionName"
     """<p>The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.</p> <p>Dimensions cannot be named: <code>measure_name</code>, <code>measure_value</code>, or <code>time</code>. These names are reserved. Dimension names cannot start with <code>ts_</code> or <code>measure_value</code> and they cannot contain the colon (<code>:</code>) character.</p>"""
     value: "aws_sdk_iot.types.timestream_dimension_value.TimestreamDimensionValue"

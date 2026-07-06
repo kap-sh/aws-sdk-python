@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeIntegrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.marker
 
 
-class DescribeIntegrationsResponse(TypedDict):
+class DescribeIntegrationsResponse(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_rds.types.marker.Marker"]
     """<p>A pagination token that can be used in a later <code>DescribeIntegrations</code> request.</p>"""
     integrations: NotRequired["aws_sdk_rds.types.integration_list.IntegrationList"]

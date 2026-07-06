@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateChapCredentialsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.iqn_name
     import aws_sdk_storage_gateway.types.target_arn
 
 
-class UpdateChapCredentialsOutput(TypedDict):
+class UpdateChapCredentialsOutput(TypedDict, closed=True):
     target_arn: NotRequired["aws_sdk_storage_gateway.types.target_arn.TargetARN"]
     """<p>The Amazon Resource Name (ARN) of the target. This is the same target specified in the request.</p>"""
     initiator_name: NotRequired["aws_sdk_storage_gateway.types.iqn_name.IqnName"]

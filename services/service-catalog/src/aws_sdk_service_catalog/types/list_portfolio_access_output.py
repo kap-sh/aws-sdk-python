@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ListPortfolioAccessOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.account_ids
     import aws_sdk_service_catalog.types.page_token
 
 
-class ListPortfolioAccessOutput(TypedDict):
+class ListPortfolioAccessOutput(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_service_catalog.types.account_ids.AccountIds"]
     """<p>Information about the Amazon Web Services accounts with access to the portfolio.</p>"""
     next_page_token: NotRequired["aws_sdk_service_catalog.types.page_token.PageToken"]

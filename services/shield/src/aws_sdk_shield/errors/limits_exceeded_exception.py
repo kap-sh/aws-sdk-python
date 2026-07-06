@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#LimitsExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import ServiceError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.limit_type
 
 
-class LimitsExceededException_(TypedDict):
+class LimitsExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_shield.types.error_message.errorMessage"]
     type: NotRequired["aws_sdk_shield.types.limit_type.LimitType"]
     """<p>The type of limit that would be exceeded.</p>"""

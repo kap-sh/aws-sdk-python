@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#CognitoIdentityProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.cognito_identity_provider_client_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.cognito_identity_provider_token_check
 
 
-class CognitoIdentityProvider(TypedDict):
+class CognitoIdentityProvider(TypedDict, closed=True):
     provider_name: NotRequired[
         "aws_sdk_cognito_identity.types.cognito_identity_provider_name.CognitoIdentityProviderName"
     ]

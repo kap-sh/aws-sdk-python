@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#AccessDeniedException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "str"
     """<p>The ID of the resource which lead to the access denial.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#AssociateDelegationSignerToDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53_domains.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.domain_name
 
 
-class AssociateDelegationSignerToDomainRequest(TypedDict):
+class AssociateDelegationSignerToDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_route_53_domains.types.domain_name.DomainName"
     """<p>The name of the domain.</p>"""
     signing_attributes: "aws_sdk_route_53_domains.types.dnssec_signing_attributes.DnssecSigningAttributes"

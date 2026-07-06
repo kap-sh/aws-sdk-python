@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CrawlerTargets``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_target_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.s3_target_list
 
 
-class CrawlerTargets(TypedDict):
+class CrawlerTargets(TypedDict, closed=True):
     s3_targets: NotRequired["aws_sdk_glue.types.s3_target_list.S3TargetList"]
     """<p>Specifies Amazon Simple Storage Service (Amazon S3) targets.</p>"""
     jdbc_targets: NotRequired["aws_sdk_glue.types.jdbc_target_list.JdbcTargetList"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AWSManagedRulesATPRuleSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.string
 
 
-class AWSManagedRulesATPRuleSet(TypedDict):
+class AWSManagedRulesATPRuleSet(TypedDict, closed=True):
     login_path: "aws_sdk_wafv2.types.string.String"
     """<p>The path of the login endpoint for your application. For example, for the URL <code>https://example.com/web/login</code>, you would provide the path <code>/web/login</code>. Login paths that start with the path that you provide are considered a match. For example <code>/web/login</code> matches the login paths <code>/web/login</code>, <code>/web/login/</code>, <code>/web/loginPage</code>, and <code>/web/login/thisPage</code>, but doesn't match the login path <code>/home/web/login</code> or <code>/website/login</code>.</p> <p>The rule group inspects only HTTP <code>POST</code> requests to your specified login endpoint.</p>"""
     request_inspection: NotRequired[

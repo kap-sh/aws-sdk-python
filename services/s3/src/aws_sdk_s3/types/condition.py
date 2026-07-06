@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#Condition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.key_prefix_equals
 
 
-class Condition(TypedDict):
+class Condition(TypedDict, closed=True):
     http_error_code_returned_equals: NotRequired[
         "aws_sdk_s3.types.http_error_code_returned_equals.HttpErrorCodeReturnedEquals"
     ]

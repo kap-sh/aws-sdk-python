@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListUserPoolReplicasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.pagination_key_type
     import aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type
 
 
-class ListUserPoolReplicasResponse(TypedDict):
+class ListUserPoolReplicasResponse(TypedDict, closed=True):
     user_pool_replicas: NotRequired[
         "aws_sdk_cognito_identity_provider.types.user_pool_replica_list_type.UserPoolReplicaListType"
     ]

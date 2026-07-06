@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#BatchGetItemOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.batch_get_request_map
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.consumed_capacity_multiple
 
 
-class BatchGetItemOutput(TypedDict):
+class BatchGetItemOutput(TypedDict, closed=True):
     responses: NotRequired[
         "aws_sdk_dynamodb.types.batch_get_response_map.BatchGetResponseMap"
     ]

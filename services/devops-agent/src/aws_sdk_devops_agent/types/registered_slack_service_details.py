@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#RegisteredSlackServiceDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
 
-class RegisteredSlackServiceDetails(TypedDict):
+class RegisteredSlackServiceDetails(TypedDict, closed=True):
     team_id: "str"
     """<p>The Slack team ID.</p>"""
     team_name: "str"

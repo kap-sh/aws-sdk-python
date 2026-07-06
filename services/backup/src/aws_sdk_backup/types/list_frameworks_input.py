@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListFrameworksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.max_framework_inputs
     import aws_sdk_backup.types.string
 
 
-class ListFrameworksInput(TypedDict):
+class ListFrameworksInput(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_backup.types.max_framework_inputs.MaxFrameworkInputs"
     ]

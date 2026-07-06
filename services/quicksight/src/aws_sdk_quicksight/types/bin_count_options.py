@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BinCountOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.bin_count_value
 
 
-class BinCountOptions(TypedDict):
+class BinCountOptions(TypedDict, closed=True):
     value: NotRequired["aws_sdk_quicksight.types.bin_count_value.BinCountValue"]
     """<p>The options that determine the bin count value.</p>"""
 

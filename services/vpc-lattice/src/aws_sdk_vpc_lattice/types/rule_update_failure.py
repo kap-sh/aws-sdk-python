@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#RuleUpdateFailure``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.failure_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.rule_identifier
 
 
-class RuleUpdateFailure(TypedDict):
+class RuleUpdateFailure(TypedDict, closed=True):
     rule_identifier: NotRequired[
         "aws_sdk_vpc_lattice.types.rule_identifier.RuleIdentifier"
     ]

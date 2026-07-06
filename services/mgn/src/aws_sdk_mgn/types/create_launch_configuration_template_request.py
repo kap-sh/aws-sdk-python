@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#CreateLaunchConfigurationTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.boot_mode
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.target_instance_type_right_sizing_method
 
 
-class CreateLaunchConfigurationTemplateRequest(TypedDict):
+class CreateLaunchConfigurationTemplateRequest(TypedDict, closed=True):
     post_launch_actions: NotRequired[
         "aws_sdk_mgn.types.post_launch_actions.PostLaunchActions"
     ]

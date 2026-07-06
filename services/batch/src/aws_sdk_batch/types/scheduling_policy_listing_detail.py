@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#SchedulingPolicyListingDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class SchedulingPolicyListingDetail(TypedDict):
+class SchedulingPolicyListingDetail(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>Amazon Resource Name (ARN) of the scheduling policy.</p>"""
 

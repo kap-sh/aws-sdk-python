@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#RestorePhoneNumberRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.non_empty_string
 
 
-class RestorePhoneNumberRequest(TypedDict):
+class RestorePhoneNumberRequest(TypedDict, closed=True):
     phone_number_id: "aws_sdk_chime.types.non_empty_string.NonEmptyString"
     """<p>The phone number.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaCapturePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class CreateMediaCapturePipelineRequest(TypedDict):
+class CreateMediaCapturePipelineRequest(TypedDict, closed=True):
     source_type: "aws_sdk_chime_sdk_media_pipelines.types.media_pipeline_source_type.MediaPipelineSourceType"
     """<p>Source type from which the media artifacts are captured. A Chime SDK Meeting is the only supported source.</p>"""
     source_arn: "aws_sdk_chime_sdk_media_pipelines.types.arn.Arn"

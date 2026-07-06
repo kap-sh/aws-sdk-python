@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#FieldLevelEncryptionProfileConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class FieldLevelEncryptionProfileConfig(TypedDict):
+class FieldLevelEncryptionProfileConfig(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.string.string"
     """<p>Profile name for the field-level encryption profile.</p>"""
     caller_reference: "aws_sdk_cloudfront.types.string.string"

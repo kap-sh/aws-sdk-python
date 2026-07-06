@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DatabaseStandbySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.autonomous_database_resource_status
 
 
-class DatabaseStandbySummary(TypedDict):
+class DatabaseStandbySummary(TypedDict, closed=True):
     availability_domain: NotRequired["str"]
     """<p>The availability domain of the standby Autonomous Database.</p>"""
     lag_time_in_seconds: NotRequired["int"]

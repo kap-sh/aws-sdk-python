@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ValidateStateMachineDefinitionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.validate_state_machine_definition_severity
 
 
-class ValidateStateMachineDefinitionInput(TypedDict):
+class ValidateStateMachineDefinitionInput(TypedDict, closed=True):
     definition: "aws_sdk_sfn.types.definition.Definition"
     r"""<p>The Amazon States Language definition of the state machine. For more information, see <a href=\"https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html\">Amazon States Language</a> (ASL).</p>"""
     type: NotRequired["aws_sdk_sfn.types.state_machine_type.StateMachineType"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeregisterWorkspaceDirectoryResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeregisterWorkspaceDirectoryResult(TypedDict):
+class DeregisterWorkspaceDirectoryResult(TypedDict, closed=True):
     pass
 
 

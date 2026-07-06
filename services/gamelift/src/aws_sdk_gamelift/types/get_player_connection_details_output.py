@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GetPlayerConnectionDetailsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.arn_string_model
     import aws_sdk_gamelift.types.player_connection_detail_list
 
 
-class GetPlayerConnectionDetailsOutput(TypedDict):
+class GetPlayerConnectionDetailsOutput(TypedDict, closed=True):
     game_session_id: NotRequired[
         "aws_sdk_gamelift.types.arn_string_model.ArnStringModel"
     ]

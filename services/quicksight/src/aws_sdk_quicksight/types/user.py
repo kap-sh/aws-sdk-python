@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#User``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.user_role
 
 
-class User(TypedDict):
+class User(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) for the user.</p>"""
     user_name: NotRequired["aws_sdk_quicksight.types.user_name.UserName"]

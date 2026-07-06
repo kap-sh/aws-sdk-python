@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigatewayv2#RestEndpointIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apigatewayv2.types.identifier_parts
 
 
-class RestEndpointIdentifier(TypedDict):
+class RestEndpointIdentifier(TypedDict, closed=True):
     identifier_parts: NotRequired[
         "aws_sdk_apigatewayv2.types.identifier_parts.IdentifierParts"
     ]

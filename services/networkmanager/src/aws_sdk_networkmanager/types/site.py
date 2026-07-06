@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#Site``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.tag_list
 
 
-class Site(TypedDict):
+class Site(TypedDict, closed=True):
     site_id: NotRequired["aws_sdk_networkmanager.types.site_id.SiteId"]
     """<p>The ID of the site.</p>"""
     site_arn: NotRequired["aws_sdk_networkmanager.types.site_arn.SiteArn"]

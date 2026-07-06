@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#ListKeysOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.next_token
 
 
-class ListKeysOutput(TypedDict):
+class ListKeysOutput(TypedDict, closed=True):
     keys: "aws_sdk_payment_cryptography.types.key_summary_list.KeySummaryList"
     """<p>The list of keys created within the caller's Amazon Web Services account and Amazon Web Services Region.</p>"""
     next_token: NotRequired["aws_sdk_payment_cryptography.types.next_token.NextToken"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DirectoryVpcSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.vpc_id
 
 
-class DirectoryVpcSettings(TypedDict):
+class DirectoryVpcSettings(TypedDict, closed=True):
     vpc_id: "aws_sdk_directory_service.types.vpc_id.VpcId"
     """<p>The identifier of the VPC in which to create the directory.</p>"""
     subnet_ids: "aws_sdk_directory_service.types.subnet_ids.SubnetIds"

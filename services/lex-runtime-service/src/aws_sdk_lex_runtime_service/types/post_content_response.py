@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexruntimeservice#PostContentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.blob_stream
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_runtime_service.types.text
 
 
-class PostContentResponse(TypedDict):
+class PostContentResponse(TypedDict, closed=True):
     content_type: NotRequired[
         "aws_sdk_lex_runtime_service.types.http_content_type.HttpContentType"
     ]

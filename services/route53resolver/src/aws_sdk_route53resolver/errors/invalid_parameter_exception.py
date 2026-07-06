@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#InvalidParameterException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route53resolver.errors import DeserializationError, ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.string
 
 
-class InvalidParameterException_(TypedDict):
+class InvalidParameterException_(TypedDict, closed=True):
     message: "aws_sdk_route53resolver.types.exception_message.ExceptionMessage"
     field_name: NotRequired["aws_sdk_route53resolver.types.string.String"]
     """<p>For an <code>InvalidParameterException</code> error, the name of the parameter that's invalid.</p>"""

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#FileGroupSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern_s3
     import aws_sdk_mediaconvert.types.destination_settings
 
 
-class FileGroupSettings(TypedDict):
+class FileGroupSettings(TypedDict, closed=True):
     destination: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_s3.__stringPatternS3"
     ]

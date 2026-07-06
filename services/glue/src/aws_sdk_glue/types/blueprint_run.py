@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BlueprintRun``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.blueprint_parameters
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp_value
 
 
-class BlueprintRun(TypedDict):
+class BlueprintRun(TypedDict, closed=True):
     blueprint_name: NotRequired[
         "aws_sdk_glue.types.orchestration_name_string.OrchestrationNameString"
     ]

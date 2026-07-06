@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#GetJobOutputOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.httpstatus
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class GetJobOutputOutput(TypedDict):
+class GetJobOutputOutput(TypedDict, closed=True):
     body: "aws_sdk_glacier.types.stream.Stream"
     """<p>The job data, either archive data or inventory data.</p>"""
     checksum: NotRequired["aws_sdk_glacier.types.string.string"]

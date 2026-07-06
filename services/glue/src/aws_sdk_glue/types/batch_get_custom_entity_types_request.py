@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchGetCustomEntityTypesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.custom_entity_type_names
 
 
-class BatchGetCustomEntityTypesRequest(TypedDict):
+class BatchGetCustomEntityTypesRequest(TypedDict, closed=True):
     names: "aws_sdk_glue.types.custom_entity_type_names.CustomEntityTypeNames"
     """<p>A list of names of the custom patterns that you want to retrieve.</p>"""
 

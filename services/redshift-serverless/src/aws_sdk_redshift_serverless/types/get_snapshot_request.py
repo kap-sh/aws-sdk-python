@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#GetSnapshotRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetSnapshotRequest(TypedDict):
+class GetSnapshotRequest(TypedDict, closed=True):
     snapshot_name: NotRequired["str"]
     """<p>The name of the snapshot to return.</p>"""
     owner_account: NotRequired["str"]

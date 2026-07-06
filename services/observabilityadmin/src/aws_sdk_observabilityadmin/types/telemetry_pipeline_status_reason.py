@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#TelemetryPipelineStatusReason``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class TelemetryPipelineStatusReason(TypedDict):
+class TelemetryPipelineStatusReason(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>A description of the pipeline status reason, providing additional context about the current state.</p>"""
 

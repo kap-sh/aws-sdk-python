@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#AggregatorFilterServicePrincipal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.aggregator_filter_type
     import aws_sdk_config_service.types.service_principal_value_list
 
 
-class AggregatorFilterServicePrincipal(TypedDict):
+class AggregatorFilterServicePrincipal(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_config_service.types.aggregator_filter_type.AggregatorFilterType"
     ]

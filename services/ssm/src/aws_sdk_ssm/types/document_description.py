@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DocumentDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.attachment_information_list
@@ -33,7 +33,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.target_type
 
 
-class DocumentDescription(TypedDict):
+class DocumentDescription(TypedDict, closed=True):
     sha1: NotRequired["aws_sdk_ssm.types.document_sha1.DocumentSha1"]
     """<p>The SHA1 hash of the document, which you can use for verification.</p>"""
     hash: NotRequired["aws_sdk_ssm.types.document_hash.DocumentHash"]

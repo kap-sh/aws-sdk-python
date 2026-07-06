@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#Service``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.arn
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.timestamp
 
 
-class Service(TypedDict):
+class Service(TypedDict, closed=True):
     id: NotRequired["aws_sdk_servicediscovery.types.resource_id.ResourceId"]
     """<p>The ID that Cloud Map assigned to the service when you created it.</p>"""
     arn: NotRequired["aws_sdk_servicediscovery.types.arn.Arn"]

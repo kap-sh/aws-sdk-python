@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#FlowDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_label
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.updated_by
 
 
-class FlowDefinition(TypedDict):
+class FlowDefinition(TypedDict, closed=True):
     flow_arn: NotRequired["aws_sdk_appflow.types.flow_arn.FlowArn"]
     """<p> The flow's Amazon Resource Name (ARN). </p>"""
     description: NotRequired["aws_sdk_appflow.types.flow_description.FlowDescription"]

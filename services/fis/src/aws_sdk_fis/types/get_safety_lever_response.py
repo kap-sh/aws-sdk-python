@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#GetSafetyLeverResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.safety_lever
 
 
-class GetSafetyLeverResponse(TypedDict):
+class GetSafetyLeverResponse(TypedDict, closed=True):
     safety_lever: NotRequired["aws_sdk_fis.types.safety_lever.SafetyLever"]
     """<p> Information about the safety lever. </p>"""
 

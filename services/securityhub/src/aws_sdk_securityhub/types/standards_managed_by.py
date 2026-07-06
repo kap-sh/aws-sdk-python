@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#StandardsManagedBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class StandardsManagedBy(TypedDict):
+class StandardsManagedBy(TypedDict, closed=True):
     company: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>An identifier for the company that manages a specific security standard. For existing standards, the value is equal to <code>Amazon Web Services</code>.</p>"""
     product: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

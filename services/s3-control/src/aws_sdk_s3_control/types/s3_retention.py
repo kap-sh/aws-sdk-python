@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3Retention``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.time_stamp
 
 
-class S3Retention(TypedDict):
+class S3Retention(TypedDict, closed=True):
     retain_until_date: NotRequired["aws_sdk_s3_control.types.time_stamp.TimeStamp"]
     """<p>The date when the applied Object Lock retention will expire on all objects set by the Batch Operations job.</p>"""
     mode: NotRequired[

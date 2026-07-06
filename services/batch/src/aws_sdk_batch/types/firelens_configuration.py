@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.batch#FirelensConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.firelens_configuration_options_map
     import aws_sdk_batch.types.firelens_configuration_type
 
 
-class FirelensConfiguration(TypedDict):
+class FirelensConfiguration(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_batch.types.firelens_configuration_type.FirelensConfigurationType"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ManagedLogGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.timestamp
 
 
-class ManagedLogGroup(TypedDict):
+class ManagedLogGroup(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The Amazon Resource Name (ARN) of the Cloudwatch Log Group associated with the Express service.</p>"""
     status: "aws_sdk_ecs.types.managed_resource_status.ManagedResourceStatus"

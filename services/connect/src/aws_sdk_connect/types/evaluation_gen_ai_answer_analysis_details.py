@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationGenAIAnswerAnalysisDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.evaluation_suggested_answer_justification
     import aws_sdk_connect.types.evaluation_transcript_points_of_interest
 
 
-class EvaluationGenAIAnswerAnalysisDetails(TypedDict):
+class EvaluationGenAIAnswerAnalysisDetails(TypedDict, closed=True):
     justification: NotRequired[
         "aws_sdk_connect.types.evaluation_suggested_answer_justification.EvaluationSuggestedAnswerJustification"
     ]

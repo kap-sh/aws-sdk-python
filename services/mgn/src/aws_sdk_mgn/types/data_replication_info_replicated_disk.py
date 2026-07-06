@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DataReplicationInfoReplicatedDisk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.bounded_string
     import aws_sdk_mgn.types.positive_integer
 
 
-class DataReplicationInfoReplicatedDisk(TypedDict):
+class DataReplicationInfoReplicatedDisk(TypedDict, closed=True):
     device_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]
     """<p>Request to query device name.</p>"""
     total_storage_bytes: "aws_sdk_mgn.types.positive_integer.PositiveInteger"

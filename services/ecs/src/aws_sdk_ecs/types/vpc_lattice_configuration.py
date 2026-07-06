@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#VpcLatticeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class VpcLatticeConfiguration(TypedDict):
+class VpcLatticeConfiguration(TypedDict, closed=True):
     role_arn: "aws_sdk_ecs.types.iam_role_arn.IAMRoleArn"
     """<p>The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.</p>"""
     target_group_arn: "aws_sdk_ecs.types.string.String"

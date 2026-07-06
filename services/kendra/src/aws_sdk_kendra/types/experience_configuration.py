@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ExperienceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.content_source_configuration
     import aws_sdk_kendra.types.user_identity_configuration
 
 
-class ExperienceConfiguration(TypedDict):
+class ExperienceConfiguration(TypedDict, closed=True):
     content_source_configuration: NotRequired[
         "aws_sdk_kendra.types.content_source_configuration.ContentSourceConfiguration"
     ]

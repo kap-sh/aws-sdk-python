@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#InvokeRestApiRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_mwaa.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.rest_api_request_body
 
 
-class InvokeRestApiRequest(TypedDict):
+class InvokeRestApiRequest(TypedDict, closed=True):
     name: "aws_sdk_mwaa.types.environment_name.EnvironmentName"
     """<p>The name of the Amazon MWAA environment. For example, <code>MyMWAAEnvironment</code>.</p>"""
     path: "aws_sdk_mwaa.types.rest_api_path.RestApiPath"

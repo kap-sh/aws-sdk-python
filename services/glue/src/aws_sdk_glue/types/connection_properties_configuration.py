@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ConnectionPropertiesConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.connector_property
     import aws_sdk_glue.types.connector_property_list
 
 
-class ConnectionPropertiesConfiguration(TypedDict):
+class ConnectionPropertiesConfiguration(TypedDict, closed=True):
     url: NotRequired["aws_sdk_glue.types.connector_property.ConnectorProperty"]
     """<p>The base instance URL for the endpoint that this connection type will connect to.</p>"""
     additional_request_parameters: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#StaleIpPermission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.user_id_group_pair_set
 
 
-class StaleIpPermission(TypedDict):
+class StaleIpPermission(TypedDict, closed=True):
     from_port: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>If the protocol is TCP or UDP, this is the start of the port range. If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>"""
     ip_protocol: NotRequired["aws_sdk_ec2.types.string.String"]

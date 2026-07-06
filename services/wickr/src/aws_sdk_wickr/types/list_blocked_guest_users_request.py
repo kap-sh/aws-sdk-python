@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListBlockedGuestUsersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.sort_direction
 
 
-class ListBlockedGuestUsersRequest(TypedDict):
+class ListBlockedGuestUsersRequest(TypedDict, closed=True):
     network_id: "aws_sdk_wickr.types.network_id.NetworkId"
     """<p>The ID of the Wickr network from which to list blocked guest users.</p>"""
     max_results: NotRequired["int"]

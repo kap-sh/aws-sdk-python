@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DisassociateDelegateFromResourceResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateDelegateFromResourceResponse(TypedDict):
+class DisassociateDelegateFromResourceResponse(TypedDict, closed=True):
     pass
 
 

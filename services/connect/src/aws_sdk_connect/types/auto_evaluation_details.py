@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AutoEvaluationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.auto_evaluation_status
     import aws_sdk_connect.types.boolean
 
 
-class AutoEvaluationDetails(TypedDict):
+class AutoEvaluationDetails(TypedDict, closed=True):
     auto_evaluation_enabled: "aws_sdk_connect.types.boolean.Boolean"
     """<p>Whether automated evaluation is enabled.</p>"""
     auto_evaluation_status: NotRequired[

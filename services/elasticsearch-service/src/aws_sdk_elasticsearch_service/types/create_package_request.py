@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#CreatePackageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.package_type
 
 
-class CreatePackageRequest(TypedDict):
+class CreatePackageRequest(TypedDict, closed=True):
     package_name: "aws_sdk_elasticsearch_service.types.package_name.PackageName"
     """<p>Unique identifier for the package.</p>"""
     package_type: "aws_sdk_elasticsearch_service.types.package_type.PackageType"

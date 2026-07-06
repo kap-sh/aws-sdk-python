@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#MonthlyTransfer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
 
 
-class MonthlyTransfer(TypedDict):
+class MonthlyTransfer(TypedDict, closed=True):
     gb_per_month_allocated: NotRequired["aws_sdk_lightsail.types.integer.integer"]
     """<p>The amount allocated per month (in GB).</p>"""
 

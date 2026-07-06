@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#SavingsPlansPurchaseRecommendationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class SavingsPlansPurchaseRecommendationSummary(TypedDict):
+class SavingsPlansPurchaseRecommendationSummary(TypedDict, closed=True):
     estimated_roi: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

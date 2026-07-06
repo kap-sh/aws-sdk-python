@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#ListQualificationRequestsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.entity_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mturk.types.result_size
 
 
-class ListQualificationRequestsRequest(TypedDict):
+class ListQualificationRequestsRequest(TypedDict, closed=True):
     qualification_type_id: NotRequired["aws_sdk_mturk.types.entity_id.EntityId"]
     """<p>The ID of the QualificationType.</p>"""
     next_token: NotRequired["aws_sdk_mturk.types.pagination_token.PaginationToken"]

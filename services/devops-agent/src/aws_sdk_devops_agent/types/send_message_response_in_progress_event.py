@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#SendMessageResponseInProgressEvent``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent._protocol.eventstream import HeaderValue, Message
 
 
-class SendMessageResponseInProgressEvent(TypedDict):
+class SendMessageResponseInProgressEvent(TypedDict, closed=True):
     response_id: NotRequired["str"]
     """<p>The response ID</p>"""
     sequence_number: NotRequired["int"]

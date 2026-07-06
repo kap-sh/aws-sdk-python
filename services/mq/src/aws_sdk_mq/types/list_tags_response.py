@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#ListTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__map_of__string
 
 
-class ListTagsResponse(TypedDict):
+class ListTagsResponse(TypedDict, closed=True):
     tags: NotRequired["aws_sdk_mq.types.__map_of__string.__mapOf__string"]
     """<p>The key-value pair for the resource tag.</p>"""
 

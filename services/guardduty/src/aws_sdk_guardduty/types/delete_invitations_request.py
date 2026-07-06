@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#DeleteInvitationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.account_ids
 
 
-class DeleteInvitationsRequest(TypedDict):
+class DeleteInvitationsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_guardduty.types.account_ids.AccountIds"]
     """<p>A list of account IDs of the Amazon Web Services accounts that sent invitations to the current member account that you want to delete invitations from.</p>"""
 

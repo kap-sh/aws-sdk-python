@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#VerifiedPermissions``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_verifiedpermissions._auth._signers
@@ -44,7 +44,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.untag_resource_output
 
 
-class AsyncVerifiedPermissionsClientConfig(TypedDict, total=False):
+class AsyncVerifiedPermissionsClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

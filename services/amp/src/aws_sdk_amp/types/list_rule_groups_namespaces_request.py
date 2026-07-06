@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#ListRuleGroupsNamespacesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amp.types.pagination_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class ListRuleGroupsNamespacesRequest(TypedDict):
+class ListRuleGroupsNamespacesRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_amp.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace containing the rule groups namespaces.</p>"""
     name: NotRequired[

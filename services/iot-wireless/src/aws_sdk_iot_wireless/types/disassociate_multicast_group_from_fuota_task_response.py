@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#DisassociateMulticastGroupFromFuotaTaskResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateMulticastGroupFromFuotaTaskResponse(TypedDict):
+class DisassociateMulticastGroupFromFuotaTaskResponse(TypedDict, closed=True):
     pass
 
 

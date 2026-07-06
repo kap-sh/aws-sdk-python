@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SpaceQuickSightResourceDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
 
 
-class _SpaceQuickSightResourceDetails_resourceArn(TypedDict):
+class _SpaceQuickSightResourceDetails_resourceArn(TypedDict, closed=True):
     resourceArn: "aws_sdk_quicksight.types.arn.Arn"
 
 

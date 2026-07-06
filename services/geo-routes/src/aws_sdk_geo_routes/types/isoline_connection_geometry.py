@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#IsolineConnectionGeometry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.line_string
     import aws_sdk_geo_routes.types.polyline
 
 
-class IsolineConnectionGeometry(TypedDict):
+class IsolineConnectionGeometry(TypedDict, closed=True):
     line_string: NotRequired["aws_sdk_geo_routes.types.line_string.LineString"]
     """<p>A series of <code>[longitude, latitude]</code> coordinate pairs defining the connection path when <code>Simple</code> geometry format is requested. These coordinates can be directly used as the coordinates array in a GeoJSON LineString without transformation.</p> <note> <p>LineString and Polyline are mutually exclusive properties.</p> </note>"""
     polyline: NotRequired["aws_sdk_geo_routes.types.polyline.Polyline"]

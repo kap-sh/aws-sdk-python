@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53domains#ResendContactReachabilityEmailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53_domains.types.email
 
 
-class ResendContactReachabilityEmailResponse(TypedDict):
+class ResendContactReachabilityEmailResponse(TypedDict, closed=True):
     domain_name: NotRequired["aws_sdk_route_53_domains.types.domain_name.DomainName"]
     """<p>The domain name for which you requested a confirmation email.</p>"""
     email_address: NotRequired["aws_sdk_route_53_domains.types.email.Email"]

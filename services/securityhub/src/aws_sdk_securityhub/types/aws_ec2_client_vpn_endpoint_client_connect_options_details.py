@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2ClientVpnEndpointClientConnectOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_client_vpn_endpoint_client_connect_options_status_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2ClientVpnEndpointClientConnectOptionsDetails(TypedDict):
+class AwsEc2ClientVpnEndpointClientConnectOptionsDetails(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Indicates whether client connect options are enabled. </p>"""
     lambda_function_arn: NotRequired[

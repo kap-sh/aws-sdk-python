@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#UsagePlan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_api_stage
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.throttle_settings
 
 
-class UsagePlan(TypedDict):
+class UsagePlan(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier of a UsagePlan resource.</p>"""
     name: NotRequired["aws_sdk_api_gateway.types.string.String"]

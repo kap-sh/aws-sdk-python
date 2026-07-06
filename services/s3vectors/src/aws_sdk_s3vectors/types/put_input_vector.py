@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#PutInputVector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3vectors.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.vector_metadata
 
 
-class PutInputVector(TypedDict):
+class PutInputVector(TypedDict, closed=True):
     key: "aws_sdk_s3vectors.types.vector_key.VectorKey"
     """<p>The name of the vector. The key uniquely identifies the vector in a vector index. </p>"""
     data: "aws_sdk_s3vectors.types.vector_data.VectorData"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#GetRecommendedPolicyV2Request``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class GetRecommendedPolicyV2Request(TypedDict):
+class GetRecommendedPolicyV2Request(TypedDict, closed=True):
     metadata_uid: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p>The unique identifier (ID) of Security Hub OCSF findings found under the <code>metadata.uid</code> field of the finding.</p>"""
     next_token: NotRequired["aws_sdk_securityhub.types.next_token.NextToken"]

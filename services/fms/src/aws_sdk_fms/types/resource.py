@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.identifier
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     uri: "aws_sdk_fms.types.identifier.Identifier"
     """<p>The resource's universal resource indicator (URI).</p>"""
     account_id: NotRequired["aws_sdk_fms.types.aws_account_id.AWSAccountId"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#ApacheKafkaCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.vpc
 
 
-class ApacheKafkaCluster(TypedDict):
+class ApacheKafkaCluster(TypedDict, closed=True):
     bootstrap_servers: "aws_sdk_kafkaconnect.types.__string.__string"
     """<p>The bootstrap servers of the cluster.</p>"""
     vpc: "aws_sdk_kafkaconnect.types.vpc.Vpc"

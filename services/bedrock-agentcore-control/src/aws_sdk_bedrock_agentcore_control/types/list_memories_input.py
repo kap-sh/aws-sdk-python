@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListMemoriesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListMemoriesInput(TypedDict):
+class ListMemoriesInput(TypedDict, closed=True):
     max_results: "int"
     """<p>The maximum number of results to return in a single call. The default value is 10. The maximum value is 50.</p>"""
     next_token: NotRequired["str"]

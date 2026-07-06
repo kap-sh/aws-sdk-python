@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ListComputationModelDataBindingUsagesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class ListComputationModelDataBindingUsagesResponse(TypedDict):
+class ListComputationModelDataBindingUsagesResponse(TypedDict, closed=True):
     data_binding_usage_summaries: "aws_sdk_iotsitewise.types.computation_model_data_binding_usage_summaries.ComputationModelDataBindingUsageSummaries"
     """<p>A list of summaries describing the data binding usages across computation models. Each summary includes the computation model IDs and the matched data binding details.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

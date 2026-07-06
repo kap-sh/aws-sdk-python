@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.signer#SignatureValidityPeriod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.integer
     import aws_sdk_signer.types.validity_type
 
 
-class SignatureValidityPeriod(TypedDict):
+class SignatureValidityPeriod(TypedDict, closed=True):
     value: "aws_sdk_signer.types.integer.Integer"
     """<p>The numerical value of the time unit for signature validity.</p>"""
     type: NotRequired["aws_sdk_signer.types.validity_type.ValidityType"]

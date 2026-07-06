@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetRepositorySyncStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.sync_type
 
 
-class GetRepositorySyncStatusInput(TypedDict):
+class GetRepositorySyncStatusInput(TypedDict, closed=True):
     repository_name: "aws_sdk_proton.types.repository_name.RepositoryName"
     """<p>The repository name.</p>"""
     repository_provider: "aws_sdk_proton.types.repository_provider.RepositoryProvider"

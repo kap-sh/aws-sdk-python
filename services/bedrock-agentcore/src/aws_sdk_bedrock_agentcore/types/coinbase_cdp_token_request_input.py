@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#CoinbaseCdpTokenRequestInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.payment_request_path_type
 
 
-class CoinbaseCdpTokenRequestInput(TypedDict):
+class CoinbaseCdpTokenRequestInput(TypedDict, closed=True):
     request_method: (
         "aws_sdk_bedrock_agentcore.types.payment_http_method_type.PaymentHttpMethodType"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#GetResourcesSummaryOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.counts_summary
 
 
-class GetResourcesSummaryOutput(TypedDict):
+class GetResourcesSummaryOutput(TypedDict, closed=True):
     counts: "aws_sdk_proton.types.counts_summary.CountsSummary"
     """<p>Summary counts of each Proton resource type.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#HierarchyMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class HierarchyMapping(TypedDict):
+class HierarchyMapping(TypedDict, closed=True):
     asset_model_hierarchy_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the hierarchy in the asset model where the interface is applied.</p>"""
     interface_asset_model_hierarchy_id: "aws_sdk_iotsitewise.types.id.ID"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#ListIntegrationsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.next_token
 
 
-class ListIntegrationsOutput(TypedDict):
+class ListIntegrationsOutput(TypedDict, closed=True):
     integration_summaries: (
         "aws_sdk_securityagent.types.integration_summary_list.IntegrationSummaryList"
     )

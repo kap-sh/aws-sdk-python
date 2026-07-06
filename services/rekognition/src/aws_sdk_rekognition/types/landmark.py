@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Landmark``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.float
     import aws_sdk_rekognition.types.landmark_type
 
 
-class Landmark(TypedDict):
+class Landmark(TypedDict, closed=True):
     type: NotRequired["aws_sdk_rekognition.types.landmark_type.LandmarkType"]
     """<p>Type of landmark.</p>"""
     x: NotRequired["aws_sdk_rekognition.types.float.Float"]

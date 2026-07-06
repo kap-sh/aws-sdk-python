@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#EmailConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -18,6 +18,7 @@ EmailConfiguration = TypedDict(
         "content": NotRequired["aws_sdk_iot_events.types.email_content.EmailContent"],
         "recipients": "aws_sdk_iot_events.types.email_recipients.EmailRecipients",
     },
+    closed=True,
 )
 
 

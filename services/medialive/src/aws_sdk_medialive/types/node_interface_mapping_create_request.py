@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#NodeInterfaceMappingCreateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.network_interface_mode
 
 
-class NodeInterfaceMappingCreateRequest(TypedDict):
+class NodeInterfaceMappingCreateRequest(TypedDict, closed=True):
     logical_interface_name: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Specify one of the logicalInterfaceNames that you created in the Cluster that this node belongs to. For example, my-Inputs-Interface."""
     network_interface_mode: NotRequired[

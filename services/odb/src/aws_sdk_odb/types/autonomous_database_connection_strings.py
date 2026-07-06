@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.odb#AutonomousDatabaseConnectionStrings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.database_connection_string_map
     import aws_sdk_odb.types.database_connection_string_profile_list
 
 
-class AutonomousDatabaseConnectionStrings(TypedDict):
+class AutonomousDatabaseConnectionStrings(TypedDict, closed=True):
     all_connection_strings: NotRequired[
         "aws_sdk_odb.types.database_connection_string_map.DatabaseConnectionStringMap"
     ]

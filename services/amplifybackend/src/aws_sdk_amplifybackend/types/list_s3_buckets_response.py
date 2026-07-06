@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#ListS3BucketsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
     import aws_sdk_amplifybackend.types.list_of_s3_bucket_info
 
 
-class ListS3BucketsResponse(TypedDict):
+class ListS3BucketsResponse(TypedDict, closed=True):
     buckets: NotRequired[
         "aws_sdk_amplifybackend.types.list_of_s3_bucket_info.ListOfS3BucketInfo"
     ]

@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#PutEmailIdentityFeedbackAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.enabled
     import aws_sdk_pinpoint_email.types.identity
 
 
-class PutEmailIdentityFeedbackAttributesRequest(TypedDict):
+class PutEmailIdentityFeedbackAttributesRequest(TypedDict, closed=True):
     email_identity: "aws_sdk_pinpoint_email.types.identity.Identity"
     """<p>The email identity that you want to configure bounce and complaint feedback forwarding for.</p>"""
     email_forwarding_enabled: "aws_sdk_pinpoint_email.types.enabled.Enabled"

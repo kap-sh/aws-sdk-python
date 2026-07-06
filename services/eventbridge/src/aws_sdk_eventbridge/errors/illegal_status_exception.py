@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#IllegalStatusException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.error_message
 
 
-class IllegalStatusException_(TypedDict):
+class IllegalStatusException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eventbridge.types.error_message.ErrorMessage"]
 
 

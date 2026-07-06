@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#S3Object``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_bucket_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.s3_version_id
 
 
-class S3Object(TypedDict):
+class S3Object(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_groundstation.types.s3_bucket_name.S3BucketName"]
     """<p>An Amazon S3 Bucket name.</p>"""
     key: NotRequired["aws_sdk_groundstation.types.s3_object_key.S3ObjectKey"]

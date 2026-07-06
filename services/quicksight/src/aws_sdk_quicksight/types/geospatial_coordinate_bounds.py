@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialCoordinateBounds``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.longitude
 
 
-class GeospatialCoordinateBounds(TypedDict):
+class GeospatialCoordinateBounds(TypedDict, closed=True):
     north: "aws_sdk_quicksight.types.latitude.Latitude"
     """<p>The latitude of the north bound of the geospatial coordinate bounds.</p>"""
     south: "aws_sdk_quicksight.types.latitude.Latitude"

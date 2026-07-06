@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#Body``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.content
 
 
-class Body(TypedDict):
+class Body(TypedDict, closed=True):
     text: NotRequired["aws_sdk_sesv2.types.content.Content"]
     """<p>An object that represents the version of the message that is displayed in email clients that don't support HTML, or clients where the recipient has disabled HTML rendering.</p>"""
     html: NotRequired["aws_sdk_sesv2.types.content.Content"]

@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GroundTruthTurnInput``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
 
-class _GroundTruthTurnInput_prompt(TypedDict):
+class _GroundTruthTurnInput_prompt(TypedDict, closed=True):
     prompt: "str"
 
 

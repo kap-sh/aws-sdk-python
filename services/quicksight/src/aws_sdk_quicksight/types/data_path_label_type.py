@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataPathLabelType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.visibility
 
 
-class DataPathLabelType(TypedDict):
+class DataPathLabelType(TypedDict, closed=True):
     field_id: NotRequired["aws_sdk_quicksight.types.field_id.FieldId"]
     """<p>The field ID of the field that the data label needs to be applied to.</p>"""
     field_value: NotRequired["aws_sdk_quicksight.types.field_value.FieldValue"]

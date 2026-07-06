@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#SubjectNameFlagsV3``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SubjectNameFlagsV3(TypedDict):
+class SubjectNameFlagsV3(TypedDict, closed=True):
     san_require_domain_dns: NotRequired["bool"]
     """<p>Include the domain DNS in the subject alternate name.</p>"""
     san_require_spn: NotRequired["bool"]

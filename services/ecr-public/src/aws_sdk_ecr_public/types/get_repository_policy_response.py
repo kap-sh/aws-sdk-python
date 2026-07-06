@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecrpublic#GetRepositoryPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.registry_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr_public.types.repository_policy_text
 
 
-class GetRepositoryPolicyResponse(TypedDict):
+class GetRepositoryPolicyResponse(TypedDict, closed=True):
     registry_id: NotRequired["aws_sdk_ecr_public.types.registry_id.RegistryId"]
     """<p>The registry ID that's associated with the request.</p>"""
     repository_name: NotRequired[

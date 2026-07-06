@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ParametersFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.parameters_filter_value_list
 
 
-class ParametersFilter(TypedDict):
+class ParametersFilter(TypedDict, closed=True):
     key: "aws_sdk_ssm.types.parameters_filter_key.ParametersFilterKey"
     """<p>The name of the filter.</p>"""
     values: "aws_sdk_ssm.types.parameters_filter_value_list.ParametersFilterValueList"

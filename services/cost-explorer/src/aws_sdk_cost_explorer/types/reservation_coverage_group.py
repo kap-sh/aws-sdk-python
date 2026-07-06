@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ReservationCoverageGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.attributes
     import aws_sdk_cost_explorer.types.coverage
 
 
-class ReservationCoverageGroup(TypedDict):
+class ReservationCoverageGroup(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_cost_explorer.types.attributes.Attributes"]
     """<p>The attributes for this group of reservations.</p>"""
     coverage: NotRequired["aws_sdk_cost_explorer.types.coverage.Coverage"]

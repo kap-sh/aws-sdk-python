@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchPutDataQualityStatisticAnnotationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.annotation_error_list
 
 
-class BatchPutDataQualityStatisticAnnotationResponse(TypedDict):
+class BatchPutDataQualityStatisticAnnotationResponse(TypedDict, closed=True):
     failed_inclusion_annotations: NotRequired[
         "aws_sdk_glue.types.annotation_error_list.AnnotationErrorList"
     ]

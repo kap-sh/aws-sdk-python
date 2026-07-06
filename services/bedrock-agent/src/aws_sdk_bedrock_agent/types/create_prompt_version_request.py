@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#CreatePromptVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.client_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.tags_map
 
 
-class CreatePromptVersionRequest(TypedDict):
+class CreatePromptVersionRequest(TypedDict, closed=True):
     prompt_identifier: "aws_sdk_bedrock_agent.types.prompt_identifier.PromptIdentifier"
     """<p>The unique identifier of the prompt that you want to create a version of.</p>"""
     description: NotRequired[

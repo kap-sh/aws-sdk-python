@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#UpdateDataSourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.data_source
 
 
-class UpdateDataSourceResponse(TypedDict):
+class UpdateDataSourceResponse(TypedDict, closed=True):
     data_source: NotRequired["aws_sdk_appsync.types.data_source.DataSource"]
     """<p>The updated <code>DataSource</code> object.</p>"""
 

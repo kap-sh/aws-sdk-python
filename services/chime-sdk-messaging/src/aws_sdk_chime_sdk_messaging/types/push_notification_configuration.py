@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#PushNotificationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.push_notification_body
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.push_notification_type
 
 
-class PushNotificationConfiguration(TypedDict):
+class PushNotificationConfiguration(TypedDict, closed=True):
     title: NotRequired[
         "aws_sdk_chime_sdk_messaging.types.push_notification_title.PushNotificationTitle"
     ]

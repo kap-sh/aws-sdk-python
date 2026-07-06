@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#StartAsyncInvokeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.invocation_arn
 
 
-class StartAsyncInvokeResponse(TypedDict):
+class StartAsyncInvokeResponse(TypedDict, closed=True):
     invocation_arn: "aws_sdk_bedrock_runtime.types.invocation_arn.InvocationArn"
     """<p>The ARN of the invocation.</p>"""
 

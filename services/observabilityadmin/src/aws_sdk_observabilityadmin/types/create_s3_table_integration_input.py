@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#CreateS3TableIntegrationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.tag_map_input
 
 
-class CreateS3TableIntegrationInput(TypedDict):
+class CreateS3TableIntegrationInput(TypedDict, closed=True):
     encryption: "aws_sdk_observabilityadmin.types.encryption.Encryption"
     """<p>The encryption configuration for the S3 Table integration, including the encryption algorithm and KMS key settings.</p>"""
     role_arn: "aws_sdk_observabilityadmin.types.resource_arn.ResourceArn"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#AttachmentSetSizeLimitExceeded``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_support.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.error_message
 
 
-class AttachmentSetSizeLimitExceeded_(TypedDict):
+class AttachmentSetSizeLimitExceeded_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_support.types.error_message.ErrorMessage"]
     """<p>A limit for the size of an attachment set has been exceeded. The limits are three attachments and 5 MB per attachment.</p>"""
 

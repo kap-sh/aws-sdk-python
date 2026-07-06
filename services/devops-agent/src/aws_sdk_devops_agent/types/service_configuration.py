@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#ServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -24,81 +26,81 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.source_aws_configuration
 
 
-class _ServiceConfiguration_sourceAws(TypedDict):
+class _ServiceConfiguration_sourceAws(TypedDict, closed=True):
     sourceAws: (
         "aws_sdk_devops_agent.types.source_aws_configuration.SourceAwsConfiguration"
     )
 
 
-class _ServiceConfiguration_aws(TypedDict):
+class _ServiceConfiguration_aws(TypedDict, closed=True):
     aws: "aws_sdk_devops_agent.types.aws_configuration.AWSConfiguration"
 
 
-class _ServiceConfiguration_github(TypedDict):
+class _ServiceConfiguration_github(TypedDict, closed=True):
     github: "aws_sdk_devops_agent.types.git_hub_configuration.GitHubConfiguration"
 
 
-class _ServiceConfiguration_slack(TypedDict):
+class _ServiceConfiguration_slack(TypedDict, closed=True):
     slack: "aws_sdk_devops_agent.types.slack_configuration.SlackConfiguration"
 
 
-class _ServiceConfiguration_dynatrace(TypedDict):
+class _ServiceConfiguration_dynatrace(TypedDict, closed=True):
     dynatrace: (
         "aws_sdk_devops_agent.types.dynatrace_configuration.DynatraceConfiguration"
     )
 
 
-class _ServiceConfiguration_servicenow(TypedDict):
+class _ServiceConfiguration_servicenow(TypedDict, closed=True):
     servicenow: (
         "aws_sdk_devops_agent.types.service_now_configuration.ServiceNowConfiguration"
     )
 
 
-class _ServiceConfiguration_mcpservernewrelic(TypedDict):
+class _ServiceConfiguration_mcpservernewrelic(TypedDict, closed=True):
     mcpservernewrelic: "aws_sdk_devops_agent.types.mcp_server_new_relic_configuration.MCPServerNewRelicConfiguration"
 
 
-class _ServiceConfiguration_mcpserverdatadog(TypedDict):
+class _ServiceConfiguration_mcpserverdatadog(TypedDict, closed=True):
     mcpserverdatadog: "aws_sdk_devops_agent.types.mcp_server_datadog_configuration.MCPServerDatadogConfiguration"
 
 
-class _ServiceConfiguration_mcpserver(TypedDict):
+class _ServiceConfiguration_mcpserver(TypedDict, closed=True):
     mcpserver: (
         "aws_sdk_devops_agent.types.mcp_server_configuration.MCPServerConfiguration"
     )
 
 
-class _ServiceConfiguration_gitlab(TypedDict):
+class _ServiceConfiguration_gitlab(TypedDict, closed=True):
     gitlab: "aws_sdk_devops_agent.types.git_lab_configuration.GitLabConfiguration"
 
 
-class _ServiceConfiguration_mcpserversplunk(TypedDict):
+class _ServiceConfiguration_mcpserversplunk(TypedDict, closed=True):
     mcpserversplunk: "aws_sdk_devops_agent.types.mcp_server_splunk_configuration.MCPServerSplunkConfiguration"
 
 
-class _ServiceConfiguration_eventChannel(TypedDict):
+class _ServiceConfiguration_eventChannel(TypedDict, closed=True):
     eventChannel: "aws_sdk_devops_agent.types.event_channel_configuration.EventChannelConfiguration"
 
 
-class _ServiceConfiguration_azure(TypedDict):
+class _ServiceConfiguration_azure(TypedDict, closed=True):
     azure: "aws_sdk_devops_agent.types.azure_configuration.AzureConfiguration"
 
 
-class _ServiceConfiguration_azuredevops(TypedDict):
+class _ServiceConfiguration_azuredevops(TypedDict, closed=True):
     azuredevops: "aws_sdk_devops_agent.types.azure_dev_ops_configuration.AzureDevOpsConfiguration"
 
 
-class _ServiceConfiguration_mcpservergrafana(TypedDict):
+class _ServiceConfiguration_mcpservergrafana(TypedDict, closed=True):
     mcpservergrafana: "aws_sdk_devops_agent.types.mcp_server_grafana_configuration.MCPServerGrafanaConfiguration"
 
 
-class _ServiceConfiguration_pagerduty(TypedDict):
+class _ServiceConfiguration_pagerduty(TypedDict, closed=True):
     pagerduty: (
         "aws_sdk_devops_agent.types.pager_duty_configuration.PagerDutyConfiguration"
     )
 
 
-class _ServiceConfiguration_mcpserversigv4(TypedDict):
+class _ServiceConfiguration_mcpserversigv4(TypedDict, closed=True):
     mcpserversigv4: "aws_sdk_devops_agent.types.mcp_server_sig_v4_configuration.MCPServerSigV4Configuration"
 
 

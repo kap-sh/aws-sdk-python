@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#UpdateMulticastGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.description
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.multicast_group_name
 
 
-class UpdateMulticastGroupRequest(TypedDict):
+class UpdateMulticastGroupRequest(TypedDict, closed=True):
     id: "aws_sdk_iot_wireless.types.multicast_group_id.MulticastGroupId"
     name: NotRequired[
         "aws_sdk_iot_wireless.types.multicast_group_name.MulticastGroupName"

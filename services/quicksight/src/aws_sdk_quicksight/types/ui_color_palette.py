@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UIColorPalette``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color
 
 
-class UIColorPalette(TypedDict):
+class UIColorPalette(TypedDict, closed=True):
     primary_foreground: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]
     """<p>The color of text and other foreground elements that appear over the primary background regions, such as grid lines, borders, table banding, icons, and so on.</p>"""
     primary_background: NotRequired["aws_sdk_quicksight.types.hex_color.HexColor"]

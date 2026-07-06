@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#AutoScalingSettingsDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.auto_scaling_policy_description_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.string
 
 
-class AutoScalingSettingsDescription(TypedDict):
+class AutoScalingSettingsDescription(TypedDict, closed=True):
     minimum_units: NotRequired[
         "aws_sdk_dynamodb.types.positive_long_object.PositiveLongObject"
     ]

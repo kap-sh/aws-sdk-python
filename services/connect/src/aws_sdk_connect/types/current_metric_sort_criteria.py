@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CurrentMetricSortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.current_metric_name
     import aws_sdk_connect.types.sort_order
 
 
-class CurrentMetricSortCriteria(TypedDict):
+class CurrentMetricSortCriteria(TypedDict, closed=True):
     sort_by_metric: NotRequired[
         "aws_sdk_connect.types.current_metric_name.CurrentMetricName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ListInputDevicesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__list_of_input_device_summary
     import aws_sdk_medialive.types.__string
 
 
-class ListInputDevicesResponse(TypedDict):
+class ListInputDevicesResponse(TypedDict, closed=True):
     input_devices: NotRequired[
         "aws_sdk_medialive.types.__list_of_input_device_summary.__listOfInputDeviceSummary"
     ]

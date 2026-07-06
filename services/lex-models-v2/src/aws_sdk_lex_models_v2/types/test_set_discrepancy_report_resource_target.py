@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TestSetDiscrepancyReportResourceTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_discrepancy_report_bot_alias_target
 
 
-class TestSetDiscrepancyReportResourceTarget(TypedDict):
+class TestSetDiscrepancyReportResourceTarget(TypedDict, closed=True):
     bot_alias_target: NotRequired[
         "aws_sdk_lex_models_v2.types.test_set_discrepancy_report_bot_alias_target.TestSetDiscrepancyReportBotAliasTarget"
     ]

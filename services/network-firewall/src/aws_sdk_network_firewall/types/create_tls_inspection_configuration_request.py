@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#CreateTLSInspectionConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_network_firewall.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.tls_inspection_configuration
 
 
-class CreateTLSInspectionConfigurationRequest(TypedDict):
+class CreateTLSInspectionConfigurationRequest(TypedDict, closed=True):
     tls_inspection_configuration_name: (
         "aws_sdk_network_firewall.types.resource_name.ResourceName"
     )

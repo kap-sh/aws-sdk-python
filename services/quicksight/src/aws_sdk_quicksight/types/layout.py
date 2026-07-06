@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#Layout``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.layout_configuration
 
 
-class Layout(TypedDict):
+class Layout(TypedDict, closed=True):
     configuration: "aws_sdk_quicksight.types.layout_configuration.LayoutConfiguration"
     """<p>The configuration that determines what the type of layout for a sheet.</p>"""
 

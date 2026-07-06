@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#ArgoCdNetworkAccessConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class ArgoCdNetworkAccessConfigResponse(TypedDict):
+class ArgoCdNetworkAccessConfigResponse(TypedDict, closed=True):
     vpce_ids: NotRequired["aws_sdk_eks.types.string_list.StringList"]
     """<p>The list of VPC endpoint IDs associated with the managed Argo CD API server endpoint. Each VPC endpoint provides private connectivity from a specific VPC to the Argo CD server.</p>"""
 

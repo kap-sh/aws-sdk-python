@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListThreatEntitySetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
     import aws_sdk_guardduty.types.threat_entity_set_ids
 
 
-class ListThreatEntitySetsResponse(TypedDict):
+class ListThreatEntitySetsResponse(TypedDict, closed=True):
     threat_entity_set_ids: NotRequired[
         "aws_sdk_guardduty.types.threat_entity_set_ids.ThreatEntitySetIds"
     ]

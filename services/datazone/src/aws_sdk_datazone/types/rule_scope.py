@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RuleScope``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.asset_types_for_rule
     import aws_sdk_datazone.types.projects_for_rule
 
 
-class RuleScope(TypedDict):
+class RuleScope(TypedDict, closed=True):
     asset_type: NotRequired[
         "aws_sdk_datazone.types.asset_types_for_rule.AssetTypesForRule"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#InvalidContactFlowException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.problems
 
 
-class InvalidContactFlowException_(TypedDict):
+class InvalidContactFlowException_(TypedDict, closed=True):
     problems: NotRequired["aws_sdk_connect.types.problems.Problems"]
     """<p>The problems with the flow. Please fix before trying again.</p>"""
 

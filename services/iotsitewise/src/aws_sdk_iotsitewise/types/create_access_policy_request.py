@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#CreateAccessPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.tag_map
 
 
-class CreateAccessPolicyRequest(TypedDict):
+class CreateAccessPolicyRequest(TypedDict, closed=True):
     access_policy_identity: "aws_sdk_iotsitewise.types.identity.Identity"
     """<p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>"""
     access_policy_resource: "aws_sdk_iotsitewise.types.resource.Resource"

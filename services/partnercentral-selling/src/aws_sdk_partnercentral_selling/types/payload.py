@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#Payload``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.opportunity_invitation_payload
 
 
-class _Payload_OpportunityInvitation(TypedDict):
+class _Payload_OpportunityInvitation(TypedDict, closed=True):
     OpportunityInvitation: "aws_sdk_partnercentral_selling.types.opportunity_invitation_payload.OpportunityInvitationPayload"
 
 
-class _Payload_LeadInvitation(TypedDict):
+class _Payload_LeadInvitation(TypedDict, closed=True):
     LeadInvitation: "aws_sdk_partnercentral_selling.types.lead_invitation_payload.LeadInvitationPayload"
 
 

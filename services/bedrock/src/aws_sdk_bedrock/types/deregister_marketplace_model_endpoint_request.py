@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeregisterMarketplaceModelEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.arn
 
 
-class DeregisterMarketplaceModelEndpointRequest(TypedDict):
+class DeregisterMarketplaceModelEndpointRequest(TypedDict, closed=True):
     endpoint_arn: "aws_sdk_bedrock.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the endpoint you want to deregister.</p>"""
 

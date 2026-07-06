@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connecthealth#MedicalScribeTranscriptSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connecthealth.types.audio_offset
     import aws_sdk_connecthealth.types.non_null_boolean
 
 
-class MedicalScribeTranscriptSegment(TypedDict):
+class MedicalScribeTranscriptSegment(TypedDict, closed=True):
     segment_id: NotRequired["str"]
     """<p>The unique identifier for this segment</p>"""
     audio_begin_offset: NotRequired[

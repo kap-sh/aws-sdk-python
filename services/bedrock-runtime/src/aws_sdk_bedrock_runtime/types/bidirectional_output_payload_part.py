@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#BidirectionalOutputPayloadPart``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.part_body
 
 
-class BidirectionalOutputPayloadPart(TypedDict):
+class BidirectionalOutputPayloadPart(TypedDict, closed=True):
     bytes: NotRequired["aws_sdk_bedrock_runtime.types.part_body.PartBody"]
     """<p>The speech output of the bidirectional stream.</p>"""
 

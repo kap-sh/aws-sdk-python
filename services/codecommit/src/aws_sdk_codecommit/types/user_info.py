@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#UserInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.date
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.name
 
 
-class UserInfo(TypedDict):
+class UserInfo(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codecommit.types.name.Name"]
     """<p>The name of the user who made the specified commit.</p>"""
     email: NotRequired["aws_sdk_codecommit.types.email.Email"]

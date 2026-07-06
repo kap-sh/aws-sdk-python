@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#CloudFormationHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.analyzed_resource_count
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.stack_name
 
 
-class CloudFormationHealth(TypedDict):
+class CloudFormationHealth(TypedDict, closed=True):
     stack_name: NotRequired["aws_sdk_devops_guru.types.stack_name.StackName"]
     """<p> The name of the CloudFormation stack. </p>"""
     insight: NotRequired["aws_sdk_devops_guru.types.insight_health.InsightHealth"]

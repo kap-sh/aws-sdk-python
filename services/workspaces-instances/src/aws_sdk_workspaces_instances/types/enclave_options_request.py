@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#EnclaveOptionsRequest``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EnclaveOptionsRequest(TypedDict):
+class EnclaveOptionsRequest(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables or disables AWS Nitro Enclaves for enhanced security.</p>"""
 

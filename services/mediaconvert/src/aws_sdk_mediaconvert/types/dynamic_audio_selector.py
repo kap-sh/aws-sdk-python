@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DynamicAudioSelector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min_negative2147483648_max2147483647
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.language_code
 
 
-class DynamicAudioSelector(TypedDict):
+class DynamicAudioSelector(TypedDict, closed=True):
     audio_duration_correction: NotRequired[
         "aws_sdk_mediaconvert.types.audio_duration_correction.AudioDurationCorrection"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainChangeProgressResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.change_progress_status_details
 
 
-class DescribeDomainChangeProgressResponse(TypedDict):
+class DescribeDomainChangeProgressResponse(TypedDict, closed=True):
     change_progress_status: NotRequired[
         "aws_sdk_opensearch.types.change_progress_status_details.ChangeProgressStatusDetails"
     ]

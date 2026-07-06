@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#DeleteReplicationSetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.arn
 
 
-class DeleteReplicationSetInput(TypedDict):
+class DeleteReplicationSetInput(TypedDict, closed=True):
     arn: "aws_sdk_ssm_incidents.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the replication set you're deleting.</p>"""
 

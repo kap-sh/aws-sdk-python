@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#Step``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplify.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplify.types.test_config_url
 
 
-class Step(TypedDict):
+class Step(TypedDict, closed=True):
     step_name: "aws_sdk_amplify.types.step_name.StepName"
     """<p> The name of the execution step. </p>"""
     start_time: "aws_sdk_amplify.types.start_time.StartTime"

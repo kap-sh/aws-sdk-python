@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrassv2#IoTJobExecutionsRolloutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrassv2.types.io_t_job_exponential_rollout_rate
     import aws_sdk_greengrassv2.types.io_t_job_max_executions_per_min
 
 
-class IoTJobExecutionsRolloutConfig(TypedDict):
+class IoTJobExecutionsRolloutConfig(TypedDict, closed=True):
     exponential_rate: NotRequired[
         "aws_sdk_greengrassv2.types.io_t_job_exponential_rollout_rate.IoTJobExponentialRolloutRate"
     ]

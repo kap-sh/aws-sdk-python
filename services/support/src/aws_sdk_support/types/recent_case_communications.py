@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.support#RecentCaseCommunications``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.communication_list
     import aws_sdk_support.types.next_token
 
 
-class RecentCaseCommunications(TypedDict):
+class RecentCaseCommunications(TypedDict, closed=True):
     communications: NotRequired[
         "aws_sdk_support.types.communication_list.CommunicationList"
     ]

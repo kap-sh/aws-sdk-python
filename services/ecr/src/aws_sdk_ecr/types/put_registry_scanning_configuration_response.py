@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#PutRegistryScanningConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.registry_scanning_configuration
 
 
-class PutRegistryScanningConfigurationResponse(TypedDict):
+class PutRegistryScanningConfigurationResponse(TypedDict, closed=True):
     registry_scanning_configuration: NotRequired[
         "aws_sdk_ecr.types.registry_scanning_configuration.RegistryScanningConfiguration"
     ]

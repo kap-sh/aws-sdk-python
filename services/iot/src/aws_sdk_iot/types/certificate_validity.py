@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#CertificateValidity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.date_type
 
 
-class CertificateValidity(TypedDict):
+class CertificateValidity(TypedDict, closed=True):
     not_before: NotRequired["aws_sdk_iot.types.date_type.DateType"]
     """<p>The certificate is not valid before this date.</p>"""
     not_after: NotRequired["aws_sdk_iot.types.date_type.DateType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ListConnectionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_apprunner.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.next_token
 
 
-class ListConnectionsResponse(TypedDict):
+class ListConnectionsResponse(TypedDict, closed=True):
     connection_summary_list: (
         "aws_sdk_apprunner.types.connection_summary_list.ConnectionSummaryList"
     )

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#DestinationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.s3_detail
 
 
-class DestinationDetail(TypedDict):
+class DestinationDetail(TypedDict, closed=True):
     s3: NotRequired["aws_sdk_ivs_realtime.types.s3_detail.S3Detail"]
     """<p>An S3 detail object to return information about the S3 destination.</p>"""
 

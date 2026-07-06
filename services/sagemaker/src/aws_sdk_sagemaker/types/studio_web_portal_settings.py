@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StudioWebPortalSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.execution_role_session_name_mode
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.hidden_sage_maker_image_version_aliases_list
 
 
-class StudioWebPortalSettings(TypedDict):
+class StudioWebPortalSettings(TypedDict, closed=True):
     hidden_ml_tools: NotRequired[
         "aws_sdk_sagemaker.types.hidden_ml_tools_list.HiddenMlToolsList"
     ]

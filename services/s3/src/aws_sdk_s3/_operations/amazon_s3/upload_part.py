@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Any, cast
 from urllib.parse import quote
 
 import zapros
@@ -243,7 +243,7 @@ def build_request(
         headers["x-amz-expected-bucket-owner"] = str(input_["expected_bucket_owner"])
     body = input_["body"]
     if isinstance(body, aws_sdk_s3._iter.StaticAnyIterator):
-        body = body.content
+        body = cast(bytes, body.content)
     if not isinstance(body, bytes) and "content-length" not in [
         header.lower() for header in headers
     ]:

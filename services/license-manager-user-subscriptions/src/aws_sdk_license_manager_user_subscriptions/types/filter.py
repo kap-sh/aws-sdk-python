@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#Filter``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     attribute: NotRequired["str"]
     """<p>The name of an attribute to use as a filter.</p>"""
     operation: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GuardrailPiiEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_sensitive_information_action
 
 
-class GuardrailPiiEntity(TypedDict):
+class GuardrailPiiEntity(TypedDict, closed=True):
     type: "aws_sdk_bedrock.types.guardrail_pii_entity_type.GuardrailPiiEntityType"
     """<p>The type of PII entity. For example, Social Security Number.</p>"""
     action: "aws_sdk_bedrock.types.guardrail_sensitive_information_action.GuardrailSensitiveInformationAction"

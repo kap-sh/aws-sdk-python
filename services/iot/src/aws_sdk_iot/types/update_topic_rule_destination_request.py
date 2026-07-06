@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateTopicRuleDestinationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.topic_rule_destination_status
 
 
-class UpdateTopicRuleDestinationRequest(TypedDict):
+class UpdateTopicRuleDestinationRequest(TypedDict, closed=True):
     arn: "aws_sdk_iot.types.aws_arn.AwsArn"
     """<p>The ARN of the topic rule destination.</p>"""
     status: "aws_sdk_iot.types.topic_rule_destination_status.TopicRuleDestinationStatus"

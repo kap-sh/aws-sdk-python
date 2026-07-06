@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListPhoneNumbersV2Response``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.large_next_token
     import aws_sdk_connect.types.list_phone_numbers_summary_list
 
 
-class ListPhoneNumbersV2Response(TypedDict):
+class ListPhoneNumbersV2Response(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_connect.types.large_next_token.LargeNextToken"]
     """<p>If there are additional results, this is the token for the next set of results.</p>"""
     list_phone_numbers_summary_list: NotRequired[

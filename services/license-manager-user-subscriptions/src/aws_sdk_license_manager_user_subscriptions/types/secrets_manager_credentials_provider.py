@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#SecretsManagerCredentialsProvider``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SecretsManagerCredentialsProvider(TypedDict):
+class SecretsManagerCredentialsProvider(TypedDict, closed=True):
     secret_id: NotRequired["str"]
     """<p>The ID of the Secrets Manager secret that contains credentials.</p>"""
 

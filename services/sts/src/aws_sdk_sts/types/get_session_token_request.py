@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetSessionTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.token_code_type
 
 
-class GetSessionTokenRequest(TypedDict):
+class GetSessionTokenRequest(TypedDict, closed=True):
     duration_seconds: NotRequired[
         "aws_sdk_sts.types.duration_seconds_type.durationSecondsType"
     ]

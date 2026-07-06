@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DeleteUsagePlanRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class DeleteUsagePlanRequest(TypedDict):
+class DeleteUsagePlanRequest(TypedDict, closed=True):
     usage_plan_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The Id of the to-be-deleted usage plan.</p>"""
 

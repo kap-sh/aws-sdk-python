@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#PredictiveScalingMetricSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.predictive_scaling_predefined_scaling_metric_specification
 
 
-class PredictiveScalingMetricSpecification(TypedDict):
+class PredictiveScalingMetricSpecification(TypedDict, closed=True):
     target_value: "aws_sdk_application_auto_scaling.types.metric_scale.MetricScale"
     """<p> Specifies the target utilization. </p>"""
     predefined_metric_pair_specification: NotRequired[

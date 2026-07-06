@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ScalarProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.uuid
 
 
-class ScalarProfileRequest(TypedDict):
+class ScalarProfileRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_rolesanywhere.types.uuid.Uuid"
     """<p>The unique identifier of the profile.</p>"""
 

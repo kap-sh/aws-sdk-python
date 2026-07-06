@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#AbbreviatedExecution``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.plan_arn
 
 
-class AbbreviatedExecution(TypedDict):
+class AbbreviatedExecution(TypedDict, closed=True):
     plan_arn: "aws_sdk_arc_region_switch.types.plan_arn.PlanArn"
     """<p>The Amazon Resource Name (ARN) of the plan.</p>"""
     execution_id: "aws_sdk_arc_region_switch.types.execution_id.ExecutionId"

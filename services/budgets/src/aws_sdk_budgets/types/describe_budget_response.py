@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#DescribeBudgetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.budget
 
 
-class DescribeBudgetResponse(TypedDict):
+class DescribeBudgetResponse(TypedDict, closed=True):
     budget: NotRequired["aws_sdk_budgets.types.budget.Budget"]
     """<p>The description of the budget.</p>"""
 

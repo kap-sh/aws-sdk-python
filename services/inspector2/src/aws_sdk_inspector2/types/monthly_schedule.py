@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#MonthlySchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.time
 
 
-class MonthlySchedule(TypedDict):
+class MonthlySchedule(TypedDict, closed=True):
     start_time: "aws_sdk_inspector2.types.time.Time"
     """<p>The monthly schedule's start time.</p>"""
     day: "aws_sdk_inspector2.types.day.Day"

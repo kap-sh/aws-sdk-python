@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#BatchDeleteImportDataError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.batch_delete_import_data_error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.import_task_identifier
 
 
-class BatchDeleteImportDataError(TypedDict):
+class BatchDeleteImportDataError(TypedDict, closed=True):
     import_task_id: NotRequired[
         "aws_sdk_application_discovery_service.types.import_task_identifier.ImportTaskIdentifier"
     ]

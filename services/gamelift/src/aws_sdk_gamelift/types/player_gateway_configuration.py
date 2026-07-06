@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#PlayerGatewayConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_ip_protocol_supported
 
 
-class PlayerGatewayConfiguration(TypedDict):
+class PlayerGatewayConfiguration(TypedDict, closed=True):
     game_server_ip_protocol_supported: NotRequired[
         "aws_sdk_gamelift.types.game_server_ip_protocol_supported.GameServerIpProtocolSupported"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#UpdatePrimaryEmailAddressRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class UpdatePrimaryEmailAddressRequest(TypedDict):
+class UpdatePrimaryEmailAddressRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The organization that contains the user, group, or resource to update.</p>"""
     entity_id: "aws_sdk_workmail.types.entity_identifier.EntityIdentifier"

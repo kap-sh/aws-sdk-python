@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#GetAdConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.ad_configuration_arn
 
 
-class GetAdConfigurationRequest(TypedDict):
+class GetAdConfigurationRequest(TypedDict, closed=True):
     arn: "aws_sdk_ivs.types.ad_configuration_arn.AdConfigurationArn"
     """<p>ARN of the ad configuration to be retrieved.</p>"""
 

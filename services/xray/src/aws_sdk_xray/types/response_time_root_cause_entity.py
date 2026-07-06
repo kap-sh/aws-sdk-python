@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#ResponseTimeRootCauseEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.nullable_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class ResponseTimeRootCauseEntity(TypedDict):
+class ResponseTimeRootCauseEntity(TypedDict, closed=True):
     name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The name of the entity.</p>"""
     coverage: NotRequired["aws_sdk_xray.types.nullable_double.NullableDouble"]

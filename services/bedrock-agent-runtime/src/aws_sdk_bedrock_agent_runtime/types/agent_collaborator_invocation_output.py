@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AgentCollaboratorInvocationOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.agent_alias_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.metadata
 
 
-class AgentCollaboratorInvocationOutput(TypedDict):
+class AgentCollaboratorInvocationOutput(TypedDict, closed=True):
     agent_collaborator_name: NotRequired["str"]
     """<p>The output's agent collaborator name.</p>"""
     agent_collaborator_alias_arn: NotRequired[

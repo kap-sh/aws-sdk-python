@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#StartCacheReportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tags
 
 
-class StartCacheReportInput(TypedDict):
+class StartCacheReportInput(TypedDict, closed=True):
     file_share_arn: "aws_sdk_storage_gateway.types.file_share_arn.FileShareARN"
     role: "aws_sdk_storage_gateway.types.role.Role"
     """<p>The ARN of the IAM role used when saving the cache report to Amazon S3.</p>"""

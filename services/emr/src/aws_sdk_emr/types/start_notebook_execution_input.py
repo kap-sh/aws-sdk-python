@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#StartNotebookExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.environment_variables_map
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string_max_len256
 
 
-class StartNotebookExecutionInput(TypedDict):
+class StartNotebookExecutionInput(TypedDict, closed=True):
     editor_id: NotRequired["aws_sdk_emr.types.xml_string_max_len256.XmlStringMaxLen256"]
     """<p>The unique identifier of the Amazon EMR Notebook to use for notebook execution.</p>"""
     relative_path: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]

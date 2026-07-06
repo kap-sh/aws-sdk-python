@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#ListNotebooksOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.notebook_summary_list
     import aws_sdk_datazone.types.pagination_token
 
 
-class ListNotebooksOutput(TypedDict):
+class ListNotebooksOutput(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_datazone.types.notebook_summary_list.NotebookSummaryList"
     ]

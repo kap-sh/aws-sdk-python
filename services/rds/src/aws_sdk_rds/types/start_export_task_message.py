@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#StartExportTaskMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string_list
 
 
-class StartExportTaskMessage(TypedDict):
+class StartExportTaskMessage(TypedDict, closed=True):
     export_task_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>A unique identifier for the export task. This ID isn't an identifier for the Amazon S3 bucket where the data is to be exported.</p>"""
     source_arn: NotRequired["aws_sdk_rds.types.string.String"]

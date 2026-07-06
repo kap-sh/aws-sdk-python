@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#ConnectionQueryStringParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.query_string_value_sensitive
 
 
-class ConnectionQueryStringParameter(TypedDict):
+class ConnectionQueryStringParameter(TypedDict, closed=True):
     key: NotRequired["aws_sdk_eventbridge.types.query_string_key.QueryStringKey"]
     """<p>The key for a query string parameter.</p>"""
     value: NotRequired[

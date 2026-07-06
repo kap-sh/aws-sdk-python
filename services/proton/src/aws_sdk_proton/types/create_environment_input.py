@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateEnvironmentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.template_version_part
 
 
-class CreateEnvironmentInput(TypedDict):
+class CreateEnvironmentInput(TypedDict, closed=True):
     name: "aws_sdk_proton.types.resource_name.ResourceName"
     """<p>The name of the environment.</p>"""
     template_name: "aws_sdk_proton.types.resource_name.ResourceName"

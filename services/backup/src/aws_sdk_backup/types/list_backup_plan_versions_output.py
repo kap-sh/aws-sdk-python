@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backup#ListBackupPlanVersionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_plan_versions_list
     import aws_sdk_backup.types.string
 
 
-class ListBackupPlanVersionsOutput(TypedDict):
+class ListBackupPlanVersionsOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>The next item following a partial list of returned items. For example, if a request is made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list starting at the location pointed to by the next token.</p>"""
     backup_plan_versions_list: NotRequired[

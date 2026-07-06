@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#MultiplexProgramPipelineDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
 
 
-class MultiplexProgramPipelineDetail(TypedDict):
+class MultiplexProgramPipelineDetail(TypedDict, closed=True):
     active_channel_pipeline: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Identifies the channel pipeline that is currently active for the pipeline (identified by PipelineId) in the multiplex."""
     pipeline_id: NotRequired["aws_sdk_medialive.types.__string.__string"]

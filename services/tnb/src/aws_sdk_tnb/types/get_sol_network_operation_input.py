@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolNetworkOperationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.ns_lcm_op_occ_id
 
 
-class GetSolNetworkOperationInput(TypedDict):
+class GetSolNetworkOperationInput(TypedDict, closed=True):
     ns_lcm_op_occ_id: "aws_sdk_tnb.types.ns_lcm_op_occ_id.NsLcmOpOccId"
     """<p>The identifier of the network operation.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ThingConnectivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.boolean
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.session_expiry
 
 
-class ThingConnectivity(TypedDict):
+class ThingConnectivity(TypedDict, closed=True):
     connected: NotRequired["aws_sdk_iot.types.boolean.Boolean"]
     """<p>True if the thing is connected to the Amazon Web Services IoT Core service; false if it is not connected.</p>"""
     timestamp: NotRequired[

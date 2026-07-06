@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#JobSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__list_of_s3_bucket_definition_for_job
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.user_paused_details
 
 
-class JobSummary(TypedDict):
+class JobSummary(TypedDict, closed=True):
     bucket_criteria: NotRequired[
         "aws_sdk_macie2.types.s3_bucket_criteria_for_job.S3BucketCriteriaForJob"
     ]

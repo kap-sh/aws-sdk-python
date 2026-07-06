@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DescribeOptimizationJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class DescribeOptimizationJobResponse(TypedDict):
+class DescribeOptimizationJobResponse(TypedDict, closed=True):
     optimization_job_arn: NotRequired[
         "aws_sdk_sagemaker.types.optimization_job_arn.OptimizationJobArn"
     ]

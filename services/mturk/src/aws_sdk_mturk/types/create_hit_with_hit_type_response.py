@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#CreateHITWithHITTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mturk.types.hit
 
 
-class CreateHITWithHITTypeResponse(TypedDict):
+class CreateHITWithHITTypeResponse(TypedDict, closed=True):
     hit: NotRequired["aws_sdk_mturk.types.hit.HIT"]
     """<p> Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation. </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UpdateDomainResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.domain_arn
 
 
-class UpdateDomainResponse(TypedDict):
+class UpdateDomainResponse(TypedDict, closed=True):
     domain_arn: NotRequired["aws_sdk_sagemaker.types.domain_arn.DomainArn"]
     """<p>The Amazon Resource Name (ARN) of the domain.</p>"""
 

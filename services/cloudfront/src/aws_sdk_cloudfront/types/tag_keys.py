@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#TagKeys``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.tag_key_list
 
 
-class TagKeys(TypedDict):
+class TagKeys(TypedDict, closed=True):
     items: NotRequired["aws_sdk_cloudfront.types.tag_key_list.TagKeyList"]
     """<p>A complex type that contains <code>Tag</code> key elements.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#MissionProfileListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.aws_region
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.uuid
 
 
-class MissionProfileListItem(TypedDict):
+class MissionProfileListItem(TypedDict, closed=True):
     mission_profile_id: NotRequired["aws_sdk_groundstation.types.uuid.Uuid"]
     """<p>UUID of a mission profile.</p>"""
     mission_profile_arn: NotRequired[

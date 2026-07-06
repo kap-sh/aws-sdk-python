@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ResourceLocation``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.s3_location
 
 
-class _ResourceLocation_s3(TypedDict):
+class _ResourceLocation_s3(TypedDict, closed=True):
     s3: "aws_sdk_bedrock_agentcore_control.types.s3_location.S3Location"
 
 

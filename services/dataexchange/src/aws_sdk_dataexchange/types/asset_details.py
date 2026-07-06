@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#AssetDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.api_gateway_api_asset
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.s3_snapshot_asset
 
 
-class AssetDetails(TypedDict):
+class AssetDetails(TypedDict, closed=True):
     s3_snapshot_asset: NotRequired[
         "aws_sdk_dataexchange.types.s3_snapshot_asset.S3SnapshotAsset"
     ]

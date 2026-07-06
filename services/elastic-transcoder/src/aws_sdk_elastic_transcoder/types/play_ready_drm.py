@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elastictranscoder#PlayReadyDrm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.key_id_guid
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elastic_transcoder.types.zero_to255_string
 
 
-class PlayReadyDrm(TypedDict):
+class PlayReadyDrm(TypedDict, closed=True):
     format: NotRequired[
         "aws_sdk_elastic_transcoder.types.play_ready_drm_format_string.PlayReadyDrmFormatString"
     ]

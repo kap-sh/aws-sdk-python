@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.budgets#HealthStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_budgets.types.generic_timestamp
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_budgets.types.health_status_value
 
 
-class HealthStatus(TypedDict):
+class HealthStatus(TypedDict, closed=True):
     status: NotRequired["aws_sdk_budgets.types.health_status_value.HealthStatusValue"]
     """<p>The current status of the billing view resource.</p>"""
     status_reason: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListTaskTemplatesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.next_token
     import aws_sdk_connect.types.task_template_list
 
 
-class ListTaskTemplatesResponse(TypedDict):
+class ListTaskTemplatesResponse(TypedDict, closed=True):
     task_templates: NotRequired[
         "aws_sdk_connect.types.task_template_list.TaskTemplateList"
     ]

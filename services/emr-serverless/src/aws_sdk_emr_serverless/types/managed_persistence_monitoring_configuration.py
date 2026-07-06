@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.emrserverless#ManagedPersistenceMonitoringConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_serverless.types.encryption_key_arn
 
 
-class ManagedPersistenceMonitoringConfiguration(TypedDict):
+class ManagedPersistenceMonitoringConfiguration(TypedDict, closed=True):
     enabled: NotRequired["bool"]
     """<p>Enables managed logging and defaults to true. If set to false, managed logging will be turned off.</p>"""
     encryption_key_arn: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#TagFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.tag_condition
 
 
-class _TagFilter_tagCondition(TypedDict):
+class _TagFilter_tagCondition(TypedDict, closed=True):
     tagCondition: "aws_sdk_qconnect.types.tag_condition.TagCondition"
 
 
-class _TagFilter_andConditions(TypedDict):
+class _TagFilter_andConditions(TypedDict, closed=True):
     andConditions: "aws_sdk_qconnect.types.and_conditions.AndConditions"
 
 
-class _TagFilter_orConditions(TypedDict):
+class _TagFilter_orConditions(TypedDict, closed=True):
     orConditions: "aws_sdk_qconnect.types.or_conditions.OrConditions"
 
 

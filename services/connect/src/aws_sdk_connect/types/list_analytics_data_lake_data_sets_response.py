@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListAnalyticsDataLakeDataSetsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.analytics_data_sets_results
     import aws_sdk_connect.types.next_token
 
 
-class ListAnalyticsDataLakeDataSetsResponse(TypedDict):
+class ListAnalyticsDataLakeDataSetsResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_connect.types.analytics_data_sets_results.AnalyticsDataSetsResults"
     ]

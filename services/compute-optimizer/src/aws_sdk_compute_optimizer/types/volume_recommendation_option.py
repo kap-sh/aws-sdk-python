@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#VolumeRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.ebs_savings_opportunity_after_discounts
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.volume_configuration
 
 
-class VolumeRecommendationOption(TypedDict):
+class VolumeRecommendationOption(TypedDict, closed=True):
     configuration: NotRequired[
         "aws_sdk_compute_optimizer.types.volume_configuration.VolumeConfiguration"
     ]

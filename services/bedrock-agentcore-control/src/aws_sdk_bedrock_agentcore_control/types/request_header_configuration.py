@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RequestHeaderConfiguration``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.request_header_allowlist
 
 
-class _RequestHeaderConfiguration_requestHeaderAllowlist(TypedDict):
+class _RequestHeaderConfiguration_requestHeaderAllowlist(TypedDict, closed=True):
     requestHeaderAllowlist: "aws_sdk_bedrock_agentcore_control.types.request_header_allowlist.RequestHeaderAllowlist"
 
 

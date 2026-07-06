@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#CachePolicySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.cache_policy_type
 
 
-class CachePolicySummary(TypedDict):
+class CachePolicySummary(TypedDict, closed=True):
     type: "aws_sdk_cloudfront.types.cache_policy_type.CachePolicyType"
     """<p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or <code>custom</code> (created in this Amazon Web Services account).</p>"""
     cache_policy: "aws_sdk_cloudfront.types.cache_policy.CachePolicy"

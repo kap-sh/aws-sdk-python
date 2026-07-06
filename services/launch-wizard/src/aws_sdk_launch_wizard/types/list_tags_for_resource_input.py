@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#ListTagsForResourceInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
 

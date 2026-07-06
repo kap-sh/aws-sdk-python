@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#QuerySummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.query_state
 
 
-class QuerySummary(TypedDict):
+class QuerySummary(TypedDict, closed=True):
     id: NotRequired["str"]
     """<p>A string representation of the id of the query.</p>"""
     query_string: NotRequired["str"]

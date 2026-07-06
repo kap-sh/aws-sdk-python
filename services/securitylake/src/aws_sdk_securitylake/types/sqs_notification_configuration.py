@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#SqsNotificationConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SqsNotificationConfiguration(TypedDict):
+class SqsNotificationConfiguration(TypedDict, closed=True):
     pass
 
 

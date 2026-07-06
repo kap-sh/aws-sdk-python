@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#SharingConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.boolean
 
 
-class SharingConfig(TypedDict):
+class SharingConfig(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_vpc_lattice.types.boolean.Boolean"]
     """<p>Specifies if the service network is enabled for sharing.</p>"""
 

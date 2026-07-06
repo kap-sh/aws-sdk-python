@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#AssociateVolumeResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AssociateVolumeResponse(TypedDict):
+class AssociateVolumeResponse(TypedDict, closed=True):
     pass
 
 

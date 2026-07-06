@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#FailedResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.error_code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_arn
 
 
-class FailedResource(TypedDict):
+class FailedResource(TypedDict, closed=True):
     resource_arn: NotRequired["aws_sdk_resource_groups.types.resource_arn.ResourceArn"]
     """<p>The Amazon resource name (ARN) of the resource that failed to be added or removed.</p>"""
     error_message: NotRequired[

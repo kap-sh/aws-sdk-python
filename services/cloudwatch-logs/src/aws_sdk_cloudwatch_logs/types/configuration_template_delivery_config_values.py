@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ConfigurationTemplateDeliveryConfigValues``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.field_delimiter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.s3_delivery_configuration
 
 
-class ConfigurationTemplateDeliveryConfigValues(TypedDict):
+class ConfigurationTemplateDeliveryConfigValues(TypedDict, closed=True):
     record_fields: NotRequired[
         "aws_sdk_cloudwatch_logs.types.record_fields.RecordFields"
     ]

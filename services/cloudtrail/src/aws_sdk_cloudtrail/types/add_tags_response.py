@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#AddTagsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AddTagsResponse(TypedDict):
+class AddTagsResponse(TypedDict, closed=True):
     pass
 
 

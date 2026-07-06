@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ExperimentTemplateCloudWatchLogsLogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.cloud_watch_log_group_arn
 
 
-class ExperimentTemplateCloudWatchLogsLogConfiguration(TypedDict):
+class ExperimentTemplateCloudWatchLogsLogConfiguration(TypedDict, closed=True):
     log_group_arn: NotRequired[
         "aws_sdk_fis.types.cloud_watch_log_group_arn.CloudWatchLogGroupArn"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#MssManifest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.__string
     import aws_sdk_mediapackage_vod.types.stream_selection
 
 
-class MssManifest(TypedDict):
+class MssManifest(TypedDict, closed=True):
     manifest_name: NotRequired["aws_sdk_mediapackage_vod.types.__string.__string"]
     """An optional string to include in the name of the manifest."""
     stream_selection: NotRequired[

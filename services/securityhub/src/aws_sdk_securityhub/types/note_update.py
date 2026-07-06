@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#NoteUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class NoteUpdate(TypedDict):
+class NoteUpdate(TypedDict, closed=True):
     text: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The updated note text.</p>"""
     updated_by: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListMeshesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.mesh_list
 
 
-class ListMeshesOutput(TypedDict):
+class ListMeshesOutput(TypedDict, closed=True):
     meshes: "aws_sdk_app_mesh.types.mesh_list.MeshList"
     """<p>The list of existing service meshes.</p>"""
     next_token: NotRequired["str"]

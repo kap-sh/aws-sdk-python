@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DisassociateAccessPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class DisassociateAccessPolicyRequest(TypedDict):
+class DisassociateAccessPolicyRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.string.String"
     """<p>The name of your cluster.</p>"""
     principal_arn: "aws_sdk_eks.types.string.String"

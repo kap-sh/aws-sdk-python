@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#RotationRulesType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.automatically_rotate_after_days_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.schedule_expression_type
 
 
-class RotationRulesType(TypedDict):
+class RotationRulesType(TypedDict, closed=True):
     automatically_after_days: NotRequired[
         "aws_sdk_secrets_manager.types.automatically_rotate_after_days_type.AutomaticallyRotateAfterDaysType"
     ]

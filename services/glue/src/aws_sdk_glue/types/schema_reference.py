@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#SchemaReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.version_long_number
 
 
-class SchemaReference(TypedDict):
+class SchemaReference(TypedDict, closed=True):
     schema_id: NotRequired["aws_sdk_glue.types.schema_id.SchemaId"]
     """<p>A structure that contains schema identity fields. Either this or the <code>SchemaVersionId</code> has to be provided.</p>"""
     schema_version_id: NotRequired[

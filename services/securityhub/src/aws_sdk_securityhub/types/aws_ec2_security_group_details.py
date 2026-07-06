@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2SecurityGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_security_group_ip_permission_list
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2SecurityGroupDetails(TypedDict):
+class AwsEc2SecurityGroupDetails(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p>The name of the security group.</p>"""
     group_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConfigurationBundleAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,13 +14,13 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.weighted_override
 
 
-class _ConfigurationBundleAction_staticOverride(TypedDict):
+class _ConfigurationBundleAction_staticOverride(TypedDict, closed=True):
     staticOverride: (
         "aws_sdk_bedrock_agentcore_control.types.static_override.StaticOverride"
     )
 
 
-class _ConfigurationBundleAction_weightedOverride(TypedDict):
+class _ConfigurationBundleAction_weightedOverride(TypedDict, closed=True):
     weightedOverride: (
         "aws_sdk_bedrock_agentcore_control.types.weighted_override.WeightedOverride"
     )

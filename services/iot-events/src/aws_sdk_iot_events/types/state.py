@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#State``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_events.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_events.types.state_name
 
 
-class State(TypedDict):
+class State(TypedDict, closed=True):
     state_name: "aws_sdk_iot_events.types.state_name.StateName"
     """<p>The name of the state.</p>"""
     on_input: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunegraph#CreateGraphUsingImportTaskInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune_graph.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune_graph.types.vector_search_configuration
 
 
-class CreateGraphUsingImportTaskInput(TypedDict):
+class CreateGraphUsingImportTaskInput(TypedDict, closed=True):
     graph_name: "aws_sdk_neptune_graph.types.graph_name.GraphName"
     """<p>A name for the new Neptune Analytics graph to be created.</p> <p>The name must contain from 1 to 63 letters, numbers, or hyphens, and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens. Only lowercase letters are allowed.</p>"""
     tags: NotRequired["aws_sdk_neptune_graph.types.tag_map.TagMap"]

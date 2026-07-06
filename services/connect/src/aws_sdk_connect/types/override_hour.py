@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OverrideHour``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.common_human_readable_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.override_time_slice
 
 
-class OverrideHour(TypedDict):
+class OverrideHour(TypedDict, closed=True):
     start: NotRequired["aws_sdk_connect.types.override_time_slice.OverrideTimeSlice"]
     end: NotRequired["aws_sdk_connect.types.override_time_slice.OverrideTimeSlice"]
     override_name: NotRequired[

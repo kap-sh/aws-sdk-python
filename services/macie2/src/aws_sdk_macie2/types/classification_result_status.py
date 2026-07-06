@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ClassificationResultStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class ClassificationResultStatus(TypedDict):
+class ClassificationResultStatus(TypedDict, closed=True):
     code: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the S3 object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the S3 object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the S3 object that the finding applies to. For example, the object is a file that uses an unsupported format.</p></li></ul>"""
     reason: NotRequired["aws_sdk_macie2.types.__string.__string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TaskContainerDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class TaskContainerDependency(TypedDict):
+class TaskContainerDependency(TypedDict, closed=True):
     container_name: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>A unique identifier for the container.</p>"""
     condition: NotRequired["aws_sdk_batch.types.string.String"]

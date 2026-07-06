@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#CalculateRouteMatrixSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.distance_unit
 
 
-class CalculateRouteMatrixSummary(TypedDict):
+class CalculateRouteMatrixSummary(TypedDict, closed=True):
     data_source: "str"
     r"""<p>The data provider of traffic and road network data used to calculate the routes. Indicates one of the available providers:</p> <ul> <li> <p> <code>Esri</code> </p> </li> <li> <p> <code>Grab</code> </p> </li> <li> <p> <code>Here</code> </p> </li> </ul> <p>For more information about data providers, see <a href=\"https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html\">Amazon Location Service data providers</a>.</p>"""
     route_count: "int"

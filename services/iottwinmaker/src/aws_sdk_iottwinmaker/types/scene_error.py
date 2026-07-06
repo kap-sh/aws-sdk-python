@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#SceneError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.error_message
     import aws_sdk_iottwinmaker.types.scene_error_code
 
 
-class SceneError(TypedDict):
+class SceneError(TypedDict, closed=True):
     code: NotRequired["aws_sdk_iottwinmaker.types.scene_error_code.SceneErrorCode"]
     """<p>The SceneError code.</p>"""
     message: NotRequired["aws_sdk_iottwinmaker.types.error_message.ErrorMessage"]

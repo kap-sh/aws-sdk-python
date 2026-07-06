@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#ListContainerRecipesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.filter_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.restricted_integer
 
 
-class ListContainerRecipesRequest(TypedDict):
+class ListContainerRecipesRequest(TypedDict, closed=True):
     owner: NotRequired["aws_sdk_imagebuilder.types.ownership.Ownership"]
     """<p>Returns container recipes belonging to the specified owner, that have been shared with you. You can omit this field to return container recipes belonging to your account.</p>"""
     filters: NotRequired["aws_sdk_imagebuilder.types.filter_list.FilterList"]

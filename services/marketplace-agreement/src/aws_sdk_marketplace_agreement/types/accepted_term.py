@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#AcceptedTerm``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import (
     DeserializationError,
@@ -22,55 +24,55 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.variable_payment_term
 
 
-class _AcceptedTerm_legalTerm(TypedDict):
+class _AcceptedTerm_legalTerm(TypedDict, closed=True):
     legalTerm: "aws_sdk_marketplace_agreement.types.legal_term.LegalTerm"
 
 
-class _AcceptedTerm_supportTerm(TypedDict):
+class _AcceptedTerm_supportTerm(TypedDict, closed=True):
     supportTerm: "aws_sdk_marketplace_agreement.types.support_term.SupportTerm"
 
 
-class _AcceptedTerm_renewalTerm(TypedDict):
+class _AcceptedTerm_renewalTerm(TypedDict, closed=True):
     renewalTerm: "aws_sdk_marketplace_agreement.types.renewal_term.RenewalTerm"
 
 
-class _AcceptedTerm_usageBasedPricingTerm(TypedDict):
+class _AcceptedTerm_usageBasedPricingTerm(TypedDict, closed=True):
     usageBasedPricingTerm: "aws_sdk_marketplace_agreement.types.usage_based_pricing_term.UsageBasedPricingTerm"
 
 
-class _AcceptedTerm_configurableUpfrontPricingTerm(TypedDict):
+class _AcceptedTerm_configurableUpfrontPricingTerm(TypedDict, closed=True):
     configurableUpfrontPricingTerm: "aws_sdk_marketplace_agreement.types.configurable_upfront_pricing_term.ConfigurableUpfrontPricingTerm"
 
 
-class _AcceptedTerm_byolPricingTerm(TypedDict):
+class _AcceptedTerm_byolPricingTerm(TypedDict, closed=True):
     byolPricingTerm: (
         "aws_sdk_marketplace_agreement.types.byol_pricing_term.ByolPricingTerm"
     )
 
 
-class _AcceptedTerm_recurringPaymentTerm(TypedDict):
+class _AcceptedTerm_recurringPaymentTerm(TypedDict, closed=True):
     recurringPaymentTerm: "aws_sdk_marketplace_agreement.types.recurring_payment_term.RecurringPaymentTerm"
 
 
-class _AcceptedTerm_validityTerm(TypedDict):
+class _AcceptedTerm_validityTerm(TypedDict, closed=True):
     validityTerm: "aws_sdk_marketplace_agreement.types.validity_term.ValidityTerm"
 
 
-class _AcceptedTerm_paymentScheduleTerm(TypedDict):
+class _AcceptedTerm_paymentScheduleTerm(TypedDict, closed=True):
     paymentScheduleTerm: (
         "aws_sdk_marketplace_agreement.types.payment_schedule_term.PaymentScheduleTerm"
     )
 
 
-class _AcceptedTerm_freeTrialPricingTerm(TypedDict):
+class _AcceptedTerm_freeTrialPricingTerm(TypedDict, closed=True):
     freeTrialPricingTerm: "aws_sdk_marketplace_agreement.types.free_trial_pricing_term.FreeTrialPricingTerm"
 
 
-class _AcceptedTerm_fixedUpfrontPricingTerm(TypedDict):
+class _AcceptedTerm_fixedUpfrontPricingTerm(TypedDict, closed=True):
     fixedUpfrontPricingTerm: "aws_sdk_marketplace_agreement.types.fixed_upfront_pricing_term.FixedUpfrontPricingTerm"
 
 
-class _AcceptedTerm_variablePaymentTerm(TypedDict):
+class _AcceptedTerm_variablePaymentTerm(TypedDict, closed=True):
     variablePaymentTerm: (
         "aws_sdk_marketplace_agreement.types.variable_payment_term.VariablePaymentTerm"
     )

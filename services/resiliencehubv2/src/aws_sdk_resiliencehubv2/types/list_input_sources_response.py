@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ListInputSourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.next_token
 
 
-class ListInputSourcesResponse(TypedDict):
+class ListInputSourcesResponse(TypedDict, closed=True):
     input_source_summaries: (
         "aws_sdk_resiliencehubv2.types.input_source_summary_list.InputSourceSummaryList"
     )

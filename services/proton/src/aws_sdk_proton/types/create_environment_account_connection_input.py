@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#CreateEnvironmentAccountConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.tag_list
 
 
-class CreateEnvironmentAccountConnectionInput(TypedDict):
+class CreateEnvironmentAccountConnectionInput(TypedDict, closed=True):
     client_token: NotRequired["aws_sdk_proton.types.client_token.ClientToken"]
     """<p>When included, if two identical requests are made with the same client token, Proton returns the environment account connection that the first request created.</p>"""
     management_account_id: "aws_sdk_proton.types.aws_account_id.AwsAccountId"

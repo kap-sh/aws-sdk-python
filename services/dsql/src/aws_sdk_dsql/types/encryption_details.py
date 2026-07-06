@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#EncryptionDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dsql.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_dsql.types.kms_key_arn
 
 
-class EncryptionDetails(TypedDict):
+class EncryptionDetails(TypedDict, closed=True):
     encryption_type: "aws_sdk_dsql.types.encryption_type.EncryptionType"
     """<p>The type of encryption that protects the data on your cluster.</p>"""
     kms_key_arn: NotRequired["aws_sdk_dsql.types.kms_key_arn.KmsKeyArn"]

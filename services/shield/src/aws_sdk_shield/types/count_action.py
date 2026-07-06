@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.shield#CountAction``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CountAction(TypedDict):
+class CountAction(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#GetTeamsChannelConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.teams_channel_configuration
 
 
-class GetTeamsChannelConfigurationResult(TypedDict):
+class GetTeamsChannelConfigurationResult(TypedDict, closed=True):
     channel_configuration: NotRequired[
         "aws_sdk_chatbot.types.teams_channel_configuration.TeamsChannelConfiguration"
     ]

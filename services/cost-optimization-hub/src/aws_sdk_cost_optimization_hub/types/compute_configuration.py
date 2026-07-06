@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ComputeConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ComputeConfiguration(TypedDict):
+class ComputeConfiguration(TypedDict, closed=True):
     v_cpu: NotRequired["float"]
     """<p>The number of vCPU cores in the resource.</p>"""
     memory_size_in_mb: NotRequired["int"]

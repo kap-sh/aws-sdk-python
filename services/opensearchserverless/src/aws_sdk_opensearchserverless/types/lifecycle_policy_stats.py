@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.opensearchserverless#LifecyclePolicyStats``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class LifecyclePolicyStats(TypedDict):
+class LifecyclePolicyStats(TypedDict, closed=True):
     retention_policy_count: NotRequired["int"]
     """<p>The number of retention lifecycle policies in the current account.</p>"""
 

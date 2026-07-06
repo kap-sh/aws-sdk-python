@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#LocationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.always_on_capacity
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.vpc_transit_configuration_response
 
 
-class LocationState(TypedDict):
+class LocationState(TypedDict, closed=True):
     location_name: NotRequired[
         "aws_sdk_gameliftstreams.types.location_name.LocationName"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AudienceMedia``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__list_of_alternate_media
     import aws_sdk_mediatailor.types.__string
 
 
-class AudienceMedia(TypedDict):
+class AudienceMedia(TypedDict, closed=True):
     audience: NotRequired["aws_sdk_mediatailor.types.__string.__string"]
     """<p>The Audience defined in AudienceMedia.</p>"""
     alternate_media: NotRequired[

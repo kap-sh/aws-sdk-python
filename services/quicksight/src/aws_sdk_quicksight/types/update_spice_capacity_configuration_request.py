@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#UpdateSPICECapacityConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.purchase_mode
 
 
-class UpdateSPICECapacityConfigurationRequest(TypedDict):
+class UpdateSPICECapacityConfigurationRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_account_id.AwsAccountId"
     """<p>The ID of the Amazon Web Services account that contains the SPICE configuration that you want to update.</p>"""
     purchase_mode: "aws_sdk_quicksight.types.purchase_mode.PurchaseMode"

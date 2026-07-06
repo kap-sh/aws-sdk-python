@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#RoutingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.redirect
 
 
-class RoutingRule(TypedDict):
+class RoutingRule(TypedDict, closed=True):
     condition: NotRequired["aws_sdk_s3.types.condition.Condition"]
     """<p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the <code>/docs</code> folder, redirect to the <code>/documents</code> folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>"""
     redirect: "aws_sdk_s3.types.redirect.Redirect"

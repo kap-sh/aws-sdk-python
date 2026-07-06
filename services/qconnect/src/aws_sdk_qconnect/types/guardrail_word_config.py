@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#GuardrailWordConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.guardrail_word_text
 
 
-class GuardrailWordConfig(TypedDict):
+class GuardrailWordConfig(TypedDict, closed=True):
     text: "aws_sdk_qconnect.types.guardrail_word_text.GuardrailWordText"
     """<p>Text of the word configured for the AI Guardrail to block.</p>"""
 

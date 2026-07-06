@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RealTimeContactAnalysisIssueDetected``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.real_time_contact_analysis_transcript_items_with_content
 
 
-class RealTimeContactAnalysisIssueDetected(TypedDict):
+class RealTimeContactAnalysisIssueDetected(TypedDict, closed=True):
     transcript_items: "aws_sdk_connect.types.real_time_contact_analysis_transcript_items_with_content.RealTimeContactAnalysisTranscriptItemsWithContent"
     """<p>List of the transcript items (segments) that are associated with a given issue.</p>"""
 

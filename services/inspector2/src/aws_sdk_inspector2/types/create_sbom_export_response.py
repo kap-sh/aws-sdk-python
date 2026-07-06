@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CreateSbomExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.report_id
 
 
-class CreateSbomExportResponse(TypedDict):
+class CreateSbomExportResponse(TypedDict, closed=True):
     report_id: NotRequired["aws_sdk_inspector2.types.report_id.ReportId"]
     """<p>The report ID for the software bill of materials (SBOM) report.</p>"""
 

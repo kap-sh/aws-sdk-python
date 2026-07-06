@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhuborchestrator#Tool``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Tool(TypedDict):
+class Tool(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of an AWS service. </p>"""
     url: NotRequired["str"]

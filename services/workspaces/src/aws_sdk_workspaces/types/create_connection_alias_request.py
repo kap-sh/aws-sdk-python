@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#CreateConnectionAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.tag_list
 
 
-class CreateConnectionAliasRequest(TypedDict):
+class CreateConnectionAliasRequest(TypedDict, closed=True):
     connection_string: "aws_sdk_workspaces.types.connection_string.ConnectionString"
     """<p>A connection string in the form of a fully qualified domain name (FQDN), such as <code>www.example.com</code>.</p> <important> <p>After you create a connection string, it is always associated to your Amazon Web Services account. You cannot recreate the same connection string with a different account, even if you delete all instances of it from the original account. The connection string is globally reserved for your account.</p> </important>"""
     tags: NotRequired["aws_sdk_workspaces.types.tag_list.TagList"]

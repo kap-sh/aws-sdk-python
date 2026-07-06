@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#PageClassification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.prediction_list
 
 
-class PageClassification(TypedDict):
+class PageClassification(TypedDict, closed=True):
     page_type: "aws_sdk_textract.types.prediction_list.PredictionList"
     """<p>The class, or document type, assigned to a detected Page object. The class, or document type, assigned to a detected Page object.</p>"""
     page_number: "aws_sdk_textract.types.prediction_list.PredictionList"

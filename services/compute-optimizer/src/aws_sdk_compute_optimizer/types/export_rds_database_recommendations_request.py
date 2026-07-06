@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ExportRDSDatabaseRecommendationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_compute_optimizer.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.s3_destination_config
 
 
-class ExportRDSDatabaseRecommendationsRequest(TypedDict):
+class ExportRDSDatabaseRecommendationsRequest(TypedDict, closed=True):
     account_ids: NotRequired["aws_sdk_compute_optimizer.types.account_ids.AccountIds"]
     """<p> The Amazon Web Services account IDs for the export Amazon Aurora and RDS database recommendations. </p> <p>If your account is the management account or the delegated administrator of an organization, use this parameter to specify the member account you want to export recommendations to.</p> <p>This parameter can't be specified together with the include member accounts parameter. The parameters are mutually exclusive.</p> <p>If this parameter or the include member accounts parameter is omitted, the recommendations for member accounts aren't included in the export.</p> <p>You can specify multiple account IDs per request.</p>"""
     filters: NotRequired[

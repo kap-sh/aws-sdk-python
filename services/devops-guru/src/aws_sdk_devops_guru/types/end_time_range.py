@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#EndTimeRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.timestamp
 
 
-class EndTimeRange(TypedDict):
+class EndTimeRange(TypedDict, closed=True):
     from_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]
     """<p> The earliest end time in the time range. </p>"""
     to_time: NotRequired["aws_sdk_devops_guru.types.timestamp.Timestamp"]

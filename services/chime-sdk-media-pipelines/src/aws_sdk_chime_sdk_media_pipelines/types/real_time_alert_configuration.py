@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#RealTimeAlertConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.boolean
     import aws_sdk_chime_sdk_media_pipelines.types.real_time_alert_rule_list
 
 
-class RealTimeAlertConfiguration(TypedDict):
+class RealTimeAlertConfiguration(TypedDict, closed=True):
     disabled: "aws_sdk_chime_sdk_media_pipelines.types.boolean.Boolean"
     """<p>Turns off real-time alerts.</p>"""
     rules: NotRequired[

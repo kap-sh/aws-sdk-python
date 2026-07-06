@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#SpotPlacement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tenancy
 
 
-class SpotPlacement(TypedDict):
+class SpotPlacement(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_ec2.types.string.String"]
     r"""<p>The Availability Zone. For example, <code>us-east-2a</code>.</p> <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, \"<code>us-east-2a</code>, <code>us-east-2b</code>\".</p> <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified in the request, but not both.</p>"""
     group_name: NotRequired["aws_sdk_ec2.types.placement_group_name.PlacementGroupName"]

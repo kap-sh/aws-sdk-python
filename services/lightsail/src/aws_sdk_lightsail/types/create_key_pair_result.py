@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#CreateKeyPairResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.base64
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.operation
 
 
-class CreateKeyPairResult(TypedDict):
+class CreateKeyPairResult(TypedDict, closed=True):
     key_pair: NotRequired["aws_sdk_lightsail.types.key_pair.KeyPair"]
     """<p>An array of key-value pairs containing information about the new key pair you just created.</p>"""
     public_key_base64: NotRequired["aws_sdk_lightsail.types.base64.Base64"]

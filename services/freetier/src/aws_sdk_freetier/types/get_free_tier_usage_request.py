@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.freetier#GetFreeTierUsageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_freetier.types.expression
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_freetier.types.next_page_token
 
 
-class GetFreeTierUsageRequest(TypedDict):
+class GetFreeTierUsageRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_freetier.types.expression.Expression"]
     """<p>An expression that specifies the conditions that you want each <code>FreeTierUsage</code> object to meet.</p>"""
     max_results: "aws_sdk_freetier.types.max_results.MaxResults"

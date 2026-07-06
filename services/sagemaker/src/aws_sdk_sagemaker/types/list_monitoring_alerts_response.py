@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListMonitoringAlertsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.monitoring_alert_summary_list
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListMonitoringAlertsResponse(TypedDict):
+class ListMonitoringAlertsResponse(TypedDict, closed=True):
     monitoring_alert_summaries: NotRequired[
         "aws_sdk_sagemaker.types.monitoring_alert_summary_list.MonitoringAlertSummaryList"
     ]

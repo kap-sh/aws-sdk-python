@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#MatchingRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.matching_rule_attribute_list
 
 
-class MatchingRule(TypedDict):
+class MatchingRule(TypedDict, closed=True):
     rule: "aws_sdk_customer_profiles.types.matching_rule_attribute_list.MatchingRuleAttributeList"
     """<p>A single rule level of the <code>MatchRules</code>. Configures how the rule-based matching process should match profiles.</p>"""
 

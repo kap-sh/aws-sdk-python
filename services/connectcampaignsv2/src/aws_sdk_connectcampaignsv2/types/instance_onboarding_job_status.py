@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#InstanceOnboardingJobStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcampaignsv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.instance_onboarding_job_status_code
 
 
-class InstanceOnboardingJobStatus(TypedDict):
+class InstanceOnboardingJobStatus(TypedDict, closed=True):
     connect_instance_id: "aws_sdk_connectcampaignsv2.types.instance_id.InstanceId"
     status: "aws_sdk_connectcampaignsv2.types.instance_onboarding_job_status_code.InstanceOnboardingJobStatusCode"
     failure_code: NotRequired[

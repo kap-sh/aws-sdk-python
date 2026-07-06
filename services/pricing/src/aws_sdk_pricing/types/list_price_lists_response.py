@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#ListPriceListsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.price_lists
     import aws_sdk_pricing.types.string
 
 
-class ListPriceListsResponse(TypedDict):
+class ListPriceListsResponse(TypedDict, closed=True):
     price_lists: NotRequired["aws_sdk_pricing.types.price_lists.PriceLists"]
     """<p>The type of price list references that match your request. </p>"""
     next_token: NotRequired["aws_sdk_pricing.types.string.String"]

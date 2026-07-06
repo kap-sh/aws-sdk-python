@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#GetDetectorModelAnalysisResultsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.analysis_results
     import aws_sdk_iot_events.types.next_token
 
 
-class GetDetectorModelAnalysisResultsResponse(TypedDict):
+class GetDetectorModelAnalysisResultsResponse(TypedDict, closed=True):
     analysis_results: NotRequired[
         "aws_sdk_iot_events.types.analysis_results.AnalysisResults"
     ]

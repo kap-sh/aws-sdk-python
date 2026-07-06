@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#CodeRepositoryAggregationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.severity_counts
 
 
-class CodeRepositoryAggregationResponse(TypedDict):
+class CodeRepositoryAggregationResponse(TypedDict, closed=True):
     project_names: "str"
     """<p>The names of the projects associated with the code repository.</p>"""
     provider_type: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#CalculateIsolinesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.timestamp_with_timezone_offset
 
 
-class CalculateIsolinesRequest(TypedDict):
+class CalculateIsolinesRequest(TypedDict, closed=True):
     allow: NotRequired[
         "aws_sdk_geo_routes.types.isoline_allow_options.IsolineAllowOptions"
     ]

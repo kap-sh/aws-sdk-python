@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#JobConfigInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError, SerializationError
 
@@ -16,43 +18,43 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.zonal_statistics_config_input
 
 
-class _JobConfigInput_BandMathConfig(TypedDict):
+class _JobConfigInput_BandMathConfig(TypedDict, closed=True):
     BandMathConfig: (
         "aws_sdk_sagemaker_geospatial.types.band_math_config_input.BandMathConfigInput"
     )
 
 
-class _JobConfigInput_ResamplingConfig(TypedDict):
+class _JobConfigInput_ResamplingConfig(TypedDict, closed=True):
     ResamplingConfig: "aws_sdk_sagemaker_geospatial.types.resampling_config_input.ResamplingConfigInput"
 
 
-class _JobConfigInput_TemporalStatisticsConfig(TypedDict):
+class _JobConfigInput_TemporalStatisticsConfig(TypedDict, closed=True):
     TemporalStatisticsConfig: "aws_sdk_sagemaker_geospatial.types.temporal_statistics_config_input.TemporalStatisticsConfigInput"
 
 
-class _JobConfigInput_CloudRemovalConfig(TypedDict):
+class _JobConfigInput_CloudRemovalConfig(TypedDict, closed=True):
     CloudRemovalConfig: "aws_sdk_sagemaker_geospatial.types.cloud_removal_config_input.CloudRemovalConfigInput"
 
 
-class _JobConfigInput_ZonalStatisticsConfig(TypedDict):
+class _JobConfigInput_ZonalStatisticsConfig(TypedDict, closed=True):
     ZonalStatisticsConfig: "aws_sdk_sagemaker_geospatial.types.zonal_statistics_config_input.ZonalStatisticsConfigInput"
 
 
-class _JobConfigInput_GeoMosaicConfig(TypedDict):
+class _JobConfigInput_GeoMosaicConfig(TypedDict, closed=True):
     GeoMosaicConfig: "aws_sdk_sagemaker_geospatial.types.geo_mosaic_config_input.GeoMosaicConfigInput"
 
 
-class _JobConfigInput_StackConfig(TypedDict):
+class _JobConfigInput_StackConfig(TypedDict, closed=True):
     StackConfig: (
         "aws_sdk_sagemaker_geospatial.types.stack_config_input.StackConfigInput"
     )
 
 
-class _JobConfigInput_CloudMaskingConfig(TypedDict):
+class _JobConfigInput_CloudMaskingConfig(TypedDict, closed=True):
     CloudMaskingConfig: "aws_sdk_sagemaker_geospatial.types.cloud_masking_config_input.CloudMaskingConfigInput"
 
 
-class _JobConfigInput_LandCoverSegmentationConfig(TypedDict):
+class _JobConfigInput_LandCoverSegmentationConfig(TypedDict, closed=True):
     LandCoverSegmentationConfig: "aws_sdk_sagemaker_geospatial.types.land_cover_segmentation_config_input.LandCoverSegmentationConfigInput"
 
 

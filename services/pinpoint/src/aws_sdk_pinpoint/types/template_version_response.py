@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#TemplateVersionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class TemplateVersionResponse(TypedDict):
+class TemplateVersionResponse(TypedDict, closed=True):
     creation_date: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The date, in ISO 8601 format, when the version of the message template was created.</p>"""
     default_substitutions: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

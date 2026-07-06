@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DeletePermissionSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeletePermissionSetResponse(TypedDict):
+class DeletePermissionSetResponse(TypedDict, closed=True):
     pass
 
 

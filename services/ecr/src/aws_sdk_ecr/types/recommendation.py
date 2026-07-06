@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.recommendation_text
     import aws_sdk_ecr.types.url
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     url: NotRequired["aws_sdk_ecr.types.url.Url"]
     """<p>The URL address to the CVE remediation recommendations.</p>"""
     text: NotRequired["aws_sdk_ecr.types.recommendation_text.RecommendationText"]

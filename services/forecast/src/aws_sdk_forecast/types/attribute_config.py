@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#AttributeConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.transformations
 
 
-class AttributeConfig(TypedDict):
+class AttributeConfig(TypedDict, closed=True):
     attribute_name: "aws_sdk_forecast.types.name.Name"
     """<p>The name of the attribute as specified in the schema. Amazon Forecast supports the target field of the target time series and the related time series datasets. For example, for the RETAIL domain, the target is <code>demand</code>.</p>"""
     transformations: "aws_sdk_forecast.types.transformations.Transformations"

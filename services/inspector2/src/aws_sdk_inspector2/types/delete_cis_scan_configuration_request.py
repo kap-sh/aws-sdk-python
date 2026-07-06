@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DeleteCisScanConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_scan_configuration_arn
 
 
-class DeleteCisScanConfigurationRequest(TypedDict):
+class DeleteCisScanConfigurationRequest(TypedDict, closed=True):
     scan_configuration_arn: (
         "aws_sdk_inspector2.types.cis_scan_configuration_arn.CisScanConfigurationArn"
     )

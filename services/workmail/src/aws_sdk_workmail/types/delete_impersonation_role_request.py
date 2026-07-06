@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#DeleteImpersonationRoleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class DeleteImpersonationRoleRequest(TypedDict):
+class DeleteImpersonationRoleRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The WorkMail organization from which to delete the impersonation role.</p>"""
     impersonation_role_id: (

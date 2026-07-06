@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ComboSeriesItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_field_combo_series_item
     import aws_sdk_quicksight.types.field_combo_series_item
 
 
-class ComboSeriesItem(TypedDict):
+class ComboSeriesItem(TypedDict, closed=True):
     field_combo_series_item: NotRequired[
         "aws_sdk_quicksight.types.field_combo_series_item.FieldComboSeriesItem"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#RepositoryDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.upstream_repository_info_list
 
 
-class RepositoryDescription(TypedDict):
+class RepositoryDescription(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codeartifact.types.repository_name.RepositoryName"]
     """<p> The name of the repository. </p>"""
     administrator_account: NotRequired[

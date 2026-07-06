@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#S3ExpressDirectoryBucketConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.s3_express_directory_access_point_configurations_map
     import aws_sdk_accessanalyzer.types.s3_express_directory_bucket_policy
 
 
-class S3ExpressDirectoryBucketConfiguration(TypedDict):
+class S3ExpressDirectoryBucketConfiguration(TypedDict, closed=True):
     bucket_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.s3_express_directory_bucket_policy.S3ExpressDirectoryBucketPolicy"
     ]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#EventChannelConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class EventChannelConfiguration(TypedDict):
+class EventChannelConfiguration(TypedDict, closed=True):
     pass
 
 

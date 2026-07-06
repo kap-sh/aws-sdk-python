@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#AcknowledgeThirdPartyJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.third_party_job_id
 
 
-class AcknowledgeThirdPartyJobInput(TypedDict):
+class AcknowledgeThirdPartyJobInput(TypedDict, closed=True):
     job_id: "aws_sdk_codepipeline.types.third_party_job_id.ThirdPartyJobId"
     """<p>The unique system-generated ID of the job.</p>"""
     nonce: "aws_sdk_codepipeline.types.nonce.Nonce"

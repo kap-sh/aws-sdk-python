@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#NetworkInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.net_mask
 
 
-class NetworkInfo(TypedDict):
+class NetworkInfo(TypedDict, closed=True):
     interface_name: "aws_sdk_migrationhubstrategy.types.interface_name.InterfaceName"
     """<p> Information about the name of the interface of the server for which the assessment was run. </p>"""
     ip_address: "aws_sdk_migrationhubstrategy.types.ip_address.IPAddress"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#ScalableTarget``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.xml_string
 
 
-class ScalableTarget(TypedDict):
+class ScalableTarget(TypedDict, closed=True):
     service_namespace: (
         "aws_sdk_application_auto_scaling.types.service_namespace.ServiceNamespace"
     )

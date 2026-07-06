@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetBlueprintsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.blueprint_list
     import aws_sdk_lightsail.types.string
 
 
-class GetBlueprintsResult(TypedDict):
+class GetBlueprintsResult(TypedDict, closed=True):
     blueprints: NotRequired["aws_sdk_lightsail.types.blueprint_list.BlueprintList"]
     """<p>An array of key-value pairs that contains information about the available blueprints.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

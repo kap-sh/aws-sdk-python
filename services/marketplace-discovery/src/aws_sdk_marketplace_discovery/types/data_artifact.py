@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#DataArtifact``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
 
-class DataArtifact(TypedDict):
+class DataArtifact(TypedDict, closed=True):
     description: NotRequired["str"]
     """<p>A description of the data artifact.</p>"""
     resource_arn: NotRequired["str"]

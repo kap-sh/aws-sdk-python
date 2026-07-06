@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#UpdateChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.destinations
 
 
-class UpdateChannelRequest(TypedDict):
+class UpdateChannelRequest(TypedDict, closed=True):
     channel: "aws_sdk_cloudtrail.types.channel_arn.ChannelArn"
     """<p>The ARN or ID (the ARN suffix) of the channel that you want to update.</p>"""
     destinations: NotRequired["aws_sdk_cloudtrail.types.destinations.Destinations"]

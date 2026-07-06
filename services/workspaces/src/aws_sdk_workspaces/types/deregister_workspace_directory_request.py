@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DeregisterWorkspaceDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class DeregisterWorkspaceDirectoryRequest(TypedDict):
+class DeregisterWorkspaceDirectoryRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.</p>"""
 

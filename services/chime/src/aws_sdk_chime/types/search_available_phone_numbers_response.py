@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chime#SearchAvailablePhoneNumbersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.e164_phone_number_list
     import aws_sdk_chime.types.string
 
 
-class SearchAvailablePhoneNumbersResponse(TypedDict):
+class SearchAvailablePhoneNumbersResponse(TypedDict, closed=True):
     e164_phone_numbers: NotRequired[
         "aws_sdk_chime.types.e164_phone_number_list.E164PhoneNumberList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#GameServerGroupAutoScalingPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.positive_integer
     import aws_sdk_gamelift.types.target_tracking_configuration
 
 
-class GameServerGroupAutoScalingPolicy(TypedDict):
+class GameServerGroupAutoScalingPolicy(TypedDict, closed=True):
     estimated_instance_warmup: NotRequired[
         "aws_sdk_gamelift.types.positive_integer.PositiveInteger"
     ]

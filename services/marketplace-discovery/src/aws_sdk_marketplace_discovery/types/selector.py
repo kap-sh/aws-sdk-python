@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#Selector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.selector_type
 
 
-class Selector(TypedDict):
+class Selector(TypedDict, closed=True):
     type: "aws_sdk_marketplace_discovery.types.selector_type.SelectorType"
     """<p>The category of the selector, such as <code>Duration</code>.</p>"""
     value: "aws_sdk_marketplace_discovery.types.bounded_string.BoundedString"

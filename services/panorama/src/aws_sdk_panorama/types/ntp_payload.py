@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NtpPayload``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.ntp_server_list
 
 
-class NtpPayload(TypedDict):
+class NtpPayload(TypedDict, closed=True):
     ntp_servers: "aws_sdk_panorama.types.ntp_server_list.NtpServerList"
     """<p>NTP servers to use, in order of preference.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#ADMChannelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__boolean
     import aws_sdk_pinpoint.types.__string
 
 
-class ADMChannelRequest(TypedDict):
+class ADMChannelRequest(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The Client ID that you received from Amazon to send messages by using ADM.</p>"""
     client_secret: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

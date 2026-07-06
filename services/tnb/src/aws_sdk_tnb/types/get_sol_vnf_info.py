@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#GetSolVnfInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.get_sol_vnfc_resource_info_list
     import aws_sdk_tnb.types.vnf_operational_state
 
 
-class GetSolVnfInfo(TypedDict):
+class GetSolVnfInfo(TypedDict, closed=True):
     vnf_state: NotRequired[
         "aws_sdk_tnb.types.vnf_operational_state.VnfOperationalState"
     ]

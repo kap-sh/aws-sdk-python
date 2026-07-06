@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecommerceanalytics#MarketplaceCommerceAnalyticsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_commerce_analytics.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_commerce_analytics.types.exception_message
 
 
-class MarketplaceCommerceAnalyticsException_(TypedDict):
+class MarketplaceCommerceAnalyticsException_(TypedDict, closed=True):
     message: NotRequired[
         "aws_sdk_marketplace_commerce_analytics.types.exception_message.ExceptionMessage"
     ]

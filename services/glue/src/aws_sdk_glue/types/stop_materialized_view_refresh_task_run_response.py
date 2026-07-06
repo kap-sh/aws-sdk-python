@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StopMaterializedViewRefreshTaskRunResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopMaterializedViewRefreshTaskRunResponse(TypedDict):
+class StopMaterializedViewRefreshTaskRunResponse(TypedDict, closed=True):
     pass
 
 

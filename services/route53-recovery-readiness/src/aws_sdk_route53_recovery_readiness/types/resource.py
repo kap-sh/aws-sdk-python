@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#Resource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__list_of__string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.dns_target_resource
 
 
-class Resource(TypedDict):
+class Resource(TypedDict, closed=True):
     component_id: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string.__string"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Vocabulary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.vocabulary_state
 
 
-class Vocabulary(TypedDict):
+class Vocabulary(TypedDict, closed=True):
     name: "aws_sdk_connect.types.vocabulary_name.VocabularyName"
     """<p>A unique name of the custom vocabulary.</p>"""
     id: "aws_sdk_connect.types.vocabulary_id.VocabularyId"

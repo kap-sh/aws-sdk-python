@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateNetworkSettingsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.vpc_id
 
 
-class CreateNetworkSettingsRequest(TypedDict):
+class CreateNetworkSettingsRequest(TypedDict, closed=True):
     vpc_id: "aws_sdk_workspaces_web.types.vpc_id.VpcId"
     """<p>The VPC that streaming instances will connect to.</p>"""
     subnet_ids: "aws_sdk_workspaces_web.types.subnet_id_list.SubnetIdList"

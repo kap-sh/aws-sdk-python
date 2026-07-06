@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#AssociationConfigurationData``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError, SerializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
 
 
 class _AssociationConfigurationData_knowledgeBaseAssociationConfigurationData(
-    TypedDict
+    TypedDict, closed=True
 ):
     knowledgeBaseAssociationConfigurationData: "aws_sdk_qconnect.types.knowledge_base_association_configuration_data.KnowledgeBaseAssociationConfigurationData"
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#RedshiftDataParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eventbridge.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.statement_name
 
 
-class RedshiftDataParameters(TypedDict):
+class RedshiftDataParameters(TypedDict, closed=True):
     secret_manager_arn: NotRequired[
         "aws_sdk_eventbridge.types.redshift_secret_manager_arn.RedshiftSecretManagerArn"
     ]

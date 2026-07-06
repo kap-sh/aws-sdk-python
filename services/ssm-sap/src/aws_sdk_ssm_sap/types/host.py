@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#Host``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.host_role
 
 
-class Host(TypedDict):
+class Host(TypedDict, closed=True):
     host_name: NotRequired["str"]
     """<p>The name of the Dedicated Host.</p>"""
     host_ip: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#EventSubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.string255
 
 
-class EventSubscription(TypedDict):
+class EventSubscription(TypedDict, closed=True):
     name: "aws_sdk_resiliencehub.types.string255.String255"
     """<p>Unique name to identify an event subscription.</p>"""
     event_type: "aws_sdk_resiliencehub.types.event_type.EventType"

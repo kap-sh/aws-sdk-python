@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#VeevaMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class VeevaMetadata(TypedDict):
+class VeevaMetadata(TypedDict, closed=True):
     pass
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails(TypedDict):
+class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails(TypedDict, closed=True):
     authorization_config: NotRequired[
         "aws_sdk_securityhub.types.aws_ecs_task_definition_volumes_efs_volume_configuration_authorization_config_details.AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralbenefits#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_benefits.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_benefits.types.taggable_resource_arn
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_partnercentral_benefits.types.taggable_resource_arn.TaggableResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource to remove tags from.</p>"""
     tag_keys: "aws_sdk_partnercentral_benefits.types.tag_key_list.TagKeyList"

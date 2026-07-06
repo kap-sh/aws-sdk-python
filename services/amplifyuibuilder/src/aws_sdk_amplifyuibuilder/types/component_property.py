@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#ComponentProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.component_condition_property
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.form_bindings
 
 
-class ComponentProperty(TypedDict):
+class ComponentProperty(TypedDict, closed=True):
     value: NotRequired["str"]
     """<p>The value to assign to the component property.</p>"""
     binding_properties: NotRequired[

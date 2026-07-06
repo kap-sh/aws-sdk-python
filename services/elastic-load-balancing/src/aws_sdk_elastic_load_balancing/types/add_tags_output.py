@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancing#AddTagsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing._protocol.xml import Element
 
 
-class AddTagsOutput(TypedDict):
+class AddTagsOutput(TypedDict, closed=True):
     pass
 
 

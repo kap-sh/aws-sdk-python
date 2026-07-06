@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ListRelationshipsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.relationship_display_name_list
 
 
-class ListRelationshipsRequest(TypedDict):
+class ListRelationshipsRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_channel.types.catalog.Catalog"
     """<p>The catalog identifier to filter relationships.</p>"""
     max_results: "int"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#GetResourcePolicyOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.policy_revision_id
     import aws_sdk_dynamodb.types.resource_policy
 
 
-class GetResourcePolicyOutput(TypedDict):
+class GetResourcePolicyOutput(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_dynamodb.types.resource_policy.ResourcePolicy"]
     """<p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>"""
     revision_id: NotRequired[

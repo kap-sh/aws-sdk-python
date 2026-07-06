@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#OriginGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.string
 
 
-class OriginGroup(TypedDict):
+class OriginGroup(TypedDict, closed=True):
     id: "aws_sdk_cloudfront.types.string.string"
     """<p>The origin group's ID.</p>"""
     failover_criteria: "aws_sdk_cloudfront.types.origin_group_failover_criteria.OriginGroupFailoverCriteria"

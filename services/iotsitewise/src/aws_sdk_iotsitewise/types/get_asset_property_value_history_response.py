@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#GetAssetPropertyValueHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.next_token
 
 
-class GetAssetPropertyValueHistoryResponse(TypedDict):
+class GetAssetPropertyValueHistoryResponse(TypedDict, closed=True):
     asset_property_value_history: "aws_sdk_iotsitewise.types.asset_property_value_history.AssetPropertyValueHistory"
     """<p>The asset property's value history.</p>"""
     next_token: NotRequired["aws_sdk_iotsitewise.types.next_token.NextToken"]

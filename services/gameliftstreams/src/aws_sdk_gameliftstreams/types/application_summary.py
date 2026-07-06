@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gameliftstreams#ApplicationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_gameliftstreams.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_gameliftstreams.types.runtime_environment
 
 
-class ApplicationSummary(TypedDict):
+class ApplicationSummary(TypedDict, closed=True):
     arn: "aws_sdk_gameliftstreams.types.identifier.Identifier"
     """<p>An Amazon Resource Name (ARN) that's assigned to an application resource and uniquely identifies the application across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:application/[resource ID]</code>.</p>"""
     id: NotRequired["aws_sdk_gameliftstreams.types.id.Id"]

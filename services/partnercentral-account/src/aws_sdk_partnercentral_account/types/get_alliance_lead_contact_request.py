@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#GetAllianceLeadContactRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.partner_identifier
 
 
-class GetAllianceLeadContactRequest(TypedDict):
+class GetAllianceLeadContactRequest(TypedDict, closed=True):
     catalog: "aws_sdk_partnercentral_account.types.catalog.Catalog"
     """<p>The catalog identifier for the partner account.</p>"""
     identifier: (

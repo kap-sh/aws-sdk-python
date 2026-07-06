@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#CreateConditionalForwarderResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateConditionalForwarderResult(TypedDict):
+class CreateConditionalForwarderResult(TypedDict, closed=True):
     pass
 
 

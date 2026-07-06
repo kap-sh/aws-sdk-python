@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#HistoryEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -46,7 +46,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class HistoryEvent(TypedDict):
+class HistoryEvent(TypedDict, closed=True):
     timestamp: "aws_sdk_sfn.types.timestamp.Timestamp"
     """<p>The date and time the event occurred, expressed in seconds and fractional milliseconds since the Unix epoch, which is defined as January 1, 1970, at 00:00:00 Coordinated Universal Time (UTC).</p>"""
     type: "aws_sdk_sfn.types.history_event_type.HistoryEventType"

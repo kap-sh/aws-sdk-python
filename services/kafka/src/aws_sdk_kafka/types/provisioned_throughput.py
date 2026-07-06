@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ProvisionedThroughput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
     import aws_sdk_kafka.types.__integer
 
 
-class ProvisionedThroughput(TypedDict):
+class ProvisionedThroughput(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Provisioned throughput is enabled or not.</p>"""
     volume_throughput: NotRequired["aws_sdk_kafka.types.__integer.__integer"]

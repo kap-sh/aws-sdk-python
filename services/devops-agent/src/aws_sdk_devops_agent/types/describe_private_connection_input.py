@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#DescribePrivateConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.private_connection_name
 
 
-class DescribePrivateConnectionInput(TypedDict):
+class DescribePrivateConnectionInput(TypedDict, closed=True):
     name: "aws_sdk_devops_agent.types.private_connection_name.PrivateConnectionName"
     """<p>The name of the Private Connection.</p>"""
 

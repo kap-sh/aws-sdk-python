@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#SummarizationDimensionDetail``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
 
-class SummarizationDimensionDetail(TypedDict):
+class SummarizationDimensionDetail(TypedDict, closed=True):
     name: "str"
     """<p>The name of the SummarizationDimensionDetail.</p>"""
     value: "str"

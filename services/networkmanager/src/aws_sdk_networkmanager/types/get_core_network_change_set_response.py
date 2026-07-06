@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#GetCoreNetworkChangeSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.core_network_change_list
     import aws_sdk_networkmanager.types.next_token
 
 
-class GetCoreNetworkChangeSetResponse(TypedDict):
+class GetCoreNetworkChangeSetResponse(TypedDict, closed=True):
     core_network_changes: NotRequired[
         "aws_sdk_networkmanager.types.core_network_change_list.CoreNetworkChangeList"
     ]

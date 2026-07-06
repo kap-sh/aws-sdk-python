@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#UpdateDirectConnectGatewayRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.direct_connect_gateway_name
 
 
-class UpdateDirectConnectGatewayRequest(TypedDict):
+class UpdateDirectConnectGatewayRequest(TypedDict, closed=True):
     direct_connect_gateway_id: (
         "aws_sdk_direct_connect.types.direct_connect_gateway_id.DirectConnectGatewayId"
     )

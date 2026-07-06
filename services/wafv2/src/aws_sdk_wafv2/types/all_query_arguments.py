@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#AllQueryArguments``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AllQueryArguments(TypedDict):
+class AllQueryArguments(TypedDict, closed=True):
     pass
 
 

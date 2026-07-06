@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#EncryptionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_s3vectors.types.kms_key_arn
     import aws_sdk_s3vectors.types.sse_type
 
 
-class EncryptionConfiguration(TypedDict):
+class EncryptionConfiguration(TypedDict, closed=True):
     sse_type: "aws_sdk_s3vectors.types.sse_type.SseType"
     """<p>The server-side encryption type to use for the encryption configuration of the vector bucket. By default, if you don't specify, all new vectors in Amazon S3 vector buckets use server-side encryption with Amazon S3 managed keys (SSE-S3), specifically <code>AES256</code>.</p>"""
     kms_key_arn: NotRequired["aws_sdk_s3vectors.types.kms_key_arn.KmsKeyArn"]

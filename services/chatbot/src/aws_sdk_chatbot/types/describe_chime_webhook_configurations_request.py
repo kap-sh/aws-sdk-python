@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DescribeChimeWebhookConfigurationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chatbot.types.chat_configuration_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chatbot.types.pagination_token
 
 
-class DescribeChimeWebhookConfigurationsRequest(TypedDict):
+class DescribeChimeWebhookConfigurationsRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_chatbot.types.max_results.MaxResults"]
     """<p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved. </p>"""
     next_token: NotRequired["aws_sdk_chatbot.types.pagination_token.PaginationToken"]

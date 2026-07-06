@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#DescribeChangeSetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resource_id
 
 
-class DescribeChangeSetResponse(TypedDict):
+class DescribeChangeSetResponse(TypedDict, closed=True):
     change_set_id: NotRequired[
         "aws_sdk_marketplace_catalog.types.resource_id.ResourceId"
     ]

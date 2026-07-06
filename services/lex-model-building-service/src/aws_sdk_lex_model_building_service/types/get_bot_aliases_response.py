@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#GetBotAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_alias_metadata_list
     import aws_sdk_lex_model_building_service.types.next_token
 
 
-class GetBotAliasesResponse(TypedDict):
+class GetBotAliasesResponse(TypedDict, closed=True):
     bot_aliases: NotRequired[
         "aws_sdk_lex_model_building_service.types.bot_alias_metadata_list.BotAliasMetadataList"
     ]

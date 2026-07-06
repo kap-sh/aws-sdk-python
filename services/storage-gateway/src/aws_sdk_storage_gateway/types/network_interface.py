@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#NetworkInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.string
 
 
-class NetworkInterface(TypedDict):
+class NetworkInterface(TypedDict, closed=True):
     ipv4_address: NotRequired["aws_sdk_storage_gateway.types.string.string"]
     """<p>The Internet Protocol version 4 (IPv4) address of the interface.</p>"""
     mac_address: NotRequired["aws_sdk_storage_gateway.types.string.string"]

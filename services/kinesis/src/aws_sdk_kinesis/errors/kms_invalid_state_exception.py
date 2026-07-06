@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#KMSInvalidStateException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis._protocol.eventstream import HeaderValue, Message
 from aws_sdk_kinesis.errors import ServiceError
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.error_message
 
 
-class KMSInvalidStateException_(TypedDict):
+class KMSInvalidStateException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_kinesis.types.error_message.ErrorMessage"]
     """<p>A message that provides information about the error.</p>"""
 

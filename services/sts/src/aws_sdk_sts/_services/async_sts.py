@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sts#AWSSecurityTokenServiceV20110615``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_sts._auth._signers
@@ -78,7 +78,7 @@ if TYPE_CHECKING:
     import aws_sdk_sts.types.web_identity_token_duration_seconds_type
 
 
-class AsyncSTSClientConfig(TypedDict, total=False):
+class AsyncSTSClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

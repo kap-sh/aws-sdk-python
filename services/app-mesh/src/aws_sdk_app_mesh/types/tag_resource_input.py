@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#TagResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_app_mesh.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.tag_list
 
 
-class TagResourceInput(TypedDict):
+class TagResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_app_mesh.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) of the resource to add tags to.</p>"""
     tags: "aws_sdk_app_mesh.types.tag_list.TagList"

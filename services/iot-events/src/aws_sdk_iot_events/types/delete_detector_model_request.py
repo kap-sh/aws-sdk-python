@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotevents#DeleteDetectorModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events.types.detector_model_name
 
 
-class DeleteDetectorModelRequest(TypedDict):
+class DeleteDetectorModelRequest(TypedDict, closed=True):
     detector_model_name: (
         "aws_sdk_iot_events.types.detector_model_name.DetectorModelName"
     )

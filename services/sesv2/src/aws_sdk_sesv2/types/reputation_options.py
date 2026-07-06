@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ReputationOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.enabled
     import aws_sdk_sesv2.types.last_fresh_start
 
 
-class ReputationOptions(TypedDict):
+class ReputationOptions(TypedDict, closed=True):
     reputation_metrics_enabled: "aws_sdk_sesv2.types.enabled.Enabled"
     """<p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>"""
     last_fresh_start: NotRequired["aws_sdk_sesv2.types.last_fresh_start.LastFreshStart"]

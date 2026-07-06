@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#SessionManagerOutputUrl``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.session_manager_cloud_watch_output_url
     import aws_sdk_ssm.types.session_manager_s3_output_url
 
 
-class SessionManagerOutputUrl(TypedDict):
+class SessionManagerOutputUrl(TypedDict, closed=True):
     s3_output_url: NotRequired[
         "aws_sdk_ssm.types.session_manager_s3_output_url.SessionManagerS3OutputUrl"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#UpdateManagedInstanceRoleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.managed_instance_id
 
 
-class UpdateManagedInstanceRoleRequest(TypedDict):
+class UpdateManagedInstanceRoleRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_ssm.types.managed_instance_id.ManagedInstanceId"
     """<p>The ID of the managed node where you want to update the role.</p>"""
     iam_role: "aws_sdk_ssm.types.iam_role.IamRole"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CreateSessionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_nova_act.types.uuid_string
 
 
-class CreateSessionResponse(TypedDict):
+class CreateSessionResponse(TypedDict, closed=True):
     session_id: "aws_sdk_nova_act.types.uuid_string.UuidString"
     """<p>The unique identifier for the created session.</p>"""
 

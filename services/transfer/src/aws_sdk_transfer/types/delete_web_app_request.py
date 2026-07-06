@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DeleteWebAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.web_app_id
 
 
-class DeleteWebAppRequest(TypedDict):
+class DeleteWebAppRequest(TypedDict, closed=True):
     web_app_id: "aws_sdk_transfer.types.web_app_id.WebAppId"
     """<p>Provide the unique identifier for the web app that you are deleting.</p>"""
 

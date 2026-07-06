@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.relative_file_version_enum
 
 
-class Location(TypedDict):
+class Location(TypedDict, closed=True):
     file_path: NotRequired["aws_sdk_codecommit.types.path.Path"]
     """<p>The name of the file being compared, including its extension and subdirectory, if any.</p>"""
     file_position: NotRequired["aws_sdk_codecommit.types.position.Position"]

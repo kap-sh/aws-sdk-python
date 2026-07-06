@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#BedrockRerankingModelConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.bedrock_model_arn
 
 
-class BedrockRerankingModelConfiguration(TypedDict):
+class BedrockRerankingModelConfiguration(TypedDict, closed=True):
     model_arn: "aws_sdk_bedrock_agent_runtime.types.bedrock_model_arn.BedrockModelArn"
     """<p>The ARN of the reranker model.</p>"""
     additional_model_request_fields: NotRequired[

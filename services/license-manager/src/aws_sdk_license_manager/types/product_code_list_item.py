@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ProductCodeListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.product_code_type
 
 
-class ProductCodeListItem(TypedDict):
+class ProductCodeListItem(TypedDict, closed=True):
     product_code_id: "aws_sdk_license_manager.types.product_code_id.ProductCodeId"
     """<p>The product code ID</p>"""
     product_code_type: "aws_sdk_license_manager.types.product_code_type.ProductCodeType"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.fms#GetNotificationChannelRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetNotificationChannelRequest(TypedDict):
+class GetNotificationChannelRequest(TypedDict, closed=True):
     pass
 
 

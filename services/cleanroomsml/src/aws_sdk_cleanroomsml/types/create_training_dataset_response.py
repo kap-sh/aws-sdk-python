@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#CreateTrainingDatasetResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.training_dataset_arn
 
 
-class CreateTrainingDatasetResponse(TypedDict):
+class CreateTrainingDatasetResponse(TypedDict, closed=True):
     training_dataset_arn: (
         "aws_sdk_cleanroomsml.types.training_dataset_arn.TrainingDatasetArn"
     )

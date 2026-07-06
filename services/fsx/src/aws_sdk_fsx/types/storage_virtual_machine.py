@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#StorageVirtualMachine``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.creation_time
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.uuid
 
 
-class StorageVirtualMachine(TypedDict):
+class StorageVirtualMachine(TypedDict, closed=True):
     active_directory_configuration: NotRequired[
         "aws_sdk_fsx.types.svm_active_directory_configuration.SvmActiveDirectoryConfiguration"
     ]

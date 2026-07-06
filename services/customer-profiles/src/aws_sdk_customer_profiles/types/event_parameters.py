@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#EventParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.event_parameters_event_weight_double
 
 
-class EventParameters(TypedDict):
+class EventParameters(TypedDict, closed=True):
     event_type: "aws_sdk_customer_profiles.types.event_parameters_event_type_string.EventParametersEventTypeString"
     """<p>The type of event being tracked (e.g., 'click', 'purchase', 'view').</p>"""
     event_value_threshold: NotRequired["aws_sdk_customer_profiles.types.double.Double"]

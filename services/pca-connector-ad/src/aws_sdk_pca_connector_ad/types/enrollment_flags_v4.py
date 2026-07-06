@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorad#EnrollmentFlagsV4``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class EnrollmentFlagsV4(TypedDict):
+class EnrollmentFlagsV4(TypedDict, closed=True):
     include_symmetric_algorithms: NotRequired["bool"]
     """<p>Include symmetric algorithms allowed by the subject.</p>"""
     user_interaction_required: NotRequired["bool"]

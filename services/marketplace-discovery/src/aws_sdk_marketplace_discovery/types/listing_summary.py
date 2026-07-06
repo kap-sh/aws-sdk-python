@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#ListingSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -19,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.url
 
 
-class ListingSummary(TypedDict):
+class ListingSummary(TypedDict, closed=True):
     listing_id: "aws_sdk_marketplace_discovery.types.listing_id.ListingId"
     """<p>The unique identifier of the listing.</p>"""
     listing_name: "aws_sdk_marketplace_discovery.types.non_empty_string.NonEmptyString"

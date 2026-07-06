@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RemoveEntityOwnerInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.owner_properties
 
 
-class RemoveEntityOwnerInput(TypedDict):
+class RemoveEntityOwnerInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the domain where you want to remove an owner from an entity.</p>"""
     entity_type: "aws_sdk_datazone.types.data_zone_entity_type.DataZoneEntityType"

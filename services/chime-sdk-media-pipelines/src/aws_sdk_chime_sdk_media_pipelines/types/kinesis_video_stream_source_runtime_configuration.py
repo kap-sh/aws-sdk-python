@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#KinesisVideoStreamSourceRuntimeConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.streams
 
 
-class KinesisVideoStreamSourceRuntimeConfiguration(TypedDict):
+class KinesisVideoStreamSourceRuntimeConfiguration(TypedDict, closed=True):
     streams: "aws_sdk_chime_sdk_media_pipelines.types.streams.Streams"
     """<p>The streams in the source runtime configuration of a Kinesis video stream.</p>"""
     media_encoding: (

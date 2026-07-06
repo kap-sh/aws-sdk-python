@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#Ulimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.ulimit_name
 
 
-class Ulimit(TypedDict):
+class Ulimit(TypedDict, closed=True):
     name: "aws_sdk_ecs.types.ulimit_name.UlimitName"
     """<p>The <code>type</code> of the <code>ulimit</code>.</p>"""
     soft_limit: "aws_sdk_ecs.types.integer.Integer"

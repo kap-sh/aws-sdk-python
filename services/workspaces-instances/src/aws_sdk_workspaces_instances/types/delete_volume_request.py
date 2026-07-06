@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#DeleteVolumeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_instances.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.volume_id
 
 
-class DeleteVolumeRequest(TypedDict):
+class DeleteVolumeRequest(TypedDict, closed=True):
     volume_id: "aws_sdk_workspaces_instances.types.volume_id.VolumeId"
     """<p>Identifier of the volume to delete.</p>"""
 

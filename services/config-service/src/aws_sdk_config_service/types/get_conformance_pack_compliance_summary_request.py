@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#GetConformancePackComplianceSummaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_config_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_config_service.types.page_size_limit
 
 
-class GetConformancePackComplianceSummaryRequest(TypedDict):
+class GetConformancePackComplianceSummaryRequest(TypedDict, closed=True):
     conformance_pack_names: "aws_sdk_config_service.types.conformance_pack_names_to_summarize_list.ConformancePackNamesToSummarizeList"
     """<p>Names of conformance packs.</p>"""
     limit: "aws_sdk_config_service.types.page_size_limit.PageSizeLimit"

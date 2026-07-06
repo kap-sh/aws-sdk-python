@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LFTag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.list_of_lf_tag_values
 
 
-class LFTag(TypedDict):
+class LFTag(TypedDict, closed=True):
     tag_key: "str"
     """<p>The key name for the LF-tag.</p>"""
     tag_values: "aws_sdk_dataexchange.types.list_of_lf_tag_values.ListOfLFTagValues"

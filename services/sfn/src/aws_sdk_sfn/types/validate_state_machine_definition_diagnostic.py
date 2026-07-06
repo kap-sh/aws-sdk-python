@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ValidateStateMachineDefinitionDiagnostic``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.validate_state_machine_definition_severity
 
 
-class ValidateStateMachineDefinitionDiagnostic(TypedDict):
+class ValidateStateMachineDefinitionDiagnostic(TypedDict, closed=True):
     severity: "aws_sdk_sfn.types.validate_state_machine_definition_severity.ValidateStateMachineDefinitionSeverity"
     """<p>A value of <code>ERROR</code> means that you cannot create or update a state machine with this definition.</p> <p> <code>WARNING</code> level diagnostics alert you to potential issues, but they will not prevent you from creating or updating your state machine.</p>"""
     code: "aws_sdk_sfn.types.validate_state_machine_definition_code.ValidateStateMachineDefinitionCode"

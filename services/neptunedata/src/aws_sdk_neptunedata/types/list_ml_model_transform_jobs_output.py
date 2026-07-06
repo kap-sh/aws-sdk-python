@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListMLModelTransformJobsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.string_list
 
 
-class ListMLModelTransformJobsOutput(TypedDict):
+class ListMLModelTransformJobsOutput(TypedDict, closed=True):
     ids: NotRequired["aws_sdk_neptunedata.types.string_list.StringList"]
     """<p>A page from the list of model transform IDs.</p>"""
 

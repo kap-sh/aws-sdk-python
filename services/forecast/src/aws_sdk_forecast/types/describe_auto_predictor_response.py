@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeAutoPredictorResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class DescribeAutoPredictorResponse(TypedDict):
+class DescribeAutoPredictorResponse(TypedDict, closed=True):
     predictor_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the predictor</p>"""
     predictor_name: NotRequired["aws_sdk_forecast.types.name.Name"]

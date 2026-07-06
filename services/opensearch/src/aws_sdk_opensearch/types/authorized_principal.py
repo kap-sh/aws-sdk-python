@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#AuthorizedPrincipal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.principal_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.string
 
 
-class AuthorizedPrincipal(TypedDict):
+class AuthorizedPrincipal(TypedDict, closed=True):
     principal_type: NotRequired["aws_sdk_opensearch.types.principal_type.PrincipalType"]
     """<p>The type of principal.</p>"""
     principal: NotRequired["aws_sdk_opensearch.types.string.String"]

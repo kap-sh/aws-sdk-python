@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#ImageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.runtime_environment_secrets
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.string
 
 
-class ImageConfiguration(TypedDict):
+class ImageConfiguration(TypedDict, closed=True):
     runtime_environment_variables: NotRequired[
         "aws_sdk_apprunner.types.runtime_environment_variables.RuntimeEnvironmentVariables"
     ]

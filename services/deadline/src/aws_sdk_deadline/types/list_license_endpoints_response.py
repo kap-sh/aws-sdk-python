@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ListLicenseEndpointsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.next_token
 
 
-class ListLicenseEndpointsResponse(TypedDict):
+class ListLicenseEndpointsResponse(TypedDict, closed=True):
     license_endpoints: (
         "aws_sdk_deadline.types.license_endpoint_summaries.LicenseEndpointSummaries"
     )

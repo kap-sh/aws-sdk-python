@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.efs#DeleteFileSystemPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_efs.types.file_system_id
 
 
-class DeleteFileSystemPolicyRequest(TypedDict):
+class DeleteFileSystemPolicyRequest(TypedDict, closed=True):
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"
     """<p>Specifies the EFS file system for which to delete the <code>FileSystemPolicy</code>.</p>"""
 

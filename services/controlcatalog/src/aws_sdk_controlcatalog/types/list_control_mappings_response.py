@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ListControlMappingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.pagination_token
 
 
-class ListControlMappingsResponse(TypedDict):
+class ListControlMappingsResponse(TypedDict, closed=True):
     control_mappings: "aws_sdk_controlcatalog.types.control_mappings.ControlMappings"
     """<p>The list of control mappings that the ListControlMappings API returns.</p>"""
     next_token: NotRequired[

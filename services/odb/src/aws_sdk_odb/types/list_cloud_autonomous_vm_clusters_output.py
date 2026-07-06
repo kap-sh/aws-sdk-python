@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ListCloudAutonomousVmClustersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.cloud_autonomous_vm_cluster_list
 
 
-class ListCloudAutonomousVmClustersOutput(TypedDict):
+class ListCloudAutonomousVmClustersOutput(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>The pagination token to continue listing from.</p>"""
     cloud_autonomous_vm_clusters: "aws_sdk_odb.types.cloud_autonomous_vm_cluster_list.CloudAutonomousVmClusterList"

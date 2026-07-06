@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#GetVaultLockOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glacier.types.string
 
 
-class GetVaultLockOutput(TypedDict):
+class GetVaultLockOutput(TypedDict, closed=True):
     policy: NotRequired["aws_sdk_glacier.types.string.string"]
     r"""<p>The vault lock policy as a JSON string, which uses \"\\" as an escape character.</p>"""
     state: NotRequired["aws_sdk_glacier.types.string.string"]

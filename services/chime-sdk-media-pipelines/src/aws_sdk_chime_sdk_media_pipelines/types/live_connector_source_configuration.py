@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#LiveConnectorSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.live_connector_source_type
 
 
-class LiveConnectorSourceConfiguration(TypedDict):
+class LiveConnectorSourceConfiguration(TypedDict, closed=True):
     source_type: "aws_sdk_chime_sdk_media_pipelines.types.live_connector_source_type.LiveConnectorSourceType"
     """<p>The source configuration's media source type.</p>"""
     chime_sdk_meeting_live_connector_configuration: "aws_sdk_chime_sdk_media_pipelines.types.chime_sdk_meeting_live_connector_configuration.ChimeSdkMeetingLiveConnectorConfiguration"

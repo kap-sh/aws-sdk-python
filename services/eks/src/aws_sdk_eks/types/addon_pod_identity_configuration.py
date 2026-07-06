@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#AddonPodIdentityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
     import aws_sdk_eks.types.string_list
 
 
-class AddonPodIdentityConfiguration(TypedDict):
+class AddonPodIdentityConfiguration(TypedDict, closed=True):
     service_account: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Kubernetes Service Account name used by the add-on.</p>"""
     recommended_managed_policies: NotRequired[

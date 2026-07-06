@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeTransitGatewayRouteTableAnnouncementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.transit_gateway_route_table_announcement_id_string_list
 
 
-class DescribeTransitGatewayRouteTableAnnouncementsRequest(TypedDict):
+class DescribeTransitGatewayRouteTableAnnouncementsRequest(TypedDict, closed=True):
     transit_gateway_route_table_announcement_ids: NotRequired[
         "aws_sdk_ec2.types.transit_gateway_route_table_announcement_id_string_list.TransitGatewayRouteTableAnnouncementIdStringList"
     ]

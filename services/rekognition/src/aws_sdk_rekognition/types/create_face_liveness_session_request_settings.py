@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#CreateFaceLivenessSessionRequestSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.audit_images_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.liveness_output_config
 
 
-class CreateFaceLivenessSessionRequestSettings(TypedDict):
+class CreateFaceLivenessSessionRequestSettings(TypedDict, closed=True):
     output_config: NotRequired[
         "aws_sdk_rekognition.types.liveness_output_config.LivenessOutputConfig"
     ]

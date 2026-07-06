@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ResourceNotFoundException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     resource_id: NotRequired["str"]
     """<p>The ID of the missing resource.</p>"""

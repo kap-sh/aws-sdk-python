@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesinstances#ManagedInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.block_device_mappings
@@ -35,7 +35,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_instances.types.user_data
 
 
-class ManagedInstanceRequest(TypedDict):
+class ManagedInstanceRequest(TypedDict, closed=True):
     block_device_mappings: NotRequired[
         "aws_sdk_workspaces_instances.types.block_device_mappings.BlockDeviceMappings"
     ]

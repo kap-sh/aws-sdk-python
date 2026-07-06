@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.synthetics#StopCanaryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopCanaryResponse(TypedDict):
+class StopCanaryResponse(TypedDict, closed=True):
     pass
 
 

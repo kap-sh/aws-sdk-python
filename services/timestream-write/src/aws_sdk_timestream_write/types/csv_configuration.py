@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreamwrite#CsvConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_write.types.string_value256
 
 
-class CsvConfiguration(TypedDict):
+class CsvConfiguration(TypedDict, closed=True):
     column_separator: NotRequired[
         "aws_sdk_timestream_write.types.string_value1.StringValue1"
     ]

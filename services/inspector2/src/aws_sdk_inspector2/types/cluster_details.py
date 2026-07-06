@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ClusterDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cluster_metadata
 
 
-class ClusterDetails(TypedDict):
+class ClusterDetails(TypedDict, closed=True):
     last_in_use: "datetime.datetime"
     """<p>The last timestamp when Amazon Inspector recorded the image in use in the task or pod in the cluster.</p>"""
     running_unit_count: NotRequired["int"]

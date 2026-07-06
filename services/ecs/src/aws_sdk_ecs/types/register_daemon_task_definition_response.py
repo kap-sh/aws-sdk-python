@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#RegisterDaemonTaskDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class RegisterDaemonTaskDefinitionResponse(TypedDict):
+class RegisterDaemonTaskDefinitionResponse(TypedDict, closed=True):
     daemon_task_definition_arn: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The full Amazon Resource Name (ARN) of the registered daemon task definition.</p>"""
 

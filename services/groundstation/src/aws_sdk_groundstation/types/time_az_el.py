@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#TimeAzEl``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
 
-class TimeAzEl(TypedDict):
+class TimeAzEl(TypedDict, closed=True):
     dt: "float"
     """<p>Time offset in atomic seconds from the segment's reference epoch.</p> <p>All <code>dt</code> values within a segment must be in ascending order with no duplicates.</p> <p> <code>dt</code> values may be:</p> <ul> <li> <p>negative</p> </li> <li> <p>expressed as fractions of a second</p> </li> <li> <p>expressed in scientific notation</p> </li> </ul>"""
     az: "float"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListDeployActionExecutionTargetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.target_filter_list
 
 
-class ListDeployActionExecutionTargetsInput(TypedDict):
+class ListDeployActionExecutionTargetsInput(TypedDict, closed=True):
     pipeline_name: NotRequired["aws_sdk_codepipeline.types.pipeline_name.PipelineName"]
     """<p>The name of the pipeline with the deploy action.</p>"""
     action_execution_id: (

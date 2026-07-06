@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#SuspendGameServerGroupInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server_group_actions
     import aws_sdk_gamelift.types.game_server_group_name_or_arn
 
 
-class SuspendGameServerGroupInput(TypedDict):
+class SuspendGameServerGroupInput(TypedDict, closed=True):
     game_server_group_name: NotRequired[
         "aws_sdk_gamelift.types.game_server_group_name_or_arn.GameServerGroupNameOrArn"
     ]

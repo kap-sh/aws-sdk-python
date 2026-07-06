@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ColumnStatisticsTaskSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.catalog_id_string
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.table_name
 
 
-class ColumnStatisticsTaskSettings(TypedDict):
+class ColumnStatisticsTaskSettings(TypedDict, closed=True):
     database_name: NotRequired["aws_sdk_glue.types.database_name.DatabaseName"]
     """<p>The name of the database where the table resides.</p>"""
     table_name: NotRequired["aws_sdk_glue.types.table_name.TableName"]

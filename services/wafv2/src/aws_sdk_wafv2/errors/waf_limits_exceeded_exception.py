@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#WAFLimitsExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wafv2.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.source_type
 
 
-class WAFLimitsExceededException_(TypedDict):
+class WAFLimitsExceededException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_wafv2.types.error_message.ErrorMessage"]
     source_type: NotRequired["aws_sdk_wafv2.types.source_type.SourceType"]
     """<p>Source type for the exception. </p>"""

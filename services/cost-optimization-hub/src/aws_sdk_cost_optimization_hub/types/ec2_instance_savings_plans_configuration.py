@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#Ec2InstanceSavingsPlansConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class Ec2InstanceSavingsPlansConfiguration(TypedDict):
+class Ec2InstanceSavingsPlansConfiguration(TypedDict, closed=True):
     account_scope: NotRequired["str"]
     """<p>The account scope for which you want recommendations.</p>"""
     term: NotRequired["str"]

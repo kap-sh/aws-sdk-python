@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#NewRelicApiKeyConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.new_relic_region
 
 
-class NewRelicApiKeyConfig(TypedDict):
+class NewRelicApiKeyConfig(TypedDict, closed=True):
     api_key: "aws_sdk_devops_agent.types.api_key_value.ApiKeyValue"
     """<p>New Relic User API Key</p>"""
     account_id: "str"

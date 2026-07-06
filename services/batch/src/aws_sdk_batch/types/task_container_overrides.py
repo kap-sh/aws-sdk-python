@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#TaskContainerOverrides``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.environment_variables
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.string_list
 
 
-class TaskContainerOverrides(TypedDict):
+class TaskContainerOverrides(TypedDict, closed=True):
     command: NotRequired["aws_sdk_batch.types.string_list.StringList"]
     """<p>The command to send to the container that overrides the default command from the Docker image or the job definition.</p> <note> <p>This parameter can't contain an empty string.</p> </note>"""
     environment: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#InclusionProtectionFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.protected_resource_type_filters
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.resource_arn_filters
 
 
-class InclusionProtectionFilters(TypedDict):
+class InclusionProtectionFilters(TypedDict, closed=True):
     resource_arns: NotRequired[
         "aws_sdk_shield.types.resource_arn_filters.ResourceArnFilters"
     ]

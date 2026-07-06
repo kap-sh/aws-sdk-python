@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchUpdatePartitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.batch_update_partition_failure_list
 
 
-class BatchUpdatePartitionResponse(TypedDict):
+class BatchUpdatePartitionResponse(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_glue.types.batch_update_partition_failure_list.BatchUpdatePartitionFailureList"
     ]

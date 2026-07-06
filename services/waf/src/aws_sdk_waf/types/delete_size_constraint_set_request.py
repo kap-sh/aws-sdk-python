@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#DeleteSizeConstraintSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class DeleteSizeConstraintSetRequest(TypedDict):
+class DeleteSizeConstraintSetRequest(TypedDict, closed=True):
     size_constraint_set_id: "aws_sdk_waf.types.resource_id.ResourceId"
     """<p>The <code>SizeConstraintSetId</code> of the <a>SizeConstraintSet</a> that you want to delete. <code>SizeConstraintSetId</code> is returned by <a>CreateSizeConstraintSet</a> and by <a>ListSizeConstraintSets</a>.</p>"""
     change_token: "aws_sdk_waf.types.change_token.ChangeToken"

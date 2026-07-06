@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#OpenSearchResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.dashboard_viewer_principals
 
 
-class OpenSearchResourceConfig(TypedDict):
+class OpenSearchResourceConfig(TypedDict, closed=True):
     kms_key_arn: NotRequired["aws_sdk_cloudwatch_logs.types.arn.Arn"]
     """<p>To have the vended dashboard data encrypted with KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the KMS key that you want to use.</p>"""
     data_source_role_arn: "aws_sdk_cloudwatch_logs.types.arn.Arn"

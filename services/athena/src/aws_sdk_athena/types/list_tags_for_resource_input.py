@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.token
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_athena.types.amazon_resource_name.AmazonResourceName"
     """<p>Lists the tags for the resource with the specified ARN.</p>"""
     next_token: NotRequired["aws_sdk_athena.types.token.Token"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#UpdateSipRuleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.sip_rule_target_application_list
 
 
-class UpdateSipRuleRequest(TypedDict):
+class UpdateSipRuleRequest(TypedDict, closed=True):
     sip_rule_id: "aws_sdk_chime_sdk_voice.types.non_empty_string.NonEmptyString"
     """<p>The SIP rule ID.</p>"""
     name: "aws_sdk_chime_sdk_voice.types.sip_rule_name.SipRuleName"

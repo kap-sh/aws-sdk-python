@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#FlowExecutionEvent``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -19,49 +21,49 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.node_output_event
 
 
-class _FlowExecutionEvent_flowInputEvent(TypedDict):
+class _FlowExecutionEvent_flowInputEvent(TypedDict, closed=True):
     flowInputEvent: "aws_sdk_bedrock_agent_runtime.types.flow_execution_input_event.FlowExecutionInputEvent"
 
 
-class _FlowExecutionEvent_flowOutputEvent(TypedDict):
+class _FlowExecutionEvent_flowOutputEvent(TypedDict, closed=True):
     flowOutputEvent: "aws_sdk_bedrock_agent_runtime.types.flow_execution_output_event.FlowExecutionOutputEvent"
 
 
-class _FlowExecutionEvent_nodeInputEvent(TypedDict):
+class _FlowExecutionEvent_nodeInputEvent(TypedDict, closed=True):
     nodeInputEvent: (
         "aws_sdk_bedrock_agent_runtime.types.node_input_event.NodeInputEvent"
     )
 
 
-class _FlowExecutionEvent_nodeOutputEvent(TypedDict):
+class _FlowExecutionEvent_nodeOutputEvent(TypedDict, closed=True):
     nodeOutputEvent: (
         "aws_sdk_bedrock_agent_runtime.types.node_output_event.NodeOutputEvent"
     )
 
 
-class _FlowExecutionEvent_conditionResultEvent(TypedDict):
+class _FlowExecutionEvent_conditionResultEvent(TypedDict, closed=True):
     conditionResultEvent: "aws_sdk_bedrock_agent_runtime.types.condition_result_event.ConditionResultEvent"
 
 
-class _FlowExecutionEvent_nodeFailureEvent(TypedDict):
+class _FlowExecutionEvent_nodeFailureEvent(TypedDict, closed=True):
     nodeFailureEvent: (
         "aws_sdk_bedrock_agent_runtime.types.node_failure_event.NodeFailureEvent"
     )
 
 
-class _FlowExecutionEvent_flowFailureEvent(TypedDict):
+class _FlowExecutionEvent_flowFailureEvent(TypedDict, closed=True):
     flowFailureEvent: (
         "aws_sdk_bedrock_agent_runtime.types.flow_failure_event.FlowFailureEvent"
     )
 
 
-class _FlowExecutionEvent_nodeActionEvent(TypedDict):
+class _FlowExecutionEvent_nodeActionEvent(TypedDict, closed=True):
     nodeActionEvent: (
         "aws_sdk_bedrock_agent_runtime.types.node_action_event.NodeActionEvent"
     )
 
 
-class _FlowExecutionEvent_nodeDependencyEvent(TypedDict):
+class _FlowExecutionEvent_nodeDependencyEvent(TypedDict, closed=True):
     nodeDependencyEvent: (
         "aws_sdk_bedrock_agent_runtime.types.node_dependency_event.NodeDependencyEvent"
     )

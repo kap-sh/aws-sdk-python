@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ReplicateInstanceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.instance_id
 
 
-class ReplicateInstanceResponse(TypedDict):
+class ReplicateInstanceResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connect.types.instance_id.InstanceId"]
     """<p>The identifier of the replicated instance. You can find the <code>instanceId</code> in the ARN of the instance. The replicated instance has the same identifier as the instance it was replicated from.</p>"""
     arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

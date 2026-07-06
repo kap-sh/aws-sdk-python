@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#NatGatewayAddress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class NatGatewayAddress(TypedDict):
+class NatGatewayAddress(TypedDict, closed=True):
     allocation_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>"""
     network_interface_id: NotRequired["aws_sdk_ec2.types.string.String"]

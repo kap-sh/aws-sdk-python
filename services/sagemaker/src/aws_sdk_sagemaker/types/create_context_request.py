@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateContextRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.context_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.tag_list
 
 
-class CreateContextRequest(TypedDict):
+class CreateContextRequest(TypedDict, closed=True):
     context_name: NotRequired["aws_sdk_sagemaker.types.context_name.ContextName"]
     """<p>The name of the context. Must be unique to your account in an Amazon Web Services Region.</p>"""
     source: NotRequired["aws_sdk_sagemaker.types.context_source.ContextSource"]

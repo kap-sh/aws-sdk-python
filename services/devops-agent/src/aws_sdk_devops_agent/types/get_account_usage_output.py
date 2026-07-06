@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GetAccountUsageOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.usage_metric
 
 
-class GetAccountUsageOutput(TypedDict):
+class GetAccountUsageOutput(TypedDict, closed=True):
     monthly_account_investigation_hours: NotRequired[
         "aws_sdk_devops_agent.types.usage_metric.UsageMetric"
     ]

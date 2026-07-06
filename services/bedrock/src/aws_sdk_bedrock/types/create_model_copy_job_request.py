@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CreateModelCopyJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.tag_list
 
 
-class CreateModelCopyJobRequest(TypedDict):
+class CreateModelCopyJobRequest(TypedDict, closed=True):
     source_model_arn: "aws_sdk_bedrock.types.model_arn.ModelArn"
     """<p>The Amazon Resource Name (ARN) of the model to be copied.</p>"""
     target_model_name: "aws_sdk_bedrock.types.custom_model_name.CustomModelName"

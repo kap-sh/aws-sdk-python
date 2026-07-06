@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#OpenIdConnectGroupConfigurationDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.group_entity_type
 
 
-class OpenIdConnectGroupConfigurationDetail(TypedDict):
+class OpenIdConnectGroupConfigurationDetail(TypedDict, closed=True):
     group_claim: "aws_sdk_verifiedpermissions.types.claim.Claim"
     """<p>The token claim that you want Verified Permissions to interpret as group membership. For example, <code>groups</code>.</p>"""
     group_entity_type: (

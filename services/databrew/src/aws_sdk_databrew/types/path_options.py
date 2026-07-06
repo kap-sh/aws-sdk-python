@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#PathOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_databrew.types.files_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.path_parameters_map
 
 
-class PathOptions(TypedDict):
+class PathOptions(TypedDict, closed=True):
     last_modified_date_condition: NotRequired[
         "aws_sdk_databrew.types.filter_expression.FilterExpression"
     ]

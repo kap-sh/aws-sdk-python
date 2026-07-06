@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ivsrealtime#GetPublicKeyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ivs_realtime.types.public_key
 
 
-class GetPublicKeyResponse(TypedDict):
+class GetPublicKeyResponse(TypedDict, closed=True):
     public_key: NotRequired["aws_sdk_ivs_realtime.types.public_key.PublicKey"]
     """<p>The public key that is returned.</p>"""
 

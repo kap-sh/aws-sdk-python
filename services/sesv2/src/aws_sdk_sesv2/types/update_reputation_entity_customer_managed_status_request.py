@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#UpdateReputationEntityCustomerManagedStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.sending_status
 
 
-class UpdateReputationEntityCustomerManagedStatusRequest(TypedDict):
+class UpdateReputationEntityCustomerManagedStatusRequest(TypedDict, closed=True):
     reputation_entity_type: (
         "aws_sdk_sesv2.types.reputation_entity_type.ReputationEntityType"
     )

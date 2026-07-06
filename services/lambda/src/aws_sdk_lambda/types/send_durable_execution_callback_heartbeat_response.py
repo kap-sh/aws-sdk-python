@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#SendDurableExecutionCallbackHeartbeatResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendDurableExecutionCallbackHeartbeatResponse(TypedDict):
+class SendDurableExecutionCallbackHeartbeatResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ivs#InsertAdBreakRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ivs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ivs.types.channel_arn
 
 
-class InsertAdBreakRequest(TypedDict):
+class InsertAdBreakRequest(TypedDict, closed=True):
     channel_arn: "aws_sdk_ivs.types.channel_arn.ChannelArn"
     """<p>ARN of the channel into which the ad break is inserted.</p>"""
     duration_seconds: "aws_sdk_ivs.types.ad_duration_seconds.AdDurationSeconds"

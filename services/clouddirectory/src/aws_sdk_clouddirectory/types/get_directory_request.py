@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#GetDirectoryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.directory_arn
 
 
-class GetDirectoryRequest(TypedDict):
+class GetDirectoryRequest(TypedDict, closed=True):
     directory_arn: "aws_sdk_clouddirectory.types.directory_arn.DirectoryArn"
     """<p>The ARN of the directory.</p>"""
 

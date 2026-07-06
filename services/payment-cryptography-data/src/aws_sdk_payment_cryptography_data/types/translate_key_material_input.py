@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#TranslateKeyMaterialInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.outgoing_key_material
 
 
-class TranslateKeyMaterialInput(TypedDict):
+class TranslateKeyMaterialInput(TypedDict, closed=True):
     incoming_key_material: "aws_sdk_payment_cryptography_data.types.incoming_key_material.IncomingKeyMaterial"
     """<p>Parameter information of the TR31WrappedKeyBlock containing the transaction key.</p>"""
     outgoing_key_material: "aws_sdk_payment_cryptography_data.types.outgoing_key_material.OutgoingKeyMaterial"

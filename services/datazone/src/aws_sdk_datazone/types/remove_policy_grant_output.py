@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#RemovePolicyGrantOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RemovePolicyGrantOutput(TypedDict):
+class RemovePolicyGrantOutput(TypedDict, closed=True):
     pass
 
 

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AwsConsoleLinkParameters``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AwsConsoleLinkParameters(TypedDict):
+class AwsConsoleLinkParameters(TypedDict, closed=True):
     uri: NotRequired["str"]
     """<p>The URI of the console link specified as part of the environment action.</p>"""
 

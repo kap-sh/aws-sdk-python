@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceEventMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_resiliencehubv2.errors import DeserializationError, SerializationError
 
@@ -26,83 +28,83 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehubv2.types.service_workflow_updated_metadata
 
 
-class _ServiceEventMetadata_serviceCreated(TypedDict):
+class _ServiceEventMetadata_serviceCreated(TypedDict, closed=True):
     serviceCreated: (
         "aws_sdk_resiliencehubv2.types.service_created_metadata.ServiceCreatedMetadata"
     )
 
 
-class _ServiceEventMetadata_serviceDeleted(TypedDict):
+class _ServiceEventMetadata_serviceDeleted(TypedDict, closed=True):
     serviceDeleted: (
         "aws_sdk_resiliencehubv2.types.service_deleted_metadata.ServiceDeletedMetadata"
     )
 
 
-class _ServiceEventMetadata_serviceSystemAssociated(TypedDict):
+class _ServiceEventMetadata_serviceSystemAssociated(TypedDict, closed=True):
     serviceSystemAssociated: "aws_sdk_resiliencehubv2.types.service_system_associated_metadata.ServiceSystemAssociatedMetadata"
 
 
-class _ServiceEventMetadata_serviceSystemDisassociated(TypedDict):
+class _ServiceEventMetadata_serviceSystemDisassociated(TypedDict, closed=True):
     serviceSystemDisassociated: "aws_sdk_resiliencehubv2.types.service_system_disassociated_metadata.ServiceSystemDisassociatedMetadata"
 
 
-class _ServiceEventMetadata_serviceResourcesAssociated(TypedDict):
+class _ServiceEventMetadata_serviceResourcesAssociated(TypedDict, closed=True):
     serviceResourcesAssociated: "aws_sdk_resiliencehubv2.types.service_resources_associated_metadata.ServiceResourcesAssociatedMetadata"
 
 
-class _ServiceEventMetadata_serviceResourcesDisassociated(TypedDict):
+class _ServiceEventMetadata_serviceResourcesDisassociated(TypedDict, closed=True):
     serviceResourcesDisassociated: "aws_sdk_resiliencehubv2.types.service_resources_disassociated_metadata.ServiceResourcesDisassociatedMetadata"
 
 
-class _ServiceEventMetadata_serviceWorkflowUpdated(TypedDict):
+class _ServiceEventMetadata_serviceWorkflowUpdated(TypedDict, closed=True):
     serviceWorkflowUpdated: "aws_sdk_resiliencehubv2.types.service_workflow_updated_metadata.ServiceWorkflowUpdatedMetadata"
 
 
-class _ServiceEventMetadata_serviceInputSourcesUpdated(TypedDict):
+class _ServiceEventMetadata_serviceInputSourcesUpdated(TypedDict, closed=True):
     serviceInputSourcesUpdated: "aws_sdk_resiliencehubv2.types.service_input_sources_updated_metadata.ServiceInputSourcesUpdatedMetadata"
 
 
-class _ServiceEventMetadata_servicePolicyAssociated(TypedDict):
+class _ServiceEventMetadata_servicePolicyAssociated(TypedDict, closed=True):
     servicePolicyAssociated: "aws_sdk_resiliencehubv2.types.service_policy_associated_metadata.ServicePolicyAssociatedMetadata"
 
 
-class _ServiceEventMetadata_servicePolicyDisassociated(TypedDict):
+class _ServiceEventMetadata_servicePolicyDisassociated(TypedDict, closed=True):
     servicePolicyDisassociated: "aws_sdk_resiliencehubv2.types.service_policy_disassociated_metadata.ServicePolicyDisassociatedMetadata"
 
 
-class _ServiceEventMetadata_serviceFunctionCreated(TypedDict):
+class _ServiceEventMetadata_serviceFunctionCreated(TypedDict, closed=True):
     serviceFunctionCreated: "aws_sdk_resiliencehubv2.types.service_function_created_metadata.ServiceFunctionCreatedMetadata"
 
 
-class _ServiceEventMetadata_serviceFunctionUpdated(TypedDict):
+class _ServiceEventMetadata_serviceFunctionUpdated(TypedDict, closed=True):
     serviceFunctionUpdated: "aws_sdk_resiliencehubv2.types.service_function_updated_metadata.ServiceFunctionUpdatedMetadata"
 
 
-class _ServiceEventMetadata_serviceFunctionDeleted(TypedDict):
+class _ServiceEventMetadata_serviceFunctionDeleted(TypedDict, closed=True):
     serviceFunctionDeleted: "aws_sdk_resiliencehubv2.types.service_function_deleted_metadata.ServiceFunctionDeletedMetadata"
 
 
-class _ServiceEventMetadata_serviceFunctionResourcesAdded(TypedDict):
+class _ServiceEventMetadata_serviceFunctionResourcesAdded(TypedDict, closed=True):
     serviceFunctionResourcesAdded: "aws_sdk_resiliencehubv2.types.service_function_resources_added_metadata.ServiceFunctionResourcesAddedMetadata"
 
 
-class _ServiceEventMetadata_serviceFunctionResourcesRemoved(TypedDict):
+class _ServiceEventMetadata_serviceFunctionResourcesRemoved(TypedDict, closed=True):
     serviceFunctionResourcesRemoved: "aws_sdk_resiliencehubv2.types.service_function_resources_removed_metadata.ServiceFunctionResourcesRemovedMetadata"
 
 
-class _ServiceEventMetadata_serviceAchievabilityUpdated(TypedDict):
+class _ServiceEventMetadata_serviceAchievabilityUpdated(TypedDict, closed=True):
     serviceAchievabilityUpdated: "aws_sdk_resiliencehubv2.types.service_achievability_updated_metadata.ServiceAchievabilityUpdatedMetadata"
 
 
-class _ServiceEventMetadata_assertionCreated(TypedDict):
+class _ServiceEventMetadata_assertionCreated(TypedDict, closed=True):
     assertionCreated: "aws_sdk_resiliencehubv2.types.assertion_created_metadata.AssertionCreatedMetadata"
 
 
-class _ServiceEventMetadata_assertionUpdated(TypedDict):
+class _ServiceEventMetadata_assertionUpdated(TypedDict, closed=True):
     assertionUpdated: "aws_sdk_resiliencehubv2.types.assertion_updated_metadata.AssertionUpdatedMetadata"
 
 
-class _ServiceEventMetadata_assertionDeleted(TypedDict):
+class _ServiceEventMetadata_assertionDeleted(TypedDict, closed=True):
     assertionDeleted: "aws_sdk_resiliencehubv2.types.assertion_deleted_metadata.AssertionDeletedMetadata"
 
 

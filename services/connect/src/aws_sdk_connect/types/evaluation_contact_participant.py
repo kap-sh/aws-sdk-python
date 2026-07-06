@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationContactParticipant``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_participant_role
     import aws_sdk_connect.types.resource_id
 
 
-class EvaluationContactParticipant(TypedDict):
+class EvaluationContactParticipant(TypedDict, closed=True):
     contact_participant_role: NotRequired[
         "aws_sdk_connect.types.contact_participant_role.ContactParticipantRole"
     ]

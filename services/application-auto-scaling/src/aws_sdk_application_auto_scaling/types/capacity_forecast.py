@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#CapacityForecast``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_auto_scaling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.predictive_scaling_forecast_values
 
 
-class CapacityForecast(TypedDict):
+class CapacityForecast(TypedDict, closed=True):
     timestamps: "aws_sdk_application_auto_scaling.types.predictive_scaling_forecast_timestamps.PredictiveScalingForecastTimestamps"
     """<p> The timestamps for the data points, in UTC format. </p>"""
     values: "aws_sdk_application_auto_scaling.types.predictive_scaling_forecast_values.PredictiveScalingForecastValues"

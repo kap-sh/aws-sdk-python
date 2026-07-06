@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#TranscriptCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.search_text_list
 
 
-class TranscriptCriteria(TypedDict):
+class TranscriptCriteria(TypedDict, closed=True):
     participant_role: "aws_sdk_connect.types.participant_role.ParticipantRole"
     """<p>The participant role in a transcript</p>"""
     search_text: "aws_sdk_connect.types.search_text_list.SearchTextList"

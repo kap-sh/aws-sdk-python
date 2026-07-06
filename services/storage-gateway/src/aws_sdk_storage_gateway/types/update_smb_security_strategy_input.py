@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateSMBSecurityStrategyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.smb_security_strategy
 
 
-class UpdateSMBSecurityStrategyInput(TypedDict):
+class UpdateSMBSecurityStrategyInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     smb_security_strategy: (
         "aws_sdk_storage_gateway.types.smb_security_strategy.SMBSecurityStrategy"

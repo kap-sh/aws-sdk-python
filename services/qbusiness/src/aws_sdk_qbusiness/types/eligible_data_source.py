@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#EligibleDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_id
     import aws_sdk_qbusiness.types.index_id
 
 
-class EligibleDataSource(TypedDict):
+class EligibleDataSource(TypedDict, closed=True):
     index_id: NotRequired["aws_sdk_qbusiness.types.index_id.IndexId"]
     """<p>The identifier of the index the data source is attached to.</p>"""
     data_source_id: NotRequired["aws_sdk_qbusiness.types.data_source_id.DataSourceId"]

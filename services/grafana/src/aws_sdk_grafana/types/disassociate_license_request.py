@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#DisassociateLicenseRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_grafana.types.license_type
     import aws_sdk_grafana.types.workspace_id
 
 
-class DisassociateLicenseRequest(TypedDict):
+class DisassociateLicenseRequest(TypedDict, closed=True):
     workspace_id: "aws_sdk_grafana.types.workspace_id.WorkspaceId"
     """<p>The ID of the workspace to remove the Grafana Enterprise license from.</p>"""
     license_type: "aws_sdk_grafana.types.license_type.LicenseType"

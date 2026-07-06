@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.location#UpdatePlaceIndexResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_location.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_location.types.timestamp
 
 
-class UpdatePlaceIndexResponse(TypedDict):
+class UpdatePlaceIndexResponse(TypedDict, closed=True):
     index_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the updated place index resource.</p>"""
     index_arn: "aws_sdk_location.types.geo_arn.GeoArn"

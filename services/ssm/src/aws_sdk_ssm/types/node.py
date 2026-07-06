@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#Node``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.node_capture_time
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.node_type
 
 
-class Node(TypedDict):
+class Node(TypedDict, closed=True):
     capture_time: NotRequired["aws_sdk_ssm.types.node_capture_time.NodeCaptureTime"]
     """<p>The UTC timestamp for when the managed node data was last captured.</p>"""
     id: NotRequired["aws_sdk_ssm.types.node_id.NodeId"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ListClusterSnapshotsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.pagination_token
 
 
-class ListClusterSnapshotsInput(TypedDict):
+class ListClusterSnapshotsInput(TypedDict, closed=True):
     cluster_arn: NotRequired["str"]
     """<p>The ARN identifier of the elastic cluster.</p>"""
     next_token: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ResultByTime``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.date_interval
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.metrics
 
 
-class ResultByTime(TypedDict):
+class ResultByTime(TypedDict, closed=True):
     time_period: NotRequired["aws_sdk_cost_explorer.types.date_interval.DateInterval"]
     """<p>The time period that the result covers.</p>"""
     total: NotRequired["aws_sdk_cost_explorer.types.metrics.Metrics"]

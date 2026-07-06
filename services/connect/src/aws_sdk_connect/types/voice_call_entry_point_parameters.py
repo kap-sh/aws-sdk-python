@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#VoiceCallEntryPointParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.contact_flow_id
     import aws_sdk_connect.types.phone_number
 
 
-class VoiceCallEntryPointParameters(TypedDict):
+class VoiceCallEntryPointParameters(TypedDict, closed=True):
     source_phone_number: NotRequired["aws_sdk_connect.types.phone_number.PhoneNumber"]
     """<p>The source phone number for the test.</p>"""
     destination_phone_number: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DashAdditionalManifest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of__string_min1
     import aws_sdk_mediaconvert.types.__string_min1
 
 
-class DashAdditionalManifest(TypedDict):
+class DashAdditionalManifest(TypedDict, closed=True):
     manifest_name_modifier: NotRequired[
         "aws_sdk_mediaconvert.types.__string_min1.__stringMin1"
     ]

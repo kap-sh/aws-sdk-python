@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#BusinessChain``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class BusinessChain(TypedDict):
+class BusinessChain(TypedDict, closed=True):
     name: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]
     """<p>The business chain name.</p>"""
     id: NotRequired["aws_sdk_geo_places.types.sensitive_string.SensitiveString"]

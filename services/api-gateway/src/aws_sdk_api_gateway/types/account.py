@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.throttle_settings
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     cloudwatch_role_arn: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The ARN of an Amazon CloudWatch role for the current Account. </p>"""
     throttle_settings: NotRequired[

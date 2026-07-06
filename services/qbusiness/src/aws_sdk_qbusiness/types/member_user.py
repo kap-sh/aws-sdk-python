@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#MemberUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.membership_type
 
 
-class MemberUser(TypedDict):
+class MemberUser(TypedDict, closed=True):
     user_id: "aws_sdk_qbusiness.types.data_source_user_id.DataSourceUserId"
     """<p>The identifier of the user you want to map to a group.</p>"""
     type: NotRequired["aws_sdk_qbusiness.types.membership_type.MembershipType"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#S3ReportOutputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_arc_region_switch.types.account_id
 
 
-class S3ReportOutputConfiguration(TypedDict):
+class S3ReportOutputConfiguration(TypedDict, closed=True):
     bucket_path: NotRequired["str"]
     """<p>The S3 bucket name and optional prefix where reports are stored. Format: bucket-name or bucket-name/prefix.</p>"""
     bucket_owner: NotRequired["aws_sdk_arc_region_switch.types.account_id.AccountId"]

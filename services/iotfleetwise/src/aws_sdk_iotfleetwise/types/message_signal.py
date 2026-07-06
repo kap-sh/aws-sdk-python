@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#MessageSignal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.topic_name
 
 
-class MessageSignal(TypedDict):
+class MessageSignal(TypedDict, closed=True):
     topic_name: "aws_sdk_iotfleetwise.types.topic_name.TopicName"
     """<p>The topic name for the message signal. It corresponds to topics in ROS 2. </p>"""
     structured_message: (

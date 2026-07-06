@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DatasetMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.dataset_arn
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.status_message
 
 
-class DatasetMetadata(TypedDict):
+class DatasetMetadata(TypedDict, closed=True):
     creation_timestamp: NotRequired["aws_sdk_rekognition.types.date_time.DateTime"]
     """<p> The Unix timestamp for the date and time that the dataset was created. </p>"""
     dataset_type: NotRequired["aws_sdk_rekognition.types.dataset_type.DatasetType"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#RuleStatement``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.instance_rule_statement
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.license_rule_statement
 
 
-class RuleStatement(TypedDict):
+class RuleStatement(TypedDict, closed=True):
     license_configuration_rule_statement: NotRequired[
         "aws_sdk_license_manager.types.license_configuration_rule_statement.LicenseConfigurationRuleStatement"
     ]

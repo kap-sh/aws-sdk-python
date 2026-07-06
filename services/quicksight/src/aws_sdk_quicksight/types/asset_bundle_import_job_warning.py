@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AssetBundleImportJobWarning``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
     import aws_sdk_quicksight.types.non_empty_string
 
 
-class AssetBundleImportJobWarning(TypedDict):
+class AssetBundleImportJobWarning(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_quicksight.types.arn.Arn"]
     """<p>The ARN of the resource that the warning occurred for.</p>"""
     message: NotRequired["aws_sdk_quicksight.types.non_empty_string.NonEmptyString"]

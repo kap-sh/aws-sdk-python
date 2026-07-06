@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectparticipant#CreateParticipantConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.bool
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectparticipant.types.participant_token
 
 
-class CreateParticipantConnectionRequest(TypedDict):
+class CreateParticipantConnectionRequest(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_connectparticipant.types.connection_type_list.ConnectionTypeList"
     ]

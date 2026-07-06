@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#AssociatedUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.membership_type
     import aws_sdk_qbusiness.types.string
 
 
-class AssociatedUser(TypedDict):
+class AssociatedUser(TypedDict, closed=True):
     id: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The unique identifier of the associated user. This is used to identify the user in access control decisions.</p>"""
     type: NotRequired["aws_sdk_qbusiness.types.membership_type.MembershipType"]

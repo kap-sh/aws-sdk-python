@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutInsightRuleInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.tag_list
 
 
-class PutInsightRuleInput(TypedDict):
+class PutInsightRuleInput(TypedDict, closed=True):
     rule_name: NotRequired["aws_sdk_cloudwatch.types.insight_rule_name.InsightRuleName"]
     """<p>A unique name for the rule.</p>"""
     rule_state: NotRequired[

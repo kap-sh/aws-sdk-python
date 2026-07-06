@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#AutoExportRevisionDestinationEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dataexchange.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class AutoExportRevisionDestinationEntry(TypedDict):
+class AutoExportRevisionDestinationEntry(TypedDict, closed=True):
     bucket: "aws_sdk_dataexchange.types.__string.__string"
     """<p>The Amazon S3 bucket that is the destination for the event action.</p>"""
     key_pattern: NotRequired["aws_sdk_dataexchange.types.__string.__string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchDeletePartitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.partition_errors
 
 
-class BatchDeletePartitionResponse(TypedDict):
+class BatchDeletePartitionResponse(TypedDict, closed=True):
     errors: NotRequired["aws_sdk_glue.types.partition_errors.PartitionErrors"]
     """<p>The errors encountered when trying to delete the requested partitions.</p>"""
 

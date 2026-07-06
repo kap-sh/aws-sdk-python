@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AuditContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.audit_column_names_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.nullable_boolean
 
 
-class AuditContext(TypedDict):
+class AuditContext(TypedDict, closed=True):
     additional_audit_context: NotRequired[
         "aws_sdk_glue.types.audit_context_string.AuditContextString"
     ]

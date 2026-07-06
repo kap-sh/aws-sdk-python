@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PalettePrimary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.theme_string
 
 
-class PalettePrimary(TypedDict):
+class PalettePrimary(TypedDict, closed=True):
     default: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]
     """<p>The default primary color used throughout the workspace.</p>"""
     active: NotRequired["aws_sdk_connect.types.theme_string.ThemeString"]

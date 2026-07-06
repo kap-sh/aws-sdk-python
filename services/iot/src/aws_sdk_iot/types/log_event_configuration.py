@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#LogEventConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.log_level
 
 
-class LogEventConfiguration(TypedDict):
+class LogEventConfiguration(TypedDict, closed=True):
     event_type: "aws_sdk_iot.types.log_event_type.LogEventType"
     """<p> The type of event to log. These include event types like Connect, Publish, and Disconnect. </p>"""
     log_level: NotRequired["aws_sdk_iot.types.log_level.LogLevel"]

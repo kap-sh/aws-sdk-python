@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#HumanEvaluationCustomMetric``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.evaluation_rating_method
 
 
-class HumanEvaluationCustomMetric(TypedDict):
+class HumanEvaluationCustomMetric(TypedDict, closed=True):
     name: "aws_sdk_bedrock.types.evaluation_metric_name.EvaluationMetricName"
     """<p>The name of the metric. Your human evaluators will see this name in the evaluation UI.</p>"""
     description: NotRequired[

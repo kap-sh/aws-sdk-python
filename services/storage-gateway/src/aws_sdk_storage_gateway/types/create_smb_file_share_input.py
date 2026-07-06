@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CreateSMBFileShareInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.user_list
 
 
-class CreateSMBFileShareInput(TypedDict):
+class CreateSMBFileShareInput(TypedDict, closed=True):
     client_token: "aws_sdk_storage_gateway.types.client_token.ClientToken"
     """<p>A unique string value that you supply that is used by S3 File Gateway to ensure idempotent file share creation.</p>"""
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"

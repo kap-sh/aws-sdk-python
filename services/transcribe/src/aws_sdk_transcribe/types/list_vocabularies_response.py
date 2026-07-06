@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#ListVocabulariesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.next_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_state
 
 
-class ListVocabulariesResponse(TypedDict):
+class ListVocabulariesResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_transcribe.types.vocabulary_state.VocabularyState"]
     """<p>Lists all custom vocabularies that have the status specified in your request. Vocabularies are ordered by creation date, with the newest vocabulary first.</p>"""
     next_token: NotRequired["aws_sdk_transcribe.types.next_token.NextToken"]

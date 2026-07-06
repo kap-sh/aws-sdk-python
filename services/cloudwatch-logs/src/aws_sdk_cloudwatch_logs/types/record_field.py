@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#RecordField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.boolean
     import aws_sdk_cloudwatch_logs.types.field_header
 
 
-class RecordField(TypedDict):
+class RecordField(TypedDict, closed=True):
     name: NotRequired["aws_sdk_cloudwatch_logs.types.field_header.FieldHeader"]
     r"""<p>The name to use when specifying this record field in a <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html\">CreateDelivery</a> or <a href=\"https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateDeliveryConfiguration.html\">UpdateDeliveryConfiguration</a> operation. </p>"""
     mandatory: NotRequired["aws_sdk_cloudwatch_logs.types.boolean.Boolean"]

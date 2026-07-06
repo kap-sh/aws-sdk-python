@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ThirdPartyJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.client_id
     import aws_sdk_codepipeline.types.job_id
 
 
-class ThirdPartyJob(TypedDict):
+class ThirdPartyJob(TypedDict, closed=True):
     client_id: NotRequired["aws_sdk_codepipeline.types.client_id.ClientId"]
     """<p>The <code>clientToken</code> portion of the <code>clientId</code> and <code>clientToken</code> pair used to verify that the calling entity is allowed access to the job and its details.</p>"""
     job_id: NotRequired["aws_sdk_codepipeline.types.job_id.JobId"]

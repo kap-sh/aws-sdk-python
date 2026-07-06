@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeStreamProcessorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rekognition.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.stream_processor_name
 
 
-class DescribeStreamProcessorRequest(TypedDict):
+class DescribeStreamProcessorRequest(TypedDict, closed=True):
     name: "aws_sdk_rekognition.types.stream_processor_name.StreamProcessorName"
     """<p>Name of the stream processor for which you want information.</p>"""
 

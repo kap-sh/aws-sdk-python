@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#DescribeClusterSecurityGroupsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.tag_value_list
 
 
-class DescribeClusterSecurityGroupsMessage(TypedDict):
+class DescribeClusterSecurityGroupsMessage(TypedDict, closed=True):
     cluster_security_group_name: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The name of a cluster security group for which you are requesting details. You must specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p> <p> Example: <code>securitygroup1</code> </p>"""
     max_records: NotRequired["aws_sdk_redshift.types.integer_optional.IntegerOptional"]

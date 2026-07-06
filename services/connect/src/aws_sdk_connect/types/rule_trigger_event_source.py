@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RuleTriggerEventSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.integration_association_id
 
 
-class RuleTriggerEventSource(TypedDict):
+class RuleTriggerEventSource(TypedDict, closed=True):
     event_source_name: "aws_sdk_connect.types.event_source_name.EventSourceName"
     """<p>The name of the event source.</p>"""
     integration_association_id: NotRequired[

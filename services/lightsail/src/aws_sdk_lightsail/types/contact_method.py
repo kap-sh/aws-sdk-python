@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ContactMethod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.contact_method_status
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class ContactMethod(TypedDict):
+class ContactMethod(TypedDict, closed=True):
     contact_endpoint: NotRequired[
         "aws_sdk_lightsail.types.non_empty_string.NonEmptyString"
     ]

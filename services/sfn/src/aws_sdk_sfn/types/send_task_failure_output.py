@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#SendTaskFailureOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class SendTaskFailureOutput(TypedDict):
+class SendTaskFailureOutput(TypedDict, closed=True):
     pass
 
 

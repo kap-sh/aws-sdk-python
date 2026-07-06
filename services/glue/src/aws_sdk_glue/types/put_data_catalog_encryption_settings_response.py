@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutDataCatalogEncryptionSettingsResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutDataCatalogEncryptionSettingsResponse(TypedDict):
+class PutDataCatalogEncryptionSettingsResponse(TypedDict, closed=True):
     pass
 
 

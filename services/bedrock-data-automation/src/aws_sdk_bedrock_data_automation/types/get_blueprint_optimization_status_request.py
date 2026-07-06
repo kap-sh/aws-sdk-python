@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#GetBlueprintOptimizationStatusRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.blueprint_optimization_invocation_arn
 
 
-class GetBlueprintOptimizationStatusRequest(TypedDict):
+class GetBlueprintOptimizationStatusRequest(TypedDict, closed=True):
     invocation_arn: "aws_sdk_bedrock_data_automation.types.blueprint_optimization_invocation_arn.BlueprintOptimizationInvocationArn"
     """Invocation arn."""
 

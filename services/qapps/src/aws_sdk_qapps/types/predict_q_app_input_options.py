@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#PredictQAppInputOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError, SerializationError
 
@@ -8,11 +10,11 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.message_list
 
 
-class _PredictQAppInputOptions_conversation(TypedDict):
+class _PredictQAppInputOptions_conversation(TypedDict, closed=True):
     conversation: "aws_sdk_qapps.types.message_list.MessageList"
 
 
-class _PredictQAppInputOptions_problemStatement(TypedDict):
+class _PredictQAppInputOptions_problemStatement(TypedDict, closed=True):
     problemStatement: "str"
 
 

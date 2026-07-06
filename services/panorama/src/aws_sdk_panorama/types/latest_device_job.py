@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#LatestDeviceJob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.image_version
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.update_progress
 
 
-class LatestDeviceJob(TypedDict):
+class LatestDeviceJob(TypedDict, closed=True):
     image_version: NotRequired["aws_sdk_panorama.types.image_version.ImageVersion"]
     """<p>The target version of the device software.</p>"""
     status: NotRequired["aws_sdk_panorama.types.update_progress.UpdateProgress"]

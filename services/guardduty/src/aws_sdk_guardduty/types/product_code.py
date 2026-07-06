@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ProductCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class ProductCode(TypedDict):
+class ProductCode(TypedDict, closed=True):
     code: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The product code information.</p>"""
     product_type: NotRequired["aws_sdk_guardduty.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#ListIdentitiesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.next_token
 
 
-class ListIdentitiesRequest(TypedDict):
+class ListIdentitiesRequest(TypedDict, closed=True):
     identity_type: NotRequired["aws_sdk_ses.types.identity_type.IdentityType"]
     r"""<p>The type of the identities to list. Possible values are \"EmailAddress\" and \"Domain\". If this parameter is omitted, then all identities are listed.</p>"""
     next_token: NotRequired["aws_sdk_ses.types.next_token.NextToken"]

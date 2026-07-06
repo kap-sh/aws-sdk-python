@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#UpdateWhatsAppFlowAssetsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_socialmessaging.types.validation_error_list
 
 
-class UpdateWhatsAppFlowAssetsOutput(TypedDict):
+class UpdateWhatsAppFlowAssetsOutput(TypedDict, closed=True):
     validation_errors: NotRequired[
         "aws_sdk_socialmessaging.types.validation_error_list.ValidationErrorList"
     ]

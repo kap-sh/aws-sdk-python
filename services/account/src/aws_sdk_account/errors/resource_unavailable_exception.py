@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.account#ResourceUnavailableException``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_account.errors import DeserializationError, ServiceError
 
 
-class ResourceUnavailableException_(TypedDict):
+class ResourceUnavailableException_(TypedDict, closed=True):
     message: "str"
     error_type: NotRequired["str"]
     """<p>The value populated to the <code>x-amzn-ErrorType</code> response header by API Gateway.</p>"""

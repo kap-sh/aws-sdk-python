@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#GetPolicyRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetPolicyRequest(TypedDict):
+class GetPolicyRequest(TypedDict, closed=True):
     pass
 
 

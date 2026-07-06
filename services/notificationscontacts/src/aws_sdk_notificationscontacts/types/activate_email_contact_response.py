@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.notificationscontacts#ActivateEmailContactResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ActivateEmailContactResponse(TypedDict):
+class ActivateEmailContactResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#OtaTaskTimeoutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.in_progress_timeout_in_minutes
 
 
-class OtaTaskTimeoutConfig(TypedDict):
+class OtaTaskTimeoutConfig(TypedDict, closed=True):
     in_progress_timeout_in_minutes: NotRequired[
         "aws_sdk_iot_managed_integrations.types.in_progress_timeout_in_minutes.InProgressTimeoutInMinutes"
     ]

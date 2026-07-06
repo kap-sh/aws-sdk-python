@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#CreateBackendAuthOAuthConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.social_provider_settings
 
 
-class CreateBackendAuthOAuthConfig(TypedDict):
+class CreateBackendAuthOAuthConfig(TypedDict, closed=True):
     domain_prefix: NotRequired["aws_sdk_amplifybackend.types.__string.__string"]
     """<p>The domain prefix for your Amplify app.</p>"""
     o_auth_grant_type: NotRequired[

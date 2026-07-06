@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ContainerDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.boxed_boolean
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.volume_from_list
 
 
-class ContainerDefinition(TypedDict):
+class ContainerDefinition(TypedDict, closed=True):
     name: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The name of a container. If you're linking multiple containers together in a task definition, the <code>name</code> of one container can be entered in the <code>links</code> of another container to connect the containers. Up to 255 letters (uppercase and lowercase), numbers, underscores, and hyphens are allowed. This parameter maps to <code>name</code> in the docker container create command and the <code>--name</code> option to docker run. </p>"""
     image: NotRequired["aws_sdk_ecs.types.string.String"]

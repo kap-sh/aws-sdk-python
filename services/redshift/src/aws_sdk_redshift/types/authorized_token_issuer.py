@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#AuthorizedTokenIssuer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.string
 
 
-class AuthorizedTokenIssuer(TypedDict):
+class AuthorizedTokenIssuer(TypedDict, closed=True):
     trusted_token_issuer_arn: NotRequired["aws_sdk_redshift.types.string.String"]
     """<p>The ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.</p>"""
     authorized_audiences_list: NotRequired[

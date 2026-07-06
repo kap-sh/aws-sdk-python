@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenJobRenderConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.react_start_codegen_job_data
 
 
-class _CodegenJobRenderConfig_react(TypedDict):
+class _CodegenJobRenderConfig_react(TypedDict, closed=True):
     react: "aws_sdk_amplifyuibuilder.types.react_start_codegen_job_data.ReactStartCodegenJobData"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#SchemaSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__long
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_schemas.types.tags
 
 
-class SchemaSummary(TypedDict):
+class SchemaSummary(TypedDict, closed=True):
     last_modified: NotRequired[
         "aws_sdk_schemas.types.__timestamp_iso8601.__timestampIso8601"
     ]

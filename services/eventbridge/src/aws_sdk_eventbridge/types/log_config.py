@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eventbridge#LogConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eventbridge.types.include_detail
     import aws_sdk_eventbridge.types.level
 
 
-class LogConfig(TypedDict):
+class LogConfig(TypedDict, closed=True):
     include_detail: NotRequired[
         "aws_sdk_eventbridge.types.include_detail.IncludeDetail"
     ]

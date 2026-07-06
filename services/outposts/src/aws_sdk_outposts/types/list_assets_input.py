@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#ListAssetsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.asset_type_list
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.token
 
 
-class ListAssetsInput(TypedDict):
+class ListAssetsInput(TypedDict, closed=True):
     outpost_identifier: "aws_sdk_outposts.types.outpost_identifier.OutpostIdentifier"
     """<p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>"""
     host_id_filter: NotRequired["aws_sdk_outposts.types.host_id_list.HostIdList"]

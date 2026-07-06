@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SpanAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.ai_agent_type
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.uuid
 
 
-class SpanAttributes(TypedDict):
+class SpanAttributes(TypedDict, closed=True):
     operation_name: NotRequired[
         "aws_sdk_qconnect.types.non_empty_string.NonEmptyString"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.xray#UnprocessedTraceSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
 
 
-class UnprocessedTraceSegment(TypedDict):
+class UnprocessedTraceSegment(TypedDict, closed=True):
     id: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The segment's ID.</p>"""
     error_code: NotRequired["aws_sdk_xray.types.string.String"]

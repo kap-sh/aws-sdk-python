@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTrafficPolicyVersionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_version_marker
 
 
-class ListTrafficPolicyVersionsRequest(TypedDict):
+class ListTrafficPolicyVersionsRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
     """<p>Specify the value of <code>Id</code> of the traffic policy for which you want to list all versions.</p>"""
     traffic_policy_version_marker: NotRequired[

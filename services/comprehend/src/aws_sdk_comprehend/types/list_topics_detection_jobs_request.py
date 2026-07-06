@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ListTopicsDetectionJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.max_results_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.topics_detection_job_filter
 
 
-class ListTopicsDetectionJobsRequest(TypedDict):
+class ListTopicsDetectionJobsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_comprehend.types.topics_detection_job_filter.TopicsDetectionJobFilter"
     ]

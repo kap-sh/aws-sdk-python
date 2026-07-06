@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListAliasesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.next_token
     import aws_sdk_sagemaker.types.sage_maker_image_version_aliases
 
 
-class ListAliasesResponse(TypedDict):
+class ListAliasesResponse(TypedDict, closed=True):
     sage_maker_image_version_aliases: NotRequired[
         "aws_sdk_sagemaker.types.sage_maker_image_version_aliases.SageMakerImageVersionAliases"
     ]

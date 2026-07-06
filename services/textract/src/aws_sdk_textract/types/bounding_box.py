@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.textract#BoundingBox``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.float
 
 
-class BoundingBox(TypedDict):
+class BoundingBox(TypedDict, closed=True):
     width: "aws_sdk_textract.types.float.Float"
     """<p>The width of the bounding box as a ratio of the overall document page width.</p>"""
     height: "aws_sdk_textract.types.float.Float"

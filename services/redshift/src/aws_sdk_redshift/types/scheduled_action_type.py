@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#ScheduledActionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.resume_cluster_message
 
 
-class ScheduledActionType(TypedDict):
+class ScheduledActionType(TypedDict, closed=True):
     resize_cluster: NotRequired[
         "aws_sdk_redshift.types.resize_cluster_message.ResizeClusterMessage"
     ]

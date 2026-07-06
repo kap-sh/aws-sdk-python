@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotthingsgraph#DissociateEntityFromThingResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DissociateEntityFromThingResponse(TypedDict):
+class DissociateEntityFromThingResponse(TypedDict, closed=True):
     pass
 
 

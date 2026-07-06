@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#OntapFileSystemIdentity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.ontap_file_system_user_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.ontap_windows_file_system_user
 
 
-class OntapFileSystemIdentity(TypedDict):
+class OntapFileSystemIdentity(TypedDict, closed=True):
     type: NotRequired[
         "aws_sdk_fsx.types.ontap_file_system_user_type.OntapFileSystemUserType"
     ]

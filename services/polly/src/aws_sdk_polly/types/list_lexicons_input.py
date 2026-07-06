@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.polly#ListLexiconsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.next_token
 
 
-class ListLexiconsInput(TypedDict):
+class ListLexiconsInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_polly.types.next_token.NextToken"]
     """<p>An opaque pagination token returned from previous <code>ListLexicons</code> operation. If present, indicates where to continue the list of lexicons.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#AssociateFirewallRuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.firewall_rule_group_association
 
 
-class AssociateFirewallRuleGroupResponse(TypedDict):
+class AssociateFirewallRuleGroupResponse(TypedDict, closed=True):
     firewall_rule_group_association: NotRequired[
         "aws_sdk_route53resolver.types.firewall_rule_group_association.FirewallRuleGroupAssociation"
     ]

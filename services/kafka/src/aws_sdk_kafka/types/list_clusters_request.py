@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ListClustersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.max_results
 
 
-class ListClustersRequest(TypedDict):
+class ListClustersRequest(TypedDict, closed=True):
     cluster_name_filter: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>Specify a prefix of the name of the clusters that you want to list. The service lists all the clusters whose names start with this prefix.</p>"""
     max_results: NotRequired["aws_sdk_kafka.types.max_results.MaxResults"]

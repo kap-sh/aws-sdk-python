@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#UpdateMedicalVocabularyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transcribe.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.vocabulary_name
 
 
-class UpdateMedicalVocabularyRequest(TypedDict):
+class UpdateMedicalVocabularyRequest(TypedDict, closed=True):
     vocabulary_name: "aws_sdk_transcribe.types.vocabulary_name.VocabularyName"
     """<p>The name of the custom medical vocabulary you want to update. Custom medical vocabulary names are case sensitive.</p>"""
     language_code: "aws_sdk_transcribe.types.language_code.LanguageCode"

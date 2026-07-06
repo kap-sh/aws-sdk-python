@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BedrockKnowledgeStoreConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.boolean
 
 
-class BedrockKnowledgeStoreConfiguration(TypedDict):
+class BedrockKnowledgeStoreConfiguration(TypedDict, closed=True):
     bedrock_knowledge_base_arn: (
         "aws_sdk_lex_models_v2.types.bedrock_knowledge_base_arn.BedrockKnowledgeBaseArn"
     )

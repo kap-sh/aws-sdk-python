@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ConditionalSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.default_conditional_branch
 
 
-class ConditionalSpecification(TypedDict):
+class ConditionalSpecification(TypedDict, closed=True):
     active: "aws_sdk_lex_models_v2.types.boxed_boolean.BoxedBoolean"
     """<p>Determines whether a conditional branch is active. When <code>active</code> is false, the conditions are not evaluated.</p>"""
     conditional_branches: (

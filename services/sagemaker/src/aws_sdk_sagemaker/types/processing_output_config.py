@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ProcessingOutputConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.kms_key_id
     import aws_sdk_sagemaker.types.processing_outputs
 
 
-class ProcessingOutputConfig(TypedDict):
+class ProcessingOutputConfig(TypedDict, closed=True):
     outputs: NotRequired["aws_sdk_sagemaker.types.processing_outputs.ProcessingOutputs"]
     """<p>An array of outputs configuring the data to upload from the processing container.</p>"""
     kms_key_id: NotRequired["aws_sdk_sagemaker.types.kms_key_id.KmsKeyId"]

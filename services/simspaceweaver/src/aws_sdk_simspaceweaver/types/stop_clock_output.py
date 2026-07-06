@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.simspaceweaver#StopClockOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopClockOutput(TypedDict):
+class StopClockOutput(TypedDict, closed=True):
     pass
 
 

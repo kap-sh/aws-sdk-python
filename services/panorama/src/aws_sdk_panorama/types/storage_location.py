@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#StorageLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.object
 
 
-class StorageLocation(TypedDict):
+class StorageLocation(TypedDict, closed=True):
     bucket: "aws_sdk_panorama.types.bucket.Bucket"
     """<p>The location's bucket.</p>"""
     repo_prefix_location: "aws_sdk_panorama.types.object.Object"

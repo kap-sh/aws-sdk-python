@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#CreateEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.string
 
 
-class CreateEndpointResponse(TypedDict):
+class CreateEndpointResponse(TypedDict, closed=True):
     endpoint_arn: NotRequired["aws_sdk_sns.types.string.String"]
     """<p>EndpointArn returned from CreateEndpoint action.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#Credentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.string_value_length1to2552
     import aws_sdk_finspace_data.types.string_value_max_length1000
 
 
-class Credentials(TypedDict):
+class Credentials(TypedDict, closed=True):
     access_key_id: NotRequired[
         "aws_sdk_finspace_data.types.string_value_length1to2552.StringValueLength1to2552"
     ]

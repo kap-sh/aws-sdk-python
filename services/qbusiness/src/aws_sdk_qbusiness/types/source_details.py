@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#SourceDetails``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.video_source_details
 
 
-class _SourceDetails_imageSourceDetails(TypedDict):
+class _SourceDetails_imageSourceDetails(TypedDict, closed=True):
     imageSourceDetails: (
         "aws_sdk_qbusiness.types.image_source_details.ImageSourceDetails"
     )
 
 
-class _SourceDetails_audioSourceDetails(TypedDict):
+class _SourceDetails_audioSourceDetails(TypedDict, closed=True):
     audioSourceDetails: (
         "aws_sdk_qbusiness.types.audio_source_details.AudioSourceDetails"
     )
 
 
-class _SourceDetails_videoSourceDetails(TypedDict):
+class _SourceDetails_videoSourceDetails(TypedDict, closed=True):
     videoSourceDetails: (
         "aws_sdk_qbusiness.types.video_source_details.VideoSourceDetails"
     )

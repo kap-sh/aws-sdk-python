@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAmazonMqBrokerLdapServerMetadataDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.string_list
 
 
-class AwsAmazonMqBrokerLdapServerMetadataDetails(TypedDict):
+class AwsAmazonMqBrokerLdapServerMetadataDetails(TypedDict, closed=True):
     hosts: NotRequired["aws_sdk_securityhub.types.string_list.StringList"]
     """<p> Specifies the location of the LDAP server, such as Amazon Web Services Directory Service for Microsoft Active Directory. </p>"""
     role_base: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#TaggingFailedException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_gamelift.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.non_empty_string
 
 
-class TaggingFailedException_(TypedDict):
+class TaggingFailedException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_gamelift.types.non_empty_string.NonEmptyString"]
 
 

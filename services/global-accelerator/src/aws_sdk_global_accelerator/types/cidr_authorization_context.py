@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.globalaccelerator#CidrAuthorizationContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_global_accelerator.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_global_accelerator.types.generic_string
 
 
-class CidrAuthorizationContext(TypedDict):
+class CidrAuthorizationContext(TypedDict, closed=True):
     message: "aws_sdk_global_accelerator.types.generic_string.GenericString"
     """<p>The plain-text authorization message for the prefix and account.</p>"""
     signature: "aws_sdk_global_accelerator.types.generic_string.GenericString"

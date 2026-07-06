@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#APIKeyConnectionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.endpoint
 
 
-class APIKeyConnectionMetadata(TypedDict):
+class APIKeyConnectionMetadata(TypedDict, closed=True):
     base_endpoint: "aws_sdk_quicksight.types.endpoint.Endpoint"
     """<p>The base URL endpoint for the external service.</p>"""
     api_key: "aws_sdk_quicksight.types.api_key.APIKey"

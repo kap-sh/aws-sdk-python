@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#EdgeOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.constrained_string
     import aws_sdk_networkmanager.types.edge_set_list
 
 
-class EdgeOverride(TypedDict):
+class EdgeOverride(TypedDict, closed=True):
     edge_sets: NotRequired["aws_sdk_networkmanager.types.edge_set_list.EdgeSetList"]
     """<p>The list of edge locations.</p>"""
     use_edge: NotRequired[

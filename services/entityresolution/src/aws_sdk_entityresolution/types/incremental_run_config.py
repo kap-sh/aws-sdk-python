@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#IncrementalRunConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_entityresolution.types.incremental_run_type
 
 
-class IncrementalRunConfig(TypedDict):
+class IncrementalRunConfig(TypedDict, closed=True):
     incremental_run_type: NotRequired[
         "aws_sdk_entityresolution.types.incremental_run_type.IncrementalRunType"
     ]

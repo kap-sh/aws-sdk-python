@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#UpdateParallelDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.parallel_data_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.timestamp
 
 
-class UpdateParallelDataResponse(TypedDict):
+class UpdateParallelDataResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_translate.types.resource_name.ResourceName"]
     """<p>The name of the parallel data resource being updated.</p>"""
     status: NotRequired[

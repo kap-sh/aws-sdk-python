@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#GetTypedLinkFacetInformationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.attribute_name_list
 
 
-class GetTypedLinkFacetInformationResponse(TypedDict):
+class GetTypedLinkFacetInformationResponse(TypedDict, closed=True):
     identity_attribute_order: NotRequired[
         "aws_sdk_clouddirectory.types.attribute_name_list.AttributeNameList"
     ]

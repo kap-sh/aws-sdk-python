@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DeliverySourceConfigurationSchema``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.delivery_source_configuration_supported_values
 
 
-class DeliverySourceConfigurationSchema(TypedDict):
+class DeliverySourceConfigurationSchema(TypedDict, closed=True):
     key_name: "aws_sdk_cloudwatch_logs.types.delivery_source_configuration_schema_field.DeliverySourceConfigurationSchemaField"
     """<p>The name of the configuration.</p>"""
     value_type: "aws_sdk_cloudwatch_logs.types.delivery_source_configuration_schema_value_type.DeliverySourceConfigurationSchemaValueType"

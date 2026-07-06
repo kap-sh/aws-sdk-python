@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#AssetVersionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class AssetVersionMetadata(TypedDict):
+class AssetVersionMetadata(TypedDict, closed=True):
     version: "int"
     """<p>The version number of this asset</p>"""
     created_at: "datetime.datetime"

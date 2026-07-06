@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ClarifyExplainerConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_enable_explanations
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.clarify_shap_config
 
 
-class ClarifyExplainerConfig(TypedDict):
+class ClarifyExplainerConfig(TypedDict, closed=True):
     enable_explanations: NotRequired[
         "aws_sdk_sagemaker.types.clarify_enable_explanations.ClarifyEnableExplanations"
     ]

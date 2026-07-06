@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ConcurrentModificationException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError, ServiceError
 
 
-class ConcurrentModificationException_(TypedDict):
+class ConcurrentModificationException_(TypedDict, closed=True):
     message: "str"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#DescribeServerlessV2PlatformVersionsMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.string
 
 
-class DescribeServerlessV2PlatformVersionsMessage(TypedDict):
+class DescribeServerlessV2PlatformVersionsMessage(TypedDict, closed=True):
     serverless_v2_platform_version: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>A specific platform version to return details for.</p> <p>Example: <code>3</code> </p>"""
     engine: NotRequired["aws_sdk_rds.types.string.String"]

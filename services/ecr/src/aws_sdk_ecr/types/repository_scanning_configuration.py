@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#RepositoryScanningConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.scanning_repository_filter_list
 
 
-class RepositoryScanningConfiguration(TypedDict):
+class RepositoryScanningConfiguration(TypedDict, closed=True):
     repository_arn: NotRequired["aws_sdk_ecr.types.arn.Arn"]
     """<p>The ARN of the repository.</p>"""
     repository_name: NotRequired["aws_sdk_ecr.types.repository_name.RepositoryName"]

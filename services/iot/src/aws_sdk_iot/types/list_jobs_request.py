@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.job_status
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.thing_group_name
 
 
-class ListJobsRequest(TypedDict):
+class ListJobsRequest(TypedDict, closed=True):
     status: NotRequired["aws_sdk_iot.types.job_status.JobStatus"]
     """<p>An optional filter that lets you search for jobs that have the specified status.</p>"""
     target_selection: NotRequired["aws_sdk_iot.types.target_selection.TargetSelection"]

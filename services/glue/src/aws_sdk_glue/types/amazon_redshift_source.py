@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AmazonRedshiftSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.amazon_redshift_node_data
     import aws_sdk_glue.types.node_name
 
 
-class AmazonRedshiftSource(TypedDict):
+class AmazonRedshiftSource(TypedDict, closed=True):
     name: NotRequired["aws_sdk_glue.types.node_name.NodeName"]
     """<p>The name of the Amazon Redshift source.</p>"""
     data: NotRequired[

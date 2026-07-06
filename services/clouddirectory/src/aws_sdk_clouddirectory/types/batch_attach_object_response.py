@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchAttachObjectResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_identifier
 
 
-class BatchAttachObjectResponse(TypedDict):
+class BatchAttachObjectResponse(TypedDict, closed=True):
     attached_object_identifier: NotRequired[
         "aws_sdk_clouddirectory.types.object_identifier.ObjectIdentifier"
     ]

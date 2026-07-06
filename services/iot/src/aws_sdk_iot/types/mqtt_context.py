@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MqttContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.mqtt_client_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.mqtt_username
 
 
-class MqttContext(TypedDict):
+class MqttContext(TypedDict, closed=True):
     username: NotRequired["aws_sdk_iot.types.mqtt_username.MqttUsername"]
     """<p>The value of the <code>username</code> key in an MQTT authorization request.</p>"""
     password: NotRequired["aws_sdk_iot.types.mqtt_password.MqttPassword"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.workdocs#SearchSortResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workdocs.types.order_by_field_type
     import aws_sdk_workdocs.types.sort_order
 
 
-class SearchSortResult(TypedDict):
+class SearchSortResult(TypedDict, closed=True):
     field: NotRequired["aws_sdk_workdocs.types.order_by_field_type.OrderByFieldType"]
     """<p>Sort search results based on this field name.</p>"""
     order: NotRequired["aws_sdk_workdocs.types.sort_order.SortOrder"]

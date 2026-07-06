@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#Secret``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.secret_arn
 
 
-class Secret(TypedDict):
+class Secret(TypedDict, closed=True):
     secret_arn: "aws_sdk_bedrock_agentcore_control.types.secret_arn.SecretArn"
     """<p>The Amazon Resource Name (ARN) of the secret in AWS Secrets Manager.</p>"""
 

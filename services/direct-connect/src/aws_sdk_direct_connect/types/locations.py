@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#Locations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.location_list
 
 
-class Locations(TypedDict):
+class Locations(TypedDict, closed=True):
     locations: NotRequired["aws_sdk_direct_connect.types.location_list.LocationList"]
     """<p>The locations.</p>"""
 

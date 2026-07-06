@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mturk#GetAccountBalanceRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAccountBalanceRequest(TypedDict):
+class GetAccountBalanceRequest(TypedDict, closed=True):
     pass
 
 

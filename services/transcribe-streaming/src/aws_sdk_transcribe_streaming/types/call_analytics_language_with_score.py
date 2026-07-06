@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.transcribestreaming#CallAnalyticsLanguageWithScore``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe_streaming.types.call_analytics_language_code
     import aws_sdk_transcribe_streaming.types.double
 
 
-class CallAnalyticsLanguageWithScore(TypedDict):
+class CallAnalyticsLanguageWithScore(TypedDict, closed=True):
     language_code: NotRequired[
         "aws_sdk_transcribe_streaming.types.call_analytics_language_code.CallAnalyticsLanguageCode"
     ]

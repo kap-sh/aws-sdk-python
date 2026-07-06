@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#ServiceLevelIndicator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_level_indicator_metric_threshold
 
 
-class ServiceLevelIndicator(TypedDict):
+class ServiceLevelIndicator(TypedDict, closed=True):
     sli_metric: "aws_sdk_application_signals.types.service_level_indicator_metric.ServiceLevelIndicatorMetric"
     """<p>A structure that contains information about the metric that the SLO monitors. </p>"""
     metric_threshold: "aws_sdk_application_signals.types.service_level_indicator_metric_threshold.ServiceLevelIndicatorMetricThreshold"

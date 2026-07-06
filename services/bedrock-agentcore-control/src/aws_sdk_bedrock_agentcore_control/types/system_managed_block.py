@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SystemManagedBlock``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
 
-class SystemManagedBlock(TypedDict):
+class SystemManagedBlock(TypedDict, closed=True):
     managed_by: "str"
     """<p>The identifier of the system or process that manages this rule.</p>"""
 

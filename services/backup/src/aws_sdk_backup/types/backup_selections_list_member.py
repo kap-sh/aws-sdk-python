@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#BackupSelectionsListMember``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_selection_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class BackupSelectionsListMember(TypedDict):
+class BackupSelectionsListMember(TypedDict, closed=True):
     selection_id: NotRequired["aws_sdk_backup.types.string.string"]
     """<p>Uniquely identifies a request to assign a set of resources to a backup plan.</p>"""
     selection_name: NotRequired[

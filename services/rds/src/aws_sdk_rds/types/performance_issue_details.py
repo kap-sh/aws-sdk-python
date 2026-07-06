@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#PerformanceIssueDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.t_stamp
 
 
-class PerformanceIssueDetails(TypedDict):
+class PerformanceIssueDetails(TypedDict, closed=True):
     start_time: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]
     """<p>The time when the performance issue started.</p>"""
     end_time: NotRequired["aws_sdk_rds.types.t_stamp.TStamp"]

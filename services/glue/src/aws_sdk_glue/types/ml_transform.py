@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MLTransform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.description_string
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.worker_type
 
 
-class MLTransform(TypedDict):
+class MLTransform(TypedDict, closed=True):
     transform_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The unique transform ID that is generated for the machine learning transform. The ID is guaranteed to be unique and does not change.</p>"""
     name: NotRequired["aws_sdk_glue.types.name_string.NameString"]

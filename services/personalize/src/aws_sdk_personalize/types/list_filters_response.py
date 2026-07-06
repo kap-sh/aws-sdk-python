@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#ListFiltersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_personalize.types.filters
     import aws_sdk_personalize.types.next_token
 
 
-class ListFiltersResponse(TypedDict):
+class ListFiltersResponse(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_personalize.types.filters.Filters"]
     """<p>A list of returned filters.</p>"""
     next_token: NotRequired["aws_sdk_personalize.types.next_token.NextToken"]

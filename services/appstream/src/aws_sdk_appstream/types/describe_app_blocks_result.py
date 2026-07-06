@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DescribeAppBlocksResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.app_blocks
     import aws_sdk_appstream.types.string
 
 
-class DescribeAppBlocksResult(TypedDict):
+class DescribeAppBlocksResult(TypedDict, closed=True):
     app_blocks: NotRequired["aws_sdk_appstream.types.app_blocks.AppBlocks"]
     """<p>The app blocks in the list.</p>"""
     next_token: NotRequired["aws_sdk_appstream.types.string.String"]

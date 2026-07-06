@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DefaultImportClientBrandingAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.client_email
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.login_message
 
 
-class DefaultImportClientBrandingAttributes(TypedDict):
+class DefaultImportClientBrandingAttributes(TypedDict, closed=True):
     logo: NotRequired["aws_sdk_workspaces.types.default_logo.DefaultLogo"]
     """<p>The logo. The only image format accepted is a binary data object that is converted from a <code>.png</code> file.</p>"""
     support_email: NotRequired["aws_sdk_workspaces.types.client_email.ClientEmail"]

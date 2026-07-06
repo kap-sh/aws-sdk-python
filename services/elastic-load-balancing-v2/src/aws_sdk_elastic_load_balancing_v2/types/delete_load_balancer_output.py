@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.elasticloadbalancingv2#DeleteLoadBalancerOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_elastic_load_balancing_v2._protocol.xml import Element
 
 
-class DeleteLoadBalancerOutput(TypedDict):
+class DeleteLoadBalancerOutput(TypedDict, closed=True):
     pass
 
 

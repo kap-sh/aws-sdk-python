@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#ResourceDetail``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.resource_detail_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.resource_detail_name
 
 
-class ResourceDetail(TypedDict):
+class ResourceDetail(TypedDict, closed=True):
     id: NotRequired["aws_sdk_service_catalog.types.resource_detail_id.ResourceDetailId"]
     """<p>The identifier of the resource.</p>"""
     arn: NotRequired[

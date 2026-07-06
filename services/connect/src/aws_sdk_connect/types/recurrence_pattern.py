@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#RecurrencePattern``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.weekday_occurrence_list
 
 
-class RecurrencePattern(TypedDict):
+class RecurrencePattern(TypedDict, closed=True):
     frequency: "aws_sdk_connect.types.recurrence_frequency.RecurrenceFrequency"
     """<p>Defines how often the pattern repeats. This is the base unit for the recurrence schedule and works in conjunction with the Interval field to determine the exact repetition sequence.</p>"""
     interval: "aws_sdk_connect.types.interval_positive_integer.IntervalPositiveInteger"

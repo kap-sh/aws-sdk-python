@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DisassociateSourceFromS3TableIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.s3_table_integration_source_identifier
 
 
-class DisassociateSourceFromS3TableIntegrationRequest(TypedDict):
+class DisassociateSourceFromS3TableIntegrationRequest(TypedDict, closed=True):
     identifier: "aws_sdk_cloudwatch_logs.types.s3_table_integration_source_identifier.S3TableIntegrationSourceIdentifier"
     """<p>The unique identifier of the association to remove between the data source and S3 Table Integration.</p>"""
 

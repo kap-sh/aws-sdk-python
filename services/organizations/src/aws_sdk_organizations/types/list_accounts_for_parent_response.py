@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.organizations#ListAccountsForParentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_organizations.types.accounts
     import aws_sdk_organizations.types.next_token
 
 
-class ListAccountsForParentResponse(TypedDict):
+class ListAccountsForParentResponse(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_organizations.types.accounts.Accounts"]
     """<p>A list of the accounts in the specified root or OU.</p> <important> <p>The <code>Status</code> parameter in the API response will be retired on September 9, 2026. Although both the account <code>State</code> and account <code>Status</code> parameters are currently available in the Organizations APIs (<code>DescribeAccount</code>, <code>ListAccounts</code>, <code>ListAccountsForParent</code>), we recommend that you update your scripts or other code to use the <code>State</code> parameter instead of <code>Status</code> before September 9, 2026.</p> </important>"""
     next_token: NotRequired["aws_sdk_organizations.types.next_token.NextToken"]

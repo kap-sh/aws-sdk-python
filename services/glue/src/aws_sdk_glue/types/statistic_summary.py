@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StatisticSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.column_name_list
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamped_inclusion_annotation
 
 
-class StatisticSummary(TypedDict):
+class StatisticSummary(TypedDict, closed=True):
     statistic_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The Statistic ID.</p>"""
     profile_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

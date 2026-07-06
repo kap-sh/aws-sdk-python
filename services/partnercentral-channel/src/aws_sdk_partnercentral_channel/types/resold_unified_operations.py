@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralchannel#ResoldUnifiedOperations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_channel.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_channel.types.coverage
 
 
-class ResoldUnifiedOperations(TypedDict):
+class ResoldUnifiedOperations(TypedDict, closed=True):
     coverage: "aws_sdk_partnercentral_channel.types.coverage.Coverage"
     """<p>The coverage level for resold unified operations support.</p>"""
     tam_location: "str"

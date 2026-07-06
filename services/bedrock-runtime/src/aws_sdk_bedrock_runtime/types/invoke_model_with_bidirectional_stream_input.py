@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InvokeModelWithBidirectionalStreamInput``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_runtime._iter import AnyIterator
 from aws_sdk_bedrock_runtime._protocol.eventstream import Message
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part
 
 
-class _InvokeModelWithBidirectionalStreamInput_chunk(TypedDict):
+class _InvokeModelWithBidirectionalStreamInput_chunk(TypedDict, closed=True):
     chunk: "aws_sdk_bedrock_runtime.types.bidirectional_input_payload_part.BidirectionalInputPayloadPart"
 
 

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetOdbPeeringConnectionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class GetOdbPeeringConnectionInput(TypedDict):
+class GetOdbPeeringConnectionInput(TypedDict, closed=True):
     odb_peering_connection_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB peering connection to retrieve information about.</p>"""
 

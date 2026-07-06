@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#CalculationStatistics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.description_string
     import aws_sdk_athena.types.long
 
 
-class CalculationStatistics(TypedDict):
+class CalculationStatistics(TypedDict, closed=True):
     dpu_execution_in_millis: NotRequired["aws_sdk_athena.types.long.Long"]
     """<p>The data processing unit execution time in milliseconds for the calculation.</p>"""
     progress: NotRequired["aws_sdk_athena.types.description_string.DescriptionString"]

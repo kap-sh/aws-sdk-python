@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#CreateDBClusterEndpointMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.tag_list
 
 
-class CreateDBClusterEndpointMessage(TypedDict):
+class CreateDBClusterEndpointMessage(TypedDict, closed=True):
     db_cluster_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is stored as a lowercase string.</p>"""
     db_cluster_endpoint_identifier: NotRequired["aws_sdk_rds.types.string.String"]

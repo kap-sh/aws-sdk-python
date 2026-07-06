@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#SyntheticDataParameters``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.ml_synthetic_data_parameters
 
 
-class _SyntheticDataParameters_mlSyntheticDataParameters(TypedDict):
+class _SyntheticDataParameters_mlSyntheticDataParameters(TypedDict, closed=True):
     mlSyntheticDataParameters: "aws_sdk_cleanrooms.types.ml_synthetic_data_parameters.MLSyntheticDataParameters"
 
 

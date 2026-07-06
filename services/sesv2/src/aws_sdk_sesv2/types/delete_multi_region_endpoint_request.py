@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#DeleteMultiRegionEndpointRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.endpoint_name
 
 
-class DeleteMultiRegionEndpointRequest(TypedDict):
+class DeleteMultiRegionEndpointRequest(TypedDict, closed=True):
     endpoint_name: "aws_sdk_sesv2.types.endpoint_name.EndpointName"
     """<p>The name of the multi-region endpoint (global-endpoint) to be deleted.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstance``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.agent_version
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.tags_map
 
 
-class RecoveryInstance(TypedDict):
+class RecoveryInstance(TypedDict, closed=True):
     ec2_instance_id: NotRequired["aws_sdk_drs.types.ec2_instance_id.EC2InstanceID"]
     """<p>The EC2 instance ID of the Recovery Instance.</p>"""
     ec2_instance_state: NotRequired[

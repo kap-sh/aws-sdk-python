@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataStoriesConfigurations``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.boolean
 
 
-class DataStoriesConfigurations(TypedDict):
+class DataStoriesConfigurations(TypedDict, closed=True):
     enabled: "aws_sdk_quicksight.types.boolean.Boolean"
     """<p>The data story settings of an embedded Quick Sight console.</p>"""
 

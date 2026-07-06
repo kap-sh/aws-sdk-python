@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkfirewall#AnalysisResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.collection_member_string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_network_firewall.types.rule_id_list
 
 
-class AnalysisResult(TypedDict):
+class AnalysisResult(TypedDict, closed=True):
     identified_rule_ids: NotRequired[
         "aws_sdk_network_firewall.types.rule_id_list.RuleIdList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#IdcAuthConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import datetime
 
 
-class IdcAuthConfiguration(TypedDict):
+class IdcAuthConfiguration(TypedDict, closed=True):
     operator_app_role_arn: "str"
     """<p>The IAM role end users assume to access AIDevOps APIs</p>"""
     idc_instance_arn: "str"

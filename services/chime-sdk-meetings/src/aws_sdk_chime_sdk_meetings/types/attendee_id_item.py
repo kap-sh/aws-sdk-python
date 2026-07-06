@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#AttendeeIdItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_meetings.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.guid_string
 
 
-class AttendeeIdItem(TypedDict):
+class AttendeeIdItem(TypedDict, closed=True):
     attendee_id: "aws_sdk_chime_sdk_meetings.types.guid_string.GuidString"
     """<p>A list of one or more attendee IDs.</p>"""
 

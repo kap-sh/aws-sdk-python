@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#BatchEnableStandardsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.standards_subscription_requests
 
 
-class BatchEnableStandardsRequest(TypedDict):
+class BatchEnableStandardsRequest(TypedDict, closed=True):
     standards_subscription_requests: NotRequired[
         "aws_sdk_securityhub.types.standards_subscription_requests.StandardsSubscriptionRequests"
     ]

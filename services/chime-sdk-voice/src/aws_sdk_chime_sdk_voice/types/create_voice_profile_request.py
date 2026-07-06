@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreateVoiceProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.non_empty_string256
 
 
-class CreateVoiceProfileRequest(TypedDict):
+class CreateVoiceProfileRequest(TypedDict, closed=True):
     speaker_search_task_id: (
         "aws_sdk_chime_sdk_voice.types.non_empty_string256.NonEmptyString256"
     )

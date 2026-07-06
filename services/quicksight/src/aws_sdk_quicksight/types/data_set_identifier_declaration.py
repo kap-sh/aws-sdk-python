@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DataSetIdentifierDeclaration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.data_set_identifier
 
 
-class DataSetIdentifierDeclaration(TypedDict):
+class DataSetIdentifierDeclaration(TypedDict, closed=True):
     identifier: "aws_sdk_quicksight.types.data_set_identifier.DataSetIdentifier"
     """<p>The identifier of the data set, typically the data set's name.</p>"""
     data_set_arn: "aws_sdk_quicksight.types.arn.Arn"

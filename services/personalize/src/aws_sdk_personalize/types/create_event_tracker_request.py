@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateEventTrackerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.tags
 
 
-class CreateEventTrackerRequest(TypedDict):
+class CreateEventTrackerRequest(TypedDict, closed=True):
     name: "aws_sdk_personalize.types.name.Name"
     """<p>The name for the event tracker.</p>"""
     dataset_group_arn: "aws_sdk_personalize.types.arn.Arn"

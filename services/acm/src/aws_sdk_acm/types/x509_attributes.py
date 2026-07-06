@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#X509Attributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.distinguished_name
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.t_stamp
 
 
-class X509Attributes(TypedDict):
+class X509Attributes(TypedDict, closed=True):
     issuer: NotRequired["aws_sdk_acm.types.distinguished_name.DistinguishedName"]
     """<p>The distinguished name of the certificate issuer.</p>"""
     subject: NotRequired["aws_sdk_acm.types.distinguished_name.DistinguishedName"]

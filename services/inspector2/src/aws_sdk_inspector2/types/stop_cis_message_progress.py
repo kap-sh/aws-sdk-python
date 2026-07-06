@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#StopCisMessageProgress``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.check_count
 
 
-class StopCisMessageProgress(TypedDict):
+class StopCisMessageProgress(TypedDict, closed=True):
     total_checks: "aws_sdk_inspector2.types.check_count.CheckCount"
     """<p>The progress' total checks.</p>"""
     successful_checks: "aws_sdk_inspector2.types.check_count.CheckCount"

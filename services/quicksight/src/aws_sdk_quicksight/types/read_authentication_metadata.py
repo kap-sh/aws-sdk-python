@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ReadAuthenticationMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError, SerializationError
 
@@ -13,27 +15,31 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.read_none_connection_metadata
 
 
-class _ReadAuthenticationMetadata_AuthorizationCodeGrantMetadata(TypedDict):
+class _ReadAuthenticationMetadata_AuthorizationCodeGrantMetadata(
+    TypedDict, closed=True
+):
     AuthorizationCodeGrantMetadata: "aws_sdk_quicksight.types.read_authorization_code_grant_metadata.ReadAuthorizationCodeGrantMetadata"
 
 
-class _ReadAuthenticationMetadata_ClientCredentialsGrantMetadata(TypedDict):
+class _ReadAuthenticationMetadata_ClientCredentialsGrantMetadata(
+    TypedDict, closed=True
+):
     ClientCredentialsGrantMetadata: "aws_sdk_quicksight.types.read_client_credentials_grant_metadata.ReadClientCredentialsGrantMetadata"
 
 
-class _ReadAuthenticationMetadata_BasicAuthConnectionMetadata(TypedDict):
+class _ReadAuthenticationMetadata_BasicAuthConnectionMetadata(TypedDict, closed=True):
     BasicAuthConnectionMetadata: "aws_sdk_quicksight.types.read_basic_auth_connection_metadata.ReadBasicAuthConnectionMetadata"
 
 
-class _ReadAuthenticationMetadata_ApiKeyConnectionMetadata(TypedDict):
+class _ReadAuthenticationMetadata_ApiKeyConnectionMetadata(TypedDict, closed=True):
     ApiKeyConnectionMetadata: "aws_sdk_quicksight.types.read_api_key_connection_metadata.ReadAPIKeyConnectionMetadata"
 
 
-class _ReadAuthenticationMetadata_NoneConnectionMetadata(TypedDict):
+class _ReadAuthenticationMetadata_NoneConnectionMetadata(TypedDict, closed=True):
     NoneConnectionMetadata: "aws_sdk_quicksight.types.read_none_connection_metadata.ReadNoneConnectionMetadata"
 
 
-class _ReadAuthenticationMetadata_IamConnectionMetadata(TypedDict):
+class _ReadAuthenticationMetadata_IamConnectionMetadata(TypedDict, closed=True):
     IamConnectionMetadata: "aws_sdk_quicksight.types.read_iam_connection_metadata.ReadIamConnectionMetadata"
 
 

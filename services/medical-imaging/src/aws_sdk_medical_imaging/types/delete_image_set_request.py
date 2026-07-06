@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medicalimaging#DeleteImageSetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medical_imaging.types.datastore_id
     import aws_sdk_medical_imaging.types.image_set_id
 
 
-class DeleteImageSetRequest(TypedDict):
+class DeleteImageSetRequest(TypedDict, closed=True):
     datastore_id: "aws_sdk_medical_imaging.types.datastore_id.DatastoreId"
     """<p>The data store identifier.</p>"""
     image_set_id: "aws_sdk_medical_imaging.types.image_set_id.ImageSetId"

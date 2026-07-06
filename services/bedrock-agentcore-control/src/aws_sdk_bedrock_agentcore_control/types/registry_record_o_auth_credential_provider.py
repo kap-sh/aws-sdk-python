@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#RegistryRecordOAuthCredentialProvider``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.scope_list
 
 
-class RegistryRecordOAuthCredentialProvider(TypedDict):
+class RegistryRecordOAuthCredentialProvider(TypedDict, closed=True):
     provider_arn: "aws_sdk_bedrock_agentcore_control.types.credential_provider_arn.CredentialProviderArn"
     """<p>The Amazon Resource Name (ARN) of the OAuth credential provider resource.</p>"""
     grant_type: NotRequired[

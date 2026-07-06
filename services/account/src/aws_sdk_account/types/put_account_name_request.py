@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.account#PutAccountNameRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_account.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_account.types.account_name
 
 
-class PutAccountNameRequest(TypedDict):
+class PutAccountNameRequest(TypedDict, closed=True):
     account_name: "aws_sdk_account.types.account_name.AccountName"
     """<p>The name of the account.</p>"""
     account_id: NotRequired["aws_sdk_account.types.account_id.AccountId"]

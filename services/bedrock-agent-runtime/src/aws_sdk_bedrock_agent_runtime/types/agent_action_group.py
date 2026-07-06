@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#AgentActionGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.resource_name
 
 
-class AgentActionGroup(TypedDict):
+class AgentActionGroup(TypedDict, closed=True):
     action_group_name: "aws_sdk_bedrock_agent_runtime.types.resource_name.ResourceName"
     """<p> The name of the action group. </p>"""
     description: NotRequired[

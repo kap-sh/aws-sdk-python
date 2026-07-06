@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#CreateApplicationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.application_detail
 
 
-class CreateApplicationResponse(TypedDict):
+class CreateApplicationResponse(TypedDict, closed=True):
     application_detail: (
         "aws_sdk_kinesis_analytics_v2.types.application_detail.ApplicationDetail"
     )

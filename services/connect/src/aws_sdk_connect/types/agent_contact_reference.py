@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#AgentContactReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.channel
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.timestamp
 
 
-class AgentContactReference(TypedDict):
+class AgentContactReference(TypedDict, closed=True):
     contact_id: NotRequired["aws_sdk_connect.types.contact_id.ContactId"]
     """<p>The identifier of the contact in this instance of Connect Customer. </p>"""
     channel: NotRequired["aws_sdk_connect.types.channel.Channel"]

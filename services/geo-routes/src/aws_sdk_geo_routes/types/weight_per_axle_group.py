@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#WeightPerAxleGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.weight_kilograms
 
 
-class WeightPerAxleGroup(TypedDict):
+class WeightPerAxleGroup(TypedDict, closed=True):
     single: "aws_sdk_geo_routes.types.weight_kilograms.WeightKilograms"
     """<p>Total weight in kilograms for single axle configurations.</p> <p> <b>Unit</b>: <code>kilograms</code> </p>"""
     tandem: "aws_sdk_geo_routes.types.weight_kilograms.WeightKilograms"

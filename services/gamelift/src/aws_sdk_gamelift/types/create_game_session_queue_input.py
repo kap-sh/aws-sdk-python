@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateGameSessionQueueInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.filter_configuration
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.whole_number
 
 
-class CreateGameSessionQueueInput(TypedDict):
+class CreateGameSessionQueueInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.game_session_queue_name.GameSessionQueueName"
     ]

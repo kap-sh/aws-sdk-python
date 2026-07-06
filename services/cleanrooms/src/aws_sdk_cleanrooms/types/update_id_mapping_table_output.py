@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateIdMappingTableOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.id_mapping_table
 
 
-class UpdateIdMappingTableOutput(TypedDict):
+class UpdateIdMappingTableOutput(TypedDict, closed=True):
     id_mapping_table: "aws_sdk_cleanrooms.types.id_mapping_table.IdMappingTable"
     """<p>The updated ID mapping table.</p>"""
 

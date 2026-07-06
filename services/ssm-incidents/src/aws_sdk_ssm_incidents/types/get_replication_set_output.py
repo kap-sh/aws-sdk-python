@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#GetReplicationSetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.replication_set
 
 
-class GetReplicationSetOutput(TypedDict):
+class GetReplicationSetOutput(TypedDict, closed=True):
     replication_set: "aws_sdk_ssm_incidents.types.replication_set.ReplicationSet"
     """<p>Details of the replication set.</p>"""
 

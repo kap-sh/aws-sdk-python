@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#UpdateComputeNodeGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pcs.types.compute_node_group
 
 
-class UpdateComputeNodeGroupResponse(TypedDict):
+class UpdateComputeNodeGroupResponse(TypedDict, closed=True):
     compute_node_group: NotRequired[
         "aws_sdk_pcs.types.compute_node_group.ComputeNodeGroup"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#ListDataQualityStatisticAnnotationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.annotation_list
     import aws_sdk_glue.types.pagination_token
 
 
-class ListDataQualityStatisticAnnotationsResponse(TypedDict):
+class ListDataQualityStatisticAnnotationsResponse(TypedDict, closed=True):
     annotations: NotRequired["aws_sdk_glue.types.annotation_list.AnnotationList"]
     """<p>A list of <code>StatisticAnnotation</code> applied to the Statistic</p>"""
     next_token: NotRequired["aws_sdk_glue.types.pagination_token.PaginationToken"]

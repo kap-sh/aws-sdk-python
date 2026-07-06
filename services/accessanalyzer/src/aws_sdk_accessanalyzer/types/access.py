@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#Access``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.actions_list
     import aws_sdk_accessanalyzer.types.resources_list
 
 
-class Access(TypedDict):
+class Access(TypedDict, closed=True):
     actions: "aws_sdk_accessanalyzer.types.actions_list.ActionsList"
     """<p>A list of actions for the access permissions. Any strings that can be used as an action in an IAM policy can be used in the list of actions to check.</p>"""
     resources: "aws_sdk_accessanalyzer.types.resources_list.ResourcesList"

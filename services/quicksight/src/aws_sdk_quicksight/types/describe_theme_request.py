@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeThemeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.alias_name
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.version_number
 
 
-class DescribeThemeRequest(TypedDict):
+class DescribeThemeRequest(TypedDict, closed=True):
     aws_account_id: "aws_sdk_quicksight.types.aws_and_account_id.AwsAndAccountId"
     """<p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>"""
     theme_id: "aws_sdk_quicksight.types.short_restrictive_resource_id.ShortRestrictiveResourceId"

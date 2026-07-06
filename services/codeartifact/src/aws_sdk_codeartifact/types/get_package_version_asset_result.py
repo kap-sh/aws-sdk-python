@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#GetPackageVersionAssetResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.asset
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_version_revision
 
 
-class GetPackageVersionAssetResult(TypedDict):
+class GetPackageVersionAssetResult(TypedDict, closed=True):
     asset: "aws_sdk_codeartifact.types.asset.Asset"
     """<p> The binary file, or asset, that is downloaded.</p>"""
     asset_name: NotRequired["aws_sdk_codeartifact.types.asset_name.AssetName"]

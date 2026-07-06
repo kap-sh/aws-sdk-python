@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AssociationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string2048
 
 
-class AssociationInfo(TypedDict):
+class AssociationInfo(TypedDict, closed=True):
     source_arn: NotRequired["aws_sdk_sagemaker.types.string2048.String2048"]
     """<p> The Amazon Resource Name (ARN) of the <code>AssociationInfo</code> source. </p>"""
     destination_arn: NotRequired["aws_sdk_sagemaker.types.string2048.String2048"]

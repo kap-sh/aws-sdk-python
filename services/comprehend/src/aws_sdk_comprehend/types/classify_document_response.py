@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.comprehend#ClassifyDocumentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_comprehend.types.document_metadata
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_comprehend.types.list_of_warnings
 
 
-class ClassifyDocumentResponse(TypedDict):
+class ClassifyDocumentResponse(TypedDict, closed=True):
     classes: NotRequired["aws_sdk_comprehend.types.list_of_classes.ListOfClasses"]
     """<p>The classes used by the document being analyzed. These are used for models trained in multi-class mode. Individual classes are mutually exclusive and each document is expected to have only a single class assigned to it. For example, an animal can be a dog or a cat, but not both at the same time. </p> <p>For prompt safety classification, the response includes only two classes (SAFE_PROMPT and UNSAFE_PROMPT), along with a confidence score for each class. The value range of the score is zero to one, where one is the highest confidence.</p>"""
     labels: NotRequired["aws_sdk_comprehend.types.list_of_labels.ListOfLabels"]

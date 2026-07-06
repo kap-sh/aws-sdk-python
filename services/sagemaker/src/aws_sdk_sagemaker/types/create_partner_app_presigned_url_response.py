@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePartnerAppPresignedUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string2048
 
 
-class CreatePartnerAppPresignedUrlResponse(TypedDict):
+class CreatePartnerAppPresignedUrlResponse(TypedDict, closed=True):
     url: NotRequired["aws_sdk_sagemaker.types.string2048.String2048"]
     """<p>The presigned URL that you can use to access the SageMaker Partner AI App.</p>"""
 

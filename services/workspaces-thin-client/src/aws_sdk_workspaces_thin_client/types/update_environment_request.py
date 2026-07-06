@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesthinclient#UpdateEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.arn
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_thin_client.types.software_set_update_schedule
 
 
-class UpdateEnvironmentRequest(TypedDict):
+class UpdateEnvironmentRequest(TypedDict, closed=True):
     id: "aws_sdk_workspaces_thin_client.types.environment_id.EnvironmentId"
     """<p>The ID of the environment to update.</p>"""
     name: NotRequired[

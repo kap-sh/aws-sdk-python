@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#S3AccessPointAttachment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.creation_time
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.s3_access_point_open_zfs_configuration
 
 
-class S3AccessPointAttachment(TypedDict):
+class S3AccessPointAttachment(TypedDict, closed=True):
     lifecycle: NotRequired[
         "aws_sdk_fsx.types.s3_access_point_attachment_lifecycle.S3AccessPointAttachmentLifecycle"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#GitHubRepositoryResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.provider_resource_name
 
 
-class GitHubRepositoryResource(TypedDict):
+class GitHubRepositoryResource(TypedDict, closed=True):
     name: "aws_sdk_securityagent.types.provider_resource_name.ProviderResourceName"
     """<p>The name of the GitHub repository.</p>"""
     owner: "aws_sdk_securityagent.types.git_hub_owner.GitHubOwner"

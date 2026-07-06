@@ -1,15 +1,17 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RatingScaleItemValue``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError, SerializationError
 
 
-class _RatingScaleItemValue_stringValue(TypedDict):
+class _RatingScaleItemValue_stringValue(TypedDict, closed=True):
     stringValue: "str"
 
 
-class _RatingScaleItemValue_floatValue(TypedDict):
+class _RatingScaleItemValue_floatValue(TypedDict, closed=True):
     floatValue: "float"
 
 

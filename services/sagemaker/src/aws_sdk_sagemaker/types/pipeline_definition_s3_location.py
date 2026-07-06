@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#PipelineDefinitionS3Location``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.bucket_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.version_id
 
 
-class PipelineDefinitionS3Location(TypedDict):
+class PipelineDefinitionS3Location(TypedDict, closed=True):
     bucket: NotRequired["aws_sdk_sagemaker.types.bucket_name.BucketName"]
     """<p>Name of the S3 bucket.</p>"""
     object_key: NotRequired["aws_sdk_sagemaker.types.key.Key"]

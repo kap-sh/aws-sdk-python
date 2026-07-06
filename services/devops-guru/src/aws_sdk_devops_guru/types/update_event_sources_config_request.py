@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateEventSourcesConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.event_sources_config
 
 
-class UpdateEventSourcesConfigRequest(TypedDict):
+class UpdateEventSourcesConfigRequest(TypedDict, closed=True):
     event_sources: NotRequired[
         "aws_sdk_devops_guru.types.event_sources_config.EventSourcesConfig"
     ]

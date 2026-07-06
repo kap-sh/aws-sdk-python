@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#VpcInterface``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.__list_of_string
     import aws_sdk_mediaconnect.types.network_interface_type
 
 
-class VpcInterface(TypedDict):
+class VpcInterface(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p> Immutable and has to be a unique against other VpcInterfaces in this Flow.</p>"""
     network_interface_ids: NotRequired[

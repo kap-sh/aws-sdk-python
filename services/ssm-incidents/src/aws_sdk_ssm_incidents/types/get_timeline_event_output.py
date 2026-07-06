@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#GetTimelineEventOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.timeline_event
 
 
-class GetTimelineEventOutput(TypedDict):
+class GetTimelineEventOutput(TypedDict, closed=True):
     event: "aws_sdk_ssm_incidents.types.timeline_event.TimelineEvent"
     """<p>Details about the timeline event.</p>"""
 

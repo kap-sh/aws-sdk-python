@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.backup#DescribeCopyJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.string
 
 
-class DescribeCopyJobInput(TypedDict):
+class DescribeCopyJobInput(TypedDict, closed=True):
     copy_job_id: "aws_sdk_backup.types.string.string"
     """<p>Uniquely identifies a copy job.</p>"""
 

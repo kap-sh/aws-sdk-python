@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#DescribeScheduleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__string
     import aws_sdk_medialive.types.max_results
 
 
-class DescribeScheduleRequest(TypedDict):
+class DescribeScheduleRequest(TypedDict, closed=True):
     channel_id: "aws_sdk_medialive.types.__string.__string"
     """Id of the channel whose schedule is being updated."""
     max_results: NotRequired["aws_sdk_medialive.types.max_results.MaxResults"]

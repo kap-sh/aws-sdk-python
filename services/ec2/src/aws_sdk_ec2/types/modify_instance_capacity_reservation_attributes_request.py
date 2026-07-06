@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ModifyInstanceCapacityReservationAttributesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_id
 
 
-class ModifyInstanceCapacityReservationAttributesRequest(TypedDict):
+class ModifyInstanceCapacityReservationAttributesRequest(TypedDict, closed=True):
     instance_id: NotRequired["aws_sdk_ec2.types.instance_id.InstanceId"]
     """<p>The ID of the instance to be modified.</p>"""
     capacity_reservation_specification: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnalysisDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.tooltip_sheet_definition_list
 
 
-class AnalysisDefinition(TypedDict):
+class AnalysisDefinition(TypedDict, closed=True):
     data_set_identifier_declarations: "aws_sdk_quicksight.types.data_set_identifier_declaration_list.DataSetIdentifierDeclarationList"
     """<p>An array of dataset identifier declarations. This mapping allows the usage of dataset identifiers instead of dataset ARNs throughout analysis sub-structures.</p>"""
     sheets: NotRequired[

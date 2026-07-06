@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#BestObjectiveNotImproving``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_number_of_training_jobs_not_improving
 
 
-class BestObjectiveNotImproving(TypedDict):
+class BestObjectiveNotImproving(TypedDict, closed=True):
     max_number_of_training_jobs_not_improving: NotRequired[
         "aws_sdk_sagemaker.types.max_number_of_training_jobs_not_improving.MaxNumberOfTrainingJobsNotImproving"
     ]

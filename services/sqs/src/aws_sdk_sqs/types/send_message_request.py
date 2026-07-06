@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#SendMessageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class SendMessageRequest(TypedDict):
+class SendMessageRequest(TypedDict, closed=True):
     queue_url: "aws_sdk_sqs.types.string.String"
     """<p>The URL of the Amazon SQS queue to which a message is sent.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     message_body: "aws_sdk_sqs.types.string.String"

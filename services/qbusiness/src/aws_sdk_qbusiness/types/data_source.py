@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#DataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.data_source_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.timestamp
 
 
-class DataSource(TypedDict):
+class DataSource(TypedDict, closed=True):
     display_name: NotRequired["aws_sdk_qbusiness.types.data_source_name.DataSourceName"]
     """<p>The name of the Amazon Q Business data source.</p>"""
     data_source_id: NotRequired["aws_sdk_qbusiness.types.data_source_id.DataSourceId"]

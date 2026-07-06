@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.vpclattice#ResourceConfigurationDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_vpc_lattice.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_vpc_lattice.types.ip_resource
 
 
-class _ResourceConfigurationDefinition_dnsResource(TypedDict):
+class _ResourceConfigurationDefinition_dnsResource(TypedDict, closed=True):
     dnsResource: "aws_sdk_vpc_lattice.types.dns_resource.DnsResource"
 
 
-class _ResourceConfigurationDefinition_ipResource(TypedDict):
+class _ResourceConfigurationDefinition_ipResource(TypedDict, closed=True):
     ipResource: "aws_sdk_vpc_lattice.types.ip_resource.IpResource"
 
 
-class _ResourceConfigurationDefinition_arnResource(TypedDict):
+class _ResourceConfigurationDefinition_arnResource(TypedDict, closed=True):
     arnResource: "aws_sdk_vpc_lattice.types.arn_resource.ArnResource"
 
 

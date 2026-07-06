@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#MetadataAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.metadata_attribute_value
 
 
-class MetadataAttribute(TypedDict):
+class MetadataAttribute(TypedDict, closed=True):
     key: "aws_sdk_bedrock_agent.types.key.Key"
     """<p>The key of the metadata attribute.</p>"""
     value: "aws_sdk_bedrock_agent.types.metadata_attribute_value.MetadataAttributeValue"

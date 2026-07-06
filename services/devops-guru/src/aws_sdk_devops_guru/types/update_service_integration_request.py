@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#UpdateServiceIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_guru.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.update_service_integration_config
 
 
-class UpdateServiceIntegrationRequest(TypedDict):
+class UpdateServiceIntegrationRequest(TypedDict, closed=True):
     service_integration: "aws_sdk_devops_guru.types.update_service_integration_config.UpdateServiceIntegrationConfig"
     """<p> An <code>IntegratedServiceConfig</code> object used to specify the integrated service you want to update, and whether you want to update it to enabled or disabled. </p>"""
 

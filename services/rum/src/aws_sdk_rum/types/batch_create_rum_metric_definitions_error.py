@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rum#BatchCreateRumMetricDefinitionsError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_rum.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rum.types.metric_definition_request
 
 
-class BatchCreateRumMetricDefinitionsError(TypedDict):
+class BatchCreateRumMetricDefinitionsError(TypedDict, closed=True):
     metric_definition: (
         "aws_sdk_rum.types.metric_definition_request.MetricDefinitionRequest"
     )

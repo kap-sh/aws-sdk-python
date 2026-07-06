@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.location#GetMapTileResponse``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class GetMapTileResponse(TypedDict):
+class GetMapTileResponse(TypedDict, closed=True):
     blob: NotRequired["bytes"]
     """<p>Contains Mapbox Vector Tile (MVT) data.</p>"""
     content_type: NotRequired["str"]

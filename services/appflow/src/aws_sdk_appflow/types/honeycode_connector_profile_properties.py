@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#HoneycodeConnectorProfileProperties``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class HoneycodeConnectorProfileProperties(TypedDict):
+class HoneycodeConnectorProfileProperties(TypedDict, closed=True):
     pass
 
 

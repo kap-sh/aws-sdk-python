@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Account``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.status
 
 
-class Account(TypedDict):
+class Account(TypedDict, closed=True):
     account_id: "aws_sdk_inspector2.types.account_id.AccountId"
     """<p>The ID of the Amazon Web Services account.</p>"""
     status: "aws_sdk_inspector2.types.status.Status"

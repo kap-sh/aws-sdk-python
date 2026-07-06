@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#BatchGetSessionActionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.batch_get_session_action_items
 
 
-class BatchGetSessionActionResponse(TypedDict):
+class BatchGetSessionActionResponse(TypedDict, closed=True):
     session_actions: "aws_sdk_deadline.types.batch_get_session_action_items.BatchGetSessionActionItems"
     """<p>A list of session actions that were successfully retrieved.</p>"""
     errors: "aws_sdk_deadline.types.batch_get_session_action_errors.BatchGetSessionActionErrors"

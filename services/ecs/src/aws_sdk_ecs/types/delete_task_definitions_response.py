@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DeleteTaskDefinitionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.failures
     import aws_sdk_ecs.types.task_definition_list
 
 
-class DeleteTaskDefinitionsResponse(TypedDict):
+class DeleteTaskDefinitionsResponse(TypedDict, closed=True):
     task_definitions: NotRequired[
         "aws_sdk_ecs.types.task_definition_list.TaskDefinitionList"
     ]

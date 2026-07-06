@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#Autotune``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.autotune_mode
 
 
-class Autotune(TypedDict):
+class Autotune(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_sagemaker.types.autotune_mode.AutotuneMode"]
     """<p>Set <code>Mode</code> to <code>Enabled</code> if you want to use Autotune.</p>"""
 

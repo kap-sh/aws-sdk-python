@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#RedshiftQueryEngineAwsDataCatalogStorageConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.aws_data_catalog_table_names
 
 
-class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(TypedDict):
+class RedshiftQueryEngineAwsDataCatalogStorageConfiguration(TypedDict, closed=True):
     table_names: "aws_sdk_bedrock_agent.types.aws_data_catalog_table_names.AwsDataCatalogTableNames"
     """<p>A list of names of the tables to use.</p>"""
 

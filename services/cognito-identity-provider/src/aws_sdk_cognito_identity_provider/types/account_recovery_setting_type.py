@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#AccountRecoverySettingType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.recovery_mechanisms_type
 
 
-class AccountRecoverySettingType(TypedDict):
+class AccountRecoverySettingType(TypedDict, closed=True):
     recovery_mechanisms: NotRequired[
         "aws_sdk_cognito_identity_provider.types.recovery_mechanisms_type.RecoveryMechanismsType"
     ]

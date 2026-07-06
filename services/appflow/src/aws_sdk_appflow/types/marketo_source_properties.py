@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#MarketoSourceProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.object
 
 
-class MarketoSourceProperties(TypedDict):
+class MarketoSourceProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p> The object specified in the Marketo flow source. </p>"""
 

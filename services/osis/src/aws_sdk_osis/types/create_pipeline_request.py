@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.osis#CreatePipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_osis.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_osis.types.vpc_options
 
 
-class CreatePipelineRequest(TypedDict):
+class CreatePipelineRequest(TypedDict, closed=True):
     pipeline_name: "aws_sdk_osis.types.pipeline_name.PipelineName"
     """<p>The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an Amazon Web Services Region.</p>"""
     min_units: "aws_sdk_osis.types.pipeline_units.PipelineUnits"

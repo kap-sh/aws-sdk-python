@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#DisassociateAppBlockBuilderAppBlockResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateAppBlockBuilderAppBlockResult(TypedDict):
+class DisassociateAppBlockBuilderAppBlockResult(TypedDict, closed=True):
     pass
 
 

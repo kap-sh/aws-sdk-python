@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#DescribeAccessEntryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.access_entry
 
 
-class DescribeAccessEntryResponse(TypedDict):
+class DescribeAccessEntryResponse(TypedDict, closed=True):
     access_entry: NotRequired["aws_sdk_eks.types.access_entry.AccessEntry"]
     """<p>Information about the access entry.</p>"""
 

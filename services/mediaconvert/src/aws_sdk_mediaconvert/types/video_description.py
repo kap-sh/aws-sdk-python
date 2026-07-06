@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max15
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.video_timecode_insertion
 
 
-class VideoDescription(TypedDict):
+class VideoDescription(TypedDict, closed=True):
     afd_signaling: NotRequired["aws_sdk_mediaconvert.types.afd_signaling.AfdSignaling"]
     """This setting only applies to H.264, H.265, and MPEG2 outputs. Use Insert AFD signaling to specify whether the service includes AFD values in the output video data and what those values are. * Choose None to remove all AFD values from this output. * Choose Fixed to ignore input AFD values and instead encode the value specified in the job. * Choose Auto to calculate output AFD values based on the input AFD scaler data."""
     anti_alias: NotRequired["aws_sdk_mediaconvert.types.anti_alias.AntiAlias"]

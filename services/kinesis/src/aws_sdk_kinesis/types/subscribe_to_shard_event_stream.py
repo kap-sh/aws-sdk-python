@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#SubscribeToShardEventStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis._iter import AnyIterator
 from aws_sdk_kinesis._protocol.eventstream import Message
@@ -18,59 +20,59 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.subscribe_to_shard_event
 
 
-class _SubscribeToShardEventStream_SubscribeToShardEvent(TypedDict):
+class _SubscribeToShardEventStream_SubscribeToShardEvent(TypedDict, closed=True):
     SubscribeToShardEvent: (
         "aws_sdk_kinesis.types.subscribe_to_shard_event.SubscribeToShardEvent"
     )
 
 
-class _SubscribeToShardEventStream_ResourceNotFoundException(TypedDict):
+class _SubscribeToShardEventStream_ResourceNotFoundException(TypedDict, closed=True):
     ResourceNotFoundException: (
         "aws_sdk_kinesis.errors.resource_not_found_exception.ResourceNotFoundException_"
     )
 
 
-class _SubscribeToShardEventStream_ResourceInUseException(TypedDict):
+class _SubscribeToShardEventStream_ResourceInUseException(TypedDict, closed=True):
     ResourceInUseException: (
         "aws_sdk_kinesis.errors.resource_in_use_exception.ResourceInUseException_"
     )
 
 
-class _SubscribeToShardEventStream_KMSDisabledException(TypedDict):
+class _SubscribeToShardEventStream_KMSDisabledException(TypedDict, closed=True):
     KMSDisabledException: (
         "aws_sdk_kinesis.errors.kms_disabled_exception.KMSDisabledException_"
     )
 
 
-class _SubscribeToShardEventStream_KMSInvalidStateException(TypedDict):
+class _SubscribeToShardEventStream_KMSInvalidStateException(TypedDict, closed=True):
     KMSInvalidStateException: (
         "aws_sdk_kinesis.errors.kms_invalid_state_exception.KMSInvalidStateException_"
     )
 
 
-class _SubscribeToShardEventStream_KMSAccessDeniedException(TypedDict):
+class _SubscribeToShardEventStream_KMSAccessDeniedException(TypedDict, closed=True):
     KMSAccessDeniedException: (
         "aws_sdk_kinesis.errors.kms_access_denied_exception.KMSAccessDeniedException_"
     )
 
 
-class _SubscribeToShardEventStream_KMSNotFoundException(TypedDict):
+class _SubscribeToShardEventStream_KMSNotFoundException(TypedDict, closed=True):
     KMSNotFoundException: (
         "aws_sdk_kinesis.errors.kms_not_found_exception.KMSNotFoundException_"
     )
 
 
-class _SubscribeToShardEventStream_KMSOptInRequired(TypedDict):
+class _SubscribeToShardEventStream_KMSOptInRequired(TypedDict, closed=True):
     KMSOptInRequired: "aws_sdk_kinesis.errors.kms_opt_in_required.KMSOptInRequired_"
 
 
-class _SubscribeToShardEventStream_KMSThrottlingException(TypedDict):
+class _SubscribeToShardEventStream_KMSThrottlingException(TypedDict, closed=True):
     KMSThrottlingException: (
         "aws_sdk_kinesis.errors.kms_throttling_exception.KMSThrottlingException_"
     )
 
 
-class _SubscribeToShardEventStream_InternalFailureException(TypedDict):
+class _SubscribeToShardEventStream_InternalFailureException(TypedDict, closed=True):
     InternalFailureException: (
         "aws_sdk_kinesis.errors.internal_failure_exception.InternalFailureException_"
     )

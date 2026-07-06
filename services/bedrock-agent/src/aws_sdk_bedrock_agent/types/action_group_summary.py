@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#ActionGroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.name
 
 
-class ActionGroupSummary(TypedDict):
+class ActionGroupSummary(TypedDict, closed=True):
     action_group_id: "aws_sdk_bedrock_agent.types.id.Id"
     """<p>The unique identifier of the action group.</p>"""
     action_group_name: "aws_sdk_bedrock_agent.types.name.Name"

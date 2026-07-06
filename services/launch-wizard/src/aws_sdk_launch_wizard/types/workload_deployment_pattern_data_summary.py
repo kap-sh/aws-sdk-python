@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.launchwizard#WorkloadDeploymentPatternDataSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.deployment_pattern_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_launch_wizard.types.workload_version_name
 
 
-class WorkloadDeploymentPatternDataSummary(TypedDict):
+class WorkloadDeploymentPatternDataSummary(TypedDict, closed=True):
     workload_name: NotRequired["aws_sdk_launch_wizard.types.workload_name.WorkloadName"]
     """<p>The name of the workload.</p>"""
     deployment_pattern_name: NotRequired[

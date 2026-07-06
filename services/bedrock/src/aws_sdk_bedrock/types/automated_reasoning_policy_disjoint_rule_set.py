@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyDisjointRuleSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list
 
 
-class AutomatedReasoningPolicyDisjointRuleSet(TypedDict):
+class AutomatedReasoningPolicyDisjointRuleSet(TypedDict, closed=True):
     variables: "aws_sdk_bedrock.types.automated_reasoning_policy_definition_variable_name_list.AutomatedReasoningPolicyDefinitionVariableNameList"
     """<p>The set of variables that are used by the rules in this disjoint set.</p>"""
     rules: "aws_sdk_bedrock.types.automated_reasoning_policy_disjointed_rule_id_list.AutomatedReasoningPolicyDisjointedRuleIdList"

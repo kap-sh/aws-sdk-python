@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ZendeskDestinationProperties``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.write_operation_type
 
 
-class ZendeskDestinationProperties(TypedDict):
+class ZendeskDestinationProperties(TypedDict, closed=True):
     object: "aws_sdk_appflow.types.object.Object"
     """<p>The object specified in the Zendesk flow destination.</p>"""
     id_field_names: NotRequired[

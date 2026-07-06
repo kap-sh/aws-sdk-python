@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#CreateUsagePlanKeyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_api_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class CreateUsagePlanKeyRequest(TypedDict):
+class CreateUsagePlanKeyRequest(TypedDict, closed=True):
     usage_plan_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The Id of the UsagePlan resource representing the usage plan containing the to-be-created UsagePlanKey resource representing a plan customer.</p>"""
     key_id: "aws_sdk_api_gateway.types.string.String"

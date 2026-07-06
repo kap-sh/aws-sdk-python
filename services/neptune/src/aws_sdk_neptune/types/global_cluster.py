@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#GlobalCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.tag_list
 
 
-class GlobalCluster(TypedDict):
+class GlobalCluster(TypedDict, closed=True):
     global_cluster_identifier: NotRequired[
         "aws_sdk_neptune.types.global_cluster_identifier.GlobalClusterIdentifier"
     ]

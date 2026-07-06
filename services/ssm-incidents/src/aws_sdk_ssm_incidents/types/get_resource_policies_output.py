@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#GetResourcePoliciesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.resource_policy_list
 
 
-class GetResourcePoliciesOutput(TypedDict):
+class GetResourcePoliciesOutput(TypedDict, closed=True):
     resource_policies: (
         "aws_sdk_ssm_incidents.types.resource_policy_list.ResourcePolicyList"
     )

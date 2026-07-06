@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#EncryptionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.kms_key_arn
 
 
-class EncryptionConfig(TypedDict):
+class EncryptionConfig(TypedDict, closed=True):
     kms_key_arn: NotRequired["aws_sdk_codeguru_security.types.kms_key_arn.KmsKeyArn"]
     """<p>The KMS key ARN that is used for encryption. If an AWS-managed key is used for encryption, returns empty.</p>"""
 

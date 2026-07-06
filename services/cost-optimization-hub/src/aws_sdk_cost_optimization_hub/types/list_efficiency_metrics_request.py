@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListEfficiencyMetricsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.time_period
 
 
-class ListEfficiencyMetricsRequest(TypedDict):
+class ListEfficiencyMetricsRequest(TypedDict, closed=True):
     group_by: NotRequired["str"]
     """<p>The dimension by which to group the cost efficiency metrics. Valid values include account ID, Amazon Web Services Region. When no grouping is specified, metrics are aggregated across all resources in the specified time period.</p>"""
     granularity: "aws_sdk_cost_optimization_hub.types.granularity_type.GranularityType"

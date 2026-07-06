@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#BurnRateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.burn_rate_look_back_window_minutes
 
 
-class BurnRateConfiguration(TypedDict):
+class BurnRateConfiguration(TypedDict, closed=True):
     look_back_window_minutes: "aws_sdk_application_signals.types.burn_rate_look_back_window_minutes.BurnRateLookBackWindowMinutes"
     """<p>The number of minutes to use as the look-back window.</p>"""
 

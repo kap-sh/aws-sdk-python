@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ses#SetIdentityDkimEnabledRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ses._protocol.xml import Element
 from aws_sdk_ses.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ses.types.identity
 
 
-class SetIdentityDkimEnabledRequest(TypedDict):
+class SetIdentityDkimEnabledRequest(TypedDict, closed=True):
     identity: "aws_sdk_ses.types.identity.Identity"
     """<p>The identity for which DKIM signing should be enabled or disabled.</p>"""
     dkim_enabled: "aws_sdk_ses.types.enabled.Enabled"

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#DeleteClusterSnapshotInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteClusterSnapshotInput(TypedDict):
+class DeleteClusterSnapshotInput(TypedDict, closed=True):
     snapshot_arn: "str"
     """<p>The ARN identifier of the elastic cluster snapshot that is to be deleted.</p>"""
 

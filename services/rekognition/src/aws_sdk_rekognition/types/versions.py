@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#Versions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.version
 
 
-class Versions(TypedDict):
+class Versions(TypedDict, closed=True):
     minimum: NotRequired["aws_sdk_rekognition.types.version.Version"]
     """<p>The desired minimum version for the challenge.</p>"""
     maximum: NotRequired["aws_sdk_rekognition.types.version.Version"]

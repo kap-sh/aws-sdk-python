@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.secretsmanager#ReplicaRegionType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_secrets_manager.types.kms_key_id_type
     import aws_sdk_secrets_manager.types.region_type
 
 
-class ReplicaRegionType(TypedDict):
+class ReplicaRegionType(TypedDict, closed=True):
     region: NotRequired["aws_sdk_secrets_manager.types.region_type.RegionType"]
     r"""<p>A Region code. For a list of Region codes, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints\">Name and code of Regions</a>.</p>"""
     kms_key_id: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyStatementReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_statement_id
 
 
-class AutomatedReasoningPolicyStatementReference(TypedDict):
+class AutomatedReasoningPolicyStatementReference(TypedDict, closed=True):
     document_id: "aws_sdk_bedrock.types.automated_reasoning_policy_document_id.AutomatedReasoningPolicyDocumentId"
     """<p>The unique identifier of the document containing the referenced statement.</p>"""
     statement_id: "aws_sdk_bedrock.types.automated_reasoning_policy_statement_id.AutomatedReasoningPolicyStatementId"

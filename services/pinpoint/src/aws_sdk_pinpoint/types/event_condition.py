@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#EventCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.event_dimensions
 
 
-class EventCondition(TypedDict):
+class EventCondition(TypedDict, closed=True):
     dimensions: NotRequired["aws_sdk_pinpoint.types.event_dimensions.EventDimensions"]
     """<p>The dimensions for the event filter to use for the activity.</p>"""
     message_activity: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

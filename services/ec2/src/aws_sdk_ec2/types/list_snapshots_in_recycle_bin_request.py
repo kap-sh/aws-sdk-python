@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ListSnapshotsInRecycleBinRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.string
 
 
-class ListSnapshotsInRecycleBinRequest(TypedDict):
+class ListSnapshotsInRecycleBinRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_ec2.types.list_snapshots_in_recycle_bin_max_results.ListSnapshotsInRecycleBinMaxResults"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#DifferentialPrivacyTemplateParametersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.users_noise_per_query
 
 
-class DifferentialPrivacyTemplateParametersOutput(TypedDict):
+class DifferentialPrivacyTemplateParametersOutput(TypedDict, closed=True):
     epsilon: "aws_sdk_cleanrooms.types.epsilon.Epsilon"
     """<p>The epsilon value that you specified.</p>"""
     users_noise_per_query: (

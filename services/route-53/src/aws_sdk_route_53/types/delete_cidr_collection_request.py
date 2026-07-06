@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DeleteCidrCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.uuid
 
 
-class DeleteCidrCollectionRequest(TypedDict):
+class DeleteCidrCollectionRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.uuid.UUID"
     """<p>The UUID of the collection to delete.</p>"""
 

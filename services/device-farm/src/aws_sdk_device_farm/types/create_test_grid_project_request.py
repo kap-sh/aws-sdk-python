@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateTestGridProjectRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.test_grid_vpc_config
 
 
-class CreateTestGridProjectRequest(TypedDict):
+class CreateTestGridProjectRequest(TypedDict, closed=True):
     name: "aws_sdk_device_farm.types.resource_name.ResourceName"
     """<p>Human-readable name of the Selenium testing project.</p>"""
     description: NotRequired[

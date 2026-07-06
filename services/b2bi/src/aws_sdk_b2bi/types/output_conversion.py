@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#OutputConversion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.to_format
 
 
-class OutputConversion(TypedDict):
+class OutputConversion(TypedDict, closed=True):
     to_format: "aws_sdk_b2bi.types.to_format.ToFormat"
     """<p>The format for the output from an outbound transformer: only X12 is currently supported.</p>"""
     format_options: NotRequired["aws_sdk_b2bi.types.format_options.FormatOptions"]

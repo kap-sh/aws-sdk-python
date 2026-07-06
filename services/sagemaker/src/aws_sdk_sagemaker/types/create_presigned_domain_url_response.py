@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreatePresignedDomainUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.presigned_domain_url
 
 
-class CreatePresignedDomainUrlResponse(TypedDict):
+class CreatePresignedDomainUrlResponse(TypedDict, closed=True):
     authorized_url: NotRequired[
         "aws_sdk_sagemaker.types.presigned_domain_url.PresignedDomainUrl"
     ]

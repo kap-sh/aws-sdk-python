@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#EcsContainerOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.ecs_environment_file_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_pipes.types.string_list
 
 
-class EcsContainerOverride(TypedDict):
+class EcsContainerOverride(TypedDict, closed=True):
     command: NotRequired["aws_sdk_pipes.types.string_list.StringList"]
     """<p>The command to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.</p>"""
     cpu: NotRequired["int"]

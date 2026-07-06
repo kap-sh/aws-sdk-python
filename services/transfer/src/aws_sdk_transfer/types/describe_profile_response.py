@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeProfileResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_profile
 
 
-class DescribeProfileResponse(TypedDict):
+class DescribeProfileResponse(TypedDict, closed=True):
     profile: "aws_sdk_transfer.types.described_profile.DescribedProfile"
     """<p>The details of the specified profile, returned as an object.</p>"""
 

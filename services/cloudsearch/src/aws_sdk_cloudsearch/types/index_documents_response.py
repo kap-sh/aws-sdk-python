@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#IndexDocumentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.field_name_list
 
 
-class IndexDocumentsResponse(TypedDict):
+class IndexDocumentsResponse(TypedDict, closed=True):
     field_names: NotRequired["aws_sdk_cloudsearch.types.field_name_list.FieldNameList"]
     """<p>The names of the fields that are currently being indexed.</p>"""
 

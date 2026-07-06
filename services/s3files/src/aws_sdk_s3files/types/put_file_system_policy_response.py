@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3files#PutFileSystemPolicyResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutFileSystemPolicyResponse(TypedDict):
+class PutFileSystemPolicyResponse(TypedDict, closed=True):
     pass
 
 

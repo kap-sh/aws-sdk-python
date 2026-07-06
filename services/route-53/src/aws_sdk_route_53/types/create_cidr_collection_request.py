@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CreateCidrCollectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.collection_name
 
 
-class CreateCidrCollectionRequest(TypedDict):
+class CreateCidrCollectionRequest(TypedDict, closed=True):
     name: "aws_sdk_route_53.types.collection_name.CollectionName"
     """<p>A unique identifier for the account that can be used to reference the collection from other API calls.</p>"""
     caller_reference: "aws_sdk_route_53.types.cidr_nonce.CidrNonce"

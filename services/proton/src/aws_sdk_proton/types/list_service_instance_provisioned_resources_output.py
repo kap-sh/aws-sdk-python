@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListServiceInstanceProvisionedResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.provisioned_resource_list
 
 
-class ListServiceInstanceProvisionedResourcesOutput(TypedDict):
+class ListServiceInstanceProvisionedResourcesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.empty_next_token.EmptyNextToken"]
     """<p>A token that indicates the location of the next provisioned resource in the array of provisioned resources, after the current requested list of provisioned resources.</p>"""
     provisioned_resources: (

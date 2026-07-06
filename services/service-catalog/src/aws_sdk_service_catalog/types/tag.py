@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#Tag``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_service_catalog.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.tag_value
 
 
-class Tag(TypedDict):
+class Tag(TypedDict, closed=True):
     key: "aws_sdk_service_catalog.types.tag_key.TagKey"
     """<p>The tag key.</p>"""
     value: "aws_sdk_service_catalog.types.tag_value.TagValue"

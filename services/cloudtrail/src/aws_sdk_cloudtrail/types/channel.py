@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtrail#Channel``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudtrail.types.channel_arn
     import aws_sdk_cloudtrail.types.channel_name
 
 
-class Channel(TypedDict):
+class Channel(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_cloudtrail.types.channel_arn.ChannelArn"]
     """<p>The Amazon Resource Name (ARN) of a channel.</p>"""
     name: NotRequired["aws_sdk_cloudtrail.types.channel_name.ChannelName"]

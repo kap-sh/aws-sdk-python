@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.shield#ProtectionGroupArbitraryPatternLimits``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_shield.types.long
 
 
-class ProtectionGroupArbitraryPatternLimits(TypedDict):
+class ProtectionGroupArbitraryPatternLimits(TypedDict, closed=True):
     max_members: "aws_sdk_shield.types.long.Long"
     """<p>The maximum number of resources you can specify for a single arbitrary pattern in a protection group.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#EcsServiceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.compute_configuration
 
 
-class EcsServiceConfiguration(TypedDict):
+class EcsServiceConfiguration(TypedDict, closed=True):
     compute: NotRequired[
         "aws_sdk_cost_optimization_hub.types.compute_configuration.ComputeConfiguration"
     ]

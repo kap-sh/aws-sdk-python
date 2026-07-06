@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.voiceid#ServerSideEncryptionUpdateDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_voice_id.types.kms_key_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_voice_id.types.string
 
 
-class ServerSideEncryptionUpdateDetails(TypedDict):
+class ServerSideEncryptionUpdateDetails(TypedDict, closed=True):
     old_kms_key_id: NotRequired["aws_sdk_voice_id.types.kms_key_id.KmsKeyId"]
     """<p>The previous KMS key ID the domain was encrypted with, before ServerSideEncryptionConfiguration was updated to a new KMS key ID.</p>"""
     update_status: NotRequired[

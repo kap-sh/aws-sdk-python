@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ListNetworksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.network_list
 
 
-class ListNetworksResponse(TypedDict):
+class ListNetworksResponse(TypedDict, closed=True):
     networks: "aws_sdk_wickr.types.network_list.NetworkList"
     """<p>A list of network objects for the Amazon Web Services account.</p>"""
     next_token: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

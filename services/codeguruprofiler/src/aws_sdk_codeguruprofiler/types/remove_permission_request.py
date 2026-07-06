@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#RemovePermissionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.action_group
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.revision_id
 
 
-class RemovePermissionRequest(TypedDict):
+class RemovePermissionRequest(TypedDict, closed=True):
     profiling_group_name: (
         "aws_sdk_codeguruprofiler.types.profiling_group_name.ProfilingGroupName"
     )

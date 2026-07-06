@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NodeSignal``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.node_signal_value
 
 
-class NodeSignal(TypedDict):
+class NodeSignal(TypedDict, closed=True):
     node_instance_id: "aws_sdk_panorama.types.node_instance_id.NodeInstanceId"
     """<p>The camera node's name, from the application manifest.</p>"""
     signal: "aws_sdk_panorama.types.node_signal_value.NodeSignalValue"

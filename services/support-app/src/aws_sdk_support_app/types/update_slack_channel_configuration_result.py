@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#UpdateSlackChannelConfigurationResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support_app.types.boolean_value
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_support_app.types.team_id
 
 
-class UpdateSlackChannelConfigurationResult(TypedDict):
+class UpdateSlackChannelConfigurationResult(TypedDict, closed=True):
     team_id: NotRequired["aws_sdk_support_app.types.team_id.teamId"]
     """<p>The team ID in Slack. This ID uniquely identifies a Slack workspace, such as <code>T012ABCDEFG</code>.</p>"""
     channel_id: NotRequired["aws_sdk_support_app.types.channel_id.channelId"]

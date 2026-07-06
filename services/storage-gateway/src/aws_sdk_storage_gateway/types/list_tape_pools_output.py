@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#ListTapePoolsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.marker
     import aws_sdk_storage_gateway.types.pool_infos
 
 
-class ListTapePoolsOutput(TypedDict):
+class ListTapePoolsOutput(TypedDict, closed=True):
     pool_infos: NotRequired["aws_sdk_storage_gateway.types.pool_infos.PoolInfos"]
     """<p>An array of <code>PoolInfo</code> objects, where each object describes a single custom tape pool. If there are no custom tape pools, the <code>PoolInfos</code> is an empty array. </p>"""
     marker: NotRequired["aws_sdk_storage_gateway.types.marker.Marker"]

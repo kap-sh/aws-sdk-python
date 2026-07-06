@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticsearchservice#DomainInformation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticsearch_service.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticsearch_service.types.region
 
 
-class DomainInformation(TypedDict):
+class DomainInformation(TypedDict, closed=True):
     owner_id: NotRequired["aws_sdk_elasticsearch_service.types.owner_id.OwnerId"]
     domain_name: "aws_sdk_elasticsearch_service.types.domain_name.DomainName"
     region: NotRequired["aws_sdk_elasticsearch_service.types.region.Region"]

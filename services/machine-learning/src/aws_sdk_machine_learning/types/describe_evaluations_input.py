@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#DescribeEvaluationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.comparator_value
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.string_type
 
 
-class DescribeEvaluationsInput(TypedDict):
+class DescribeEvaluationsInput(TypedDict, closed=True):
     filter_variable: NotRequired[
         "aws_sdk_machine_learning.types.evaluation_filter_variable.EvaluationFilterVariable"
     ]

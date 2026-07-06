@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#GuardrailEvent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime._protocol.eventstream import HeaderValue, Message
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.guadrail_action
 
 
-class GuardrailEvent(TypedDict):
+class GuardrailEvent(TypedDict, closed=True):
     action: NotRequired[
         "aws_sdk_bedrock_agent_runtime.types.guadrail_action.GuadrailAction"
     ]

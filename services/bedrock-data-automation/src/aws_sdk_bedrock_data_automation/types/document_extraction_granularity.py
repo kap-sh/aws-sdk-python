@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#DocumentExtractionGranularity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_data_automation.types.document_extraction_granularity_types
 
 
-class DocumentExtractionGranularity(TypedDict):
+class DocumentExtractionGranularity(TypedDict, closed=True):
     types: NotRequired[
         "aws_sdk_bedrock_data_automation.types.document_extraction_granularity_types.DocumentExtractionGranularityTypes"
     ]

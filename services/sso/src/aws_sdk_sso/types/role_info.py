@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sso#RoleInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso.types.account_id_type
     import aws_sdk_sso.types.role_name_type
 
 
-class RoleInfo(TypedDict):
+class RoleInfo(TypedDict, closed=True):
     role_name: NotRequired["aws_sdk_sso.types.role_name_type.RoleNameType"]
     """<p>The friendly name of the role that is assigned to the user.</p>"""
     account_id: NotRequired["aws_sdk_sso.types.account_id_type.AccountIdType"]

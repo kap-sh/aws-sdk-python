@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#ResourcePendingMaintenanceActions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.pending_maintenance_action_details
     import aws_sdk_database_migration_service.types.string
 
 
-class ResourcePendingMaintenanceActions(TypedDict):
+class ResourcePendingMaintenanceActions(TypedDict, closed=True):
     resource_identifier: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

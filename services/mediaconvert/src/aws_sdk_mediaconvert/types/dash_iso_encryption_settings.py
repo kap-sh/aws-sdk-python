@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DashIsoEncryptionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.dash_iso_playback_device_compatibility
     import aws_sdk_mediaconvert.types.speke_key_provider
 
 
-class DashIsoEncryptionSettings(TypedDict):
+class DashIsoEncryptionSettings(TypedDict, closed=True):
     playback_device_compatibility: NotRequired[
         "aws_sdk_mediaconvert.types.dash_iso_playback_device_compatibility.DashIsoPlaybackDeviceCompatibility"
     ]

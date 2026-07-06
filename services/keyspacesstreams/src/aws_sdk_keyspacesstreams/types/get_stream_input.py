@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#GetStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspacesstreams.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.stream_arn
 
 
-class GetStreamInput(TypedDict):
+class GetStreamInput(TypedDict, closed=True):
     stream_arn: "aws_sdk_keyspacesstreams.types.stream_arn.StreamArn"
     """<p> The Amazon Resource Name (ARN) of the stream for which detailed information is requested. This uniquely identifies the specific stream you want to get information about. </p>"""
     max_results: NotRequired["int"]

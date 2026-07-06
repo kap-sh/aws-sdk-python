@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OptimizationModelAccessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.optimization_model_accept_eula
 
 
-class OptimizationModelAccessConfig(TypedDict):
+class OptimizationModelAccessConfig(TypedDict, closed=True):
     accept_eula: NotRequired[
         "aws_sdk_sagemaker.types.optimization_model_accept_eula.OptimizationModelAcceptEula"
     ]

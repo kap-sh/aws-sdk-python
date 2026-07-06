@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#UpdateRuleGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.lock_token
 
 
-class UpdateRuleGroupResponse(TypedDict):
+class UpdateRuleGroupResponse(TypedDict, closed=True):
     next_lock_token: NotRequired["aws_sdk_wafv2.types.lock_token.LockToken"]
     """<p>A token used for optimistic locking. WAF returns this token to your <code>update</code> requests. You use <code>NextLockToken</code> in the same manner as you use <code>LockToken</code>. </p>"""
 

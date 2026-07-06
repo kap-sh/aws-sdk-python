@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#VectorIngestionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.chunking_configuration
     import aws_sdk_qconnect.types.parsing_configuration
 
 
-class VectorIngestionConfiguration(TypedDict):
+class VectorIngestionConfiguration(TypedDict, closed=True):
     chunking_configuration: NotRequired[
         "aws_sdk_qconnect.types.chunking_configuration.ChunkingConfiguration"
     ]

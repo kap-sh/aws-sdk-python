@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#ValidationError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.field_map
 
 
-class ValidationError(TypedDict):
+class ValidationError(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>The error message describing the validation issue.</p>"""
     reason: NotRequired["str"]

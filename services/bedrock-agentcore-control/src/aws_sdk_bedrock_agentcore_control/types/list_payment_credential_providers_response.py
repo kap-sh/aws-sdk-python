@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListPaymentCredentialProvidersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.payment_credential_providers
 
 
-class ListPaymentCredentialProvidersResponse(TypedDict):
+class ListPaymentCredentialProvidersResponse(TypedDict, closed=True):
     credential_providers: "aws_sdk_bedrock_agentcore_control.types.payment_credential_providers.PaymentCredentialProviders"
     """<p>The list of payment credential providers.</p>"""
     next_token: NotRequired["str"]

@@ -1,11 +1,13 @@
 """Generated from Smithy shape ``com.amazonaws.novaact#CallResultContent``."""
 
-from typing import TypeAlias, TypedDict
+from typing import TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_nova_act.errors import DeserializationError, SerializationError
 
 
-class _CallResultContent_text(TypedDict):
+class _CallResultContent_text(TypedDict, closed=True):
     text: "str"
 
 

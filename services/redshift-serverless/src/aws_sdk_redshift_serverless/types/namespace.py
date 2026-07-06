@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#Namespace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.namespace_status
 
 
-class Namespace(TypedDict):
+class Namespace(TypedDict, closed=True):
     namespace_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) associated with a namespace.</p>"""
     namespace_id: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTagsForResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_tag_set_list
 
 
-class ListTagsForResourcesResponse(TypedDict):
+class ListTagsForResourcesResponse(TypedDict, closed=True):
     resource_tag_sets: "aws_sdk_route_53.types.resource_tag_set_list.ResourceTagSetList"
     """<p>A list of <code>ResourceTagSet</code>s containing tags associated with the specified resources.</p>"""
 

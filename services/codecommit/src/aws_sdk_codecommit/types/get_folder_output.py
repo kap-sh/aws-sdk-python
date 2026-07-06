@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetFolderOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.symbolic_link_list
 
 
-class GetFolderOutput(TypedDict):
+class GetFolderOutput(TypedDict, closed=True):
     commit_id: "aws_sdk_codecommit.types.object_id.ObjectId"
     """<p>The full commit ID used as a reference for the returned version of the folder content.</p>"""
     folder_path: "aws_sdk_codecommit.types.path.Path"

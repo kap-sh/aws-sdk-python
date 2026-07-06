@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#PreTokenGenerationVersionConfigType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.pre_token_generation_lambda_version_type
 
 
-class PreTokenGenerationVersionConfigType(TypedDict):
+class PreTokenGenerationVersionConfigType(TypedDict, closed=True):
     lambda_version: "aws_sdk_cognito_identity_provider.types.pre_token_generation_lambda_version_type.PreTokenGenerationLambdaVersionType"
     """<p>The user pool trigger version of the request that Amazon Cognito sends to your Lambda function. Higher-numbered versions add fields that support new features.</p>"""
     lambda_arn: "aws_sdk_cognito_identity_provider.types.arn_type.ArnType"

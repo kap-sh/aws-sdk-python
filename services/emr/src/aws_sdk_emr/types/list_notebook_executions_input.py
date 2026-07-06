@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListNotebookExecutionsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.date
@@ -25,6 +25,7 @@ ListNotebookExecutionsInput = TypedDict(
         "marker": NotRequired["aws_sdk_emr.types.marker.Marker"],
         "execution_engine_id": NotRequired["aws_sdk_emr.types.xml_string.XmlString"],
     },
+    closed=True,
 )
 
 

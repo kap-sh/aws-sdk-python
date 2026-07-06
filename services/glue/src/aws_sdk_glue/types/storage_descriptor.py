@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StorageDescriptor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boolean
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.skewed_info
 
 
-class StorageDescriptor(TypedDict):
+class StorageDescriptor(TypedDict, closed=True):
     columns: NotRequired["aws_sdk_glue.types.column_list.ColumnList"]
     """<p>A list of the <code>Columns</code> in the table.</p>"""
     location: NotRequired["aws_sdk_glue.types.location_string.LocationString"]

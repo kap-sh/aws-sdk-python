@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteDomainOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.domain_status
 
 
-class DeleteDomainOutput(TypedDict):
+class DeleteDomainOutput(TypedDict, closed=True):
     status: "aws_sdk_datazone.types.domain_status.DomainStatus"
     """<p>The status of the domain.</p>"""
 

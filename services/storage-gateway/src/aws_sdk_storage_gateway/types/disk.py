@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#Disk``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.disk_allocation_type
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.string
 
 
-class Disk(TypedDict):
+class Disk(TypedDict, closed=True):
     disk_id: NotRequired["aws_sdk_storage_gateway.types.disk_id.DiskId"]
     """<p>The unique device ID or other distinguishing data that identifies a local disk.</p>"""
     disk_path: NotRequired["aws_sdk_storage_gateway.types.string.string"]

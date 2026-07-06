@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#EfsFileSystemConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.efs_file_system_policy
 
 
-class EfsFileSystemConfiguration(TypedDict):
+class EfsFileSystemConfiguration(TypedDict, closed=True):
     file_system_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.efs_file_system_policy.EfsFileSystemPolicy"
     ]

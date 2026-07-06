@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#GetDataQualityModelResultResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.statistic_model_results
     import aws_sdk_glue.types.timestamp
 
 
-class GetDataQualityModelResultResponse(TypedDict):
+class GetDataQualityModelResultResponse(TypedDict, closed=True):
     completed_on: NotRequired["aws_sdk_glue.types.timestamp.Timestamp"]
     """<p>The timestamp when the data quality model training completed.</p>"""
     model: NotRequired[

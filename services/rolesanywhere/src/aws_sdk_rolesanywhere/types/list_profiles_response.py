@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rolesanywhere#ListProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rolesanywhere.types.profile_details
 
 
-class ListProfilesResponse(TypedDict):
+class ListProfilesResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token that indicates where the output should continue from, if a previous request did not show all results. To get the next results, make the request again with this value.</p>"""
     profiles: NotRequired["aws_sdk_rolesanywhere.types.profile_details.ProfileDetails"]

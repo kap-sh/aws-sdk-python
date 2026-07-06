@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#ConversationContext``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_qconnect.types.self_service_conversation_history_list
 
 
-class ConversationContext(TypedDict):
+class ConversationContext(TypedDict, closed=True):
     self_service_conversation_history: "aws_sdk_qconnect.types.self_service_conversation_history_list.SelfServiceConversationHistoryList"
     """<p>The self service conversation history before the Amazon Q in Connect session.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ScanConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.incremental_scan_details
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.trigger_details
 
 
-class ScanConfiguration(TypedDict):
+class ScanConfiguration(TypedDict, closed=True):
     role: NotRequired["aws_sdk_guardduty.types.non_empty_string.NonEmptyString"]
     """<p>Amazon Resource Name (ARN) of the IAM role that should contain the required permissions for the scan.</p>"""
     trigger_details: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#WorkforceVpcConfigResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_security_group_ids
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workforce_vpc_id
 
 
-class WorkforceVpcConfigResponse(TypedDict):
+class WorkforceVpcConfigResponse(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_sagemaker.types.workforce_vpc_id.WorkforceVpcId"]
     """<p>The ID of the VPC that the workforce uses for communication.</p>"""
     security_group_ids: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#CommandInvocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.cloud_watch_output_config
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.url
 
 
-class CommandInvocation(TypedDict):
+class CommandInvocation(TypedDict, closed=True):
     command_id: NotRequired["aws_sdk_ssm.types.command_id.CommandId"]
     """<p>The command against which this invocation was requested.</p>"""
     instance_id: NotRequired["aws_sdk_ssm.types.instance_id.InstanceId"]

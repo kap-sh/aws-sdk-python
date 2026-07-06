@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#UpdateConfigurationPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
     import aws_sdk_securityhub.types.policy
 
 
-class UpdateConfigurationPolicyRequest(TypedDict):
+class UpdateConfigurationPolicyRequest(TypedDict, closed=True):
     identifier: "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     """<p> The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy. </p>"""
     name: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#Project``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codebuild.types.build_time_out
@@ -30,7 +30,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_int
 
 
-class Project(TypedDict):
+class Project(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codebuild.types.project_name.ProjectName"]
     """<p>The name of the build project.</p>"""
     arn: NotRequired["aws_sdk_codebuild.types.string.String"]

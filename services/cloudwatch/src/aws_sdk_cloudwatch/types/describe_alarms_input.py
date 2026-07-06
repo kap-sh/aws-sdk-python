@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#DescribeAlarmsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch.types.state_value
 
 
-class DescribeAlarmsInput(TypedDict):
+class DescribeAlarmsInput(TypedDict, closed=True):
     alarm_names: NotRequired["aws_sdk_cloudwatch.types.alarm_names.AlarmNames"]
     """<p>The names of the alarms to retrieve information about.</p>"""
     alarm_name_prefix: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#CancelJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class CancelJobRequest(TypedDict):
+class CancelJobRequest(TypedDict, closed=True):
     job_id: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The Batch job ID of the job to cancel.</p>"""
     reason: NotRequired["aws_sdk_batch.types.string.String"]

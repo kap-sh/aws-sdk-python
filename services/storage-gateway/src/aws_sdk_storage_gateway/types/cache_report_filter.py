@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#CacheReportFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.cache_report_filter_values
 
 
-class CacheReportFilter(TypedDict):
+class CacheReportFilter(TypedDict, closed=True):
     name: "aws_sdk_storage_gateway.types.cache_report_filter_name.CacheReportFilterName"
     """<p>The parameter name for a filter that determines which files are included or excluded from a cache report.</p> <p> <b>Valid Names:</b> </p> <p>UploadFailureReason | UploadState</p>"""
     values: "aws_sdk_storage_gateway.types.cache_report_filter_values.CacheReportFilterValues"

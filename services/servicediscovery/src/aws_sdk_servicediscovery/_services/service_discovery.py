@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.servicediscovery#Route53AutoNaming_v20170314``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_servicediscovery._auth._signers
@@ -124,7 +124,7 @@ if TYPE_CHECKING:
     import aws_sdk_servicediscovery.types.update_service_response
 
 
-class ServiceDiscoveryClientConfig(TypedDict, total=False):
+class ServiceDiscoveryClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

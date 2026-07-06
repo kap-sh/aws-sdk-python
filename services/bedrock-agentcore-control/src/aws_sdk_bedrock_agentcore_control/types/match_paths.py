@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#MatchPaths``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.match_path_patterns
 
 
-class MatchPaths(TypedDict):
+class MatchPaths(TypedDict, closed=True):
     any_of: (
         "aws_sdk_bedrock_agentcore_control.types.match_path_patterns.MatchPathPatterns"
     )

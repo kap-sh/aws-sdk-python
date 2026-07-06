@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securitylake#AwsLogSourceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securitylake.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securitylake.types.region_list
 
 
-class AwsLogSourceConfiguration(TypedDict):
+class AwsLogSourceConfiguration(TypedDict, closed=True):
     accounts: NotRequired["aws_sdk_securitylake.types.account_list.AccountList"]
     """<p>Specify the Amazon Web Services account information where you want to enable Security Lake.</p>"""
     regions: "aws_sdk_securitylake.types.region_list.RegionList"

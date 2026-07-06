@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListInferenceProfilesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.inference_profile_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListInferenceProfilesRequest(TypedDict):
+class ListInferenceProfilesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_bedrock.types.max_results.MaxResults"]
     """<p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>"""
     next_token: NotRequired["aws_sdk_bedrock.types.pagination_token.PaginationToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#InvocationLogsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.use_prompt_response
 
 
-class InvocationLogsConfig(TypedDict):
+class InvocationLogsConfig(TypedDict, closed=True):
     use_prompt_response: "aws_sdk_bedrock.types.use_prompt_response.UsePromptResponse"
     """<p>Whether to use the model's response for training, or just the prompt. The default value is <code>False</code>.</p>"""
     invocation_log_source: (

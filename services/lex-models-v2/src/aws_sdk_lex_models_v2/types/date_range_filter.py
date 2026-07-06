@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DateRangeFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class DateRangeFilter(TypedDict):
+class DateRangeFilter(TypedDict, closed=True):
     start_date_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"
     """<p>A timestamp indicating the start date for the date range filter.</p>"""
     end_date_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"

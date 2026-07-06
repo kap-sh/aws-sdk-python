@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListPolicyPrincipalsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.ascending_order
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.policy_name
 
 
-class ListPolicyPrincipalsRequest(TypedDict):
+class ListPolicyPrincipalsRequest(TypedDict, closed=True):
     policy_name: "aws_sdk_iot.types.policy_name.PolicyName"
     """<p>The policy name.</p>"""
     marker: NotRequired["aws_sdk_iot.types.marker.Marker"]

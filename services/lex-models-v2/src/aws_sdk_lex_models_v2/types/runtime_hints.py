@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#RuntimeHints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.slot_hints_intent_map
 
 
-class RuntimeHints(TypedDict):
+class RuntimeHints(TypedDict, closed=True):
     slot_hints: NotRequired[
         "aws_sdk_lex_models_v2.types.slot_hints_intent_map.SlotHintsIntentMap"
     ]

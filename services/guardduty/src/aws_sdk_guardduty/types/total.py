@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#Total``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class Total(TypedDict):
+class Total(TypedDict, closed=True):
     amount: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The total usage.</p>"""
     unit: NotRequired["aws_sdk_guardduty.types.string.String"]

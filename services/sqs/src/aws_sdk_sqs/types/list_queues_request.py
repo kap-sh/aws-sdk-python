@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#ListQueuesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sqs.types.boxed_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.token
 
 
-class ListQueuesRequest(TypedDict):
+class ListQueuesRequest(TypedDict, closed=True):
     queue_name_prefix: NotRequired["aws_sdk_sqs.types.string.String"]
     """<p>A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.</p> <p>Queue URLs and names are case-sensitive.</p>"""
     next_token: NotRequired["aws_sdk_sqs.types.token.Token"]

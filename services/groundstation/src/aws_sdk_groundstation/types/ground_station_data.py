@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#GroundStationData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_groundstation.types.aws_region
     import aws_sdk_groundstation.types.ground_station_name
 
 
-class GroundStationData(TypedDict):
+class GroundStationData(TypedDict, closed=True):
     ground_station_id: NotRequired[
         "aws_sdk_groundstation.types.ground_station_name.GroundStationName"
     ]

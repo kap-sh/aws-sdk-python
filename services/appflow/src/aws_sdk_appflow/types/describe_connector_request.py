@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DescribeConnectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.connector_type
 
 
-class DescribeConnectorRequest(TypedDict):
+class DescribeConnectorRequest(TypedDict, closed=True):
     connector_type: "aws_sdk_appflow.types.connector_type.ConnectorType"
     """<p>The connector type, such as CUSTOMCONNECTOR, Saleforce, Marketo. Please choose CUSTOMCONNECTOR for Lambda based custom connectors.</p>"""
     connector_label: NotRequired["aws_sdk_appflow.types.connector_label.ConnectorLabel"]

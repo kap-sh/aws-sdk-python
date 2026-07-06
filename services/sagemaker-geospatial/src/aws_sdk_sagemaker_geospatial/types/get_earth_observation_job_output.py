@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#GetEarthObservationJobOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sagemaker_geospatial.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.tags
 
 
-class GetEarthObservationJobOutput(TypedDict):
+class GetEarthObservationJobOutput(TypedDict, closed=True):
     arn: "str"
     """<p>The Amazon Resource Name (ARN) of the Earth Observation job.</p>"""
     name: "str"

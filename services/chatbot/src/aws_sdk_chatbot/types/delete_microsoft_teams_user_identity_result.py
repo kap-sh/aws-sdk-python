@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.chatbot#DeleteMicrosoftTeamsUserIdentityResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteMicrosoftTeamsUserIdentityResult(TypedDict):
+class DeleteMicrosoftTeamsUserIdentityResult(TypedDict, closed=True):
     pass
 
 

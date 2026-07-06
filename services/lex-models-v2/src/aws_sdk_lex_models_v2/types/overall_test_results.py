@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#OverallTestResults``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.overall_test_result_item_list
 
 
-class OverallTestResults(TypedDict):
+class OverallTestResults(TypedDict, closed=True):
     items: "aws_sdk_lex_models_v2.types.overall_test_result_item_list.OverallTestResultItemList"
     """<p>A list of the overall test results.</p>"""
 

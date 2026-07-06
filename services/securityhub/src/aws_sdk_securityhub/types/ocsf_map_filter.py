@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#OcsfMapFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.map_filter
     import aws_sdk_securityhub.types.ocsf_map_field
 
 
-class OcsfMapFilter(TypedDict):
+class OcsfMapFilter(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_securityhub.types.ocsf_map_field.OcsfMapField"]
     """<p>The name of the field.</p>"""
     filter: NotRequired["aws_sdk_securityhub.types.map_filter.MapFilter"]

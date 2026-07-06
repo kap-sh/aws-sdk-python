@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.oam#UpdateLinkOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_oam.types.label_template
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_oam.types.tag_map_output
 
 
-class UpdateLinkOutput(TypedDict):
+class UpdateLinkOutput(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The ARN of the link that you have updated.</p>"""
     id: NotRequired["str"]

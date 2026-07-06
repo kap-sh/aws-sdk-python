@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#ShotSegment``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.segment_confidence
     import aws_sdk_rekognition.types.u_long
 
 
-class ShotSegment(TypedDict):
+class ShotSegment(TypedDict, closed=True):
     index: NotRequired["aws_sdk_rekognition.types.u_long.ULong"]
     """<p>An Identifier for a shot detection segment detected in a video. </p>"""
     confidence: NotRequired[

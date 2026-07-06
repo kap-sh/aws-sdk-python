@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.support#SupportedLanguage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_support.types.code
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_support.types.language
 
 
-class SupportedLanguage(TypedDict):
+class SupportedLanguage(TypedDict, closed=True):
     code: NotRequired["aws_sdk_support.types.code.Code"]
     """<p> 2 digit ISO 639-1 code. e.g. <code>en</code> </p>"""
     language: NotRequired["aws_sdk_support.types.language.Language"]

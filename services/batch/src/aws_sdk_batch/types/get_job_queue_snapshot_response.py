@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.batch#GetJobQueueSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.front_of_queue_detail
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_batch.types.queue_snapshot_utilization_detail
 
 
-class GetJobQueueSnapshotResponse(TypedDict):
+class GetJobQueueSnapshotResponse(TypedDict, closed=True):
     front_of_queue: NotRequired[
         "aws_sdk_batch.types.front_of_queue_detail.FrontOfQueueDetail"
     ]

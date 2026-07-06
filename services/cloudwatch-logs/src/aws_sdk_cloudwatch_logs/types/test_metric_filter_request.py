@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#TestMetricFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.test_event_messages
 
 
-class TestMetricFilterRequest(TypedDict):
+class TestMetricFilterRequest(TypedDict, closed=True):
     filter_pattern: "aws_sdk_cloudwatch_logs.types.filter_pattern.FilterPattern"
     log_event_messages: (
         "aws_sdk_cloudwatch_logs.types.test_event_messages.TestEventMessages"

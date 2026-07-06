@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#TestTelemetryPipelineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration
 
 
-class TestTelemetryPipelineInput(TypedDict):
+class TestTelemetryPipelineInput(TypedDict, closed=True):
     records: "aws_sdk_observabilityadmin.types.records.Records"
     """<p>The sample records to process through the pipeline configuration for testing purposes.</p>"""
     configuration: "aws_sdk_observabilityadmin.types.telemetry_pipeline_configuration.TelemetryPipelineConfiguration"

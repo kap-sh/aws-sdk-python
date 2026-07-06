@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerlinuxsubscriptions#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager_linux_subscriptions.types.subscription_provider_arn
     import aws_sdk_license_manager_linux_subscriptions.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_license_manager_linux_subscriptions.types.subscription_provider_arn.SubscriptionProviderArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon Web Services resource to remove the metadata tags from.</p>"""
     tag_keys: (

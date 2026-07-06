@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ServiceLimit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.unit
 
 
-class ServiceLimit(TypedDict):
+class ServiceLimit(TypedDict, closed=True):
     is_service_limited: NotRequired["aws_sdk_macie2.types.__boolean.__boolean"]
     """<p>Specifies whether the account has met the quota that corresponds to the metric specified by the UsageByAccount.type field in the response.</p>"""
     unit: NotRequired["aws_sdk_macie2.types.unit.Unit"]

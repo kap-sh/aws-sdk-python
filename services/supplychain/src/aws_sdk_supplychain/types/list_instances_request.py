@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#ListInstancesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.instance_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.instance_state_list
 
 
-class ListInstancesRequest(TypedDict):
+class ListInstancesRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_supplychain.types.instance_next_token.InstanceNextToken"
     ]

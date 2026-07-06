@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#AddressDimension``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_dimension
 
 
-class AddressDimension(TypedDict):
+class AddressDimension(TypedDict, closed=True):
     city: NotRequired[
         "aws_sdk_customer_profiles.types.profile_dimension.ProfileDimension"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#Sort``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.sort_by
     import aws_sdk_marketplace_catalog.types.sort_order
 
 
-class Sort(TypedDict):
+class Sort(TypedDict, closed=True):
     sort_by: NotRequired["aws_sdk_marketplace_catalog.types.sort_by.SortBy"]
     """<p>For <code>ListEntities</code>, supported attributes include <code>LastModifiedDate</code> (default) and <code>EntityId</code>. In addition to <code>LastModifiedDate</code> and <code>EntityId</code>, each <code>EntityType</code> might support additional fields.</p> <p>For <code>ListChangeSets</code>, supported attributes include <code>StartTime</code> and <code>EndTime</code>.</p>"""
     sort_order: NotRequired["aws_sdk_marketplace_catalog.types.sort_order.SortOrder"]

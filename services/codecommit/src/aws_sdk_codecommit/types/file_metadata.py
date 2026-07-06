@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#FileMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.file_mode_type_enum
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.path
 
 
-class FileMetadata(TypedDict):
+class FileMetadata(TypedDict, closed=True):
     absolute_path: NotRequired["aws_sdk_codecommit.types.path.Path"]
     """<p>The full path to the file to be added or updated, including the name of the file.</p>"""
     blob_id: NotRequired["aws_sdk_codecommit.types.object_id.ObjectId"]

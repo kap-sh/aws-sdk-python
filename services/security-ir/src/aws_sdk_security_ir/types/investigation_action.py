@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityir#InvestigationAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_security_ir.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_security_ir.types.investigation_title
 
 
-class InvestigationAction(TypedDict):
+class InvestigationAction(TypedDict, closed=True):
     investigation_id: "aws_sdk_security_ir.types.investigation_id.InvestigationId"
     """<p>The unique identifier for this investigation action. This ID is used to track and reference the specific investigation throughout its lifecycle.</p>"""
     action_type: "aws_sdk_security_ir.types.action_type.ActionType"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#ActivityListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sfn.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.timestamp
 
 
-class ActivityListItem(TypedDict):
+class ActivityListItem(TypedDict, closed=True):
     activity_arn: "aws_sdk_sfn.types.arn.Arn"
     """<p>The Amazon Resource Name (ARN) that identifies the activity.</p>"""
     name: "aws_sdk_sfn.types.name.Name"

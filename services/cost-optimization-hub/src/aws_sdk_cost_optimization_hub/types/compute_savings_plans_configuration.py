@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ComputeSavingsPlansConfiguration``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ComputeSavingsPlansConfiguration(TypedDict):
+class ComputeSavingsPlansConfiguration(TypedDict, closed=True):
     account_scope: NotRequired["str"]
     """<p>The account scope for which you want recommendations. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for individual member accounts only.</p>"""
     term: NotRequired["str"]

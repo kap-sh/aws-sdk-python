@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#Catalog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.timestamp
 
 
-class Catalog(TypedDict):
+class Catalog(TypedDict, closed=True):
     catalog_id: NotRequired["aws_sdk_glue.types.catalog_id_string.CatalogIdString"]
     """<p>The ID of the catalog. To grant access to the default catalog, this field should not be provided.</p>"""
     name: "aws_sdk_glue.types.catalog_name_string.CatalogNameString"

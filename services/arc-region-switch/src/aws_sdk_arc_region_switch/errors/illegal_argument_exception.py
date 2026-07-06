@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.arcregionswitch#IllegalArgumentException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_arc_region_switch.errors import DeserializationError, ServiceError
 
 
-class IllegalArgumentException_(TypedDict):
+class IllegalArgumentException_(TypedDict, closed=True):
     message: "str"
 
 

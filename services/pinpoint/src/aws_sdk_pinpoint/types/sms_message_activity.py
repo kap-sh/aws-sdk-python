@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#SMSMessageActivity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.journey_sms_message
 
 
-class SMSMessageActivity(TypedDict):
+class SMSMessageActivity(TypedDict, closed=True):
     message_config: NotRequired[
         "aws_sdk_pinpoint.types.journey_sms_message.JourneySMSMessage"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ListDirectoryBucketsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.directory_bucket_token
 
 
-class ListDirectoryBucketsOutput(TypedDict):
+class ListDirectoryBucketsOutput(TypedDict, closed=True):
     buckets: NotRequired["aws_sdk_s3.types.buckets.Buckets"]
     """<p>The list of buckets owned by the requester. </p>"""
     continuation_token: NotRequired[

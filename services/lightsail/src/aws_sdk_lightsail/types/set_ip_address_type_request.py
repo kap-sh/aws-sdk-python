@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#SetIpAddressTypeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_type
 
 
-class SetIpAddressTypeRequest(TypedDict):
+class SetIpAddressTypeRequest(TypedDict, closed=True):
     resource_type: "aws_sdk_lightsail.types.resource_type.ResourceType"
     """<p>The resource type.</p> <p>The resource values are <code>Distribution</code>, <code>Instance</code>, and <code>LoadBalancer</code>.</p> <note> <p>Distribution-related APIs are available only in the N. Virginia (<code>us-east-1</code>) Amazon Web Services Region. Set your Amazon Web Services Region configuration to <code>us-east-1</code> to create, view, or edit distributions.</p> </note>"""
     resource_name: "aws_sdk_lightsail.types.resource_name.ResourceName"

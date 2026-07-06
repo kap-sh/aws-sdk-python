@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DetachInstancesFromLoadBalancerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lightsail.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.resource_name_list
 
 
-class DetachInstancesFromLoadBalancerRequest(TypedDict):
+class DetachInstancesFromLoadBalancerRequest(TypedDict, closed=True):
     load_balancer_name: "aws_sdk_lightsail.types.resource_name.ResourceName"
     """<p>The name of the Lightsail load balancer.</p>"""
     instance_names: "aws_sdk_lightsail.types.resource_name_list.ResourceNameList"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#AssociateHostedConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_direct_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.connection_id
 
 
-class AssociateHostedConnectionRequest(TypedDict):
+class AssociateHostedConnectionRequest(TypedDict, closed=True):
     connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"
     """<p>The ID of the hosted connection.</p>"""
     parent_connection_id: "aws_sdk_direct_connect.types.connection_id.ConnectionId"

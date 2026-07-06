@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#UpdateUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_device_farm.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_device_farm.types.name
 
 
-class UpdateUploadRequest(TypedDict):
+class UpdateUploadRequest(TypedDict, closed=True):
     arn: "aws_sdk_device_farm.types.amazon_resource_name.AmazonResourceName"
     """<p>The Amazon Resource Name (ARN) of the uploaded test spec.</p>"""
     name: NotRequired["aws_sdk_device_farm.types.name.Name"]

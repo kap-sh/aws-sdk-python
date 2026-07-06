@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#FindingProviderFields``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.finding_provider_severity
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.type_list
 
 
-class FindingProviderFields(TypedDict):
+class FindingProviderFields(TypedDict, closed=True):
     confidence: NotRequired["aws_sdk_securityhub.types.ratio_scale.RatioScale"]
     """<p>A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify.</p> <p>Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence.</p>"""
     criticality: NotRequired["aws_sdk_securityhub.types.ratio_scale.RatioScale"]

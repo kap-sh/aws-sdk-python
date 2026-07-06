@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DriftCheckModelDataQuality``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.metrics_source
 
 
-class DriftCheckModelDataQuality(TypedDict):
+class DriftCheckModelDataQuality(TypedDict, closed=True):
     statistics: NotRequired["aws_sdk_sagemaker.types.metrics_source.MetricsSource"]
     """<p>The drift check model data quality statistics.</p>"""
     constraints: NotRequired["aws_sdk_sagemaker.types.metrics_source.MetricsSource"]

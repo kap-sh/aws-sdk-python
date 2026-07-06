@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#PolicyCondition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError, SerializationError
 
@@ -12,29 +14,29 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ingress_tls_protocol_expression
 
 
-class _PolicyCondition_StringExpression(TypedDict):
+class _PolicyCondition_StringExpression(TypedDict, closed=True):
     StringExpression: (
         "aws_sdk_mailmanager.types.ingress_string_expression.IngressStringExpression"
     )
 
 
-class _PolicyCondition_IpExpression(TypedDict):
+class _PolicyCondition_IpExpression(TypedDict, closed=True):
     IpExpression: (
         "aws_sdk_mailmanager.types.ingress_ipv4_expression.IngressIpv4Expression"
     )
 
 
-class _PolicyCondition_Ipv6Expression(TypedDict):
+class _PolicyCondition_Ipv6Expression(TypedDict, closed=True):
     Ipv6Expression: (
         "aws_sdk_mailmanager.types.ingress_ipv6_expression.IngressIpv6Expression"
     )
 
 
-class _PolicyCondition_TlsExpression(TypedDict):
+class _PolicyCondition_TlsExpression(TypedDict, closed=True):
     TlsExpression: "aws_sdk_mailmanager.types.ingress_tls_protocol_expression.IngressTlsProtocolExpression"
 
 
-class _PolicyCondition_BooleanExpression(TypedDict):
+class _PolicyCondition_BooleanExpression(TypedDict, closed=True):
     BooleanExpression: (
         "aws_sdk_mailmanager.types.ingress_boolean_expression.IngressBooleanExpression"
     )

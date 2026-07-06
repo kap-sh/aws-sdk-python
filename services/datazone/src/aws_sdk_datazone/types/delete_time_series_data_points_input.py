@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#DeleteTimeSeriesDataPointsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.client_token
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.time_series_form_name
 
 
-class DeleteTimeSeriesDataPointsInput(TypedDict):
+class DeleteTimeSeriesDataPointsInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The ID of the Amazon DataZone domain that houses the asset for which you want to delete a time series form.</p>"""
     entity_identifier: "aws_sdk_datazone.types.entity_identifier.EntityIdentifier"

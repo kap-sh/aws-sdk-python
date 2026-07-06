@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#CustomMetricEvaluatorModelConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_metric_bedrock_evaluator_models
 
 
-class CustomMetricEvaluatorModelConfig(TypedDict):
+class CustomMetricEvaluatorModelConfig(TypedDict, closed=True):
     bedrock_evaluator_models: "aws_sdk_bedrock.types.custom_metric_bedrock_evaluator_models.CustomMetricBedrockEvaluatorModels"
     """<p>Defines the model you want to evaluate custom metrics in an Amazon Bedrock evaluation job.</p>"""
 

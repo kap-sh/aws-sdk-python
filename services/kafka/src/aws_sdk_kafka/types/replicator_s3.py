@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ReplicatorS3``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
     import aws_sdk_kafka.types.__string
 
 
-class ReplicatorS3(TypedDict):
+class ReplicatorS3(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>Whether log delivery to S3 is enabled.</p>"""
     bucket: NotRequired["aws_sdk_kafka.types.__string.__string"]

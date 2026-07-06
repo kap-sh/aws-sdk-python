@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#GetNodeOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_managedblockchain.types.node
 
 
-class GetNodeOutput(TypedDict):
+class GetNodeOutput(TypedDict, closed=True):
     node: NotRequired["aws_sdk_managedblockchain.types.node.Node"]
     """<p>Properties of the node configuration.</p>"""
 

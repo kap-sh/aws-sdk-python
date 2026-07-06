@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#HumanLoopQuotaExceededException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rekognition.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.string
 
 
-class HumanLoopQuotaExceededException_(TypedDict):
+class HumanLoopQuotaExceededException_(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The resource type.</p>"""
     quota_code: NotRequired["aws_sdk_rekognition.types.string.String"]

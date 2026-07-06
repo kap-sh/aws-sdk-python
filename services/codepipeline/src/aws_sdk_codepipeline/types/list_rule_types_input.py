@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ListRuleTypesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.aws_region_name
     import aws_sdk_codepipeline.types.rule_owner
 
 
-class ListRuleTypesInput(TypedDict):
+class ListRuleTypesInput(TypedDict, closed=True):
     rule_owner_filter: NotRequired["aws_sdk_codepipeline.types.rule_owner.RuleOwner"]
     """<p>The rule owner to filter on.</p>"""
     region_filter: NotRequired[

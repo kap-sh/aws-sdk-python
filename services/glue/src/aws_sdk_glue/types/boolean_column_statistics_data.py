@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BooleanColumnStatisticsData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.non_negative_long
 
 
-class BooleanColumnStatisticsData(TypedDict):
+class BooleanColumnStatisticsData(TypedDict, closed=True):
     number_of_trues: "aws_sdk_glue.types.non_negative_long.NonNegativeLong"
     """<p>The number of true values in the column.</p>"""
     number_of_falses: "aws_sdk_glue.types.non_negative_long.NonNegativeLong"

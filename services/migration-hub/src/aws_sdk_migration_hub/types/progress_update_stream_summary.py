@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ProgressUpdateStreamSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.progress_update_stream
 
 
-class ProgressUpdateStreamSummary(TypedDict):
+class ProgressUpdateStreamSummary(TypedDict, closed=True):
     progress_update_stream_name: NotRequired[
         "aws_sdk_migration_hub.types.progress_update_stream.ProgressUpdateStream"
     ]

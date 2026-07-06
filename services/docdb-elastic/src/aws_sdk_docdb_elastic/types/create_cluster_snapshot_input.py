@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#CreateClusterSnapshotInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.tag_map
 
 
-class CreateClusterSnapshotInput(TypedDict):
+class CreateClusterSnapshotInput(TypedDict, closed=True):
     cluster_arn: "str"
     """<p>The ARN identifier of the elastic cluster of which you want to create a snapshot.</p>"""
     snapshot_name: "str"

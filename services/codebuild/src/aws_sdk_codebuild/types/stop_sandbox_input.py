@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#StopSandboxInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.non_empty_string
 
 
-class StopSandboxInput(TypedDict):
+class StopSandboxInput(TypedDict, closed=True):
     id: "aws_sdk_codebuild.types.non_empty_string.NonEmptyString"
     """<p>Information about the requested sandbox ID.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkvoice#CreatePhoneNumberOrderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_voice.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_voice.types.phone_number_product_type
 
 
-class CreatePhoneNumberOrderRequest(TypedDict):
+class CreatePhoneNumberOrderRequest(TypedDict, closed=True):
     product_type: (
         "aws_sdk_chime_sdk_voice.types.phone_number_product_type.PhoneNumberProductType"
     )

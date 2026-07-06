@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DescribeSharedVpcConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.verbose_flag
 
 
-class DescribeSharedVpcConfigurationResponse(TypedDict):
+class DescribeSharedVpcConfigurationResponse(TypedDict, closed=True):
     enable_fsx_route_table_updates_from_participant_accounts: NotRequired[
         "aws_sdk_fsx.types.verbose_flag.VerboseFlag"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoMLCandidateStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.candidate_step_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.candidate_step_type
 
 
-class AutoMLCandidateStep(TypedDict):
+class AutoMLCandidateStep(TypedDict, closed=True):
     candidate_step_type: NotRequired[
         "aws_sdk_sagemaker.types.candidate_step_type.CandidateStepType"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#KeywordMatchConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.rule_name
 
 
-class KeywordMatchConfiguration(TypedDict):
+class KeywordMatchConfiguration(TypedDict, closed=True):
     rule_name: "aws_sdk_chime_sdk_media_pipelines.types.rule_name.RuleName"
     """<p>The name of the keyword match rule.</p>"""
     keywords: "aws_sdk_chime_sdk_media_pipelines.types.keyword_match_word_list.KeywordMatchWordList"

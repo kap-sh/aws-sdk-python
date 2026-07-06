@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#ServiceNowMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ServiceNowMetadata(TypedDict):
+class ServiceNowMetadata(TypedDict, closed=True):
     pass
 
 

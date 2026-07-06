@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#ListExecutionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.execution_summary_list
     import aws_sdk_snow_device_management.types.next_token
 
 
-class ListExecutionsOutput(TypedDict):
+class ListExecutionsOutput(TypedDict, closed=True):
     executions: NotRequired[
         "aws_sdk_snow_device_management.types.execution_summary_list.ExecutionSummaryList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#ListRegistriesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.registry_status
 
 
-class ListRegistriesRequest(TypedDict):
+class ListRegistriesRequest(TypedDict, closed=True):
     max_results: NotRequired[
         "aws_sdk_bedrock_agentcore_control.types.max_results.MaxResults"
     ]

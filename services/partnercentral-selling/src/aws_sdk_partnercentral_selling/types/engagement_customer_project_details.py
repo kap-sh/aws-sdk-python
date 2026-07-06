@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralselling#EngagementCustomerProjectDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_partnercentral_selling.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_selling.types.engagement_customer_project_title
 
 
-class EngagementCustomerProjectDetails(TypedDict):
+class EngagementCustomerProjectDetails(TypedDict, closed=True):
     title: "aws_sdk_partnercentral_selling.types.engagement_customer_project_title.EngagementCustomerProjectTitle"
     """<p>The title of the project.</p>"""
     business_problem: "aws_sdk_partnercentral_selling.types.engagement_customer_business_problem.EngagementCustomerBusinessProblem"

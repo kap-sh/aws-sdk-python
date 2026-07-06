@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#CreateContainerFleetInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.connection_port_range
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_gamelift.types.tag_list
 
 
-class CreateContainerFleetInput(TypedDict):
+class CreateContainerFleetInput(TypedDict, closed=True):
     fleet_role_arn: NotRequired["aws_sdk_gamelift.types.iam_role_arn.IamRoleArn"]
     r"""<p>The unique identifier for an Identity and Access Management (IAM) role with permissions to run your containers on resources that are managed by Amazon GameLift Servers. Use an IAM service role with the <code>GameLiftContainerFleetPolicy</code> managed policy attached. For more information, see <a href=\"https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html\">Set up an IAM service role</a>. You can't change this fleet property after the fleet is created.</p> <p>IAM role ARN values use the following pattern: <code>arn:aws:iam::[Amazon Web Services account]:role/[role name]</code>.</p>"""
     description: NotRequired[

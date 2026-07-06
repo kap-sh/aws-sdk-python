@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListBrowserSessionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.next_token
 
 
-class ListBrowserSessionsResponse(TypedDict):
+class ListBrowserSessionsResponse(TypedDict, closed=True):
     items: "aws_sdk_bedrock_agentcore.types.browser_session_summaries.BrowserSessionSummaries"
     """<p>The list of browser sessions that match the specified criteria.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agentcore.types.next_token.NextToken"]

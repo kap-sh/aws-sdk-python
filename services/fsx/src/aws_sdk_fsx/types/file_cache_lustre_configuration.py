@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#FileCacheLustreConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.file_cache_lustre_deployment_type
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.weekly_time
 
 
-class FileCacheLustreConfiguration(TypedDict):
+class FileCacheLustreConfiguration(TypedDict, closed=True):
     per_unit_storage_throughput: NotRequired[
         "aws_sdk_fsx.types.per_unit_storage_throughput.PerUnitStorageThroughput"
     ]

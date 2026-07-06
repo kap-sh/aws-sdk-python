@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#DeleteWhatsAppMessageMediaOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteWhatsAppMessageMediaOutput(TypedDict):
+class DeleteWhatsAppMessageMediaOutput(TypedDict, closed=True):
     success: NotRequired["bool"]
     """<p>Success indicator for deleting the media file.</p>"""
 

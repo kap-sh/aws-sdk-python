@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#ListContainerGroupDefinitionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.container_group_definition_list
     import aws_sdk_gamelift.types.non_zero_and_max_string
 
 
-class ListContainerGroupDefinitionsOutput(TypedDict):
+class ListContainerGroupDefinitionsOutput(TypedDict, closed=True):
     container_group_definitions: NotRequired[
         "aws_sdk_gamelift.types.container_group_definition_list.ContainerGroupDefinitionList"
     ]

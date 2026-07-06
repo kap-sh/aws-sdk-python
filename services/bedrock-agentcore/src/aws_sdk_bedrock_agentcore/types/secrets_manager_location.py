@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#SecretsManagerLocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.secret_arn
 
 
-class SecretsManagerLocation(TypedDict):
+class SecretsManagerLocation(TypedDict, closed=True):
     secret_arn: "aws_sdk_bedrock_agentcore.types.secret_arn.SecretArn"
     """<p>The ARN of the Amazon Web Services Secrets Manager secret containing the certificate.</p>"""
 

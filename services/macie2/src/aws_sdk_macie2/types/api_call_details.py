@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#ApiCallDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.__timestamp_iso8601
 
 
-class ApiCallDetails(TypedDict):
+class ApiCallDetails(TypedDict, closed=True):
     api: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The name of the operation that was invoked most recently and produced the finding.</p>"""
     api_service_name: NotRequired["aws_sdk_macie2.types.__string.__string"]

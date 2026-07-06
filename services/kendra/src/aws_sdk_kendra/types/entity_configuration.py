@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#EntityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.entity_type
 
 
-class EntityConfiguration(TypedDict):
+class EntityConfiguration(TypedDict, closed=True):
     entity_id: "aws_sdk_kendra.types.entity_id.EntityId"
     """<p>The identifier of a user or group in your IAM Identity Center identity source. For example, a user ID could be an email.</p>"""
     entity_type: "aws_sdk_kendra.types.entity_type.EntityType"

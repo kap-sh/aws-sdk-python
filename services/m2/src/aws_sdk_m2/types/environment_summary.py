@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.m2#EnvironmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_m2.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_m2.types.timestamp
 
 
-class EnvironmentSummary(TypedDict):
+class EnvironmentSummary(TypedDict, closed=True):
     name: "aws_sdk_m2.types.entity_name.EntityName"
     """<p>The name of the runtime environment.</p>"""
     environment_arn: "aws_sdk_m2.types.arn.Arn"

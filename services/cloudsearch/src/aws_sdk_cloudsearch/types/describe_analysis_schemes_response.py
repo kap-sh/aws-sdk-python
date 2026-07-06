@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearch#DescribeAnalysisSchemesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudsearch._protocol.xml import Element
 from aws_sdk_cloudsearch.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudsearch.types.analysis_scheme_status_list
 
 
-class DescribeAnalysisSchemesResponse(TypedDict):
+class DescribeAnalysisSchemesResponse(TypedDict, closed=True):
     analysis_schemes: (
         "aws_sdk_cloudsearch.types.analysis_scheme_status_list.AnalysisSchemeStatusList"
     )

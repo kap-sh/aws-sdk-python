@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#AccessMethod``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.access_method_type
     import aws_sdk_acm_pca.types.custom_object_identifier
 
 
-class AccessMethod(TypedDict):
+class AccessMethod(TypedDict, closed=True):
     custom_object_identifier: NotRequired[
         "aws_sdk_acm_pca.types.custom_object_identifier.CustomObjectIdentifier"
     ]

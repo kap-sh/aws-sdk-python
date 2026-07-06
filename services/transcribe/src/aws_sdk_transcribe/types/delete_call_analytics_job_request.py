@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#DeleteCallAnalyticsJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.call_analytics_job_name
 
 
-class DeleteCallAnalyticsJobRequest(TypedDict):
+class DeleteCallAnalyticsJobRequest(TypedDict, closed=True):
     call_analytics_job_name: (
         "aws_sdk_transcribe.types.call_analytics_job_name.CallAnalyticsJobName"
     )

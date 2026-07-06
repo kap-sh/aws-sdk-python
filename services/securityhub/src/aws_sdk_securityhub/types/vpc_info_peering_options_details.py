@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#VpcInfoPeeringOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
 
 
-class VpcInfoPeeringOptionsDetails(TypedDict):
+class VpcInfoPeeringOptionsDetails(TypedDict, closed=True):
     allow_dns_resolution_from_remote_vpc: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListMultiRegionEndpointsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token_v2
     import aws_sdk_sesv2.types.page_size_v2
 
 
-class ListMultiRegionEndpointsRequest(TypedDict):
+class ListMultiRegionEndpointsRequest(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sesv2.types.next_token_v2.NextTokenV2"]
     """<p>A token returned from a previous call to <code>ListMultiRegionEndpoints</code> to indicate the position in the list of multi-region endpoints (global-endpoints).</p>"""
     page_size: NotRequired["aws_sdk_sesv2.types.page_size_v2.PageSizeV2"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#RemoveLFTagsFromResourceResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.lf_tag_errors
 
 
-class RemoveLFTagsFromResourceResponse(TypedDict):
+class RemoveLFTagsFromResourceResponse(TypedDict, closed=True):
     failures: NotRequired["aws_sdk_lakeformation.types.lf_tag_errors.LFTagErrors"]
     """<p>A list of failures to untag a resource.</p>"""
 

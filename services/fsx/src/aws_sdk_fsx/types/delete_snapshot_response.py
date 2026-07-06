@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#DeleteSnapshotResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.snapshot_id
     import aws_sdk_fsx.types.snapshot_lifecycle
 
 
-class DeleteSnapshotResponse(TypedDict):
+class DeleteSnapshotResponse(TypedDict, closed=True):
     snapshot_id: NotRequired["aws_sdk_fsx.types.snapshot_id.SnapshotId"]
     """<p>The ID of the deleted snapshot.</p>"""
     lifecycle: NotRequired["aws_sdk_fsx.types.snapshot_lifecycle.SnapshotLifecycle"]

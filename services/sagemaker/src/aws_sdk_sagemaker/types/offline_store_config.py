@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#OfflineStoreConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.boolean
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.table_format
 
 
-class OfflineStoreConfig(TypedDict):
+class OfflineStoreConfig(TypedDict, closed=True):
     s3_storage_config: NotRequired[
         "aws_sdk_sagemaker.types.s3_storage_config.S3StorageConfig"
     ]

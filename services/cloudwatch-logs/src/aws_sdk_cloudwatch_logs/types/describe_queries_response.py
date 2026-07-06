@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#DescribeQueriesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.next_token
     import aws_sdk_cloudwatch_logs.types.query_info_list
 
 
-class DescribeQueriesResponse(TypedDict):
+class DescribeQueriesResponse(TypedDict, closed=True):
     queries: NotRequired["aws_sdk_cloudwatch_logs.types.query_info_list.QueryInfoList"]
     """<p>The list of queries that match the request.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_logs.types.next_token.NextToken"]

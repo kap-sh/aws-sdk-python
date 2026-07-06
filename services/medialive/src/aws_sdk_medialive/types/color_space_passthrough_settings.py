@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#ColorSpacePassthroughSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ColorSpacePassthroughSettings(TypedDict):
+class ColorSpacePassthroughSettings(TypedDict, closed=True):
     pass
 
 

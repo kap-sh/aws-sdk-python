@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#Connection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class Connection(TypedDict):
+class Connection(TypedDict, closed=True):
     replication_instance_arn: NotRequired[
         "aws_sdk_database_migration_service.types.string.String"
     ]

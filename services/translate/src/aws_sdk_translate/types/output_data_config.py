@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#OutputDataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_translate.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.s3_uri
 
 
-class OutputDataConfig(TypedDict):
+class OutputDataConfig(TypedDict, closed=True):
     s3_uri: "aws_sdk_translate.types.s3_uri.S3Uri"
     """<p>The URI of the S3 folder that contains a translation job's output file. The folder must be in the same Region as the API endpoint that you are calling.</p>"""
     encryption_key: NotRequired["aws_sdk_translate.types.encryption_key.EncryptionKey"]

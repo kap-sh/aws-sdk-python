@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#InferenceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.inference_config_min_provisioned_tps_integer
 
 
-class InferenceConfig(TypedDict):
+class InferenceConfig(TypedDict, closed=True):
     min_provisioned_tps: NotRequired[
         "aws_sdk_customer_profiles.types.inference_config_min_provisioned_tps_integer.InferenceConfigMinProvisionedTPSInteger"
     ]

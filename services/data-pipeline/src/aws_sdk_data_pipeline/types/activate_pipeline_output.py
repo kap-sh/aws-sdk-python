@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ActivatePipelineOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ActivatePipelineOutput(TypedDict):
+class ActivatePipelineOutput(TypedDict, closed=True):
     pass
 
 

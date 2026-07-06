@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#PutAppsListRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_fms.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.tag_list
 
 
-class PutAppsListRequest(TypedDict):
+class PutAppsListRequest(TypedDict, closed=True):
     apps_list: "aws_sdk_fms.types.apps_list_data.AppsListData"
     """<p>The details of the Firewall Manager applications list to be created.</p>"""
     tag_list: NotRequired["aws_sdk_fms.types.tag_list.TagList"]

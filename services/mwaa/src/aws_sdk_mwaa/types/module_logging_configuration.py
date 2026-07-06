@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mwaa#ModuleLoggingConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mwaa.types.cloud_watch_log_group_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mwaa.types.logging_level
 
 
-class ModuleLoggingConfiguration(TypedDict):
+class ModuleLoggingConfiguration(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_mwaa.types.logging_enabled.LoggingEnabled"]
     """<p>Indicates whether the Apache Airflow log type (e.g. <code>DagProcessingLogs</code>) is enabled.</p>"""
     log_level: NotRequired["aws_sdk_mwaa.types.logging_level.LoggingLevel"]

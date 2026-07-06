@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListAssessmentRunAgentsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListAssessmentRunAgentsResponse(TypedDict):
+class ListAssessmentRunAgentsResponse(TypedDict, closed=True):
     assessment_run_agents: (
         "aws_sdk_inspector.types.assessment_run_agent_list.AssessmentRunAgentList"
     )

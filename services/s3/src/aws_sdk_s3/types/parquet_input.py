@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.s3#ParquetInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
 
-class ParquetInput(TypedDict):
+class ParquetInput(TypedDict, closed=True):
     pass
 
 

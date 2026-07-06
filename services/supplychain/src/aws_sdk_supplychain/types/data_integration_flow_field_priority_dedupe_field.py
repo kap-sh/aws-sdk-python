@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#DataIntegrationFlowFieldPriorityDedupeField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_supplychain.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_flow_field_priority_dedupe_sort_order
 
 
-class DataIntegrationFlowFieldPriorityDedupeField(TypedDict):
+class DataIntegrationFlowFieldPriorityDedupeField(TypedDict, closed=True):
     name: "aws_sdk_supplychain.types.data_integration_flow_field_priority_dedupe_field_name.DataIntegrationFlowFieldPriorityDedupeFieldName"
     """<p>The name of the deduplication field. Must exist in the dataset and not be a primary key.</p>"""
     sort_order: "aws_sdk_supplychain.types.data_integration_flow_field_priority_dedupe_sort_order.DataIntegrationFlowFieldPriorityDedupeSortOrder"

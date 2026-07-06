@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#StartConfigurationChecksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm_sap.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.configuration_check_type_list
 
 
-class StartConfigurationChecksInput(TypedDict):
+class StartConfigurationChecksInput(TypedDict, closed=True):
     application_id: "aws_sdk_ssm_sap.types.application_id.ApplicationId"
     """<p>The ID of the application.</p>"""
     configuration_check_ids: NotRequired[

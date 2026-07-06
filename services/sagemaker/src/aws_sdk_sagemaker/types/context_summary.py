@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ContextSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.context_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ContextSummary(TypedDict):
+class ContextSummary(TypedDict, closed=True):
     context_arn: NotRequired["aws_sdk_sagemaker.types.context_arn.ContextArn"]
     """<p>The Amazon Resource Name (ARN) of the context.</p>"""
     context_name: NotRequired["aws_sdk_sagemaker.types.context_name.ContextName"]

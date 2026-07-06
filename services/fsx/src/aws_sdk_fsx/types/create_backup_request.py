@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateBackupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.volume_id
 
 
-class CreateBackupRequest(TypedDict):
+class CreateBackupRequest(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_fsx.types.file_system_id.FileSystemId"]
     """<p>The ID of the file system to back up.</p>"""
     client_request_token: NotRequired[

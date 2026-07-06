@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#CreateIdentityProviderResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.subresource_arn
 
 
-class CreateIdentityProviderResponse(TypedDict):
+class CreateIdentityProviderResponse(TypedDict, closed=True):
     identity_provider_arn: "aws_sdk_workspaces_web.types.subresource_arn.SubresourceARN"
     """<p>The ARN of the identity provider.</p>"""
 

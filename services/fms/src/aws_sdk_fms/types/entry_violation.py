@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fms#EntryViolation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fms.types.entries_with_conflicts
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_fms.types.length_bounded_string
 
 
-class EntryViolation(TypedDict):
+class EntryViolation(TypedDict, closed=True):
     expected_entry: NotRequired["aws_sdk_fms.types.entry_description.EntryDescription"]
     """<p>The Firewall Manager-managed network ACL entry that is involved in the entry violation. </p>"""
     expected_evaluation_order: NotRequired[

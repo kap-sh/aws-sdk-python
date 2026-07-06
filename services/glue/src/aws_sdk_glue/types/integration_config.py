@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IntegrationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.continuous_sync
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string128
 
 
-class IntegrationConfig(TypedDict):
+class IntegrationConfig(TypedDict, closed=True):
     refresh_interval: NotRequired["aws_sdk_glue.types.string128.String128"]
     """<p>Specifies the frequency at which CDC (Change Data Capture) pulls or incremental loads should occur. This parameter provides flexibility to align the refresh rate with your specific data update patterns, system load considerations, and performance optimization goals. Time increment can be set from 15 minutes to 8640 minutes (six days).</p>"""
     source_properties: NotRequired[

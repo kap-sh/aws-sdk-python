@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListedUser``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_name
 
 
-class ListedUser(TypedDict):
+class ListedUser(TypedDict, closed=True):
     arn: "aws_sdk_transfer.types.arn.Arn"
     """<p>Provides the unique Amazon Resource Name (ARN) for the user that you want to learn about.</p>"""
     home_directory: NotRequired["aws_sdk_transfer.types.home_directory.HomeDirectory"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2ClientVpnEndpointConnectionLogOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2ClientVpnEndpointConnectionLogOptionsDetails(TypedDict):
+class AwsEc2ClientVpnEndpointConnectionLogOptionsDetails(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Indicates whether client connection logging is enabled for the Client VPN endpoint. </p>"""
     cloudwatch_log_group: NotRequired[

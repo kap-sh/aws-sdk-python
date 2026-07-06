@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateNamedQueryOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateNamedQueryOutput(TypedDict):
+class UpdateNamedQueryOutput(TypedDict, closed=True):
     pass
 
 

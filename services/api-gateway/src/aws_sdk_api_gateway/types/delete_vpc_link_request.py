@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#DeleteVpcLinkRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.string
 
 
-class DeleteVpcLinkRequest(TypedDict):
+class DeleteVpcLinkRequest(TypedDict, closed=True):
     vpc_link_id: "aws_sdk_api_gateway.types.string.String"
     """<p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>"""
 

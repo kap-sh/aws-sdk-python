@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftdata#ColumnMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.bool
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_data.types.string
 
 
-class ColumnMetadata(TypedDict):
+class ColumnMetadata(TypedDict, closed=True):
     is_case_sensitive: "aws_sdk_redshift_data.types.bool.bool"
     """<p>A value that indicates whether the column is case-sensitive. </p>"""
     is_currency: "aws_sdk_redshift_data.types.bool.bool"

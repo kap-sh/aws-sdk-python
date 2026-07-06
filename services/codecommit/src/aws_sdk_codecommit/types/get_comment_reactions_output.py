@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#GetCommentReactionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.reactions_for_comment_list
 
 
-class GetCommentReactionsOutput(TypedDict):
+class GetCommentReactionsOutput(TypedDict, closed=True):
     reactions_for_comment: (
         "aws_sdk_codecommit.types.reactions_for_comment_list.ReactionsForCommentList"
     )

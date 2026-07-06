@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListBotsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_summary_list
     import aws_sdk_lex_models_v2.types.next_token
 
 
-class ListBotsResponse(TypedDict):
+class ListBotsResponse(TypedDict, closed=True):
     bot_summaries: NotRequired[
         "aws_sdk_lex_models_v2.types.bot_summary_list.BotSummaryList"
     ]

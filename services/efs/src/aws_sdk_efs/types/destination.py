@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.efs#Destination``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_efs.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_efs.types.timestamp
 
 
-class Destination(TypedDict):
+class Destination(TypedDict, closed=True):
     status: "aws_sdk_efs.types.replication_status.ReplicationStatus"
     r"""<p>Describes the status of the replication configuration. For more information about replication status, see <a href=\"https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html\">Viewing replication details</a> in the <i>Amazon EFS User Guide</i>. </p>"""
     file_system_id: "aws_sdk_efs.types.file_system_id.FileSystemId"

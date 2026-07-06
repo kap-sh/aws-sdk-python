@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#GetDataProtectionPolicyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 from aws_sdk_sns.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.topic_arn
 
 
-class GetDataProtectionPolicyInput(TypedDict):
+class GetDataProtectionPolicyInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_sns.types.topic_arn.topicARN"
     r"""<p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>"""
 

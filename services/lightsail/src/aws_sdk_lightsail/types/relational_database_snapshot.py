@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#RelationalDatabaseSnapshot``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.integer
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lightsail.types.tag_list
 
 
-class RelationalDatabaseSnapshot(TypedDict):
+class RelationalDatabaseSnapshot(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.resource_name.ResourceName"]
     """<p>The name of the database snapshot.</p>"""
     arn: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

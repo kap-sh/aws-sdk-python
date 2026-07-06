@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourcegroups#GroupResourcesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.failed_resource_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_groups.types.resource_arn_list
 
 
-class GroupResourcesOutput(TypedDict):
+class GroupResourcesOutput(TypedDict, closed=True):
     succeeded: NotRequired[
         "aws_sdk_resource_groups.types.resource_arn_list.ResourceArnList"
     ]

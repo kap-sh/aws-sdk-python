@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateMlflowAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.account_default_status
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.weekly_maintenance_window_start
 
 
-class CreateMlflowAppRequest(TypedDict):
+class CreateMlflowAppRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.mlflow_app_name.MlflowAppName"]
     """<p>A string identifying the MLflow app name. This string is not part of the tracking server ARN.</p>"""
     artifact_store_uri: NotRequired["aws_sdk_sagemaker.types.s3_uri.S3Uri"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#StaticImageOutputActivateScheduleActionSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__integer_min0
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.input_location
 
 
-class StaticImageOutputActivateScheduleActionSettings(TypedDict):
+class StaticImageOutputActivateScheduleActionSettings(TypedDict, closed=True):
     duration: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]
     """The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated."""
     fade_in: NotRequired["aws_sdk_medialive.types.__integer_min0.__integerMin0"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resourceexplorer2#OrgConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resource_explorer_2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_resource_explorer_2.types.aws_service_access_status
 
 
-class OrgConfiguration(TypedDict):
+class OrgConfiguration(TypedDict, closed=True):
     aws_service_access_status: "aws_sdk_resource_explorer_2.types.aws_service_access_status.AWSServiceAccessStatus"
     """<p>This value displays whether your Amazon Web Services service access is <code>ENABLED</code> or <code>DISABLED</code>.</p>"""
     service_linked_role: NotRequired["str"]

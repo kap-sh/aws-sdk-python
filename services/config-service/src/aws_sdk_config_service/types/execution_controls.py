@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.configservice#ExecutionControls``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_config_service.types.ssm_controls
 
 
-class ExecutionControls(TypedDict):
+class ExecutionControls(TypedDict, closed=True):
     ssm_controls: NotRequired["aws_sdk_config_service.types.ssm_controls.SsmControls"]
     """<p>A SsmControls object.</p>"""
 

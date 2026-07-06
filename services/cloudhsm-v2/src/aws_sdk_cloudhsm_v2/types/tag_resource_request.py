@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudhsm_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.tag_list
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_id: "aws_sdk_cloudhsm_v2.types.resource_id.ResourceId"
     """<p>The cluster identifier (ID) for the cluster that you are tagging. To find the cluster ID, use <a>DescribeClusters</a>.</p>"""
     tag_list: "aws_sdk_cloudhsm_v2.types.tag_list.TagList"

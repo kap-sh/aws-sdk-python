@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costandusagereportservice#ReportStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_and_usage_report_service.types.last_delivery
     import aws_sdk_cost_and_usage_report_service.types.last_status
 
 
-class ReportStatus(TypedDict):
+class ReportStatus(TypedDict, closed=True):
     last_delivery: NotRequired[
         "aws_sdk_cost_and_usage_report_service.types.last_delivery.LastDelivery"
     ]

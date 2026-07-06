@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeviceStats``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.long
 
 
-class DeviceStats(TypedDict):
+class DeviceStats(TypedDict, closed=True):
     connected_device_count: NotRequired["aws_sdk_sagemaker.types.long.Long"]
     """<p>The number of devices connected with a heartbeat.</p>"""
     registered_device_count: NotRequired["aws_sdk_sagemaker.types.long.Long"]

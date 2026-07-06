@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#PutContainerRecipePolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.resource_policy_document
 
 
-class PutContainerRecipePolicyRequest(TypedDict):
+class PutContainerRecipePolicyRequest(TypedDict, closed=True):
     container_recipe_arn: (
         "aws_sdk_imagebuilder.types.container_recipe_arn.ContainerRecipeArn"
     )

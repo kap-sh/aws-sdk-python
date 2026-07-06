@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatch#PutAnomalyDetectorOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch._protocol.xml import Element
 
 
-class PutAnomalyDetectorOutput(TypedDict):
+class PutAnomalyDetectorOutput(TypedDict, closed=True):
     pass
 
 

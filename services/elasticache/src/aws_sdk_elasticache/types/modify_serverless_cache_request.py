@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#ModifyServerlessCacheRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class ModifyServerlessCacheRequest(TypedDict):
+class ModifyServerlessCacheRequest(TypedDict, closed=True):
     serverless_cache_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     """<p>User-provided identifier for the serverless cache to be modified.</p>"""
     description: NotRequired["aws_sdk_elasticache.types.string.String"]

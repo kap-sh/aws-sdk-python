@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#StopEngagementResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class StopEngagementResult(TypedDict):
+class StopEngagementResult(TypedDict, closed=True):
     pass
 
 

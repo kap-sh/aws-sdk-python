@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#ListTasksInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.task_state
 
 
-class ListTasksInput(TypedDict):
+class ListTasksInput(TypedDict, closed=True):
     state: NotRequired["aws_sdk_snow_device_management.types.task_state.TaskState"]
     """<p>A structure used to filter the list of tasks.</p>"""
     max_results: NotRequired[

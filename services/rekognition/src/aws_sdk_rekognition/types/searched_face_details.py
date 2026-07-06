@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#SearchedFaceDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.face_detail
 
 
-class SearchedFaceDetails(TypedDict):
+class SearchedFaceDetails(TypedDict, closed=True):
     face_detail: NotRequired["aws_sdk_rekognition.types.face_detail.FaceDetail"]
 
 

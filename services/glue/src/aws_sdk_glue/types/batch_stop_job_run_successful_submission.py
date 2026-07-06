@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#BatchStopJobRunSuccessfulSubmission``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.id_string
     import aws_sdk_glue.types.name_string
 
 
-class BatchStopJobRunSuccessfulSubmission(TypedDict):
+class BatchStopJobRunSuccessfulSubmission(TypedDict, closed=True):
     job_name: NotRequired["aws_sdk_glue.types.name_string.NameString"]
     """<p>The name of the job definition used in the job run that was stopped.</p>"""
     job_run_id: NotRequired["aws_sdk_glue.types.id_string.IdString"]

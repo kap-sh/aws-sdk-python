@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#AccessDeniedException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError, ServiceError
 
 
-class AccessDeniedException_(TypedDict):
+class AccessDeniedException_(TypedDict, closed=True):
     message: "str"
     """<p>An error message explaining why access was denied.</p>"""
 

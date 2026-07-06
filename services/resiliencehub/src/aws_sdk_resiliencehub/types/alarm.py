@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#Alarm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.arn
     import aws_sdk_resiliencehub.types.string255
 
 
-class Alarm(TypedDict):
+class Alarm(TypedDict, closed=True):
     alarm_arn: NotRequired["aws_sdk_resiliencehub.types.arn.Arn"]
     """<p>Amazon Resource Name (ARN) of the Amazon CloudWatch alarm.</p>"""
     source: NotRequired["aws_sdk_resiliencehub.types.string255.String255"]

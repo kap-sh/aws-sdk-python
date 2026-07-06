@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#IngressAccessLogs``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__string
 
 
-class IngressAccessLogs(TypedDict):
+class IngressAccessLogs(TypedDict, closed=True):
     log_group_name: NotRequired["aws_sdk_mediapackage.types.__string.__string"]
     """Customize the log group name."""
 

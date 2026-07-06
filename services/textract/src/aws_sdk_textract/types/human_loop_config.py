@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#HumanLoopConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_textract.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.human_loop_name
 
 
-class HumanLoopConfig(TypedDict):
+class HumanLoopConfig(TypedDict, closed=True):
     human_loop_name: "aws_sdk_textract.types.human_loop_name.HumanLoopName"
     """<p>The name of the human workflow used for this image. This should be kept unique within a region.</p>"""
     flow_definition_arn: "aws_sdk_textract.types.flow_definition_arn.FlowDefinitionArn"

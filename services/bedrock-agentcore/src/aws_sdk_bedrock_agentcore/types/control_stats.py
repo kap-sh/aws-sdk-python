@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ControlStats``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class ControlStats(TypedDict):
+class ControlStats(TypedDict, closed=True):
     variant_name: "str"
     """<p>The name of the control variant.</p>"""
     sample_size: "int"

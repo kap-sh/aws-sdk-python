@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.translate#ListTextTranslationJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_translate.types.max_results_integer
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_translate.types.text_translation_job_filter
 
 
-class ListTextTranslationJobsRequest(TypedDict):
+class ListTextTranslationJobsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_translate.types.text_translation_job_filter.TextTranslationJobFilter"
     ]

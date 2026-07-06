@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetCapacityAssignmentConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.capacity_reservation_name
 
 
-class GetCapacityAssignmentConfigurationInput(TypedDict):
+class GetCapacityAssignmentConfigurationInput(TypedDict, closed=True):
     capacity_reservation_name: (
         "aws_sdk_athena.types.capacity_reservation_name.CapacityReservationName"
     )

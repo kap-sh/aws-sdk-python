@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptune#GlobalClustersMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptune._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptune.types.string
 
 
-class GlobalClustersMessage(TypedDict):
+class GlobalClustersMessage(TypedDict, closed=True):
     marker: NotRequired["aws_sdk_neptune.types.string.String"]
     """<p>A pagination token. If this parameter is returned in the response, more records are available, which can be retrieved by one or more additional calls to <code>DescribeGlobalClusters</code>.</p>"""
     global_clusters: NotRequired[

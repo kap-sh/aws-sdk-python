@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#DeleteConnectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.clean_session
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.prevent_will_message
 
 
-class DeleteConnectionRequest(TypedDict):
+class DeleteConnectionRequest(TypedDict, closed=True):
     client_id: "aws_sdk_iot_data_plane.types.client_id.ClientId"
     """<p>The unique identifier of the MQTT client to disconnect. The client ID can't start with a dollar sign ($).</p> <p>MQTT client IDs must be URL encoded (percent-encoded) when they contain characters that are not valid in HTTP requests, such as spaces, forward slashes (/), and UTF-8 characters.</p>"""
     clean_session: "aws_sdk_iot_data_plane.types.clean_session.CleanSession"

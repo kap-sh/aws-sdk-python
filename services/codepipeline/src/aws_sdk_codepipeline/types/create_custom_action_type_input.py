@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#CreateCustomActionTypeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codepipeline.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.version
 
 
-class CreateCustomActionTypeInput(TypedDict):
+class CreateCustomActionTypeInput(TypedDict, closed=True):
     category: "aws_sdk_codepipeline.types.action_category.ActionCategory"
     """<p>The category of the custom action, such as a build action or a test action.</p>"""
     provider: "aws_sdk_codepipeline.types.action_provider.ActionProvider"

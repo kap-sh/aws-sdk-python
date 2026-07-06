@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ExecuteStatementInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_dynamodb.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.return_values_on_condition_check_failure
 
 
-class ExecuteStatementInput(TypedDict):
+class ExecuteStatementInput(TypedDict, closed=True):
     statement: "aws_sdk_dynamodb.types.parti_ql_statement.PartiQLStatement"
     """<p>The PartiQL statement representing the operation to run.</p>"""
     parameters: NotRequired[

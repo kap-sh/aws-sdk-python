@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#DailyVolume``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.domain_isp_placements
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.volume_statistics
 
 
-class DailyVolume(TypedDict):
+class DailyVolume(TypedDict, closed=True):
     start_date: NotRequired["aws_sdk_pinpoint_email.types.timestamp.Timestamp"]
     """<p>The date that the DailyVolume metrics apply to, in Unix time.</p>"""
     volume_statistics: NotRequired[

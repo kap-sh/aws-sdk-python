@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#GeoMatchSetUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.geo_match_constraint
 
 
-class GeoMatchSetUpdate(TypedDict):
+class GeoMatchSetUpdate(TypedDict, closed=True):
     action: "aws_sdk_waf.types.change_action.ChangeAction"
     """<p>Specifies whether to insert or delete a country with <a>UpdateGeoMatchSet</a>.</p>"""
     geo_match_constraint: "aws_sdk_waf.types.geo_match_constraint.GeoMatchConstraint"

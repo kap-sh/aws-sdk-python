@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#ModuleInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.type_hierarchy
 
 
-class ModuleInfo(TypedDict):
+class ModuleInfo(TypedDict, closed=True):
     type_hierarchy: NotRequired[
         "aws_sdk_cloudformation.types.type_hierarchy.TypeHierarchy"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#UpdateFleetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.arn
@@ -24,7 +24,7 @@ if TYPE_CHECKING:
     import aws_sdk_appstream.types.vpc_config
 
 
-class UpdateFleetRequest(TypedDict):
+class UpdateFleetRequest(TypedDict, closed=True):
     image_name: NotRequired["aws_sdk_appstream.types.string.String"]
     """<p>The name of the image used to create the fleet.</p>"""
     image_arn: NotRequired["aws_sdk_appstream.types.arn.Arn"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#FindingsStatistics``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.unused_access_findings_statistics
 
 
-class _FindingsStatistics_externalAccessFindingsStatistics(TypedDict):
+class _FindingsStatistics_externalAccessFindingsStatistics(TypedDict, closed=True):
     externalAccessFindingsStatistics: "aws_sdk_accessanalyzer.types.external_access_findings_statistics.ExternalAccessFindingsStatistics"
 
 
-class _FindingsStatistics_internalAccessFindingsStatistics(TypedDict):
+class _FindingsStatistics_internalAccessFindingsStatistics(TypedDict, closed=True):
     internalAccessFindingsStatistics: "aws_sdk_accessanalyzer.types.internal_access_findings_statistics.InternalAccessFindingsStatistics"
 
 
-class _FindingsStatistics_unusedAccessFindingsStatistics(TypedDict):
+class _FindingsStatistics_unusedAccessFindingsStatistics(TypedDict, closed=True):
     unusedAccessFindingsStatistics: "aws_sdk_accessanalyzer.types.unused_access_findings_statistics.UnusedAccessFindingsStatistics"
 
 

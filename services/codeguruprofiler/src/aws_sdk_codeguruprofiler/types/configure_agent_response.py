@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeguruprofiler#ConfigureAgentResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguruprofiler.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguruprofiler.types.agent_configuration
 
 
-class ConfigureAgentResponse(TypedDict):
+class ConfigureAgentResponse(TypedDict, closed=True):
     configuration: (
         "aws_sdk_codeguruprofiler.types.agent_configuration.AgentConfiguration"
     )

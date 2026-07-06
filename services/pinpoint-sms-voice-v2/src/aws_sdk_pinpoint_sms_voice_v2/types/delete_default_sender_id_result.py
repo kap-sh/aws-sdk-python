@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteDefaultSenderIdResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_sms_voice_v2.types.configuration_set_name
     import aws_sdk_pinpoint_sms_voice_v2.types.sender_id
 
 
-class DeleteDefaultSenderIdResult(TypedDict):
+class DeleteDefaultSenderIdResult(TypedDict, closed=True):
     configuration_set_arn: NotRequired["str"]
     """<p>The Amazon Resource Name (ARN) of the configuration set.</p>"""
     configuration_set_name: NotRequired[

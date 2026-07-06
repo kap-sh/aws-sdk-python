@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.string
 
 
-class ActionSummary(TypedDict):
+class ActionSummary(TypedDict, closed=True):
     action_identifier: NotRequired["aws_sdk_qbusiness.types.string.String"]
     """<p>The identifier of an Amazon Q Business plugin action.</p>"""
     display_name: NotRequired["aws_sdk_qbusiness.types.string.String"]

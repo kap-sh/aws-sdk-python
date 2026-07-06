@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#AmazonRedshiftAdvancedOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.generic_string
 
 
-class AmazonRedshiftAdvancedOption(TypedDict):
+class AmazonRedshiftAdvancedOption(TypedDict, closed=True):
     key: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]
     """<p>The key for the additional connection option.</p>"""
     value: NotRequired["aws_sdk_glue.types.generic_string.GenericString"]

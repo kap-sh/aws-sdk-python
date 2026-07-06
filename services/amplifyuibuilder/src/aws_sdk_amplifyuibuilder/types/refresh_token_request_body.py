@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#RefreshTokenRequestBody``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.sensitive_string
 
 
-class RefreshTokenRequestBody(TypedDict):
+class RefreshTokenRequestBody(TypedDict, closed=True):
     token: "aws_sdk_amplifyuibuilder.types.sensitive_string.SensitiveString"
     """<p>The token to use to refresh a previously issued access token that might have expired.</p>"""
     client_id: NotRequired[

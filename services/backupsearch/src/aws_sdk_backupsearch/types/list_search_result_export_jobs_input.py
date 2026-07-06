@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ListSearchResultExportJobsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backupsearch.types.export_job_status
     import aws_sdk_backupsearch.types.generic_id
 
 
-class ListSearchResultExportJobsInput(TypedDict):
+class ListSearchResultExportJobsInput(TypedDict, closed=True):
     status: NotRequired["aws_sdk_backupsearch.types.export_job_status.ExportJobStatus"]
     """<p>The search jobs to be included in the export job can be filtered by including this parameter.</p>"""
     search_job_identifier: NotRequired[

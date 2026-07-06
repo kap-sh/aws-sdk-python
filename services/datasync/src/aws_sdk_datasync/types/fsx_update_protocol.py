@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#FsxUpdateProtocol``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.fsx_protocol_nfs
     import aws_sdk_datasync.types.fsx_update_protocol_smb
 
 
-class FsxUpdateProtocol(TypedDict):
+class FsxUpdateProtocol(TypedDict, closed=True):
     nfs: NotRequired["aws_sdk_datasync.types.fsx_protocol_nfs.FsxProtocolNfs"]
     smb: NotRequired[
         "aws_sdk_datasync.types.fsx_update_protocol_smb.FsxUpdateProtocolSmb"

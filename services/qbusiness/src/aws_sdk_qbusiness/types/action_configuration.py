@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qbusiness.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.q_iam_action
 
 
-class ActionConfiguration(TypedDict):
+class ActionConfiguration(TypedDict, closed=True):
     action: "aws_sdk_qbusiness.types.q_iam_action.QIamAction"
     """<p>The Amazon Q Business action that is allowed.</p>"""
     filter_configuration: NotRequired[

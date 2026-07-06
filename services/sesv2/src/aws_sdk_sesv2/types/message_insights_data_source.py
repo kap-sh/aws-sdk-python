@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#MessageInsightsDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.timestamp
 
 
-class MessageInsightsDataSource(TypedDict):
+class MessageInsightsDataSource(TypedDict, closed=True):
     start_date: "aws_sdk_sesv2.types.timestamp.Timestamp"
     """<p>Represents the start date for the export interval as a timestamp. The start date is inclusive.</p>"""
     end_date: "aws_sdk_sesv2.types.timestamp.Timestamp"

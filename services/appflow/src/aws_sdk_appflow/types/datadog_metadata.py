@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#DatadogMetadata``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DatadogMetadata(TypedDict):
+class DatadogMetadata(TypedDict, closed=True):
     pass
 
 

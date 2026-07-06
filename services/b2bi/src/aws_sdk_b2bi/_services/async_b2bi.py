@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#B2BI``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import AsyncBaseHandler, AsyncClient
 
 import aws_sdk_b2bi._auth._signers
@@ -68,7 +68,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.untag_resource_request
 
 
-class Asyncb2biClientConfig(TypedDict, total=False):
+class Asyncb2biClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[AsyncInterceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

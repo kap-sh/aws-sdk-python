@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#BuiltinSlotTypeMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.builtin_slot_type_signature
     import aws_sdk_lex_model_building_service.types.locale_list
 
 
-class BuiltinSlotTypeMetadata(TypedDict):
+class BuiltinSlotTypeMetadata(TypedDict, closed=True):
     signature: NotRequired[
         "aws_sdk_lex_model_building_service.types.builtin_slot_type_signature.BuiltinSlotTypeSignature"
     ]

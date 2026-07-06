@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#GetInvoicePDFRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_invoicing.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.string_without_new_line
 
 
-class GetInvoicePDFRequest(TypedDict):
+class GetInvoicePDFRequest(TypedDict, closed=True):
     invoice_id: "aws_sdk_invoicing.types.string_without_new_line.StringWithoutNewLine"
     """<p> Your unique invoice ID. </p>"""
 

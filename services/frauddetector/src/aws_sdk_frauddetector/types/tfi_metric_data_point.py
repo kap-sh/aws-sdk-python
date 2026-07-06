@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#TFIMetricDataPoint``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.float
 
 
-class TFIMetricDataPoint(TypedDict):
+class TFIMetricDataPoint(TypedDict, closed=True):
     fpr: NotRequired["aws_sdk_frauddetector.types.float.float"]
     """<p> The false positive rate. This is the percentage of total legitimate events that are incorrectly predicted as fraud. </p>"""
     precision: NotRequired["aws_sdk_frauddetector.types.float.float"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ServiceUnavailableException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.non_blank_string
 
 
-class ServiceUnavailableException_(TypedDict):
+class ServiceUnavailableException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_bedrock.types.non_blank_string.NonBlankString"]
 
 

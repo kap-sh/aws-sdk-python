@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsCloudFrontDistributionOriginGroupFailoverStatusCodes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_cloud_front_distribution_origin_group_failover_status_codes_item_list
     import aws_sdk_securityhub.types.integer
 
 
-class AwsCloudFrontDistributionOriginGroupFailoverStatusCodes(TypedDict):
+class AwsCloudFrontDistributionOriginGroupFailoverStatusCodes(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_securityhub.types.aws_cloud_front_distribution_origin_group_failover_status_codes_item_list.AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList"
     ]

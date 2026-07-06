@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_ec2_launch_template_data_network_interface_set_ipv4_prefixes_list
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string_list
 
 
-class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails(TypedDict):
+class AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails(TypedDict, closed=True):
     associate_carrier_ip_address: NotRequired[
         "aws_sdk_securityhub.types.boolean.Boolean"
     ]

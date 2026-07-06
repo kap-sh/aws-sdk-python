@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.keyspacesstreams#IteratorDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_keyspacesstreams.types.iterator_position
 
 
-class IteratorDescription(TypedDict):
+class IteratorDescription(TypedDict, closed=True):
     iterator_position: NotRequired[
         "aws_sdk_keyspacesstreams.types.iterator_position.IteratorPosition"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CreateCustomPluginRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.tags
 
 
-class CreateCustomPluginRequest(TypedDict):
+class CreateCustomPluginRequest(TypedDict, closed=True):
     content_type: (
         "aws_sdk_kafkaconnect.types.custom_plugin_content_type.CustomPluginContentType"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeploymentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.deployment_state
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_appconfig.types.version_label
 
 
-class DeploymentSummary(TypedDict):
+class DeploymentSummary(TypedDict, closed=True):
     deployment_number: "aws_sdk_appconfig.types.integer.Integer"
     """<p>The sequence number of the deployment.</p>"""
     configuration_name: NotRequired["aws_sdk_appconfig.types.name.Name"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#Address``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.address_id
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class Address(TypedDict):
+class Address(TypedDict, closed=True):
     address_id: NotRequired["aws_sdk_snowball.types.address_id.AddressId"]
     """<p>The unique ID for an address.</p>"""
     name: NotRequired["aws_sdk_snowball.types.string.String"]

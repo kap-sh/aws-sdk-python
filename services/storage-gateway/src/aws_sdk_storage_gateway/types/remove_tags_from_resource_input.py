@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#RemoveTagsFromResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.tag_keys
 
 
-class RemoveTagsFromResourceInput(TypedDict):
+class RemoveTagsFromResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_storage_gateway.types.resource_arn.ResourceARN"
     """<p>The Amazon Resource Name (ARN) of the resource you want to remove the tags from.</p>"""
     tag_keys: "aws_sdk_storage_gateway.types.tag_keys.TagKeys"

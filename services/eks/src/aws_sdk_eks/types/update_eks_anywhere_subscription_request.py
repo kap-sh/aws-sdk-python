@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateEksAnywhereSubscriptionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.boolean
     import aws_sdk_eks.types.string
 
 
-class UpdateEksAnywhereSubscriptionRequest(TypedDict):
+class UpdateEksAnywhereSubscriptionRequest(TypedDict, closed=True):
     id: "aws_sdk_eks.types.string.String"
     """<p>The ID of the subscription.</p>"""
     auto_renew: "aws_sdk_eks.types.boolean.Boolean"

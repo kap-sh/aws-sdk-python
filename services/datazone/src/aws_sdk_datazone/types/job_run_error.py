@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#JobRunError``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
 
-class JobRunError(TypedDict):
+class JobRunError(TypedDict, closed=True):
     message: "str"
     """<p>The job run error message.</p>"""
 

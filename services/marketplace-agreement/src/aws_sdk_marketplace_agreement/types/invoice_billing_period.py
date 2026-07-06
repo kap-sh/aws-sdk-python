@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#InvoiceBillingPeriod``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
 
-class InvoiceBillingPeriod(TypedDict):
+class InvoiceBillingPeriod(TypedDict, closed=True):
     month: "int"
     """<p>The billing period month. Valid range: 1-12.</p>"""
     year: "int"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#PartitionValueList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lakeformation.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.value_string_list
 
 
-class PartitionValueList(TypedDict):
+class PartitionValueList(TypedDict, closed=True):
     values: "aws_sdk_lakeformation.types.value_string_list.ValueStringList"
     """<p>The list of partition values.</p>"""
 

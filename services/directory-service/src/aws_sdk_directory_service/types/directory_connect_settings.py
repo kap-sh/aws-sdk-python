@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#DirectoryConnectSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.vpc_id
 
 
-class DirectoryConnectSettings(TypedDict):
+class DirectoryConnectSettings(TypedDict, closed=True):
     vpc_id: "aws_sdk_directory_service.types.vpc_id.VpcId"
     """<p>The identifier of the VPC in which the AD Connector is created.</p>"""
     subnet_ids: "aws_sdk_directory_service.types.subnet_ids.SubnetIds"

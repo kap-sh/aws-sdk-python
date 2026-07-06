@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#ListRulesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__string_max64
     import aws_sdk_route53_recovery_readiness.types.__string_max256
 
 
-class ListRulesOutput(TypedDict):
+class ListRulesOutput(TypedDict, closed=True):
     resource_type: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string_max64.__stringMax64"
     ]

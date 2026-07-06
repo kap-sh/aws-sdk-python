@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#EnhancedImageScanFinding``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.date
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.type
 
 
-class EnhancedImageScanFinding(TypedDict):
+class EnhancedImageScanFinding(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_ecr.types.registry_id.RegistryId"]
     """<p>The Amazon Web Services account ID associated with the image.</p>"""
     description: NotRequired["aws_sdk_ecr.types.finding_description.FindingDescription"]

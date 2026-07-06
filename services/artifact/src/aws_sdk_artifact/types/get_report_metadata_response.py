@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.artifact#GetReportMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_artifact.types.report_detail
 
 
-class GetReportMetadataResponse(TypedDict):
+class GetReportMetadataResponse(TypedDict, closed=True):
     report_details: NotRequired["aws_sdk_artifact.types.report_detail.ReportDetail"]
     """<p>Report resource detail.</p>"""
 

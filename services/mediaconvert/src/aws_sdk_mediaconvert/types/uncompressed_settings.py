@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#UncompressedSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min1_max2147483647
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.uncompressed_telecine
 
 
-class UncompressedSettings(TypedDict):
+class UncompressedSettings(TypedDict, closed=True):
     fourcc: NotRequired[
         "aws_sdk_mediaconvert.types.uncompressed_fourcc.UncompressedFourcc"
     ]

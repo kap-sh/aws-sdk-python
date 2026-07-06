@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#FleetAmountCapability``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.amount_capability_name
 
 
-class FleetAmountCapability(TypedDict):
+class FleetAmountCapability(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.amount_capability_name.AmountCapabilityName"
     """<p>The name of the fleet capability.</p>"""
     min: "float"

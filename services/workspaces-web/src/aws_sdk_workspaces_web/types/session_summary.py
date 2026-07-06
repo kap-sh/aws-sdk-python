@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#SessionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.username
 
 
-class SessionSummary(TypedDict):
+class SessionSummary(TypedDict, closed=True):
     portal_arn: NotRequired["aws_sdk_workspaces_web.types.arn.ARN"]
     """<p>The ARN of the web portal.</p>"""
     session_id: NotRequired["aws_sdk_workspaces_web.types.string_type.StringType"]

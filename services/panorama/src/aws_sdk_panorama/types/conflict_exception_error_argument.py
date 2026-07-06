@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#ConflictExceptionErrorArgument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_panorama.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.string
 
 
-class ConflictExceptionErrorArgument(TypedDict):
+class ConflictExceptionErrorArgument(TypedDict, closed=True):
     name: "aws_sdk_panorama.types.string.String"
     """<p>The error argument's name.</p>"""
     value: "aws_sdk_panorama.types.string.String"

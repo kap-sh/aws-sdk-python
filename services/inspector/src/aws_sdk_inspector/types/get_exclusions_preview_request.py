@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#GetExclusionsPreviewRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.uuid
 
 
-class GetExclusionsPreviewRequest(TypedDict):
+class GetExclusionsPreviewRequest(TypedDict, closed=True):
     assessment_template_arn: "aws_sdk_inspector.types.arn.Arn"
     """<p>The ARN that specifies the assessment template for which the exclusions preview was requested.</p>"""
     preview_token: "aws_sdk_inspector.types.uuid.UUID"

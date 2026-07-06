@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StreamUpdate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.automation_stream_update
 
 
-class _StreamUpdate_automationStreamUpdate(TypedDict):
+class _StreamUpdate_automationStreamUpdate(TypedDict, closed=True):
     automationStreamUpdate: "aws_sdk_bedrock_agentcore.types.automation_stream_update.AutomationStreamUpdate"
 
 

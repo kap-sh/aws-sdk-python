@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#TrafficMirrorSession``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class TrafficMirrorSession(TypedDict):
+class TrafficMirrorSession(TypedDict, closed=True):
     traffic_mirror_session_id: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The ID for the Traffic Mirror session.</p>"""
     traffic_mirror_target_id: NotRequired["aws_sdk_ec2.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideoarchivedmedia#DASHTimestampRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video_archived_media.types.timestamp
 
 
-class DASHTimestampRange(TypedDict):
+class DASHTimestampRange(TypedDict, closed=True):
     start_timestamp: NotRequired[
         "aws_sdk_kinesis_video_archived_media.types.timestamp.Timestamp"
     ]

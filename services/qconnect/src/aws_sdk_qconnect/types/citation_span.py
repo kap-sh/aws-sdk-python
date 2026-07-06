@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#CitationSpan``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.citation_span_offset
 
 
-class CitationSpan(TypedDict):
+class CitationSpan(TypedDict, closed=True):
     begin_offset_inclusive: (
         "aws_sdk_qconnect.types.citation_span_offset.CitationSpanOffset"
     )

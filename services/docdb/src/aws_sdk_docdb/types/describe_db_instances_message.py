@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#DescribeDBInstancesMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class DescribeDBInstancesMessage(TypedDict):
+class DescribeDBInstancesMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The user-provided instance identifier. If this parameter is specified, information from only the specific instance is returned. This parameter isn't case sensitive.</p> <p>Constraints:</p> <ul> <li> <p>If provided, must match the identifier of an existing <code>DBInstance</code>.</p> </li> </ul>"""
     filters: NotRequired["aws_sdk_docdb.types.filter_list.FilterList"]

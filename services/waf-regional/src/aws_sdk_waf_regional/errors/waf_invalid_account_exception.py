@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#WAFInvalidAccountException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import ServiceError
 
 
-class WAFInvalidAccountException_(TypedDict):
+class WAFInvalidAccountException_(TypedDict, closed=True):
     pass
 
 

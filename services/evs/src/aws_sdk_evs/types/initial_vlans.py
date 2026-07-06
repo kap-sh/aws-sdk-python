@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.evs#InitialVlans``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_evs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_evs.types.network_acl_id
 
 
-class InitialVlans(TypedDict):
+class InitialVlans(TypedDict, closed=True):
     vmk_management: "aws_sdk_evs.types.initial_vlan_info.InitialVlanInfo"
     """<p> The host VMkernel management VLAN subnet. This VLAN subnet carries traffic for managing ESX hosts and communicating with VMware vCenter Server.</p>"""
     vm_management: "aws_sdk_evs.types.initial_vlan_info.InitialVlanInfo"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#RefreshTokenRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amplifyuibuilder.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amplifyuibuilder.types.token_providers
 
 
-class RefreshTokenRequest(TypedDict):
+class RefreshTokenRequest(TypedDict, closed=True):
     provider: "aws_sdk_amplifyuibuilder.types.token_providers.TokenProviders"
     """<p>The third-party provider for the token. The only valid value is <code>figma</code>.</p>"""
     refresh_token_body: "aws_sdk_amplifyuibuilder.types.refresh_token_request_body.RefreshTokenRequestBody"

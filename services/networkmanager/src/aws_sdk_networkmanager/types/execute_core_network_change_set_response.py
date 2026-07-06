@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ExecuteCoreNetworkChangeSetResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class ExecuteCoreNetworkChangeSetResponse(TypedDict):
+class ExecuteCoreNetworkChangeSetResponse(TypedDict, closed=True):
     pass
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmessaging#PutChannelExpirationSettingsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_messaging.types.chime_arn
     import aws_sdk_chime_sdk_messaging.types.expiration_settings
 
 
-class PutChannelExpirationSettingsResponse(TypedDict):
+class PutChannelExpirationSettingsResponse(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_chime_sdk_messaging.types.chime_arn.ChimeArn"]
     """<p>The channel ARN.</p>"""
     expiration_settings: NotRequired[

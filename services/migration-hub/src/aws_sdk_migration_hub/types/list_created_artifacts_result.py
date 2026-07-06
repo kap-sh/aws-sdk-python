@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhub#ListCreatedArtifactsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migration_hub.types.created_artifact_list
     import aws_sdk_migration_hub.types.token
 
 
-class ListCreatedArtifactsResult(TypedDict):
+class ListCreatedArtifactsResult(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_migration_hub.types.token.Token"]
     """<p>If there are more created artifacts than the max result, return the next token to be passed to the next call as a bookmark of where to start from.</p>"""
     created_artifact_list: NotRequired[

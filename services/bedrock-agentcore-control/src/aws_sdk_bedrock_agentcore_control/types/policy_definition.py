@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#PolicyDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import (
     DeserializationError,
@@ -12,11 +14,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.policy_generation_details
 
 
-class _PolicyDefinition_cedar(TypedDict):
+class _PolicyDefinition_cedar(TypedDict, closed=True):
     cedar: "aws_sdk_bedrock_agentcore_control.types.cedar_policy.CedarPolicy"
 
 
-class _PolicyDefinition_policyGeneration(TypedDict):
+class _PolicyDefinition_policyGeneration(TypedDict, closed=True):
     policyGeneration: "aws_sdk_bedrock_agentcore_control.types.policy_generation_details.PolicyGenerationDetails"
 
 

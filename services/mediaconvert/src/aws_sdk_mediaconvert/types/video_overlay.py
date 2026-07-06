@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoOverlay``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of_video_overlay_transition
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.video_overlay_position
 
 
-class VideoOverlay(TypedDict):
+class VideoOverlay(TypedDict, closed=True):
     crop: NotRequired["aws_sdk_mediaconvert.types.video_overlay_crop.VideoOverlayCrop"]
     """Specify a rectangle of content to crop and use from your video overlay's input video. When you do, MediaConvert uses the cropped dimensions that you specify under X offset, Y offset, Width, and Height."""
     end_timecode: NotRequired[

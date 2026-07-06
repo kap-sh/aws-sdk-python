@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#GetCapabilityResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.resource_arn
 
 
-class GetCapabilityResponse(TypedDict):
+class GetCapabilityResponse(TypedDict, closed=True):
     capability_id: "aws_sdk_b2bi.types.capability_id.CapabilityId"
     """<p>Returns a system-assigned unique identifier for the capability.</p>"""
     capability_arn: "aws_sdk_b2bi.types.resource_arn.ResourceArn"

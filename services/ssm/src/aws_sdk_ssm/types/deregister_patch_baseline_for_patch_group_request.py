@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#DeregisterPatchBaselineForPatchGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_group
 
 
-class DeregisterPatchBaselineForPatchGroupRequest(TypedDict):
+class DeregisterPatchBaselineForPatchGroupRequest(TypedDict, closed=True):
     baseline_id: "aws_sdk_ssm.types.baseline_id.BaselineId"
     """<p>The ID of the patch baseline to deregister the patch group from.</p>"""
     patch_group: "aws_sdk_ssm.types.patch_group.PatchGroup"

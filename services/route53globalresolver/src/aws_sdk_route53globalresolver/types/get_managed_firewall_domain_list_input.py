@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53globalresolver#GetManagedFirewallDomainListInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53globalresolver.types.resource_id
 
 
-class GetManagedFirewallDomainListInput(TypedDict):
+class GetManagedFirewallDomainListInput(TypedDict, closed=True):
     managed_firewall_domain_list_id: (
         "aws_sdk_route53globalresolver.types.resource_id.ResourceId"
     )

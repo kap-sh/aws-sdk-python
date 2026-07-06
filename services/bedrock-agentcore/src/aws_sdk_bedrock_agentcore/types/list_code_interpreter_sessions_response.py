@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ListCodeInterpreterSessionsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.next_token
 
 
-class ListCodeInterpreterSessionsResponse(TypedDict):
+class ListCodeInterpreterSessionsResponse(TypedDict, closed=True):
     items: "aws_sdk_bedrock_agentcore.types.code_interpreter_session_summaries.CodeInterpreterSessionSummaries"
     """<p>The list of code interpreter sessions that match the specified criteria.</p>"""
     next_token: NotRequired["aws_sdk_bedrock_agentcore.types.next_token.NextToken"]

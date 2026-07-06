@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#Certificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class Certificate(TypedDict):
+class Certificate(TypedDict, closed=True):
     data: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>The Base64-encoded certificate data required to communicate with your cluster. Add this to the <code>certificate-authority-data</code> section of the <code>kubeconfig</code> file for your cluster.</p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DescribeEC2InstanceLimitsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.ec2_instance_type
     import aws_sdk_gamelift.types.location_string_model
 
 
-class DescribeEC2InstanceLimitsInput(TypedDict):
+class DescribeEC2InstanceLimitsInput(TypedDict, closed=True):
     ec2_instance_type: NotRequired[
         "aws_sdk_gamelift.types.ec2_instance_type.EC2InstanceType"
     ]

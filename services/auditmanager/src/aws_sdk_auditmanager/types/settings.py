@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#Settings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.assessment_reports_destination
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.sns_topic
 
 
-class Settings(TypedDict):
+class Settings(TypedDict, closed=True):
     is_aws_org_enabled: NotRequired["aws_sdk_auditmanager.types.boolean.Boolean"]
     """<p> Specifies whether Organizations is enabled. </p>"""
     sns_topic: NotRequired["aws_sdk_auditmanager.types.sns_topic.SNSTopic"]

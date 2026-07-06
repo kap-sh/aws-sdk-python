@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#ConfigurationStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.configuration_state
 
 
-class ConfigurationStatus(TypedDict):
+class ConfigurationStatus(TypedDict, closed=True):
     state: "aws_sdk_iotsitewise.types.configuration_state.ConfigurationState"
     """<p>The current state of the configuration.</p>"""
     error: NotRequired[

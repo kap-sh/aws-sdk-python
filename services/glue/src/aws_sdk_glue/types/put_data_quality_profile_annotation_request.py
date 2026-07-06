@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#PutDataQualityProfileAnnotationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.inclusion_annotation_value
 
 
-class PutDataQualityProfileAnnotationRequest(TypedDict):
+class PutDataQualityProfileAnnotationRequest(TypedDict, closed=True):
     profile_id: "aws_sdk_glue.types.hash_string.HashString"
     """<p>The ID of the data quality monitoring profile to annotate.</p>"""
     inclusion_annotation: (

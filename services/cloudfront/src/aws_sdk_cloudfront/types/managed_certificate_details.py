@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ManagedCertificateDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.validation_token_host
 
 
-class ManagedCertificateDetails(TypedDict):
+class ManagedCertificateDetails(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_cloudfront.types.string.string"]
     """<p>The ARN of the CloudFront managed ACM certificate.</p>"""
     certificate_status: NotRequired[

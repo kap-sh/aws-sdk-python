@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StopQueryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.success
 
 
-class StopQueryResponse(TypedDict):
+class StopQueryResponse(TypedDict, closed=True):
     success: "aws_sdk_cloudwatch_logs.types.success.Success"
     """<p>This is true if the query was stopped by the <code>StopQuery</code> operation.</p>"""
 

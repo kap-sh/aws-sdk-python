@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#IPAddressBasedRemoteInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.auth_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class IPAddressBasedRemoteInfo(TypedDict):
+class IPAddressBasedRemoteInfo(TypedDict, closed=True):
     ip_address_configuration_time_stamp: NotRequired[
         "aws_sdk_migrationhubstrategy.types.string.String"
     ]

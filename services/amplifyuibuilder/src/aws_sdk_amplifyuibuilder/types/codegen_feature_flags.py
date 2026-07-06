@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.amplifyuibuilder#CodegenFeatureFlags``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CodegenFeatureFlags(TypedDict):
+class CodegenFeatureFlags(TypedDict, closed=True):
     is_relationship_supported: NotRequired["bool"]
     """<p>Specifes whether a code generation job supports data relationships.</p>"""
     is_non_model_supported: NotRequired["bool"]

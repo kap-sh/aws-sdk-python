@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#BatchConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.batch_across_topics
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.max_batch_size_bytes
 
 
-class BatchConfig(TypedDict):
+class BatchConfig(TypedDict, closed=True):
     max_batch_open_ms: NotRequired["aws_sdk_iot.types.max_batch_open_ms.MaxBatchOpenMs"]
     """<p>The maximum amount of time (in milliseconds) that an outgoing call waits for other calls with which it batches messages of the same type. The higher the setting, the longer the latency of the batched HTTP Action will be.</p>"""
     max_batch_size: NotRequired["aws_sdk_iot.types.max_batch_size.MaxBatchSize"]

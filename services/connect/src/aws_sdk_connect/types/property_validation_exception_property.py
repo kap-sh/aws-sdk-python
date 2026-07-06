@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PropertyValidationExceptionProperty``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.string
 
 
-class PropertyValidationExceptionProperty(TypedDict):
+class PropertyValidationExceptionProperty(TypedDict, closed=True):
     property_path: "aws_sdk_connect.types.string.String"
     """<p>The full property path.</p>"""
     reason: "aws_sdk_connect.types.property_validation_exception_reason.PropertyValidationExceptionReason"

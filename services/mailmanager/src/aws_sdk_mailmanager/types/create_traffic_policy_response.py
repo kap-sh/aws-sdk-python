@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#CreateTrafficPolicyResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.traffic_policy_id
 
 
-class CreateTrafficPolicyResponse(TypedDict):
+class CreateTrafficPolicyResponse(TypedDict, closed=True):
     traffic_policy_id: "aws_sdk_mailmanager.types.traffic_policy_id.TrafficPolicyId"
     """<p>The identifier of the traffic policy resource.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#SsoUserProfileDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.first_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.user_profile_name
 
 
-class SsoUserProfileDetails(TypedDict):
+class SsoUserProfileDetails(TypedDict, closed=True):
     username: NotRequired["aws_sdk_datazone.types.user_profile_name.UserProfileName"]
     """<p>The username as part of the SSO user profile detail. </p>"""
     first_name: NotRequired["aws_sdk_datazone.types.first_name.FirstName"]

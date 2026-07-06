@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#KPISortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.field_sort_options_list
 
 
-class KPISortConfiguration(TypedDict):
+class KPISortConfiguration(TypedDict, closed=True):
     trend_group_sort: NotRequired[
         "aws_sdk_quicksight.types.field_sort_options_list.FieldSortOptionsList"
     ]

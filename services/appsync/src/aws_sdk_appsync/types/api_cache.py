@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#ApiCache``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.api_cache_status
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_appsync.types.long
 
 
-class ApiCache(TypedDict):
+class ApiCache(TypedDict, closed=True):
     ttl: "aws_sdk_appsync.types.long.Long"
     """<p>TTL in seconds for cache entries.</p> <p>Valid values are 1–3,600 seconds.</p>"""
     api_caching_behavior: NotRequired[

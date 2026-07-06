@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LoggingFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.filter_behavior
     import aws_sdk_observabilityadmin.types.filters
 
 
-class LoggingFilter(TypedDict):
+class LoggingFilter(TypedDict, closed=True):
     filters: NotRequired["aws_sdk_observabilityadmin.types.filters.Filters"]
     """<p> A list of filter conditions that determine log record handling behavior. </p>"""
     default_behavior: NotRequired[

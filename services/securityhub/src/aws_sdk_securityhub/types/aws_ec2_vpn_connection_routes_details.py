@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2VpnConnectionRoutesDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2VpnConnectionRoutesDetails(TypedDict):
+class AwsEc2VpnConnectionRoutesDetails(TypedDict, closed=True):
     destination_cidr_block: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

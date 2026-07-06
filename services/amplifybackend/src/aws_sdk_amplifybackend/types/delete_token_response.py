@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#DeleteTokenResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.__boolean
 
 
-class DeleteTokenResponse(TypedDict):
+class DeleteTokenResponse(TypedDict, closed=True):
     is_success: NotRequired["aws_sdk_amplifybackend.types.__boolean.__boolean"]
     """<p>Indicates whether the request succeeded or failed.</p>"""
 

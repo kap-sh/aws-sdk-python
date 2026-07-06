@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CreateEventSourceMappingRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -37,7 +37,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.tumbling_window_in_seconds
 
 
-class CreateEventSourceMappingRequest(TypedDict):
+class CreateEventSourceMappingRequest(TypedDict, closed=True):
     event_source_arn: NotRequired["aws_sdk_lambda.types.arn.Arn"]
     r"""<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> – The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> – The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> – The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc\">cross-account event source mappings</a>).</p> </li> <li> <p> <b>Amazon MQ</b> – The ARN of the broker.</p> </li> <li> <p> <b>Amazon DocumentDB</b> – The ARN of the DocumentDB change stream.</p> </li> </ul>"""
     function_name: (

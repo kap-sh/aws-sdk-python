@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#Occurrences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.cells
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.records
 
 
-class Occurrences(TypedDict):
+class Occurrences(TypedDict, closed=True):
     cells: NotRequired["aws_sdk_macie2.types.cells.Cells"]
     """<p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. This value is null for all other types of files.</p> <p>Each Cell object specifies a cell or field that contains the sensitive data.</p>"""
     line_ranges: NotRequired["aws_sdk_macie2.types.ranges.Ranges"]

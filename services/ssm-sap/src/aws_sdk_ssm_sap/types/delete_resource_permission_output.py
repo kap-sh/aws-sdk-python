@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#DeleteResourcePermissionOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class DeleteResourcePermissionOutput(TypedDict):
+class DeleteResourcePermissionOutput(TypedDict, closed=True):
     policy: NotRequired["str"]
     """<p>The policy that removes permissions on the target database.</p>"""
 

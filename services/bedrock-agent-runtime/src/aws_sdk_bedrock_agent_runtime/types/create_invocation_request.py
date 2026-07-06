@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#CreateInvocationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.invocation_description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.uuid
 
 
-class CreateInvocationRequest(TypedDict):
+class CreateInvocationRequest(TypedDict, closed=True):
     invocation_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.uuid.Uuid"]
     """<p>A unique identifier for the invocation in UUID format.</p>"""
     description: NotRequired[

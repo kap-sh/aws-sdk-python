@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplify#DeleteDomainAssociationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplify.types.app_id
     import aws_sdk_amplify.types.domain_name
 
 
-class DeleteDomainAssociationRequest(TypedDict):
+class DeleteDomainAssociationRequest(TypedDict, closed=True):
     app_id: "aws_sdk_amplify.types.app_id.AppId"
     """<p> The unique id for an Amplify app. </p>"""
     domain_name: "aws_sdk_amplify.types.domain_name.DomainName"

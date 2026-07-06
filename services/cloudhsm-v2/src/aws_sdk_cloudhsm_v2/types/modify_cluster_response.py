@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudhsmv2#ModifyClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudhsm_v2.types.cluster
 
 
-class ModifyClusterResponse(TypedDict):
+class ModifyClusterResponse(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_cloudhsm_v2.types.cluster.Cluster"]
 
 

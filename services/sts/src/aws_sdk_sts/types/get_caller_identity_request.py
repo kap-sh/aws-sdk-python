@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.sts#GetCallerIdentityRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_sts._protocol.xml import Element
 
 
-class GetCallerIdentityRequest(TypedDict):
+class GetCallerIdentityRequest(TypedDict, closed=True):
     pass
 
 

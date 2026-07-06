@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#UserIdentityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.identity_attribute_name
 
 
-class UserIdentityConfiguration(TypedDict):
+class UserIdentityConfiguration(TypedDict, closed=True):
     identity_attribute_name: NotRequired[
         "aws_sdk_kendra.types.identity_attribute_name.IdentityAttributeName"
     ]

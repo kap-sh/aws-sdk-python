@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#LoggingConfigurationMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -12,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.workspace_id
 
 
-class LoggingConfigurationMetadata(TypedDict):
+class LoggingConfigurationMetadata(TypedDict, closed=True):
     status: "aws_sdk_amp.types.logging_configuration_status.LoggingConfigurationStatus"
     """<p>The current status of the logging configuration.</p>"""
     workspace: "aws_sdk_amp.types.workspace_id.WorkspaceId"

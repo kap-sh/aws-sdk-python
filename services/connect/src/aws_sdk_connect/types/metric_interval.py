@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#MetricInterval``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.interval_period
     import aws_sdk_connect.types.timestamp
 
 
-class MetricInterval(TypedDict):
+class MetricInterval(TypedDict, closed=True):
     interval: NotRequired["aws_sdk_connect.types.interval_period.IntervalPeriod"]
     """<p>The interval period provided in the API request. </p>"""
     start_time: NotRequired["aws_sdk_connect.types.timestamp.Timestamp"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#DescribeAllManagedProductsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.managed_product_descriptors
 
 
-class DescribeAllManagedProductsResponse(TypedDict):
+class DescribeAllManagedProductsResponse(TypedDict, closed=True):
     managed_products: NotRequired[
         "aws_sdk_wafv2.types.managed_product_descriptors.ManagedProductDescriptors"
     ]

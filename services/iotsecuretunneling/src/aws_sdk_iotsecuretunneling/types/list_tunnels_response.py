@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsecuretunneling#ListTunnelsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsecuretunneling.types.next_token
     import aws_sdk_iotsecuretunneling.types.tunnel_summary_list
 
 
-class ListTunnelsResponse(TypedDict):
+class ListTunnelsResponse(TypedDict, closed=True):
     tunnel_summaries: NotRequired[
         "aws_sdk_iotsecuretunneling.types.tunnel_summary_list.TunnelSummaryList"
     ]

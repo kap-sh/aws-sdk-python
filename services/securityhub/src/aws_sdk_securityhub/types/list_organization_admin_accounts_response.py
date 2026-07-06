@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#ListOrganizationAdminAccountsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.admin_accounts
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.security_hub_feature
 
 
-class ListOrganizationAdminAccountsResponse(TypedDict):
+class ListOrganizationAdminAccountsResponse(TypedDict, closed=True):
     admin_accounts: NotRequired[
         "aws_sdk_securityhub.types.admin_accounts.AdminAccounts"
     ]

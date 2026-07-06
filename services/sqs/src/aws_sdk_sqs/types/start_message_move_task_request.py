@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sqs#StartMessageMoveTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sqs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sqs.types.string
 
 
-class StartMessageMoveTaskRequest(TypedDict):
+class StartMessageMoveTaskRequest(TypedDict, closed=True):
     source_arn: "aws_sdk_sqs.types.string.String"
     """<p>The ARN of the queue that contains the messages to be moved to another queue. Currently, only ARNs of dead-letter queues (DLQs) whose sources are other Amazon SQS queues are accepted. DLQs whose sources are non-SQS queues, such as Lambda or Amazon SNS topics, are not currently supported.</p>"""
     destination_arn: NotRequired["aws_sdk_sqs.types.string.String"]

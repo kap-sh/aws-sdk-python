@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#ControlSortConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aggregation_sort_configuration
     import aws_sdk_quicksight.types.selectable_values_sort
 
 
-class ControlSortConfiguration(TypedDict):
+class ControlSortConfiguration(TypedDict, closed=True):
     selectable_values_sort: NotRequired[
         "aws_sdk_quicksight.types.selectable_values_sort.SelectableValuesSort"
     ]

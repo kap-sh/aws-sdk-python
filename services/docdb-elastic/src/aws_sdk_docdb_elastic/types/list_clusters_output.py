@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ListClustersOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.cluster_list
     import aws_sdk_docdb_elastic.types.pagination_token
 
 
-class ListClustersOutput(TypedDict):
+class ListClustersOutput(TypedDict, closed=True):
     clusters: NotRequired["aws_sdk_docdb_elastic.types.cluster_list.ClusterList"]
     """<p>A list of Amazon DocumentDB elastic clusters.</p>"""
     next_token: NotRequired[

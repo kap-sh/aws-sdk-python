@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.billingconductor#AssociateAccountsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_billingconductor.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_billingconductor.types.billing_group_arn
 
 
-class AssociateAccountsInput(TypedDict):
+class AssociateAccountsInput(TypedDict, closed=True):
     arn: "aws_sdk_billingconductor.types.billing_group_arn.BillingGroupArn"
     """<p> The Amazon Resource Name (ARN) of the billing group that associates the array of account IDs. </p>"""
     account_ids: "aws_sdk_billingconductor.types.account_id_list.AccountIdList"

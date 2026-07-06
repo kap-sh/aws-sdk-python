@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowdevicemanagement#DescribeDeviceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snow_device_management.types.managed_device_id
 
 
-class DescribeDeviceInput(TypedDict):
+class DescribeDeviceInput(TypedDict, closed=True):
     managed_device_id: (
         "aws_sdk_snow_device_management.types.managed_device_id.ManagedDeviceId"
     )

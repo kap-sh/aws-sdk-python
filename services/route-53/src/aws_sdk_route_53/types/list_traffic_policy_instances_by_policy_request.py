@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#ListTrafficPolicyInstancesByPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.traffic_policy_version
 
 
-class ListTrafficPolicyInstancesByPolicyRequest(TypedDict):
+class ListTrafficPolicyInstancesByPolicyRequest(TypedDict, closed=True):
     traffic_policy_id: "aws_sdk_route_53.types.traffic_policy_id.TrafficPolicyId"
     """<p>The ID of the traffic policy for which you want to list traffic policy instances.</p>"""
     traffic_policy_version: (

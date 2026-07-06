@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#DestinationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lambda.types.on_failure
     import aws_sdk_lambda.types.on_success
 
 
-class DestinationConfig(TypedDict):
+class DestinationConfig(TypedDict, closed=True):
     on_success: NotRequired["aws_sdk_lambda.types.on_success.OnSuccess"]
     """<p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>"""
     on_failure: NotRequired["aws_sdk_lambda.types.on_failure.OnFailure"]

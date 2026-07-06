@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeImageAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_image_id
 
 
-class DescribeImageAssociationsRequest(TypedDict):
+class DescribeImageAssociationsRequest(TypedDict, closed=True):
     image_id: "aws_sdk_workspaces.types.workspace_image_id.WorkspaceImageId"
     """<p>The identifier of the image.</p>"""
     associated_resource_types: "aws_sdk_workspaces.types.image_associated_resource_type_list.ImageAssociatedResourceTypeList"

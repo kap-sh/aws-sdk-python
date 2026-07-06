@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#DescribeClientVpnAuthorizationRulesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.next_token
 
 
-class DescribeClientVpnAuthorizationRulesResult(TypedDict):
+class DescribeClientVpnAuthorizationRulesResult(TypedDict, closed=True):
     authorization_rules: NotRequired[
         "aws_sdk_ec2.types.authorization_rule_set.AuthorizationRuleSet"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.supplychain#ListDataIntegrationEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_supplychain.types.data_integration_event_max_results
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_supplychain.types.uuid
 
 
-class ListDataIntegrationEventsRequest(TypedDict):
+class ListDataIntegrationEventsRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_supplychain.types.uuid.UUID"
     """<p>The Amazon Web Services Supply Chain instance identifier.</p>"""
     event_type: NotRequired[

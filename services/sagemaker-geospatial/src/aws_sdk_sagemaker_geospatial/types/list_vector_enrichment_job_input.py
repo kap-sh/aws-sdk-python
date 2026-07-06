@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakergeospatial#ListVectorEnrichmentJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_geospatial.types.next_token
     import aws_sdk_sagemaker_geospatial.types.sort_order
 
 
-class ListVectorEnrichmentJobInput(TypedDict):
+class ListVectorEnrichmentJobInput(TypedDict, closed=True):
     status_equals: NotRequired["str"]
     """<p>A filter that retrieves only jobs with a specific status.</p>"""
     sort_order: NotRequired["aws_sdk_sagemaker_geospatial.types.sort_order.SortOrder"]

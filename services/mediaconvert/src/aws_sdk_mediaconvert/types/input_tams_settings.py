@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#InputTamsSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.tams_gap_handling
 
 
-class InputTamsSettings(TypedDict):
+class InputTamsSettings(TypedDict, closed=True):
     auth_connection_arn: NotRequired[
         "aws_sdk_mediaconvert.types.__string_pattern_arn_aws_az09_events_az090912_connection_azaz09_af0936.__stringPatternArnAwsAZ09EventsAZ090912ConnectionAZAZ09AF0936"
     ]

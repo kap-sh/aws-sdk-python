@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SlackMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.o_auth_scope_list
 
 
-class SlackMetadata(TypedDict):
+class SlackMetadata(TypedDict, closed=True):
     o_auth_scopes: NotRequired["aws_sdk_appflow.types.o_auth_scope_list.OAuthScopeList"]
     """<p> The desired authorization scope for the Slack account. </p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#RegionMapInputValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.sse_kms_key
 
 
-class RegionMapInputValue(TypedDict):
+class RegionMapInputValue(TypedDict, closed=True):
     sse_kms_key_id: NotRequired["aws_sdk_ssm_incidents.types.sse_kms_key.SseKmsKey"]
     """<p>The KMS key used to encrypt the data in your replication set.</p>"""
 

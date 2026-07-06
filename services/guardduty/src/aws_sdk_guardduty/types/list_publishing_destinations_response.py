@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#ListPublishingDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.destinations
     import aws_sdk_guardduty.types.string
 
 
-class ListPublishingDestinationsResponse(TypedDict):
+class ListPublishingDestinationsResponse(TypedDict, closed=True):
     destinations: NotRequired["aws_sdk_guardduty.types.destinations.Destinations"]
     """<p>A <code>Destinations</code> object that includes information about each publishing destination returned.</p>"""
     next_token: NotRequired["aws_sdk_guardduty.types.string.String"]

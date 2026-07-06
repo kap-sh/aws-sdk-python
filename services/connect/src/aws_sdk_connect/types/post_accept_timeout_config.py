@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PostAcceptTimeoutConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.post_accept_preview_timeout_duration_in_seconds
 
 
-class PostAcceptTimeoutConfig(TypedDict):
+class PostAcceptTimeoutConfig(TypedDict, closed=True):
     duration_in_seconds: "aws_sdk_connect.types.post_accept_preview_timeout_duration_in_seconds.PostAcceptPreviewTimeoutDurationInSeconds"
     """<p>Duration in seconds for the countdown timer after the agent accepted the contact.</p>"""
 

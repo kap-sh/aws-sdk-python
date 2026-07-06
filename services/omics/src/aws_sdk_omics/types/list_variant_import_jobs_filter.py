@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListVariantImportJobsFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_omics.types.job_status
 
 
-class ListVariantImportJobsFilter(TypedDict):
+class ListVariantImportJobsFilter(TypedDict, closed=True):
     status: NotRequired["aws_sdk_omics.types.job_status.JobStatus"]
     """<p>A status to filter on.</p>"""
     store_name: NotRequired["str"]

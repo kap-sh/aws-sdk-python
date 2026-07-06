@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.groundstation#CreateDataflowEndpointGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_groundstation.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_groundstation.types.tags_map
 
 
-class CreateDataflowEndpointGroupRequest(TypedDict):
+class CreateDataflowEndpointGroupRequest(TypedDict, closed=True):
     endpoint_details: (
         "aws_sdk_groundstation.types.endpoint_details_list.EndpointDetailsList"
     )

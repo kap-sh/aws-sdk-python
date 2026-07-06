@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#BotLocaleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_locale_status
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class BotLocaleSummary(TypedDict):
+class BotLocaleSummary(TypedDict, closed=True):
     locale_id: NotRequired["aws_sdk_lex_models_v2.types.locale_id.LocaleId"]
     """<p>The language and locale of the bot locale.</p>"""
     locale_name: NotRequired["aws_sdk_lex_models_v2.types.locale_name.LocaleName"]

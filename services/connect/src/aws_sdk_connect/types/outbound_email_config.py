@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#OutboundEmailConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.email_address_id
 
 
-class OutboundEmailConfig(TypedDict):
+class OutboundEmailConfig(TypedDict, closed=True):
     outbound_email_address_id: NotRequired[
         "aws_sdk_connect.types.email_address_id.EmailAddressId"
     ]

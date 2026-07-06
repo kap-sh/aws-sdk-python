@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#MetadataConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.metadata_columns_list
 
 
-class MetadataConfig(TypedDict):
+class MetadataConfig(TypedDict, closed=True):
     metadata_columns: NotRequired[
         "aws_sdk_customer_profiles.types.metadata_columns_list.MetadataColumnsList"
     ]

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetModelInvocationJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.model_invocation_job_identifier
 
 
-class GetModelInvocationJobRequest(TypedDict):
+class GetModelInvocationJobRequest(TypedDict, closed=True):
     job_identifier: "aws_sdk_bedrock.types.model_invocation_job_identifier.ModelInvocationJobIdentifier"
     """<p>The Amazon Resource Name (ARN) of the batch inference job.</p>"""
 

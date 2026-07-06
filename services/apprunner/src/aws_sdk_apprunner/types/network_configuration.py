@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apprunner#NetworkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_apprunner.types.egress_configuration
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_apprunner.types.ip_address_type
 
 
-class NetworkConfiguration(TypedDict):
+class NetworkConfiguration(TypedDict, closed=True):
     egress_configuration: NotRequired[
         "aws_sdk_apprunner.types.egress_configuration.EgressConfiguration"
     ]

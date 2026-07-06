@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ParameterSpace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.step_parameter_list
 
 
-class ParameterSpace(TypedDict):
+class ParameterSpace(TypedDict, closed=True):
     parameters: "aws_sdk_deadline.types.step_parameter_list.StepParameterList"
     """<p>The parameters to search for.</p>"""
     combination: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideomedia#GetMediaInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kinesis_video_media.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_video_media.types.stream_name
 
 
-class GetMediaInput(TypedDict):
+class GetMediaInput(TypedDict, closed=True):
     stream_name: NotRequired["aws_sdk_kinesis_video_media.types.stream_name.StreamName"]
     """<p>The Kinesis video stream name from where you want to get the media content. If you don't specify the <code>streamName</code>, you must specify the <code>streamARN</code>.</p>"""
     stream_arn: NotRequired[

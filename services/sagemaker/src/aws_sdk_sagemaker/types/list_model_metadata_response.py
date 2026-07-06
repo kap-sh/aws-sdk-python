@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_metadata_summaries
     import aws_sdk_sagemaker.types.next_token
 
 
-class ListModelMetadataResponse(TypedDict):
+class ListModelMetadataResponse(TypedDict, closed=True):
     model_metadata_summaries: NotRequired[
         "aws_sdk_sagemaker.types.model_metadata_summaries.ModelMetadataSummaries"
     ]

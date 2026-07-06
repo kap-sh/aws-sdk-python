@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#CreateGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_xray.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.tag_list
 
 
-class CreateGroupRequest(TypedDict):
+class CreateGroupRequest(TypedDict, closed=True):
     group_name: "aws_sdk_xray.types.group_name.GroupName"
     """<p>The case-sensitive name of the new group. Default is a reserved name and names must be unique.</p>"""
     filter_expression: NotRequired[

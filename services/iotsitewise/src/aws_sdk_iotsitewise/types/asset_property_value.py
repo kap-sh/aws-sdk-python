@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#AssetPropertyValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.variant
 
 
-class AssetPropertyValue(TypedDict):
+class AssetPropertyValue(TypedDict, closed=True):
     value: "aws_sdk_iotsitewise.types.variant.Variant"
     """<p>The value of the asset property (see <code>Variant</code>).</p>"""
     timestamp: "aws_sdk_iotsitewise.types.time_in_nanos.TimeInNanos"

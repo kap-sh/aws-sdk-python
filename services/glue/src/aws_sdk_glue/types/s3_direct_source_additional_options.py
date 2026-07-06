@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#S3DirectSourceAdditionalOptions``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.boxed_boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.enclosed_in_string_property
 
 
-class S3DirectSourceAdditionalOptions(TypedDict):
+class S3DirectSourceAdditionalOptions(TypedDict, closed=True):
     bounded_size: NotRequired["aws_sdk_glue.types.boxed_long.BoxedLong"]
     """<p>Sets the upper limit for the target size of the dataset in bytes that will be processed.</p>"""
     bounded_files: NotRequired["aws_sdk_glue.types.boxed_long.BoxedLong"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.xray#BatchGetTracesResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.string
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_xray.types.unprocessed_trace_id_list
 
 
-class BatchGetTracesResult(TypedDict):
+class BatchGetTracesResult(TypedDict, closed=True):
     traces: NotRequired["aws_sdk_xray.types.trace_list.TraceList"]
     """<p>Full traces for the specified requests.</p>"""
     unprocessed_trace_ids: NotRequired[

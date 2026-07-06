@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.eksauth#PodIdentityAssociation``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_eks_auth.errors import DeserializationError
 
 
-class PodIdentityAssociation(TypedDict):
+class PodIdentityAssociation(TypedDict, closed=True):
     association_arn: "str"
     """<p>The Amazon Resource Name (ARN) of the EKS Pod Identity association.</p>"""
     association_id: "str"

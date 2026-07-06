@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UpdateSensitivityInspectionTemplateResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateSensitivityInspectionTemplateResponse(TypedDict):
+class UpdateSensitivityInspectionTemplateResponse(TypedDict, closed=True):
     pass
 
 

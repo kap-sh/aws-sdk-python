@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#ListSharesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.share_details_list
 
 
-class ListSharesResponse(TypedDict):
+class ListSharesResponse(TypedDict, closed=True):
     shares: "aws_sdk_omics.types.share_details_list.ShareDetailsList"
     """<p>The shares available and their metadata details.</p>"""
     next_token: NotRequired["str"]

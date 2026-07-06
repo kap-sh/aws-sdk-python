@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MockInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.mock_error_output
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sfn.types.sensitive_data
 
 
-class MockInput(TypedDict):
+class MockInput(TypedDict, closed=True):
     result: NotRequired["aws_sdk_sfn.types.sensitive_data.SensitiveData"]
     """<p>A JSON string containing the mocked result of the state invocation.</p>"""
     error_output: NotRequired["aws_sdk_sfn.types.mock_error_output.MockErrorOutput"]

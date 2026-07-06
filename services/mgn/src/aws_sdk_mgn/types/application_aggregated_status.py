@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ApplicationAggregatedStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.application_health_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
 
 
-class ApplicationAggregatedStatus(TypedDict):
+class ApplicationAggregatedStatus(TypedDict, closed=True):
     last_update_date_time: NotRequired[
         "aws_sdk_mgn.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

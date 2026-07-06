@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DeleteEdgeDeploymentStageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
 
 
-class DeleteEdgeDeploymentStageRequest(TypedDict):
+class DeleteEdgeDeploymentStageRequest(TypedDict, closed=True):
     edge_deployment_plan_name: NotRequired[
         "aws_sdk_sagemaker.types.entity_name.EntityName"
     ]

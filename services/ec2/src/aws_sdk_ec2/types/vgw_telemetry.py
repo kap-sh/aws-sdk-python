@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#VgwTelemetry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.telemetry_status
 
 
-class VgwTelemetry(TypedDict):
+class VgwTelemetry(TypedDict, closed=True):
     accepted_route_count: NotRequired["aws_sdk_ec2.types.integer.Integer"]
     """<p>The number of accepted routes.</p>"""
     last_status_change: NotRequired["aws_sdk_ec2.types.date_time.DateTime"]

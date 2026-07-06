@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointsmsvoicev2#DeleteNotifyMessageSpendLimitOverrideRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteNotifyMessageSpendLimitOverrideRequest(TypedDict):
+class DeleteNotifyMessageSpendLimitOverrideRequest(TypedDict, closed=True):
     pass
 
 

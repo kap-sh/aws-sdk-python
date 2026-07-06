@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#InputLambdaProcessorUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.resource_arn
     import aws_sdk_kinesis_analytics.types.role_arn
 
 
-class InputLambdaProcessorUpdate(TypedDict):
+class InputLambdaProcessorUpdate(TypedDict, closed=True):
     resource_arn_update: NotRequired[
         "aws_sdk_kinesis_analytics.types.resource_arn.ResourceARN"
     ]

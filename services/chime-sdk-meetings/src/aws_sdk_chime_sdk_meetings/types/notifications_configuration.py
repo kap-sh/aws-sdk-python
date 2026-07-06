@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmeetings#NotificationsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_meetings.types.arn
 
 
-class NotificationsConfiguration(TypedDict):
+class NotificationsConfiguration(TypedDict, closed=True):
     lambda_function_arn: NotRequired["aws_sdk_chime_sdk_meetings.types.arn.Arn"]
     """<p>The ARN of the Amazon Web Services Lambda function in the notifications configuration.</p>"""
     sns_topic_arn: NotRequired["aws_sdk_chime_sdk_meetings.types.arn.Arn"]

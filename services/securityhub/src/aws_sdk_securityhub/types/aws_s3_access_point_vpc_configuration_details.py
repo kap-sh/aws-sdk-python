@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsS3AccessPointVpcConfigurationDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsS3AccessPointVpcConfigurationDetails(TypedDict):
+class AwsS3AccessPointVpcConfigurationDetails(TypedDict, closed=True):
     vpc_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> If this field is specified, this access point will only allow connections from the specified VPC ID. </p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pinpointemail#EmailContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.message
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pinpoint_email.types.template
 
 
-class EmailContent(TypedDict):
+class EmailContent(TypedDict, closed=True):
     simple: NotRequired["aws_sdk_pinpoint_email.types.message.Message"]
     """<p>The simple email message. The message consists of a subject and a message body.</p>"""
     raw: NotRequired["aws_sdk_pinpoint_email.types.raw_message.RawMessage"]

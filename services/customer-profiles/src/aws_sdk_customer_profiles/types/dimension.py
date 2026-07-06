@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Dimension``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.profile_attributes
 
 
-class _Dimension_ProfileAttributes(TypedDict):
+class _Dimension_ProfileAttributes(TypedDict, closed=True):
     ProfileAttributes: (
         "aws_sdk_customer_profiles.types.profile_attributes.ProfileAttributes"
     )
 
 
-class _Dimension_CalculatedAttributes(TypedDict):
+class _Dimension_CalculatedAttributes(TypedDict, closed=True):
     CalculatedAttributes: "aws_sdk_customer_profiles.types.calculated_custom_attributes.CalculatedCustomAttributes"
 
 

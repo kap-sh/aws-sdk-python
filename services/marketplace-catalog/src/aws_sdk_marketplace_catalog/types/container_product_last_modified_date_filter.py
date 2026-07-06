@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ContainerProductLastModifiedDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.container_product_last_modified_date_filter_date_range
 
 
-class ContainerProductLastModifiedDateFilter(TypedDict):
+class ContainerProductLastModifiedDateFilter(TypedDict, closed=True):
     date_range: NotRequired[
         "aws_sdk_marketplace_catalog.types.container_product_last_modified_date_filter_date_range.ContainerProductLastModifiedDateFilterDateRange"
     ]

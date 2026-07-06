@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.backup#GetBackupSelectionOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_backup.types.backup_selection
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_backup.types.timestamp
 
 
-class GetBackupSelectionOutput(TypedDict):
+class GetBackupSelectionOutput(TypedDict, closed=True):
     backup_selection: NotRequired[
         "aws_sdk_backup.types.backup_selection.BackupSelection"
     ]

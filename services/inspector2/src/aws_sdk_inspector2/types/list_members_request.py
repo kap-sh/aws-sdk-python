@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListMembersRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.list_members_max_results
     import aws_sdk_inspector2.types.next_token
 
 
-class ListMembersRequest(TypedDict):
+class ListMembersRequest(TypedDict, closed=True):
     only_associated: NotRequired["bool"]
     """<p>Specifies whether to list only currently associated members if <code>True</code> or to list all members within the organization if <code>False</code>.</p>"""
     max_results: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.glue#OAuth2ClientApplication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.aws_managed_client_application_reference
     import aws_sdk_glue.types.user_managed_client_application_client_id
 
 
-class OAuth2ClientApplication(TypedDict):
+class OAuth2ClientApplication(TypedDict, closed=True):
     user_managed_client_application_client_id: NotRequired[
         "aws_sdk_glue.types.user_managed_client_application_client_id.UserManagedClientApplicationClientId"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#TargetOnDeviceService``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.device_service_name
     import aws_sdk_snowball.types.transfer_option
 
 
-class TargetOnDeviceService(TypedDict):
+class TargetOnDeviceService(TypedDict, closed=True):
     service_name: NotRequired[
         "aws_sdk_snowball.types.device_service_name.DeviceServiceName"
     ]

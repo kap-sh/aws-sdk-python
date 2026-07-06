@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#UpdateApnsVoipChannelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.apns_voip_channel_response
 
 
-class UpdateApnsVoipChannelResponse(TypedDict):
+class UpdateApnsVoipChannelResponse(TypedDict, closed=True):
     apns_voip_channel_response: NotRequired[
         "aws_sdk_pinpoint.types.apns_voip_channel_response.APNSVoipChannelResponse"
     ]

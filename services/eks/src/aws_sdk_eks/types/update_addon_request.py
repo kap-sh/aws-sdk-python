@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UpdateAddonRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.addon_pod_identity_associations_list
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string
 
 
-class UpdateAddonRequest(TypedDict):
+class UpdateAddonRequest(TypedDict, closed=True):
     cluster_name: "aws_sdk_eks.types.cluster_name.ClusterName"
     """<p>The name of your cluster.</p>"""
     addon_name: "aws_sdk_eks.types.string.String"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datapipeline#ReportTaskProgressOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_data_pipeline.types.boolean
 
 
-class ReportTaskProgressOutput(TypedDict):
+class ReportTaskProgressOutput(TypedDict, closed=True):
     canceled: "aws_sdk_data_pipeline.types.boolean.boolean"
     """<p>If true, the calling task runner should cancel processing of the task. The task runner does not need to call <a>SetTaskStatus</a> for canceled tasks.</p>"""
 

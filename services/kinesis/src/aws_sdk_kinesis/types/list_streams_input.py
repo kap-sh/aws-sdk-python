@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#ListStreamsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis.types.list_streams_input_limit
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.stream_name
 
 
-class ListStreamsInput(TypedDict):
+class ListStreamsInput(TypedDict, closed=True):
     limit: NotRequired[
         "aws_sdk_kinesis.types.list_streams_input_limit.ListStreamsInputLimit"
     ]

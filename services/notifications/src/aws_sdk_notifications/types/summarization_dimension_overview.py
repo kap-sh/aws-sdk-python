@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#SummarizationDimensionOverview``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_notifications.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_notifications.types.sample_aggregation_dimension_values
 
 
-class SummarizationDimensionOverview(TypedDict):
+class SummarizationDimensionOverview(TypedDict, closed=True):
     name: "str"
     """<p>Name of the summarization dimension.</p>"""
     count: "int"

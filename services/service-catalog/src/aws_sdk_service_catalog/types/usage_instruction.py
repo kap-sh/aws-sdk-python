@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.servicecatalog#UsageInstruction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_service_catalog.types.instruction_type
     import aws_sdk_service_catalog.types.instruction_value
 
 
-class UsageInstruction(TypedDict):
+class UsageInstruction(TypedDict, closed=True):
     type: NotRequired["aws_sdk_service_catalog.types.instruction_type.InstructionType"]
     """<p>The usage instruction type for the value.</p>"""
     value: NotRequired[

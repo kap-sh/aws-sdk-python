@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#BatchJobDependency``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.batch_job_dependency_type
 
 
-class BatchJobDependency(TypedDict):
+class BatchJobDependency(TypedDict, closed=True):
     job_id: NotRequired["str"]
     """<p>The job ID of the Batch job that's associated with this dependency.</p>"""
     type: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#Workspace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.boolean_object
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_state
 
 
-class Workspace(TypedDict):
+class Workspace(TypedDict, closed=True):
     workspace_id: NotRequired["aws_sdk_workspaces.types.workspace_id.WorkspaceId"]
     """<p>The identifier of the WorkSpace.</p>"""
     directory_id: NotRequired["aws_sdk_workspaces.types.directory_id.DirectoryId"]

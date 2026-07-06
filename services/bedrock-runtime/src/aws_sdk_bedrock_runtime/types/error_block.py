@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#ErrorBlock``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ErrorBlock(TypedDict):
+class ErrorBlock(TypedDict, closed=True):
     message: NotRequired["str"]
     """<p>A human-readable error message describing what went wrong during content processing.</p>"""
 

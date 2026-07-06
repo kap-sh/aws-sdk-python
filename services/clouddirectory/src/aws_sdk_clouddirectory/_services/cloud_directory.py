@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#AmazonCloudDirectory_20170111``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_clouddirectory._auth._signers
@@ -198,7 +198,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.version
 
 
-class CloudDirectoryClientConfig(TypedDict, total=False):
+class CloudDirectoryClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

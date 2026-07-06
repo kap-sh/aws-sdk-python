@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#SigninDelegateGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.non_empty_string
 
 
-class SigninDelegateGroup(TypedDict):
+class SigninDelegateGroup(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_chime.types.non_empty_string.NonEmptyString"]
     """<p>The group name.</p>"""
 

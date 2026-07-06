@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#UpdateAssetModelCompositeModelResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotsitewise.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_status
 
 
-class UpdateAssetModelCompositeModelResponse(TypedDict):
+class UpdateAssetModelCompositeModelResponse(TypedDict, closed=True):
     asset_model_composite_model_path: "aws_sdk_iotsitewise.types.asset_model_composite_model_path.AssetModelCompositeModelPath"
     """<p>The path to the composite model listing the parent composite models.</p>"""
     asset_model_status: "aws_sdk_iotsitewise.types.asset_model_status.AssetModelStatus"

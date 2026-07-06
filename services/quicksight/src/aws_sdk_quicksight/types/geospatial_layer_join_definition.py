@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLayerJoinDefinition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_layer_color_field
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.unaggregated_field
 
 
-class GeospatialLayerJoinDefinition(TypedDict):
+class GeospatialLayerJoinDefinition(TypedDict, closed=True):
     shape_key_field: NotRequired["aws_sdk_quicksight.types.string.String"]
     """<p>The name of the field or property in the geospatial data source.</p>"""
     dataset_key_field: NotRequired[

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#CreateScraperRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.tag_map
 
 
-class CreateScraperRequest(TypedDict):
+class CreateScraperRequest(TypedDict, closed=True):
     alias: NotRequired["aws_sdk_amp.types.scraper_alias.ScraperAlias"]
     """<p>(optional) An alias to associate with the scraper. This is for your use, and does not need to be unique.</p>"""
     scrape_configuration: "aws_sdk_amp.types.scrape_configuration.ScrapeConfiguration"

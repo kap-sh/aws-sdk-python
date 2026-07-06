@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#EC2Specification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.offering_class
 
 
-class EC2Specification(TypedDict):
+class EC2Specification(TypedDict, closed=True):
     offering_class: NotRequired[
         "aws_sdk_cost_explorer.types.offering_class.OfferingClass"
     ]

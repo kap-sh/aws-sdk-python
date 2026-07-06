@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoPreprocessor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.color_corrector
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.timecode_burnin
 
 
-class VideoPreprocessor(TypedDict):
+class VideoPreprocessor(TypedDict, closed=True):
     color_corrector: NotRequired[
         "aws_sdk_mediaconvert.types.color_corrector.ColorCorrector"
     ]

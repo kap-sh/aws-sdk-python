@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsWafv2RuleGroupDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_wafv2_rules_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsWafv2RuleGroupDetails(TypedDict):
+class AwsWafv2RuleGroupDetails(TypedDict, closed=True):
     capacity: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p> The web ACL capacity units (WCUs) required for this rule group. </p>"""
     description: NotRequired[

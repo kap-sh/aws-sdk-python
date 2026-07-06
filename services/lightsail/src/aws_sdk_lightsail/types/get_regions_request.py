@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetRegionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.boolean
 
 
-class GetRegionsRequest(TypedDict):
+class GetRegionsRequest(TypedDict, closed=True):
     include_availability_zones: NotRequired["aws_sdk_lightsail.types.boolean.boolean"]
     """<p>A Boolean value indicating whether to also include Availability Zones in your get regions request. Availability Zones are indicated with a letter: <code>us-east-2a</code>.</p>"""
     include_relational_database_availability_zones: NotRequired[

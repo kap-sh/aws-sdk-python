@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#EffectiveRecommendationPreferences``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.cpu_vendor_architectures
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.utilization_preferences
 
 
-class EffectiveRecommendationPreferences(TypedDict):
+class EffectiveRecommendationPreferences(TypedDict, closed=True):
     cpu_vendor_architectures: NotRequired[
         "aws_sdk_compute_optimizer.types.cpu_vendor_architectures.CpuVendorArchitectures"
     ]

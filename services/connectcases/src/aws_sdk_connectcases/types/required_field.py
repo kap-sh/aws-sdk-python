@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#RequiredField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_id
 
 
-class RequiredField(TypedDict):
+class RequiredField(TypedDict, closed=True):
     field_id: "aws_sdk_connectcases.types.field_id.FieldId"
     """<p>Unique identifier of a field.</p>"""
 

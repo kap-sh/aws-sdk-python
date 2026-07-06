@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#ExportImageResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class ExportImageResult(TypedDict):
+class ExportImageResult(TypedDict, closed=True):
     description: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>A description of the image being exported.</p>"""
     disk_image_format: NotRequired[

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#UpdateOrganizationConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.auto_enable
 
 
-class UpdateOrganizationConfigurationRequest(TypedDict):
+class UpdateOrganizationConfigurationRequest(TypedDict, closed=True):
     auto_enable: "aws_sdk_inspector2.types.auto_enable.AutoEnable"
     """<p>Defines which scan types are enabled automatically for new members of your Amazon Inspector organization.</p>"""
 

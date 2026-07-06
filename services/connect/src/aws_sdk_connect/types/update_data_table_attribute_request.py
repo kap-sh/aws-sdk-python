@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#UpdateDataTableAttributeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.validation
 
 
-class UpdateDataTableAttributeRequest(TypedDict):
+class UpdateDataTableAttributeRequest(TypedDict, closed=True):
     instance_id: "aws_sdk_connect.types.instance_id.InstanceId"
     """<p>The unique identifier for the Amazon Connect instance.</p>"""
     data_table_id: "aws_sdk_connect.types.data_table_id.DataTableId"

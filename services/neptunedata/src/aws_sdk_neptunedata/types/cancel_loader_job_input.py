@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#CancelLoaderJobInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CancelLoaderJobInput(TypedDict):
+class CancelLoaderJobInput(TypedDict, closed=True):
     load_id: "str"
     """<p>The ID of the load job to be deleted.</p>"""
 

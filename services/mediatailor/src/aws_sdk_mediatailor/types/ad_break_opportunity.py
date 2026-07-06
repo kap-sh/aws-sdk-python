@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#AdBreakOpportunity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__long
 
 
-class AdBreakOpportunity(TypedDict):
+class AdBreakOpportunity(TypedDict, closed=True):
     offset_millis: "aws_sdk_mediatailor.types.__long.__long"
     """<p>The offset in milliseconds from the start of the VOD source at which an ad marker was detected.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DescribeAgreementResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.described_agreement
 
 
-class DescribeAgreementResponse(TypedDict):
+class DescribeAgreementResponse(TypedDict, closed=True):
     agreement: "aws_sdk_transfer.types.described_agreement.DescribedAgreement"
     """<p>The details for the specified agreement, returned as a <code>DescribedAgreement</code> object.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#PutSolFunctionPackageContentInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_tnb.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_tnb.types.vnf_pkg_id
 
 
-class PutSolFunctionPackageContentInput(TypedDict):
+class PutSolFunctionPackageContentInput(TypedDict, closed=True):
     vnf_pkg_id: "aws_sdk_tnb.types.vnf_pkg_id.VnfPkgId"
     """<p>Function package ID.</p>"""
     content_type: NotRequired[

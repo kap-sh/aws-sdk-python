@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#CreateExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.export_resource_specification
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.timestamp
 
 
-class CreateExportResponse(TypedDict):
+class CreateExportResponse(TypedDict, closed=True):
     export_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]
     """<p>An identifier for a specific request to create an export.</p>"""
     resource_specification: NotRequired[

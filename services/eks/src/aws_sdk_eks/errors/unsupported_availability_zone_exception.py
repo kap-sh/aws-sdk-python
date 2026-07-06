@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.eks#UnsupportedAvailabilityZoneException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_eks.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_eks.types.string_list
 
 
-class UnsupportedAvailabilityZoneException_(TypedDict):
+class UnsupportedAvailabilityZoneException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_eks.types.string.String"]
     """<p>At least one of your specified cluster subnets is in an Availability Zone that does not support Amazon EKS. The exception output specifies the supported Availability Zones for your account, from which you can choose subnets for your cluster.</p>"""
     cluster_name: NotRequired["aws_sdk_eks.types.string.String"]

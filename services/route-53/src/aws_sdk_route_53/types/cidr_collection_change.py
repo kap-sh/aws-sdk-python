@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#CidrCollectionChange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 from aws_sdk_route_53.errors import DeserializationError
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.cidr_location_name_default_not_allowed
 
 
-class CidrCollectionChange(TypedDict):
+class CidrCollectionChange(TypedDict, closed=True):
     location_name: "aws_sdk_route_53.types.cidr_location_name_default_not_allowed.CidrLocationNameDefaultNotAllowed"
     """<p>Name of the location that is associated with the CIDR collection.</p>"""
     action: "aws_sdk_route_53.types.cidr_collection_change_action.CidrCollectionChangeAction"

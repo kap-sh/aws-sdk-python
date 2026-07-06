@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#SearchSchemasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_schemas.types.__integer
     import aws_sdk_schemas.types.__string
 
 
-class SearchSchemasRequest(TypedDict):
+class SearchSchemasRequest(TypedDict, closed=True):
     keywords: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>Specifying this limits the results to only schemas that include the provided keywords.</p>"""
     limit: NotRequired["aws_sdk_schemas.types.__integer.__integer"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#CreateContentAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qconnect.types.content_association_data
 
 
-class CreateContentAssociationResponse(TypedDict):
+class CreateContentAssociationResponse(TypedDict, closed=True):
     content_association: NotRequired[
         "aws_sdk_qconnect.types.content_association_data.ContentAssociationData"
     ]

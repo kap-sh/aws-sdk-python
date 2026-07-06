@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#CreateIntentVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.intent_name
     import aws_sdk_lex_model_building_service.types.string
 
 
-class CreateIntentVersionRequest(TypedDict):
+class CreateIntentVersionRequest(TypedDict, closed=True):
     name: "aws_sdk_lex_model_building_service.types.intent_name.IntentName"
     """<p>The name of the intent that you want to create a new version of. The name is case sensitive. </p>"""
     checksum: NotRequired["aws_sdk_lex_model_building_service.types.string.String"]

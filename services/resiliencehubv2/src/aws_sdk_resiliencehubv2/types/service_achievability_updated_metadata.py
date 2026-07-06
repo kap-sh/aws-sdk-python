@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehubv2#ServiceAchievabilityUpdatedMetadata``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ServiceAchievabilityUpdatedMetadata(TypedDict):
+class ServiceAchievabilityUpdatedMetadata(TypedDict, closed=True):
     assessment_id: NotRequired["str"]
     """<p>The assessment identifier that triggered the update.</p>"""
     availability_slo: NotRequired["str"]

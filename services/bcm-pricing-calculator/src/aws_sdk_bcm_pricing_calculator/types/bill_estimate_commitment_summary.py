@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmpricingcalculator#BillEstimateCommitmentSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_pricing_calculator.types.uuid
 
 
-class BillEstimateCommitmentSummary(TypedDict):
+class BillEstimateCommitmentSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_bcm_pricing_calculator.types.resource_id.ResourceId"]
     """<p> The unique identifier of the commitment. </p>"""
     purchase_agreement_type: NotRequired[

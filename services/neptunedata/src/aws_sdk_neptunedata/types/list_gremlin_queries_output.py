@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListGremlinQueriesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.gremlin_queries
 
 
-class ListGremlinQueriesOutput(TypedDict):
+class ListGremlinQueriesOutput(TypedDict, closed=True):
     accepted_query_count: NotRequired["int"]
     """<p>The number of queries that have been accepted but not yet completed, including queries in the queue.</p>"""
     running_query_count: NotRequired["int"]

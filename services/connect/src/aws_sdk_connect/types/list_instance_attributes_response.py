@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ListInstanceAttributesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.attributes_list
     import aws_sdk_connect.types.next_token
 
 
-class ListInstanceAttributesResponse(TypedDict):
+class ListInstanceAttributesResponse(TypedDict, closed=True):
     attributes: NotRequired["aws_sdk_connect.types.attributes_list.AttributesList"]
     """<p>The attribute types.</p>"""
     next_token: NotRequired["aws_sdk_connect.types.next_token.NextToken"]

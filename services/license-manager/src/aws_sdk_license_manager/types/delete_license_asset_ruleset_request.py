@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#DeleteLicenseAssetRulesetRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager.types.arn
 
 
-class DeleteLicenseAssetRulesetRequest(TypedDict):
+class DeleteLicenseAssetRulesetRequest(TypedDict, closed=True):
     license_asset_ruleset_arn: "aws_sdk_license_manager.types.arn.Arn"
     """<p>Amazon Resource Name (ARN) of the license asset ruleset.</p>"""
 

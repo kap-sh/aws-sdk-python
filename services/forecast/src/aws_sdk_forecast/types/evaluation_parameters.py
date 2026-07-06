@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#EvaluationParameters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.integer
 
 
-class EvaluationParameters(TypedDict):
+class EvaluationParameters(TypedDict, closed=True):
     number_of_backtest_windows: NotRequired["aws_sdk_forecast.types.integer.Integer"]
     """<p>The number of times to split the input data. The default is 1. Valid values are 1 through 5.</p>"""
     back_test_window_offset: NotRequired["aws_sdk_forecast.types.integer.Integer"]

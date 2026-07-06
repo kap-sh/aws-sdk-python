@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.rum#AppMonitorDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class AppMonitorDetails(TypedDict):
+class AppMonitorDetails(TypedDict, closed=True):
     name: NotRequired["str"]
     """<p>The name of the app monitor.</p>"""
     id: NotRequired["str"]

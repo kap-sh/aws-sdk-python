@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#BadRequestError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class BadRequestError_(TypedDict):
+class BadRequestError_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]
     """<p>A detailed message explaining what was wrong with the request and how to correct it.</p>"""
 

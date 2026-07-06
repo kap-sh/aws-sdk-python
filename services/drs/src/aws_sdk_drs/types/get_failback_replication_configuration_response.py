@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#GetFailbackReplicationConfigurationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_drs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instance_id
 
 
-class GetFailbackReplicationConfigurationResponse(TypedDict):
+class GetFailbackReplicationConfigurationResponse(TypedDict, closed=True):
     recovery_instance_id: "aws_sdk_drs.types.recovery_instance_id.RecoveryInstanceID"
     """<p>The ID of the Recovery Instance.</p>"""
     name: NotRequired["aws_sdk_drs.types.bounded_string.BoundedString"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetDeleteEventsByEventTypeStatusResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.async_job_status
     import aws_sdk_frauddetector.types.identifier
 
 
-class GetDeleteEventsByEventTypeStatusResult(TypedDict):
+class GetDeleteEventsByEventTypeStatusResult(TypedDict, closed=True):
     event_type_name: NotRequired["aws_sdk_frauddetector.types.identifier.identifier"]
     """<p>The event type name.</p>"""
     events_deletion_status: NotRequired[

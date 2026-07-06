@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#ConvertRecoveryPointToSnapshotRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.tag_list
 
 
-class ConvertRecoveryPointToSnapshotRequest(TypedDict):
+class ConvertRecoveryPointToSnapshotRequest(TypedDict, closed=True):
     recovery_point_id: "str"
     """<p>The unique identifier of the recovery point.</p>"""
     snapshot_name: "str"

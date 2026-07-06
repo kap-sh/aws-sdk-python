@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.chime#BatchCreateRoomMembershipResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime.types.member_error_list
 
 
-class BatchCreateRoomMembershipResponse(TypedDict):
+class BatchCreateRoomMembershipResponse(TypedDict, closed=True):
     errors: NotRequired["aws_sdk_chime.types.member_error_list.MemberErrorList"]
     """<p>If the action fails for one or more of the member IDs in the request, a list of the member IDs is returned, along with error codes and error messages.</p>"""
 

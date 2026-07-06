@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.schemas#BadRequestException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_schemas.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_schemas.types.__string
 
 
-class BadRequestException_(TypedDict):
+class BadRequestException_(TypedDict, closed=True):
     code: NotRequired["aws_sdk_schemas.types.__string.__string"]
     """<p>The error code.</p>"""
     message: NotRequired["aws_sdk_schemas.types.__string.__string"]

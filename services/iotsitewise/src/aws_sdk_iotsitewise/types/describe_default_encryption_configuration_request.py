@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeDefaultEncryptionConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeDefaultEncryptionConfigurationRequest(TypedDict):
+class DescribeDefaultEncryptionConfigurationRequest(TypedDict, closed=True):
     pass
 
 

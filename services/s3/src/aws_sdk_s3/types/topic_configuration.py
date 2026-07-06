@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#TopicConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 from aws_sdk_s3.errors import DeserializationError
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.topic_arn
 
 
-class TopicConfiguration(TypedDict):
+class TopicConfiguration(TypedDict, closed=True):
     id: NotRequired["aws_sdk_s3.types.notification_id.NotificationId"]
     topic_arn: "aws_sdk_s3.types.topic_arn.TopicArn"
     """<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>"""

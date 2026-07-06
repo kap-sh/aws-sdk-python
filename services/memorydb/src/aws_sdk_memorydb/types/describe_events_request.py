@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DescribeEventsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.integer_optional
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.t_stamp
 
 
-class DescribeEventsRequest(TypedDict):
+class DescribeEventsRequest(TypedDict, closed=True):
     source_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The identifier of the event source for which events are returned. If not specified, all sources are included in the response.</p>"""
     source_type: NotRequired["aws_sdk_memorydb.types.source_type.SourceType"]

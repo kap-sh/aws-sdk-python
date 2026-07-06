@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#AudioSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.time_in_milli_seconds
 
 
-class AudioSpecification(TypedDict):
+class AudioSpecification(TypedDict, closed=True):
     max_length_ms: (
         "aws_sdk_lex_models_v2.types.time_in_milli_seconds.TimeInMilliSeconds"
     )

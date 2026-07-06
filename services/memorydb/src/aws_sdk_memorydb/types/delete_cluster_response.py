@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#DeleteClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.cluster
 
 
-class DeleteClusterResponse(TypedDict):
+class DeleteClusterResponse(TypedDict, closed=True):
     cluster: NotRequired["aws_sdk_memorydb.types.cluster.Cluster"]
     """<p>The cluster object that has been deleted.</p>"""
 

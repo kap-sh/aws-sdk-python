@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#ImportTaskSummaryServers``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
 
 
-class ImportTaskSummaryServers(TypedDict):
+class ImportTaskSummaryServers(TypedDict, closed=True):
     created_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>Import task summary servers created count.</p>"""
     modified_count: "aws_sdk_mgn.types.positive_integer.PositiveInteger"

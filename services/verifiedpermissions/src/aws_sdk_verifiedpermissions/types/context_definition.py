@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.verifiedpermissions#ContextDefinition``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_verifiedpermissions.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_verifiedpermissions.types.context_map
 
 
-class _ContextDefinition_contextMap(TypedDict):
+class _ContextDefinition_contextMap(TypedDict, closed=True):
     contextMap: "aws_sdk_verifiedpermissions.types.context_map.ContextMap"
 
 
-class _ContextDefinition_cedarJson(TypedDict):
+class _ContextDefinition_cedarJson(TypedDict, closed=True):
     cedarJson: "aws_sdk_verifiedpermissions.types.cedar_json.CedarJson"
 
 

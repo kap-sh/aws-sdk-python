@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloud9#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloud9.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloud9.types.environment_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_cloud9.types.environment_arn.EnvironmentArn"
     """<p>The Amazon Resource Name (ARN) of the Cloud9 development environment to get the tags for.</p>"""
 

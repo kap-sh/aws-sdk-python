@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.route53profiles#ListProfilesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53profiles.types.max_results
     import aws_sdk_route53profiles.types.next_token
 
 
-class ListProfilesRequest(TypedDict):
+class ListProfilesRequest(TypedDict, closed=True):
     max_results: NotRequired["aws_sdk_route53profiles.types.max_results.MaxResults"]
     """<p> The maximum number of objects that you want to return for this request. If more objects are available, in the response, a <code>NextToken</code> value, which you can use in a subsequent call to get the next batch of objects, is provided.</p> <p> If you don't specify a value for <code>MaxResults</code>, up to 100 objects are returned. </p>"""
     next_token: NotRequired["aws_sdk_route53profiles.types.next_token.NextToken"]

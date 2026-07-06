@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateIntegrationTablePropertiesResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CreateIntegrationTablePropertiesResponse(TypedDict):
+class CreateIntegrationTablePropertiesResponse(TypedDict, closed=True):
     pass
 
 

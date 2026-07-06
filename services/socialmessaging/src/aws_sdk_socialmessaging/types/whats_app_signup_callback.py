@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.socialmessaging#WhatsAppSignupCallback``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_socialmessaging.errors import DeserializationError
 
 
-class WhatsAppSignupCallback(TypedDict):
+class WhatsAppSignupCallback(TypedDict, closed=True):
     access_token: "str"
     """<p>The access token for your WhatsApp Business Account. The <code>accessToken</code> value is provided by Meta.</p>"""
     callback_url: NotRequired["str"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaClusterClientAuthentication``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.kafka_cluster_client_authentication_type
 
 
-class KafkaClusterClientAuthentication(TypedDict):
+class KafkaClusterClientAuthentication(TypedDict, closed=True):
     authentication_type: "aws_sdk_kafkaconnect.types.kafka_cluster_client_authentication_type.KafkaClusterClientAuthenticationType"
     """<p>The type of client authentication used to connect to the Apache Kafka cluster. Value NONE means that no client authentication is used.</p>"""
 

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#RegisterCustomEndpointRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class RegisterCustomEndpointRequest(TypedDict):
+class RegisterCustomEndpointRequest(TypedDict, closed=True):
     pass
 
 

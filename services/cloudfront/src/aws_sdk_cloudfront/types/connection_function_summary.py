@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#ConnectionFunctionSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -14,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.timestamp
 
 
-class ConnectionFunctionSummary(TypedDict):
+class ConnectionFunctionSummary(TypedDict, closed=True):
     name: "aws_sdk_cloudfront.types.function_name.FunctionName"
     """<p>The connection function name.</p>"""
     id: "aws_sdk_cloudfront.types.resource_id.ResourceId"

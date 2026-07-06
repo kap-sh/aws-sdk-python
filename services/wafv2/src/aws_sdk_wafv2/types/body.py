@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#Body``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.oversize_handling
 
 
-class Body(TypedDict):
+class Body(TypedDict, closed=True):
     oversize_handling: NotRequired[
         "aws_sdk_wafv2.types.oversize_handling.OversizeHandling"
     ]

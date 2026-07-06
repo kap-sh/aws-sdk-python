@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#LabelsInputConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.label_group_name
     import aws_sdk_lookoutequipment.types.labels_s3_input_configuration
 
 
-class LabelsInputConfiguration(TypedDict):
+class LabelsInputConfiguration(TypedDict, closed=True):
     s3_input_configuration: NotRequired[
         "aws_sdk_lookoutequipment.types.labels_s3_input_configuration.LabelsS3InputConfiguration"
     ]

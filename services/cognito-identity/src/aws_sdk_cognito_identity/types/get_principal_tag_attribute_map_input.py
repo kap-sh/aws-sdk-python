@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentity#GetPrincipalTagAttributeMapInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity.types.identity_provider_name
 
 
-class GetPrincipalTagAttributeMapInput(TypedDict):
+class GetPrincipalTagAttributeMapInput(TypedDict, closed=True):
     identity_pool_id: "aws_sdk_cognito_identity.types.identity_pool_id.IdentityPoolId"
     """<p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>"""
     identity_provider_name: (

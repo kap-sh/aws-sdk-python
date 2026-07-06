@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#CreateBlueprintRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.tags_map
 
 
-class CreateBlueprintRequest(TypedDict):
+class CreateBlueprintRequest(TypedDict, closed=True):
     name: "aws_sdk_glue.types.orchestration_name_string.OrchestrationNameString"
     """<p>The name of the blueprint.</p>"""
     description: NotRequired[

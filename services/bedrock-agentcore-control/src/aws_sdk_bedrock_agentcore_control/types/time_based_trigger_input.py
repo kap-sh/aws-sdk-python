@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#TimeBasedTriggerInput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class TimeBasedTriggerInput(TypedDict):
+class TimeBasedTriggerInput(TypedDict, closed=True):
     idle_session_timeout: "int"
     """<p>Idle session timeout (seconds) that triggers memory processing.</p>"""
 

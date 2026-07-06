@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#ListDataIntegrationAssociationsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.next_token
 
 
-class ListDataIntegrationAssociationsRequest(TypedDict):
+class ListDataIntegrationAssociationsRequest(TypedDict, closed=True):
     data_integration_identifier: "aws_sdk_appintegrations.types.identifier.Identifier"
     """<p>A unique identifier for the DataIntegration.</p>"""
     next_token: NotRequired["aws_sdk_appintegrations.types.next_token.NextToken"]

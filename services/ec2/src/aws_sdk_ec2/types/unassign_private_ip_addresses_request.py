@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#UnassignPrivateIpAddressesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.private_ip_address_string_list
 
 
-class UnassignPrivateIpAddressesRequest(TypedDict):
+class UnassignPrivateIpAddressesRequest(TypedDict, closed=True):
     ipv4_prefixes: NotRequired["aws_sdk_ec2.types.ip_prefix_list.IpPrefixList"]
     """<p>The IPv4 prefixes to unassign from the network interface.</p>"""
     network_interface_id: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appfabric#BatchGetUserAccessTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appfabric.types.user_access_results_list
 
 
-class BatchGetUserAccessTasksResponse(TypedDict):
+class BatchGetUserAccessTasksResponse(TypedDict, closed=True):
     user_access_results_list: NotRequired[
         "aws_sdk_appfabric.types.user_access_results_list.UserAccessResultsList"
     ]

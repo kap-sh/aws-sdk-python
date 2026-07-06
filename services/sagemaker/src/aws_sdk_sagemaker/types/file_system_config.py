@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#FileSystemConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.default_gid
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.mount_path
 
 
-class FileSystemConfig(TypedDict):
+class FileSystemConfig(TypedDict, closed=True):
     mount_path: NotRequired["aws_sdk_sagemaker.types.mount_path.MountPath"]
     """<p>The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to <i>/home/sagemaker-user</i>.</p>"""
     default_uid: NotRequired["aws_sdk_sagemaker.types.default_uid.DefaultUid"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#UpdateDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.scan_schedule
 
 
-class UpdateDataSourceRequest(TypedDict):
+class UpdateDataSourceRequest(TypedDict, closed=True):
     id: "aws_sdk_kendra.types.data_source_id.DataSourceId"
     """<p>The identifier of the data source connector you want to update.</p>"""
     name: NotRequired["aws_sdk_kendra.types.data_source_name.DataSourceName"]

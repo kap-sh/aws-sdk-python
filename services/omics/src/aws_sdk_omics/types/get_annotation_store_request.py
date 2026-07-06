@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetAnnotationStoreRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetAnnotationStoreRequest(TypedDict):
+class GetAnnotationStoreRequest(TypedDict, closed=True):
     name: "str"
     """<p>The store's name.</p>"""
 

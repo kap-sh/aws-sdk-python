@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.batch#DeleteComputeEnvironmentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_batch.types.string
 
 
-class DeleteComputeEnvironmentRequest(TypedDict):
+class DeleteComputeEnvironmentRequest(TypedDict, closed=True):
     compute_environment: NotRequired["aws_sdk_batch.types.string.String"]
     """<p>The name or Amazon Resource Name (ARN) of the compute environment to delete.</p>"""
 

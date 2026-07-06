@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#DistributeImageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.tag_map
 
 
-class DistributeImageRequest(TypedDict):
+class DistributeImageRequest(TypedDict, closed=True):
     source_image: "aws_sdk_imagebuilder.types.non_empty_string.NonEmptyString"
     """<p>The source image Amazon Resource Name (ARN) to distribute.</p>"""
     distribution_configuration_arn: "aws_sdk_imagebuilder.types.distribution_configuration_arn.DistributionConfigurationArn"

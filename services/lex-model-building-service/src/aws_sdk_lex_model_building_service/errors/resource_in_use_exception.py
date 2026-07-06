@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#ResourceInUseException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_model_building_service.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.resource_reference
 
 
-class ResourceInUseException_(TypedDict):
+class ResourceInUseException_(TypedDict, closed=True):
     reference_type: NotRequired[
         "aws_sdk_lex_model_building_service.types.reference_type.ReferenceType"
     ]

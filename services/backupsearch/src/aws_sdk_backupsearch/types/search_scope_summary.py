@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#SearchScopeSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SearchScopeSummary(TypedDict):
+class SearchScopeSummary(TypedDict, closed=True):
     total_recovery_points_to_scan_count: NotRequired["int"]
     """<p>This is the count of the total number of backups that will be scanned in a search.</p>"""
     total_items_to_scan_count: NotRequired["int"]

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeAccountAttributesMessage``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeAccountAttributesMessage(TypedDict):
+class DescribeAccountAttributesMessage(TypedDict, closed=True):
     pass
 
 

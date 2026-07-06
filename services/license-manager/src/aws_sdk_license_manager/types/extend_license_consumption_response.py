@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanager#ExtendLicenseConsumptionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_license_manager.types.iso8601_date_time
     import aws_sdk_license_manager.types.string
 
 
-class ExtendLicenseConsumptionResponse(TypedDict):
+class ExtendLicenseConsumptionResponse(TypedDict, closed=True):
     license_consumption_token: NotRequired[
         "aws_sdk_license_manager.types.string.String"
     ]

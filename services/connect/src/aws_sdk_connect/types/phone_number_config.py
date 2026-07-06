@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#PhoneNumberConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.sensitive_phone_number
 
 
-class PhoneNumberConfig(TypedDict):
+class PhoneNumberConfig(TypedDict, closed=True):
     channel: "aws_sdk_connect.types.channel.Channel"
     """<p>The channel for this phone number configuration. <b>Only <code>VOICE</code> is supported for this data type.</b> </p>"""
     phone_type: "aws_sdk_connect.types.phone_type.PhoneType"

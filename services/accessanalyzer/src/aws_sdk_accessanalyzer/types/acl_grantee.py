@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#AclGrantee``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.acl_uri
 
 
-class _AclGrantee_id(TypedDict):
+class _AclGrantee_id(TypedDict, closed=True):
     id: "aws_sdk_accessanalyzer.types.acl_canonical_id.AclCanonicalId"
 
 
-class _AclGrantee_uri(TypedDict):
+class _AclGrantee_uri(TypedDict, closed=True):
     uri: "aws_sdk_accessanalyzer.types.acl_uri.AclUri"
 
 

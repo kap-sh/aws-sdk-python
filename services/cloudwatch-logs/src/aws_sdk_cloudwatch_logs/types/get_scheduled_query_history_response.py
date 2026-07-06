@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#GetScheduledQueryHistoryResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.trigger_history_record_list
 
 
-class GetScheduledQueryHistoryResponse(TypedDict):
+class GetScheduledQueryHistoryResponse(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_cloudwatch_logs.types.scheduled_query_name.ScheduledQueryName"
     ]

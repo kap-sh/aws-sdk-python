@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ListTopicRulesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.next_token
     import aws_sdk_iot.types.topic_rule_list
 
 
-class ListTopicRulesResponse(TypedDict):
+class ListTopicRulesResponse(TypedDict, closed=True):
     rules: NotRequired["aws_sdk_iot.types.topic_rule_list.TopicRuleList"]
     """<p>The rules.</p>"""
     next_token: NotRequired["aws_sdk_iot.types.next_token.NextToken"]

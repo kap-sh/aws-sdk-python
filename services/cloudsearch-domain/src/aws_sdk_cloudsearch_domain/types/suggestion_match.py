@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SuggestionMatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.long
     import aws_sdk_cloudsearch_domain.types.string
 
 
-class SuggestionMatch(TypedDict):
+class SuggestionMatch(TypedDict, closed=True):
     suggestion: NotRequired["aws_sdk_cloudsearch_domain.types.string.String"]
     """<p>The string that matches the query string specified in the <code>SuggestRequest</code>. </p>"""
     score: "aws_sdk_cloudsearch_domain.types.long.Long"

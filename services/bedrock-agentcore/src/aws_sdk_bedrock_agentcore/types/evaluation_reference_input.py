@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#EvaluationReferenceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.evaluation_expected_trajectory
 
 
-class EvaluationReferenceInput(TypedDict):
+class EvaluationReferenceInput(TypedDict, closed=True):
     context: "aws_sdk_bedrock_agentcore.types.context.Context"
     """<p> The span context that identifies which session or trace this reference input applies to, used for correlating ground truth with agent output. </p>"""
     expected_response: NotRequired[

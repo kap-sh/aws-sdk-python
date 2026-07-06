@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#F4vSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.f4v_moov_placement
 
 
-class F4vSettings(TypedDict):
+class F4vSettings(TypedDict, closed=True):
     moov_placement: NotRequired[
         "aws_sdk_mediaconvert.types.f4v_moov_placement.F4vMoovPlacement"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#RelatedItemsUpdate``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.related_item
 
 
-class _RelatedItemsUpdate_itemToAdd(TypedDict):
+class _RelatedItemsUpdate_itemToAdd(TypedDict, closed=True):
     itemToAdd: "aws_sdk_ssm_incidents.types.related_item.RelatedItem"
 
 
-class _RelatedItemsUpdate_itemToRemove(TypedDict):
+class _RelatedItemsUpdate_itemToRemove(TypedDict, closed=True):
     itemToRemove: "aws_sdk_ssm_incidents.types.item_identifier.ItemIdentifier"
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#DescribeExclusionsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.locale
 
 
-class DescribeExclusionsRequest(TypedDict):
+class DescribeExclusionsRequest(TypedDict, closed=True):
     exclusion_arns: "aws_sdk_inspector.types.batch_describe_exclusions_arn_list.BatchDescribeExclusionsArnList"
     """<p>The list of ARNs that specify the exclusions that you want to describe.</p>"""
     locale: NotRequired["aws_sdk_inspector.types.locale.Locale"]

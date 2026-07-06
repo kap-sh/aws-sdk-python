@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DeleteWorkflowResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteWorkflowResponse(TypedDict):
+class DeleteWorkflowResponse(TypedDict, closed=True):
     pass
 
 

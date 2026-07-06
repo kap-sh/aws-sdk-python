@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#SigningCertificate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class SigningCertificate(TypedDict):
+class SigningCertificate(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     """<p>The name of the user the signing certificate is associated with.</p>"""
     certificate_id: "aws_sdk_iam.types.certificate_id_type.certificateIdType"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#PlacementType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.xml_string
     import aws_sdk_emr.types.xml_string_max_len256_list
 
 
-class PlacementType(TypedDict):
+class PlacementType(TypedDict, closed=True):
     availability_zone: NotRequired["aws_sdk_emr.types.xml_string.XmlString"]
     """<p>The Amazon EC2 Availability Zone for the cluster. <code>AvailabilityZone</code> is used for uniform instance groups, while <code>AvailabilityZones</code> (plural) is used for instance fleets.</p>"""
     availability_zones: NotRequired[

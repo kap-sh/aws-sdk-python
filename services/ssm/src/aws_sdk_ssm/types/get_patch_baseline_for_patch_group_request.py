@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#GetPatchBaselineForPatchGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ssm.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.patch_group
 
 
-class GetPatchBaselineForPatchGroupRequest(TypedDict):
+class GetPatchBaselineForPatchGroupRequest(TypedDict, closed=True):
     patch_group: "aws_sdk_ssm.types.patch_group.PatchGroup"
     """<p>The name of the patch group whose patch baseline should be retrieved.</p>"""
     operating_system: NotRequired["aws_sdk_ssm.types.operating_system.OperatingSystem"]

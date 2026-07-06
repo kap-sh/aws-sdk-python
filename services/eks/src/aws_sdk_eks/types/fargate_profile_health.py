@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.eks#FargateProfileHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.fargate_profile_issue_list
 
 
-class FargateProfileHealth(TypedDict):
+class FargateProfileHealth(TypedDict, closed=True):
     issues: NotRequired[
         "aws_sdk_eks.types.fargate_profile_issue_list.FargateProfileIssueList"
     ]

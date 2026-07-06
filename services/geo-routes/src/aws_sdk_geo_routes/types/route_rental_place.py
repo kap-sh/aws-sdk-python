@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteRentalPlace``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteRentalPlace(TypedDict):
+class RouteRentalPlace(TypedDict, closed=True):
     access_point_details: NotRequired[
         "aws_sdk_geo_routes.types.route_access_point_details.RouteAccessPointDetails"
     ]

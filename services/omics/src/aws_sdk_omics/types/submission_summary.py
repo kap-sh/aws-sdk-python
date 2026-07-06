@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#SubmissionSummary``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class SubmissionSummary(TypedDict):
+class SubmissionSummary(TypedDict, closed=True):
     successful_start_submission_count: NotRequired["int"]
     """<p>The number of successful start submissions.</p>"""
     failed_start_submission_count: NotRequired["int"]

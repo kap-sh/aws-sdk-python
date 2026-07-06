@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#S3Path``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.s3_object_key
 
 
-class S3Path(TypedDict):
+class S3Path(TypedDict, closed=True):
     bucket: "aws_sdk_kendra.types.s3_bucket_name.S3BucketName"
     """<p>The name of the S3 bucket that contains the file.</p>"""
     key: "aws_sdk_kendra.types.s3_object_key.S3ObjectKey"

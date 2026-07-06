@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.personalize#CreateSolutionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_personalize.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_personalize.types.training_mode
 
 
-class CreateSolutionVersionRequest(TypedDict):
+class CreateSolutionVersionRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_personalize.types.name.Name"]
     """<p>The name of the solution version.</p>"""
     solution_arn: "aws_sdk_personalize.types.arn.Arn"

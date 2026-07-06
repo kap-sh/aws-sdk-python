@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacediscovery#GetOfferTermsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_discovery.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_discovery.types.offer_terms_list
 
 
-class GetOfferTermsOutput(TypedDict):
+class GetOfferTermsOutput(TypedDict, closed=True):
     offer_terms: "aws_sdk_marketplace_discovery.types.offer_terms_list.OfferTermsList"
     """<p>The terms attached to the offer. Each element contains exactly one term type.</p>"""
     next_token: NotRequired["aws_sdk_marketplace_discovery.types.next_token.NextToken"]

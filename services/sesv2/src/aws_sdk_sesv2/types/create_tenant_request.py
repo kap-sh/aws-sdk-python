@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#CreateTenantRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sesv2.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_sesv2.types.tenant_suppression_attributes
 
 
-class CreateTenantRequest(TypedDict):
+class CreateTenantRequest(TypedDict, closed=True):
     tenant_name: "aws_sdk_sesv2.types.tenant_name.TenantName"
     """<p>The name of the tenant to create. The name can contain up to 64 alphanumeric characters, including letters, numbers, hyphens (-) and underscores (_) only.</p>"""
     tags: NotRequired["aws_sdk_sesv2.types.tag_list.TagList"]

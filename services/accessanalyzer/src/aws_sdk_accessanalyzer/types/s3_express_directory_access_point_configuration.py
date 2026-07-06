@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#S3ExpressDirectoryAccessPointConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.access_point_policy
     import aws_sdk_accessanalyzer.types.network_origin_configuration
 
 
-class S3ExpressDirectoryAccessPointConfiguration(TypedDict):
+class S3ExpressDirectoryAccessPointConfiguration(TypedDict, closed=True):
     access_point_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.access_point_policy.AccessPointPolicy"
     ]

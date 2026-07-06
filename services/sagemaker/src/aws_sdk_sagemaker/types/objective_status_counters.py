@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ObjectiveStatusCounters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.objective_status_counter
 
 
-class ObjectiveStatusCounters(TypedDict):
+class ObjectiveStatusCounters(TypedDict, closed=True):
     succeeded: NotRequired[
         "aws_sdk_sagemaker.types.objective_status_counter.ObjectiveStatusCounter"
     ]

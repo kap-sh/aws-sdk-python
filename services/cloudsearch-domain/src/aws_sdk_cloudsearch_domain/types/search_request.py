@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudsearchdomain#SearchRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudsearch_domain.types.cursor
@@ -46,6 +46,7 @@ SearchRequest = TypedDict(
         "start": "aws_sdk_cloudsearch_domain.types.start.Start",
         "stats": NotRequired["aws_sdk_cloudsearch_domain.types.stat.Stat"],
     },
+    closed=True,
 )
 
 

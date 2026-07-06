@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#CreateWebAppRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.web_app_units
 
 
-class CreateWebAppRequest(TypedDict):
+class CreateWebAppRequest(TypedDict, closed=True):
     identity_provider_details: "aws_sdk_transfer.types.web_app_identity_provider_details.WebAppIdentityProviderDetails"
     r"""<p>You can provide a structure that contains the details for the identity provider to use with your web app.</p> <p>For more details about this parameter, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/webapp-identity-center.html\">Configure your identity provider for Transfer Family web apps</a>.</p>"""
     access_endpoint: NotRequired[

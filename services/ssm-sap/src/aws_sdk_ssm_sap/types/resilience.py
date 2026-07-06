@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#Resilience``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.cluster_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.replication_mode
 
 
-class Resilience(TypedDict):
+class Resilience(TypedDict, closed=True):
     hsr_tier: NotRequired["str"]
     """<p>The tier of the component.</p>"""
     hsr_replication_mode: NotRequired[

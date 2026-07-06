@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafv2#RateBasedStatementCustomKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wafv2.types.rate_limit_asn
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_wafv2.types.rate_limit_uri_path
 
 
-class RateBasedStatementCustomKey(TypedDict):
+class RateBasedStatementCustomKey(TypedDict, closed=True):
     header: NotRequired["aws_sdk_wafv2.types.rate_limit_header.RateLimitHeader"]
     """<p>Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance. </p>"""
     cookie: NotRequired["aws_sdk_wafv2.types.rate_limit_cookie.RateLimitCookie"]

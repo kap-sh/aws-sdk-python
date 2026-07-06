@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalyticsv2#PropertyGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis_analytics_v2.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics_v2.types.property_map
 
 
-class PropertyGroup(TypedDict):
+class PropertyGroup(TypedDict, closed=True):
     property_group_id: "aws_sdk_kinesis_analytics_v2.types.id.Id"
     """<p>Describes the key of an application execution property key-value pair.</p>"""
     property_map: "aws_sdk_kinesis_analytics_v2.types.property_map.PropertyMap"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#ValidationExceptionField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.string
 
 
-class ValidationExceptionField(TypedDict):
+class ValidationExceptionField(TypedDict, closed=True):
     name: "aws_sdk_deadline.types.string.String"
     """<p>The name of the validation exception.</p>"""
     message: "aws_sdk_deadline.types.string.String"

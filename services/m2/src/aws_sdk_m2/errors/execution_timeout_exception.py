@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.m2#ExecutionTimeoutException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_m2.errors import DeserializationError, ServiceError
 
 
-class ExecutionTimeoutException_(TypedDict):
+class ExecutionTimeoutException_(TypedDict, closed=True):
     message: "str"
 
 

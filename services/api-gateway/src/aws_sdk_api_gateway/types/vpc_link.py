@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.apigateway#VpcLink``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.list_of_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_api_gateway.types.vpc_link_status
 
 
-class VpcLink(TypedDict):
+class VpcLink(TypedDict, closed=True):
     id: NotRequired["aws_sdk_api_gateway.types.string.String"]
     """<p>The identifier of the VpcLink. It is used in an Integration to reference this VpcLink.</p>"""
     name: NotRequired["aws_sdk_api_gateway.types.string.String"]

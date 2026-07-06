@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#DeleteBotAliasResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.bot_alias_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.id
 
 
-class DeleteBotAliasResponse(TypedDict):
+class DeleteBotAliasResponse(TypedDict, closed=True):
     bot_alias_id: NotRequired["aws_sdk_lex_models_v2.types.bot_alias_id.BotAliasId"]
     """<p>The unique identifier of the bot alias to delete.</p>"""
     bot_id: NotRequired["aws_sdk_lex_models_v2.types.id.Id"]

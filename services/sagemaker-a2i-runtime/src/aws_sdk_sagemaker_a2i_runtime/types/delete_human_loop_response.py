@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakera2iruntime#DeleteHumanLoopResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteHumanLoopResponse(TypedDict):
+class DeleteHumanLoopResponse(TypedDict, closed=True):
     pass
 
 

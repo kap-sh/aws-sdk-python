@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qapps#QPluginCard``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_qapps.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_qapps.types.uuid
 
 
-class QPluginCard(TypedDict):
+class QPluginCard(TypedDict, closed=True):
     id: "aws_sdk_qapps.types.uuid.UUID"
     """<p>The unique identifier of the plugin card.</p>"""
     title: "aws_sdk_qapps.types.title.Title"

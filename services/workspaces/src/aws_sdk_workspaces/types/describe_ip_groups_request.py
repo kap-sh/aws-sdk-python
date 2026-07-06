@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#DescribeIpGroupsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_workspaces.types.ip_group_id_list
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.pagination_token
 
 
-class DescribeIpGroupsRequest(TypedDict):
+class DescribeIpGroupsRequest(TypedDict, closed=True):
     group_ids: NotRequired["aws_sdk_workspaces.types.ip_group_id_list.IpGroupIdList"]
     """<p>The identifiers of one or more IP access control groups.</p>"""
     next_token: NotRequired["aws_sdk_workspaces.types.pagination_token.PaginationToken"]

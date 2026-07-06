@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#BatchGetSchemaAnalysisRuleOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanrooms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.schema_analysis_rule_list
 
 
-class BatchGetSchemaAnalysisRuleOutput(TypedDict):
+class BatchGetSchemaAnalysisRuleOutput(TypedDict, closed=True):
     analysis_rules: (
         "aws_sdk_cleanrooms.types.schema_analysis_rule_list.SchemaAnalysisRuleList"
     )

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#BasicAuthConnectionMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.endpoint
 
 
-class BasicAuthConnectionMetadata(TypedDict):
+class BasicAuthConnectionMetadata(TypedDict, closed=True):
     base_endpoint: "aws_sdk_quicksight.types.endpoint.Endpoint"
     """<p>The base URL endpoint for the external service.</p>"""
     username: "aws_sdk_quicksight.types.action_user_name.ActionUserName"

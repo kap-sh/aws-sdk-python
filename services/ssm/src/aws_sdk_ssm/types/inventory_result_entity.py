@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#InventoryResultEntity``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.inventory_result_entity_id
     import aws_sdk_ssm.types.inventory_result_item_map
 
 
-class InventoryResultEntity(TypedDict):
+class InventoryResultEntity(TypedDict, closed=True):
     id: NotRequired[
         "aws_sdk_ssm.types.inventory_result_entity_id.InventoryResultEntityId"
     ]

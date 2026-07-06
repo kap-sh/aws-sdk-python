@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#NoiseReducer``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.noise_reducer_filter
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.noise_reducer_temporal_filter_settings
 
 
-class NoiseReducer(TypedDict):
+class NoiseReducer(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_mediaconvert.types.noise_reducer_filter.NoiseReducerFilter"
     ]

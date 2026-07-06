@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.savingsplans#SavingsPlanOffering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.currency_code
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_savingsplans.types.uuid
 
 
-class SavingsPlanOffering(TypedDict):
+class SavingsPlanOffering(TypedDict, closed=True):
     offering_id: NotRequired["aws_sdk_savingsplans.types.uuid.UUID"]
     """<p>The ID of the offering.</p>"""
     product_types: NotRequired[

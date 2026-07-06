@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#CreateWorkspaceServiceAccountRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_grafana.types.workspace_id
 
 
-class CreateWorkspaceServiceAccountRequest(TypedDict):
+class CreateWorkspaceServiceAccountRequest(TypedDict, closed=True):
     name: "aws_sdk_grafana.types.service_account_name.ServiceAccountName"
     """<p>A name for the service account. The name must be unique within the workspace, as it determines the ID associated with the service account.</p>"""
     grafana_role: "aws_sdk_grafana.types.role.Role"

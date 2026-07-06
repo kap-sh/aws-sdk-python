@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rds#ModifyDBInstanceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_rds._protocol.xml import Element
 
@@ -26,7 +26,7 @@ if TYPE_CHECKING:
     import aws_sdk_rds.types.vpc_security_group_id_list
 
 
-class ModifyDBInstanceMessage(TypedDict):
+class ModifyDBInstanceMessage(TypedDict, closed=True):
     db_instance_identifier: NotRequired["aws_sdk_rds.types.string.String"]
     """<p>The identifier of DB instance to modify. This value is stored as a lowercase string.</p> <p>Constraints:</p> <ul> <li> <p>Must match the identifier of an existing DB instance.</p> </li> </ul>"""
     allocated_storage: NotRequired["aws_sdk_rds.types.integer_optional.IntegerOptional"]
