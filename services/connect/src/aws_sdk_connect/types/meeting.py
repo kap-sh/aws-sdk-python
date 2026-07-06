@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#Meeting``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.media_placement
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.meeting_id
 
 
-class Meeting(TypedDict):
+class Meeting(TypedDict, closed=True):
     media_region: NotRequired["aws_sdk_connect.types.media_region.MediaRegion"]
     """<p>The Amazon Web Services Region in which you create the meeting.</p>"""
     media_placement: NotRequired["aws_sdk_connect.types.media_placement.MediaPlacement"]

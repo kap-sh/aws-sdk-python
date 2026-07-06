@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#ServiceNowKnowledgeArticleConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.service_now_knowledge_article_filter_query
 
 
-class ServiceNowKnowledgeArticleConfiguration(TypedDict):
+class ServiceNowKnowledgeArticleConfiguration(TypedDict, closed=True):
     crawl_attachments: "aws_sdk_kendra.types.boolean.Boolean"
     """<p> <code>TRUE</code> to index attachments to knowledge articles.</p>"""
     include_attachment_file_patterns: NotRequired[

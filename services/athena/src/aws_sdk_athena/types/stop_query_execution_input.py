@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#StopQueryExecutionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.query_execution_id
 
 
-class StopQueryExecutionInput(TypedDict):
+class StopQueryExecutionInput(TypedDict, closed=True):
     query_execution_id: "aws_sdk_athena.types.query_execution_id.QueryExecutionId"
     """<p>The unique ID of the query execution to stop.</p>"""
 

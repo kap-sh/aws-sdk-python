@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#UntagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.resource_arn
     import aws_sdk_fis.types.tag_key_list
 
 
-class UntagResourceRequest(TypedDict):
+class UntagResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_fis.types.resource_arn.ResourceArn"
     """<p>The Amazon Resource Name (ARN) of the resource.</p>"""
     tag_keys: NotRequired["aws_sdk_fis.types.tag_key_list.TagKeyList"]

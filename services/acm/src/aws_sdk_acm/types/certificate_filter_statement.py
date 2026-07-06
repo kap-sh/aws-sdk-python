@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acm#CertificateFilterStatement``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_acm.errors import DeserializationError, SerializationError
 
@@ -10,19 +12,19 @@ if TYPE_CHECKING:
     import aws_sdk_acm.types.certificate_filter_statement_list
 
 
-class _CertificateFilterStatement_And(TypedDict):
+class _CertificateFilterStatement_And(TypedDict, closed=True):
     And: "aws_sdk_acm.types.certificate_filter_statement_list.CertificateFilterStatementList"
 
 
-class _CertificateFilterStatement_Or(TypedDict):
+class _CertificateFilterStatement_Or(TypedDict, closed=True):
     Or: "aws_sdk_acm.types.certificate_filter_statement_list.CertificateFilterStatementList"
 
 
-class _CertificateFilterStatement_Not(TypedDict):
+class _CertificateFilterStatement_Not(TypedDict, closed=True):
     Not: "aws_sdk_acm.types.certificate_filter_statement.CertificateFilterStatement"
 
 
-class _CertificateFilterStatement_Filter(TypedDict):
+class _CertificateFilterStatement_Filter(TypedDict, closed=True):
     Filter: "aws_sdk_acm.types.certificate_filter.CertificateFilter"
 
 

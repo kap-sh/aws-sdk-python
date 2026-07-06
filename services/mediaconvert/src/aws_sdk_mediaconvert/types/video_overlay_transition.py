@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#VideoOverlayTransition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__string_pattern010920405090509092
     import aws_sdk_mediaconvert.types.video_overlay_position
 
 
-class VideoOverlayTransition(TypedDict):
+class VideoOverlayTransition(TypedDict, closed=True):
     end_position: NotRequired[
         "aws_sdk_mediaconvert.types.video_overlay_position.VideoOverlayPosition"
     ]

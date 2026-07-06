@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#DeleteCustomModelResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCustomModelResponse(TypedDict):
+class DeleteCustomModelResponse(TypedDict, closed=True):
     pass
 
 

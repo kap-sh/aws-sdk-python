@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#IdleSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.idle_finding
     import aws_sdk_compute_optimizer.types.summary_value
 
 
-class IdleSummary(TypedDict):
+class IdleSummary(TypedDict, closed=True):
     name: NotRequired["aws_sdk_compute_optimizer.types.idle_finding.IdleFinding"]
     """<p>The name of the finding group for the idle resources.</p>"""
     value: "aws_sdk_compute_optimizer.types.summary_value.SummaryValue"

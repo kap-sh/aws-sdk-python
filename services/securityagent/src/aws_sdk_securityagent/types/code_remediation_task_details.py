@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CodeRemediationTaskDetails``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class CodeRemediationTaskDetails(TypedDict):
+class CodeRemediationTaskDetails(TypedDict, closed=True):
     repo_name: NotRequired["str"]
     """<p>The name of the repository where the remediation was applied.</p>"""
     code_diff_link: NotRequired["str"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#AnonymousUserSnapshotJobResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_job_result_file_group_list
 
 
-class AnonymousUserSnapshotJobResult(TypedDict):
+class AnonymousUserSnapshotJobResult(TypedDict, closed=True):
     file_groups: NotRequired[
         "aws_sdk_quicksight.types.snapshot_job_result_file_group_list.SnapshotJobResultFileGroupList"
     ]

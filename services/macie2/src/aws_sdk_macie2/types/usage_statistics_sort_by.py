@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#UsageStatisticsSortBy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.order_by
     import aws_sdk_macie2.types.usage_statistics_sort_key
 
 
-class UsageStatisticsSortBy(TypedDict):
+class UsageStatisticsSortBy(TypedDict, closed=True):
     key: NotRequired[
         "aws_sdk_macie2.types.usage_statistics_sort_key.UsageStatisticsSortKey"
     ]

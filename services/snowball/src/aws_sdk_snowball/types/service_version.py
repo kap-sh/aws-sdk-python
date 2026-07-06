@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.snowball#ServiceVersion``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_snowball.types.string
 
 
-class ServiceVersion(TypedDict):
+class ServiceVersion(TypedDict, closed=True):
     version: NotRequired["aws_sdk_snowball.types.string.String"]
     """<p>The version number of the requested service.</p>"""
 

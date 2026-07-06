@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wickr#ConsentPopupConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_wickr.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_wickr.types.generic_string
 
 
-class ConsentPopupConfig(TypedDict):
+class ConsentPopupConfig(TypedDict, closed=True):
     enabled: "bool"
     """<p>Whether the consent popup is enabled. When set to true, the popup is displayed to users on login.</p>"""
     header: NotRequired["aws_sdk_wickr.types.generic_string.GenericString"]

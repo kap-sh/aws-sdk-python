@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#S3JobManifestGenerator``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.s3_manifest_output_location
 
 
-class S3JobManifestGenerator(TypedDict):
+class S3JobManifestGenerator(TypedDict, closed=True):
     expected_bucket_owner: NotRequired["aws_sdk_s3_control.types.account_id.AccountId"]
     """<p>The Amazon Web Services account ID that owns the bucket the generated manifest is written to. If provided the generated manifest bucket's owner Amazon Web Services account ID must match this value, else the job fails.</p>"""
     source_bucket: "aws_sdk_s3_control.types.s3_bucket_arn_string.S3BucketArnString"

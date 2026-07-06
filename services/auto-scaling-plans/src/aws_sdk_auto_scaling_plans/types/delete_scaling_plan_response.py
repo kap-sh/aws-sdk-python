@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.autoscalingplans#DeleteScalingPlanResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteScalingPlanResponse(TypedDict):
+class DeleteScalingPlanResponse(TypedDict, closed=True):
     pass
 
 

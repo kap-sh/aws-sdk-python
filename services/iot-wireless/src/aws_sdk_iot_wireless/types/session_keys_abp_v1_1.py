@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SessionKeysAbpV1_1``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.app_s_key
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.s_nwk_s_int_key
 
 
-class SessionKeysAbpV1_1(TypedDict):
+class SessionKeysAbpV1_1(TypedDict, closed=True):
     f_nwk_s_int_key: NotRequired[
         "aws_sdk_iot_wireless.types.f_nwk_s_int_key.FNwkSIntKey"
     ]

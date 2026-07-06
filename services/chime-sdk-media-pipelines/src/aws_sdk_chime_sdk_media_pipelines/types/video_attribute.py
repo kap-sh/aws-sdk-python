@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#VideoAttribute``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.border_color
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.highlight_color
 
 
-class VideoAttribute(TypedDict):
+class VideoAttribute(TypedDict, closed=True):
     corner_radius: NotRequired[
         "aws_sdk_chime_sdk_media_pipelines.types.corner_radius.CornerRadius"
     ]

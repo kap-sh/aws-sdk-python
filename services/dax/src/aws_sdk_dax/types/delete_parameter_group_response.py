@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dax#DeleteParameterGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dax.types.string
 
 
-class DeleteParameterGroupResponse(TypedDict):
+class DeleteParameterGroupResponse(TypedDict, closed=True):
     deletion_message: NotRequired["aws_sdk_dax.types.string.String"]
     """<p>A user-specified message for this action (i.e., a reason for deleting the parameter group).</p>"""
 

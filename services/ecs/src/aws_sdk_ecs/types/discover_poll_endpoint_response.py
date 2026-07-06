@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#DiscoverPollEndpointResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class DiscoverPollEndpointResponse(TypedDict):
+class DiscoverPollEndpointResponse(TypedDict, closed=True):
     endpoint: NotRequired["aws_sdk_ecs.types.string.String"]
     """<p>The endpoint for the Amazon ECS agent to poll.</p>"""
     telemetry_endpoint: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#AddRegionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.region_status
 
 
-class AddRegionResponse(TypedDict):
+class AddRegionResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_sso_admin.types.region_status.RegionStatus"]
     """<p>The status of the Region after the Add operation. The status is ADDING when the asynchronous workflow is in progress and changes to ACTIVE when complete.</p>"""
 

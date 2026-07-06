@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotmanagedintegrations#CommandCapability``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot_managed_integrations.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_managed_integrations.types.schema_versioned_id
 
 
-class CommandCapability(TypedDict):
+class CommandCapability(TypedDict, closed=True):
     id: "aws_sdk_iot_managed_integrations.types.schema_versioned_id.SchemaVersionedId"
     """<p>Describe the capability with an id.</p>"""
     name: "aws_sdk_iot_managed_integrations.types.capability_name.CapabilityName"

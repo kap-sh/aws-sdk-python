@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#GetEnabledBaselineInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controltower.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_controltower.types.arn
 
 
-class GetEnabledBaselineInput(TypedDict):
+class GetEnabledBaselineInput(TypedDict, closed=True):
     enabled_baseline_identifier: "aws_sdk_controltower.types.arn.Arn"
     """<p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>"""
 

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#StartingEventBatchCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.nullable_integer
 
 
-class StartingEventBatchCondition(TypedDict):
+class StartingEventBatchCondition(TypedDict, closed=True):
     batch_size: NotRequired["aws_sdk_glue.types.nullable_integer.NullableInteger"]
     """<p>Number of events in the batch.</p>"""
     batch_window: NotRequired["aws_sdk_glue.types.nullable_integer.NullableInteger"]

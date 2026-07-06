@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#PaginationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.page_number
 
 
-class PaginationConfiguration(TypedDict):
+class PaginationConfiguration(TypedDict, closed=True):
     page_size: "aws_sdk_quicksight.types.long.Long"
     """<p>Indicates how many items render in one page.</p>"""
     page_number: "aws_sdk_quicksight.types.page_number.PageNumber"

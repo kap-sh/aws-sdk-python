@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#IsVpcPeeredRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class IsVpcPeeredRequest(TypedDict):
+class IsVpcPeeredRequest(TypedDict, closed=True):
     pass
 
 

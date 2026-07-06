@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#DescribeAuditSuppressionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.audit_check_name
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class DescribeAuditSuppressionResponse(TypedDict):
+class DescribeAuditSuppressionResponse(TypedDict, closed=True):
     check_name: NotRequired["aws_sdk_iot.types.audit_check_name.AuditCheckName"]
     resource_identifier: NotRequired[
         "aws_sdk_iot.types.resource_identifier.ResourceIdentifier"

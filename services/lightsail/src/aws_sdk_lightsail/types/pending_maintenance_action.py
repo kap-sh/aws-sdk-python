@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#PendingMaintenanceAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.iso_date
     import aws_sdk_lightsail.types.non_empty_string
 
 
-class PendingMaintenanceAction(TypedDict):
+class PendingMaintenanceAction(TypedDict, closed=True):
     action: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]
     """<p>The type of pending database maintenance action.</p>"""
     description: NotRequired["aws_sdk_lightsail.types.non_empty_string.NonEmptyString"]

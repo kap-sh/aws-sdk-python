@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sso#AccountInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso.types.account_id_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso.types.email_address_type
 
 
-class AccountInfo(TypedDict):
+class AccountInfo(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_sso.types.account_id_type.AccountIdType"]
     """<p>The identifier of the AWS account that is assigned to the user.</p>"""
     account_name: NotRequired["aws_sdk_sso.types.account_name_type.AccountNameType"]

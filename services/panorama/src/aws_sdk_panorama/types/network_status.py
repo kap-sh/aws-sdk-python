@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.panorama#NetworkStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_panorama.types.ethernet_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_panorama.types.ntp_status
 
 
-class NetworkStatus(TypedDict):
+class NetworkStatus(TypedDict, closed=True):
     ethernet0_status: NotRequired[
         "aws_sdk_panorama.types.ethernet_status.EthernetStatus"
     ]

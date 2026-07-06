@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.oam#PutSinkPolicyOutput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class PutSinkPolicyOutput(TypedDict):
+class PutSinkPolicyOutput(TypedDict, closed=True):
     sink_arn: NotRequired["str"]
     """<p>The ARN of the sink.</p>"""
     sink_id: NotRequired["str"]

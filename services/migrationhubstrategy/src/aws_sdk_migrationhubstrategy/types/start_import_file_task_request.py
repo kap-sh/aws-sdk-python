@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#StartImportFileTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_migrationhubstrategy.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class StartImportFileTaskRequest(TypedDict):
+class StartImportFileTaskRequest(TypedDict, closed=True):
     name: "aws_sdk_migrationhubstrategy.types.string.String"
     """<p> A descriptive name for the request. </p>"""
     s3_bucket: "aws_sdk_migrationhubstrategy.types.import_s3_bucket.importS3Bucket"

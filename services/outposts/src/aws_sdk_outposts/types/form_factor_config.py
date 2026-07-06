@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#FormFactorConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.form_factor
     import aws_sdk_outposts.types.outpost_generation
 
 
-class FormFactorConfig(TypedDict):
+class FormFactorConfig(TypedDict, closed=True):
     form_factor: NotRequired["aws_sdk_outposts.types.form_factor.FormFactor"]
     """<p>The form factor. Valid values are <code>RACK</code> for rack-based Outposts and <code>SERVER</code> for server-based Outposts.</p>"""
     outpost_generation: NotRequired[

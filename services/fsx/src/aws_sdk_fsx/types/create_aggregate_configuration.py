@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#CreateAggregateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.aggregate_list_multiplier
     import aws_sdk_fsx.types.aggregates
 
 
-class CreateAggregateConfiguration(TypedDict):
+class CreateAggregateConfiguration(TypedDict, closed=True):
     aggregates: NotRequired["aws_sdk_fsx.types.aggregates.Aggregates"]
     """<p>Used to specify the names of aggregates on which the volume will be created.</p>"""
     constituents_per_aggregate: NotRequired[

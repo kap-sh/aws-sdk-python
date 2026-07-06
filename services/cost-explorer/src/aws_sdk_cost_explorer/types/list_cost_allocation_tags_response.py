@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListCostAllocationTagsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.cost_allocation_tag_list
     import aws_sdk_cost_explorer.types.next_page_token
 
 
-class ListCostAllocationTagsResponse(TypedDict):
+class ListCostAllocationTagsResponse(TypedDict, closed=True):
     cost_allocation_tags: NotRequired[
         "aws_sdk_cost_explorer.types.cost_allocation_tag_list.CostAllocationTagList"
     ]

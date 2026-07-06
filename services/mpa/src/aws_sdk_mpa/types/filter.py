@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mpa#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mpa.types.filter_field
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mpa.types.string
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     field_name: NotRequired["aws_sdk_mpa.types.filter_field.FilterField"]
     """<p>Name of the filter to use.</p> <note> <p> <b>Supported filters</b> </p> <p>The supported filters for <a>ListSessions</a> are: <code>ActionName</code>, <code>SessionStatus</code>, and <code>InitationTime</code>.</p> </note>"""
     operator: NotRequired["aws_sdk_mpa.types.operator.Operator"]

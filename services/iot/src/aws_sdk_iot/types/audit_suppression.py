@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#AuditSuppression``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class AuditSuppression(TypedDict):
+class AuditSuppression(TypedDict, closed=True):
     check_name: "aws_sdk_iot.types.audit_check_name.AuditCheckName"
     resource_identifier: "aws_sdk_iot.types.resource_identifier.ResourceIdentifier"
     expiration_date: NotRequired["aws_sdk_iot.types.timestamp.Timestamp"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#IpamPoolAllocation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class IpamPoolAllocation(TypedDict):
+class IpamPoolAllocation(TypedDict, closed=True):
     cidr: NotRequired["aws_sdk_ec2.types.string.String"]
     """<p>The CIDR for the allocation. A CIDR is a representation of an IP address and its associated network mask (or netmask) and refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>"""
     ipam_pool_allocation_id: NotRequired[

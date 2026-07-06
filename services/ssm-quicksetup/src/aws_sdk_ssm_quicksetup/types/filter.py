@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmquicksetup#Filter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_quicksetup.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_quicksetup.types.filter_values
 
 
-class Filter(TypedDict):
+class Filter(TypedDict, closed=True):
     key: "str"
     """<p>The key for the filter.</p>"""
     values: "aws_sdk_ssm_quicksetup.types.filter_values.FilterValues"

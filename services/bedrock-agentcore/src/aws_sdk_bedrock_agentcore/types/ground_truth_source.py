@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#GroundTruthSource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.inline_ground_truth
 
 
-class _GroundTruthSource_inline(TypedDict):
+class _GroundTruthSource_inline(TypedDict, closed=True):
     inline: "aws_sdk_bedrock_agentcore.types.inline_ground_truth.InlineGroundTruth"
 
 

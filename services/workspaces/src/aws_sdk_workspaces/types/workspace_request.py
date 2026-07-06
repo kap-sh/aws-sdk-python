@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#WorkspaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.workspace_properties
 
 
-class WorkspaceRequest(TypedDict):
+class WorkspaceRequest(TypedDict, closed=True):
     directory_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"
     """<p>The identifier of the Directory Service directory for the WorkSpace. You can use <a>DescribeWorkspaceDirectories</a> to list the available directories.</p>"""
     user_name: "aws_sdk_workspaces.types.user_name.UserName"

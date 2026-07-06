@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#CreateDomainRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_opensearch.errors import DeserializationError
 
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     import aws_sdk_opensearch.types.vpc_options
 
 
-class CreateDomainRequest(TypedDict):
+class CreateDomainRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_opensearch.types.domain_name.DomainName"
     """<p>Name of the OpenSearch Service domain to create. Domain names are unique across the domains owned by an account within an Amazon Web Services Region.</p>"""
     engine_version: NotRequired["aws_sdk_opensearch.types.version_string.VersionString"]

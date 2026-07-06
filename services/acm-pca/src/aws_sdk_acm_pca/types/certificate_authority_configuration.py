@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#CertificateAuthorityConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_acm_pca.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.signing_algorithm
 
 
-class CertificateAuthorityConfiguration(TypedDict):
+class CertificateAuthorityConfiguration(TypedDict, closed=True):
     key_algorithm: "aws_sdk_acm_pca.types.key_algorithm.KeyAlgorithm"
     """<p>Type of the public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate. When you create a subordinate CA, you must use a key algorithm supported by the parent CA.</p>"""
     signing_algorithm: "aws_sdk_acm_pca.types.signing_algorithm.SigningAlgorithm"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ListActivatedRulesInRuleGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_waf.types.next_marker
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.resource_id
 
 
-class ListActivatedRulesInRuleGroupRequest(TypedDict):
+class ListActivatedRulesInRuleGroupRequest(TypedDict, closed=True):
     rule_group_id: NotRequired["aws_sdk_waf.types.resource_id.ResourceId"]
     """<p>The <code>RuleGroupId</code> of the <a>RuleGroup</a> for which you want to get a list of <a>ActivatedRule</a> objects.</p>"""
     next_marker: NotRequired["aws_sdk_waf.types.next_marker.NextMarker"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.connect#ObservationSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.count
 
 
-class ObservationSummary(TypedDict):
+class ObservationSummary(TypedDict, closed=True):
     total_observations: NotRequired["aws_sdk_connect.types.count.Count"]
     """<p>The total number of observations in the test case.</p>"""
     observations_passed: NotRequired["aws_sdk_connect.types.count.Count"]

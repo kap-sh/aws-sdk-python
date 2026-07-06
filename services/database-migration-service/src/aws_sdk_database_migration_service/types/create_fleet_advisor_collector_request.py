@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#CreateFleetAdvisorCollectorRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_database_migration_service.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.string
 
 
-class CreateFleetAdvisorCollectorRequest(TypedDict):
+class CreateFleetAdvisorCollectorRequest(TypedDict, closed=True):
     collector_name: "aws_sdk_database_migration_service.types.string.String"
     """<p>The name of your Fleet Advisor collector (for example, <code>sample-collector</code>).</p>"""
     description: NotRequired["aws_sdk_database_migration_service.types.string.String"]

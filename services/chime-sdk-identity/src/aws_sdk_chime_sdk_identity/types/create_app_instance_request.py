@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkidentity#CreateAppInstanceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_identity.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_identity.types.tag_list
 
 
-class CreateAppInstanceRequest(TypedDict):
+class CreateAppInstanceRequest(TypedDict, closed=True):
     name: (
         "aws_sdk_chime_sdk_identity.types.non_empty_resource_name.NonEmptyResourceName"
     )

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ListSavingsPlansPurchaseRecommendationGenerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generation_status
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.recommendations_page_size
 
 
-class ListSavingsPlansPurchaseRecommendationGenerationRequest(TypedDict):
+class ListSavingsPlansPurchaseRecommendationGenerationRequest(TypedDict, closed=True):
     generation_status: NotRequired[
         "aws_sdk_cost_explorer.types.generation_status.GenerationStatus"
     ]

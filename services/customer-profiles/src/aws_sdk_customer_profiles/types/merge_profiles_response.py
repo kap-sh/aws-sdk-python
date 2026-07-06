@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#MergeProfilesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.message
 
 
-class MergeProfilesResponse(TypedDict):
+class MergeProfilesResponse(TypedDict, closed=True):
     message: NotRequired["aws_sdk_customer_profiles.types.message.message"]
     """<p>A message that indicates the merge request is complete.</p>"""
 

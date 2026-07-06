@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53resolver#IpAddressResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.ip
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_route53resolver.types.subnet_id
 
 
-class IpAddressResponse(TypedDict):
+class IpAddressResponse(TypedDict, closed=True):
     ip_id: NotRequired["aws_sdk_route53resolver.types.resource_id.ResourceId"]
     """<p>The ID of one IP address.</p>"""
     subnet_id: NotRequired["aws_sdk_route53resolver.types.subnet_id.SubnetId"]

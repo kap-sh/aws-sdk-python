@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12Delimiters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_component_separator
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.x12_segment_terminator
 
 
-class X12Delimiters(TypedDict):
+class X12Delimiters(TypedDict, closed=True):
     component_separator: NotRequired[
         "aws_sdk_b2bi.types.x12_component_separator.X12ComponentSeparator"
     ]

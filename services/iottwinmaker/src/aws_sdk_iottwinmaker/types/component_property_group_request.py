@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iottwinmaker#ComponentPropertyGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.group_type
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iottwinmaker.types.property_names
 
 
-class ComponentPropertyGroupRequest(TypedDict):
+class ComponentPropertyGroupRequest(TypedDict, closed=True):
     group_type: NotRequired["aws_sdk_iottwinmaker.types.group_type.GroupType"]
     """<p>The group type.</p>"""
     property_names: NotRequired[

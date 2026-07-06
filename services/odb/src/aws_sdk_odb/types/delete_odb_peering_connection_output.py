@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.odb#DeleteOdbPeeringConnectionOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteOdbPeeringConnectionOutput(TypedDict):
+class DeleteOdbPeeringConnectionOutput(TypedDict, closed=True):
     pass
 
 

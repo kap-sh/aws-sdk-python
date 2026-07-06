@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#ListSpacesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.space_summaries
 
 
-class ListSpacesResponse(TypedDict):
+class ListSpacesResponse(TypedDict, closed=True):
     next_token: NotRequired["str"]
     """<p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>"""
     items: NotRequired["aws_sdk_codecatalyst.types.space_summaries.SpaceSummaries"]

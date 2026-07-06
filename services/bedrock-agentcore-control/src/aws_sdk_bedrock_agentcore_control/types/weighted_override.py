@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#WeightedOverride``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.traffic_split_entries
 
 
-class WeightedOverride(TypedDict):
+class WeightedOverride(TypedDict, closed=True):
     traffic_split: "aws_sdk_bedrock_agentcore_control.types.traffic_split_entries.TrafficSplitEntries"
     """<p>The traffic split entries defining how traffic is distributed between configuration bundle versions.</p>"""
 

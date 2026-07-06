@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeRecoveryInstancesRequestFilters``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instance_i_ds
     import aws_sdk_drs.types.source_server_i_ds
 
 
-class DescribeRecoveryInstancesRequestFilters(TypedDict):
+class DescribeRecoveryInstancesRequestFilters(TypedDict, closed=True):
     recovery_instance_i_ds: NotRequired[
         "aws_sdk_drs.types.recovery_instance_i_ds.RecoveryInstanceIDs"
     ]

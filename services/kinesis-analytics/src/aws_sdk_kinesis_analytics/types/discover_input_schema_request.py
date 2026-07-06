@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisanalytics#DiscoverInputSchemaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.input_processing_configuration
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis_analytics.types.s3_configuration
 
 
-class DiscoverInputSchemaRequest(TypedDict):
+class DiscoverInputSchemaRequest(TypedDict, closed=True):
     resource_arn: NotRequired[
         "aws_sdk_kinesis_analytics.types.resource_arn.ResourceARN"
     ]

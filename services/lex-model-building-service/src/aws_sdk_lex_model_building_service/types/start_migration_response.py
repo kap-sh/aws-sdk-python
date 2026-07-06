@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelbuildingservice#StartMigrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.bot_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_model_building_service.types.version
 
 
-class StartMigrationResponse(TypedDict):
+class StartMigrationResponse(TypedDict, closed=True):
     v1_bot_name: NotRequired[
         "aws_sdk_lex_model_building_service.types.bot_name.BotName"
     ]

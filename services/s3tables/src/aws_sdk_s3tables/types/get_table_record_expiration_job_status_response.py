@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3tables#GetTableRecordExpirationJobStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3tables.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3tables.types.table_record_expiration_job_status
 
 
-class GetTableRecordExpirationJobStatusResponse(TypedDict):
+class GetTableRecordExpirationJobStatusResponse(TypedDict, closed=True):
     status: "aws_sdk_s3tables.types.table_record_expiration_job_status.TableRecordExpirationJobStatus"
     """<p>The current status of the most recent expiration job.</p>"""
     last_run_timestamp: NotRequired["datetime.datetime"]

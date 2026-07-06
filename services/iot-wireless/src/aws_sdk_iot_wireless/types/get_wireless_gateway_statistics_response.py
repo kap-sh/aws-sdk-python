@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#GetWirelessGatewayStatisticsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.connection_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.wireless_gateway_id
 
 
-class GetWirelessGatewayStatisticsResponse(TypedDict):
+class GetWirelessGatewayStatisticsResponse(TypedDict, closed=True):
     wireless_gateway_id: NotRequired[
         "aws_sdk_iot_wireless.types.wireless_gateway_id.WirelessGatewayId"
     ]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codegurusecurity#CreateUploadUrlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codeguru_security.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeguru_security.types.uuid
 
 
-class CreateUploadUrlResponse(TypedDict):
+class CreateUploadUrlResponse(TypedDict, closed=True):
     s3_url: "aws_sdk_codeguru_security.types.s3_url.S3Url"
     """<p>A pre-signed S3 URL. You can upload the code file you want to scan with the required <code>requestHeaders</code> using any HTTP client.</p>"""
     request_headers: (

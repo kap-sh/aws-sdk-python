@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.computeoptimizer#ECSServiceRecommendationOption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.container_recommendations
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_compute_optimizer.types.savings_opportunity
 
 
-class ECSServiceRecommendationOption(TypedDict):
+class ECSServiceRecommendationOption(TypedDict, closed=True):
     memory: NotRequired[
         "aws_sdk_compute_optimizer.types.nullable_memory.NullableMemory"
     ]

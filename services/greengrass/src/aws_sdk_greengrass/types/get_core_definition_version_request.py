@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#GetCoreDefinitionVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class GetCoreDefinitionVersionRequest(TypedDict):
+class GetCoreDefinitionVersionRequest(TypedDict, closed=True):
     core_definition_id: "aws_sdk_greengrass.types.__string.__string"
     """The ID of the core definition."""
     core_definition_version_id: "aws_sdk_greengrass.types.__string.__string"

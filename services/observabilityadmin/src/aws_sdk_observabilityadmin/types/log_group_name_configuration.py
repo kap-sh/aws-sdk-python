@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.observabilityadmin#LogGroupNameConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_observabilityadmin.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_observabilityadmin.types.log_group_name_pattern
 
 
-class LogGroupNameConfiguration(TypedDict):
+class LogGroupNameConfiguration(TypedDict, closed=True):
     log_group_name_pattern: (
         "aws_sdk_observabilityadmin.types.log_group_name_pattern.LogGroupNamePattern"
     )

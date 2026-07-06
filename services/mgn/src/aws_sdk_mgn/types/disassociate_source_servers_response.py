@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#DisassociateSourceServersResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DisassociateSourceServersResponse(TypedDict):
+class DisassociateSourceServersResponse(TypedDict, closed=True):
     pass
 
 

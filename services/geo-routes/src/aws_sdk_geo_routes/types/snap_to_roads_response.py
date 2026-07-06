@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#SnapToRoadsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.road_snap_snapped_trace_point_list
 
 
-class SnapToRoadsResponse(TypedDict):
+class SnapToRoadsResponse(TypedDict, closed=True):
     notices: "aws_sdk_geo_routes.types.road_snap_notice_list.RoadSnapNoticeList"
     """<p>Notices are additional information returned that indicate issues that occurred during route calculation.</p>"""
     pricing_bucket: "str"

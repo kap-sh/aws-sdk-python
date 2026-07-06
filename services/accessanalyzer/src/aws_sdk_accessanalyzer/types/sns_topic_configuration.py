@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#SnsTopicConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.sns_topic_policy
 
 
-class SnsTopicConfiguration(TypedDict):
+class SnsTopicConfiguration(TypedDict, closed=True):
     topic_policy: NotRequired[
         "aws_sdk_accessanalyzer.types.sns_topic_policy.SnsTopicPolicy"
     ]

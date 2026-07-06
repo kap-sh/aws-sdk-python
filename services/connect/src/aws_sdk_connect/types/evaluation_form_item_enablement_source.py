@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connect#EvaluationFormItemEnablementSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connect.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_connect.types.reference_id
 
 
-class EvaluationFormItemEnablementSource(TypedDict):
+class EvaluationFormItemEnablementSource(TypedDict, closed=True):
     type: "aws_sdk_connect.types.evaluation_form_item_enablement_source_type.EvaluationFormItemEnablementSourceType"
     """<p>A type of source item. </p>"""
     ref_id: NotRequired["aws_sdk_connect.types.reference_id.ReferenceId"]

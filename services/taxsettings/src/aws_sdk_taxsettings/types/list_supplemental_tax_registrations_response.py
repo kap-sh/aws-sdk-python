@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.taxsettings#ListSupplementalTaxRegistrationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_taxsettings.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_taxsettings.types.supplemental_tax_registration_list
 
 
-class ListSupplementalTaxRegistrationsResponse(TypedDict):
+class ListSupplementalTaxRegistrationsResponse(TypedDict, closed=True):
     tax_registrations: "aws_sdk_taxsettings.types.supplemental_tax_registration_list.SupplementalTaxRegistrationList"
     """<p> The list of supplemental tax registrations. </p>"""
     next_token: NotRequired[

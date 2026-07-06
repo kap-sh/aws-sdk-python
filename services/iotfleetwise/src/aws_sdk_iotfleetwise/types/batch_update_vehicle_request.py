@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#BatchUpdateVehicleRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iotfleetwise.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.update_vehicle_request_items
 
 
-class BatchUpdateVehicleRequest(TypedDict):
+class BatchUpdateVehicleRequest(TypedDict, closed=True):
     vehicles: "aws_sdk_iotfleetwise.types.update_vehicle_request_items.updateVehicleRequestItems"
     """<p> A list of information about the vehicles to update. For more information, see the API data type.</p>"""
 

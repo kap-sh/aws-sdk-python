@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#CreateGroupRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class CreateGroupRequest(TypedDict):
+class CreateGroupRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The organization under which the group is to be created.</p>"""
     name: "aws_sdk_workmail.types.group_name.GroupName"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#UntagUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.tag_key_list_type
 
 
-class UntagUserRequest(TypedDict):
+class UntagUserRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.existing_user_name_type.existingUserNameType"
     r"""<p>The name of the IAM user from which you want to remove tags.</p> <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"""
     tag_keys: "aws_sdk_iam.types.tag_key_list_type.tagKeyListType"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.oam#ListSinksItem``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListSinksItem(TypedDict):
+class ListSinksItem(TypedDict, closed=True):
     arn: NotRequired["str"]
     """<p>The ARN of the sink.</p>"""
     id: NotRequired["str"]

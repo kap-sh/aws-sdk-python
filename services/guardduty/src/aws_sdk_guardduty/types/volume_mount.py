@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#VolumeMount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class VolumeMount(TypedDict):
+class VolumeMount(TypedDict, closed=True):
     name: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>Volume mount name.</p>"""
     mount_path: NotRequired["aws_sdk_guardduty.types.string.String"]

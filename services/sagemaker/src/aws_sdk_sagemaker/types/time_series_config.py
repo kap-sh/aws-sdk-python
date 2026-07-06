@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#TimeSeriesConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.grouping_attribute_names
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp_attribute_name
 
 
-class TimeSeriesConfig(TypedDict):
+class TimeSeriesConfig(TypedDict, closed=True):
     target_attribute_name: NotRequired[
         "aws_sdk_sagemaker.types.target_attribute_name.TargetAttributeName"
     ]

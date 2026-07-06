@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#OdbNetworkSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_odb.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.string_list
 
 
-class OdbNetworkSummary(TypedDict):
+class OdbNetworkSummary(TypedDict, closed=True):
     odb_network_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the ODB network.</p>"""
     display_name: NotRequired["str"]

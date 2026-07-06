@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#CreateAssetRevisionInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.revision
 
 
-class CreateAssetRevisionInput(TypedDict):
+class CreateAssetRevisionInput(TypedDict, closed=True):
     name: "aws_sdk_datazone.types.asset_name.AssetName"
     """<p>Te revised name of the asset.</p>"""
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.firehose#BufferingHints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_firehose.types.interval_in_seconds
     import aws_sdk_firehose.types.size_in_m_bs
 
 
-class BufferingHints(TypedDict):
+class BufferingHints(TypedDict, closed=True):
     size_in_m_bs: NotRequired["aws_sdk_firehose.types.size_in_m_bs.SizeInMBs"]
     """<p>Buffer incoming data to the specified size, in MiBs, before delivering it to the destination. The default value is 5. This parameter is optional but if you specify a value for it, you must also specify a value for <code>IntervalInSeconds</code>, and vice versa.</p> <p>We recommend setting this parameter to a value greater than the amount of data you typically ingest into the Firehose stream in 10 seconds. For example, if you typically ingest data at 1 MiB/sec, the value should be 10 MiB or higher.</p>"""
     interval_in_seconds: NotRequired[

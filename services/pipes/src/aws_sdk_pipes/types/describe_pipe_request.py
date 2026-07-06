@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pipes#DescribePipeRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pipes.types.pipe_name
 
 
-class DescribePipeRequest(TypedDict):
+class DescribePipeRequest(TypedDict, closed=True):
     name: "aws_sdk_pipes.types.pipe_name.PipeName"
     """<p>The name of the pipe.</p>"""
 

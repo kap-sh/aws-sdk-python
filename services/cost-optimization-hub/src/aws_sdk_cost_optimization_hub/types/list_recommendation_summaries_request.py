@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costoptimizationhub#ListRecommendationSummariesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_optimization_hub.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_optimization_hub.types.summary_metrics_list
 
 
-class ListRecommendationSummariesRequest(TypedDict):
+class ListRecommendationSummariesRequest(TypedDict, closed=True):
     filter: NotRequired["aws_sdk_cost_optimization_hub.types.filter.Filter"]
     group_by: "str"
     """<p>The grouping of recommendations by a dimension.</p>"""

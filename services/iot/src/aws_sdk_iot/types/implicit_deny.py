@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#ImplicitDeny``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.policies
 
 
-class ImplicitDeny(TypedDict):
+class ImplicitDeny(TypedDict, closed=True):
     policies: NotRequired["aws_sdk_iot.types.policies.Policies"]
     """<p>Policies that don't contain a matching allow or deny statement for the specified action on the specified resource. </p>"""
 

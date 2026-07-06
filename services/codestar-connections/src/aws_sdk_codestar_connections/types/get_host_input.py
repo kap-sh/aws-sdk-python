@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codestarconnections#GetHostInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codestar_connections.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_codestar_connections.types.host_arn
 
 
-class GetHostInput(TypedDict):
+class GetHostInput(TypedDict, closed=True):
     host_arn: "aws_sdk_codestar_connections.types.host_arn.HostArn"
     """<p>The Amazon Resource Name (ARN) of the requested host.</p>"""
 

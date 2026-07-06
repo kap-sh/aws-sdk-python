@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconnect#RouterInputMetadata``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mediaconnect.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconnect.types.transport_media_info
 
 
-class _RouterInputMetadata_TransportStreamMediaInfo(TypedDict):
+class _RouterInputMetadata_TransportStreamMediaInfo(TypedDict, closed=True):
     TransportStreamMediaInfo: (
         "aws_sdk_mediaconnect.types.transport_media_info.TransportMediaInfo"
     )

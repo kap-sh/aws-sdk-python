@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#TargetRedshiftCatalog``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.resource_arn_string
 
 
-class TargetRedshiftCatalog(TypedDict):
+class TargetRedshiftCatalog(TypedDict, closed=True):
     catalog_arn: "aws_sdk_glue.types.resource_arn_string.ResourceArnString"
     """<p>The Amazon Resource Name (ARN) of the catalog resource.</p>"""
 

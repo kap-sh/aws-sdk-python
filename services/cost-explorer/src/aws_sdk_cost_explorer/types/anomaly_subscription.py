@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#AnomalySubscription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.subscribers
 
 
-class AnomalySubscription(TypedDict):
+class AnomalySubscription(TypedDict, closed=True):
     subscription_arn: NotRequired[
         "aws_sdk_cost_explorer.types.generic_string.GenericString"
     ]

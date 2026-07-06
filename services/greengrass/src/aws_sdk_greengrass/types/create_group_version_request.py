@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#CreateGroupVersionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
 
 
-class CreateGroupVersionRequest(TypedDict):
+class CreateGroupVersionRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     connector_definition_version_arn: NotRequired[

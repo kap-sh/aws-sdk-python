@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#CapacityManagerDataExportResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.tag_list
 
 
-class CapacityManagerDataExportResponse(TypedDict):
+class CapacityManagerDataExportResponse(TypedDict, closed=True):
     capacity_manager_data_export_id: NotRequired[
         "aws_sdk_ec2.types.capacity_manager_data_export_id.CapacityManagerDataExportId"
     ]

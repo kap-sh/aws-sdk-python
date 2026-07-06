@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessSkill``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -10,15 +12,15 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.harness_skill_s3_source
 
 
-class _HarnessSkill_path(TypedDict):
+class _HarnessSkill_path(TypedDict, closed=True):
     path: "aws_sdk_bedrock_agentcore.types.harness_skill_path.HarnessSkillPath"
 
 
-class _HarnessSkill_s3(TypedDict):
+class _HarnessSkill_s3(TypedDict, closed=True):
     s3: "aws_sdk_bedrock_agentcore.types.harness_skill_s3_source.HarnessSkillS3Source"
 
 
-class _HarnessSkill_git(TypedDict):
+class _HarnessSkill_git(TypedDict, closed=True):
     git: (
         "aws_sdk_bedrock_agentcore.types.harness_skill_git_source.HarnessSkillGitSource"
     )

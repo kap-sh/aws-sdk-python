@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appconfig#DeploymentStrategies``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appconfig.types.deployment_strategy_list
     import aws_sdk_appconfig.types.next_token
 
 
-class DeploymentStrategies(TypedDict):
+class DeploymentStrategies(TypedDict, closed=True):
     items: NotRequired[
         "aws_sdk_appconfig.types.deployment_strategy_list.DeploymentStrategyList"
     ]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DescribeCustomerMetadataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.agreement_list
     import aws_sdk_direct_connect.types.nni_partner_type
 
 
-class DescribeCustomerMetadataResponse(TypedDict):
+class DescribeCustomerMetadataResponse(TypedDict, closed=True):
     agreements: NotRequired["aws_sdk_direct_connect.types.agreement_list.AgreementList"]
     """<p>The list of customer agreements.</p>"""
     nni_partner_type: NotRequired[

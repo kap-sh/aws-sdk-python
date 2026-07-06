@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.s3vectors#PutVectorsOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class PutVectorsOutput(TypedDict):
+class PutVectorsOutput(TypedDict, closed=True):
     pass
 
 

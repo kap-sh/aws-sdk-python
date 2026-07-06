@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchevents#ListPartnerEventSourcesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_events.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_events.types.partner_event_source_name_prefix
 
 
-class ListPartnerEventSourcesRequest(TypedDict):
+class ListPartnerEventSourcesRequest(TypedDict, closed=True):
     name_prefix: "aws_sdk_cloudwatch_events.types.partner_event_source_name_prefix.PartnerEventSourceNamePrefix"
     """<p>If you specify this, the results are limited to only those partner event sources that start with the string you specify.</p>"""
     next_token: NotRequired["aws_sdk_cloudwatch_events.types.next_token.NextToken"]

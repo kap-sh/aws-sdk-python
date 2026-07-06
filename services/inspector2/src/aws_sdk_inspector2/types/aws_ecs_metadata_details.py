@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#AwsEcsMetadataDetails``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
 
-class AwsEcsMetadataDetails(TypedDict):
+class AwsEcsMetadataDetails(TypedDict, closed=True):
     details_group: "str"
     """<p>The details group information for a task in a cluster.</p>"""
     task_definition_arn: "str"

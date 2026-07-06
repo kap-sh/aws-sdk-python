@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.odb#ManagedServices``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.cross_region_s3_restore_sources_access_list
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_odb.types.zero_etl_access
 
 
-class ManagedServices(TypedDict):
+class ManagedServices(TypedDict, closed=True):
     service_network_arn: NotRequired["aws_sdk_odb.types.resource_arn.ResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the service network.</p>"""
     resource_gateway_arn: NotRequired["aws_sdk_odb.types.resource_arn.ResourceArn"]

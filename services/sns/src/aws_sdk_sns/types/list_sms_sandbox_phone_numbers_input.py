@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sns#ListSMSSandboxPhoneNumbersInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_sns._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_sns.types.next_token
 
 
-class ListSMSSandboxPhoneNumbersInput(TypedDict):
+class ListSMSSandboxPhoneNumbersInput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_sns.types.next_token.nextToken"]
     """<p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>"""
     max_results: NotRequired["aws_sdk_sns.types.max_items.MaxItems"]

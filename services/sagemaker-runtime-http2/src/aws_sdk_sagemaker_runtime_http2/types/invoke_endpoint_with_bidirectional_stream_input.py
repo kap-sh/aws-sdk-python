@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.sagemakerruntimehttp2#InvokeEndpointWithBidirectionalStreamInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker_runtime_http2.types.request_stream_event
 
 
-class InvokeEndpointWithBidirectionalStreamInput(TypedDict):
+class InvokeEndpointWithBidirectionalStreamInput(TypedDict, closed=True):
     endpoint_name: "str"
     """<p>The name of the endpoint to invoke.</p>"""
     body: (

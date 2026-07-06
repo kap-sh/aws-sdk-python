@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#BatchGetMetricDataResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.metric_data_error_list
     import aws_sdk_sesv2.types.metric_data_result_list
 
 
-class BatchGetMetricDataResponse(TypedDict):
+class BatchGetMetricDataResponse(TypedDict, closed=True):
     results: NotRequired[
         "aws_sdk_sesv2.types.metric_data_result_list.MetricDataResultList"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#GetApproximateUsageRecordsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.approximate_usage_records_per_service
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.non_negative_long
 
 
-class GetApproximateUsageRecordsResponse(TypedDict):
+class GetApproximateUsageRecordsResponse(TypedDict, closed=True):
     services: NotRequired[
         "aws_sdk_cost_explorer.types.approximate_usage_records_per_service.ApproximateUsageRecordsPerService"
     ]

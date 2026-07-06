@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#AggregatedVariablesImpactExplanation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.float
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.string
 
 
-class AggregatedVariablesImpactExplanation(TypedDict):
+class AggregatedVariablesImpactExplanation(TypedDict, closed=True):
     event_variable_names: NotRequired[
         "aws_sdk_frauddetector.types.list_of_strings.ListOfStrings"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#RDFGraphSummaryValueMap``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import datetime
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.rdf_graph_summary
 
 
-class RDFGraphSummaryValueMap(TypedDict):
+class RDFGraphSummaryValueMap(TypedDict, closed=True):
     version: NotRequired["str"]
     """<p>The version of this graph summary response.</p>"""
     last_statistics_computation_time: NotRequired["datetime.datetime"]

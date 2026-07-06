@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateDimensionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.dimension_arn
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.timestamp
 
 
-class UpdateDimensionResponse(TypedDict):
+class UpdateDimensionResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iot.types.dimension_name.DimensionName"]
     """<p>A unique identifier for the dimension.</p>"""
     arn: NotRequired["aws_sdk_iot.types.dimension_arn.DimensionArn"]

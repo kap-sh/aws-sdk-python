@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#StoppingCondition``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_pending_time_in_seconds
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.max_wait_time_in_seconds
 
 
-class StoppingCondition(TypedDict):
+class StoppingCondition(TypedDict, closed=True):
     max_runtime_in_seconds: NotRequired[
         "aws_sdk_sagemaker.types.max_runtime_in_seconds.MaxRuntimeInSeconds"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#GetCaseRuleResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.tags
 
 
-class GetCaseRuleResponse(TypedDict):
+class GetCaseRuleResponse(TypedDict, closed=True):
     case_rule_id: "aws_sdk_connectcases.types.case_rule_id.CaseRuleId"
     """<p>Unique identifier of a case rule.</p>"""
     name: "aws_sdk_connectcases.types.case_rule_name.CaseRuleName"

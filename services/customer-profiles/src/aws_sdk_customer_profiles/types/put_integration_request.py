@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#PutIntegrationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.event_trigger_names
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.type_name
 
 
-class PutIntegrationRequest(TypedDict):
+class PutIntegrationRequest(TypedDict, closed=True):
     domain_name: "aws_sdk_customer_profiles.types.name.name"
     """<p>The unique name of the domain.</p>"""
     uri: NotRequired["aws_sdk_customer_profiles.types.string1_to255.string1To255"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glacier#Grantee``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glacier.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glacier.types.type
 
 
-class Grantee(TypedDict):
+class Grantee(TypedDict, closed=True):
     type: "aws_sdk_glacier.types.type.Type"
     """<p>Type of grantee</p>"""
     display_name: NotRequired["aws_sdk_glacier.types.string.string"]

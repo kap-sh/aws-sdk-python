@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsBackupRecoveryPointDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.aws_backup_recovery_point_calculated_lifecycle_details
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsBackupRecoveryPointDetails(TypedDict):
+class AwsBackupRecoveryPointDetails(TypedDict, closed=True):
     backup_size_in_bytes: NotRequired["aws_sdk_securityhub.types.long.Long"]
     """<p>The size, in bytes, of a backup. </p>"""
     backup_vault_arn: NotRequired[

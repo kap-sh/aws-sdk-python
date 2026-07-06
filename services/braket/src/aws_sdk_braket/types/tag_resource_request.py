@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.braket#TagResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_braket.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_braket.types.tags_map
 
 
-class TagResourceRequest(TypedDict):
+class TagResourceRequest(TypedDict, closed=True):
     resource_arn: "str"
     """<p>Specify the <code>resourceArn</code> of the resource to which a tag will be added.</p>"""
     tags: "aws_sdk_braket.types.tags_map.TagsMap"

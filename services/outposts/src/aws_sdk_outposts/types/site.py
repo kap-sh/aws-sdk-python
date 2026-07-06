@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.outposts#Site``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_outposts.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_outposts.types.tag_map
 
 
-class Site(TypedDict):
+class Site(TypedDict, closed=True):
     site_id: NotRequired["aws_sdk_outposts.types.site_id.SiteId"]
     account_id: NotRequired["aws_sdk_outposts.types.account_id.AccountId"]
     name: NotRequired["aws_sdk_outposts.types.site_name.SiteName"]

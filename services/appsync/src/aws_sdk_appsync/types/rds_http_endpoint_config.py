@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#RdsHttpEndpointConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.string
 
 
-class RdsHttpEndpointConfig(TypedDict):
+class RdsHttpEndpointConfig(TypedDict, closed=True):
     aws_region: NotRequired["aws_sdk_appsync.types.string.String"]
     """<p>Amazon Web Services Region for Amazon RDS HTTP endpoint.</p>"""
     db_cluster_identifier: NotRequired["aws_sdk_appsync.types.string.String"]

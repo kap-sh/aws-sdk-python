@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#VulnerablePackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.arch
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.vulnerable_package_name
 
 
-class VulnerablePackage(TypedDict):
+class VulnerablePackage(TypedDict, closed=True):
     arch: NotRequired["aws_sdk_ecr.types.arch.Arch"]
     """<p>The architecture of the vulnerable package.</p>"""
     epoch: NotRequired["aws_sdk_ecr.types.epoch.Epoch"]

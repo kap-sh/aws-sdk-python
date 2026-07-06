@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#TableFieldLinkConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.url_target_configuration
 
 
-class TableFieldLinkConfiguration(TypedDict):
+class TableFieldLinkConfiguration(TypedDict, closed=True):
     target: "aws_sdk_quicksight.types.url_target_configuration.URLTargetConfiguration"
     """<p>The URL target (new tab, new window, same tab) for the table link configuration.</p>"""
     content: "aws_sdk_quicksight.types.table_field_link_content_configuration.TableFieldLinkContentConfiguration"

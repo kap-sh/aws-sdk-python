@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptographydata#DiscoverDynamicCardVerificationCode``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_payment_cryptography_data.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography_data.types.hex_length_between2_and8
 
 
-class DiscoverDynamicCardVerificationCode(TypedDict):
+class DiscoverDynamicCardVerificationCode(TypedDict, closed=True):
     card_expiry_date: "aws_sdk_payment_cryptography_data.types.card_expiry_date_type.CardExpiryDateType"
     """<p>The expiry date of a payment card.</p>"""
     unpredictable_number: "aws_sdk_payment_cryptography_data.types.hex_length_between2_and8.HexLengthBetween2And8"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#HybridCustomerInstancesSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_directory_service.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.customer_dns_ips
 
 
-class HybridCustomerInstancesSettings(TypedDict):
+class HybridCustomerInstancesSettings(TypedDict, closed=True):
     customer_dns_ips: "aws_sdk_directory_service.types.customer_dns_ips.CustomerDnsIps"
     """<p>The IP addresses of the DNS servers or domain controllers in your self-managed AD environment.</p>"""
     instance_ids: (

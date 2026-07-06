@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.marketplacecatalog#ResaleAuthorizationCreatedDateFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_catalog.types.resale_authorization_created_date_filter_date_range
     import aws_sdk_marketplace_catalog.types.resale_authorization_created_date_filter_value_list
 
 
-class ResaleAuthorizationCreatedDateFilter(TypedDict):
+class ResaleAuthorizationCreatedDateFilter(TypedDict, closed=True):
     date_range: NotRequired[
         "aws_sdk_marketplace_catalog.types.resale_authorization_created_date_filter_date_range.ResaleAuthorizationCreatedDateFilterDateRange"
     ]

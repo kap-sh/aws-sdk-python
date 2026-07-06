@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#GetEnabledIpamPolicyResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.ipam_policy_managed_by
 
 
-class GetEnabledIpamPolicyResult(TypedDict):
+class GetEnabledIpamPolicyResult(TypedDict, closed=True):
     ipam_policy_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether the IPAM policy is enabled.</p>"""
     ipam_policy_id: NotRequired["aws_sdk_ec2.types.ipam_policy_id.IpamPolicyId"]

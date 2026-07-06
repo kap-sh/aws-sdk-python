@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#DescribeOrganizationConfigurationRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DescribeOrganizationConfigurationRequest(TypedDict):
+class DescribeOrganizationConfigurationRequest(TypedDict, closed=True):
     pass
 
 

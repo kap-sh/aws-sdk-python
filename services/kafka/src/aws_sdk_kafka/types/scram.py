@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#Scram``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__boolean
 
 
-class Scram(TypedDict):
+class Scram(TypedDict, closed=True):
     enabled: NotRequired["aws_sdk_kafka.types.__boolean.__boolean"]
     """<p>SASL/SCRAM authentication is enabled or not.</p>"""
 

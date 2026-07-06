@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#ListModelCardExportJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.entity_name
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.timestamp
 
 
-class ListModelCardExportJobsRequest(TypedDict):
+class ListModelCardExportJobsRequest(TypedDict, closed=True):
     model_card_name: NotRequired["aws_sdk_sagemaker.types.entity_name.EntityName"]
     """<p>List export jobs for the model card with the specified name.</p>"""
     model_card_version: NotRequired["aws_sdk_sagemaker.types.integer.Integer"]

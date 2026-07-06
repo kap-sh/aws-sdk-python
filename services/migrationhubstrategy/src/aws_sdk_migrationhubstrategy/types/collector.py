@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubstrategy#Collector``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.collector_health
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_migrationhubstrategy.types.string
 
 
-class Collector(TypedDict):
+class Collector(TypedDict, closed=True):
     collector_id: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]
     """<p> The ID of the collector. </p>"""
     ip_address: NotRequired["aws_sdk_migrationhubstrategy.types.string.String"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#GetAssetPropertyValueRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_property_alias
     import aws_sdk_iotsitewise.types.id
 
 
-class GetAssetPropertyValueRequest(TypedDict):
+class GetAssetPropertyValueRequest(TypedDict, closed=True):
     asset_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]
     """<p>The ID of the asset, in UUID format.</p>"""
     property_id: NotRequired["aws_sdk_iotsitewise.types.id.ID"]

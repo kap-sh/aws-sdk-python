@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#CustomPluginFileDescription``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.__long
     import aws_sdk_kafkaconnect.types.__string
 
 
-class CustomPluginFileDescription(TypedDict):
+class CustomPluginFileDescription(TypedDict, closed=True):
     file_md5: NotRequired["aws_sdk_kafkaconnect.types.__string.__string"]
     """<p>The hex-encoded MD5 checksum of the custom plugin file. You can use it to validate the file.</p>"""
     file_size: "aws_sdk_kafkaconnect.types.__long.__long"

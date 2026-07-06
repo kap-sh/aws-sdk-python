@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#FieldFilter``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError, SerializationError
 
@@ -8,27 +10,27 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_value
 
 
-class _FieldFilter_equalTo(TypedDict):
+class _FieldFilter_equalTo(TypedDict, closed=True):
     equalTo: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 
-class _FieldFilter_contains(TypedDict):
+class _FieldFilter_contains(TypedDict, closed=True):
     contains: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 
-class _FieldFilter_greaterThan(TypedDict):
+class _FieldFilter_greaterThan(TypedDict, closed=True):
     greaterThan: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 
-class _FieldFilter_greaterThanOrEqualTo(TypedDict):
+class _FieldFilter_greaterThanOrEqualTo(TypedDict, closed=True):
     greaterThanOrEqualTo: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 
-class _FieldFilter_lessThan(TypedDict):
+class _FieldFilter_lessThan(TypedDict, closed=True):
     lessThan: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 
-class _FieldFilter_lessThanOrEqualTo(TypedDict):
+class _FieldFilter_lessThanOrEqualTo(TypedDict, closed=True):
     lessThanOrEqualTo: "aws_sdk_connectcases.types.field_value.FieldValue"
 
 

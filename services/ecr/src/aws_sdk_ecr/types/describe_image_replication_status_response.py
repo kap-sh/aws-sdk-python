@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#DescribeImageReplicationStatusResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ecr.types.image_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.repository_name
 
 
-class DescribeImageReplicationStatusResponse(TypedDict):
+class DescribeImageReplicationStatusResponse(TypedDict, closed=True):
     repository_name: NotRequired["aws_sdk_ecr.types.repository_name.RepositoryName"]
     """<p>The repository name associated with the request.</p>"""
     image_id: NotRequired["aws_sdk_ecr.types.image_identifier.ImageIdentifier"]

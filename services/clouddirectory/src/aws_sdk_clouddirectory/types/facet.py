@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#Facet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.facet_name
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.object_type
 
 
-class Facet(TypedDict):
+class Facet(TypedDict, closed=True):
     name: NotRequired["aws_sdk_clouddirectory.types.facet_name.FacetName"]
     """<p>The name of the <a>Facet</a>.</p>"""
     object_type: NotRequired["aws_sdk_clouddirectory.types.object_type.ObjectType"]

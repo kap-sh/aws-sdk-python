@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.notifications#MessageComponents``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_notifications.types.dimensions
     import aws_sdk_notifications.types.text_part_reference
 
 
-class MessageComponents(TypedDict):
+class MessageComponents(TypedDict, closed=True):
     headline: NotRequired[
         "aws_sdk_notifications.types.text_part_reference.TextPartReference"
     ]

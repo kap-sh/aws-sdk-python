@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#OutputChannelMapping``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__list_of__double_min_negative60_max6
     import aws_sdk_mediaconvert.types.__list_of__integer_min_negative60_max6
 
 
-class OutputChannelMapping(TypedDict):
+class OutputChannelMapping(TypedDict, closed=True):
     input_channels: NotRequired[
         "aws_sdk_mediaconvert.types.__list_of__integer_min_negative60_max6.__listOf__integerMinNegative60Max6"
     ]

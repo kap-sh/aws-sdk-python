@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#PagerDutyConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.pager_duty_incident_configuration
 
 
-class PagerDutyConfiguration(TypedDict):
+class PagerDutyConfiguration(TypedDict, closed=True):
     name: "str"
     """<p>The name of the PagerDuty configuration.</p>"""
     secret_id: "str"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagent#PerformanceConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent.types.performance_config_latency
 
 
-class PerformanceConfiguration(TypedDict):
+class PerformanceConfiguration(TypedDict, closed=True):
     latency: "aws_sdk_bedrock_agent.types.performance_config_latency.PerformanceConfigLatency"
     """<p>The latency optimization setting.</p>"""
 

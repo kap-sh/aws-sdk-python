@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.guardduty#AwsApiCallAction``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_guardduty.types.affected_resources
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_guardduty.types.string
 
 
-class AwsApiCallAction(TypedDict):
+class AwsApiCallAction(TypedDict, closed=True):
     api: NotRequired["aws_sdk_guardduty.types.string.String"]
     """<p>The Amazon Web Services API name.</p>"""
     caller_type: NotRequired["aws_sdk_guardduty.types.string.String"]

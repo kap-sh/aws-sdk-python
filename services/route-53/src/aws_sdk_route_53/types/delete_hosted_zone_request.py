@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.route53#DeleteHostedZoneRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_route_53._protocol.xml import Element, SubElement
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_route_53.types.resource_id
 
 
-class DeleteHostedZoneRequest(TypedDict):
+class DeleteHostedZoneRequest(TypedDict, closed=True):
     id: "aws_sdk_route_53.types.resource_id.ResourceId"
     """<p>The ID of the hosted zone you want to delete.</p>"""
 

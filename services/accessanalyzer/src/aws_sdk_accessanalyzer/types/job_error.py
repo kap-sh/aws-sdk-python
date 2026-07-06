@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.accessanalyzer#JobError``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_accessanalyzer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_accessanalyzer.types.job_error_code
 
 
-class JobError(TypedDict):
+class JobError(TypedDict, closed=True):
     code: "aws_sdk_accessanalyzer.types.job_error_code.JobErrorCode"
     """<p>The job error code.</p>"""
     message: "str"

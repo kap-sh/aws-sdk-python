@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#CreateTargetDomainInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.tag_map
 
 
-class CreateTargetDomainInput(TypedDict):
+class CreateTargetDomainInput(TypedDict, closed=True):
     target_domain_name: "str"
     """<p>The domain name to register as a target domain.</p>"""
     verification_method: "aws_sdk_securityagent.types.domain_verification_method.DomainVerificationMethod"

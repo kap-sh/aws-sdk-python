@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#CapacityProviderVpcConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lambda.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.capacity_provider_subnet_ids
 
 
-class CapacityProviderVpcConfig(TypedDict):
+class CapacityProviderVpcConfig(TypedDict, closed=True):
     subnet_ids: (
         "aws_sdk_lambda.types.capacity_provider_subnet_ids.CapacityProviderSubnetIds"
     )

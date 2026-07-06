@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kafkaconnect#KafkaCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kafkaconnect.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kafkaconnect.types.apache_kafka_cluster
 
 
-class KafkaCluster(TypedDict):
+class KafkaCluster(TypedDict, closed=True):
     apache_kafka_cluster: (
         "aws_sdk_kafkaconnect.types.apache_kafka_cluster.ApacheKafkaCluster"
     )

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#GetDomainsResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.domain_list
     import aws_sdk_lightsail.types.string
 
 
-class GetDomainsResult(TypedDict):
+class GetDomainsResult(TypedDict, closed=True):
     domains: NotRequired["aws_sdk_lightsail.types.domain_list.DomainList"]
     """<p>An array of key-value pairs containing information about each of the domain entries in the user's account.</p>"""
     next_page_token: NotRequired["aws_sdk_lightsail.types.string.string"]

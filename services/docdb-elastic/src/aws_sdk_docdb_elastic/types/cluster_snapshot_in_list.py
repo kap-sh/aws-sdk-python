@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdbelastic#ClusterSnapshotInList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_docdb_elastic.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb_elastic.types.status
 
 
-class ClusterSnapshotInList(TypedDict):
+class ClusterSnapshotInList(TypedDict, closed=True):
     snapshot_name: "str"
     """<p>The name of the elastic cluster snapshot.</p>"""
     snapshot_arn: "str"

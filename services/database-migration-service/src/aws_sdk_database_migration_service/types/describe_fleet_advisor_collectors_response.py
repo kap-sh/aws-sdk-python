@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.databasemigrationservice#DescribeFleetAdvisorCollectorsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_database_migration_service.types.collector_responses
     import aws_sdk_database_migration_service.types.string
 
 
-class DescribeFleetAdvisorCollectorsResponse(TypedDict):
+class DescribeFleetAdvisorCollectorsResponse(TypedDict, closed=True):
     collectors: NotRequired[
         "aws_sdk_database_migration_service.types.collector_responses.CollectorResponses"
     ]

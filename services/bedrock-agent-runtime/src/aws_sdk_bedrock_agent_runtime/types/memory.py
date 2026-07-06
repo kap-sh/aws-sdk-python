@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#Memory``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import (
     DeserializationError,
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.memory_session_summary
 
 
-class _Memory_sessionSummary(TypedDict):
+class _Memory_sessionSummary(TypedDict, closed=True):
     sessionSummary: "aws_sdk_bedrock_agent_runtime.types.memory_session_summary.MemorySessionSummary"
 
 

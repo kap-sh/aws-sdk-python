@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#VCpuCountRange``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.min_one_max_ten_thousand
 
 
-class VCpuCountRange(TypedDict):
+class VCpuCountRange(TypedDict, closed=True):
     min: "aws_sdk_deadline.types.min_one_max_ten_thousand.MinOneMaxTenThousand"
     """<p>The minimum amount of vCPU.</p>"""
     max: NotRequired[

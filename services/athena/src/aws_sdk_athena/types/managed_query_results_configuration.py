@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ManagedQueryResultsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.boolean
     import aws_sdk_athena.types.managed_query_results_encryption_configuration
 
 
-class ManagedQueryResultsConfiguration(TypedDict):
+class ManagedQueryResultsConfiguration(TypedDict, closed=True):
     enabled: "aws_sdk_athena.types.boolean.Boolean"
     """<p>If set to true, allows you to store query results in Athena owned storage. If set to false, workgroup member stores query results in location specified under <code>ResultConfiguration$OutputLocation</code>. The default is false. A workgroup cannot have the <code>ResultConfiguration$OutputLocation</code> parameter when you set this field to true. </p>"""
     encryption_configuration: NotRequired[

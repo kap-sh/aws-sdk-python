@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#Task``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_appflow.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_appflow.types.task_type
 
 
-class Task(TypedDict):
+class Task(TypedDict, closed=True):
     source_fields: "aws_sdk_appflow.types.source_fields.SourceFields"
     """<p> The source fields to which a particular task is applied. </p>"""
     connector_operator: NotRequired[

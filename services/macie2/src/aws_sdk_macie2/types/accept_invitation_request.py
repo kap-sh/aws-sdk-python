@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#AcceptInvitationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
 
 
-class AcceptInvitationRequest(TypedDict):
+class AcceptInvitationRequest(TypedDict, closed=True):
     administrator_account_id: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Amazon Web Services account ID for the account that sent the invitation.</p>"""
     invitation_id: NotRequired["aws_sdk_macie2.types.__string.__string"]

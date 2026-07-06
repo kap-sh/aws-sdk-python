@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Offering``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.__double
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_medialive.types.reservation_resource_specification
 
 
-class Offering(TypedDict):
+class Offering(TypedDict, closed=True):
     arn: NotRequired["aws_sdk_medialive.types.__string.__string"]
     """Unique offering ARN, e.g. 'arn:aws:medialive:us-west-2:123456789012:offering:87654321'"""
     currency_code: NotRequired["aws_sdk_medialive.types.__string.__string"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.machinelearning#RDSDatabaseCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_machine_learning.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_machine_learning.types.rds_database_username
 
 
-class RDSDatabaseCredentials(TypedDict):
+class RDSDatabaseCredentials(TypedDict, closed=True):
     username: "aws_sdk_machine_learning.types.rds_database_username.RDSDatabaseUsername"
     password: "aws_sdk_machine_learning.types.rds_database_password.RDSDatabasePassword"
 

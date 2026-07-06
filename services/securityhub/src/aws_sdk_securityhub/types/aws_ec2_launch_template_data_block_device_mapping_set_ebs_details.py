@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails(TypedDict):
+class AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails(TypedDict, closed=True):
     delete_on_termination: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]
     """<p> Indicates whether the EBS volume is deleted on instance termination. </p>"""
     encrypted: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

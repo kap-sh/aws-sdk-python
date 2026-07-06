@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SemanticTable``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_quicksight.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.table_semantic_metadata
 
 
-class SemanticTable(TypedDict):
+class SemanticTable(TypedDict, closed=True):
     alias: "aws_sdk_quicksight.types.semantic_table_alias.SemanticTableAlias"
     """<p>Alias for the semantic table.</p>"""
     destination_table_id: (

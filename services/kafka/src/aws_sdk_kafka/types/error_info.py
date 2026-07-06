@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#ErrorInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
 
 
-class ErrorInfo(TypedDict):
+class ErrorInfo(TypedDict, closed=True):
     error_code: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>A number describing the error programmatically.</p>"""
     error_string: NotRequired["aws_sdk_kafka.types.__string.__string"]

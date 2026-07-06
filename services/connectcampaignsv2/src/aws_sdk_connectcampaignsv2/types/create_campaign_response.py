@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcampaignsv2#CreateCampaignResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.campaign_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcampaignsv2.types.tag_map
 
 
-class CreateCampaignResponse(TypedDict):
+class CreateCampaignResponse(TypedDict, closed=True):
     id: NotRequired["aws_sdk_connectcampaignsv2.types.campaign_id.CampaignId"]
     arn: NotRequired["aws_sdk_connectcampaignsv2.types.campaign_arn.CampaignArn"]
     tags: NotRequired["aws_sdk_connectcampaignsv2.types.tag_map.TagMap"]

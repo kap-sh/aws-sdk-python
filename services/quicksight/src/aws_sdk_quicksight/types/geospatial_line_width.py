@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialLineWidth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_width
 
 
-class GeospatialLineWidth(TypedDict):
+class GeospatialLineWidth(TypedDict, closed=True):
     line_width: NotRequired["aws_sdk_quicksight.types.geospatial_width.GeospatialWidth"]
     """<p>The positive value for the width of a line.</p>"""
 

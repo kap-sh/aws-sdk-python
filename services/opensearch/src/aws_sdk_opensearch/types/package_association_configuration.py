@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#PackageAssociationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.key_store_access_option
 
 
-class PackageAssociationConfiguration(TypedDict):
+class PackageAssociationConfiguration(TypedDict, closed=True):
     key_store_access_option: NotRequired[
         "aws_sdk_opensearch.types.key_store_access_option.KeyStoreAccessOption"
     ]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#Scte35DescriptorSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_medialive.types.scte35_segmentation_descriptor
 
 
-class Scte35DescriptorSettings(TypedDict):
+class Scte35DescriptorSettings(TypedDict, closed=True):
     segmentation_descriptor_scte35_descriptor_settings: NotRequired[
         "aws_sdk_medialive.types.scte35_segmentation_descriptor.Scte35SegmentationDescriptor"
     ]

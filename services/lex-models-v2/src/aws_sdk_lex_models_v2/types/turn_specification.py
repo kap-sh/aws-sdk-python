@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#TurnSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.agent_turn_specification
     import aws_sdk_lex_models_v2.types.user_turn_specification
 
 
-class TurnSpecification(TypedDict):
+class TurnSpecification(TypedDict, closed=True):
     agent_turn: NotRequired[
         "aws_sdk_lex_models_v2.types.agent_turn_specification.AgentTurnSpecification"
     ]

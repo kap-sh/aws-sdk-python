@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iot#UpdateBillingGroupResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot.types.version
 
 
-class UpdateBillingGroupResponse(TypedDict):
+class UpdateBillingGroupResponse(TypedDict, closed=True):
     version: "aws_sdk_iot.types.version.Version"
     """<p>The latest version of the billing group.</p>"""
 

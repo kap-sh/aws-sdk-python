@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.appmesh#ListVirtualGatewaysInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.account_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_app_mesh.types.resource_name
 
 
-class ListVirtualGatewaysInput(TypedDict):
+class ListVirtualGatewaysInput(TypedDict, closed=True):
     mesh_name: "aws_sdk_app_mesh.types.resource_name.ResourceName"
     """<p>The name of the service mesh to list virtual gateways in.</p>"""
     next_token: NotRequired["str"]

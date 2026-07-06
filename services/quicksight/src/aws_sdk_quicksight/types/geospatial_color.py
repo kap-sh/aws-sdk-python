@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#GeospatialColor``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_categorical_color
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.geospatial_solid_color
 
 
-class GeospatialColor(TypedDict):
+class GeospatialColor(TypedDict, closed=True):
     solid: NotRequired[
         "aws_sdk_quicksight.types.geospatial_solid_color.GeospatialSolidColor"
     ]

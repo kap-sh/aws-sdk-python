@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetCloudAutonomousVmClusterOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.cloud_autonomous_vm_cluster
 
 
-class GetCloudAutonomousVmClusterOutput(TypedDict):
+class GetCloudAutonomousVmClusterOutput(TypedDict, closed=True):
     cloud_autonomous_vm_cluster: NotRequired[
         "aws_sdk_odb.types.cloud_autonomous_vm_cluster.CloudAutonomousVmCluster"
     ]

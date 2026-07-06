@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3control#JobManifest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_s3_control._protocol.xml import Element, SubElement
 from aws_sdk_s3_control.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3_control.types.job_manifest_spec
 
 
-class JobManifest(TypedDict):
+class JobManifest(TypedDict, closed=True):
     spec: "aws_sdk_s3_control.types.job_manifest_spec.JobManifestSpec"
     """<p>Describes the format of the specified job's manifest. If the manifest is in CSV format, also describes the columns contained within the manifest.</p>"""
     location: "aws_sdk_s3_control.types.job_manifest_location.JobManifestLocation"

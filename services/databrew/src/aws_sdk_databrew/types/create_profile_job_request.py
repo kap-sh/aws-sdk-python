@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.databrew#CreateProfileJobRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_databrew.errors import DeserializationError
 
@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     import aws_sdk_databrew.types.validation_configuration_list
 
 
-class CreateProfileJobRequest(TypedDict):
+class CreateProfileJobRequest(TypedDict, closed=True):
     dataset_name: "aws_sdk_databrew.types.dataset_name.DatasetName"
     """<p>The name of the dataset that this job is to act upon.</p>"""
     encryption_key_arn: NotRequired[

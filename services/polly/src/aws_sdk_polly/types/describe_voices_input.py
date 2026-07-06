@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.polly#DescribeVoicesInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_polly.types.engine
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_polly.types.next_token
 
 
-class DescribeVoicesInput(TypedDict):
+class DescribeVoicesInput(TypedDict, closed=True):
     engine: NotRequired["aws_sdk_polly.types.engine.Engine"]
     """<p>Specifies the engine (<code>standard</code>, <code>neural</code>, <code>long-form</code> or <code>generative</code>) used by Amazon Polly when processing input text for speech synthesis. </p>"""
     language_code: NotRequired["aws_sdk_polly.types.language_code.LanguageCode"]

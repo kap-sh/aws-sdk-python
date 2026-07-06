@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.licensemanagerusersubscriptions#RdsSalSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_license_manager_user_subscriptions.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_license_manager_user_subscriptions.types.credentials_provider
 
 
-class RdsSalSettings(TypedDict):
+class RdsSalSettings(TypedDict, closed=True):
     rds_sal_credentials_provider: "aws_sdk_license_manager_user_subscriptions.types.credentials_provider.CredentialsProvider"
     """<p>The <code>CredentialsProvider</code> resource contains a reference to the credentials provider that's used for RDS license server user administration.</p>"""
 

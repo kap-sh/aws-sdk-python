@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcs#ListClustersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_pcs.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pcs.types.cluster_list
 
 
-class ListClustersResponse(TypedDict):
+class ListClustersResponse(TypedDict, closed=True):
     clusters: "aws_sdk_pcs.types.cluster_list.ClusterList"
     """<p>The list of clusters.</p>"""
     next_token: NotRequired["str"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#DescribeReplicationConfigurationTemplatesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.pagination_token
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.strictly_positive_integer
 
 
-class DescribeReplicationConfigurationTemplatesRequest(TypedDict):
+class DescribeReplicationConfigurationTemplatesRequest(TypedDict, closed=True):
     replication_configuration_template_i_ds: NotRequired[
         "aws_sdk_drs.types.replication_configuration_template_i_ds.ReplicationConfigurationTemplateIDs"
     ]

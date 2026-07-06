@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#InvokeCodeInterpreterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.code_interpreter_session_id
     import aws_sdk_bedrock_agentcore.types.code_interpreter_stream_output
 
 
-class InvokeCodeInterpreterResponse(TypedDict):
+class InvokeCodeInterpreterResponse(TypedDict, closed=True):
     session_id: NotRequired[
         "aws_sdk_bedrock_agentcore.types.code_interpreter_session_id.CodeInterpreterSessionId"
     ]

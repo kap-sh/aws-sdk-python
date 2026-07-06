@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetShareRequest``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class GetShareRequest(TypedDict):
+class GetShareRequest(TypedDict, closed=True):
     share_id: "str"
     """<p>The ID of the share.</p>"""
 

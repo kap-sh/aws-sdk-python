@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.athena#ResultSet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.result_set_metadata
     import aws_sdk_athena.types.row_list
 
 
-class ResultSet(TypedDict):
+class ResultSet(TypedDict, closed=True):
     rows: NotRequired["aws_sdk_athena.types.row_list.RowList"]
     """<p>The rows in the table.</p>"""
     result_set_metadata: NotRequired[

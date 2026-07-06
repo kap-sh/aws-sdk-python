@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#Subnet``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.availability_zone
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class Subnet(TypedDict):
+class Subnet(TypedDict, closed=True):
     identifier: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The unique identifier for the subnet.</p>"""
     availability_zone: NotRequired[

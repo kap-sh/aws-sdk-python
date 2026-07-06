@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bcmdashboards#WidgetConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bcm_dashboards.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bcm_dashboards.types.query_parameters
 
 
-class WidgetConfig(TypedDict):
+class WidgetConfig(TypedDict, closed=True):
     query_parameters: "aws_sdk_bcm_dashboards.types.query_parameters.QueryParameters"
     """<p>The parameters that define what data the widget should retrieve and how it should be filtered or grouped.</p>"""
     display_config: "aws_sdk_bcm_dashboards.types.display_config.DisplayConfig"

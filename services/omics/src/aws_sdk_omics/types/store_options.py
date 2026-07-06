@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#StoreOptions``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_omics.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.tsv_store_options
 
 
-class _StoreOptions_tsvStoreOptions(TypedDict):
+class _StoreOptions_tsvStoreOptions(TypedDict, closed=True):
     tsvStoreOptions: "aws_sdk_omics.types.tsv_store_options.TsvStoreOptions"
 
 

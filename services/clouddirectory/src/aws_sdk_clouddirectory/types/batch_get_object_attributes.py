@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#BatchGetObjectAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.schema_facet
 
 
-class BatchGetObjectAttributes(TypedDict):
+class BatchGetObjectAttributes(TypedDict, closed=True):
     object_reference: "aws_sdk_clouddirectory.types.object_reference.ObjectReference"
     """<p>Reference that identifies the object whose attributes will be retrieved.</p>"""
     schema_facet: "aws_sdk_clouddirectory.types.schema_facet.SchemaFacet"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.controlcatalog#ObjectiveSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_controlcatalog.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_controlcatalog.types.objective_arn
 
 
-class ObjectiveSummary(TypedDict):
+class ObjectiveSummary(TypedDict, closed=True):
     arn: "aws_sdk_controlcatalog.types.objective_arn.ObjectiveArn"
     """<p>The Amazon Resource Name (ARN) that identifies the objective.</p>"""
     name: "str"

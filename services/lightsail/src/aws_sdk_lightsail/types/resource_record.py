@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#ResourceRecord``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.string
 
 
-class ResourceRecord(TypedDict):
+class ResourceRecord(TypedDict, closed=True):
     name: NotRequired["aws_sdk_lightsail.types.string.string"]
     """<p>The name of the record.</p>"""
     type: NotRequired["aws_sdk_lightsail.types.string.string"]

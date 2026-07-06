@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetAutonomousDatabaseInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id_or_arn
 
 
-class GetAutonomousDatabaseInput(TypedDict):
+class GetAutonomousDatabaseInput(TypedDict, closed=True):
     autonomous_database_id: "aws_sdk_odb.types.resource_id_or_arn.ResourceIdOrArn"
     """<p>The unique identifier of the Autonomous Database to retrieve information about.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#X12ElementLengthValidationRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.element_id
 
 
-class X12ElementLengthValidationRule(TypedDict):
+class X12ElementLengthValidationRule(TypedDict, closed=True):
     element_id: "aws_sdk_b2bi.types.element_id.ElementId"
     """<p>Specifies the four-digit element ID to which the length constraints will be applied. This identifies which X12 element will have its length requirements modified.</p>"""
     max_length: "int"

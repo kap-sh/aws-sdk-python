@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediatailor#HttpRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.__string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediatailor.types.string_map
 
 
-class HttpRequest(TypedDict):
+class HttpRequest(TypedDict, closed=True):
     method: NotRequired["aws_sdk_mediatailor.types.method.Method"]
     """<p>The HTTP method to use when making requests to the ad decision server. Supported values are <code>GET</code> and <code>POST</code>.</p>"""
     body: NotRequired["aws_sdk_mediatailor.types.__string.__string"]

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#AddPolicyGrantOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datazone.types.grant_identifier
 
 
-class AddPolicyGrantOutput(TypedDict):
+class AddPolicyGrantOutput(TypedDict, closed=True):
     grant_id: NotRequired["aws_sdk_datazone.types.grant_identifier.GrantIdentifier"]
     """<p>The ID of the policy grant that was added to a specified entity.</p>"""
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockruntime#InvokeModelWithResponseStreamResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.mime_type
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_runtime.types.service_tier_type
 
 
-class InvokeModelWithResponseStreamResponse(TypedDict):
+class InvokeModelWithResponseStreamResponse(TypedDict, closed=True):
     body: "aws_sdk_bedrock_runtime.types.response_stream.ResponseStream"
     r"""<p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html\">Inference parameters</a>.</p>"""
     content_type: "aws_sdk_bedrock_runtime.types.mime_type.MimeType"

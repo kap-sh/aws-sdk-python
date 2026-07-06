@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#GetServiceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_id
 
 
-class GetServiceInput(TypedDict):
+class GetServiceInput(TypedDict, closed=True):
     service_id: "aws_sdk_devops_agent.types.service_id.ServiceId"
     """<p>The unique identifier of the given service.</p>"""
 

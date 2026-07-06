@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.paymentcryptography#CreateKeyInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_payment_cryptography.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_payment_cryptography.types.tags
 
 
-class CreateKeyInput(TypedDict):
+class CreateKeyInput(TypedDict, closed=True):
     key_attributes: "aws_sdk_payment_cryptography.types.key_attributes.KeyAttributes"
     """<p>The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.</p>"""
     key_check_value_algorithm: NotRequired[

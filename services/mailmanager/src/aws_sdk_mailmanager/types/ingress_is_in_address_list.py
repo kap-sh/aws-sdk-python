@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mailmanager#IngressIsInAddressList``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mailmanager.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mailmanager.types.ingress_address_list_email_attribute
 
 
-class IngressIsInAddressList(TypedDict):
+class IngressIsInAddressList(TypedDict, closed=True):
     attribute: "aws_sdk_mailmanager.types.ingress_address_list_email_attribute.IngressAddressListEmailAttribute"
     """<p>The email attribute that needs to be evaluated against the address list.</p>"""
     address_lists: "aws_sdk_mailmanager.types.ingress_address_list_arn_list.IngressAddressListArnList"

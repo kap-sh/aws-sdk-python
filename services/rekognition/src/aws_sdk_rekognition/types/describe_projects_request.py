@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#DescribeProjectsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.customization_features
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.projects_page_size
 
 
-class DescribeProjectsRequest(TypedDict):
+class DescribeProjectsRequest(TypedDict, closed=True):
     next_token: NotRequired[
         "aws_sdk_rekognition.types.extended_pagination_token.ExtendedPaginationToken"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListCustomModelDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.custom_model_arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.timestamp
 
 
-class ListCustomModelDeploymentsRequest(TypedDict):
+class ListCustomModelDeploymentsRequest(TypedDict, closed=True):
     created_before: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]
     """<p>Filters deployments created before the specified date and time.</p>"""
     created_after: NotRequired["aws_sdk_bedrock.types.timestamp.Timestamp"]

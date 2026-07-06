@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#CodecMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.transfer_characteristics
 
 
-class CodecMetadata(TypedDict):
+class CodecMetadata(TypedDict, closed=True):
     bit_depth: NotRequired["aws_sdk_mediaconvert.types.__integer.__integer"]
     """The number of bits used per color component in the video essence such as 8, 10, or 12 bits. Standard range (SDR) video typically uses 8-bit, while 10-bit is common for high dynamic range (HDR)."""
     chroma_subsampling: NotRequired["aws_sdk_mediaconvert.types.__string.__string"]

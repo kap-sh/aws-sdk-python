@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StartLiveTailResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.start_live_tail_response_stream
 
 
-class StartLiveTailResponse(TypedDict):
+class StartLiveTailResponse(TypedDict, closed=True):
     response_stream: NotRequired[
         "aws_sdk_cloudwatch_logs.types.start_live_tail_response_stream.StartLiveTailResponseStream"
     ]

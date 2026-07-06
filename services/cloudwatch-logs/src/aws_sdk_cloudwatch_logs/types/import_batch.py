@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#ImportBatch``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.import_status
 
 
-class ImportBatch(TypedDict):
+class ImportBatch(TypedDict, closed=True):
     batch_id: "aws_sdk_cloudwatch_logs.types.batch_id.BatchId"
     """<p>The unique identifier of the import batch.</p>"""
     status: "aws_sdk_cloudwatch_logs.types.import_status.ImportStatus"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#ResourceAccessPolicy``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.permission
 
 
-class ResourceAccessPolicy(TypedDict):
+class ResourceAccessPolicy(TypedDict, closed=True):
     permission: NotRequired["aws_sdk_greengrass.types.permission.Permission"]
     """The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only)."""
     resource_id: NotRequired["aws_sdk_greengrass.types.__string.__string"]

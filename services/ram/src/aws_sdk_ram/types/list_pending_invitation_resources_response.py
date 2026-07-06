@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ram#ListPendingInvitationResourcesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ram.types.resource_list
     import aws_sdk_ram.types.string
 
 
-class ListPendingInvitationResourcesResponse(TypedDict):
+class ListPendingInvitationResourcesResponse(TypedDict, closed=True):
     resources: NotRequired["aws_sdk_ram.types.resource_list.ResourceList"]
     """<p>An array of objects that contain the information about the resources included the specified resource share.</p>"""
     next_token: NotRequired["aws_sdk_ram.types.string.String"]

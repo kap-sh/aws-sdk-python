@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codebuild#TestReportSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_codebuild.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_codebuild.types.wrapper_long
 
 
-class TestReportSummary(TypedDict):
+class TestReportSummary(TypedDict, closed=True):
     total: "aws_sdk_codebuild.types.wrapper_int.WrapperInt"
     """<p> The number of test cases in this <code>TestReportSummary</code>. The total includes truncated test cases. </p>"""
     status_counts: "aws_sdk_codebuild.types.report_status_counts.ReportStatusCounts"

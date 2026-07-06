@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.applicationautoscaling#SuspendedState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_auto_scaling.types.scaling_suspended
 
 
-class SuspendedState(TypedDict):
+class SuspendedState(TypedDict, closed=True):
     dynamic_scaling_in_suspended: NotRequired[
         "aws_sdk_application_auto_scaling.types.scaling_suspended.ScalingSuspended"
     ]

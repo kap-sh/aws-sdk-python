@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.omics#GetReadSetExportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_omics.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_omics.types.sequence_store_id
 
 
-class GetReadSetExportJobResponse(TypedDict):
+class GetReadSetExportJobResponse(TypedDict, closed=True):
     id: "aws_sdk_omics.types.export_job_id.ExportJobId"
     """<p>The job's ID.</p>"""
     sequence_store_id: "aws_sdk_omics.types.sequence_store_id.SequenceStoreId"

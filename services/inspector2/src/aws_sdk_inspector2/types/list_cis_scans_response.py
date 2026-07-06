@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ListCisScansResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.cis_scan_list
     import aws_sdk_inspector2.types.next_token
 
 
-class ListCisScansResponse(TypedDict):
+class ListCisScansResponse(TypedDict, closed=True):
     scans: NotRequired["aws_sdk_inspector2.types.cis_scan_list.CisScanList"]
     """<p>The CIS scans.</p>"""
     next_token: NotRequired["aws_sdk_inspector2.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#InstanceRequirementsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -31,7 +31,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.v_cpu_count_range_request
 
 
-class InstanceRequirementsRequest(TypedDict):
+class InstanceRequirementsRequest(TypedDict, closed=True):
     v_cpu_count: "aws_sdk_ecs.types.v_cpu_count_range_request.VCpuCountRangeRequest"
     """<p>The minimum and maximum number of vCPUs for the instance types. Amazon ECS selects instance types that have vCPU counts within this range.</p>"""
     memory_mi_b: "aws_sdk_ecs.types.memory_mi_b_request.MemoryMiBRequest"

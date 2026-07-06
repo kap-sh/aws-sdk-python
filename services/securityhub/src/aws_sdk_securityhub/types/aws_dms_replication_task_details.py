@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsDmsReplicationTaskDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsDmsReplicationTaskDetails(TypedDict):
+class AwsDmsReplicationTaskDetails(TypedDict, closed=True):
     cdc_start_position: NotRequired[
         "aws_sdk_securityhub.types.non_empty_string.NonEmptyString"
     ]

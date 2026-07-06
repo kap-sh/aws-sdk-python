@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.controltower#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_controltower.types.arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_controltower.types.arn.Arn"
     """<p> The ARN of the resource.</p>"""
 

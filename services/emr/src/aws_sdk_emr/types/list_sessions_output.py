@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListSessionsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.session_list
     import aws_sdk_emr.types.string
 
 
-class ListSessionsOutput(TypedDict):
+class ListSessionsOutput(TypedDict, closed=True):
     sessions: NotRequired["aws_sdk_emr.types.session_list.SessionList"]
     """<p>The sessions that match the request.</p>"""
     next_token: NotRequired["aws_sdk_emr.types.string.String"]

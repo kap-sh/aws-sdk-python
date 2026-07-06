@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#StartInferenceSchedulerRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_lookoutequipment.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.inference_scheduler_identifier
 
 
-class StartInferenceSchedulerRequest(TypedDict):
+class StartInferenceSchedulerRequest(TypedDict, closed=True):
     inference_scheduler_name: "aws_sdk_lookoutequipment.types.inference_scheduler_identifier.InferenceSchedulerIdentifier"
     """<p>The name of the inference scheduler to be started. </p>"""
 

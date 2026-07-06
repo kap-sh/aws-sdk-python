@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspacesweb#SessionLogger``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces_web.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces_web.types.timestamp
 
 
-class SessionLogger(TypedDict):
+class SessionLogger(TypedDict, closed=True):
     session_logger_arn: "aws_sdk_workspaces_web.types.arn.ARN"
     """<p>The ARN of the session logger resource.</p>"""
     event_filter: NotRequired["aws_sdk_workspaces_web.types.event_filter.EventFilter"]

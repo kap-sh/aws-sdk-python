@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#StartTestSetGenerationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.test_set_storage_location
 
 
-class StartTestSetGenerationRequest(TypedDict):
+class StartTestSetGenerationRequest(TypedDict, closed=True):
     test_set_name: "aws_sdk_lex_models_v2.types.name.Name"
     """<p>The test set name for the test set generation request.</p>"""
     description: NotRequired["aws_sdk_lex_models_v2.types.description.Description"]

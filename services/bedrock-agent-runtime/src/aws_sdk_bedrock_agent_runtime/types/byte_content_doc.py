@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ByteContentDoc``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.identifier
 
 
-class ByteContentDoc(TypedDict):
+class ByteContentDoc(TypedDict, closed=True):
     identifier: "aws_sdk_bedrock_agent_runtime.types.identifier.Identifier"
     """<p>The file name of the document contained in the wrapper object.</p>"""
     content_type: "aws_sdk_bedrock_agent_runtime.types.content_type.ContentType"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeTemplateDefinitionResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.template_version_definition
 
 
-class DescribeTemplateDefinitionResponse(TypedDict):
+class DescribeTemplateDefinitionResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_quicksight.types.template_name.TemplateName"]
     """<p>The descriptive name of the template.</p>"""
     template_id: NotRequired[

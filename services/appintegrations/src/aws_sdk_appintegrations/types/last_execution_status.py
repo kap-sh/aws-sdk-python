@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appintegrations#LastExecutionStatus``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appintegrations.types.execution_status
     import aws_sdk_appintegrations.types.non_blank_string
 
 
-class LastExecutionStatus(TypedDict):
+class LastExecutionStatus(TypedDict, closed=True):
     execution_status: NotRequired[
         "aws_sdk_appintegrations.types.execution_status.ExecutionStatus"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#AnalysisSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.analysis_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.zoned_date_time
 
 
-class AnalysisSummary(TypedDict):
+class AnalysisSummary(TypedDict, closed=True):
     estimated_completion_time: NotRequired[
         "aws_sdk_cost_explorer.types.zoned_date_time.ZonedDateTime"
     ]

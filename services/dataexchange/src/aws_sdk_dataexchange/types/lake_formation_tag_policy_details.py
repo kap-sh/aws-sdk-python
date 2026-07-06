@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dataexchange#LakeFormationTagPolicyDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dataexchange.types.__string
 
 
-class LakeFormationTagPolicyDetails(TypedDict):
+class LakeFormationTagPolicyDetails(TypedDict, closed=True):
     database: NotRequired["aws_sdk_dataexchange.types.__string.__string"]
     """<p>The underlying Glue database that the notification is referring to.</p>"""
     table: NotRequired["aws_sdk_dataexchange.types.__string.__string"]

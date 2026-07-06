@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.odb#GetDbNodeInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_odb.types.resource_id
 
 
-class GetDbNodeInput(TypedDict):
+class GetDbNodeInput(TypedDict, closed=True):
     cloud_vm_cluster_id: "aws_sdk_odb.types.resource_id.ResourceId"
     """<p>The unique identifier of the VM cluster that contains the DB node.</p>"""
     db_node_id: "aws_sdk_odb.types.resource_id.ResourceId"

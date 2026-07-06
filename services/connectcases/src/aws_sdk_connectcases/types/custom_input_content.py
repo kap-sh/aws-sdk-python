@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.connectcases#CustomInputContent``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_connectcases.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_connectcases.types.field_value_list
 
 
-class CustomInputContent(TypedDict):
+class CustomInputContent(TypedDict, closed=True):
     fields: "aws_sdk_connectcases.types.field_value_list.FieldValueList"
     """<p>List of field values for the <code>Custom</code> related item.</p>"""
 

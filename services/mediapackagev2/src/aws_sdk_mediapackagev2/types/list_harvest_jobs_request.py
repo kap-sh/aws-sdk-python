@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagev2#ListHarvestJobsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.harvest_job_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackagev2.types.resource_name
 
 
-class ListHarvestJobsRequest(TypedDict):
+class ListHarvestJobsRequest(TypedDict, closed=True):
     channel_group_name: "aws_sdk_mediapackagev2.types.resource_name.ResourceName"
     """<p>The name of the channel group to filter the harvest jobs by. If specified, only harvest jobs associated with channels in this group will be returned.</p>"""
     channel_name: NotRequired["aws_sdk_mediapackagev2.types.resource_name.ResourceName"]

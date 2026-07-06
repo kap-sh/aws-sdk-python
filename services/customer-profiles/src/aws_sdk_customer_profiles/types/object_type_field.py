@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#ObjectTypeField``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.field_content_type
     import aws_sdk_customer_profiles.types.text
 
 
-class ObjectTypeField(TypedDict):
+class ObjectTypeField(TypedDict, closed=True):
     source: NotRequired["aws_sdk_customer_profiles.types.text.text"]
     """<p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>"""
     target: NotRequired["aws_sdk_customer_profiles.types.text.text"]

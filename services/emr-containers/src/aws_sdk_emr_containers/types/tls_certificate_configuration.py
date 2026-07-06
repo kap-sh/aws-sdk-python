@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emrcontainers#TLSCertificateConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr_containers.types.certificate_provider_type
     import aws_sdk_emr_containers.types.secrets_manager_arn
 
 
-class TLSCertificateConfiguration(TypedDict):
+class TLSCertificateConfiguration(TypedDict, closed=True):
     certificate_provider_type: NotRequired[
         "aws_sdk_emr_containers.types.certificate_provider_type.CertificateProviderType"
     ]

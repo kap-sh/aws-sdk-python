@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspace#UpdateKxEnvironmentNetworkResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace.types.availability_zone_ids
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace.types.transit_gateway_configuration
 
 
-class UpdateKxEnvironmentNetworkResponse(TypedDict):
+class UpdateKxEnvironmentNetworkResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_finspace.types.kx_environment_name.KxEnvironmentName"]
     """<p>The name of the kdb environment.</p>"""
     environment_id: NotRequired["aws_sdk_finspace.types.id_type.IdType"]

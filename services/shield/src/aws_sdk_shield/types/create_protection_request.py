@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.shield#CreateProtectionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_shield.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_shield.types.tag_list
 
 
-class CreateProtectionRequest(TypedDict):
+class CreateProtectionRequest(TypedDict, closed=True):
     name: "aws_sdk_shield.types.protection_name.ProtectionName"
     """<p>Friendly name for the <code>Protection</code> you are creating.</p>"""
     resource_arn: "aws_sdk_shield.types.resource_arn.ResourceArn"

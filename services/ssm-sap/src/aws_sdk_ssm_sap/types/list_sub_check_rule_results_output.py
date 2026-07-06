@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.ssmsap#ListSubCheckRuleResultsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm_sap.types.next_token
     import aws_sdk_ssm_sap.types.rule_result_list
 
 
-class ListSubCheckRuleResultsOutput(TypedDict):
+class ListSubCheckRuleResultsOutput(TypedDict, closed=True):
     rule_results: NotRequired["aws_sdk_ssm_sap.types.rule_result_list.RuleResultList"]
     """<p>The rule results of a sub-check belonging to a configuration check operation.</p>"""
     next_token: NotRequired["aws_sdk_ssm_sap.types.next_token.NextToken"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#PutDestinationPolicyRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudwatch_logs.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.force_update
 
 
-class PutDestinationPolicyRequest(TypedDict):
+class PutDestinationPolicyRequest(TypedDict, closed=True):
     destination_name: "aws_sdk_cloudwatch_logs.types.destination_name.DestinationName"
     """<p>A name for an existing destination.</p>"""
     access_policy: "aws_sdk_cloudwatch_logs.types.access_policy.AccessPolicy"

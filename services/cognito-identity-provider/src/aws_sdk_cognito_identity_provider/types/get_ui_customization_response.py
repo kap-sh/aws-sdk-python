@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#GetUICustomizationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.ui_customization_type
 
 
-class GetUICustomizationResponse(TypedDict):
+class GetUICustomizationResponse(TypedDict, closed=True):
     ui_customization: "aws_sdk_cognito_identity_provider.types.ui_customization_type.UICustomizationType"
     """<p>Information about the classic hosted UI custom CSS and logo-image branding that you applied to the user pool or app client.</p>"""
 

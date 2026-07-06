@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#DescribeExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.id
 
 
-class DescribeExecutionRequest(TypedDict):
+class DescribeExecutionRequest(TypedDict, closed=True):
     execution_id: "aws_sdk_iotsitewise.types.id.ID"
     """<p>The ID of the execution.</p>"""
 

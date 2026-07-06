@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appflow#SAPODataConnectorProfileCredentials``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appflow.types.basic_auth_credentials
     import aws_sdk_appflow.types.o_auth_credentials
 
 
-class SAPODataConnectorProfileCredentials(TypedDict):
+class SAPODataConnectorProfileCredentials(TypedDict, closed=True):
     basic_auth_credentials: NotRequired[
         "aws_sdk_appflow.types.basic_auth_credentials.BasicAuthCredentials"
     ]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#CreateUnreferencedMergeCommitInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecommit.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class CreateUnreferencedMergeCommitInput(TypedDict):
+class CreateUnreferencedMergeCommitInput(TypedDict, closed=True):
     repository_name: "aws_sdk_codecommit.types.repository_name.RepositoryName"
     """<p>The name of the repository where you want to create the unreferenced merge commit.</p>"""
     source_commit_specifier: "aws_sdk_codecommit.types.commit_name.CommitName"

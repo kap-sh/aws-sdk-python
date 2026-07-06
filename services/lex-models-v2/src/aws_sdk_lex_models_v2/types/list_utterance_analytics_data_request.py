@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#ListUtteranceAnalyticsDataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.utterance_data_sort_by
 
 
-class ListUtteranceAnalyticsDataRequest(TypedDict):
+class ListUtteranceAnalyticsDataRequest(TypedDict, closed=True):
     bot_id: "aws_sdk_lex_models_v2.types.id.Id"
     """<p>The identifier for the bot for which you want to retrieve utterance analytics.</p>"""
     start_date_time: "aws_sdk_lex_models_v2.types.timestamp.Timestamp"

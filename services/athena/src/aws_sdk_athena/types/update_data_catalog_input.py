@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.athena#UpdateDataCatalogInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_athena.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_athena.types.parameters_map
 
 
-class UpdateDataCatalogInput(TypedDict):
+class UpdateDataCatalogInput(TypedDict, closed=True):
     name: "aws_sdk_athena.types.catalog_name_string.CatalogNameString"
     """<p>The name of the data catalog to update. The catalog name must be unique for the Amazon Web Services account and can use a maximum of 127 alphanumeric, underscore, at sign, or hyphen characters. The remainder of the length constraint of 256 is reserved for use by Athena.</p>"""
     type: "aws_sdk_athena.types.data_catalog_type.DataCatalogType"

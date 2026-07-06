@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.ec2instanceconnect#AWSEC2InstanceConnectService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_ec2_instance_connect._auth._signers
@@ -38,7 +38,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2_instance_connect.types.ssh_public_key
 
 
-class EC2InstanceConnectClientConfig(TypedDict, total=False):
+class EC2InstanceConnectClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#UpdateBandwidthRateLimitInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.gateway_arn
 
 
-class UpdateBandwidthRateLimitInput(TypedDict):
+class UpdateBandwidthRateLimitInput(TypedDict, closed=True):
     gateway_arn: "aws_sdk_storage_gateway.types.gateway_arn.GatewayARN"
     average_upload_rate_limit_in_bits_per_sec: NotRequired[
         "aws_sdk_storage_gateway.types.bandwidth_upload_rate_limit.BandwidthUploadRateLimit"

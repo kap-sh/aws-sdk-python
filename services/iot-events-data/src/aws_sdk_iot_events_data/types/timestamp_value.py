@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ioteventsdata#TimestampValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_events_data.types.epoch_milli_timestamp
 
 
-class TimestampValue(TypedDict):
+class TimestampValue(TypedDict, closed=True):
     time_in_millis: NotRequired[
         "aws_sdk_iot_events_data.types.epoch_milli_timestamp.EpochMilliTimestamp"
     ]

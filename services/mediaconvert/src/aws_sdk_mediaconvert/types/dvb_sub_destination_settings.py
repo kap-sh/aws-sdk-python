@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#DvbSubDestinationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__integer_min0_max10
@@ -28,7 +28,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.font_script
 
 
-class DvbSubDestinationSettings(TypedDict):
+class DvbSubDestinationSettings(TypedDict, closed=True):
     alignment: NotRequired[
         "aws_sdk_mediaconvert.types.dvb_subtitle_alignment.DvbSubtitleAlignment"
     ]

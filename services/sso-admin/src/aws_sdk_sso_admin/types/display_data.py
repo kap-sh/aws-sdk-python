@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#DisplayData``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.description
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.name
 
 
-class DisplayData(TypedDict):
+class DisplayData(TypedDict, closed=True):
     display_name: NotRequired["aws_sdk_sso_admin.types.name.Name"]
     """<p>The name of the application provider that appears in the portal.</p>"""
     icon_url: NotRequired["aws_sdk_sso_admin.types.icon_url.IconUrl"]

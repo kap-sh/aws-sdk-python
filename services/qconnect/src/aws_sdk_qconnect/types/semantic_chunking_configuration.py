@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.qconnect#SemanticChunkingConfiguration``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_qconnect.errors import DeserializationError
 
 
-class SemanticChunkingConfiguration(TypedDict):
+class SemanticChunkingConfiguration(TypedDict, closed=True):
     max_tokens: "int"
     """<p>The maximum number of tokens that a chunk can contain.</p>"""
     buffer_size: "int"

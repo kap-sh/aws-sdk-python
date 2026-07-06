@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#InternalServerException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_mgn.errors import DeserializationError, ServiceError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.positive_integer
 
 
-class InternalServerException_(TypedDict):
+class InternalServerException_(TypedDict, closed=True):
     message: "aws_sdk_mgn.types.large_bounded_string.LargeBoundedString"
     retry_after_seconds: "aws_sdk_mgn.types.positive_integer.PositiveInteger"
     """<p>The server encountered an unexpected condition that prevented it from fulfilling the request. The request will be retried again after x seconds.</p>"""

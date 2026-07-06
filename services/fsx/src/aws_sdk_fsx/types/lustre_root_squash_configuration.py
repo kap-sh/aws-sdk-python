@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#LustreRootSquashConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.lustre_no_squash_nids
     import aws_sdk_fsx.types.lustre_root_squash
 
 
-class LustreRootSquashConfiguration(TypedDict):
+class LustreRootSquashConfiguration(TypedDict, closed=True):
     root_squash: NotRequired["aws_sdk_fsx.types.lustre_root_squash.LustreRootSquash"]
     """<p>You enable root squash by setting a user ID (UID) and group ID (GID) for the file system in the format <code>UID:GID</code> (for example, <code>365534:65534</code>). The UID and GID values can range from <code>0</code> to <code>4294967294</code>:</p> <ul> <li> <p>A non-zero value for UID and GID enables root squash. The UID and GID values can be different, but each must be a non-zero value.</p> </li> <li> <p>A value of <code>0</code> (zero) for UID and GID indicates root, and therefore disables root squash.</p> </li> </ul> <p>When root squash is enabled, the user ID and group ID of a root user accessing the file system are re-mapped to the UID and GID you provide.</p>"""
     no_squash_nids: NotRequired[

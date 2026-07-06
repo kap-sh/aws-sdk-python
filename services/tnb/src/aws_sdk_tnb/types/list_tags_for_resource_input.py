@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#ListTagsForResourceInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.tnb_resource_arn
 
 
-class ListTagsForResourceInput(TypedDict):
+class ListTagsForResourceInput(TypedDict, closed=True):
     resource_arn: "aws_sdk_tnb.types.tnb_resource_arn.TNBResourceArn"
     """<p>Resource ARN.</p>"""
 

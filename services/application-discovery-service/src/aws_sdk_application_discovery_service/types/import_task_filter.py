@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#ImportTaskFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.import_task_filter_name
     import aws_sdk_application_discovery_service.types.import_task_filter_value_list
 
 
-class ImportTaskFilter(TypedDict):
+class ImportTaskFilter(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_application_discovery_service.types.import_task_filter_name.ImportTaskFilterName"
     ]

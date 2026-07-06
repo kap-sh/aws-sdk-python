@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#DeleteMatchmakingConfigurationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.matchmaking_configuration_name
 
 
-class DeleteMatchmakingConfigurationInput(TypedDict):
+class DeleteMatchmakingConfigurationInput(TypedDict, closed=True):
     name: NotRequired[
         "aws_sdk_gamelift.types.matchmaking_configuration_name.MatchmakingConfigurationName"
     ]

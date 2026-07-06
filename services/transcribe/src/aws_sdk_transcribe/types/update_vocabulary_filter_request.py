@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transcribe#UpdateVocabularyFilterRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transcribe.types.data_access_role_arn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transcribe.types.words
 
 
-class UpdateVocabularyFilterRequest(TypedDict):
+class UpdateVocabularyFilterRequest(TypedDict, closed=True):
     vocabulary_filter_name: (
         "aws_sdk_transcribe.types.vocabulary_filter_name.VocabularyFilterName"
     )

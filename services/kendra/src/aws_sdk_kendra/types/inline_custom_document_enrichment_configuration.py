@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#InlineCustomDocumentEnrichmentConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kendra.types.boolean
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.document_attribute_target
 
 
-class InlineCustomDocumentEnrichmentConfiguration(TypedDict):
+class InlineCustomDocumentEnrichmentConfiguration(TypedDict, closed=True):
     condition: NotRequired[
         "aws_sdk_kendra.types.document_attribute_condition.DocumentAttributeCondition"
     ]

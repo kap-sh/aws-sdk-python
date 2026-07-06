@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#RemoveTagsFromResourceMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.string
 
 
-class RemoveTagsFromResourceMessage(TypedDict):
+class RemoveTagsFromResourceMessage(TypedDict, closed=True):
     resource_name: NotRequired["aws_sdk_elasticache.types.string.String"]
     r"""<p>The Amazon Resource Name (ARN) of the resource from which you want the tags removed, for example <code>arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster</code> or <code>arn:aws:elasticache:us-west-2:0123456789:snapshot:mySnapshot</code>.</p> <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Service Namespaces</a>.</p>"""
     tag_keys: NotRequired["aws_sdk_elasticache.types.key_list.KeyList"]

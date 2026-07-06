@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.kafka#CreateClusterResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kafka.types.__string
     import aws_sdk_kafka.types.cluster_state
 
 
-class CreateClusterResponse(TypedDict):
+class CreateClusterResponse(TypedDict, closed=True):
     cluster_arn: NotRequired["aws_sdk_kafka.types.__string.__string"]
     """<p>The Amazon Resource Name (ARN) of the cluster.</p>"""
     cluster_name: NotRequired["aws_sdk_kafka.types.__string.__string"]

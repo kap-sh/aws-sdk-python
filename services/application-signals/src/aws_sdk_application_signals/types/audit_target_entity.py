@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationsignals#AuditTargetEntity``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_signals.errors import DeserializationError, SerializationError
 
@@ -11,19 +13,19 @@ if TYPE_CHECKING:
     import aws_sdk_application_signals.types.service_operation_entity
 
 
-class _AuditTargetEntity_Service(TypedDict):
+class _AuditTargetEntity_Service(TypedDict, closed=True):
     Service: "aws_sdk_application_signals.types.service_entity.ServiceEntity"
 
 
-class _AuditTargetEntity_Slo(TypedDict):
+class _AuditTargetEntity_Slo(TypedDict, closed=True):
     Slo: "aws_sdk_application_signals.types.service_level_objective_entity.ServiceLevelObjectiveEntity"
 
 
-class _AuditTargetEntity_ServiceOperation(TypedDict):
+class _AuditTargetEntity_ServiceOperation(TypedDict, closed=True):
     ServiceOperation: "aws_sdk_application_signals.types.service_operation_entity.ServiceOperationEntity"
 
 
-class _AuditTargetEntity_Canary(TypedDict):
+class _AuditTargetEntity_Canary(TypedDict, closed=True):
     Canary: "aws_sdk_application_signals.types.canary_entity.CanaryEntity"
 
 

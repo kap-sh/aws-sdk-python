@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#BatchDisassociateUserStackResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.user_stack_association_error_list
 
 
-class BatchDisassociateUserStackResult(TypedDict):
+class BatchDisassociateUserStackResult(TypedDict, closed=True):
     errors: NotRequired[
         "aws_sdk_appstream.types.user_stack_association_error_list.UserStackAssociationErrorList"
     ]

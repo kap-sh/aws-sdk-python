@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kms#UpdatePrimaryRegionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kms.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_kms.types.region_type
 
 
-class UpdatePrimaryRegionRequest(TypedDict):
+class UpdatePrimaryRegionRequest(TypedDict, closed=True):
     key_id: "aws_sdk_kms.types.key_id_type.KeyIdType"
     """<p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p> <p>Specify the key ID or key ARN of a multi-Region primary key.</p> <p>For example:</p> <ul> <li> <p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code> </p> </li> <li> <p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code> </p> </li> </ul> <p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>"""
     primary_region: "aws_sdk_kms.types.region_type.RegionType"

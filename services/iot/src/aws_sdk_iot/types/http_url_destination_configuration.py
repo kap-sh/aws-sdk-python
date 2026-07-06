@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#HttpUrlDestinationConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.url
 
 
-class HttpUrlDestinationConfiguration(TypedDict):
+class HttpUrlDestinationConfiguration(TypedDict, closed=True):
     confirmation_url: "aws_sdk_iot.types.url.Url"
     """<p>The URL IoT uses to confirm ownership of or access to the topic rule destination URL.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#GetSparqlStreamOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_neptunedata.types.string_valued_map
 
 
-class GetSparqlStreamOutput(TypedDict):
+class GetSparqlStreamOutput(TypedDict, closed=True):
     last_event_id: "aws_sdk_neptunedata.types.string_valued_map.StringValuedMap"
     """<p>Sequence identifier of the last change in the stream response.</p> <p>An event ID is composed of two fields: a <code>commitNum</code>, which identifies a transaction that changed the graph, and an <code>opNum</code>, which identifies a specific operation within that transaction:</p>"""
     last_trx_timestamp_in_millis: "int"

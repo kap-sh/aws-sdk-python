@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsagent#PrivateConnectionMode``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_devops_agent.errors import DeserializationError, SerializationError
 
@@ -9,13 +11,13 @@ if TYPE_CHECKING:
     import aws_sdk_devops_agent.types.service_managed_input
 
 
-class _PrivateConnectionMode_serviceManaged(TypedDict):
+class _PrivateConnectionMode_serviceManaged(TypedDict, closed=True):
     serviceManaged: (
         "aws_sdk_devops_agent.types.service_managed_input.ServiceManagedInput"
     )
 
 
-class _PrivateConnectionMode_selfManaged(TypedDict):
+class _PrivateConnectionMode_selfManaged(TypedDict, closed=True):
     selfManaged: "aws_sdk_devops_agent.types.self_managed_input.SelfManagedInput"
 
 

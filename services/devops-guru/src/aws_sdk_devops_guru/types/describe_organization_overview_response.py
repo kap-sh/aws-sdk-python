@@ -1,13 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#DescribeOrganizationOverviewResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.num_proactive_insights
     import aws_sdk_devops_guru.types.num_reactive_insights
 
 
-class DescribeOrganizationOverviewResponse(TypedDict):
+class DescribeOrganizationOverviewResponse(TypedDict, closed=True):
     reactive_insights: (
         "aws_sdk_devops_guru.types.num_reactive_insights.NumReactiveInsights"
     )

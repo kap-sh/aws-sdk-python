@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#RetrieveAndGenerateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agent_runtime.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.session_id
 
 
-class RetrieveAndGenerateRequest(TypedDict):
+class RetrieveAndGenerateRequest(TypedDict, closed=True):
     session_id: NotRequired["aws_sdk_bedrock_agent_runtime.types.session_id.SessionId"]
     """<p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>"""
     input: "aws_sdk_bedrock_agent_runtime.types.retrieve_and_generate_input.RetrieveAndGenerateInput"

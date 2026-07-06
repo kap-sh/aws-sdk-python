@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.clouddirectory#FacetAttributeReference``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_clouddirectory.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_clouddirectory.types.facet_name
 
 
-class FacetAttributeReference(TypedDict):
+class FacetAttributeReference(TypedDict, closed=True):
     target_facet_name: "aws_sdk_clouddirectory.types.facet_name.FacetName"
     r"""<p>The target facet name that is associated with the facet reference. See <a href=\"https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html\">Attribute References</a> for more information.</p>"""
     target_attribute_name: "aws_sdk_clouddirectory.types.attribute_name.AttributeName"

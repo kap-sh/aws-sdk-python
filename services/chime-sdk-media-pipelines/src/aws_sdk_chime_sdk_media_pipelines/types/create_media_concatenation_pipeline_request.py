@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.chimesdkmediapipelines#CreateMediaConcatenationPipelineRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_chime_sdk_media_pipelines.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_chime_sdk_media_pipelines.types.tag_list
 
 
-class CreateMediaConcatenationPipelineRequest(TypedDict):
+class CreateMediaConcatenationPipelineRequest(TypedDict, closed=True):
     sources: "aws_sdk_chime_sdk_media_pipelines.types.concatenation_source_list.ConcatenationSourceList"
     """<p>An object that specifies the sources for the media concatenation pipeline.</p>"""
     sinks: "aws_sdk_chime_sdk_media_pipelines.types.concatenation_sink_list.ConcatenationSinkList"

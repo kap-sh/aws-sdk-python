@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mgn#TemplateActionDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mgn.types.action_category
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_mgn.types.strictly_positive_integer
 
 
-class TemplateActionDocument(TypedDict):
+class TemplateActionDocument(TypedDict, closed=True):
     action_id: NotRequired["aws_sdk_mgn.types.action_id.ActionID"]
     """<p>Template post migration custom action ID.</p>"""
     action_name: NotRequired["aws_sdk_mgn.types.bounded_string.BoundedString"]

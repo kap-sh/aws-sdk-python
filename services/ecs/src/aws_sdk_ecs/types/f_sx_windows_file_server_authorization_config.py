@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#FSxWindowsFileServerAuthorizationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class FSxWindowsFileServerAuthorizationConfig(TypedDict):
+class FSxWindowsFileServerAuthorizationConfig(TypedDict, closed=True):
     credentials_parameter: "aws_sdk_ecs.types.string.String"
     """<p>The authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an Secrets Manager secret or SSM Parameter Store parameter. The ARN refers to the stored credentials.</p>"""
     domain: "aws_sdk_ecs.types.string.String"

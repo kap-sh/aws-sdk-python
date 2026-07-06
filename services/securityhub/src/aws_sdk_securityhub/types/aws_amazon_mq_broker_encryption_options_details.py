@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.securityhub#AwsAmazonMqBrokerEncryptionOptionsDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_securityhub.types.boolean
     import aws_sdk_securityhub.types.non_empty_string
 
 
-class AwsAmazonMqBrokerEncryptionOptionsDetails(TypedDict):
+class AwsAmazonMqBrokerEncryptionOptionsDetails(TypedDict, closed=True):
     kms_key_id: NotRequired["aws_sdk_securityhub.types.non_empty_string.NonEmptyString"]
     """<p> The KMS key that’s used to encrypt your data at rest. If not provided, Amazon MQ will use a default KMS key to encrypt your data. </p>"""
     use_aws_owned_key: NotRequired["aws_sdk_securityhub.types.boolean.Boolean"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codeconnections#RepositoryLinkInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codeconnections.errors import DeserializationError
 
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_codeconnections.types.repository_name
 
 
-class RepositoryLinkInfo(TypedDict):
+class RepositoryLinkInfo(TypedDict, closed=True):
     connection_arn: "aws_sdk_codeconnections.types.connection_arn.ConnectionArn"
     """<p>The Amazon Resource Name (ARN) of the connection associated with the repository link.</p>"""
     encryption_key_arn: NotRequired[

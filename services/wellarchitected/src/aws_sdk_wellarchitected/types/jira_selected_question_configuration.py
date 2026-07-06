@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#JiraSelectedQuestionConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.selected_pillars
 
 
-class JiraSelectedQuestionConfiguration(TypedDict):
+class JiraSelectedQuestionConfiguration(TypedDict, closed=True):
     selected_pillars: NotRequired[
         "aws_sdk_wellarchitected.types.selected_pillars.SelectedPillars"
     ]

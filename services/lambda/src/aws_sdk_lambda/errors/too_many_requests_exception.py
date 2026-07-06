@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lambda#TooManyRequestsException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lambda.errors import ServiceError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_lambda.types.throttle_reason
 
 
-class TooManyRequestsException_(TypedDict):
+class TooManyRequestsException_(TypedDict, closed=True):
     retry_after_seconds: NotRequired["aws_sdk_lambda.types.string.String"]
     """<p>The number of seconds the caller should wait before retrying.</p>"""
     type: NotRequired["aws_sdk_lambda.types.string.String"]

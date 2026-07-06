@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#ByteMatchTuple``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.text_transformation
 
 
-class ByteMatchTuple(TypedDict):
+class ByteMatchTuple(TypedDict, closed=True):
     field_to_match: "aws_sdk_waf.types.field_to_match.FieldToMatch"
     """<p>The part of a web request that you want AWS WAF to search, such as a specified header or a query string. For more information, see <a>FieldToMatch</a>.</p>"""
     target_string: "aws_sdk_waf.types.byte_match_target_string.ByteMatchTargetString"

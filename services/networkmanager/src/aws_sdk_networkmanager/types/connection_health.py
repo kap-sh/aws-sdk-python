@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkmanager#ConnectionHealth``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.connection_status
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkmanager.types.date_time
 
 
-class ConnectionHealth(TypedDict):
+class ConnectionHealth(TypedDict, closed=True):
     type: NotRequired["aws_sdk_networkmanager.types.connection_type.ConnectionType"]
     """<p>The connection type.</p>"""
     status: NotRequired[

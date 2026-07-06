@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteTransitBeforeTravelStep``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.sensitive_string
 
 
-class RouteTransitBeforeTravelStep(TypedDict):
+class RouteTransitBeforeTravelStep(TypedDict, closed=True):
     duration: "aws_sdk_geo_routes.types.duration_seconds.DurationSeconds"
     """<p>Duration of the step.</p> <p> <b>Unit</b>: <code>seconds</code> </p>"""
     instruction: NotRequired[

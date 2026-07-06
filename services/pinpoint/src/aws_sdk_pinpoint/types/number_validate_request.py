@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#NumberValidateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
 
 
-class NumberValidateRequest(TypedDict):
+class NumberValidateRequest(TypedDict, closed=True):
     iso_country_code: NotRequired["aws_sdk_pinpoint.types.__string.__string"]
     """<p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.</p>"""
     phone_number: NotRequired["aws_sdk_pinpoint.types.__string.__string"]

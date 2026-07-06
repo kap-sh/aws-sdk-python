@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#StartSoftwareDeploymentToImageBuilderRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.boolean
     import aws_sdk_appstream.types.name
 
 
-class StartSoftwareDeploymentToImageBuilderRequest(TypedDict):
+class StartSoftwareDeploymentToImageBuilderRequest(TypedDict, closed=True):
     image_builder_name: NotRequired["aws_sdk_appstream.types.name.Name"]
     """<p>The name of the target image builder instance.</p>"""
     retry_failed_deployments: NotRequired["aws_sdk_appstream.types.boolean.Boolean"]

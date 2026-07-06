@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.docdb#ModifyDBClusterSnapshotAttributeMessage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_docdb._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_docdb.types.string
 
 
-class ModifyDBClusterSnapshotAttributeMessage(TypedDict):
+class ModifyDBClusterSnapshotAttributeMessage(TypedDict, closed=True):
     db_cluster_snapshot_identifier: NotRequired["aws_sdk_docdb.types.string.String"]
     """<p>The identifier for the cluster snapshot to modify the attributes for.</p>"""
     attribute_name: NotRequired["aws_sdk_docdb.types.string.String"]

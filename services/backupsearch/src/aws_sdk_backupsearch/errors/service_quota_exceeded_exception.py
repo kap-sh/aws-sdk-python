@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.backupsearch#ServiceQuotaExceededException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_backupsearch.errors import DeserializationError, ServiceError
 
 
-class ServiceQuotaExceededException_(TypedDict):
+class ServiceQuotaExceededException_(TypedDict, closed=True):
     message: "str"
     """<p>This request was not successful due to a service quota exceeding limits.</p>"""
     resource_id: "str"

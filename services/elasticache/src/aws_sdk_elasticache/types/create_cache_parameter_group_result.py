@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.elasticache#CreateCacheParameterGroupResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_elasticache._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_elasticache.types.cache_parameter_group
 
 
-class CreateCacheParameterGroupResult(TypedDict):
+class CreateCacheParameterGroupResult(TypedDict, closed=True):
     cache_parameter_group: NotRequired[
         "aws_sdk_elasticache.types.cache_parameter_group.CacheParameterGroup"
     ]

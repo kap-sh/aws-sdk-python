@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ServiceConnectAccessLogConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.service_connect_include_query_parameters
 
 
-class ServiceConnectAccessLogConfiguration(TypedDict):
+class ServiceConnectAccessLogConfiguration(TypedDict, closed=True):
     format: "aws_sdk_ecs.types.service_connect_access_logging_format.ServiceConnectAccessLoggingFormat"
     """<p>The format for Service Connect access log output. Choose TEXT for human-readable logs or JSON for structured data that integrates well with log analysis tools.</p>"""
     include_query_parameters: NotRequired[

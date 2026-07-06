@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RoutePedestrianLegDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.route_pedestrian_travel_step_list
 
 
-class RoutePedestrianLegDetails(TypedDict):
+class RoutePedestrianLegDetails(TypedDict, closed=True):
     after_travel_steps: "aws_sdk_geo_routes.types.route_pedestrian_after_travel_step_list.RoutePedestrianAfterTravelStepList"
     """<p>Steps of a leg that must be performed after the travel portion of the leg.</p>"""
     arrival: "aws_sdk_geo_routes.types.route_pedestrian_arrival.RoutePedestrianArrival"

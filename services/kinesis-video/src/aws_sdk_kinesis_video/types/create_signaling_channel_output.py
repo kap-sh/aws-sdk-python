@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.kinesisvideo#CreateSignalingChannelOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_kinesis_video.types.resource_arn
 
 
-class CreateSignalingChannelOutput(TypedDict):
+class CreateSignalingChannelOutput(TypedDict, closed=True):
     channel_arn: NotRequired["aws_sdk_kinesis_video.types.resource_arn.ResourceARN"]
     """<p>The Amazon Resource Name (ARN) of the created channel.</p>"""
 

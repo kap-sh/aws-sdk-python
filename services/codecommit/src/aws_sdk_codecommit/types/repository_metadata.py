@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecommit#RepositoryMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codecommit.types.account_id
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecommit.types.repository_name
 
 
-class RepositoryMetadata(TypedDict):
+class RepositoryMetadata(TypedDict, closed=True):
     account_id: NotRequired["aws_sdk_codecommit.types.account_id.AccountId"]
     """<p>The ID of the Amazon Web Services account associated with the repository.</p>"""
     repository_id: NotRequired["aws_sdk_codecommit.types.repository_id.RepositoryId"]

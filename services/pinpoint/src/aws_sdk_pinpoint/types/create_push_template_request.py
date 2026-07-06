@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.pinpoint#CreatePushTemplateRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pinpoint.types.__string
     import aws_sdk_pinpoint.types.push_notification_template_request
 
 
-class CreatePushTemplateRequest(TypedDict):
+class CreatePushTemplateRequest(TypedDict, closed=True):
     push_notification_template_request: NotRequired[
         "aws_sdk_pinpoint.types.push_notification_template_request.PushNotificationTemplateRequest"
     ]

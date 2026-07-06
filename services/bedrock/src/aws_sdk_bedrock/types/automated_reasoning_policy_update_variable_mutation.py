@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyUpdateVariableMutation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_definition_variable
 
 
-class AutomatedReasoningPolicyUpdateVariableMutation(TypedDict):
+class AutomatedReasoningPolicyUpdateVariableMutation(TypedDict, closed=True):
     variable: "aws_sdk_bedrock.types.automated_reasoning_policy_definition_variable.AutomatedReasoningPolicyDefinitionVariable"
     """<p>The updated variable definition containing the modified name, type, or description for the existing variable.</p>"""
 

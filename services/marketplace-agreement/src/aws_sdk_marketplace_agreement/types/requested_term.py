@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#RequestedTerm``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_marketplace_agreement.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.term_id
 
 
-class RequestedTerm(TypedDict):
+class RequestedTerm(TypedDict, closed=True):
     id: "aws_sdk_marketplace_agreement.types.term_id.TermId"
     """<p>The unique identifier of the term in the agreement proposal.</p>"""
     configuration: NotRequired[

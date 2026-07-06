@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.athena#GetDatabaseOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_athena.types.database
 
 
-class GetDatabaseOutput(TypedDict):
+class GetDatabaseOutput(TypedDict, closed=True):
     database: NotRequired["aws_sdk_athena.types.database.Database"]
     """<p>The database returned.</p>"""
 

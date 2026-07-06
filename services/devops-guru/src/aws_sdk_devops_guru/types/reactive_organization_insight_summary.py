@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.devopsguru#ReactiveOrganizationInsightSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.aws_account_id
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_devops_guru.types.service_collection
 
 
-class ReactiveOrganizationInsightSummary(TypedDict):
+class ReactiveOrganizationInsightSummary(TypedDict, closed=True):
     id: NotRequired["aws_sdk_devops_guru.types.insight_id.InsightId"]
     """<p>The ID of the insight summary.</p>"""
     account_id: NotRequired["aws_sdk_devops_guru.types.aws_account_id.AwsAccountId"]

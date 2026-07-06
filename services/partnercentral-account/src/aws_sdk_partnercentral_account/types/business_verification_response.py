@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.partnercentralaccount#BusinessVerificationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_partnercentral_account.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_partnercentral_account.types.date_time
 
 
-class BusinessVerificationResponse(TypedDict):
+class BusinessVerificationResponse(TypedDict, closed=True):
     business_verification_details: "aws_sdk_partnercentral_account.types.business_verification_details.BusinessVerificationDetails"
     """<p>The business verification details that were processed and verified, potentially including additional information discovered during the verification process.</p>"""
     completion_url: NotRequired[

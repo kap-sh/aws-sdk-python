@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wafregional#GeoMatchSetSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_waf_regional.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf_regional.types.resource_name
 
 
-class GeoMatchSetSummary(TypedDict):
+class GeoMatchSetSummary(TypedDict, closed=True):
     geo_match_set_id: "aws_sdk_waf_regional.types.resource_id.ResourceId"
     """<p>The <code>GeoMatchSetId</code> for an <a>GeoMatchSet</a>. You can use <code>GeoMatchSetId</code> in a <a>GetGeoMatchSet</a> request to get detailed information about an <a>GeoMatchSet</a>.</p>"""
     name: "aws_sdk_waf_regional.types.resource_name.ResourceName"

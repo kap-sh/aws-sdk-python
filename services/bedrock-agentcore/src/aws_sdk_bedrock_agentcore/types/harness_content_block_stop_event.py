@@ -1,12 +1,12 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessContentBlockStopEvent``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore._protocol.eventstream import HeaderValue, Message
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
 
-class HarnessContentBlockStopEvent(TypedDict):
+class HarnessContentBlockStopEvent(TypedDict, closed=True):
     content_block_index: "int"
     """<p>The index of the content block that ended.</p>"""
 

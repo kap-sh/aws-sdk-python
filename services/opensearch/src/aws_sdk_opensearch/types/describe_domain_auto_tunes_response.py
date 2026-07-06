@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.opensearch#DescribeDomainAutoTunesResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_opensearch.types.auto_tune_list
     import aws_sdk_opensearch.types.next_token
 
 
-class DescribeDomainAutoTunesResponse(TypedDict):
+class DescribeDomainAutoTunesResponse(TypedDict, closed=True):
     auto_tunes: NotRequired["aws_sdk_opensearch.types.auto_tune_list.AutoTuneList"]
     """<p>The list of setting adjustments that Auto-Tune has made to the domain.</p>"""
     next_token: NotRequired["aws_sdk_opensearch.types.next_token.NextToken"]

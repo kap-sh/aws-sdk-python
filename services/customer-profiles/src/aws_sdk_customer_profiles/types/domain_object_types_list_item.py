@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DomainObjectTypesListItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.type_name
 
 
-class DomainObjectTypesListItem(TypedDict):
+class DomainObjectTypesListItem(TypedDict, closed=True):
     object_type_name: "aws_sdk_customer_profiles.types.type_name.typeName"
     """<p>The name that identifies the object type within the domain.</p>"""
     description: NotRequired[

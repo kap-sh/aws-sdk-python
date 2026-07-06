@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ChatSyncInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_execution
@@ -20,7 +20,7 @@ if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.user_message
 
 
-class ChatSyncInput(TypedDict):
+class ChatSyncInput(TypedDict, closed=True):
     application_id: "aws_sdk_qbusiness.types.application_id.ApplicationId"
     """<p>The identifier of the Amazon Q Business application linked to the Amazon Q Business conversation.</p>"""
     user_id: NotRequired["aws_sdk_qbusiness.types.user_id.UserId"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.uxc#ListServicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_uxc.types.next_token
     import aws_sdk_uxc.types.service_list
 
 
-class ListServicesOutput(TypedDict):
+class ListServicesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_uxc.types.next_token.NextToken"]
     """<p>The token for retrieving the next page of results. This value is <code>null</code> when no more results are available.</p>"""
     services: NotRequired["aws_sdk_uxc.types.service_list.ServiceList"]

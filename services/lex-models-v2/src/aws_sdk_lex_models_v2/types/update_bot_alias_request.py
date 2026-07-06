@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.lexmodelsv2#UpdateBotAliasRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_lex_models_v2.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_lex_models_v2.types.sentiment_analysis_settings
 
 
-class UpdateBotAliasRequest(TypedDict):
+class UpdateBotAliasRequest(TypedDict, closed=True):
     bot_alias_id: "aws_sdk_lex_models_v2.types.bot_alias_id.BotAliasId"
     """<p>The unique identifier of the bot alias.</p>"""
     bot_alias_name: "aws_sdk_lex_models_v2.types.name.Name"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#DescribeKeyRegistrationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.aws_account_id
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_quicksight.types.status_code
 
 
-class DescribeKeyRegistrationResponse(TypedDict):
+class DescribeKeyRegistrationResponse(TypedDict, closed=True):
     aws_account_id: NotRequired["aws_sdk_quicksight.types.aws_account_id.AwsAccountId"]
     """<p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>"""
     key_registration: NotRequired[

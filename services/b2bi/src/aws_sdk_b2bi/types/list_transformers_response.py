@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#ListTransformersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.transformer_list
 
 
-class ListTransformersResponse(TypedDict):
+class ListTransformersResponse(TypedDict, closed=True):
     transformers: "aws_sdk_b2bi.types.transformer_list.TransformerList"
     """<p>Returns an array of one or more transformer objects.</p> <p>For each transformer, a <code>TransformerSummary</code> object is returned. The <code>TransformerSummary</code> contains all the details for a specific transformer.</p>"""
     next_token: NotRequired["aws_sdk_b2bi.types.page_token.PageToken"]

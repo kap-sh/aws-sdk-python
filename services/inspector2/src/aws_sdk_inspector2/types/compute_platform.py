@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#ComputePlatform``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector2.types.platform_version
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.vendor
 
 
-class ComputePlatform(TypedDict):
+class ComputePlatform(TypedDict, closed=True):
     vendor: NotRequired["aws_sdk_inspector2.types.vendor.Vendor"]
     """<p>The compute platform vendor.</p>"""
     product: NotRequired["aws_sdk_inspector2.types.product.Product"]

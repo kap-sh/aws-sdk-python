@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ExecuteGremlinQueryInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_neptunedata.errors import DeserializationError
 
 
-class ExecuteGremlinQueryInput(TypedDict):
+class ExecuteGremlinQueryInput(TypedDict, closed=True):
     gremlin_query: "str"
     r"""<p>Using this API, you can run Gremlin queries in string format much as you can using the HTTP endpoint. The interface is compatible with whatever Gremlin version your DB cluster is using (see the <a href=\"https://docs.aws.amazon.com/neptune/latest/userguide/access-graph-gremlin-client.html#best-practices-gremlin-java-latest\">Tinkerpop client section</a> to determine which Gremlin releases your engine version supports).</p>"""
     serializer: NotRequired["str"]

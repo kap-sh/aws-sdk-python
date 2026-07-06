@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.securityagent#BatchGetArtifactMetadataInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_securityagent.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_securityagent.types.artifact_ids
 
 
-class BatchGetArtifactMetadataInput(TypedDict):
+class BatchGetArtifactMetadataInput(TypedDict, closed=True):
     agent_space_id: "aws_sdk_securityagent.types.agent_space_id.AgentSpaceId"
     """<p>The unique identifier of the agent space that contains the artifacts.</p>"""
     artifact_ids: "aws_sdk_securityagent.types.artifact_ids.ArtifactIds"

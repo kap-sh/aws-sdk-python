@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DecisionTaskCompletedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.data
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_swf.types.task_list
 
 
-class DecisionTaskCompletedEventAttributes(TypedDict):
+class DecisionTaskCompletedEventAttributes(TypedDict, closed=True):
     execution_context: NotRequired["aws_sdk_swf.types.data.Data"]
     """<p>User defined context for the workflow execution.</p>"""
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"

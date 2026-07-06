@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.waf#WAFInvalidRegexPatternException``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_waf.errors import ServiceError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_waf.types.error_message
 
 
-class WAFInvalidRegexPatternException_(TypedDict):
+class WAFInvalidRegexPatternException_(TypedDict, closed=True):
     message: NotRequired["aws_sdk_waf.types.error_message.errorMessage"]
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetUseCaseForModelAccessResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.acknowledgement_form_data_body
 
 
-class GetUseCaseForModelAccessResponse(TypedDict):
+class GetUseCaseForModelAccessResponse(TypedDict, closed=True):
     form_data: "aws_sdk_bedrock.types.acknowledgement_form_data_body.AcknowledgementFormDataBody"
     """<p>Get customer profile Response.</p>"""
 

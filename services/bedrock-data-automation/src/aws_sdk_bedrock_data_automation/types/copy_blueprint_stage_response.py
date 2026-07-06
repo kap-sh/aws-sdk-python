@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockdataautomation#CopyBlueprintStageResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class CopyBlueprintStageResponse(TypedDict):
+class CopyBlueprintStageResponse(TypedDict, closed=True):
     pass
 
 

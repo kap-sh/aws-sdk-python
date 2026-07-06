@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotjobsdataplane#StartCommandExecutionRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iot_jobs_data_plane.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_jobs_data_plane.types.target_arn
 
 
-class StartCommandExecutionRequest(TypedDict):
+class StartCommandExecutionRequest(TypedDict, closed=True):
     target_arn: "aws_sdk_iot_jobs_data_plane.types.target_arn.TargetArn"
     """<p>The Amazon Resource Number (ARN) of the device where the command execution is occurring.</p>"""
     command_arn: "aws_sdk_iot_jobs_data_plane.types.command_arn.CommandArn"

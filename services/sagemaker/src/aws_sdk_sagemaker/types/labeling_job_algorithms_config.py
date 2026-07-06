@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#LabelingJobAlgorithmsConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.labeling_job_algorithm_specification_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.model_arn
 
 
-class LabelingJobAlgorithmsConfig(TypedDict):
+class LabelingJobAlgorithmsConfig(TypedDict, closed=True):
     labeling_job_algorithm_specification_arn: NotRequired[
         "aws_sdk_sagemaker.types.labeling_job_algorithm_specification_arn.LabelingJobAlgorithmSpecificationArn"
     ]

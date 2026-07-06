@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#NotificationConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.notification_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm.types.notification_type
 
 
-class NotificationConfig(TypedDict):
+class NotificationConfig(TypedDict, closed=True):
     notification_arn: NotRequired["aws_sdk_ssm.types.notification_arn.NotificationArn"]
     """<p>An Amazon Resource Name (ARN) for an Amazon Simple Notification Service (Amazon SNS) topic. Run Command pushes notifications about command status changes to this topic.</p>"""
     notification_events: NotRequired[

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.location#ListGeofencesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_location.types.large_token
     import aws_sdk_location.types.resource_name
 
 
-class ListGeofencesRequest(TypedDict):
+class ListGeofencesRequest(TypedDict, closed=True):
     collection_name: "aws_sdk_location.types.resource_name.ResourceName"
     """<p>The name of the geofence collection storing the list of geofences.</p>"""
     next_token: NotRequired["aws_sdk_location.types.large_token.LargeToken"]

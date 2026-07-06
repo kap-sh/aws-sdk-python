@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#PutUserPermissionsBoundaryRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 from aws_sdk_iam.errors import DeserializationError
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.user_name_type
 
 
-class PutUserPermissionsBoundaryRequest(TypedDict):
+class PutUserPermissionsBoundaryRequest(TypedDict, closed=True):
     user_name: "aws_sdk_iam.types.user_name_type.userNameType"
     """<p>The name (friendly name, not ARN) of the IAM user for which you want to set the permissions boundary.</p>"""
     permissions_boundary: "aws_sdk_iam.types.arn_type.arnType"

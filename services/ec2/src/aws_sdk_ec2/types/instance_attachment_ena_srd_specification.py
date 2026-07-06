@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ec2#InstanceAttachmentEnaSrdSpecification``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ec2._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ec2.types.instance_attachment_ena_srd_udp_specification
 
 
-class InstanceAttachmentEnaSrdSpecification(TypedDict):
+class InstanceAttachmentEnaSrdSpecification(TypedDict, closed=True):
     ena_srd_enabled: NotRequired["aws_sdk_ec2.types.boolean.Boolean"]
     """<p>Indicates whether ENA Express is enabled for the network interface.</p>"""
     ena_srd_udp_specification: NotRequired[

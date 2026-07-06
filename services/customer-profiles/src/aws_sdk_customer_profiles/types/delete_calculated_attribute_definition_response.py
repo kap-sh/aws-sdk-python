@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#DeleteCalculatedAttributeDefinitionResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteCalculatedAttributeDefinitionResponse(TypedDict):
+class DeleteCalculatedAttributeDefinitionResponse(TypedDict, closed=True):
     pass
 
 

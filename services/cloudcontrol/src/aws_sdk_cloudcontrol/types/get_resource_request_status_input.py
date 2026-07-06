@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudcontrol#GetResourceRequestStatusInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudcontrol.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudcontrol.types.request_token
 
 
-class GetResourceRequestStatusInput(TypedDict):
+class GetResourceRequestStatusInput(TypedDict, closed=True):
     request_token: "aws_sdk_cloudcontrol.types.request_token.RequestToken"
     """<p>A unique token used to track the progress of the resource operation request.</p> <p>Request tokens are included in the <code>ProgressEvent</code> type returned by a resource operation request.</p>"""
 

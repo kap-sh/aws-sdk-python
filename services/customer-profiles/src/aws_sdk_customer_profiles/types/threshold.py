@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#Threshold``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_customer_profiles.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.string1_to255
 
 
-class Threshold(TypedDict):
+class Threshold(TypedDict, closed=True):
     value: "aws_sdk_customer_profiles.types.string1_to255.string1To255"
     """<p>The value of the threshold.</p>"""
     operator: "aws_sdk_customer_profiles.types.operator.Operator"

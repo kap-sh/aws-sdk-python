@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#AutomatedReasoningPolicyScenario``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock.errors import DeserializationError
 
@@ -11,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.automated_reasoning_policy_scenario_expression
 
 
-class AutomatedReasoningPolicyScenario(TypedDict):
+class AutomatedReasoningPolicyScenario(TypedDict, closed=True):
     expression: "aws_sdk_bedrock.types.automated_reasoning_policy_scenario_expression.AutomatedReasoningPolicyScenarioExpression"
     """<p>The logical expression or condition that defines this test scenario.</p>"""
     alternate_expression: "aws_sdk_bedrock.types.automated_reasoning_policy_scenario_alternate_expression.AutomatedReasoningPolicyScenarioAlternateExpression"

@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#ListTagsForResourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock_agent_runtime.types.taggable_resources_arn
 
 
-class ListTagsForResourceRequest(TypedDict):
+class ListTagsForResourceRequest(TypedDict, closed=True):
     resource_arn: "aws_sdk_bedrock_agent_runtime.types.taggable_resources_arn.TaggableResourcesArn"
     """<p>The Amazon Resource Name (ARN) of the resource for which to list tags.</p>"""
 

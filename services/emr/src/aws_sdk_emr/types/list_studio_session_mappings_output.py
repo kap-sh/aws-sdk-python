@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.emr#ListStudioSessionMappingsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_emr.types.marker
     import aws_sdk_emr.types.session_mapping_summary_list
 
 
-class ListStudioSessionMappingsOutput(TypedDict):
+class ListStudioSessionMappingsOutput(TypedDict, closed=True):
     session_mappings: NotRequired[
         "aws_sdk_emr.types.session_mapping_summary_list.SessionMappingSummaryList"
     ]

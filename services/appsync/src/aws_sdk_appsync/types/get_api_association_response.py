@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appsync#GetApiAssociationResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appsync.types.api_association
 
 
-class GetApiAssociationResponse(TypedDict):
+class GetApiAssociationResponse(TypedDict, closed=True):
     api_association: NotRequired["aws_sdk_appsync.types.api_association.ApiAssociation"]
     """<p>The <code>ApiAssociation</code> object.</p>"""
 

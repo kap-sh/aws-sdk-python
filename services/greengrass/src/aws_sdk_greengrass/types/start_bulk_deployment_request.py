@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.greengrass#StartBulkDeploymentRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_greengrass.types.__string
     import aws_sdk_greengrass.types.tags
 
 
-class StartBulkDeploymentRequest(TypedDict):
+class StartBulkDeploymentRequest(TypedDict, closed=True):
     amzn_client_token: NotRequired["aws_sdk_greengrass.types.__string.__string"]
     """A client token used to correlate requests and responses."""
     execution_role_arn: NotRequired["aws_sdk_greengrass.types.__string.__string"]

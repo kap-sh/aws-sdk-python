@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector2#Ec2Configuration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_inspector2.errors import DeserializationError
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector2.types.ec2_scan_mode
 
 
-class Ec2Configuration(TypedDict):
+class Ec2Configuration(TypedDict, closed=True):
     scan_mode: "aws_sdk_inspector2.types.ec2_scan_mode.Ec2ScanMode"
     """<p>The scan method that is applied to the instance.</p>"""
     activate_vm_scanner: NotRequired["bool"]

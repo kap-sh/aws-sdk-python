@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#HarnessInlineFunctionConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.sensitive_json
 
 
-class HarnessInlineFunctionConfig(TypedDict):
+class HarnessInlineFunctionConfig(TypedDict, closed=True):
     description: "aws_sdk_bedrock_agentcore.types.harness_inline_function_description.HarnessInlineFunctionDescription"
     """<p>Description of what the tool does, provided to the model.</p>"""
     input_schema: "aws_sdk_bedrock_agentcore.types.sensitive_json.SensitiveJson"

@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.entityresolution#MatchingConfig``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class MatchingConfig(TypedDict):
+class MatchingConfig(TypedDict, closed=True):
     enable_transitive_matching: NotRequired["bool"]
     """<p>Enables transitive matching for the rule-based matching workflow. When enabled, records that match through different rules are grouped together into the same match group.</p>"""
 

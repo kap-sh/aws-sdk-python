@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#StartMemoryExtractionJobInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.memory_id
 
 
-class StartMemoryExtractionJobInput(TypedDict):
+class StartMemoryExtractionJobInput(TypedDict, closed=True):
     memory_id: "aws_sdk_bedrock_agentcore.types.memory_id.MemoryId"
     """<p>The unique identifier of the memory for which to start extraction jobs.</p>"""
     extraction_job: "aws_sdk_bedrock_agentcore.types.extraction_job.ExtractionJob"

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfrontkeyvaluestore#UpdateKeysResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront_keyvaluestore.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront_keyvaluestore.types.etag
 
 
-class UpdateKeysResponse(TypedDict):
+class UpdateKeysResponse(TypedDict, closed=True):
     item_count: "int"
     """<p>Number of key value pairs in the Key Value Store after the successful update.</p>"""
     total_size_in_bytes: "int"

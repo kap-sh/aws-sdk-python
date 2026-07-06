@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#GetFoundationModelRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.get_foundation_model_identifier
 
 
-class GetFoundationModelRequest(TypedDict):
+class GetFoundationModelRequest(TypedDict, closed=True):
     model_identifier: "aws_sdk_bedrock.types.get_foundation_model_identifier.GetFoundationModelIdentifier"
     """<p>The model identifier. </p>"""
 

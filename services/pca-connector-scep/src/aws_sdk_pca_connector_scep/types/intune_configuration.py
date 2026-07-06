@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pcaconnectorscep#IntuneConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_pca_connector_scep.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_pca_connector_scep.types.azure_domain
 
 
-class IntuneConfiguration(TypedDict):
+class IntuneConfiguration(TypedDict, closed=True):
     azure_application_id: (
         "aws_sdk_pca_connector_scep.types.azure_application_id.AzureApplicationId"
     )

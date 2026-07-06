@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#DeleteUserRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_transfer.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.user_name
 
 
-class DeleteUserRequest(TypedDict):
+class DeleteUserRequest(TypedDict, closed=True):
     server_id: "aws_sdk_transfer.types.server_id.ServerId"
     """<p>A system-assigned unique identifier for a server instance that has the user assigned to it.</p>"""
     user_name: "aws_sdk_transfer.types.user_name.UserName"

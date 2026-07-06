@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#ProvideAnomalyFeedbackResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class ProvideAnomalyFeedbackResponse(TypedDict):
+class ProvideAnomalyFeedbackResponse(TypedDict, closed=True):
     anomaly_id: "aws_sdk_cost_explorer.types.generic_string.GenericString"
     """<p>The ID of the modified cost anomaly. </p>"""
 

@@ -1,13 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.cloudtraildata#ChannelUnsupportedSchema``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudtrail_data.errors import ServiceError
 
 
-class ChannelUnsupportedSchema_(TypedDict):
+class ChannelUnsupportedSchema_(TypedDict, closed=True):
     message: NotRequired["str"]
 
 

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.keyspaces#GetTypeResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_keyspaces.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_keyspaces.types.type_status
 
 
-class GetTypeResponse(TypedDict):
+class GetTypeResponse(TypedDict, closed=True):
     keyspace_name: "aws_sdk_keyspaces.types.keyspace_name.KeyspaceName"
     """<p> The name of the keyspace that contains this type. </p>"""
     type_name: "aws_sdk_keyspaces.types.type_name.TypeName"

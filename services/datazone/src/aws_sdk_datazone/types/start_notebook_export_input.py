@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#StartNotebookExportInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class StartNotebookExportInput(TypedDict):
+class StartNotebookExportInput(TypedDict, closed=True):
     domain_identifier: "aws_sdk_datazone.types.domain_id.DomainId"
     """<p>The identifier of the Amazon SageMaker Unified Studio domain in which to export the notebook.</p>"""
     notebook_identifier: "aws_sdk_datazone.types.notebook_id.NotebookId"

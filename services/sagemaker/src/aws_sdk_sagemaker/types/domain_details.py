@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#DomainDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.creation_time
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.string1024
 
 
-class DomainDetails(TypedDict):
+class DomainDetails(TypedDict, closed=True):
     domain_arn: NotRequired["aws_sdk_sagemaker.types.domain_arn.DomainArn"]
     """<p>The domain's Amazon Resource Name (ARN).</p>"""
     domain_id: NotRequired["aws_sdk_sagemaker.types.domain_id.DomainId"]

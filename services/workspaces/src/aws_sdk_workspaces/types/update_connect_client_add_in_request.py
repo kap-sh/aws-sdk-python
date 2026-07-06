@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workspaces#UpdateConnectClientAddInRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_workspaces.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_workspaces.types.directory_id
 
 
-class UpdateConnectClientAddInRequest(TypedDict):
+class UpdateConnectClientAddInRequest(TypedDict, closed=True):
     add_in_id: "aws_sdk_workspaces.types.amazon_uuid.AmazonUuid"
     """<p>The identifier of the client add-in to update.</p>"""
     resource_id: "aws_sdk_workspaces.types.directory_id.DirectoryId"

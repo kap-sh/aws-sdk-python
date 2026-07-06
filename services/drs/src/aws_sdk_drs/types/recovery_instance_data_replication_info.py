@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.drs#RecoveryInstanceDataReplicationInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_drs.types.aws_availability_zone
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_drs.types.recovery_instance_data_replication_state
 
 
-class RecoveryInstanceDataReplicationInfo(TypedDict):
+class RecoveryInstanceDataReplicationInfo(TypedDict, closed=True):
     lag_duration: NotRequired[
         "aws_sdk_drs.types.iso8601_datetime_string.ISO8601DatetimeString"
     ]

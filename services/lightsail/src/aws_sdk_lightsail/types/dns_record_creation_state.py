@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lightsail#DnsRecordCreationState``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lightsail.types.dns_record_creation_state_code
     import aws_sdk_lightsail.types.string
 
 
-class DnsRecordCreationState(TypedDict):
+class DnsRecordCreationState(TypedDict, closed=True):
     code: NotRequired[
         "aws_sdk_lightsail.types.dns_record_creation_state_code.DnsRecordCreationStateCode"
     ]

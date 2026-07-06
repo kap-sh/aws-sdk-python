@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.lakeformation#ListTableStorageOptimizersResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_lakeformation.types.storage_optimizer_list
     import aws_sdk_lakeformation.types.token
 
 
-class ListTableStorageOptimizersResponse(TypedDict):
+class ListTableStorageOptimizersResponse(TypedDict, closed=True):
     storage_optimizer_list: NotRequired[
         "aws_sdk_lakeformation.types.storage_optimizer_list.StorageOptimizerList"
     ]

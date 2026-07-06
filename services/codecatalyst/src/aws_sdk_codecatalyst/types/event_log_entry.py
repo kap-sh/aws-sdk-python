@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codecatalyst#EventLogEntry``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_codecatalyst.errors import DeserializationError
 
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_codecatalyst.types.user_identity
 
 
-class EventLogEntry(TypedDict):
+class EventLogEntry(TypedDict, closed=True):
     id: "str"
     """<p>The system-generated unique ID of the event.</p>"""
     event_name: "str"

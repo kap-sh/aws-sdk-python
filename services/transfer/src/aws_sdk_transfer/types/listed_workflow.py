@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.transfer#ListedWorkflow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_transfer.types.arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_transfer.types.workflow_id
 
 
-class ListedWorkflow(TypedDict):
+class ListedWorkflow(TypedDict, closed=True):
     workflow_id: NotRequired["aws_sdk_transfer.types.workflow_id.WorkflowId"]
     """<p>A unique identifier for the workflow.</p>"""
     description: NotRequired[

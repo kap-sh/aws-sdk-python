@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.amplifybackend#BackendAPIAuthType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_amplifybackend.types.backend_api_app_sync_auth_settings
     import aws_sdk_amplifybackend.types.mode
 
 
-class BackendAPIAuthType(TypedDict):
+class BackendAPIAuthType(TypedDict, closed=True):
     mode: NotRequired["aws_sdk_amplifybackend.types.mode.Mode"]
     """<p>Describes the authentication mode.</p>"""
     settings: NotRequired[

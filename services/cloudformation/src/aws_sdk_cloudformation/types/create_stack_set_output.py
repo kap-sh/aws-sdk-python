@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudformation#CreateStackSetOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cloudformation._protocol.xml import Element
 
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudformation.types.stack_set_id
 
 
-class CreateStackSetOutput(TypedDict):
+class CreateStackSetOutput(TypedDict, closed=True):
     stack_set_id: NotRequired["aws_sdk_cloudformation.types.stack_set_id.StackSetId"]
     """<p>The ID of the StackSet that you're creating.</p>"""
 

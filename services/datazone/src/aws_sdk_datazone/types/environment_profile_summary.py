@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datazone#EnvironmentProfileSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_datazone.errors import DeserializationError
 
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_datazone.types.project_id
 
 
-class EnvironmentProfileSummary(TypedDict):
+class EnvironmentProfileSummary(TypedDict, closed=True):
     id: "aws_sdk_datazone.types.environment_profile_id.EnvironmentProfileId"
     """<p>The identifier of the environment profile.</p>"""
     domain_id: "aws_sdk_datazone.types.domain_id.DomainId"

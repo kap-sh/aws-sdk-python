@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotsitewise#VariableValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotsitewise.types.asset_model_property_path
     import aws_sdk_iotsitewise.types.macro
 
 
-class VariableValue(TypedDict):
+class VariableValue(TypedDict, closed=True):
     property_id: NotRequired["aws_sdk_iotsitewise.types.macro.Macro"]
     r"""<p>The ID of the property to use as the variable. You can use the property <code>name</code> if it's from the same asset model. If the property has an external ID, you can specify <code>externalId:</code> followed by the external ID. For more information, see <a href=\"https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids\">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>"""
     hierarchy_id: NotRequired["aws_sdk_iotsitewise.types.macro.Macro"]

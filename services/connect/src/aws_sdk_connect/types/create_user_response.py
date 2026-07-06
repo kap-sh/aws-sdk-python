@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#CreateUserResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.arn
     import aws_sdk_connect.types.user_id
 
 
-class CreateUserResponse(TypedDict):
+class CreateUserResponse(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_connect.types.user_id.UserId"]
     """<p>The identifier of the user account.</p>"""
     user_arn: NotRequired["aws_sdk_connect.types.arn.ARN"]

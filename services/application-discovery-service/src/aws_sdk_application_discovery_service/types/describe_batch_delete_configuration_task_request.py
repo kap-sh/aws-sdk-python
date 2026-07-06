@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.applicationdiscoveryservice#DescribeBatchDeleteConfigurationTaskRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_application_discovery_service.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_application_discovery_service.types.uuid
 
 
-class DescribeBatchDeleteConfigurationTaskRequest(TypedDict):
+class DescribeBatchDeleteConfigurationTaskRequest(TypedDict, closed=True):
     task_id: "aws_sdk_application_discovery_service.types.uuid.UUID"
     """<p> The ID of the task to delete. </p>"""
 

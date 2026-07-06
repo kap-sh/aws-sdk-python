@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sfn#MockErrorOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sfn.types.sensitive_cause
     import aws_sdk_sfn.types.sensitive_error
 
 
-class MockErrorOutput(TypedDict):
+class MockErrorOutput(TypedDict, closed=True):
     error: NotRequired["aws_sdk_sfn.types.sensitive_error.SensitiveError"]
     """<p>A string denoting the error code of the exception thrown when invoking the tested state. This field is required if <code>mock.errorOutput</code> is specified.</p>"""
     cause: NotRequired["aws_sdk_sfn.types.sensitive_cause.SensitiveCause"]

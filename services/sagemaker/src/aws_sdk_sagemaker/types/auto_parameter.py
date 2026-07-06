@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#AutoParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.parameter_key
     import aws_sdk_sagemaker.types.parameter_value
 
 
-class AutoParameter(TypedDict):
+class AutoParameter(TypedDict, closed=True):
     name: NotRequired["aws_sdk_sagemaker.types.parameter_key.ParameterKey"]
     """<p>The name of the hyperparameter to optimize using Autotune.</p>"""
     value_hint: NotRequired["aws_sdk_sagemaker.types.parameter_value.ParameterValue"]

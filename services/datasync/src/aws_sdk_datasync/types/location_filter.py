@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#LocationFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_datasync.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.operator
 
 
-class LocationFilter(TypedDict):
+class LocationFilter(TypedDict, closed=True):
     name: "aws_sdk_datasync.types.location_filter_name.LocationFilterName"
     """<p>The name of the filter being used. Each API call supports a list of filters that are available for it (for example, <code>LocationType</code> for <code>ListLocations</code>).</p>"""
     values: "aws_sdk_datasync.types.filter_values.FilterValues"

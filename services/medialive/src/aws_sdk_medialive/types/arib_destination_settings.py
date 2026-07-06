@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.medialive#AribDestinationSettings``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class AribDestinationSettings(TypedDict):
+class AribDestinationSettings(TypedDict, closed=True):
     pass
 
 

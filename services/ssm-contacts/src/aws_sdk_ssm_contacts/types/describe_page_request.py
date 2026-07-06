@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmcontacts#DescribePageRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_contacts.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_contacts.types.ssm_contacts_arn
 
 
-class DescribePageRequest(TypedDict):
+class DescribePageRequest(TypedDict, closed=True):
     page_id: "aws_sdk_ssm_contacts.types.ssm_contacts_arn.SsmContactsArn"
     """<p>The ID of the engagement to a contact channel.</p>"""
 

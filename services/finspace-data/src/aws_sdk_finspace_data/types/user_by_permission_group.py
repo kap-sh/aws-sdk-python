@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.finspacedata#UserByPermissionGroup``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.api_access
@@ -16,7 +16,7 @@ if TYPE_CHECKING:
     import aws_sdk_finspace_data.types.user_type
 
 
-class UserByPermissionGroup(TypedDict):
+class UserByPermissionGroup(TypedDict, closed=True):
     user_id: NotRequired["aws_sdk_finspace_data.types.user_id.UserId"]
     """<p>The unique identifier for the user.</p>"""
     status: NotRequired["aws_sdk_finspace_data.types.user_status.UserStatus"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#UnifiedStudioSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.account_id
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.unified_studio_project_id
 
 
-class UnifiedStudioSettings(TypedDict):
+class UnifiedStudioSettings(TypedDict, closed=True):
     studio_web_portal_access: NotRequired[
         "aws_sdk_sagemaker.types.feature_status.FeatureStatus"
     ]

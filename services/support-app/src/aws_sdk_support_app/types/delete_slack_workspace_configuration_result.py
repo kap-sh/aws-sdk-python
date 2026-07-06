@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.supportapp#DeleteSlackWorkspaceConfigurationResult``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteSlackWorkspaceConfigurationResult(TypedDict):
+class DeleteSlackWorkspaceConfigurationResult(TypedDict, closed=True):
     pass
 
 

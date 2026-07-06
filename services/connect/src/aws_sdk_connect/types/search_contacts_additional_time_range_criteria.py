@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.connect#SearchContactsAdditionalTimeRangeCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_connect.types.search_contacts_time_range
     import aws_sdk_connect.types.search_contacts_timestamp_condition
 
 
-class SearchContactsAdditionalTimeRangeCriteria(TypedDict):
+class SearchContactsAdditionalTimeRangeCriteria(TypedDict, closed=True):
     time_range: NotRequired[
         "aws_sdk_connect.types.search_contacts_time_range.SearchContactsTimeRange"
     ]

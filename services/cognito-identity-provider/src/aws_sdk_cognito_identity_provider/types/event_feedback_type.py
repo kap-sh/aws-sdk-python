@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#EventFeedbackType``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.string_type
 
 
-class EventFeedbackType(TypedDict):
+class EventFeedbackType(TypedDict, closed=True):
     feedback_value: (
         "aws_sdk_cognito_identity_provider.types.feedback_value_type.FeedbackValueType"
     )

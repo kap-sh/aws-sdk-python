@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acm#RevokeCertificateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm.types.arn
 
 
-class RevokeCertificateResponse(TypedDict):
+class RevokeCertificateResponse(TypedDict, closed=True):
     certificate_arn: NotRequired["aws_sdk_acm.types.arn.Arn"]
     """<p>The Amazon Resource Name (ARN) of the public or private certificate that was revoked.</p>"""
 

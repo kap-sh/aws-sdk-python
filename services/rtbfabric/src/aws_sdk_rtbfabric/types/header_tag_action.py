@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#HeaderTagAction``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_rtbfabric.errors import DeserializationError
 
 
-class HeaderTagAction(TypedDict):
+class HeaderTagAction(TypedDict, closed=True):
     name: "str"
     """<p>The name of the bid action.</p>"""
     value: "str"

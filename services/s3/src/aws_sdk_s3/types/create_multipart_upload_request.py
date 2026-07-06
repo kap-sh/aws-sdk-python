@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.s3#CreateMultipartUploadRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_s3._protocol.xml import Element, SubElement
 
@@ -40,7 +40,7 @@ if TYPE_CHECKING:
     import aws_sdk_s3.types.website_redirect_location
 
 
-class CreateMultipartUploadRequest(TypedDict):
+class CreateMultipartUploadRequest(TypedDict, closed=True):
     acl: NotRequired["aws_sdk_s3.types.object_canned_acl.ObjectCannedACL"]
     r"""<p>The canned ACL to apply to the object. Amazon S3 supports a set of predefined ACLs, known as <i>canned ACLs</i>. Each canned ACL has a predefined set of grantees and permissions. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL\">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p> <p>By default, all objects are private. Only the owner has full access control. When uploading an object, you can grant access permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the access control list (ACL) on the new object. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html\">Using ACLs</a>. One way to grant the permissions using the request headers is to specify a canned ACL with the <code>x-amz-acl</code> request header.</p> <note> <ul> <li> <p>This functionality is not supported for directory buckets.</p> </li> <li> <p>This functionality is not supported for Amazon S3 on Outposts.</p> </li> </ul> </note>"""
     bucket: "aws_sdk_s3.types.bucket_name.BucketName"

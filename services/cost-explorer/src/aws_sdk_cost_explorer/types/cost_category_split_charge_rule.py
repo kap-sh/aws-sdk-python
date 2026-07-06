@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.costexplorer#CostCategorySplitChargeRule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cost_explorer.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_cost_explorer.types.generic_string
 
 
-class CostCategorySplitChargeRule(TypedDict):
+class CostCategorySplitChargeRule(TypedDict, closed=True):
     source: "aws_sdk_cost_explorer.types.generic_string.GenericString"
     """<p>The cost category value that you want to split. That value can't be used as a source or a target in other split charge rules. To indicate uncategorized costs, you can use an empty string as the source.</p>"""
     targets: "aws_sdk_cost_explorer.types.cost_category_split_charge_rule_targets_list.CostCategorySplitChargeRuleTargetsList"

@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.grafana#ResourceNotFoundException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_grafana.errors import DeserializationError, ServiceError
 
 
-class ResourceNotFoundException_(TypedDict):
+class ResourceNotFoundException_(TypedDict, closed=True):
     message: "str"
     """<p>The value of a parameter in the request caused an error.</p>"""
     resource_id: "str"

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#FreeFormLayoutElementBackgroundStyle``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.hex_color_with_transparency
     import aws_sdk_quicksight.types.visibility
 
 
-class FreeFormLayoutElementBackgroundStyle(TypedDict):
+class FreeFormLayoutElementBackgroundStyle(TypedDict, closed=True):
     visibility: NotRequired["aws_sdk_quicksight.types.visibility.Visibility"]
     """<p>The background visibility of a free-form layout element.</p>"""
     color: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.quicksight#SnapshotUserConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_quicksight.types.snapshot_anonymous_user_list
 
 
-class SnapshotUserConfiguration(TypedDict):
+class SnapshotUserConfiguration(TypedDict, closed=True):
     anonymous_users: NotRequired[
         "aws_sdk_quicksight.types.snapshot_anonymous_user_list.SnapshotAnonymousUserList"
     ]

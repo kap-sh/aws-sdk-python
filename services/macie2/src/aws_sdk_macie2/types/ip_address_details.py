@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#IpAddressDetails``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_macie2.types.ip_owner
 
 
-class IpAddressDetails(TypedDict):
+class IpAddressDetails(TypedDict, closed=True):
     ip_address_v4: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The Internet Protocol version 4 (IPv4) address of the device.</p>"""
     ip_city: NotRequired["aws_sdk_macie2.types.ip_city.IpCity"]

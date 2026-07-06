@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.braket#DeleteSpendingLimitRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_braket.types.spending_limit_arn
 
 
-class DeleteSpendingLimitRequest(TypedDict):
+class DeleteSpendingLimitRequest(TypedDict, closed=True):
     spending_limit_arn: "aws_sdk_braket.types.spending_limit_arn.SpendingLimitArn"
     """<p>The Amazon Resource Name (ARN) of the spending limit to delete.</p>"""
 

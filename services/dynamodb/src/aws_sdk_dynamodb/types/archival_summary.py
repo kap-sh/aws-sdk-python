@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.dynamodb#ArchivalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.archival_reason
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_dynamodb.types.date
 
 
-class ArchivalSummary(TypedDict):
+class ArchivalSummary(TypedDict, closed=True):
     archival_date_time: NotRequired["aws_sdk_dynamodb.types.date.Date"]
     """<p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>"""
     archival_reason: NotRequired[

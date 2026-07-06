@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cognitoidentityprovider#ListTermsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_cognito_identity_provider.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cognito_identity_provider.types.terms_description_list_type
 
 
-class ListTermsResponse(TypedDict):
+class ListTermsResponse(TypedDict, closed=True):
     terms: "aws_sdk_cognito_identity_provider.types.terms_description_list_type.TermsDescriptionListType"
     """<p>A summary of the requested terms documents. Includes unique identifiers for later changes to the terms documents.</p>"""
     next_token: NotRequired[

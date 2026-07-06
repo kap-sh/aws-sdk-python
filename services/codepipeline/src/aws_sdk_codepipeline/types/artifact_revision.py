@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#ArtifactRevision``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.artifact_name
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.url
 
 
-class ArtifactRevision(TypedDict):
+class ArtifactRevision(TypedDict, closed=True):
     name: NotRequired["aws_sdk_codepipeline.types.artifact_name.ArtifactName"]
     r"""<p>The name of an artifact. This name might be system-generated, such as \"MyApp\", or defined by the user when an action is created.</p>"""
     revision_id: NotRequired["aws_sdk_codepipeline.types.revision.Revision"]

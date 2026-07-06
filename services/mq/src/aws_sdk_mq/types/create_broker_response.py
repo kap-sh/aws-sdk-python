@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mq#CreateBrokerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mq.types.__string
 
 
-class CreateBrokerResponse(TypedDict):
+class CreateBrokerResponse(TypedDict, closed=True):
     broker_arn: NotRequired["aws_sdk_mq.types.__string.__string"]
     """<p>The broker's Amazon Resource Name (ARN).</p>"""
     broker_id: NotRequired["aws_sdk_mq.types.__string.__string"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#RFTConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.grader_config
     import aws_sdk_bedrock.types.rft_hyper_parameters
 
 
-class RFTConfig(TypedDict):
+class RFTConfig(TypedDict, closed=True):
     grader_config: NotRequired["aws_sdk_bedrock.types.grader_config.GraderConfig"]
     """<p> Configuration for the grader that evaluates model responses and provides reward signals during RFT training. </p>"""
     hyper_parameters: NotRequired[

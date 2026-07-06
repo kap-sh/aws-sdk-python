@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.customerprofiles#TrainingMetrics``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_customer_profiles.types.metrics
     import aws_sdk_customer_profiles.types.timestamp
 
 
-class TrainingMetrics(TypedDict):
+class TrainingMetrics(TypedDict, closed=True):
     time: NotRequired["aws_sdk_customer_profiles.types.timestamp.timestamp"]
     """<p>The timestamp when these training metrics were recorded.</p>"""
     metrics: NotRequired["aws_sdk_customer_profiles.types.metrics.Metrics"]

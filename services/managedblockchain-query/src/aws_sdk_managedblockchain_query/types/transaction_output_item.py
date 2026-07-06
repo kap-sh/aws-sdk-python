@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchainquery#TransactionOutputItem``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_managedblockchain_query.errors import DeserializationError
 
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_managedblockchain_query.types.query_transaction_id
 
 
-class TransactionOutputItem(TypedDict):
+class TransactionOutputItem(TypedDict, closed=True):
     transaction_hash: "aws_sdk_managedblockchain_query.types.query_transaction_hash.QueryTransactionHash"
     """<p>The hash of a transaction. It is generated when a transaction is created.</p>"""
     transaction_id: NotRequired[

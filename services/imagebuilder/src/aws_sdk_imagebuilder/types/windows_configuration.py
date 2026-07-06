@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.imagebuilder#WindowsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_imagebuilder.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_imagebuilder.types.windows_configuration_image_index
 
 
-class WindowsConfiguration(TypedDict):
+class WindowsConfiguration(TypedDict, closed=True):
     image_index: "aws_sdk_imagebuilder.types.windows_configuration_image_index.WindowsConfigurationImageIndex"
     """<p>The 1-based index that specifies which Windows edition to install from a multi-edition Windows ISO file. A Windows ISO can contain a <code>.wim</code> file with multiple image indexes, each representing a different edition.</p>"""
 

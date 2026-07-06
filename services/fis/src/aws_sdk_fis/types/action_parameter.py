@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.fis#ActionParameter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fis.types.action_parameter_description
     import aws_sdk_fis.types.action_parameter_required
 
 
-class ActionParameter(TypedDict):
+class ActionParameter(TypedDict, closed=True):
     description: NotRequired[
         "aws_sdk_fis.types.action_parameter_description.ActionParameterDescription"
     ]

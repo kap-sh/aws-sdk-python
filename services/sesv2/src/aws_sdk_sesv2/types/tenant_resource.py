@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#TenantResource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.amazon_resource_name
     import aws_sdk_sesv2.types.resource_type
 
 
-class TenantResource(TypedDict):
+class TenantResource(TypedDict, closed=True):
     resource_type: NotRequired["aws_sdk_sesv2.types.resource_type.ResourceType"]
     """<p>The type of resource associated with the tenant. Valid values are <code>EMAIL_IDENTITY</code>, <code>CONFIGURATION_SET</code>, or <code>EMAIL_TEMPLATE</code>.</p>"""
     resource_arn: NotRequired[

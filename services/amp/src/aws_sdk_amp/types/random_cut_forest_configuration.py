@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.amp#RandomCutForestConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_amp.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_amp.types.random_cut_forest_query
 
 
-class RandomCutForestConfiguration(TypedDict):
+class RandomCutForestConfiguration(TypedDict, closed=True):
     query: "aws_sdk_amp.types.random_cut_forest_query.RandomCutForestQuery"
     r"""<p>The Prometheus query used to retrieve the time-series data for anomaly detection.</p> <important> <p>Random Cut Forest queries must be wrapped by a supported PromQL aggregation operator. For more information, see <a href=\"https://prometheus.io/docs/prometheus/latest/querying/operators/#aggregation-operators\">Aggregation operators</a> on the <i>Prometheus docs</i> website.</p> <p> <b>Supported PromQL aggregation operators</b>: <code>avg</code>, <code>count</code>, <code>group</code>, <code>max</code>, <code>min</code>, <code>quantile</code>, <code>stddev</code>, <code>stdvar</code>, and <code>sum</code>.</p> </important>"""
     shingle_size: "int"

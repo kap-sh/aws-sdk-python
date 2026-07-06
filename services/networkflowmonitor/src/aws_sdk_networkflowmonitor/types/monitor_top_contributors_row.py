@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#MonitorTopContributorsRow``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.availability_zone
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.vpc_id
 
 
-class MonitorTopContributorsRow(TypedDict):
+class MonitorTopContributorsRow(TypedDict, closed=True):
     local_ip: NotRequired["str"]
     """<p>The IP address of the local resource for a top contributor network flow.</p>"""
     snat_ip: NotRequired["str"]

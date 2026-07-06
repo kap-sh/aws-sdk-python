@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeFileSystemAssociationsInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_storage_gateway.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.file_system_association_arn_list
 
 
-class DescribeFileSystemAssociationsInput(TypedDict):
+class DescribeFileSystemAssociationsInput(TypedDict, closed=True):
     file_system_association_arn_list: "aws_sdk_storage_gateway.types.file_system_association_arn_list.FileSystemAssociationARNList"
     """<p>An array containing the Amazon Resource Name (ARN) of each file system association to be described.</p>"""
 

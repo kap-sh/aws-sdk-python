@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.storagegateway#DescribeSMBFileSharesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_storage_gateway.types.smb_file_share_info_list
 
 
-class DescribeSMBFileSharesOutput(TypedDict):
+class DescribeSMBFileSharesOutput(TypedDict, closed=True):
     smb_file_share_info_list: NotRequired[
         "aws_sdk_storage_gateway.types.smb_file_share_info_list.SMBFileShareInfoList"
     ]

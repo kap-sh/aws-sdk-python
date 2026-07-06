@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codepipeline#PipelineMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codepipeline.types.pipeline_arn
     import aws_sdk_codepipeline.types.timestamp
 
 
-class PipelineMetadata(TypedDict):
+class PipelineMetadata(TypedDict, closed=True):
     pipeline_arn: NotRequired["aws_sdk_codepipeline.types.pipeline_arn.PipelineArn"]
     """<p>The Amazon Resource Name (ARN) of the pipeline.</p>"""
     created: NotRequired["aws_sdk_codepipeline.types.timestamp.Timestamp"]

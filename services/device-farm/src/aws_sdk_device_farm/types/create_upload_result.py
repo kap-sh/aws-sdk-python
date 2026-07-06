@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.devicefarm#CreateUploadResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_device_farm.types.upload
 
 
-class CreateUploadResult(TypedDict):
+class CreateUploadResult(TypedDict, closed=True):
     upload: NotRequired["aws_sdk_device_farm.types.upload.Upload"]
     """<p>The newly created upload.</p>"""
 

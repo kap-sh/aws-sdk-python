@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.fsx#UpdateFileSystemRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_fsx.types.client_request_token
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_fsx.types.update_file_system_windows_configuration
 
 
-class UpdateFileSystemRequest(TypedDict):
+class UpdateFileSystemRequest(TypedDict, closed=True):
     file_system_id: NotRequired["aws_sdk_fsx.types.file_system_id.FileSystemId"]
     """<p>The ID of the file system that you are updating.</p>"""
     client_request_token: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.auditmanager#DeregisterAccountResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_auditmanager.types.account_status
 
 
-class DeregisterAccountResponse(TypedDict):
+class DeregisterAccountResponse(TypedDict, closed=True):
     status: NotRequired["aws_sdk_auditmanager.types.account_status.AccountStatus"]
     """<p> The registration status of the account. </p>"""
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.macie2#BucketSortCriteria``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_macie2.types.__string
     import aws_sdk_macie2.types.order_by
 
 
-class BucketSortCriteria(TypedDict):
+class BucketSortCriteria(TypedDict, closed=True):
     attribute_name: NotRequired["aws_sdk_macie2.types.__string.__string"]
     """<p>The name of the bucket property to sort the results by. This value can be one of the following properties that Amazon Macie defines as bucket metadata: accountId, bucketName, classifiableObjectCount, classifiableSizeInBytes, objectCount, sensitivityScore, or sizeInBytes.</p>"""
     order_by: NotRequired["aws_sdk_macie2.types.order_by.OrderBy"]

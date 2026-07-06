@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.appstream#StreamingExperienceSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_appstream.types.preferred_protocol
 
 
-class StreamingExperienceSettings(TypedDict):
+class StreamingExperienceSettings(TypedDict, closed=True):
     preferred_protocol: NotRequired[
         "aws_sdk_appstream.types.preferred_protocol.PreferredProtocol"
     ]

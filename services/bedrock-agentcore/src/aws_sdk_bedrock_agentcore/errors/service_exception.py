@@ -1,11 +1,11 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ServiceException``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, ServiceError
 
 
-class ServiceException_(TypedDict):
+class ServiceException_(TypedDict, closed=True):
     message: "str"
 
 

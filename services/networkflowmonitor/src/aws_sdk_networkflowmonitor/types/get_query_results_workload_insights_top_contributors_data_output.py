@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.networkflowmonitor#GetQueryResultsWorkloadInsightsTopContributorsDataOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_networkflowmonitor.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_data_points
 
 
-class GetQueryResultsWorkloadInsightsTopContributorsDataOutput(TypedDict):
+class GetQueryResultsWorkloadInsightsTopContributorsDataOutput(TypedDict, closed=True):
     unit: "aws_sdk_networkflowmonitor.types.metric_unit.MetricUnit"
     """<p>The units for a metric returned by the query.</p>"""
     datapoints: "aws_sdk_networkflowmonitor.types.workload_insights_top_contributors_data_points.WorkloadInsightsTopContributorsDataPoints"

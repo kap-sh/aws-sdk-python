@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#GetListsMetadataRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.lists_metadata_max_results
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.no_dash_identifier
 
 
-class GetListsMetadataRequest(TypedDict):
+class GetListsMetadataRequest(TypedDict, closed=True):
     name: NotRequired["aws_sdk_frauddetector.types.no_dash_identifier.noDashIdentifier"]
     """<p> The name of the list. </p>"""
     next_token: NotRequired["aws_sdk_frauddetector.types.next_token.nextToken"]

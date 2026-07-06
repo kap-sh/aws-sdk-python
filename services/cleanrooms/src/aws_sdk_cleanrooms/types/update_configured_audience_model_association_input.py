@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanrooms#UpdateConfiguredAudienceModelAssociationInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.configured_audience_model_association_identifier
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanrooms.types.resource_description
 
 
-class UpdateConfiguredAudienceModelAssociationInput(TypedDict):
+class UpdateConfiguredAudienceModelAssociationInput(TypedDict, closed=True):
     configured_audience_model_association_identifier: "aws_sdk_cleanrooms.types.configured_audience_model_association_identifier.ConfiguredAudienceModelAssociationIdentifier"
     """<p>A unique identifier for the configured audience model association that you want to update.</p>"""
     membership_identifier: (

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.migrationhubconfig#GetHomeRegionResult``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_migrationhub_config.types.home_region
 
 
-class GetHomeRegionResult(TypedDict):
+class GetHomeRegionResult(TypedDict, closed=True):
     home_region: NotRequired["aws_sdk_migrationhub_config.types.home_region.HomeRegion"]
     """<p>The name of the home region of the calling account.</p>"""
 

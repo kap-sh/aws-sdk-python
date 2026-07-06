@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.rekognition#TextDetection``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rekognition.types.geometry
@@ -12,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_rekognition.types.u_integer
 
 
-class TextDetection(TypedDict):
+class TextDetection(TypedDict, closed=True):
     detected_text: NotRequired["aws_sdk_rekognition.types.string.String"]
     """<p>The word or line of text recognized by Amazon Rekognition. </p>"""
     type: NotRequired["aws_sdk_rekognition.types.text_types.TextTypes"]

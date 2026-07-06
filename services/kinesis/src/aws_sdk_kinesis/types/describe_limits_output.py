@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kinesis#DescribeLimitsOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_kinesis.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_kinesis.types.shard_count_object
 
 
-class DescribeLimitsOutput(TypedDict):
+class DescribeLimitsOutput(TypedDict, closed=True):
     shard_limit: "aws_sdk_kinesis.types.shard_count_object.ShardCountObject"
     """<p>The maximum number of shards.</p>"""
     open_shard_count: "aws_sdk_kinesis.types.shard_count_object.ShardCountObject"

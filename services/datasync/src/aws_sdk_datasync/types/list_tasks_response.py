@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#ListTasksResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.next_token
     import aws_sdk_datasync.types.task_list
 
 
-class ListTasksResponse(TypedDict):
+class ListTasksResponse(TypedDict, closed=True):
     tasks: NotRequired["aws_sdk_datasync.types.task_list.TaskList"]
     """<p>A list of all the tasks that are returned.</p>"""
     next_token: NotRequired["aws_sdk_datasync.types.next_token.NextToken"]

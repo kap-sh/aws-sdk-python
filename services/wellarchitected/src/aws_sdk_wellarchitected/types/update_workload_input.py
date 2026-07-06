@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.wellarchitected#UpdateWorkloadInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.is_review_owner_update_acknowledged
@@ -25,7 +25,7 @@ if TYPE_CHECKING:
     import aws_sdk_wellarchitected.types.workload_review_owner
 
 
-class UpdateWorkloadInput(TypedDict):
+class UpdateWorkloadInput(TypedDict, closed=True):
     workload_id: "aws_sdk_wellarchitected.types.workload_id.WorkloadId"
     workload_name: NotRequired[
         "aws_sdk_wellarchitected.types.workload_name.WorkloadName"

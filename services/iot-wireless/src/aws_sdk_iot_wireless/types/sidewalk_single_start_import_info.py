@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.iotwireless#SidewalkSingleStartImportInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_wireless.types.sidewalk_manufacturing_sn
     import aws_sdk_iot_wireless.types.sidewalk_positioning
 
 
-class SidewalkSingleStartImportInfo(TypedDict):
+class SidewalkSingleStartImportInfo(TypedDict, closed=True):
     sidewalk_manufacturing_sn: NotRequired[
         "aws_sdk_iot_wireless.types.sidewalk_manufacturing_sn.SidewalkManufacturingSn"
     ]

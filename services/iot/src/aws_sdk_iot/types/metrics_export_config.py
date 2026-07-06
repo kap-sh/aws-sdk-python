@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iot#MetricsExportConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_iot.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot.types.role_arn
 
 
-class MetricsExportConfig(TypedDict):
+class MetricsExportConfig(TypedDict, closed=True):
     mqtt_topic: "aws_sdk_iot.types.mqtt_topic.MqttTopic"
     """<p>The MQTT topic that Device Defender Detect should publish messages to for metrics export.</p>"""
     role_arn: "aws_sdk_iot.types.role_arn.RoleArn"

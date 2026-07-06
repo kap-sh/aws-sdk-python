@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrock#ListGuardrailsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_bedrock.types.guardrail_identifier
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock.types.pagination_token
 
 
-class ListGuardrailsRequest(TypedDict):
+class ListGuardrailsRequest(TypedDict, closed=True):
     guardrail_identifier: NotRequired[
         "aws_sdk_bedrock.types.guardrail_identifier.GuardrailIdentifier"
     ]

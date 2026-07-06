@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.signer#CancelSigningProfileRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_signer.types.profile_name
 
 
-class CancelSigningProfileRequest(TypedDict):
+class CancelSigningProfileRequest(TypedDict, closed=True):
     profile_name: "aws_sdk_signer.types.profile_name.ProfileName"
     """<p>The name of the signing profile to be canceled.</p>"""
 

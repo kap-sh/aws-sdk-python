@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.managedblockchain#DeleteMemberOutput``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteMemberOutput(TypedDict):
+class DeleteMemberOutput(TypedDict, closed=True):
     pass
 
 

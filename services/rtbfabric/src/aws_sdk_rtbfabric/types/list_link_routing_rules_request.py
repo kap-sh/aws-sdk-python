@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.rtbfabric#ListLinkRoutingRulesRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rtbfabric.types.gateway_id
     import aws_sdk_rtbfabric.types.link_id
 
 
-class ListLinkRoutingRulesRequest(TypedDict):
+class ListLinkRoutingRulesRequest(TypedDict, closed=True):
     gateway_id: "aws_sdk_rtbfabric.types.gateway_id.GatewayId"
     """<p>The unique identifier of the gateway.</p>"""
     link_id: "aws_sdk_rtbfabric.types.link_id.LinkId"

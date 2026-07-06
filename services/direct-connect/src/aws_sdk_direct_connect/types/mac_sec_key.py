@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#MacSecKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.ckn
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.state
 
 
-class MacSecKey(TypedDict):
+class MacSecKey(TypedDict, closed=True):
     secret_arn: NotRequired["aws_sdk_direct_connect.types.secret_arn.SecretARN"]
     """<p>The Amazon Resource Name (ARN) of the MAC Security (MACsec) secret key.</p>"""
     ckn: NotRequired["aws_sdk_direct_connect.types.ckn.Ckn"]

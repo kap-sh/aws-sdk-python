@@ -1,11 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.neptunedata#ListGremlinQueriesInput``."""
 
-from typing import TypedDict
-
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 
-class ListGremlinQueriesInput(TypedDict):
+class ListGremlinQueriesInput(TypedDict, closed=True):
     include_waiting: NotRequired["bool"]
     """<p>If set to <code>TRUE</code>, the list returned includes waiting queries. The default is <code>FALSE</code>;</p>"""
 

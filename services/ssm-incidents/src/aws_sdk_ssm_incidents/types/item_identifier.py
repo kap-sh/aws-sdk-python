@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssmincidents#ItemIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ssm_incidents.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_ssm_incidents.types.item_value
 
 
-class ItemIdentifier(TypedDict):
+class ItemIdentifier(TypedDict, closed=True):
     value: "aws_sdk_ssm_incidents.types.item_value.ItemValue"
     """<p>Details about the related item.</p>"""
     type: "aws_sdk_ssm_incidents.types.item_type.ItemType"

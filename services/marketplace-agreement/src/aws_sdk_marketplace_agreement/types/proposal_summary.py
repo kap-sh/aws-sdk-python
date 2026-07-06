@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.marketplaceagreement#ProposalSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.offer_id
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_marketplace_agreement.types.resources
 
 
-class ProposalSummary(TypedDict):
+class ProposalSummary(TypedDict, closed=True):
     resources: NotRequired["aws_sdk_marketplace_agreement.types.resources.Resources"]
     """<p>The list of resources involved in the agreement.</p>"""
     offer_id: NotRequired["aws_sdk_marketplace_agreement.types.offer_id.OfferId"]

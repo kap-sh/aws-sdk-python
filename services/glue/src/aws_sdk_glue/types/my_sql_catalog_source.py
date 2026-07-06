@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#MySQLCatalogSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.node_name
 
 
-class MySQLCatalogSource(TypedDict):
+class MySQLCatalogSource(TypedDict, closed=True):
     name: "aws_sdk_glue.types.node_name.NodeName"
     """<p>The name of the data source.</p>"""
     database: "aws_sdk_glue.types.enclosed_in_string_property.EnclosedInStringProperty"

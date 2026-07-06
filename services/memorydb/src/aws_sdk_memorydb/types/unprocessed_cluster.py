@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.memorydb#UnprocessedCluster``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_memorydb.types.string
 
 
-class UnprocessedCluster(TypedDict):
+class UnprocessedCluster(TypedDict, closed=True):
     cluster_name: NotRequired["aws_sdk_memorydb.types.string.String"]
     """<p>The name of the cluster</p>"""
     error_type: NotRequired["aws_sdk_memorydb.types.string.String"]

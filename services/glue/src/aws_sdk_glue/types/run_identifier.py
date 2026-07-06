@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.glue#RunIdentifier``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.hash_string
 
 
-class RunIdentifier(TypedDict):
+class RunIdentifier(TypedDict, closed=True):
     run_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]
     """<p>The Run ID.</p>"""
     job_run_id: NotRequired["aws_sdk_glue.types.hash_string.HashString"]

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.codeartifact#SuccessfulPackageVersionInfo``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_codeartifact.types.package_version_status
     import aws_sdk_codeartifact.types.string
 
 
-class SuccessfulPackageVersionInfo(TypedDict):
+class SuccessfulPackageVersionInfo(TypedDict, closed=True):
     revision: NotRequired["aws_sdk_codeartifact.types.string.String"]
     """<p> The revision of a package version. </p>"""
     status: NotRequired[

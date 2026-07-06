@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.lookoutequipment#AWSLookoutEquipmentFrontendService``."""
 
 import warnings
-from typing import TYPE_CHECKING, Any, Iterable, Optional, TypedDict
+from typing import TYPE_CHECKING, Any, Iterable, Optional
 
-from typing_extensions import Self
+from typing_extensions import Self, TypedDict
 from zapros import BaseHandler, Client
 
 import aws_sdk_lookoutequipment._auth._signers
@@ -165,7 +165,7 @@ if TYPE_CHECKING:
     import aws_sdk_lookoutequipment.types.update_retraining_scheduler_request
 
 
-class LookoutEquipmentClientConfig(TypedDict, total=False):
+class LookoutEquipmentClientConfig(TypedDict, total=False, closed=True):
     operation_interceptors: Iterable[Interceptor[Any, Any]]
     retry_max_attempts: int | None
     region: str | None

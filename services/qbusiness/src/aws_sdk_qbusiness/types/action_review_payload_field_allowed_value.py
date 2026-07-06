@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.qbusiness#ActionReviewPayloadFieldAllowedValue``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_qbusiness.types.action_payload_field_value
 
 
-class ActionReviewPayloadFieldAllowedValue(TypedDict):
+class ActionReviewPayloadFieldAllowedValue(TypedDict, closed=True):
     value: NotRequired[
         "aws_sdk_qbusiness.types.action_payload_field_value.ActionPayloadFieldValue"
     ]

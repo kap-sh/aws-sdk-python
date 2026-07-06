@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecr#PutSigningConfigurationRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_ecr.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecr.types.signing_configuration
 
 
-class PutSigningConfigurationRequest(TypedDict):
+class PutSigningConfigurationRequest(TypedDict, closed=True):
     signing_configuration: (
         "aws_sdk_ecr.types.signing_configuration.SigningConfiguration"
     )

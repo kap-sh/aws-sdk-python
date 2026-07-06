@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cleanroomsml#ResourceConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cleanroomsml.errors import DeserializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_cleanroomsml.types.instance_type
 
 
-class ResourceConfig(TypedDict):
+class ResourceConfig(TypedDict, closed=True):
     instance_count: "int"
     """<p>The number of resources that are used to train the model.</p>"""
     instance_type: "aws_sdk_cleanroomsml.types.instance_type.InstanceType"

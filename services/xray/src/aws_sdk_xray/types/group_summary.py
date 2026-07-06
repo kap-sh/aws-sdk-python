@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.xray#GroupSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_xray.types.insights_configuration
     import aws_sdk_xray.types.string
 
 
-class GroupSummary(TypedDict):
+class GroupSummary(TypedDict, closed=True):
     group_name: NotRequired["aws_sdk_xray.types.string.String"]
     """<p>The unique case-sensitive name of the group.</p>"""
     group_arn: NotRequired["aws_sdk_xray.types.string.String"]

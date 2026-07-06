@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackagevod#MssEncryption``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage_vod.types.speke_key_provider
 
 
-class MssEncryption(TypedDict):
+class MssEncryption(TypedDict, closed=True):
     speke_key_provider: NotRequired[
         "aws_sdk_mediapackage_vod.types.speke_key_provider.SpekeKeyProvider"
     ]

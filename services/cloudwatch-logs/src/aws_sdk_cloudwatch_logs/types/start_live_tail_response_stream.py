@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudwatchlogs#StartLiveTailResponseStream``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudwatch_logs._iter import AnyIterator
 from aws_sdk_cloudwatch_logs._protocol.eventstream import Message
@@ -12,23 +14,23 @@ if TYPE_CHECKING:
     import aws_sdk_cloudwatch_logs.types.live_tail_session_update
 
 
-class _StartLiveTailResponseStream_sessionStart(TypedDict):
+class _StartLiveTailResponseStream_sessionStart(TypedDict, closed=True):
     sessionStart: (
         "aws_sdk_cloudwatch_logs.types.live_tail_session_start.LiveTailSessionStart"
     )
 
 
-class _StartLiveTailResponseStream_sessionUpdate(TypedDict):
+class _StartLiveTailResponseStream_sessionUpdate(TypedDict, closed=True):
     sessionUpdate: (
         "aws_sdk_cloudwatch_logs.types.live_tail_session_update.LiveTailSessionUpdate"
     )
 
 
-class _StartLiveTailResponseStream_SessionTimeoutException(TypedDict):
+class _StartLiveTailResponseStream_SessionTimeoutException(TypedDict, closed=True):
     SessionTimeoutException: "aws_sdk_cloudwatch_logs.errors.session_timeout_exception.SessionTimeoutException_"
 
 
-class _StartLiveTailResponseStream_SessionStreamingException(TypedDict):
+class _StartLiveTailResponseStream_SessionStreamingException(TypedDict, closed=True):
     SessionStreamingException: "aws_sdk_cloudwatch_logs.errors.session_streaming_exception.SessionStreamingException_"
 
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.workmail#UpdateMailboxQuotaRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_workmail.errors import DeserializationError
 
@@ -10,7 +12,7 @@ if TYPE_CHECKING:
     import aws_sdk_workmail.types.organization_id
 
 
-class UpdateMailboxQuotaRequest(TypedDict):
+class UpdateMailboxQuotaRequest(TypedDict, closed=True):
     organization_id: "aws_sdk_workmail.types.organization_id.OrganizationId"
     """<p>The identifier for the organization that contains the user for whom to update the mailbox quota.</p>"""
     user_id: "aws_sdk_workmail.types.entity_identifier.EntityIdentifier"

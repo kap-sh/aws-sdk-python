@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.datasync#Options``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_datasync.types.atime
@@ -22,7 +22,7 @@ if TYPE_CHECKING:
     import aws_sdk_datasync.types.verify_mode
 
 
-class Options(TypedDict):
+class Options(TypedDict, closed=True):
     verify_mode: NotRequired["aws_sdk_datasync.types.verify_mode.VerifyMode"]
     r"""<p>Specifies if and how DataSync checks the integrity of your data at the end of your transfer.</p> <ul> <li> <p> <code>ONLY_FILES_TRANSFERRED</code> (recommended) - DataSync calculates the checksum of transferred data (including metadata) at the source location. At the end of the transfer, DataSync then compares this checksum to the checksum calculated on that data at the destination.</p> <note> <p>This is the default option for <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html\">Enhanced mode tasks</a>.</p> </note> <p>We recommend this option when transferring to S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a>.</p> </li> <li> <p> <code>POINT_IN_TIME_CONSISTENT</code> - At the end of the transfer, DataSync checks the entire source and destination to verify that both locations are fully synchronized.</p> <note> <p>The is the default option for <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html\">Basic mode tasks</a> and isn't currently supported with Enhanced mode tasks.</p> </note> <p>If you use a <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html\">manifest</a>, DataSync only scans and verifies what's listed in the manifest.</p> <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive storage classes. For more information, see <a href=\"https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes\">Storage class considerations with Amazon S3 locations</a>.</p> </li> <li> <p> <code>NONE</code> - DataSync performs data integrity checks only during your transfer. Unlike other options, there's no additional verification at the end of your transfer.</p> </li> </ul>"""
     overwrite_mode: NotRequired["aws_sdk_datasync.types.overwrite_mode.OverwriteMode"]

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcore#ABTestEvaluationConfig``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore.errors import DeserializationError, SerializationError
 
@@ -9,11 +11,11 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore.types.per_variant_online_evaluation_config_list
 
 
-class _ABTestEvaluationConfig_onlineEvaluationConfigArn(TypedDict):
+class _ABTestEvaluationConfig_onlineEvaluationConfigArn(TypedDict, closed=True):
     onlineEvaluationConfigArn: "aws_sdk_bedrock_agentcore.types.online_evaluation_config_arn.OnlineEvaluationConfigArn"
 
 
-class _ABTestEvaluationConfig_perVariantOnlineEvaluationConfig(TypedDict):
+class _ABTestEvaluationConfig_perVariantOnlineEvaluationConfig(TypedDict, closed=True):
     perVariantOnlineEvaluationConfig: "aws_sdk_bedrock_agentcore.types.per_variant_online_evaluation_config_list.PerVariantOnlineEvaluationConfigList"
 
 

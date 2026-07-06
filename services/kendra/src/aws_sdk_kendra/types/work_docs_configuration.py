@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#WorkDocsConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.organization_id
 
 
-class WorkDocsConfiguration(TypedDict):
+class WorkDocsConfiguration(TypedDict, closed=True):
     organization_id: "aws_sdk_kendra.types.organization_id.OrganizationId"
     r"""<p>The identifier of the directory corresponding to your WorkDocs site repository.</p> <p>You can find the organization ID in the <a href=\"https://console.aws.amazon.com/directoryservicev2/\">Directory Service</a> by going to <b>Active Directory</b>, then <b>Directories</b>. Your WorkDocs site directory has an ID, which is the organization ID. You can also set up a new WorkDocs directory in the Directory Service console and enable a WorkDocs site for the directory in the WorkDocs console.</p>"""
     crawl_comments: "aws_sdk_kendra.types.boolean.Boolean"

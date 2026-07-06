@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.ssm#ResourceDataSyncOrganizationalUnit``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_ssm.types.resource_data_sync_organizational_unit_id
 
 
-class ResourceDataSyncOrganizationalUnit(TypedDict):
+class ResourceDataSyncOrganizationalUnit(TypedDict, closed=True):
     organizational_unit_id: NotRequired[
         "aws_sdk_ssm.types.resource_data_sync_organizational_unit_id.ResourceDataSyncOrganizationalUnitId"
     ]

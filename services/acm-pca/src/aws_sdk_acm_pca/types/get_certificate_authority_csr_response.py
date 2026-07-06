@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.acmpca#GetCertificateAuthorityCsrResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_acm_pca.types.csr_body
 
 
-class GetCertificateAuthorityCsrResponse(TypedDict):
+class GetCertificateAuthorityCsrResponse(TypedDict, closed=True):
     csr: NotRequired["aws_sdk_acm_pca.types.csr_body.CsrBody"]
     """<p>The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.</p>"""
 

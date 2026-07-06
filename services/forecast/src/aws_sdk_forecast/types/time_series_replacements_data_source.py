@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#TimeSeriesReplacementsDataSource``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp_format
 
 
-class TimeSeriesReplacementsDataSource(TypedDict):
+class TimeSeriesReplacementsDataSource(TypedDict, closed=True):
     s3_config: "aws_sdk_forecast.types.s3_config.S3Config"
     schema: "aws_sdk_forecast.types.schema.Schema"
     format: NotRequired["aws_sdk_forecast.types.format.Format"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.georoutes#RouteViolatedConstraints``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_geo_routes.errors import DeserializationError
 
@@ -18,7 +18,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_routes.types.weight_per_axle_group
 
 
-class RouteViolatedConstraints(TypedDict):
+class RouteViolatedConstraints(TypedDict, closed=True):
     all_hazards_restricted: NotRequired[
         "aws_sdk_geo_routes.types.sensitive_boolean.SensitiveBoolean"
     ]

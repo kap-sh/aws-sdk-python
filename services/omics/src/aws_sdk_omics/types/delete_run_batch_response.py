@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.omics#DeleteRunBatchResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteRunBatchResponse(TypedDict):
+class DeleteRunBatchResponse(TypedDict, closed=True):
     pass
 
 

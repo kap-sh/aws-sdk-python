@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#IcebergTableUpdate``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_glue.errors import DeserializationError
 
@@ -17,7 +17,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.string_to_string_map
 
 
-class IcebergTableUpdate(TypedDict):
+class IcebergTableUpdate(TypedDict, closed=True):
     schema: "aws_sdk_glue.types.iceberg_schema.IcebergSchema"
     """<p>The updated schema definition for the Iceberg table, specifying any changes to field structure, data types, or schema metadata.</p>"""
     partition_spec: NotRequired[

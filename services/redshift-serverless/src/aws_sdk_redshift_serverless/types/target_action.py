@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshiftserverless#TargetAction``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift_serverless.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift_serverless.types.create_snapshot_schedule_action_parameters
 
 
-class _TargetAction_createSnapshot(TypedDict):
+class _TargetAction_createSnapshot(TypedDict, closed=True):
     createSnapshot: "aws_sdk_redshift_serverless.types.create_snapshot_schedule_action_parameters.CreateSnapshotScheduleActionParameters"
 
 

@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.frauddetector#ModelEndpointDataBlob``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_frauddetector.types.blob
     import aws_sdk_frauddetector.types.content_type
 
 
-class ModelEndpointDataBlob(TypedDict):
+class ModelEndpointDataBlob(TypedDict, closed=True):
     byte_buffer: NotRequired["aws_sdk_frauddetector.types.blob.blob"]
     """<p>The byte buffer of the Amazon SageMaker model endpoint input data blob.</p>"""
     content_type: NotRequired["aws_sdk_frauddetector.types.content_type.contentType"]

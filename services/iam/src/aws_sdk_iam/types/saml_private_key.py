@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iam#SAMLPrivateKey``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_iam._protocol.xml import Element
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iam.types.private_key_id_type
 
 
-class SAMLPrivateKey(TypedDict):
+class SAMLPrivateKey(TypedDict, closed=True):
     key_id: NotRequired["aws_sdk_iam.types.private_key_id_type.privateKeyIdType"]
     """<p>The unique identifier for the SAML private key.</p>"""
     timestamp: NotRequired["aws_sdk_iam.types.date_type.dateType"]

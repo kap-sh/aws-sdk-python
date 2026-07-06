@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotdataplane#RetainedMessageSummary``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.payload_size
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_iot_data_plane.types.topic
 
 
-class RetainedMessageSummary(TypedDict):
+class RetainedMessageSummary(TypedDict, closed=True):
     topic: NotRequired["aws_sdk_iot_data_plane.types.topic.Topic"]
     """<p>The topic name to which the retained message was published.</p>"""
     payload_size: "aws_sdk_iot_data_plane.types.payload_size.PayloadSize"

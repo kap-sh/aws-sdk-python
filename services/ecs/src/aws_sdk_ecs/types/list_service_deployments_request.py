@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ecs#ListServiceDeploymentsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_ecs.errors import DeserializationError
 
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_ecs.types.string
 
 
-class ListServiceDeploymentsRequest(TypedDict):
+class ListServiceDeploymentsRequest(TypedDict, closed=True):
     service: "aws_sdk_ecs.types.string.String"
     """<p>The ARN or name of the service</p>"""
     cluster: NotRequired["aws_sdk_ecs.types.string.String"]

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.pricing#GetProductsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_pricing.types.format_version
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_pricing.types.string
 
 
-class GetProductsResponse(TypedDict):
+class GetProductsResponse(TypedDict, closed=True):
     format_version: NotRequired["aws_sdk_pricing.types.format_version.FormatVersion"]
     """<p>The format version of the response. For example, aws_v1.</p>"""
     price_list: NotRequired[

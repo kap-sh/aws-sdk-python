@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.redshift#RedshiftScopeUnion``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_redshift._protocol.xml import Element
 from aws_sdk_redshift.errors import DeserializationError, SerializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_redshift.types.connect
 
 
-class _RedshiftScopeUnion_Connect(TypedDict):
+class _RedshiftScopeUnion_Connect(TypedDict, closed=True):
     Connect: "aws_sdk_redshift.types.connect.Connect"
 
 

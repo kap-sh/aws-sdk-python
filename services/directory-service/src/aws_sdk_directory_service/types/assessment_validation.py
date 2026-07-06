@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.directoryservice#AssessmentValidation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_validation_category
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_directory_service.types.assessment_validation_time_stamp
 
 
-class AssessmentValidation(TypedDict):
+class AssessmentValidation(TypedDict, closed=True):
     category: NotRequired[
         "aws_sdk_directory_service.types.assessment_validation_category.AssessmentValidationCategory"
     ]

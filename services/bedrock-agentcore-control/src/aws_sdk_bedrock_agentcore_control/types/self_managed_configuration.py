@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentcorecontrol#SelfManagedConfiguration``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_bedrock_agentcore_control.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_bedrock_agentcore_control.types.trigger_conditions_list
 
 
-class SelfManagedConfiguration(TypedDict):
+class SelfManagedConfiguration(TypedDict, closed=True):
     trigger_conditions: "aws_sdk_bedrock_agentcore_control.types.trigger_conditions_list.TriggerConditionsList"
     """<p>A list of conditions that trigger memory processing.</p>"""
     invocation_configuration: "aws_sdk_bedrock_agentcore_control.types.invocation_configuration.InvocationConfiguration"

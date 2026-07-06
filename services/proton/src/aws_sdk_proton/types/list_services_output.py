@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.proton#ListServicesOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_proton.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_proton.types.service_summary_list
 
 
-class ListServicesOutput(TypedDict):
+class ListServicesOutput(TypedDict, closed=True):
     next_token: NotRequired["aws_sdk_proton.types.next_token.NextToken"]
     """<p>A token that indicates the location of the next service in the array of services, after the current requested list of services.</p>"""
     services: "aws_sdk_proton.types.service_summary_list.ServiceSummaryList"

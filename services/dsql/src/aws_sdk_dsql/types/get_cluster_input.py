@@ -1,12 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.dsql#GetClusterInput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_dsql.types.cluster_id
 
 
-class GetClusterInput(TypedDict):
+class GetClusterInput(TypedDict, closed=True):
     identifier: "aws_sdk_dsql.types.cluster_id.ClusterId"
     """<p>The ID of the cluster to retrieve.</p>"""
 

@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UsageTrackingResource``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_deadline.errors import DeserializationError, SerializationError
 
@@ -8,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_deadline.types.queue_id
 
 
-class _UsageTrackingResource_queueId(TypedDict):
+class _UsageTrackingResource_queueId(TypedDict, closed=True):
     queueId: "aws_sdk_deadline.types.queue_id.QueueId"
 
 

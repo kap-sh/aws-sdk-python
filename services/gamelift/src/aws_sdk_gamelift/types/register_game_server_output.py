@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.gamelift#RegisterGameServerOutput``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_gamelift.types.game_server
 
 
-class RegisterGameServerOutput(TypedDict):
+class RegisterGameServerOutput(TypedDict, closed=True):
     game_server: NotRequired["aws_sdk_gamelift.types.game_server.GameServer"]
     """<p>Object that describes the newly registered game server.</p>"""
 

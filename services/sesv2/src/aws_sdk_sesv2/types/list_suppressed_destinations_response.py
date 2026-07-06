@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.sesv2#ListSuppressedDestinationsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sesv2.types.next_token
     import aws_sdk_sesv2.types.suppressed_destination_summaries
 
 
-class ListSuppressedDestinationsResponse(TypedDict):
+class ListSuppressedDestinationsResponse(TypedDict, closed=True):
     suppressed_destination_summaries: NotRequired[
         "aws_sdk_sesv2.types.suppressed_destination_summaries.SuppressedDestinationSummaries"
     ]

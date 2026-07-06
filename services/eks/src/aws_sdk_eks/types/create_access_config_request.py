@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.eks#CreateAccessConfigRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_eks.types.authentication_mode
     import aws_sdk_eks.types.boxed_boolean
 
 
-class CreateAccessConfigRequest(TypedDict):
+class CreateAccessConfigRequest(TypedDict, closed=True):
     bootstrap_cluster_creator_admin_permissions: NotRequired[
         "aws_sdk_eks.types.boxed_boolean.BoxedBoolean"
     ]

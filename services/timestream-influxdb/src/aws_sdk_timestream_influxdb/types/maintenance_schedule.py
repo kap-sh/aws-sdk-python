@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.timestreaminfluxdb#MaintenanceSchedule``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_timestream_influxdb.errors import DeserializationError
 
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_timestream_influxdb.types.maintenance_window
 
 
-class MaintenanceSchedule(TypedDict):
+class MaintenanceSchedule(TypedDict, closed=True):
     timezone: "aws_sdk_timestream_influxdb.types.iana_timezone.IanaTimezone"
     """<p>The IANA timezone identifier for the maintenance window. Format: Region/City or UTC. For example, America/New_York or UTC.</p>"""
     preferred_maintenance_window: (

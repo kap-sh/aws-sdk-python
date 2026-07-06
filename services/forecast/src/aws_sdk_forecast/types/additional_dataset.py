@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#AdditionalDataset``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_forecast.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.name
 
 
-class AdditionalDataset(TypedDict):
+class AdditionalDataset(TypedDict, closed=True):
     name: "aws_sdk_forecast.types.name.Name"
     r"""<p>The name of the additional dataset. Valid names: <code>\"holiday\"</code> and <code>\"weather\"</code>.</p>"""
     configuration: NotRequired["aws_sdk_forecast.types.configuration.Configuration"]

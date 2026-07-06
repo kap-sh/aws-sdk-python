@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.iotfleetwise#GetStateTemplateResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.arn
@@ -15,7 +15,7 @@ if TYPE_CHECKING:
     import aws_sdk_iotfleetwise.types.timestamp
 
 
-class GetStateTemplateResponse(TypedDict):
+class GetStateTemplateResponse(TypedDict, closed=True):
     name: NotRequired["aws_sdk_iotfleetwise.types.resource_name.resourceName"]
     """<p>The name of the state template.</p>"""
     arn: NotRequired["aws_sdk_iotfleetwise.types.arn.arn"]

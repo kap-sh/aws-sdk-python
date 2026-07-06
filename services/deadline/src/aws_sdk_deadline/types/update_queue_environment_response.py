@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.deadline#UpdateQueueEnvironmentResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class UpdateQueueEnvironmentResponse(TypedDict):
+class UpdateQueueEnvironmentResponse(TypedDict, closed=True):
     pass
 
 

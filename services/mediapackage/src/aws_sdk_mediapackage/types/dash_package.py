@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediapackage#DashPackage``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.__boolean
@@ -19,7 +19,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediapackage.types.utc_timing
 
 
-class DashPackage(TypedDict):
+class DashPackage(TypedDict, closed=True):
     ad_triggers: NotRequired["aws_sdk_mediapackage.types.ad_triggers.AdTriggers"]
     ads_on_delivery_restrictions: NotRequired[
         "aws_sdk_mediapackage.types.ads_on_delivery_restrictions.AdsOnDeliveryRestrictions"

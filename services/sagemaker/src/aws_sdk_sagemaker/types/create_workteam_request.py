@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.sagemaker#CreateWorkteamRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.member_definitions
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_sagemaker.types.workteam_name
 
 
-class CreateWorkteamRequest(TypedDict):
+class CreateWorkteamRequest(TypedDict, closed=True):
     workteam_name: NotRequired["aws_sdk_sagemaker.types.workteam_name.WorkteamName"]
     """<p>The name of the work team. Use this name to identify the work team.</p>"""
     workforce_name: NotRequired["aws_sdk_sagemaker.types.workforce_name.WorkforceName"]

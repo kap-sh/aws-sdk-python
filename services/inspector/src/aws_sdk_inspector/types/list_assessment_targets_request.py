@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.inspector#ListAssessmentTargetsRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_inspector.types.assessment_target_filter
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_inspector.types.pagination_token
 
 
-class ListAssessmentTargetsRequest(TypedDict):
+class ListAssessmentTargetsRequest(TypedDict, closed=True):
     filter: NotRequired[
         "aws_sdk_inspector.types.assessment_target_filter.AssessmentTargetFilter"
     ]

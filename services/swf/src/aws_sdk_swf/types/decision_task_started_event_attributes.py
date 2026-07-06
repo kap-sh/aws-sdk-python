@@ -1,15 +1,15 @@
 """Generated from Smithy shape ``com.amazonaws.swf#DecisionTaskStartedEventAttributes``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_swf.types.event_id
     import aws_sdk_swf.types.identity
 
 
-class DecisionTaskStartedEventAttributes(TypedDict):
+class DecisionTaskStartedEventAttributes(TypedDict, closed=True):
     identity: NotRequired["aws_sdk_swf.types.identity.Identity"]
     """<p>Identity of the decider making the request. This enables diagnostic tracing when problems arise. The form of this identity is user defined.</p>"""
     scheduled_event_id: "aws_sdk_swf.types.event_id.EventId"

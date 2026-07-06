@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.forecast#DescribeForecastExportJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_forecast.types.arn
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_forecast.types.timestamp
 
 
-class DescribeForecastExportJobResponse(TypedDict):
+class DescribeForecastExportJobResponse(TypedDict, closed=True):
     forecast_export_job_arn: NotRequired["aws_sdk_forecast.types.arn.Arn"]
     """<p>The ARN of the forecast export job.</p>"""
     forecast_export_job_name: NotRequired["aws_sdk_forecast.types.name.Name"]

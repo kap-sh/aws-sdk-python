@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.glue#DeleteSchemaResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_glue.types.glue_resource_arn
@@ -10,7 +10,7 @@ if TYPE_CHECKING:
     import aws_sdk_glue.types.schema_status
 
 
-class DeleteSchemaResponse(TypedDict):
+class DeleteSchemaResponse(TypedDict, closed=True):
     schema_arn: NotRequired["aws_sdk_glue.types.glue_resource_arn.GlueResourceArn"]
     """<p>The Amazon Resource Name (ARN) of the schema being deleted.</p>"""
     schema_name: NotRequired[

@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.route53recoveryreadiness#Recommendation``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_route53_recovery_readiness.types.__string
 
 
-class Recommendation(TypedDict):
+class Recommendation(TypedDict, closed=True):
     recommendation_text: NotRequired[
         "aws_sdk_route53_recovery_readiness.types.__string.__string"
     ]

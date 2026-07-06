@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.resiliencehub#ListAppAssessmentComplianceDriftsResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_resiliencehub.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_resiliencehub.types.next_token
 
 
-class ListAppAssessmentComplianceDriftsResponse(TypedDict):
+class ListAppAssessmentComplianceDriftsResponse(TypedDict, closed=True):
     compliance_drifts: (
         "aws_sdk_resiliencehub.types.compliance_drift_list.ComplianceDriftList"
     )

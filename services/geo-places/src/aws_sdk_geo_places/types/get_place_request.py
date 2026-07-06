@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.geoplaces#GetPlaceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_geo_places.types.api_key
@@ -13,7 +13,7 @@ if TYPE_CHECKING:
     import aws_sdk_geo_places.types.sensitive_string
 
 
-class GetPlaceRequest(TypedDict):
+class GetPlaceRequest(TypedDict, closed=True):
     place_id: "aws_sdk_geo_places.types.sensitive_string.SensitiveString"
     """<p>The <code>PlaceId</code> of the place you wish to receive the information for.</p>"""
     additional_features: NotRequired[

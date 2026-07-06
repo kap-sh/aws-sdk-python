@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.mediaconvert#AudioNormalizationSettings``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.__double_min_negative8_max0
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
     import aws_sdk_mediaconvert.types.audio_normalization_peak_calculation
 
 
-class AudioNormalizationSettings(TypedDict):
+class AudioNormalizationSettings(TypedDict, closed=True):
     algorithm: NotRequired[
         "aws_sdk_mediaconvert.types.audio_normalization_algorithm.AudioNormalizationAlgorithm"
     ]

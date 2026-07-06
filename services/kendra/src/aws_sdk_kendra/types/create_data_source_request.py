@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.kendra#CreateDataSourceRequest``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_kendra.errors import DeserializationError
 
@@ -21,7 +21,7 @@ if TYPE_CHECKING:
     import aws_sdk_kendra.types.tag_list
 
 
-class CreateDataSourceRequest(TypedDict):
+class CreateDataSourceRequest(TypedDict, closed=True):
     name: "aws_sdk_kendra.types.data_source_name.DataSourceName"
     """<p>A name for the data source connector.</p>"""
     index_id: "aws_sdk_kendra.types.index_id.IndexId"

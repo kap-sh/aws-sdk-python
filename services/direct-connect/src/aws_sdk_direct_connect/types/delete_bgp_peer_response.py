@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.directconnect#DeleteBGPPeerResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_direct_connect.types.virtual_interface
 
 
-class DeleteBGPPeerResponse(TypedDict):
+class DeleteBGPPeerResponse(TypedDict, closed=True):
     virtual_interface: NotRequired[
         "aws_sdk_direct_connect.types.virtual_interface.VirtualInterface"
     ]

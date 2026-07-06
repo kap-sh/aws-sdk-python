@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.textract#ExpenseDocument``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_textract.types.block_list
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_textract.types.u_integer
 
 
-class ExpenseDocument(TypedDict):
+class ExpenseDocument(TypedDict, closed=True):
     expense_index: NotRequired["aws_sdk_textract.types.u_integer.UInteger"]
     """<p>Denotes which invoice or receipt in the document the information is coming from. First document will be 1, the second 2, and so on.</p>"""
     summary_fields: NotRequired[

@@ -1,9 +1,9 @@
 """Generated from Smithy shape ``com.amazonaws.bedrockagentruntime#DeleteAgentMemoryResponse``."""
 
-from typing import TypedDict
+from typing_extensions import TypedDict
 
 
-class DeleteAgentMemoryResponse(TypedDict):
+class DeleteAgentMemoryResponse(TypedDict, closed=True):
     pass
 
 

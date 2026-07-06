@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.tnb#PutSolNetworkPackageContentMetadata``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_tnb.types.network_artifact_meta
 
 
-class PutSolNetworkPackageContentMetadata(TypedDict):
+class PutSolNetworkPackageContentMetadata(TypedDict, closed=True):
     nsd: NotRequired["aws_sdk_tnb.types.network_artifact_meta.NetworkArtifactMeta"]
 
 

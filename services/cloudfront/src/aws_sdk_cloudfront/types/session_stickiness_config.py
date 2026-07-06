@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.cloudfront#SessionStickinessConfig``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
+
+from typing_extensions import TypedDict
 
 from aws_sdk_cloudfront._protocol.xml import Element, SubElement
 from aws_sdk_cloudfront.errors import DeserializationError
@@ -9,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_cloudfront.types.integer
 
 
-class SessionStickinessConfig(TypedDict):
+class SessionStickinessConfig(TypedDict, closed=True):
     idle_ttl: "aws_sdk_cloudfront.types.integer.integer"
     """<p>The amount of time after which you want sessions to cease if no requests are received. Allowed values are 300–3600 seconds (5–60 minutes).</p> <p>The value must be less than or equal to <code>MaximumTTL</code>.</p>"""
     maximum_ttl: "aws_sdk_cloudfront.types.integer.integer"

@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.b2bi#GetTransformerJobResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 from aws_sdk_b2bi.errors import DeserializationError
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_b2bi.types.transformer_job_status
 
 
-class GetTransformerJobResponse(TypedDict):
+class GetTransformerJobResponse(TypedDict, closed=True):
     status: "aws_sdk_b2bi.types.transformer_job_status.TransformerJobStatus"
     """<p>Returns the current state of the transformer job, either <code>running</code>, <code>succeeded</code>, or <code>failed</code>.</p>"""
     output_files: NotRequired["aws_sdk_b2bi.types.s3_location_list.S3LocationList"]

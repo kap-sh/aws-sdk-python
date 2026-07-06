@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#InvoiceSummariesFilter``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.basic_string
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.receiver_role
 
 
-class InvoiceSummariesFilter(TypedDict):
+class InvoiceSummariesFilter(TypedDict, closed=True):
     time_interval: NotRequired["aws_sdk_invoicing.types.date_interval.DateInterval"]
     """<p>The date range for invoice summary retrieval. </p>"""
     billing_period: NotRequired["aws_sdk_invoicing.types.billing_period.BillingPeriod"]

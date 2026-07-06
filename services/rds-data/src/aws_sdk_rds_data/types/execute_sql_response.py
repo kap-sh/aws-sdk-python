@@ -1,14 +1,14 @@
 """Generated from Smithy shape ``com.amazonaws.rdsdata#ExecuteSqlResponse``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_rds_data.types.sql_statement_results
 
 
-class ExecuteSqlResponse(TypedDict):
+class ExecuteSqlResponse(TypedDict, closed=True):
     sql_statement_results: NotRequired[
         "aws_sdk_rds_data.types.sql_statement_results.SqlStatementResults"
     ]

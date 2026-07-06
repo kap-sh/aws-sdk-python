@@ -1,6 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.ssoadmin#Grant``."""
 
-from typing import TYPE_CHECKING, TypeAlias, TypedDict
+from typing import TYPE_CHECKING, TypeAlias
+
+from typing_extensions import TypedDict
 
 from aws_sdk_sso_admin.errors import DeserializationError, SerializationError
 
@@ -11,21 +13,21 @@ if TYPE_CHECKING:
     import aws_sdk_sso_admin.types.token_exchange_grant
 
 
-class _Grant_AuthorizationCode(TypedDict):
+class _Grant_AuthorizationCode(TypedDict, closed=True):
     AuthorizationCode: (
         "aws_sdk_sso_admin.types.authorization_code_grant.AuthorizationCodeGrant"
     )
 
 
-class _Grant_JwtBearer(TypedDict):
+class _Grant_JwtBearer(TypedDict, closed=True):
     JwtBearer: "aws_sdk_sso_admin.types.jwt_bearer_grant.JwtBearerGrant"
 
 
-class _Grant_RefreshToken(TypedDict):
+class _Grant_RefreshToken(TypedDict, closed=True):
     RefreshToken: "aws_sdk_sso_admin.types.refresh_token_grant.RefreshTokenGrant"
 
 
-class _Grant_TokenExchange(TypedDict):
+class _Grant_TokenExchange(TypedDict, closed=True):
     TokenExchange: "aws_sdk_sso_admin.types.token_exchange_grant.TokenExchangeGrant"
 
 

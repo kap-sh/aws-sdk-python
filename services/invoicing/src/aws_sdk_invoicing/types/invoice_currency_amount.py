@@ -1,8 +1,8 @@
 """Generated from Smithy shape ``com.amazonaws.invoicing#InvoiceCurrencyAmount``."""
 
-from typing import TYPE_CHECKING, TypedDict
+from typing import TYPE_CHECKING
 
-from typing_extensions import NotRequired
+from typing_extensions import NotRequired, TypedDict
 
 if TYPE_CHECKING:
     import aws_sdk_invoicing.types.amount_breakdown
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     import aws_sdk_invoicing.types.currency_exchange_details
 
 
-class InvoiceCurrencyAmount(TypedDict):
+class InvoiceCurrencyAmount(TypedDict, closed=True):
     total_amount: NotRequired["aws_sdk_invoicing.types.basic_string.BasicString"]
     """<p> The invoice currency amount. </p>"""
     total_amount_before_tax: NotRequired[
